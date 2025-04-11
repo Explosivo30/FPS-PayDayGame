@@ -3,54 +3,47 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private List<BaseGun> weaponInventory; // Assigned via inspector
-    private int currentWeaponIndex = 0;
-
+    [SerializeField] private List<MonoBehaviour> weaponObjects; // All must implement IWeapon
+    private List<IWeapon> weaponInventory = new List<IWeapon>();
     private IWeapon currentWeapon;
+    private int currentIndex = 0;
 
     void Start()
     {
-        EquipWeapon(currentWeaponIndex);
+        // Cast and store all IWeapon implementations
+        foreach (var obj in weaponObjects)
+        {
+            if (obj is IWeapon weapon)
+                weaponInventory.Add(weapon);
+        }
+
+        EquipWeapon(0);
     }
 
     void Update()
     {
-        HandleInput();
-    }
-
-    private void HandleInput()
-    {
         if (Input.GetButtonDown("Fire1"))
-        {
-            currentWeapon?.Fire();
-        }
+            currentWeapon?.Use();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentWeapon?.Reload();
-        }
+        if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable)
+            reloadable.Reload();
 
         if (Input.GetKeyDown(KeyCode.Q))
-        {
             SwitchWeapon();
-        }
     }
 
-    private void EquipWeapon(int index)
+    void EquipWeapon(int index)
     {
-        if (index >= 0 && index < weaponInventory.Count)
-        {
-            foreach (var weapon in weaponInventory)
-                weapon.gameObject.SetActive(false);
+        currentIndex = index;
+        currentWeapon = weaponInventory[index];
 
-            weaponInventory[index].gameObject.SetActive(true);
-            currentWeapon = weaponInventory[index];
-        }
+        for (int i = 0; i < weaponObjects.Count; i++)
+            weaponObjects[i].gameObject.SetActive(i == index);
     }
 
-    private void SwitchWeapon()
+    void SwitchWeapon()
     {
-        currentWeaponIndex = (currentWeaponIndex + 1) % weaponInventory.Count;
-        EquipWeapon(currentWeaponIndex);
+        int next = (currentIndex + 1) % weaponInventory.Count;
+        EquipWeapon(next);
     }
 }

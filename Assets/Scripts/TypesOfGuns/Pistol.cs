@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pistol : BaseGun
 {
-    public override void Fire()
+    public override void Use()
     {
         if (ammo <= 0)
         {
