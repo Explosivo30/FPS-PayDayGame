@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pistol : BaseGun
 {
+    public override bool IsAutomatic => false; // not really needed, but explicit
     public override void Use()
     {
         if (ammo <= 0)

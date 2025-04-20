@@ -22,8 +22,17 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-            currentWeapon?.Use();
+
+        if (currentWeapon.IsAutomatic)
+        {
+            if (Input.GetButton("Fire1"))
+                currentWeapon?.Use();
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire1"))
+                currentWeapon?.Use();
+        }
 
         if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable)
             reloadable.Reload();

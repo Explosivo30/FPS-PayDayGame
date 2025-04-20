@@ -2,10 +2,14 @@ using UnityEngine;
 
 public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
 {
+
     public float damage = 5f;
 
     public int ammo = 30;
+    public int currentAmmo = 30;
     public float fireRate = 10f;
+
+    public virtual bool IsAutomatic => false;
 
     public abstract void Use();
 
