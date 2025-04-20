@@ -34,6 +34,16 @@ public class GunController : MonoBehaviour
                 currentWeapon?.Use();
         }
 
+
+        // Aiming
+        if (currentWeapon is IAimable aimable)
+        {
+            if (Input.GetButtonDown("Fire2"))
+                aimable.StartAiming();
+            else if (Input.GetButtonUp("Fire2"))
+                aimable.StopAiming();
+        }
+
         if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable)
             reloadable.Reload();
 

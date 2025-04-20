@@ -62,8 +62,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257096681020656415}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.30296043, z: -0, w: 0.95300317}
-  m_LocalPosition: {x: 3.0713172, y: -1.01, z: 0.0043046176}
+  m_LocalRotation: {x: -0, y: -0.3029604, z: -0, w: 0.95300317}
+  m_LocalPosition: {x: 3.0713181, y: -1.01, z: 0.004304409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159,6 +159,10 @@ MonoBehaviour:
   ammo: 30
   currentAmmo: 30
   fireRate: 10
+  aimPosition: {fileID: 0}
+  hipPosition: {fileID: 0}
+  aimSpeed: 10
+  weaponHolder: {fileID: 0}
 --- !u!1 &1848163216063423317
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,10 +855,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2337074158997199750, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6740227506991167496}
   m_SourcePrefab: {fileID: 100100000, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
 --- !u!4 &8347182945243617175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
   m_PrefabInstance: {fileID: 6033084319750393905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8347182945243909047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2337074158997199750, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
+  m_PrefabInstance: {fileID: 6033084319750393905}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6740227506991167496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347182945243909047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c2b33df1c083e45ac673e6e343c872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  ammo: 30
+  currentAmmo: 30
+  fireRate: 10
+  aimPosition: {fileID: 0}
+  hipPosition: {fileID: 0}
+  aimSpeed: 10
+  weaponHolder: {fileID: 0}
