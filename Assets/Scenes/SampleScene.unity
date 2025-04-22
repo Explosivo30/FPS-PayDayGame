@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponObjects:
+  - {fileID: 205998852}
   - {fileID: 827985801}
   - {fileID: 1753623208}
-  - {fileID: 205998852}
 --- !u!4 &268198673
 Transform:
   m_ObjectHideFlags: 0
@@ -312,6 +312,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 419457097830793254, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
+      propertyPath: near clip plane
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 1779350113398374833, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
       propertyPath: aimPosition
       value: 
@@ -331,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 6740227506991167496, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
       propertyPath: fireRate
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740227506991167496, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
+      propertyPath: speedToAim
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 6740227506991167496, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
       propertyPath: aimPosition

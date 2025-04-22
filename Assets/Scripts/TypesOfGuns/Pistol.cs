@@ -13,20 +13,20 @@ public class Pistol : BaseGun, IAimable
 
     public override void Use()
     {
-        if (ammo <= 0)
+        if (currentAmmo <= 0)
         {
             Debug.Log("No ammo!");
             return;
         }
 
-        ammo--;
+        currentAmmo--;
         Debug.Log("Pistol fired! Damage: " + damage);
         // Add sound, muzzle flash, raycast etc.
     }
 
     public override void Reload()
     {
-        ammo = 30;
+        currentAmmo = ammo;
         Debug.Log("Pistol reloaded.");
     }
 

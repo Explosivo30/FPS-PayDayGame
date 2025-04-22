@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Analytics.IAnalytic;
 
 public class MachineGun : BaseGun,IAimable
 {
@@ -8,36 +9,55 @@ public class MachineGun : BaseGun,IAimable
 
     private float lastShotTime = 0.0f;
 
-
+    //What IAimableShouldHave
     [SerializeField] private Transform aimPosition;
     [SerializeField] private Transform hipPosition;
     [SerializeField] private float aimSpeed = 10f;
     [SerializeField] private Transform weaponHolder;
+    [SerializeField] private float aimFov = 40f;
+    private float normalFov;
+    private float currentFov;
+    [SerializeField] private float speedToAim;
 
+    private void Awake()
+    {
+        normalFov = Camera.main.fieldOfView;
+        currentFov = Camera.main.fieldOfView;
+        
+    }
 
     public override void Use()
-{
-    float secondsPerShot = 1f / fireRate;
-
-    if (Time.time - lastShotTime >= secondsPerShot)
     {
-        Debug.Log("Ratatatat!");
-        lastShotTime = Time.time;
+        if (currentAmmo <= 0)
+        {
+            Debug.Log("No ammo!");
+            //Other Sound of click
+            return;
+        }
+
+        float secondsPerShot = 1f / fireRate;
+
+        if (Time.time - lastShotTime >= secondsPerShot)
+        {
+            Debug.Log("Ratatatat!");
+            currentAmmo--;
+            lastShotTime = Time.time;
+
+        }
     }
-}
 
     public override void Reload() { currentAmmo = ammo; }
 
     public void StartAiming()
     {
         IsAiming = true;
-        Camera.main.fieldOfView = 40f; // for scoped view
+        
     }
 
     public void StopAiming()
     {
         IsAiming = false;
-        Camera.main.fieldOfView = 60f; // normal FOV
+        
     }
 
     private void Update()
@@ -49,5 +69,13 @@ public class MachineGun : BaseGun,IAimable
             weaponHolder.position = Vector3.Lerp(weaponHolder.position, target.position, Time.deltaTime * aimSpeed);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, target.rotation, Time.deltaTime * aimSpeed);
         }
+
+        // Smooth FOV transition
+        //float targetFOV = IsAiming ? aimFov : normalFov;
+        //Camera.main.fieldOfView = Mathf.Lerp(IsAiming? aimFov : normalFov, targetFOV, Time.deltaTime * speedToAim);
+        //Camera.main.fieldOfView = currentFov;
+
+        float targetFOV = IsAiming ? aimFov : normalFov;
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * speedToAim);
     }
 }
