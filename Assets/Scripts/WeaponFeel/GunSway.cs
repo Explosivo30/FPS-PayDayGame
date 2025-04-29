@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class GunSway : MonoBehaviour
 {
 
@@ -7,17 +9,33 @@ public class GunSway : MonoBehaviour
     [SerializeField] private float smooth;
     [SerializeField] private float multiplier;
     InputReader player;
+    [SerializeField] private SwayData swayData;
+    [SerializeField] private GunController gunController;
 
-    private void OnEnable()
+
+    private void Awake()
     {
         player = GetComponentInParent<InputReader>();
+        
     }
 
     private void Update()
     {
+        if (player == null || gunController == null || gunController.currentWeapon == null)
+            return;
+
+        swayData = gunController.currentWeapon.swayData;
+
+        if(gunController.currentWeapon is IAimable aimable)
+        {
+            if(aimable.IsAiming)
+            {
+                return;
+            }
+        }
         // get mouse input
-        float mouseX = player.LookValue.y * multiplier;
-        float mouseY = player.LookValue.x * multiplier;
+        float mouseX = player.LookValue.x * swayData.multiplier;
+        float mouseY = player.LookValue.y * swayData.multiplier;
 
         // calculate target rotation
         Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
@@ -26,6 +44,6 @@ public class GunSway : MonoBehaviour
         Quaternion targetRotation = rotationX * rotationY;
 
         // rotate 
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, swayData.smooth * Time.deltaTime);
     }
 }

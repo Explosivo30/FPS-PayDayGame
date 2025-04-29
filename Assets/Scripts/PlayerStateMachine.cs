@@ -63,6 +63,9 @@ public class PlayerStateMachine : StateMachine
 
     public Transform headCam;
 
+    [SerializeField] private float minVerticalAngle = -70f;
+    [SerializeField] private float maxVerticalAngle = 70f;
+
     //----- END CAMERA
 
     private void OnValidate()
@@ -293,7 +296,7 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
-
+    private float verticalRotation = 0f;
     public void PlayerLook()
     {
         Vector2 rotateVector = controls.LookValue;
@@ -312,9 +315,11 @@ public class PlayerStateMachine : StateMachine
             transform.Rotate(0f, rotationAngle, 0f);
         }
 
-        verticalInput = verticalInput * rotationSpeed * Time.deltaTime;
-        headCam.transform.Rotate(-verticalInput,0f,0f);
-        
+        // --- PITCH (rotate camera vertically, clamped) ---
+        verticalRotation -= verticalInput * rotationSpeed * Time.deltaTime;
+        verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
+        headCam.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
+
     }
 }
 

@@ -12,6 +12,10 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
     [Tooltip("Is this weapon shoooting automaticaly if fire button is being held")]
     public virtual bool IsAutomatic => false;
 
+    SwayData IWeapon.swayData => swayData;
+
+    public SwayData swayData;
+
     public abstract void Use();
 
     public abstract void Reload();

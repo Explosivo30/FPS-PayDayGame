@@ -5,16 +5,18 @@ public class MachineGun : BaseGun,IAimable
 {
     public override bool IsAutomatic => true;
 
-    public bool IsAiming { get; private set; }
 
     private float lastShotTime = 0.0f;
 
     //What IAimableShouldHave
-    [SerializeField] private Transform aimPosition;
-    [SerializeField] private Transform hipPosition;
-    [SerializeField] private float aimSpeed = 10f;
+    
+   
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private float aimFov = 40f;
+    [SerializeField] private Transform hipTransform; // Place this where the gun sits normally
+    [SerializeField] private Transform aimTransform; // Place this where it should go when aiming
+    [SerializeField] private AimData aimData;
+    private bool isAiming;
+    public bool IsAiming => isAiming;
     private float normalFov;
     private float currentFov;
     [SerializeField] private float speedToAim;
@@ -50,32 +52,25 @@ public class MachineGun : BaseGun,IAimable
 
     public void StartAiming()
     {
-        IsAiming = true;
+        isAiming = true;
         
     }
 
     public void StopAiming()
     {
-        IsAiming = false;
+        isAiming = false;
         
     }
 
     private void Update()
     {
-        // Smooth transition (optional but juicy)
-        if (weaponHolder != null)
-        {
-            Transform target = IsAiming ? aimPosition : hipPosition;
-            weaponHolder.position = Vector3.Lerp(weaponHolder.position, target.position, Time.deltaTime * aimSpeed);
-            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, target.rotation, Time.deltaTime * aimSpeed);
-        }
+        // Target position/rotation directly from the references
+        Transform target = isAiming ? aimTransform : hipTransform;
 
-        // Smooth FOV transition
-        //float targetFOV = IsAiming ? aimFov : normalFov;
-        //Camera.main.fieldOfView = Mathf.Lerp(IsAiming? aimFov : normalFov, targetFOV, Time.deltaTime * speedToAim);
-        //Camera.main.fieldOfView = currentFov;
+        weaponHolder.position = Vector3.Lerp(weaponHolder.position, target.position, Time.deltaTime * aimData.transitionSpeed);
+        weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, target.rotation, Time.deltaTime * aimData.transitionSpeed);
 
-        float targetFOV = IsAiming ? aimFov : normalFov;
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * speedToAim);
+        float targetFOV = isAiming ? aimData.fov : 60f;
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * aimData.transitionSpeed);
     }
 }

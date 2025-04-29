@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class GunController : MonoBehaviour
 {
     [SerializeField] private List<MonoBehaviour> weaponObjects; // All must implement IWeapon
     private List<IWeapon> weaponInventory = new List<IWeapon>();
-    private IWeapon currentWeapon;
+    [NonSerialized] public IWeapon currentWeapon;
     private int currentIndex = 0;
 
     void Start()
