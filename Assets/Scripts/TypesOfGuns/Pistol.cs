@@ -20,6 +20,7 @@ public class Pistol : BaseGun, IAimable
         }
 
         currentAmmo--;
+        ApplyRecoil();
         Debug.Log("Pistol fired! Damage: " + damage);
         // Add sound, muzzle flash, raycast etc.
     }

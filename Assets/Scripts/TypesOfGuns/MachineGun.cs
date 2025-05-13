@@ -43,6 +43,7 @@ public class MachineGun : BaseGun,IAimable
         {
             Debug.Log("Ratatatat!");
             currentAmmo--;
+            ApplyRecoil();
             lastShotTime = Time.time;
 
         }

@@ -305,18 +305,21 @@ public class PlayerStateMachine : StateMachine
 
         float verticalInput = rotateVector.y;
 
+        Vector2 recoil = GunRecoil.Instance?.GetRecoilOffset() ?? Vector2.zero;
+
         // Rotate the character around the Y-axis (horizontal input)
-        if (horizontalInput != 0)
-        {
+        //if (horizontalInput != 0)
+        //{
             // Calculate the desired rotation angle
-            float rotationAngle = horizontalInput * rotationSpeed * Time.deltaTime;
+            float rotationAngle = (horizontalInput + recoil.x) * rotationSpeed * Time.deltaTime;
             
             // Apply the rotation around the Y-axis
             transform.Rotate(0f, rotationAngle, 0f);
-        }
+       // }
 
         // --- PITCH (rotate camera vertically, clamped) ---
-        verticalRotation -= verticalInput * rotationSpeed * Time.deltaTime;
+        
+        verticalRotation -= (verticalInput + recoil.y) * rotationSpeed * Time.deltaTime;
         verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
         headCam.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
 

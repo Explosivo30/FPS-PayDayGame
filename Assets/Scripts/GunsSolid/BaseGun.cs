@@ -15,8 +15,23 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
     SwayData IWeapon.swayData => swayData;
 
     public SwayData swayData;
+    [SerializeField] protected RecoilData recoilData;
+    public virtual RecoilData Recoil => recoilData;
 
     public abstract void Use();
+
+    protected void ApplyRecoil()
+    {
+        GunRecoil.Instance.ApplyRecoil(recoilData);
+    }
+
+    protected Vector3 GetShootDirection(bool isAiming)
+    {
+        float spread = isAiming ? recoilData.spreadADS : recoilData.spreadHip;
+        Vector3 dir = Camera.main.transform.forward;
+        dir += Random.insideUnitSphere * spread * 0.01f;
+        return dir.normalized;
+    }
 
     public abstract void Reload();
 
