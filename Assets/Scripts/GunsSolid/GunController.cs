@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GunController : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class GunController : MonoBehaviour
     private List<IWeapon> weaponInventory = new List<IWeapon>();
     [NonSerialized] public IWeapon currentWeapon;
     private int currentIndex = 0;
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked; // Locks the cursor to the center
+        Cursor.visible = false;
+    }
 
     void Start()
     {
@@ -23,6 +30,12 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
         if (currentWeapon.IsAutomatic)
         {
