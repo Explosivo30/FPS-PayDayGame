@@ -7,7 +7,7 @@ public class emisionMat : MonoBehaviour
     public Color baseEmissionColor = Color.white;
 
     [Tooltip("Intensidad de emisión (de 0 a 1).")]
-    [Range(0, 1)]
+    [Range(0, 10)]
     public float emissionIntensity = 1.0f;
 
     // Referencia al material del objeto
