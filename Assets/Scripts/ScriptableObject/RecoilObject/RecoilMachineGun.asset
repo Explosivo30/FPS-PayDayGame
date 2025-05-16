@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RecoilMachineGun
   m_EditorClassIdentifier: 
   recoilKickUp: 2
-  recoilKickSide: 1
+  recoilKickSide: 15
   returnSpeed: 10
   spreadHip: 2
   spreadADS: 0.5

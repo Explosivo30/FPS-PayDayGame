@@ -68,7 +68,7 @@ public class PlayerStateMachine : StateMachine
 
     //----- END CAMERA
 
-    private void OnValidate()
+    private void Awake()
     {
         _downDir = _downDir.normalized;
         
