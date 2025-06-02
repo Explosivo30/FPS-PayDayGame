@@ -11,6 +11,10 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
+    public event Action InteractEvent;
+
+    public bool isAttacking = false;
+    public bool isCrouching = false;
 
     InputSystem_Actions controls;
     void Start()
@@ -29,22 +33,30 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        
+        if(context.started) isAttacking = true;
+
+        if(context.canceled) isAttacking = false;
+
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        
+        if (context.started) isCrouching = true;
+
+        if (context.canceled) isCrouching = false;
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        
+        if (context.started) InteractEvent.Invoke();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        
+        if(context.started)
+        {
+            JumpEvent.Invoke();
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
