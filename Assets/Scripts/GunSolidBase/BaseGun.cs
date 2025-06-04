@@ -20,7 +20,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
 
     public abstract void Use();
 
-    protected void ApplyRecoil()
+    public virtual void ApplyRecoil()
     {
         GunRecoil.Instance.ApplyRecoil(recoilData);
     }
@@ -34,5 +34,6 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
     }
 
     public abstract void Reload();
+
 
 }

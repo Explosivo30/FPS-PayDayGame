@@ -1,31 +1,38 @@
 using UnityEngine;
-using static UnityEngine.Analytics.IAnalytic;
 
-public class MachineGun : BaseGun,IAimable
+public class MachineGun : BaseGun, IAimable
 {
     public override bool IsAutomatic => true;
 
+    private float lastShotTime = 0f;
 
-    private float lastShotTime = 0.0f;
-
-    //What IAimableShouldHave
-    
-   
+    // === ADS (Aim Down Sights) ===
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private Transform hipTransform; // Place this where the gun sits normally
-    [SerializeField] private Transform aimTransform; // Place this where it should go when aiming
+    [SerializeField] private Transform hipTransform;   // Posición global hipfire
+    [SerializeField] private Transform aimTransform;   // Posición global ADS
     [SerializeField] private AimData aimData;
     private bool isAiming;
     public bool IsAiming => isAiming;
-    private float normalFov;
-    private float currentFov;
-    [SerializeField] private float speedToAim;
+    private float normalFOV;
+    [SerializeField] private float speedToAim = 10f;
+
+    // === Kickback físico ===
+    private Vector3 currentKickbackLocal = Vector3.zero; // offset en local del arma
+    private Vector3 kickbackVelocity = Vector3.zero;     // ref para SmoothDamp
+    private float kickbackReturnSpeed;                   // viene de recoilData.returnSpeed
+
+    private RecoilData data => recoilData; // hereda de BaseGun
 
     private void Awake()
     {
-        normalFov = Camera.main.fieldOfView;
-        currentFov = Camera.main.fieldOfView;
-        
+        normalFOV = Camera.main.fieldOfView;
+
+        // Colocamos inicialmente el arma en hipfire:
+        weaponHolder.position = hipTransform.position;
+        weaponHolder.rotation = hipTransform.rotation;
+
+        // Preparamos la velocidad de retorno para el kickback
+        kickbackReturnSpeed = data.returnSpeed;
     }
 
     public override void Use()
@@ -33,45 +40,75 @@ public class MachineGun : BaseGun,IAimable
         if (currentAmmo <= 0)
         {
             Debug.Log("No ammo!");
-            //Other Sound of click
             return;
         }
 
         float secondsPerShot = 1f / fireRate;
-
         if (Time.time - lastShotTime >= secondsPerShot)
         {
-            Debug.Log("Ratatatat!");
             currentAmmo--;
-            ApplyRecoil();
             lastShotTime = Time.time;
 
+            // 1) Aplica recoil de cámara
+            ApplyRecoil();
+           
         }
     }
 
-    public override void Reload() { currentAmmo = ammo; }
-
-    public void StartAiming()
+   public override void ApplyRecoil()
     {
-        isAiming = true;
-        
+        base.ApplyRecoil();
+        // 2) Inicializa kickback físico: –Z local del arma
+        currentKickbackLocal = -Vector3.right * data.kickbackDistance; //TODO: CAMBIAR POR FORWARD
+        kickbackVelocity = Vector3.zero;
     }
 
-    public void StopAiming()
+    public override void Reload()
     {
-        isAiming = false;
-        
+        currentAmmo = ammo;
     }
+
+    public void StartAiming() => isAiming = true;
+    public void StopAiming() => isAiming = false;
 
     private void Update()
     {
-        // Target position/rotation directly from the references
-        Transform target = isAiming ? aimTransform : hipTransform;
+        // 1) Suaviza el offset local hacia cero
+        currentKickbackLocal = Vector3.SmoothDamp(
+            currentKickbackLocal,
+            Vector3.zero,
+            ref kickbackVelocity,
+            1f / kickbackReturnSpeed
+        );
 
-        weaponHolder.position = Vector3.Lerp(weaponHolder.position, target.position, Time.deltaTime * aimData.transitionSpeed);
-        weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, target.rotation, Time.deltaTime * aimData.transitionSpeed);
+        // 2) Posición global base según hipfire o ADS
+        Vector3 baseWorldPos = isAiming ? aimTransform.position : hipTransform.position;
+        Quaternion baseWorldRot = isAiming ? aimTransform.rotation : hipTransform.rotation;
 
-        float targetFOV = isAiming ? aimData.fov : 60f;
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * aimData.transitionSpeed);
+        // 3) Convierte el offset local a espacio WORLD
+        Vector3 kickOffsetWorld = weaponHolder.TransformDirection(currentKickbackLocal);
+
+        // 4) Posición world deseada = posición ADS/Hip + kickback
+        Vector3 desiredWorldPos = baseWorldPos + kickOffsetWorld;
+
+        // 5) Lerp posición y rotación en global
+        weaponHolder.position = Vector3.Lerp(
+            weaponHolder.position,
+            desiredWorldPos,
+            Time.deltaTime * aimData.transitionSpeed
+        );
+        weaponHolder.rotation = Quaternion.Lerp(
+            weaponHolder.rotation,
+            baseWorldRot,
+            Time.deltaTime * aimData.transitionSpeed
+        );
+
+        // 6) Lerp FOV de la cámara
+        float targetFOV = isAiming ? aimData.fov : normalFOV;
+        Camera.main.fieldOfView = Mathf.Lerp(
+            Camera.main.fieldOfView,
+            targetFOV,
+            Time.deltaTime * aimData.transitionSpeed
+        );
     }
 }

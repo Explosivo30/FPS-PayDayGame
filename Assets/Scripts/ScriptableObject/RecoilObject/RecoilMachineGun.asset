@@ -17,3 +17,4 @@ MonoBehaviour:
   returnSpeed: 10
   spreadHip: 2
   spreadADS: 0.5
+  kickbackDistance: 0.4
