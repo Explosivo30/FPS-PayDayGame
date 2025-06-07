@@ -71,7 +71,7 @@ public class PlayerStateMachine : StateMachine
     private void Awake()
     {
         _downDir = _downDir.normalized;
-        
+        GameManager.Instance.AddPlayerTransforms(transform);
         controls = GetComponent<InputReader>();
         
     }

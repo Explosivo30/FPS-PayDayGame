@@ -12,11 +12,18 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
     [Tooltip("Is this weapon shoooting automaticaly if fire button is being held")]
     public virtual bool IsAutomatic => false;
 
+    [Tooltip("Max Range where the damage is the minimum anything beyond that is minimum damage of the gun")]
+    public float maxRangeGun = 10f;
+
     SwayData IWeapon.swayData => swayData;
 
     public SwayData swayData;
     [SerializeField] protected RecoilData recoilData;
     public virtual RecoilData Recoil => recoilData;
+
+    protected RaycastHit hit;
+
+    public LayerMask layerMask;
 
     public abstract void Use();
 

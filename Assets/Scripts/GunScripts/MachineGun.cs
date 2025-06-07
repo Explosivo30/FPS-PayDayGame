@@ -14,13 +14,12 @@ public class MachineGun : BaseGun, IAimable
     private bool isAiming;
     public bool IsAiming => isAiming;
     private float normalFOV;
-    [SerializeField] private float speedToAim = 10f;
 
     // === Kickback físico ===
     private Vector3 currentKickbackLocal = Vector3.zero; // offset en local del arma
     private Vector3 kickbackVelocity = Vector3.zero;     // ref para SmoothDamp
     private float kickbackReturnSpeed;                   // viene de recoilData.returnSpeed
-
+    
     private RecoilData data => recoilData; // hereda de BaseGun
 
     private void Awake()
@@ -37,6 +36,7 @@ public class MachineGun : BaseGun, IAimable
 
     public override void Use()
     {
+        
         if (currentAmmo <= 0)
         {
             Debug.Log("No ammo!");
@@ -48,7 +48,11 @@ public class MachineGun : BaseGun, IAimable
         {
             currentAmmo--;
             lastShotTime = Time.time;
-
+            
+            if (Physics.Raycast(weaponHolder.position,transform.right,out hit,maxRangeGun,layerMask, QueryTriggerInteraction.Collide))
+            {
+                Debug.Log("ON TARGET");
+            }
             // 1) Aplica recoil de cámara
             ApplyRecoil();
            
