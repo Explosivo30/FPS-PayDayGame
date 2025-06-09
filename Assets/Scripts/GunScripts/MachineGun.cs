@@ -51,6 +51,13 @@ public class MachineGun : BaseGun, IAimable
             
             if (Physics.Raycast(weaponHolder.position,transform.right,out hit,maxRangeGun,layerMask, QueryTriggerInteraction.Collide))
             {
+                if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                {
+                    damageable.TakeDamage(damage);
+                }
+
+                // (Optional) Spawn impact effects at hit.point…
+
                 Debug.Log("ON TARGET");
             }
             // 1) Aplica recoil de cámara
