@@ -19,6 +19,9 @@ public class IdleNormalEnemyState : NormalEnemyBaseState
             player = GameManager.Instance.GetPlayerTransforms()[0];
             stateMachine.agent.SetDestination(player.position);
         }
+
+        stateMachine.ReduceShootCooldown();
+        stateMachine.Use();
         
         
     }

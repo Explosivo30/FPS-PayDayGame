@@ -1,8 +1,11 @@
+﻿using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
-public class PlayerStateMachine : StateMachine
+public class PlayerStateMachine : StateMachine, IDamageable
 {
     //Control Start
     InputReader controls;
@@ -68,9 +71,28 @@ public class PlayerStateMachine : StateMachine
 
     //----- END CAMERA
 
+
+    // ------ HP PLAYER
+    protected float maxHPPlayer = 100f;
+    protected float currentHPPlayer;
+    [SerializeField] private Volume damageVolume;
+    private Coroutine fadeCoroutine;
+
+    [Header("Timing")]
+    [Tooltip("Seconds to fade weight from current (or 0) up to 1")]
+    [SerializeField] private float fadeInTime = 0.2f;
+    [Tooltip("Seconds to fade weight from 1 down to 0")]
+    [SerializeField] private float fadeOutTime = 1f;
+
+    
+
+    // ------ HP PLAYER END
+
     private void Awake()
     {
         _downDir = _downDir.normalized;
+        currentHPPlayer = maxHPPlayer;
+        damageVolume.weight = 0f;
         GameManager.Instance.AddPlayerTransforms(transform);
         controls = GetComponent<InputReader>();
         
@@ -114,14 +136,10 @@ public class PlayerStateMachine : StateMachine
         Debug.Log($"Grounded: {Grounded}, Sliding: {Sliding}");
     }
 
-    public Vector2 GetInput()// TODO Replace with new input system
+    public Vector2 GetInput()
     {
         Vector2 moveInput;
-        //float horizontalInput = Input.GetAxisRaw("Horizontal");
-        //float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Direccionar Vector
-        //moveInput = new Vector2(horizontalInput, verticalInput);
         moveInput = controls.MovementValue;
         moveInput.Normalize();
         return moveInput;
@@ -323,6 +341,56 @@ public class PlayerStateMachine : StateMachine
         verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
         headCam.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
 
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHPPlayer -= amount;
+
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+
+       
+        // Start a fresh fade in→out
+       
+
+        if (currentHPPlayer <= 0) 
+        {
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
+            damageVolume.weight = 0f;
+            //DIE
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            fadeCoroutine = StartCoroutine(FadeRoutine());
+        }
+    }
+
+    private IEnumerator FadeRoutine()
+    {
+        // 1) Fade IN: from current weight to 1
+        float start = damageVolume.weight;
+        float elapsed = 0f;
+        while (elapsed < fadeInTime)
+        {
+            elapsed += Time.deltaTime;
+            damageVolume.weight = Mathf.Lerp(start, 1f, elapsed / fadeInTime);
+            yield return null;
+        }
+        damageVolume.weight = 1f;
+
+        // 2) Fade OUT: from 1 back to 0
+        elapsed = 0f;
+        while (elapsed < fadeOutTime)
+        {
+            elapsed += Time.deltaTime;
+            damageVolume.weight = Mathf.Lerp(1f, 0f, elapsed / fadeOutTime);
+            yield return null;
+        }
+        damageVolume.weight = 0f;
+        fadeCoroutine = null;
     }
 }
 

@@ -1,6 +1,7 @@
+﻿using System.Collections;
 using UnityEngine;
 
-public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
+public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTracer
 {
     [Tooltip("The damage this weapon deals per shot.")]
     public float damage = 5f;
@@ -25,6 +26,15 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
 
     public LayerMask layerMask;
 
+    protected LineRenderer lr;
+    [SerializeField] private float duration = 0.05f;
+
+    // ── PHYSICAL KICKBACK (shared) ───────────────────────────────────
+    // Holds how far “back” we are right now, in local space:
+    protected Vector3 _kickbackOffset;
+    // Velocity ref for SmoothDamp:
+    protected Vector3 _kickbackVelocity;
+
     public abstract void Use();
 
     public virtual void ApplyRecoil()
@@ -42,5 +52,50 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable
 
     public abstract void Reload();
 
+    /// <summary>
+    /// Call this in your Use() override *after* applying camera recoil.
+    /// It sets up the initial “jerk” backwards in the gun’s own local Z- axis.
+    /// </summary>
+    /// <param name="holder">The transform you want to push back (usually your weaponHolder).</param>
+    protected void TriggerPhysicalKickback(Transform holder)
+    {
+        // -Z local is “backwards” in Unity
+        _kickbackOffset = Vector3.back * recoilData.kickbackDistance;
+        _kickbackVelocity = Vector3.zero;
+    }
 
+    /// <summary>
+    /// Call this every frame in Update() *before* you do any other
+    /// position Lerp (ADS or hip). It smooths out that offset back to zero
+    /// and moves 'holder' by the current offset.
+    /// </summary>
+    protected void HandlePhysicalKickback(Transform holder)
+    {
+        // 1) Smooth our local-space offset back to zero:
+        _kickbackOffset = Vector3.SmoothDamp(
+            _kickbackOffset,
+            Vector3.zero,
+            ref _kickbackVelocity,
+            1f / recoilData.returnSpeed
+        );
+
+        // 2) Apply it: TransformDirection converts that local offset into world-space
+        Vector3 worldOffset = holder.TransformDirection(_kickbackOffset);
+        holder.position += worldOffset;
+    }
+
+
+    private IEnumerator DoTrace(Vector3 origin, Vector3 destination)
+    {
+        lr.SetPosition(0, origin);
+        lr.SetPosition(1, destination);
+        lr.enabled = true;
+        yield return new WaitForSeconds(duration);
+        lr.enabled = false;
+    }
+
+    public void Play(Vector3 origin, Vector3 destination)
+    {
+        StartCoroutine(DoTrace(origin, destination));
+    }
 }

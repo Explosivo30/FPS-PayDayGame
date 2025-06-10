@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recoilKickUp: 16.12
   recoilKickSide: 50.5
-  returnSpeed: 11.33
+  returnSpeed: 20
   spreadHip: 2
   spreadADS: 0.5
+  kickbackDistance: 0.05

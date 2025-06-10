@@ -16,7 +16,10 @@ public class PlayerIdleState : PlayerBaseState
         //Debug.Log("Estoy en idle");
         stateMachine.PlayerLook();
         stateMachine.GroundDetection();
-        
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            stateMachine.TakeDamage(20);
+        }
         stateMachine.ApplyGravity();
         stateMachine.PlayerHorizontalMovement(stateMachine.CameraOritentedMovement(stateMachine.GetInput()));
 

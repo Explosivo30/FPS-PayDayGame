@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class MachineGun : BaseGun, IAimable
@@ -26,6 +27,7 @@ public class MachineGun : BaseGun, IAimable
     {
         normalFOV = Camera.main.fieldOfView;
 
+        lr = GetComponent<LineRenderer>();
         // Colocamos inicialmente el arma en hipfire:
         weaponHolder.position = hipTransform.position;
         weaponHolder.rotation = hipTransform.rotation;
@@ -51,6 +53,7 @@ public class MachineGun : BaseGun, IAimable
             
             if (Physics.Raycast(weaponHolder.position,transform.right,out hit,maxRangeGun,layerMask, QueryTriggerInteraction.Collide))
             {
+                Play(weaponHolder.position, hit.point);
                 if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
                 {
                     damageable.TakeDamage(damage);
@@ -59,6 +62,10 @@ public class MachineGun : BaseGun, IAimable
                 // (Optional) Spawn impact effects at hit.point…
 
                 Debug.Log("ON TARGET");
+            }
+            else
+            {
+                Play(weaponHolder.position, weaponHolder.position + weaponHolder.right * maxRangeGun);
             }
             // 1) Aplica recoil de cámara
             ApplyRecoil();
