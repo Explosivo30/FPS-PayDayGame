@@ -14,8 +14,6 @@ public class Pistol : BaseGun, IAimable
     [SerializeField] private Transform weaponHolder;
     [SerializeField] private AimData aimData;
 
-          // viene de recoilData.returnSpeed
-    float normalFov = 80f;
     private RecoilData data => recoilData; // hereda de BaseGun
     
 
@@ -87,7 +85,13 @@ public class Pistol : BaseGun, IAimable
             weaponHolder.position = Vector3.Lerp(weaponHolder.position, target.position, Time.deltaTime * aimSpeed);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, target.rotation, Time.deltaTime * aimSpeed);
         }
-        
-        
+        float targetFOV = IsAiming ? aimData.fov : normalFOV;
+        Camera.main.fieldOfView = Mathf.Lerp(
+            Camera.main.fieldOfView,
+            targetFOV,
+            Time.deltaTime * aimData.transitionSpeed
+        );
+
+
     }
 }

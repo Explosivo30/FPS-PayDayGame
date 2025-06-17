@@ -17,7 +17,11 @@ public class IdleNormalEnemyState : NormalEnemyBaseState
         if (GameManager.Instance.GetPlayerTransforms().Count >0)
         {
             player = GameManager.Instance.GetPlayerTransforms()[0];
-            stateMachine.agent.SetDestination(player.position);
+            //stateMachine.agent.SetDestination(player.position);
+            SquadManager.Instance?.UpdateSquadsOnce();
+
+            Vector3 sep = stateMachine.SeparationForce();
+            stateMachine.agent.SetDestination(stateMachine._currentFormationPosition + sep);
         }
 
         stateMachine.ReduceShootCooldown();

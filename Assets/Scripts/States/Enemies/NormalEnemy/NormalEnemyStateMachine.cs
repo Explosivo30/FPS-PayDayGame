@@ -1,10 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
+public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISquadMember
 {
     public NavMeshAgent agent;
+    public Vector3 _currentFormationPosition;
+
+    [SerializeField] private LayerMask enemyLayer;
+
+    public float separationDistance = 1f;
+    public float separationStrength = 2f;
+
     [Header("Health")]
     float currentHealth;
     public float maxHealth = 100f;
@@ -29,17 +36,20 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
 
     protected LineRenderer lr;
     [SerializeField] private float duration = 0.05f;
-    private float shootCooldown = 3f;
+    [SerializeField] private float shootCooldown = 3f;
     private float currentShootCooldown;
 
     public bool IsAutomatic => true;
 
     public SwayData swayData => null;
 
+    public Transform Transform => transform;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         lr = GetComponent<LineRenderer>();
+        SquadManager.Instance.Register(this);
         currentHealth = maxHealth;
         //CHANGE RENDER
         rend = GetComponent<Renderer>();
@@ -60,6 +70,8 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
     private void Die()
     {
         // Play death animation, drop loot, disable collider, etc.
+        // fire the death event
+        EnemyEvents.OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 
@@ -80,7 +92,7 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
     public void Use()
     {
         //RAYCAST TO PLAYER AND ACTIVATE TRAILING
-        if(CheckDistance() && currentShootCooldown < 0)
+        if(CheckDistance() && currentShootCooldown <= 0)
         {
             
             if (Physics.Raycast(transform.position, GameManager.Instance.GetPlayerTransforms()[0].position, out hit, detectionRange , layerMask, QueryTriggerInteraction.Collide))
@@ -91,18 +103,17 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
                     Play(transform.position, hit.point);
                     damageable.TakeDamage(20);
                     Debug.Log("ON TARGET");
+                    currentShootCooldown = shootCooldown;
+                    //Muzzle
                 }
 
-                // (Optional) Spawn impact effects at hit.point�
-
-                
-            }
+                // (Optional) Spawn impact effects at hit.point…
 
 
-            currentShootCooldown = shootCooldown;
+            } 
         }
 
-        //Muzzle
+        
         
     }
    
@@ -138,5 +149,53 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon
     public void Play(Vector3 origin, Vector3 destination)
     {
         StartCoroutine(DoTrace(origin, destination));
+    }
+
+    public void MoveToFormationPosition(Vector3 formationPosition)
+    {
+        _currentFormationPosition = formationPosition;
+    }
+
+    public Vector3 SeparationForce()
+    {
+        // 1) Guard against invalid data:
+        if (separationDistance <= 0f || float.IsNaN(separationDistance) || float.IsInfinity(separationDistance))
+            return Vector3.zero;
+
+        Vector3 pos = transform.position;
+        if (float.IsNaN(pos.x) || float.IsNaN(pos.y) || float.IsNaN(pos.z))
+            return Vector3.zero;
+
+        // 2) Use a layer‐filtered OverlapSphere:
+        Collider[] hits = Physics.OverlapSphere(pos, separationDistance, enemyLayer , QueryTriggerInteraction.Ignore);
+
+        Vector3 steer = Vector3.zero;
+        int count = 0;
+        foreach (var c in hits)
+        {
+            // skip self
+            if (c.gameObject == gameObject)
+                continue;
+
+            // only consider other enemies
+            if (c.TryGetComponent<NormalEnemyStateMachine>(out var other))
+            {
+                Vector3 diff = pos - other.transform.position;
+                float distSqr = diff.sqrMagnitude;
+                if (distSqr > 0f)
+                {
+                    steer += diff.normalized / Mathf.Sqrt(distSqr);
+                    count++;
+                }
+            }
+        }
+
+        if (count > 0)
+        {
+            steer /= count;
+            steer = steer.normalized * separationStrength;
+        }
+
+        return steer;
     }
 }

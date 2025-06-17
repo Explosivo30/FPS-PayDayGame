@@ -14,7 +14,7 @@ public class MachineGun : BaseGun, IAimable
     [SerializeField] private AimData aimData;
     private bool isAiming;
     public bool IsAiming => isAiming;
-    private float normalFOV;
+    
 
     // === Kickback físico ===
     private Vector3 currentKickbackLocal = Vector3.zero; // offset en local del arma
@@ -23,7 +23,7 @@ public class MachineGun : BaseGun, IAimable
     
     private RecoilData data => recoilData; // hereda de BaseGun
 
-    private void Awake()
+    override public void Awake()
     {
         normalFOV = Camera.main.fieldOfView;
 

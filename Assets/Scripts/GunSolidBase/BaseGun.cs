@@ -16,6 +16,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     [Tooltip("Max Range where the damage is the minimum anything beyond that is minimum damage of the gun")]
     public float maxRangeGun = 10f;
 
+    protected float normalFOV;
     SwayData IWeapon.swayData => swayData;
 
     public SwayData swayData;
@@ -36,6 +37,11 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     protected Vector3 _kickbackVelocity;
 
     public abstract void Use();
+
+    public virtual void Awake()
+    {
+        normalFOV = Camera.main.fieldOfView;
+    }
 
     public virtual void ApplyRecoil()
     {
