@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISquadMember
 {
     public NavMeshAgent agent;
+    [NonSerialized]
     public Vector3 _currentFormationPosition;
 
     [SerializeField] private LayerMask enemyLayer;
@@ -19,6 +21,11 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISqua
     [Header("References")]
     public float detectionRange = 20f;
     public float attackRange = 100f;
+
+    [Header("Accuracy")]
+    [Range(0f, 1f)]
+    [SerializeField] private float accuracy = 0.75f;         // 0 = never hits, 1 = always on-target
+    [SerializeField] private float maxSpreadAngle = 10f;     // in degrees
 
 
     [Header("Color Gradient")]
@@ -75,10 +82,6 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISqua
         Destroy(gameObject);
     }
 
-    protected void Shoot()
-    {
-        //Shoot
-    }
 
     private void UpdateTint()
     {
@@ -91,30 +94,59 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISqua
 
     public void Use()
     {
-        //RAYCAST TO PLAYER AND ACTIVATE TRAILING
-        if(CheckDistance() && currentShootCooldown <= 0)
+        if (!CheckDistance() || currentShootCooldown > 0f)
+            return;
+
+        // 1) Compute perfect “to‐player” direction
+        Vector3 playerPos = GameManager.Instance.GetPlayerTransforms()[0].position;
+        Vector3 baseDir = (playerPos - transform.position).normalized;
+
+        // 2) Compute current spread angle based on accuracy
+        //    when accuracy=1 => spread=0; when accuracy=0 => spread=maxSpreadAngle
+        float spread = (1f - accuracy) * maxSpreadAngle;
+
+        // 3) Random yaw & pitch offsets in [-spread, +spread]
+        float yaw = UnityEngine.Random.Range(-spread, spread);
+        float pitch = UnityEngine.Random.Range(-spread, spread);
+
+        // 4) Rotate the baseDir by those offsets
+        Vector3 shotDir = Quaternion.Euler(pitch, yaw, 0f) * baseDir;
+
+        
+        // 5) Fire the raycast along shotDir
+        if (Physics.Raycast(
+              transform.position,
+              shotDir,
+              out hit,
+              detectionRange,
+              layerMask,
+              QueryTriggerInteraction.Collide))
         {
-            
-            if (Physics.Raycast(transform.position, GameManager.Instance.GetPlayerTransforms()[0].position, out hit, detectionRange , layerMask, QueryTriggerInteraction.Collide))
+            if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
             {
                 
-                if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
-                {
-                    Play(transform.position, hit.point);
-                    damageable.TakeDamage(20);
-                    Debug.Log("ON TARGET");
-                    currentShootCooldown = shootCooldown;
-                    //Muzzle
-                }
+                damageable.TakeDamage(20);
+                Debug.Log("ON TARGET");
+            }
 
-                // (Optional) Spawn impact effects at hit.point…
+            if (hit.collider != null)
+            {
+                Play(transform.position, hit.point);
+            }
+            else
+            {
+                Play(transform.position, shotDir);
+            }
 
 
-            } 
         }
 
+
+
+        currentShootCooldown = shootCooldown;
         
-        
+
+
     }
    
     public void ReduceShootCooldown()

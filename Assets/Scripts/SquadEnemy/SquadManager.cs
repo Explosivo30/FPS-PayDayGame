@@ -7,6 +7,9 @@ using UnityEngine;
 public class SquadManager : MonoBehaviour
 {
 
+    [Tooltip("Color to tint the squad leaders")]
+    [SerializeField] private Color leaderColor = Color.yellow;
+
     [Tooltip("Radio base de formación")]
     [SerializeField] private float baseRadius = 2f;
     [Tooltip("Tamaño de cada escuadrón")]
@@ -44,12 +47,27 @@ public class SquadManager : MonoBehaviour
                 GameManager.Instance.GetPlayerTransforms()[0]
             ));
         }
+
+        foreach (var squad in _squads)
+        {
+            var leaderT = squad.Leader.Transform;
+            var rend = leaderT.GetComponent<Renderer>();
+            if (rend != null)
+            {
+                // To avoid changing the shared material on all instances,
+                // instantiate a fresh material first:
+                rend.material = new Material(rend.material);
+                rend.material.color = leaderColor;
+            }
+        }
     }
 
     private void LateUpdate()
     {
         foreach (var squad in _squads)
             squad.UpdateSquad();
+
+        Debug.Log(_squads.Count);
     }
 
     public void UpdateSquadsOnce()
