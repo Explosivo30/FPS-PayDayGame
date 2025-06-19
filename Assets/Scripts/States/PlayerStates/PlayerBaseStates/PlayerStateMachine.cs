@@ -65,7 +65,7 @@ public class PlayerStateMachine : StateMachine, IDamageable
     //----- START CAMERA
 
     public Transform headCam;
-
+    private CameraTilt cameraTilt;
     [SerializeField] private float minVerticalAngle = -70f;
     [SerializeField] private float maxVerticalAngle = 70f;
 
@@ -90,6 +90,8 @@ public class PlayerStateMachine : StateMachine, IDamageable
 
     private void Awake()
     {
+        cameraTilt = GetComponentInChildren<CameraTilt>();
+        if (cameraTilt == null) Debug.LogWarning("NO CAMERA TILT");
         _downDir = _downDir.normalized;
         currentHPPlayer = maxHPPlayer;
         damageVolume.weight = 0f;
@@ -142,6 +144,19 @@ public class PlayerStateMachine : StateMachine, IDamageable
 
         moveInput = controls.MovementValue;
         moveInput.Normalize();
+
+        if(moveInput.x > 0.01f)
+        {
+            cameraTilt.DoTilt(-1f);
+        } else if(moveInput.x < -0.01f)
+        {
+            cameraTilt.DoTilt(1f);
+        }
+        else
+        {
+            cameraTilt.DoTilt(0f);
+        }
+
         return moveInput;
     }
 

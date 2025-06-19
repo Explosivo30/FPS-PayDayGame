@@ -34,8 +34,8 @@ public class GunSway : MonoBehaviour
             }
         }
         // get mouse input
-        float mouseX = player.LookValue.x * swayData.multiplier;
-        float mouseY = player.LookValue.y * swayData.multiplier;
+        float mouseX = player.LookValue.y * swayData.multiplier;
+        float mouseY = player.LookValue.x * swayData.multiplier;
 
         // calculate target rotation
         Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
