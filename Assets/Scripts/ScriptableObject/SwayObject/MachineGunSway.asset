@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce0a0a5f74edec4ab9f168b2b118de9, type: 3}
   m_Name: MachineGunSway
   m_EditorClassIdentifier: 
-  smooth: 4
-  multiplier: 1
+  smooth: 8
+  multiplier: 0.3

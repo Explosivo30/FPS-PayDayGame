@@ -910,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067619894217933370, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
       propertyPath: smooth
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8067619894217933370, guid: 33a9e2acf122a9f439cebf07555492bc, type: 3}
       propertyPath: multiplier
