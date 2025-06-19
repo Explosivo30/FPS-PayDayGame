@@ -14,6 +14,8 @@ public class MachineGun : BaseGun, IAimable
     [SerializeField] private AimData aimData;
     private bool isAiming;
     public bool IsAiming => isAiming;
+
+    [SerializeField] private Camera weaponCamera;
     
 
     // === Kickback físico ===
@@ -25,6 +27,7 @@ public class MachineGun : BaseGun, IAimable
 
     override public void Awake()
     {
+        normalFOV = weaponCamera.fieldOfView;
         normalFOV = Camera.main.fieldOfView;
 
         lr = GetComponent<LineRenderer>();
@@ -123,10 +126,16 @@ public class MachineGun : BaseGun, IAimable
 
         // 6) Lerp FOV de la cámara
         float targetFOV = isAiming ? aimData.fov : normalFOV;
-        Camera.main.fieldOfView = Mathf.Lerp(
-            Camera.main.fieldOfView,
+        weaponCamera.fieldOfView = Mathf.Lerp(
+            weaponCamera.fieldOfView,
             targetFOV,
             Time.deltaTime * aimData.transitionSpeed
         );
+
+        Camera.main.fieldOfView = Mathf.Lerp(
+           Camera.main.fieldOfView,
+           targetFOV,
+           Time.deltaTime * aimData.transitionSpeed
+       );
     }
 }
