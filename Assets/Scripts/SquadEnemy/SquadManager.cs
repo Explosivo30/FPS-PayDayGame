@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -10,9 +10,9 @@ public class SquadManager : MonoBehaviour
     [Tooltip("Color to tint the squad leaders")]
     [SerializeField] private Color leaderColor = Color.yellow;
 
-    [Tooltip("Radio base de formaci�n")]
+    [Tooltip("Radio base de formación")]
     [SerializeField] private float baseRadius = 2f;
-    [Tooltip("Tama�o de cada escuadr�n")]
+    [Tooltip("Tamaño de cada escuadrón")]
     [SerializeField] private int squadSize = 4;
 
     // list gets populated by each enemy in Awake()
@@ -73,6 +73,38 @@ public class SquadManager : MonoBehaviour
     public void UpdateSquadsOnce()
     {
         foreach (var s in _squads) s.UpdateSquad();
+    }
+
+    public void RebuildSquads()
+    {
+        // 1) Purge any members whose GameObject has been destroyed
+        _allMembers.RemoveAll(m => (m as UnityEngine.Object) == null);
+
+        // 2) Clear old squads
+        _squads.Clear();
+
+        // 3) Re‐partition the remaining live members
+        for (int i = 0; i < _allMembers.Count; i += squadSize)
+        {
+            var group = _allMembers.GetRange(i, Mathf.Min(squadSize, _allMembers.Count - i));
+            _squads.Add(new Squad(
+                group,
+                baseRadius,
+                GameManager.Instance.GetPlayerTransforms()[0]
+            ));
+        }
+
+        // 4) Re‐tint each squad’s leader
+        foreach (var squad in _squads)
+        {
+            var leaderT = squad.Leader.Transform;
+            var rend = (leaderT as Component)?.GetComponent<Renderer>();
+            if (rend != null)
+            {
+                rend.material = new Material(rend.material);
+                rend.material.color = leaderColor;
+            }
+        }
     }
 
 }

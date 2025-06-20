@@ -3264,8 +3264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leaderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  baseRadius: 5
-  squadSize: 2
+  baseRadius: 4
+  squadSize: 4
 --- !u!1 &1077990929
 GameObject:
   m_ObjectHideFlags: 0

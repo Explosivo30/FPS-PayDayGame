@@ -69,19 +69,14 @@ public class GameManager : MonoBehaviour
     {
         _enemiesRemaining--;
         if (_enemiesRemaining <= 0 && !_isSpawning)
-        {
             StartCoroutine(HandleWaveComplete());
-        }
     }
 
     private IEnumerator HandleWaveComplete()
     {
-        // Show announcement
-        waveCompletePanel.SetActive(true);
-        Debug.Log("DeActivate");
+        waveCompletePanel?.SetActive(true);
         yield return new WaitForSeconds(announcementDuration);
-        Debug.Log("Activate");
-        waveCompletePanel.SetActive(false);
+        waveCompletePanel?.SetActive(false);
         StartNextWave();
     }
 
@@ -90,6 +85,8 @@ public class GameManager : MonoBehaviour
         _currentWave++;
         UpdateRoundUI();
         SpawnWave();
+        // Incorporate new enemies into squads
+        SquadManager.Instance.RebuildSquads();
     }
 
     private void UpdateRoundUI()
@@ -107,24 +104,21 @@ public class GameManager : MonoBehaviour
 
         float speed = baseSpeed + (_currentWave - 1) * speedIncrement;
 
-        // Spawn at random spawn points
         for (int i = 0; i < enemyCount; i++)
         {
             Transform spawn = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
             GameObject go = Instantiate(enemyPrefab, spawn.position, spawn.rotation);
 
-            // Configure enemy speed if it has a movement script
-            if (go.TryGetComponent<NormalEnemyStateMachine>(out var enemy))
-            {
-                enemy.agent.speed = speed;
-                // Register with squad system
-                SquadManager.Instance.Register(enemy);
-            }
-            else if (go.TryGetComponent<NavMeshAgent>(out var nav))
+            // Configure NavMesh speed if available
+            if (go.TryGetComponent<UnityEngine.AI.NavMeshAgent>(out var nav))
             {
                 nav.speed = speed;
-                var es = go.GetComponent<MonoBehaviour>() as ISquadMember;
-                if (es != null) SquadManager.Instance.Register(es);
+            }
+
+            // Register any ISquadMember component on the spawned object
+            if (go.TryGetComponent<ISquadMember>(out var squadMember))
+            {
+                SquadManager.Instance.Register(squadMember);
             }
         }
 
