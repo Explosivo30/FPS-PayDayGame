@@ -1,12 +1,47 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     private List <Transform> players = new List<Transform>();
+
+
+    /// <summary>
+    /// WAVE SETTINGS MANAGER
+    /// </summary>
+    /// 
+
+    [Header("Wave Settings")]
+    [Tooltip("Prefab of the enemy to spawn")]
+    [SerializeField] private GameObject enemyPrefab;
+    [Tooltip("Spawn locations for enemies")]
+    [SerializeField] private Transform[] spawnPoints;
+    [Tooltip("Base enemies per wave")]
+    [SerializeField] private int baseEnemyCount = 5;
+    [Tooltip("Additional enemies per wave")]
+    [SerializeField] private int incrementPerWave = 2;
+    [Tooltip("Base move speed multiplier")]
+    [SerializeField] private float baseSpeed = 1f;
+    [Tooltip("Speed increase per wave")]
+    [SerializeField] private float speedIncrement = 0.1f;
+
+    [Header("UI References")]
+    [Tooltip("TMP Text for round counter")]
+    [SerializeField] private TextMeshProUGUI roundText;
+    [Tooltip("Panel or text for wave complete announcement")]
+    [SerializeField] private GameObject waveCompletePanel;
+    [Tooltip("Time that the announcement stays visible")]
+    [SerializeField] private float announcementDuration = 2f;
+
+    private int _currentWave = 0;
+    private int _enemiesRemaining;
+    private bool _isSpawning;
 
     private void Awake()
     {
@@ -16,6 +51,84 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         //DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        // Subscribe to global death event
+        EnemyEvents.OnDeath += OnEnemyDeath;
+        StartNextWave();
+    }
+
+    private void OnDestroy()
+    {
+        EnemyEvents.OnDeath -= OnEnemyDeath;
+    }
+
+    private void OnEnemyDeath(IDamageable dead)
+    {
+        _enemiesRemaining--;
+        if (_enemiesRemaining <= 0 && !_isSpawning)
+        {
+            StartCoroutine(HandleWaveComplete());
+        }
+    }
+
+    private IEnumerator HandleWaveComplete()
+    {
+        // Show announcement
+        waveCompletePanel.SetActive(true);
+        Debug.Log("DeActivate");
+        yield return new WaitForSeconds(announcementDuration);
+        Debug.Log("Activate");
+        waveCompletePanel.SetActive(false);
+        StartNextWave();
+    }
+
+    private void StartNextWave()
+    {
+        _currentWave++;
+        UpdateRoundUI();
+        SpawnWave();
+    }
+
+    private void UpdateRoundUI()
+    {
+        if (roundText != null)
+            roundText.text = $"Round {_currentWave}";
+    }
+
+    private void SpawnWave()
+    {
+        _isSpawning = true;
+
+        int enemyCount = baseEnemyCount + (_currentWave - 1) * incrementPerWave;
+        _enemiesRemaining = enemyCount;
+
+        float speed = baseSpeed + (_currentWave - 1) * speedIncrement;
+
+        // Spawn at random spawn points
+        for (int i = 0; i < enemyCount; i++)
+        {
+            Transform spawn = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+            GameObject go = Instantiate(enemyPrefab, spawn.position, spawn.rotation);
+
+            // Configure enemy speed if it has a movement script
+            if (go.TryGetComponent<NormalEnemyStateMachine>(out var enemy))
+            {
+                enemy.agent.speed = speed;
+                // Register with squad system
+                SquadManager.Instance.Register(enemy);
+            }
+            else if (go.TryGetComponent<NavMeshAgent>(out var nav))
+            {
+                nav.speed = speed;
+                var es = go.GetComponent<MonoBehaviour>() as ISquadMember;
+                if (es != null) SquadManager.Instance.Register(es);
+            }
+        }
+
+        _isSpawning = false;
     }
 
 

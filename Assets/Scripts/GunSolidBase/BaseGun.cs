@@ -28,6 +28,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     public LayerMask layerMask;
 
     protected LineRenderer lr;
+    [Tooltip("Duration of the traversal of the raycast Line")]
     [SerializeField] private float duration = 0.05f;
 
     // ── PHYSICAL KICKBACK (shared) ───────────────────────────────────
