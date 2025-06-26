@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class PlayerStateMachine : StateMachine, IDamageable
+public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 {
     //Control Start
     InputReader controls;
@@ -57,6 +57,24 @@ public class PlayerStateMachine : StateMachine, IDamageable
 
     [SerializeField] float _gravityForce = 9.81f;
     public Vector3 GravityDir { get { return _gravityDir; } set { _gravityDir = value.normalized; } }
+
+
+    [Header("Upgradeable Stats")]
+    [Tooltip("Base horizontal acceleration")]
+    [SerializeField] private float baseAcceleration = 200f;
+    [Tooltip("Additional acceleration per level")]
+    [SerializeField] private float accelerationIncrement = 500f;
+    [Tooltip("Maximum upgrade levels")]
+    [SerializeField] private int maxUpgradeLevel = 5;
+
+    private int upgradeLevel = 0;
+
+    public string Id => "player";
+
+    public int Level => upgradeLevel;
+
+    public int MaxLevel => maxUpgradeLevel;
+
     Vector3 _gravityDir = Vector3.down;
 
 
@@ -90,6 +108,7 @@ public class PlayerStateMachine : StateMachine, IDamageable
 
     private void Awake()
     {
+        GameManager.Instance.Register(this);    // 'this' implementa IUpgradeable y tiene Id
         cameraTilt = GetComponentInChildren<CameraTilt>();
         if (cameraTilt == null) Debug.LogWarning("NO CAMERA TILT");
         _downDir = _downDir.normalized;
@@ -406,6 +425,20 @@ public class PlayerStateMachine : StateMachine, IDamageable
         }
         damageVolume.weight = 0f;
         fadeCoroutine = null;
+    }
+
+    public int GetUpgradeCost()
+    {
+        return 2 * (Level + 1);
+    }
+
+    public void ApplyUpgrade()
+    {
+        if (upgradeLevel >= maxUpgradeLevel) return;
+        upgradeLevel++;
+        // Apply the new acceleration value directly to your state machine field
+        _acceleration = baseAcceleration + upgradeLevel * accelerationIncrement;
+        Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New acc: {_acceleration}");
     }
 }
 

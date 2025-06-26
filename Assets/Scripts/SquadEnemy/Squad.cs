@@ -16,7 +16,7 @@ public class Squad
         _radius = radius;
         _player = player;
 
-        Debug.Log(members.Count);
+        //Debug.Log(members.Count);
         // Initial, permanent leader: pick the first one
         if (Members.Count > 0)
             Leader = Members[0];

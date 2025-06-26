@@ -57,6 +57,25 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
+    
+    /// <summary>
+    /// UPGRADE REGISTRY
+    /// </summary>
+    private Dictionary<string, IUpgradeable> _map = new();
+
+    public void Register(IUpgradeable up)
+    {
+        if (up == null || string.IsNullOrEmpty(up.Id)) return;
+        _map[up.Id] = up;
+        // Debug log when registering a new upgradeable
+        Debug.Log($"Registered IUpgradeable with ID '{up.Id}' at level {up.Level} (Max: {up.MaxLevel})");
+    }
+        
+
+    public IUpgradeable Get(string id)
+        => _map.TryGetValue(id, out var upg) ? upg : null;
+
     private void Awake()
     {
         if (Instance != null)
@@ -93,6 +112,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         playerPoints += points;
+        
         UpdateScoreUI();
     }
 
@@ -156,6 +176,10 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    public int GetPlayerPoints() { return playerPoints; }
+
+    public void SetPlayerPoints(int points) { playerPoints = points;}
 
     public List <Transform> GetPlayerTransforms() {  return players;  }
 
