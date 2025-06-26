@@ -438,6 +438,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         upgradeLevel++;
         // Apply the new acceleration value directly to your state machine field
         _acceleration = baseAcceleration + upgradeLevel * accelerationIncrement;
+        _targetVelocity = baseAcceleration + upgradeLevel * accelerationIncrement;
         Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New acc: {_acceleration}");
     }
 }

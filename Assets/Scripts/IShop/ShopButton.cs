@@ -23,7 +23,7 @@ public class ShopButton : MonoBehaviour
     public void OnClick()
     {
         itemData.Buy();
-        UpdateInteractable();
+        //UpdateInteractable();
     }
 
     private void UpdateInteractable()
