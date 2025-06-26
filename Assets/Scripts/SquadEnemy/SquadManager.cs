@@ -67,7 +67,7 @@ public class SquadManager : MonoBehaviour
         foreach (var squad in _squads)
             squad.UpdateSquad();
 
-        Debug.Log(_squads.Count);
+        //Debug.Log(_squads.Count);
     }
 
     public void UpdateSquadsOnce()

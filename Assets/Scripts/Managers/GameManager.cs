@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,11 +12,21 @@ public class GameManager : MonoBehaviour
 
     private List <Transform> players = new List<Transform>();
 
+    [SerializeField] private int playerPoints = 0;
+
+    [Tooltip("Points awarded per enemy kill")]
+    [SerializeField] private int pointsPerKill = 10;
+
+
+    [Header("Score")]
+    [Tooltip("UI Text for displaying the score")]
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     /// <summary>
     /// WAVE SETTINGS MANAGER
     /// </summary>
     /// 
+    #region WaveSettings
 
     [Header("Wave Settings")]
     [Tooltip("Prefab of the enemy to spawn")]
@@ -39,9 +50,12 @@ public class GameManager : MonoBehaviour
     [Tooltip("Time that the announcement stays visible")]
     [SerializeField] private float announcementDuration = 2f;
 
+
     private int _currentWave = 0;
     private int _enemiesRemaining;
     private bool _isSpawning;
+
+    #endregion
 
     private void Awake()
     {
@@ -49,6 +63,7 @@ public class GameManager : MonoBehaviour
             return;
 
         Instance = this;
+        UpdateScoreUI();
 
         //DontDestroyOnLoad(gameObject);
     }
@@ -60,6 +75,8 @@ public class GameManager : MonoBehaviour
         StartNextWave();
     }
 
+    #region HandleWave
+
     private void OnDestroy()
     {
         EnemyEvents.OnDeath -= OnEnemyDeath;
@@ -68,8 +85,21 @@ public class GameManager : MonoBehaviour
     private void OnEnemyDeath(IDamageable dead)
     {
         _enemiesRemaining--;
+        AddScore(pointsPerKill);
         if (_enemiesRemaining <= 0 && !_isSpawning)
             StartCoroutine(HandleWaveComplete());
+    }
+
+    public void AddScore(int points)
+    {
+        playerPoints += points;
+        UpdateScoreUI();
+    }
+
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+            scoreText.text = playerPoints.ToString();
     }
 
     private IEnumerator HandleWaveComplete()
@@ -125,6 +155,7 @@ public class GameManager : MonoBehaviour
         _isSpawning = false;
     }
 
+    #endregion
 
     public List <Transform> GetPlayerTransforms() {  return players;  }
 
