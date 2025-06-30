@@ -22,13 +22,24 @@ public class CurrencyManager : MonoBehaviour
     public bool Spend(int amount)
     {
         Coins = GameManager.Instance.GetPlayerPoints();
-        if (Coins < amount) return false;
+        if (Coins < amount)
+        {
+            Debug.LogWarning($"No hay suficientes monedas: hace falta {amount}, tienes {Coins}");
+            return false;
+        }
+
         Coins -= amount;
-        GameManager.Instance.SetPlayerPoints(Coins);
-        Debug.Log($"[GameManager] Spend {amount} coins → quedan {GameManager.Instance.GetPlayerPoints()}");
         UpdateUI();
+        Debug.Log($"Gastadas {amount} monedas → quedan {Coins}");
+        GameManager.Instance.SetPlayerPoints(Coins);
         return true;
     }
+
+    public bool SpendCheck(int amount)
+    {
+        return GameManager.Instance.GetPlayerPoints() >= amount;
+    }
+
 
     public void Earn(int amount)
     {

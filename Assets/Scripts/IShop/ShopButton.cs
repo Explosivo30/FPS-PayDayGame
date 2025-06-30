@@ -6,28 +6,29 @@ public class ShopButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText, costText;
     [SerializeField] private Image iconImage;
-    [SerializeField] private Button buyButton;
-    [SerializeField] private UpgradeItem itemData;
+    [SerializeField] private Button buyBtn;
 
-    public void Setup(UpgradeItem data)
+    private StatUpgrade data;
+
+   
+    public void Setup(StatUpgrade u)
     {
-        itemData = data;
-        nameText.text = data.DisplayName;
-        costText.text = data.Cost.ToString();
-        iconImage.sprite = data.Icon;
-        buyButton.onClick.RemoveAllListeners();
-        buyButton.onClick.AddListener(OnClick);
-        UpdateInteractable();
+        data = u;
+        nameText.text = u.displayName;
+        costText.text = UpgradeManager.Instance.GetNextCost(u).ToString();
+        buyBtn.onClick.AddListener(() => {
+            UpgradeManager.Instance.BuyUpgrade(u);
+            Refresh();
+        });
+        Refresh();
     }
 
-    public void OnClick()
+    private void Refresh()
     {
-        itemData.Buy();
-        //UpdateInteractable();
+        buyBtn.interactable =
+          UpgradeManager.Instance.GetLevel(data) < data.MaxLevel
+          && CurrencyManager.Instance.SpendCheck(UpgradeManager.Instance.GetNextCost(data));
+        costText.text = UpgradeManager.Instance.GetNextCost(data).ToString();
     }
-
-    private void UpdateInteractable()
-    {
-        buyButton.interactable = itemData.CanBuy();
-    }
+    
 }

@@ -45,7 +45,8 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
     //Variables 
     [SerializeField] float _acceleration = 12f;
     [SerializeField] float _targetVelocity = 10f;
-    
+    [SerializeField] float jumpHeight = 5f;
+
     [SerializeField, Range(0f, 1f)] float _turnaroundStrength;
     [SerializeField] float rotationSpeed = 50f;
    
@@ -77,7 +78,6 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 
     Vector3 _gravityDir = Vector3.down;
 
-
     //----- END PLAYER GRAVITY
 
     //----- START CAMERA
@@ -88,7 +88,6 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
     [SerializeField] private float maxVerticalAngle = 70f;
 
     //----- END CAMERA
-
 
     // ------ HP PLAYER
     protected float maxHPPlayer = 100f;
@@ -201,7 +200,6 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 
         
     }
-
 
     public Vector2 CameraOritentedMovement(Vector2 input)
     {
@@ -440,6 +438,31 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         _acceleration = baseAcceleration + upgradeLevel * accelerationIncrement;
         _targetVelocity = baseAcceleration + upgradeLevel * accelerationIncrement;
         Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New acc: {_acceleration}");
+    }
+
+    public void ApplyPlayerStat(PlayerStat stat, float value, bool isPercent)
+    {
+        switch (stat)
+        {
+            case PlayerStat.Acceleration:
+                _acceleration = isPercent
+                  ? _acceleration * (1 + value / 100f)
+                  : _acceleration + value;
+
+                _targetVelocity = _acceleration;
+                break;
+            case PlayerStat.JumpHeight:
+                jumpHeight = isPercent
+                  ? jumpHeight * (1 + value / 100f)
+                  : jumpHeight + value;
+                break;
+            case PlayerStat.MaxHealth:
+                maxHPPlayer = isPercent
+                  ? maxHPPlayer * (1 + value / 100f)
+                  : maxHPPlayer + value;
+                currentHPPlayer = Mathf.Min(currentHPPlayer, maxHPPlayer);
+                break;
+        }
     }
 }
 

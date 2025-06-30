@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTracer
 {
+    public string GunTypeID; // pon “Pistol”, “Rifle”… en prefab
     [Tooltip("The damage this weapon deals per shot.")]
     public float damage = 5f;
 
@@ -104,5 +105,25 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     public void Play(Vector3 origin, Vector3 destination)
     {
         StartCoroutine(DoTrace(origin, destination));
+    }
+
+    public void ApplyWeaponStat(WeaponStat stat, float value)
+    {
+        switch (stat)
+        {
+            case WeaponStat.AmmoCapacity:
+                ammo += (int)value;
+                currentAmmo = Mathf.Min(currentAmmo, ammo);
+                break;
+            case WeaponStat.FireRate:
+                fireRate = fireRate + value; // o * (1+v)
+                break;
+            case WeaponStat.Damage:
+                damage = damage + value;
+                break;
+            case WeaponStat.RecoilKickUp:
+                recoilData.recoilKickUp -= value;
+                break;
+        }
     }
 }

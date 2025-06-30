@@ -3,23 +3,16 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    [Header("Catalog")]
-    [Tooltip("List of UpgradeItem assets")]
-    [SerializeField] private List<UpgradeItem> catalog;
-
-    [Header("UI")]
-    [Tooltip("Parent for instantiating buttons")]
-    [SerializeField] private Transform itemContainer;
-    [Tooltip("Button prefab with ShopButton component")]
-    [SerializeField] private GameObject itemButtonPrefab;
+    [SerializeField] private Transform buttonContainer;
+    [SerializeField] private GameObject buttonPrefab; // con ShopButton
 
     private void Start()
     {
-        foreach (var item in catalog)
+        foreach (var u in UpgradeManager.Instance.catalog)
         {
-            var go = Instantiate(itemButtonPrefab, itemContainer);
-            var btn = go.GetComponent<ShopButton>();
-            btn.Setup(item);
+            var go = Instantiate(buttonPrefab, buttonContainer);
+            var sb = go.GetComponent<ShopButton>();
+            sb.Setup(u);
         }
     }
 }
