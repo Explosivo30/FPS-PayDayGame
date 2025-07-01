@@ -26,7 +26,7 @@ public class UpgradeManager : MonoBehaviour
 
     /// <summary>Coste para mejorar al siguiente nivel.</summary>
     public int GetNextCost(StatUpgrade u)
-        => GetLevel(u) < u.MaxLevel ? u.GetCost(GetLevel(u)) : int.MaxValue;
+        => GetLevel(u) < u.MaxLevel ? u.GetCost(GetLevel(u)) : -1;
 
     /// <summary>¿Se puede comprar?</summary>
     public bool CanUpgrade(StatUpgrade u)
