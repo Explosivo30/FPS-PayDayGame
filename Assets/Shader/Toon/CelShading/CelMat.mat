@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outlines
-  m_Shader: {fileID: -6465566751694194690, guid: 56ed89641685be74b8b19135296a7d2c, type: 3}
+  m_Name: CelMat
+  m_Shader: {fileID: -6465566751694194690, guid: 7785e7d8f931b7b43988b736905062b7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -18,7 +18,8 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -37,8 +38,33 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _OutlineThickness: 0.518
-    m_Colors:
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EdgeDiffuse: 0.11
+    - _EdgeDistanceAttenuation: 0.64
+    - _EdgeRim: 2.85
+    - _EdgeRimOffset: 1.98
+    - _EdgeShadowAttenuation: 0.44
+    - _EdgeSpecular: 1.55
+    - _EdgeSpecularOffset: 0.12
+    - _MAIN_LIGHT_SHADOWS: 0
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RimThreshold: 3.08
+    - _SHADOWS_SOFT: 0
+    - _Smoothness: 5.36
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &894439647231750993
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9

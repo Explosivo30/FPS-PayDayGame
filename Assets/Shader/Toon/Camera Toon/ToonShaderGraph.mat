@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outlines
-  m_Shader: {fileID: -6465566751694194690, guid: 56ed89641685be74b8b19135296a7d2c, type: 3}
+  m_Name: ToonShaderGraph
+  m_Shader: {fileID: -6465566751694194690, guid: 1aae2c6ec29919443948107549c8831c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,9 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _OutlineThickness: 0.518
-    m_Colors:
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
