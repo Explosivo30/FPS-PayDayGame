@@ -57,7 +57,7 @@ public class SquadManager : MonoBehaviour
                 // To avoid changing the shared material on all instances,
                 // instantiate a fresh material first:
                 rend.material = new Material(rend.material);
-                rend.material.color = leaderColor;
+                rend.material.SetColor("_BaseColor", leaderColor);
             }
         }
     }
@@ -102,7 +102,7 @@ public class SquadManager : MonoBehaviour
             if (rend != null)
             {
                 rend.material = new Material(rend.material);
-                rend.material.color = leaderColor;
+                rend.material.SetColor("_BaseColor", leaderColor);
             }
         }
     }

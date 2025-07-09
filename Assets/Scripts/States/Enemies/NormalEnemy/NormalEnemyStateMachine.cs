@@ -89,7 +89,11 @@ public class NormalEnemyStateMachine : StateMachine, IDamageable, IWeapon, ISqua
         float t = currentHealth / maxHealth;
         // Lerp from red (0) to orange (1)
         Color current = Color.Lerp(zeroHealthColor, fullHealthColor, t);
-        rend.material.color = current;
+        if(rend == null)
+        {
+            Debug.Log("IS NULL");
+        }
+        rend.material.SetColor("_BaseColor", current);
     }
 
     public void Use()
