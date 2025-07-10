@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewWallMat
-  m_Shader: {fileID: -6465566751694194690, guid: 2d8eb16727f5d1b47be3f7bc97f543bb, type: 3}
+  m_Name: Player_Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 7785e7d8f931b7b43988b736905062b7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,14 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SmoothnessMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -46,24 +38,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AmbientEnvironmentMultiplier: 1
-    - _EdgeDiffuse: 0.499
-    - _EdgeDistanceAttenuation: 0
-    - _EdgeRim: 1
-    - _EdgeShadowAttenuation: 0
-    - _EdgeSpecular: 0
+    - _EdgeDiffuse: 0.11
+    - _EdgeDistanceAttenuation: 0.64
+    - _EdgeRim: 2.85
+    - _EdgeRimOffset: 1.98
+    - _EdgeShadowAttenuation: 0.44
+    - _EdgeSpecular: 1.55
+    - _EdgeSpecularOffset: 0.12
+    - _MAIN_LIGHT_SHADOWS: 0
+    - _MAIN_LIGHT_SHADOWS_CASCADE: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RimAmount: 0
-    - _RimStrength: 0.499
-    - _RimThreshold: 1
-    - _Smoothness: 0
-    m_Colors:
-    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimThreshold: 3.08
+    - _SHADOWS_SOFT: 0
+    - _Smoothness: 5.36
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1946434713174920002
+--- !u!114 &894439647231750993
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
