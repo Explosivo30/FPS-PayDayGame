@@ -47,8 +47,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AmbientEnvironmentMultiplier: 1
-    - _EdgeDiffuse: 0.499
-    - _EdgeDistanceAttenuation: 0
+    - _EdgeDiffuse: 0
+    - _EdgeDistanceAttenuation: 0.015
     - _EdgeRim: 1
     - _EdgeShadowAttenuation: 0
     - _EdgeSpecular: 0

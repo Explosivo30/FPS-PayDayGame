@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 {
     //Control Start
-    InputReader controls;
+    [NonSerialized] public InputReader controls;
     //Control End
 
     //----- START GROUND DETECTION
@@ -128,7 +129,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
     {
         if (Physics.SphereCast(transform.position + transform.up * _height, _castRadius, _downDir, out RaycastHit hitInfo, _castLength, _groundMask))
         {
-            Debug.Log(hitInfo.transform.up);
+           //TODEBUG Debug.Log(hitInfo.transform.up);
             Debug.DrawRay(hitInfo.point, hitInfo.normal, Color.red, 50f);
             
             if (Vector3.Dot(hitInfo.normal, -_downDir) > Mathf.Sin((90f - _maxAngle) * Mathf.PI / 180f))
@@ -153,7 +154,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
             _sliding = false;
         }
 
-        Debug.Log($"Grounded: {Grounded}, Sliding: {Sliding}");
+        //TODEBUG Debug.Log($"Grounded: {Grounded}, Sliding: {Sliding}");
     }
 
     public Vector2 GetInput()

@@ -103,7 +103,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EdgeDiffuse: 0
     - _EdgeDistanceAttenuation: 0.817
-    - _EdgeRim: 0.001
+    - _EdgeRim: 0
     - _EdgeShadowAttenuation: 0
     - _EdgeSpecular: 0
     - _EnvironmentReflections: 1

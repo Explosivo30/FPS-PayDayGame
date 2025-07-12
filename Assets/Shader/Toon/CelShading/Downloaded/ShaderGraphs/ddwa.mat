@@ -56,7 +56,7 @@ Material:
     - _QueueOffset: 0
     - _RimAmount: 0.672
     - _RimStrength: 0.815
-    - _RimThreshold: 0.196
+    - _RimThreshold: 0.01
     - _Smoothness: 0.368
     m_Colors:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
