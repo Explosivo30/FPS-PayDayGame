@@ -54,7 +54,7 @@ public class UpgradeManager : MonoBehaviour
         {
             PlayerStateMachine player = GameManager.Instance.GetPlayerTransforms()[0].GetComponent<PlayerStateMachine>(); // tu referencia
             
-            player.ApplyPlayerStat(u.playerStat, val, u.weaponStat == WeaponStat.Damage /*mode*/);
+            player.ApplyPlayerStat(u.playerStat, val, u.upgradeMode == UpgradeMode.Percentual /*mode*/);
         }
         else // arma
         {

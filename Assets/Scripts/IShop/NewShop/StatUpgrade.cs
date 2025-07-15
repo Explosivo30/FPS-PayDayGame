@@ -2,8 +2,8 @@ using UnityEngine;
 
 public enum UpgradeTarget { Player, Weapon }
 public enum WeaponStat { AmmoCapacity, FireRate, Damage, RecoilKickUp }
-public enum PlayerStat { Acceleration, JumpHeight, MaxHealth }
-public enum UpgradeMode { Additive, Multiplicative }
+public enum PlayerStat { Acceleration, JumpHeight, MaxHealth, Shield }
+public enum UpgradeMode { Additive, Percentual }
 
 
 [CreateAssetMenu(menuName = "Upgrades/StatUpgrade")]
@@ -21,6 +21,7 @@ public class StatUpgrade : ScriptableObject
     [Tooltip("Qué stat aplicar.")]
     public WeaponStat weaponStat;
     public PlayerStat playerStat;
+    public UpgradeMode upgradeMode = UpgradeMode.Additive;
 
     [Header("Levels (array length = max levels)")]
     [Tooltip("Para cada nivel: cost/value.")]

@@ -378,13 +378,21 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 
     public void TakeDamage(float amount)
     {
+
+        // Try shield first
+        if (TryGetComponent<IShield>(out var shield) && shield.Current > 0f)
+        {
+            shield.Absorb(amount);
+            return;
+        }
+
         currentHPPlayer -= amount;
 
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
 
        
-        // Start a fresh fade in→out
+        // Start a fresh fade in → out
        
 
         if (currentHPPlayer <= 0) 
@@ -462,6 +470,12 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
                   ? maxHPPlayer * (1 + value / 100f)
                   : maxHPPlayer + value;
                 currentHPPlayer = Mathf.Min(currentHPPlayer, maxHPPlayer);
+                break;
+
+            case PlayerStat.Shield:
+                // Find your Shield component and bump its level
+                if (TryGetComponent<Shield>(out var shield))
+                    shield.GetNewUpgrade(value,isPercent);  // your IUpgradeable logic
                 break;
         }
     }
