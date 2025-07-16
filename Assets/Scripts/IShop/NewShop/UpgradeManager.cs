@@ -45,6 +45,7 @@ public class UpgradeManager : MonoBehaviour
         // sube level
         currentLevels[u] = lvl + 1;
         ApplyUpgrade(u, lvl + 1);
+        ShopManager.Instance.RefreshAllButtons();
     }
 
     private void ApplyUpgrade(StatUpgrade u, int newLevel)

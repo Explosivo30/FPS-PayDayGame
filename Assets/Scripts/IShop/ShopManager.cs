@@ -70,4 +70,12 @@ public class ShopManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public void RefreshAllButtons()
+    {
+        for(int i = 0; i < shops.Count; i++)
+        {
+            shops[i].Refresh();
+        }
+    }
 }

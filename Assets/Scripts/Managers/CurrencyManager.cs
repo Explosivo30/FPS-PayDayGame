@@ -9,6 +9,7 @@ public class CurrencyManager : MonoBehaviour
     public int Coins { get; private set; }
 
     [SerializeField] private TextMeshProUGUI coinsText;
+    [SerializeField] private TextMeshProUGUI shopText;
 
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class CurrencyManager : MonoBehaviour
         else { Instance = this; DontDestroyOnLoad(this); }
 
         Coins = GameManager.Instance.GetPlayerPoints();
+
+        UpdateUI();
     }
 
     public bool Spend(int amount)
@@ -50,9 +53,17 @@ public class CurrencyManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddCurrentPoints()
+    {
+        Coins = GameManager.Instance.GetPlayerPoints();
+    }
+
     private void UpdateUI()
     {
         if (coinsText != null)
             coinsText.text = Coins.ToString();
+
+        if (shopText != null)
+            shopText.text = Coins.ToString();
     }
 }
