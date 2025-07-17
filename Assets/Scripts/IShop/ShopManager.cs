@@ -75,7 +75,7 @@ public class ShopManager : MonoBehaviour
     {
         for(int i = 0; i < shops.Count; i++)
         {
-            shops[i].Refresh();
+            shops[i].IsInteractable();
         }
     }
 }

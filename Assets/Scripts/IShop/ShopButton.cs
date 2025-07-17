@@ -28,7 +28,7 @@ public class ShopButton : MonoBehaviour
         Refresh();
     }
 
-    public void Refresh()
+    private void Refresh()
     {
         buyBtn.interactable =
           UpgradeManager.Instance.GetLevel(data) < data.MaxLevel
@@ -46,7 +46,15 @@ public class ShopButton : MonoBehaviour
 
     private void OnEnable()
     {
-        Refresh();
+        IsInteractable();
     }
+
+    public void IsInteractable()
+    {
+        buyBtn.interactable =
+         UpgradeManager.Instance.GetLevel(data) < data.MaxLevel
+         && CurrencyManager.Instance.SpendCheck(UpgradeManager.Instance.GetNextCost(data));
+    }
+
 
 }

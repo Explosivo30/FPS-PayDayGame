@@ -109,7 +109,7 @@ MonoBehaviour:
   separationDistance: 1.5
   separationStrength: 2
   maxHealth: 100
-  detectionRange: 66.8
+  detectionRange: 70
   attackRange: 100
   accuracy: 0.16
   maxSpreadAngle: 40
