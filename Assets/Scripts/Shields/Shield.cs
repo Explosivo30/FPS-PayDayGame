@@ -107,7 +107,7 @@ public class Shield : MonoBehaviour, IShield, IUpgradeable
 
     private void Update()
     {
-        Debug.Log(_currentShield);
+        
     }
 
     public int GetUpgradeCost()

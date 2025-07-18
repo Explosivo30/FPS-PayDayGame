@@ -64,8 +64,6 @@ public class MachineGun : BaseGun, IAimable
                 }
 
                 // (Optional) Spawn impact effects at hit.point…
-
-                Debug.Log("ON TARGET");
             }
             else
             {

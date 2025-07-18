@@ -28,7 +28,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
 
     public LayerMask layerMask;
 
-    protected LineRenderer lr;
+    protected LineRenderer lr;  // per‐instance, not static
     [Tooltip("Duration of the traversal of the raycast Line")]
     [SerializeField] private float duration = 0.05f;
 

@@ -15,7 +15,12 @@ public class Pistol : BaseGun, IAimable
     [SerializeField] private AimData aimData;
 
     private RecoilData data => recoilData; // hereda de BaseGun
-    
+
+    public override void Awake()
+    {
+        base.Awake();
+        lr = GetComponent<LineRenderer>();
+    }
 
     public override void Use()
     {
@@ -30,20 +35,26 @@ public class Pistol : BaseGun, IAimable
         {
             if (Physics.Raycast(weaponHolder.position, transform.forward, out hit, maxRangeGun, layerMask, QueryTriggerInteraction.Collide))
             {
+                Debug.Log(hit.transform.name);
                 if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
                 {
                     damageable.TakeDamage(damage);
                 }
+                Play(weaponHolder.position, hit.point);
 
                 // (Optional) Spawn impact effects at hit.point…
 
                 Debug.Log("ON TARGET");
             }
+            else
+            {
+                Play(weaponHolder.position, weaponHolder.position + weaponHolder.forward * maxRangeGun);
+            }
             currentAmmo--;
             ApplyRecoil();
             TriggerPhysicalKickback(weaponHolder);
             Debug.Log("Pistol fired! Damage: " + damage);
-            // Add sound, muzzle flash, raycast etc.
+            //TODO:  Add sound, muzzle flash
         }
 
 
