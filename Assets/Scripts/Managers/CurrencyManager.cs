@@ -14,7 +14,7 @@ public class CurrencyManager : MonoBehaviour
     private void Awake()
     {
        
-        if (Instance != null) Destroy(gameObject);
+        if (Instance != null) Destroy(this);
         else { Instance = this; DontDestroyOnLoad(this); }
 
         Coins = GameManager.Instance.GetPlayerPoints();
