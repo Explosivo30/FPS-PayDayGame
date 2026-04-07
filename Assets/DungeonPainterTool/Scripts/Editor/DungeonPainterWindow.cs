@@ -956,7 +956,7 @@ namespace DungeonPainter.Editor
             {
                 float nz  = Mathf.Clamp(gridZoom + -e.delta.y * 0.05f, minZoom, maxZoom);
                 Vector2 l = e.mousePosition - canvasRect.position - gridOffset;
-                gridOffset = gridOffset * (nz / gridZoom) + l * (1 - nz / gridZoom);
+                gridOffset += l * (1 - nz / gridZoom);
                 gridZoom   = nz;
                 e.Use(); Repaint();
             }
@@ -1105,8 +1105,8 @@ namespace DungeonPainter.Editor
         {
             float cs = dungeonData.gridCellSize * gridZoom;
             return new Vector2Int(
-                Mathf.RoundToInt((sp.x - r.x - gridOffset.x) / cs),
-                Mathf.RoundToInt((sp.y - r.y - gridOffset.y) / cs));
+                Mathf.FloorToInt((sp.x - r.x - gridOffset.x) / cs),
+                Mathf.FloorToInt((sp.y - r.y - gridOffset.y) / cs));
         }
         private Rect GetCellScreenRect(Vector2Int gp, Rect r)
         {
