@@ -687,7 +687,7 @@ namespace DungeonPainter.Generation
             Vector3 center = (start + end) * 0.5f;
             float length = Vector3.Distance(start, end) + data.gridCellSize;
             float width = connection.GetWidthAt(0.5f);
-            float wallHeight = data.defaultTunnelHeight;
+            float wallHeight = connection.height;
             float wallThickness = 0.5f;
 
             // Determine rotation based on LookAt, just like the ramp floor

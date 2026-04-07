@@ -97,8 +97,6 @@ namespace DungeonPainter.Editor
                         return ShortcutAction.SelectMove;
                     
                     case KeyCode.D:
-                    case KeyCode.Delete:
-                    case KeyCode.Backspace:
                         e.Use();
                         return ShortcutAction.Delete;
                     

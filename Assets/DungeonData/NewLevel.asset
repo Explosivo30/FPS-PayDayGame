@@ -64,6 +64,7 @@ MonoBehaviour:
       width: 3
     - normalizedPosition: 1
       width: 3
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2
@@ -77,6 +78,7 @@ MonoBehaviour:
       width: 3
     - normalizedPosition: 1
       width: 3
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2
@@ -90,6 +92,7 @@ MonoBehaviour:
       width: 3
     - normalizedPosition: 1
       width: 3
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2
@@ -97,12 +100,13 @@ MonoBehaviour:
   - id: 2c0a0b64
     nodeAId: 1386b080
     nodeBId: 6d2afc16
-    transitionType: 0
+    transitionType: 3
     widthPoints:
     - normalizedPosition: 0
-      width: 3
+      width: 12
     - normalizedPosition: 1
-      width: 3
+      width: 12
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2
@@ -116,6 +120,7 @@ MonoBehaviour:
       width: 3
     - normalizedPosition: 1
       width: 3
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2
@@ -129,6 +134,7 @@ MonoBehaviour:
       width: 3
     - normalizedPosition: 1
       width: 3
+    height: 0
     customSlope: -1
     stepCount: 10
     stepHeight: 0.2

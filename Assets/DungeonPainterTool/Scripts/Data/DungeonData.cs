@@ -101,6 +101,8 @@ namespace DungeonPainter.Data
         [Header("Corridor Properties")]
         public ConnectionType transitionType = ConnectionType.Flat;
         public List<WidthPoint> widthPoints = new List<WidthPoint>();
+        [Tooltip("Height of the corridor/tunnel")]
+        public float height = 2f;
         
         [Header("Slope Control")]
         [Tooltip("Custom slope in degrees. Set to -1 for automatic calculation")]

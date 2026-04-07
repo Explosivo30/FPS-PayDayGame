@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a52fe1ecb864098d7e89c37adde3, type: 3}
+  m_Name: Tunnels
+  m_EditorClassIdentifier: 
+  gridCellSize: 5
+  nodes:
+  - id: 32d87438
+    gridPosition: {x: 442, y: 107}
+    heightLevel: 0
+    type: 1
+  - id: 013633ac
+    gridPosition: {x: 519, y: 106}
+    heightLevel: 0
+    type: 1
+  connections:
+  - id: 7ee2d862
+    nodeAId: 
+    nodeBId: 013633ac
+    transitionType: 0
+    widthPoints:
+    - normalizedPosition: 0
+      width: 3
+    - normalizedPosition: 1
+      width: 3
+    height: 2
+    customSlope: -1
+    stepCount: 10
+    stepHeight: 0.2
+    stepDepth: 0.3
+  - id: d2a83b74
+    nodeAId: 013633ac
+    nodeBId: 32d87438
+    transitionType: 3
+    widthPoints:
+    - normalizedPosition: 0
+      width: 6
+    - normalizedPosition: 1
+      width: 6
+    height: 7
+    customSlope: -1
+    stepCount: 10
+    stepHeight: 0.2
+    stepDepth: 0.3
+  rooms:
+  - id: c7b92a0a
+    gridCells:
+    - {x: 288, y: 85}
+    - {x: 289, y: 85}
+    - {x: 290, y: 86}
+    - {x: 290, y: 88}
+    - {x: 291, y: 88}
+    - {x: 292, y: 90}
+    - {x: 293, y: 92}
+    - {x: 294, y: 93}
+    - {x: 295, y: 96}
+    - {x: 296, y: 98}
+    - {x: 298, y: 101}
+    - {x: 299, y: 103}
+    - {x: 302, y: 105}
+    - {x: 304, y: 108}
+    - {x: 306, y: 111}
+    - {x: 309, y: 114}
+    - {x: 313, y: 117}
+    - {x: 318, y: 121}
+    - {x: 324, y: 125}
+    - {x: 332, y: 130}
+    - {x: 341, y: 134}
+    - {x: 350, y: 138}
+    - {x: 362, y: 144}
+    - {x: 371, y: 147}
+    - {x: 382, y: 152}
+    - {x: 393, y: 156}
+    - {x: 404, y: 159}
+    - {x: 411, y: 162}
+    - {x: 420, y: 165}
+    - {x: 427, y: 168}
+    - {x: 433, y: 170}
+    - {x: 437, y: 172}
+    - {x: 440, y: 173}
+    - {x: 442, y: 174}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_1
+  - id: fdb64749
+    gridCells:
+    - {x: 518, y: 80}
+    - {x: 519, y: 80}
+    - {x: 519, y: 81}
+    - {x: 520, y: 81}
+    - {x: 521, y: 82}
+    - {x: 522, y: 82}
+    - {x: 524, y: 83}
+    - {x: 525, y: 84}
+    - {x: 527, y: 85}
+    - {x: 530, y: 86}
+    - {x: 532, y: 88}
+    - {x: 535, y: 89}
+    - {x: 538, y: 91}
+    - {x: 541, y: 92}
+    - {x: 544, y: 95}
+    - {x: 546, y: 96}
+    - {x: 550, y: 99}
+    - {x: 553, y: 102}
+    - {x: 556, y: 104}
+    - {x: 561, y: 108}
+    - {x: 566, y: 112}
+    - {x: 572, y: 116}
+    - {x: 578, y: 120}
+    - {x: 584, y: 125}
+    - {x: 589, y: 128}
+    - {x: 594, y: 133}
+    - {x: 601, y: 137}
+    - {x: 606, y: 141}
+    - {x: 611, y: 145}
+    - {x: 617, y: 149}
+    - {x: 622, y: 152}
+    - {x: 626, y: 155}
+    - {x: 630, y: 157}
+    - {x: 634, y: 160}
+    - {x: 638, y: 162}
+    - {x: 641, y: 163}
+    - {x: 643, y: 164}
+    - {x: 645, y: 165}
+    - {x: 646, y: 165}
+    - {x: 646, y: 166}
+    - {x: 645, y: 166}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_2
+  objects: []
+  meshSet: {fileID: 0}
+  heightPerLevel: 3
+  tunnelSegments: 8
+  defaultTunnelHeight: 4

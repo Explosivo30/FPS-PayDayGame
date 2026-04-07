@@ -974,9 +974,9 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("ID:", selectedNode.id);
             EditorGUILayout.LabelField("Position:", selectedNode.gridPosition.ToString());
             int newH = EditorGUILayout.IntField("Height Level:", selectedNode.heightLevel);
-            if (newH != selectedNode.heightLevel) { selectedNode.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            if (newH != selectedNode.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Node Height"); selectedNode.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
             NodeType newT = (NodeType)EditorGUILayout.EnumPopup("Type:", selectedNode.type);
-            if (newT != selectedNode.type) { selectedNode.type = newT; EditorUtility.SetDirty(dungeonData); }
+            if (newT != selectedNode.type) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Node Type"); selectedNode.type = newT; EditorUtility.SetDirty(dungeonData); }
             EditorGUILayout.Space();
             if (GUILayout.Button("Delete Node")) { DeleteNode(selectedNode); selectedNode = null; }
         }
@@ -988,15 +988,25 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("ID:", selectedConnection.id);
 
             ConnectionType newT = (ConnectionType)EditorGUILayout.EnumPopup("Type:", selectedConnection.transitionType);
-            if (newT != selectedConnection.transitionType) { selectedConnection.transitionType = newT; EditorUtility.SetDirty(dungeonData); }
+            if (newT != selectedConnection.transitionType) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Connection Type"); selectedConnection.transitionType = newT; EditorUtility.SetDirty(dungeonData); }
+
+            if (selectedConnection.transitionType == ConnectionType.Tunnel)
+            {
+                float newHeight = EditorGUILayout.FloatField("Height:", selectedConnection.height);
+                if (newHeight != selectedConnection.height) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Connection Height"); selectedConnection.height = newHeight; EditorUtility.SetDirty(dungeonData); }
+            }
 
             EditorGUILayout.LabelField("Width Points:", EditorStyles.boldLabel);
             if (selectedConnection.widthPoints == null)
+            {
+                Undo.RegisterCompleteObjectUndo(dungeonData, "Initialize Width Points");
                 selectedConnection.widthPoints = new List<WidthPoint>
                 {
                     new WidthPoint { normalizedPosition = 0f, width = 3f },
                     new WidthPoint { normalizedPosition = 1f, width = 3f }
                 };
+                EditorUtility.SetDirty(dungeonData);
+            }
 
             for (int i = 0; i < selectedConnection.widthPoints.Count; i++)
             {
@@ -1005,18 +1015,18 @@ namespace DungeonPainter.Editor
                 float np = EditorGUILayout.Slider(selectedConnection.widthPoints[i].normalizedPosition, 0f, 1f);
                 float nw = EditorGUILayout.FloatField(selectedConnection.widthPoints[i].width, GUILayout.Width(45));
                 if (np != selectedConnection.widthPoints[i].normalizedPosition || nw != selectedConnection.widthPoints[i].width)
-                { selectedConnection.widthPoints[i].normalizedPosition = np; selectedConnection.widthPoints[i].width = nw; EditorUtility.SetDirty(dungeonData); }
+                { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Width Point"); selectedConnection.widthPoints[i].normalizedPosition = np; selectedConnection.widthPoints[i].width = nw; EditorUtility.SetDirty(dungeonData); }
                 if (GUILayout.Button("X", GUILayout.Width(20)) && selectedConnection.widthPoints.Count > 2)
-                { selectedConnection.widthPoints.RemoveAt(i); EditorUtility.SetDirty(dungeonData); }
+                { Undo.RegisterCompleteObjectUndo(dungeonData, "Remove Width Point"); selectedConnection.widthPoints.RemoveAt(i); EditorUtility.SetDirty(dungeonData); }
                 EditorGUILayout.EndHorizontal();
             }
             if (GUILayout.Button("Add Width Point"))
-            { selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0.5f, width = 3f }); EditorUtility.SetDirty(dungeonData); }
+            { Undo.RegisterCompleteObjectUndo(dungeonData, "Add Width Point"); selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0.5f, width = 3f }); EditorUtility.SetDirty(dungeonData); }
 
             if (selectedConnection.transitionType == ConnectionType.Ramp)
             {
                 float ns = EditorGUILayout.FloatField("Custom Slope (°, -1=auto):", selectedConnection.customSlope);
-                if (ns != selectedConnection.customSlope) { selectedConnection.customSlope = ns; EditorUtility.SetDirty(dungeonData); }
+                if (ns != selectedConnection.customSlope) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Custom Slope"); selectedConnection.customSlope = ns; EditorUtility.SetDirty(dungeonData); }
             }
             if (selectedConnection.transitionType == ConnectionType.Stairs)
             {
@@ -1039,9 +1049,9 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("Room Properties", EditorStyles.boldLabel);
             EditorGUILayout.LabelField("ID:", selectedRoom.id);
             string newName = EditorGUILayout.TextField("Name:", selectedRoom.roomName);
-            if (newName != selectedRoom.roomName) { selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
+            if (newName != selectedRoom.roomName) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Name"); selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
             int newH = EditorGUILayout.IntField("Height Level:", selectedRoom.heightLevel);
-            if (newH != selectedRoom.heightLevel) { selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            if (newH != selectedRoom.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Height"); selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
             EditorGUILayout.LabelField("Cells:", selectedRoom.gridCells?.Count.ToString() ?? "0");
             EditorGUILayout.Space();
             if (GUILayout.Button("Copy Room")) CopySelectedRoom();
@@ -1287,32 +1297,32 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("ID:", selectedObject.id);
 
             string newName = EditorGUILayout.TextField("Name:", selectedObject.objectName);
-            if (newName != selectedObject.objectName) { selectedObject.objectName = newName; EditorUtility.SetDirty(dungeonData); }
+            if (newName != selectedObject.objectName) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Name"); selectedObject.objectName = newName; EditorUtility.SetDirty(dungeonData); }
 
             string newTag = EditorGUILayout.TextField("Tag:", selectedObject.objectTag);
-            if (newTag != selectedObject.objectTag) { selectedObject.objectTag = newTag; EditorUtility.SetDirty(dungeonData); }
+            if (newTag != selectedObject.objectTag) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Tag"); selectedObject.objectTag = newTag; EditorUtility.SetDirty(dungeonData); }
 
             EditorGUILayout.LabelField("Position:", selectedObject.gridPosition.ToString());
 
             int newH = EditorGUILayout.IntField("Height Level:", selectedObject.heightLevel);
-            if (newH != selectedObject.heightLevel) { selectedObject.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            if (newH != selectedObject.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Height"); selectedObject.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
 
             float newRot = EditorGUILayout.Slider("Rotation Y°:", selectedObject.rotationY, 0f, 360f);
-            if (newRot != selectedObject.rotationY) { selectedObject.rotationY = newRot; EditorUtility.SetDirty(dungeonData); }
+            if (newRot != selectedObject.rotationY) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Rotation"); selectedObject.rotationY = newRot; EditorUtility.SetDirty(dungeonData); }
 
             ObjectPrimitiveShape newShape = (ObjectPrimitiveShape)EditorGUILayout.EnumPopup("Primitive Shape:", selectedObject.primitiveShape);
-            if (newShape != selectedObject.primitiveShape) { selectedObject.primitiveShape = newShape; EditorUtility.SetDirty(dungeonData); }
+            if (newShape != selectedObject.primitiveShape) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Shape"); selectedObject.primitiveShape = newShape; EditorUtility.SetDirty(dungeonData); }
 
             Vector3 newScale = EditorGUILayout.Vector3Field("Scale:", selectedObject.scale);
-            if (newScale != selectedObject.scale) { selectedObject.scale = newScale; EditorUtility.SetDirty(dungeonData); }
+            if (newScale != selectedObject.scale) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Scale"); selectedObject.scale = newScale; EditorUtility.SetDirty(dungeonData); }
 
             Color newColor = EditorGUILayout.ColorField("Gizmo Color:", selectedObject.gizmoColor);
-            if (newColor != selectedObject.gizmoColor) { selectedObject.gizmoColor = newColor; EditorUtility.SetDirty(dungeonData); }
+            if (newColor != selectedObject.gizmoColor) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Color"); selectedObject.gizmoColor = newColor; EditorUtility.SetDirty(dungeonData); }
 
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Prefab Override (optional)", EditorStyles.miniLabel);
             GameObject newPrefab = (GameObject)EditorGUILayout.ObjectField("Prefab:", selectedObject.prefabOverride, typeof(GameObject), false);
-            if (newPrefab != selectedObject.prefabOverride) { selectedObject.prefabOverride = newPrefab; EditorUtility.SetDirty(dungeonData); }
+            if (newPrefab != selectedObject.prefabOverride) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Prefab"); selectedObject.prefabOverride = newPrefab; EditorUtility.SetDirty(dungeonData); }
 
             EditorGUILayout.Space();
             if (GUILayout.Button("Delete Object"))
