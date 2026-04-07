@@ -1,0 +1,1338 @@
+using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
+using DungeonPainter.Data;
+using DungeonPainter.Generation;
+
+namespace DungeonPainter.Editor
+{
+    /// <summary>
+    /// Main editor window for the Dungeon Painter tool
+    /// Provides visual grid-based dungeon design interface
+    /// </summary>
+    public class DungeonPainterWindow : EditorWindow
+    {
+        #region Tool Modes
+        private enum ToolMode
+        {
+            PlaceNode,
+            ConnectNodes,
+            PaintRoom,
+            DefineRoomNumeric,
+            EditConnection,
+            SelectAndMove,
+            DeleteElement
+        }
+        #endregion
+
+        #region Fields
+        private ToolMode currentMode = ToolMode.PaintRoom; // Changed from PlaceNode to PaintRoom
+        private DungeonData dungeonData;
+        private SerializedObject serializedData;
+
+        // Visual settings
+        private int currentHeightLevel = 0;
+        private float currentCorridorWidth = 3f;
+        private ConnectionType currentConnectionType = ConnectionType.Flat;
+        
+        // Grid rendering
+        private Vector2 gridOffset = Vector2.zero;
+        private float gridZoom = 1f;
+        private const float minZoom = 0.3f;
+        private const float maxZoom = 3f;
+        
+        // Selection
+        private DungeonNode selectedNode;
+        private DungeonConnection selectedConnection;
+        private DungeonRoom selectedRoom;
+        private DungeonNode connectionStartNode;
+        
+        // Room painting
+        private List<Vector2Int> paintedCells = new List<Vector2Int>();
+        private bool isPainting = false;
+        
+        // Numeric room definition
+        private Vector2Int roomSizeNumeric = new Vector2Int(5, 5);
+        private Vector2Int roomPositionNumeric = Vector2Int.zero;
+        
+        // Colors for height levels
+        private Dictionary<int, Color> heightColors = new Dictionary<int, Color>()
+        {
+            {-3, new Color(0.2f, 0.2f, 0.2f)},
+            {-2, new Color(0.3f, 0.3f, 0.3f)},
+            {-1, new Color(0.5f, 0.5f, 0.5f)},
+            {0, Color.white},
+            {1, new Color(0.7f, 0.9f, 1f)},
+            {2, new Color(0.5f, 0.8f, 1f)},
+            {3, new Color(0.3f, 0.7f, 1f)}
+        };
+        
+        // Generated dungeon reference
+        private GameObject generatedDungeon;
+        
+        // Scroll positions
+        private Vector2 propertiesScrollPos;
+        #endregion
+
+        #region Window Setup
+        [MenuItem("Window/Dungeon Painter")]
+        public static void ShowWindow()
+        {
+            DungeonPainterWindow window = GetWindow<DungeonPainterWindow>("Dungeon Painter");
+            window.minSize = new Vector2(1000, 700);
+        }
+
+        private void OnEnable()
+        {
+            if (dungeonData != null)
+            {
+                serializedData = new SerializedObject(dungeonData);
+            }
+        }
+        #endregion
+
+        #region Main GUI
+        private void OnGUI()
+        {
+            // Top toolbar
+            DrawMainToolbar();
+            
+            EditorGUILayout.BeginHorizontal();
+            
+            // Left panel - Grid canvas
+            EditorGUILayout.BeginVertical(GUILayout.Width(position.width * 0.7f));
+            DrawGridCanvas();
+            EditorGUILayout.EndVertical();
+            
+            // Right panel - Properties
+            EditorGUILayout.BeginVertical(GUILayout.Width(position.width * 0.3f));
+            DrawPropertiesPanel();
+            EditorGUILayout.EndVertical();
+            
+            EditorGUILayout.EndHorizontal();
+            
+            // Bottom action buttons
+            DrawActionButtons();
+        }
+
+        private void DrawMainToolbar()
+        {
+            EditorGUILayout.BeginVertical(EditorStyles.toolbar);
+            
+            // Data selection
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Dungeon Data:", GUILayout.Width(100));
+            
+            DungeonData newData = (DungeonData)EditorGUILayout.ObjectField(dungeonData, typeof(DungeonData), false);
+            if (newData != dungeonData)
+            {
+                dungeonData = newData;
+                if (dungeonData != null)
+                {
+                    serializedData = new SerializedObject(dungeonData);
+                    dungeonData.RebuildCache();
+                }
+            }
+            
+            if (GUILayout.Button("Create New", GUILayout.Width(100)))
+            {
+                CreateNewDungeonData();
+            }
+            
+            EditorGUILayout.EndHorizontal();
+            
+            if (dungeonData == null)
+            {
+                EditorGUILayout.Space(20);
+                
+                // Big warning box
+                GUIStyle warningStyle = new GUIStyle(EditorStyles.helpBox);
+                warningStyle.fontSize = 14;
+                warningStyle.padding = new RectOffset(20, 20, 20, 20);
+                
+                EditorGUILayout.BeginVertical(warningStyle);
+                
+                GUIStyle titleStyle = new GUIStyle(EditorStyles.boldLabel);
+                titleStyle.fontSize = 16;
+                titleStyle.normal.textColor = Color.yellow;
+                EditorGUILayout.LabelField("⚠️ NO DUNGEON DATA SELECTED", titleStyle);
+                
+                EditorGUILayout.Space(10);
+                
+                EditorGUILayout.LabelField("To start designing your dungeon, you need to create a Dungeon Data asset.", EditorStyles.wordWrappedLabel);
+                EditorGUILayout.Space(5);
+                EditorGUILayout.LabelField("Click the 'Create New' button above (top right) or drag an existing DungeonData asset to the field above.", EditorStyles.wordWrappedLabel);
+                
+                EditorGUILayout.Space(10);
+                
+                GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+                buttonStyle.fontSize = 14;
+                buttonStyle.padding = new RectOffset(20, 20, 10, 10);
+                
+                if (GUILayout.Button("CREATE NEW DUNGEON DATA", buttonStyle, GUILayout.Height(40)))
+                {
+                    CreateNewDungeonData();
+                }
+                
+                EditorGUILayout.EndVertical();
+                
+                EditorGUILayout.Space(20);
+                
+                EditorGUILayout.HelpBox("After creating Dungeon Data, you will see the tool mode buttons:\n• Paint Room\n• Place Node\n• Connect Nodes\n• And more...", MessageType.Info);
+                
+                EditorGUILayout.EndVertical();
+                return;
+            }
+            
+            EditorGUILayout.Space(5);
+            
+            // Tool mode buttons - 2 ROWS, FLEXIBLE WIDTH
+            EditorGUILayout.LabelField("SELECT TOOL MODE:", EditorStyles.boldLabel);
+            
+            GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+            buttonStyle.fontSize = 12;
+            buttonStyle.padding = new RectOffset(10, 10, 5, 5);
+            
+            Color originalBg = GUI.backgroundColor;
+            
+            // FIRST ROW - 4 buttons
+            EditorGUILayout.BeginHorizontal();
+            
+            // Place Node
+            GUI.backgroundColor = (currentMode == ToolMode.PlaceNode) ? Color.yellow : originalBg;
+            if (GUILayout.Button("Place Node", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.PlaceNode;
+            
+            // Connect Nodes
+            GUI.backgroundColor = (currentMode == ToolMode.ConnectNodes) ? Color.yellow : originalBg;
+            if (GUILayout.Button("Connect Nodes", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.ConnectNodes;
+            
+            // Paint Room
+            GUI.backgroundColor = (currentMode == ToolMode.PaintRoom) ? Color.cyan : originalBg;
+            if (GUILayout.Button("Paint Room", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.PaintRoom;
+            
+            // Define Room
+            GUI.backgroundColor = (currentMode == ToolMode.DefineRoomNumeric) ? Color.yellow : originalBg;
+            if (GUILayout.Button("Define Room", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.DefineRoomNumeric;
+            
+            EditorGUILayout.EndHorizontal();
+            
+            // SECOND ROW - 3 buttons
+            EditorGUILayout.BeginHorizontal();
+            
+            // Edit Connection
+            GUI.backgroundColor = (currentMode == ToolMode.EditConnection) ? Color.yellow : originalBg;
+            if (GUILayout.Button("Edit Connection", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.EditConnection;
+            
+            // Select/Move
+            GUI.backgroundColor = (currentMode == ToolMode.SelectAndMove) ? Color.yellow : originalBg;
+            if (GUILayout.Button("Select/Move", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.SelectAndMove;
+            
+            // Delete
+            GUI.backgroundColor = (currentMode == ToolMode.DeleteElement) ? Color.red : originalBg;
+            if (GUILayout.Button("Delete", buttonStyle, GUILayout.Height(30)))
+                currentMode = ToolMode.DeleteElement;
+            
+            // Add flexible space to balance the second row
+            GUILayout.FlexibleSpace();
+            
+            GUI.backgroundColor = originalBg;
+            
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.Space(5);
+            
+            // Grid settings
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Cell Size:", GUILayout.Width(70));
+            dungeonData.gridCellSize = EditorGUILayout.Slider(dungeonData.gridCellSize, 1f, 20f, GUILayout.Width(150));
+            
+            EditorGUILayout.LabelField("Height Level:", GUILayout.Width(90));
+            currentHeightLevel = EditorGUILayout.IntField(currentHeightLevel, GUILayout.Width(40));
+            
+            Color levelColor = heightColors.ContainsKey(currentHeightLevel) ? heightColors[currentHeightLevel] : Color.white;
+            EditorGUILayout.ColorField(GUIContent.none, levelColor, false, false, false, GUILayout.Width(30));
+            
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.EndVertical();
+            EditorGUILayout.Space(5);
+        }
+
+        private void DrawGridCanvas()
+        {
+            if (dungeonData == null) return;
+            
+            Rect canvasRect = GUILayoutUtility.GetRect(10, 100000, 10, 100000);
+            
+            // Background
+            EditorGUI.DrawRect(canvasRect, new Color(0.15f, 0.15f, 0.15f));
+            
+            // Handle zoom and pan
+            HandleCanvasControls(canvasRect);
+            
+            // Draw grid
+            DrawGrid(canvasRect);
+            
+            // Draw rooms
+            DrawRooms(canvasRect);
+            
+            // Draw connections
+            DrawConnections(canvasRect);
+            
+            // Draw nodes
+            DrawNodes(canvasRect);
+            
+            // Handle mouse input
+            HandleMouseInput(canvasRect);
+            
+            // Draw mode-specific UI
+            DrawModeSpecificUI(canvasRect);
+        }
+
+        private void DrawPropertiesPanel()
+        {
+            propertiesScrollPos = EditorGUILayout.BeginScrollView(propertiesScrollPos);
+            
+            EditorGUILayout.LabelField("Properties", EditorStyles.boldLabel);
+            EditorGUILayout.Space(5);
+            
+            if (selectedNode != null)
+            {
+                DrawNodeProperties();
+            }
+            else if (selectedConnection != null)
+            {
+                DrawConnectionProperties();
+            }
+            else if (selectedRoom != null)
+            {
+                DrawRoomProperties();
+            }
+            else
+            {
+                DrawGeneralProperties();
+            }
+            
+            EditorGUILayout.EndScrollView();
+        }
+
+        private void DrawActionButtons()
+        {
+            EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
+            
+            if (GUILayout.Button("Generate Dungeon", GUILayout.Height(30), GUILayout.Width(150)))
+            {
+                GenerateDungeon();
+            }
+            
+            if (GUILayout.Button("Replace Meshes", GUILayout.Height(30), GUILayout.Width(150)))
+            {
+                ReplaceMeshes();
+            }
+            
+            if (GUILayout.Button("Restore Original", GUILayout.Height(30), GUILayout.Width(150)))
+            {
+                RestoreOriginal();
+            }
+            
+            GUILayout.FlexibleSpace();
+            
+            // Debug info
+            if (dungeonData != null)
+            {
+                EditorGUILayout.LabelField($"Rooms: {dungeonData.rooms.Count} | Nodes: {dungeonData.nodes.Count} | Connections: {dungeonData.connections.Count}", 
+                    GUILayout.Width(250));
+            }
+            
+            if (GUILayout.Button("Clear Selection", GUILayout.Height(30), GUILayout.Width(120)))
+            {
+                ClearSelection();
+            }
+            
+            if (GUILayout.Button("Clear All", GUILayout.Height(30), GUILayout.Width(100)))
+            {
+                if (EditorUtility.DisplayDialog("Clear Dungeon", 
+                    "Are you sure you want to clear all nodes, connections, and rooms?", 
+                    "Yes", "Cancel"))
+                {
+                    dungeonData.ClearAll();
+                    ClearSelection();
+                    Repaint();
+                }
+            }
+            
+            EditorGUILayout.EndHorizontal();
+        }
+        #endregion
+
+        #region Grid Drawing
+        private void DrawGrid(Rect canvasRect)
+        {
+            float cellSize = dungeonData.gridCellSize * gridZoom;
+            
+            Handles.BeginGUI();
+            Handles.color = new Color(0.3f, 0.3f, 0.3f);
+            
+            // Calculate visible grid range
+            int startX = Mathf.FloorToInt(-gridOffset.x / cellSize) - 5;
+            int endX = Mathf.CeilToInt((canvasRect.width - gridOffset.x) / cellSize) + 5;
+            int startY = Mathf.FloorToInt(-gridOffset.y / cellSize) - 5;
+            int endY = Mathf.CeilToInt((canvasRect.height - gridOffset.y) / cellSize) + 5;
+            
+            // Vertical lines
+            for (int x = startX; x <= endX; x++)
+            {
+                float screenX = canvasRect.x + x * cellSize + gridOffset.x;
+                Handles.DrawLine(
+                    new Vector3(screenX, canvasRect.y),
+                    new Vector3(screenX, canvasRect.yMax)
+                );
+            }
+            
+            // Horizontal lines
+            for (int y = startY; y <= endY; y++)
+            {
+                float screenY = canvasRect.y + y * cellSize + gridOffset.y;
+                Handles.DrawLine(
+                    new Vector3(canvasRect.x, screenY),
+                    new Vector3(canvasRect.xMax, screenY)
+                );
+            }
+            
+            // Origin lines (thicker)
+            Handles.color = new Color(0.5f, 0.5f, 0.5f);
+            float originX = canvasRect.x + gridOffset.x;
+            float originY = canvasRect.y + gridOffset.y;
+            Handles.DrawLine(new Vector3(originX, canvasRect.y), new Vector3(originX, canvasRect.yMax));
+            Handles.DrawLine(new Vector3(canvasRect.x, originY), new Vector3(canvasRect.xMax, originY));
+            
+            Handles.EndGUI();
+        }
+
+        private void DrawNodes(Rect canvasRect)
+        {
+            if (dungeonData.nodes == null) return;
+            
+            Handles.BeginGUI();
+            
+            foreach (var node in dungeonData.nodes)
+            {
+                Vector2 screenPos = GridToScreen(node.gridPosition, canvasRect);
+                
+                // Determine color based on height and selection
+                Color nodeColor = heightColors.ContainsKey(node.heightLevel) ? 
+                    heightColors[node.heightLevel] : Color.white;
+                
+                if (node == selectedNode)
+                    nodeColor = Color.yellow;
+                else if (node.heightLevel != currentHeightLevel)
+                    nodeColor = Color.Lerp(nodeColor, Color.clear, 0.5f);
+                
+                Handles.color = nodeColor;
+                Handles.DrawSolidDisc(screenPos, Vector3.forward, 8f);
+                
+                // Draw border
+                Handles.color = Color.black;
+                Handles.DrawWireDisc(screenPos, Vector3.forward, 8f);
+                
+                // Draw height indicator
+                if (node.heightLevel != 0)
+                {
+                    GUI.color = Color.white;
+                    GUI.Label(new Rect(screenPos.x - 15, screenPos.y - 20, 30, 20), 
+                        node.heightLevel.ToString(), 
+                        EditorStyles.miniLabel);
+                }
+            }
+            
+            Handles.EndGUI();
+        }
+
+        private void DrawConnections(Rect canvasRect)
+        {
+            if (dungeonData.connections == null) return;
+            
+            Handles.BeginGUI();
+            
+            foreach (var connection in dungeonData.connections)
+            {
+                var nodeA = dungeonData.GetNode(connection.nodeAId);
+                var nodeB = dungeonData.GetNode(connection.nodeBId);
+                
+                if (nodeA == null || nodeB == null) continue;
+                
+                Vector2 screenPosA = GridToScreen(nodeA.gridPosition, canvasRect);
+                Vector2 screenPosB = GridToScreen(nodeB.gridPosition, canvasRect);
+                
+                Color lineColor = connection == selectedConnection ? Color.cyan : Color.gray;
+                
+                // Different line styles for different connection types
+                switch (connection.transitionType)
+                {
+                    case ConnectionType.Ramp:
+                        lineColor = Color.green;
+                        break;
+                    case ConnectionType.Stairs:
+                        lineColor = Color.blue;
+                        break;
+                    case ConnectionType.Tunnel:
+                        lineColor = Color.magenta;
+                        break;
+                }
+                
+                Handles.color = lineColor;
+                Handles.DrawLine(screenPosA, screenPosB);
+                
+                // Draw arrow in middle
+                Vector2 midPoint = (screenPosA + screenPosB) * 0.5f;
+                Vector2 direction = (screenPosB - screenPosA).normalized;
+                Vector2 perpendicular = new Vector2(-direction.y, direction.x);
+                
+                Handles.DrawLine(midPoint, midPoint + perpendicular * 5f);
+            }
+            
+            // Draw temporary connection line when connecting nodes
+            if (currentMode == ToolMode.ConnectNodes && connectionStartNode != null)
+            {
+                Vector2 startPos = GridToScreen(connectionStartNode.gridPosition, canvasRect);
+                Vector2 mousePos = Event.current.mousePosition;
+                
+                Handles.color = Color.yellow;
+                Handles.DrawDottedLine(startPos, mousePos, 3f);
+            }
+            
+            Handles.EndGUI();
+        }
+
+        private void DrawRooms(Rect canvasRect)
+        {
+            if (dungeonData.rooms == null) return;
+            
+            foreach (var room in dungeonData.rooms)
+            {
+                Color roomColor = heightColors.ContainsKey(room.heightLevel) ? 
+                    heightColors[room.heightLevel] : Color.white;
+                
+                roomColor.a = room == selectedRoom ? 0.5f : 0.3f;
+                
+                if (room.heightLevel != currentHeightLevel)
+                    roomColor.a *= 0.3f;
+                
+                foreach (var cell in room.gridCells)
+                {
+                    Rect cellRect = GetCellScreenRect(cell, canvasRect);
+                    EditorGUI.DrawRect(cellRect, roomColor);
+                }
+                
+                // Draw room border
+                if (room.gridCells.Count > 0)
+                {
+                    Handles.BeginGUI();
+                    Handles.color = room == selectedRoom ? Color.yellow : Color.white;
+                    
+                    // Simple bounding box
+                    Vector2Int min = room.gridCells[0];
+                    Vector2Int max = room.gridCells[0];
+                    foreach (var cell in room.gridCells)
+                    {
+                        min.x = Mathf.Min(min.x, cell.x);
+                        min.y = Mathf.Min(min.y, cell.y);
+                        max.x = Mathf.Max(max.x, cell.x);
+                        max.y = Mathf.Max(max.y, cell.y);
+                    }
+                    
+                    Rect boundRect = new Rect(
+                        GetCellScreenRect(min, canvasRect).position,
+                        GetCellScreenRect(max, canvasRect).max - GetCellScreenRect(min, canvasRect).position + 
+                        Vector2.one * dungeonData.gridCellSize * gridZoom
+                    );
+                    
+                    Handles.DrawSolidRectangleWithOutline(boundRect, Color.clear, Handles.color);
+                    Handles.EndGUI();
+                }
+            }
+            
+            // Draw currently painted room
+            if (isPainting && paintedCells.Count > 0)
+            {
+                Color paintColor = heightColors.ContainsKey(currentHeightLevel) ? 
+                    heightColors[currentHeightLevel] : Color.white;
+                paintColor.a = 0.4f;
+                
+                foreach (var cell in paintedCells)
+                {
+                    Rect cellRect = GetCellScreenRect(cell, canvasRect);
+                    EditorGUI.DrawRect(cellRect, paintColor);
+                }
+            }
+        }
+
+        private void DrawModeSpecificUI(Rect canvasRect)
+        {
+            // Draw BIG mode indicator at top of canvas
+            GUIStyle bigTextStyle = new GUIStyle(EditorStyles.boldLabel);
+            bigTextStyle.fontSize = 24;
+            bigTextStyle.normal.textColor = Color.yellow;
+            bigTextStyle.alignment = TextAnchor.UpperCenter;
+            
+            string modeText = "";
+            string instructionText = "";
+            
+            switch (currentMode)
+            {
+                case ToolMode.PlaceNode:
+                    modeText = "MODE: PLACE NODE";
+                    instructionText = "Click to place connection points";
+                    break;
+                case ToolMode.PaintRoom:
+                    modeText = "MODE: PAINT ROOM";
+                    instructionText = "Click and DRAG to paint a room";
+                    bigTextStyle.normal.textColor = Color.cyan;
+                    break;
+                case ToolMode.ConnectNodes:
+                    modeText = "MODE: CONNECT NODES";
+                    instructionText = "Click first node, then second node";
+                    break;
+                case ToolMode.SelectAndMove:
+                    modeText = "MODE: SELECT";
+                    instructionText = "Click to select elements";
+                    break;
+                case ToolMode.DeleteElement:
+                    modeText = "MODE: DELETE";
+                    instructionText = "Click to delete elements";
+                    bigTextStyle.normal.textColor = Color.red;
+                    break;
+            }
+            
+            // Draw mode indicator
+            Rect modeRect = new Rect(canvasRect.x, canvasRect.y + 10, canvasRect.width, 30);
+            GUI.Label(modeRect, modeText, bigTextStyle);
+            
+            // Draw instruction
+            GUIStyle instructionStyle = new GUIStyle(EditorStyles.label);
+            instructionStyle.fontSize = 14;
+            instructionStyle.normal.textColor = Color.white;
+            instructionStyle.alignment = TextAnchor.UpperCenter;
+            
+            Rect instructionRect = new Rect(canvasRect.x, canvasRect.y + 40, canvasRect.width, 20);
+            GUI.Label(instructionRect, instructionText, instructionStyle);
+            
+            // Draw cursor indicator based on mode
+            Vector2 mousePos = Event.current.mousePosition;
+            if (canvasRect.Contains(mousePos))
+            {
+                Vector2Int gridPos = ScreenToGrid(mousePos, canvasRect);
+                Rect cellRect = GetCellScreenRect(gridPos, canvasRect);
+                
+                Color cursorColor = Color.white;
+                cursorColor.a = 0.2f;
+                
+                switch (currentMode)
+                {
+                    case ToolMode.PlaceNode:
+                        cursorColor = Color.green;
+                        cursorColor.a = 0.3f;
+                        break;
+                    case ToolMode.PaintRoom:
+                        cursorColor = heightColors.ContainsKey(currentHeightLevel) ? 
+                            heightColors[currentHeightLevel] : Color.white;
+                        cursorColor.a = 0.4f;
+                        break;
+                    case ToolMode.DeleteElement:
+                        cursorColor = Color.red;
+                        cursorColor.a = 0.3f;
+                        break;
+                }
+                
+                EditorGUI.DrawRect(cellRect, cursorColor);
+            }
+        }
+        #endregion
+
+        #region Mouse Input Handling
+        private void HandleMouseInput(Rect canvasRect)
+        {
+            Event e = Event.current;
+            
+            // CRITICAL: Allow mouse events outside canvas ONLY for painting mode when already painting
+            bool allowOutsideCanvas = (currentMode == ToolMode.PaintRoom && isPainting);
+            
+            if (!canvasRect.Contains(e.mousePosition) && !allowOutsideCanvas)
+                return;
+            
+            Vector2Int gridPos = ScreenToGrid(e.mousePosition, canvasRect);
+            
+            switch (currentMode)
+            {
+                case ToolMode.PlaceNode:
+                    HandlePlaceNodeInput(e, gridPos);
+                    break;
+                    
+                case ToolMode.ConnectNodes:
+                    HandleConnectNodesInput(e, gridPos, canvasRect);
+                    break;
+                    
+                case ToolMode.PaintRoom:
+                    HandlePaintRoomInput(e, gridPos);
+                    break;
+                    
+                case ToolMode.SelectAndMove:
+                    HandleSelectAndMoveInput(e, gridPos, canvasRect);
+                    break;
+                    
+                case ToolMode.DeleteElement:
+                    HandleDeleteInput(e, gridPos, canvasRect);
+                    break;
+            }
+        }
+
+        private void HandlePlaceNodeInput(Event e, Vector2Int gridPos)
+        {
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                // Check if node already exists at this position and height
+                bool nodeExists = dungeonData.nodes.Exists(n => 
+                    n.gridPosition == gridPos && n.heightLevel == currentHeightLevel);
+                
+                if (!nodeExists)
+                {
+                    DungeonNode newNode = new DungeonNode(gridPos, currentHeightLevel, NodeType.Corridor);
+                    dungeonData.nodes.Add(newNode);
+                    dungeonData.RebuildCache();
+                    
+                    EditorUtility.SetDirty(dungeonData);
+                    e.Use();
+                    Repaint();
+                }
+            }
+        }
+
+        private void HandleConnectNodesInput(Event e, Vector2Int gridPos, Rect canvasRect)
+        {
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                DungeonNode clickedNode = GetNodeAtPosition(gridPos, currentHeightLevel);
+                
+                if (clickedNode != null)
+                {
+                    if (connectionStartNode == null)
+                    {
+                        // Start connection
+                        connectionStartNode = clickedNode;
+                    }
+                    else if (connectionStartNode != clickedNode)
+                    {
+                        // Complete connection
+                        CreateConnection(connectionStartNode, clickedNode);
+                        connectionStartNode = null;
+                    }
+                    
+                    e.Use();
+                    Repaint();
+                }
+            }
+            else if (e.type == EventType.MouseMove)
+            {
+                Repaint();
+            }
+        }
+
+        private void HandlePaintRoomInput(Event e, Vector2Int gridPos)
+        {
+            // Start painting on mouse down
+            if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
+            {
+                isPainting = true;
+                paintedCells.Clear();
+                paintedCells.Add(gridPos);
+                e.Use();
+                Repaint();
+                Debug.Log($"Started painting at {gridPos}");
+            }
+            // Continue painting on drag (CRITICAL: also check MouseDrag)
+            else if (e.type == EventType.MouseDrag && e.button == 0 && isPainting && !e.alt)
+            {
+                if (!paintedCells.Contains(gridPos))
+                {
+                    paintedCells.Add(gridPos);
+                    Debug.Log($"Added cell {gridPos}, total cells: {paintedCells.Count}");
+                }
+                e.Use();
+                Repaint();
+            }
+            // Finish painting on mouse up
+            else if (e.type == EventType.MouseUp && e.button == 0 && isPainting)
+            {
+                // Create room from painted cells
+                if (paintedCells.Count > 0 && dungeonData != null)
+                {
+                    DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
+                    newRoom.gridCells.AddRange(paintedCells);
+                    newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
+                    dungeonData.rooms.Add(newRoom);
+                    
+                    EditorUtility.SetDirty(dungeonData);
+                    Debug.Log($"Created room '{newRoom.roomName}' with {newRoom.gridCells.Count} cells at height level {currentHeightLevel}");
+                }
+                else if (dungeonData == null)
+                {
+                    Debug.LogError("Cannot create room: dungeonData is null!");
+                }
+                
+                isPainting = false;
+                paintedCells.Clear();
+                e.Use();
+                Repaint();
+            }
+            
+            // CRITICAL: Also handle MouseDrag when not painting started (in case we missed MouseDown)
+            if (e.type == EventType.MouseDrag && e.button == 0 && !isPainting && !e.alt)
+            {
+                // Force start painting if drag detected without mousedown
+                isPainting = true;
+                paintedCells.Clear();
+                paintedCells.Add(gridPos);
+                Debug.Log($"Force started painting on drag at {gridPos}");
+                e.Use();
+                Repaint();
+            }
+        }
+
+        private void HandleSelectAndMoveInput(Event e, Vector2Int gridPos, Rect canvasRect)
+        {
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                // Try to select node
+                DungeonNode clickedNode = GetNodeAtPosition(gridPos, currentHeightLevel);
+                if (clickedNode != null)
+                {
+                    selectedNode = clickedNode;
+                    selectedConnection = null;
+                    selectedRoom = null;
+                    e.Use();
+                    Repaint();
+                    return;
+                }
+                
+                // Try to select room
+                DungeonRoom clickedRoom = GetRoomAtPosition(gridPos, currentHeightLevel);
+                if (clickedRoom != null)
+                {
+                    selectedRoom = clickedRoom;
+                    selectedNode = null;
+                    selectedConnection = null;
+                    e.Use();
+                    Repaint();
+                    return;
+                }
+                
+                ClearSelection();
+                Repaint();
+            }
+        }
+
+        private void HandleDeleteInput(Event e, Vector2Int gridPos, Rect canvasRect)
+        {
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                // Try to delete node
+                DungeonNode clickedNode = GetNodeAtPosition(gridPos, currentHeightLevel);
+                if (clickedNode != null)
+                {
+                    DeleteNode(clickedNode);
+                    e.Use();
+                    Repaint();
+                    return;
+                }
+                
+                // Try to delete room
+                DungeonRoom clickedRoom = GetRoomAtPosition(gridPos, currentHeightLevel);
+                if (clickedRoom != null)
+                {
+                    dungeonData.rooms.Remove(clickedRoom);
+                    EditorUtility.SetDirty(dungeonData);
+                    e.Use();
+                    Repaint();
+                    return;
+                }
+            }
+        }
+
+        private void HandleCanvasControls(Rect canvasRect)
+        {
+            Event e = Event.current;
+            
+            // CRITICAL: Don't interfere with painting mode
+            if (currentMode == ToolMode.PaintRoom && e.button == 0 && !e.alt)
+            {
+                return; // Let HandlePaintRoomInput handle it
+            }
+            
+            // Pan with middle mouse or Alt+Left mouse
+            if ((e.type == EventType.MouseDrag && e.button == 2) ||
+                (e.type == EventType.MouseDrag && e.button == 0 && e.alt))
+            {
+                gridOffset += e.delta;
+                e.Use();
+                Repaint();
+            }
+            
+            // Zoom with scroll wheel
+            if (e.type == EventType.ScrollWheel && canvasRect.Contains(e.mousePosition))
+            {
+                float zoomDelta = -e.delta.y * 0.05f;
+                float newZoom = Mathf.Clamp(gridZoom + zoomDelta, minZoom, maxZoom);
+                
+                // Zoom towards mouse position
+                Vector2 mouseLocalPos = e.mousePosition - canvasRect.position - gridOffset;
+                gridOffset = gridOffset * (newZoom / gridZoom) + mouseLocalPos * (1 - newZoom / gridZoom);
+                
+                gridZoom = newZoom;
+                e.Use();
+                Repaint();
+            }
+        }
+        #endregion
+
+        #region Properties Panels
+        private void DrawNodeProperties()
+        {
+            if (selectedNode == null || dungeonData == null)
+            {
+                ClearSelection();
+                return;
+            }
+            
+            EditorGUILayout.LabelField("Node Properties", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+            
+            EditorGUILayout.LabelField("ID:", selectedNode.id);
+            EditorGUILayout.LabelField("Position:", selectedNode.gridPosition.ToString());
+            
+            int newHeight = EditorGUILayout.IntField("Height Level:", selectedNode.heightLevel);
+            if (newHeight != selectedNode.heightLevel)
+            {
+                selectedNode.heightLevel = newHeight;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            NodeType newType = (NodeType)EditorGUILayout.EnumPopup("Type:", selectedNode.type);
+            if (newType != selectedNode.type)
+            {
+                selectedNode.type = newType;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Delete Node"))
+            {
+                DeleteNode(selectedNode);
+                selectedNode = null;
+            }
+        }
+
+        private void DrawConnectionProperties()
+        {
+            if (selectedConnection == null || dungeonData == null)
+            {
+                ClearSelection();
+                return;
+            }
+            
+            EditorGUILayout.LabelField("Connection Properties", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+            
+            EditorGUILayout.LabelField("ID:", selectedConnection.id);
+            
+            ConnectionType newType = (ConnectionType)EditorGUILayout.EnumPopup("Type:", selectedConnection.transitionType);
+            if (newType != selectedConnection.transitionType)
+            {
+                selectedConnection.transitionType = newType;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Width Points:", EditorStyles.boldLabel);
+            
+            if (selectedConnection.widthPoints == null)
+            {
+                selectedConnection.widthPoints = new System.Collections.Generic.List<WidthPoint>();
+                selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0f, width = 3f });
+                selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 1f, width = 3f });
+            }
+            
+            for (int i = 0; i < selectedConnection.widthPoints.Count; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                
+                EditorGUILayout.LabelField($"Point {i}:", GUILayout.Width(60));
+                
+                float newPos = EditorGUILayout.Slider(selectedConnection.widthPoints[i].normalizedPosition, 0f, 1f);
+                float newWidth = EditorGUILayout.FloatField(selectedConnection.widthPoints[i].width, GUILayout.Width(50));
+                
+                if (newPos != selectedConnection.widthPoints[i].normalizedPosition ||
+                    newWidth != selectedConnection.widthPoints[i].width)
+                {
+                    selectedConnection.widthPoints[i].normalizedPosition = newPos;
+                    selectedConnection.widthPoints[i].width = newWidth;
+                    EditorUtility.SetDirty(dungeonData);
+                }
+                
+                if (GUILayout.Button("X", GUILayout.Width(25)) && selectedConnection.widthPoints.Count > 2)
+                {
+                    selectedConnection.widthPoints.RemoveAt(i);
+                    EditorUtility.SetDirty(dungeonData);
+                }
+                
+                EditorGUILayout.EndHorizontal();
+            }
+            
+            if (GUILayout.Button("Add Width Point"))
+            {
+                selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0.5f, width = 3f });
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.Space();
+            
+            if (selectedConnection.transitionType == ConnectionType.Ramp)
+            {
+                float newSlope = EditorGUILayout.FloatField("Custom Slope (degrees, -1 = auto):", selectedConnection.customSlope);
+                if (newSlope != selectedConnection.customSlope)
+                {
+                    selectedConnection.customSlope = newSlope;
+                    EditorUtility.SetDirty(dungeonData);
+                }
+            }
+            
+            if (selectedConnection.transitionType == ConnectionType.Stairs)
+            {
+                int newStepCount = EditorGUILayout.IntField("Step Count:", selectedConnection.stepCount);
+                if (newStepCount != selectedConnection.stepCount)
+                {
+                    selectedConnection.stepCount = Mathf.Max(1, newStepCount);
+                    EditorUtility.SetDirty(dungeonData);
+                }
+            }
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Delete Connection"))
+            {
+                dungeonData.connections.Remove(selectedConnection);
+                EditorUtility.SetDirty(dungeonData);
+                selectedConnection = null;
+            }
+        }
+
+        private void DrawRoomProperties()
+        {
+            if (selectedRoom == null || dungeonData == null)
+            {
+                ClearSelection();
+                return;
+            }
+            
+            EditorGUILayout.LabelField("Room Properties", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+            
+            EditorGUILayout.LabelField("ID:", selectedRoom.id);
+            
+            string newName = EditorGUILayout.TextField("Name:", selectedRoom.roomName);
+            if (newName != selectedRoom.roomName)
+            {
+                selectedRoom.roomName = newName;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            int newHeight = EditorGUILayout.IntField("Height Level:", selectedRoom.heightLevel);
+            if (newHeight != selectedRoom.heightLevel)
+            {
+                selectedRoom.heightLevel = newHeight;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.LabelField("Cell Count:", selectedRoom.gridCells != null ? selectedRoom.gridCells.Count.ToString() : "0");
+            
+            EditorGUILayout.Space();
+            
+            if (GUILayout.Button("Delete Room"))
+            {
+                dungeonData.rooms.Remove(selectedRoom);
+                EditorUtility.SetDirty(dungeonData);
+                selectedRoom = null;
+            }
+        }
+
+        private void DrawGeneralProperties()
+        {
+            if (dungeonData == null)
+            {
+                EditorGUILayout.HelpBox("No dungeon data selected", MessageType.Info);
+                return;
+            }
+            
+            EditorGUILayout.LabelField("General Settings", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+            
+            float newCellSize = EditorGUILayout.Slider("Cell Size:", dungeonData.gridCellSize, 1f, 20f);
+            if (newCellSize != dungeonData.gridCellSize)
+            {
+                dungeonData.gridCellSize = newCellSize;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            float newHeightPerLevel = EditorGUILayout.FloatField("Height Per Level (m):", dungeonData.heightPerLevel);
+            if (newHeightPerLevel != dungeonData.heightPerLevel)
+            {
+                dungeonData.heightPerLevel = newHeightPerLevel;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            int newTunnelSegments = EditorGUILayout.IntSlider("Tunnel Segments:", dungeonData.tunnelSegments, 4, 16);
+            if (newTunnelSegments != dungeonData.tunnelSegments)
+            {
+                dungeonData.tunnelSegments = newTunnelSegments;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            float newTunnelHeight = EditorGUILayout.FloatField("Tunnel Height (m):", dungeonData.defaultTunnelHeight);
+            if (newTunnelHeight != dungeonData.defaultTunnelHeight)
+            {
+                dungeonData.defaultTunnelHeight = newTunnelHeight;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Mesh Replacement (Optional)", EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox("Mesh Replacement Set es opcional. Si no lo asignas, el generador usará primitivas de Unity (cubos).", MessageType.Info);
+            
+            MeshReplacementSet newMeshSet = (MeshReplacementSet)EditorGUILayout.ObjectField(
+                "Mesh Set:", 
+                dungeonData.meshSet, 
+                typeof(MeshReplacementSet), 
+                false
+            );
+            
+            if (newMeshSet != dungeonData.meshSet)
+            {
+                dungeonData.meshSet = newMeshSet;
+                EditorUtility.SetDirty(dungeonData);
+            }
+            
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Statistics", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Nodes:", dungeonData.nodes != null ? dungeonData.nodes.Count.ToString() : "0");
+            EditorGUILayout.LabelField("Connections:", dungeonData.connections != null ? dungeonData.connections.Count.ToString() : "0");
+            EditorGUILayout.LabelField("Rooms:", dungeonData.rooms != null ? dungeonData.rooms.Count.ToString() : "0");
+            
+            if (currentMode == ToolMode.DefineRoomNumeric)
+            {
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Numeric Room Definition", EditorStyles.boldLabel);
+                
+                roomSizeNumeric = EditorGUILayout.Vector2IntField("Size:", roomSizeNumeric);
+                roomPositionNumeric = EditorGUILayout.Vector2IntField("Position:", roomPositionNumeric);
+                
+                if (GUILayout.Button("Create Room"))
+                {
+                    CreateNumericRoom();
+                }
+            }
+        }
+        #endregion
+
+        #region Helper Methods
+        private Vector2 GridToScreen(Vector2Int gridPos, Rect canvasRect)
+        {
+            float cellSize = dungeonData.gridCellSize * gridZoom;
+            return new Vector2(
+                canvasRect.x + gridPos.x * cellSize + gridOffset.x,
+                canvasRect.y + gridPos.y * cellSize + gridOffset.y
+            );
+        }
+
+        private Vector2Int ScreenToGrid(Vector2 screenPos, Rect canvasRect)
+        {
+            float cellSize = dungeonData.gridCellSize * gridZoom;
+            return new Vector2Int(
+                Mathf.RoundToInt((screenPos.x - canvasRect.x - gridOffset.x) / cellSize),
+                Mathf.RoundToInt((screenPos.y - canvasRect.y - gridOffset.y) / cellSize)
+            );
+        }
+
+        private Rect GetCellScreenRect(Vector2Int gridPos, Rect canvasRect)
+        {
+            float cellSize = dungeonData.gridCellSize * gridZoom;
+            Vector2 screenPos = GridToScreen(gridPos, canvasRect);
+            return new Rect(screenPos.x, screenPos.y, cellSize, cellSize);
+        }
+
+        private DungeonNode GetNodeAtPosition(Vector2Int gridPos, int heightLevel)
+        {
+            return dungeonData.nodes.Find(n => n.gridPosition == gridPos && n.heightLevel == heightLevel);
+        }
+
+        private DungeonRoom GetRoomAtPosition(Vector2Int gridPos, int heightLevel)
+        {
+            return dungeonData.rooms.Find(r => r.gridCells.Contains(gridPos) && r.heightLevel == heightLevel);
+        }
+
+        private void CreateConnection(DungeonNode nodeA, DungeonNode nodeB)
+        {
+            // Check if connection already exists
+            bool exists = dungeonData.connections.Exists(c =>
+                (c.nodeAId == nodeA.id && c.nodeBId == nodeB.id) ||
+                (c.nodeAId == nodeB.id && c.nodeBId == nodeA.id)
+            );
+            
+            if (!exists)
+            {
+                DungeonConnection newConnection = new DungeonConnection(nodeA.id, nodeB.id, currentCorridorWidth);
+                newConnection.transitionType = currentConnectionType;
+                
+                // Auto-detect if height difference requires special transition
+                if (nodeA.heightLevel != nodeB.heightLevel && newConnection.transitionType == ConnectionType.Flat)
+                {
+                    newConnection.transitionType = ConnectionType.Ramp;
+                }
+                
+                dungeonData.connections.Add(newConnection);
+                EditorUtility.SetDirty(dungeonData);
+            }
+        }
+
+        private void DeleteNode(DungeonNode node)
+        {
+            // Remove all connections to this node
+            dungeonData.connections.RemoveAll(c => c.nodeAId == node.id || c.nodeBId == node.id);
+            
+            // Remove the node
+            dungeonData.nodes.Remove(node);
+            dungeonData.RebuildCache();
+            
+            EditorUtility.SetDirty(dungeonData);
+        }
+
+        private void CreateNumericRoom()
+        {
+            if (dungeonData == null) return;
+            
+            DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
+            newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
+            newRoom.manualSize = roomSizeNumeric;
+            newRoom.shape = RoomShape.Rectangular;
+            
+            for (int x = 0; x < roomSizeNumeric.x; x++)
+            {
+                for (int y = 0; y < roomSizeNumeric.y; y++)
+                {
+                    newRoom.gridCells.Add(roomPositionNumeric + new Vector2Int(x, y));
+                }
+            }
+            
+            dungeonData.rooms.Add(newRoom);
+            EditorUtility.SetDirty(dungeonData);
+            Repaint();
+        }
+
+        private void ClearSelection()
+        {
+            selectedNode = null;
+            selectedConnection = null;
+            selectedRoom = null;
+            connectionStartNode = null;
+        }
+
+        private void CreateNewDungeonData()
+        {
+            string path = EditorUtility.SaveFilePanelInProject(
+                "Create New Dungeon Data",
+                "NewDungeon",
+                "asset",
+                "Choose a location to save the dungeon data"
+            );
+            
+            if (!string.IsNullOrEmpty(path))
+            {
+                DungeonData newData = ScriptableObject.CreateInstance<DungeonData>();
+                AssetDatabase.CreateAsset(newData, path);
+                AssetDatabase.SaveAssets();
+                
+                dungeonData = newData;
+                serializedData = new SerializedObject(dungeonData);
+                
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newData;
+            }
+        }
+
+        private void GenerateDungeon()
+        {
+            if (dungeonData == null)
+            {
+                EditorUtility.DisplayDialog("Error", "No dungeon data selected!", "OK");
+                return;
+            }
+            
+            // Clean up previous generation
+            if (generatedDungeon != null)
+            {
+                if (EditorUtility.DisplayDialog("Replace Existing Dungeon?", 
+                    "A dungeon already exists. Delete and regenerate?", 
+                    "Yes", "Cancel"))
+                {
+                    DestroyImmediate(generatedDungeon);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            
+            generatedDungeon = DungeonGenerator.Generate(dungeonData);
+            
+            if (generatedDungeon != null)
+            {
+                Selection.activeGameObject = generatedDungeon;
+                EditorGUIUtility.PingObject(generatedDungeon);
+            }
+        }
+
+        private void ReplaceMeshes()
+        {
+            if (generatedDungeon == null)
+            {
+                EditorUtility.DisplayDialog("Error", "No generated dungeon found! Generate a dungeon first.", "OK");
+                return;
+            }
+            
+            if (dungeonData == null || dungeonData.meshSet == null)
+            {
+                EditorUtility.DisplayDialog("Error", "No mesh replacement set assigned!", "OK");
+                return;
+            }
+            
+            DungeonMeshReplacer.ReplaceMeshes(dungeonData, generatedDungeon);
+        }
+
+        private void RestoreOriginal()
+        {
+            if (generatedDungeon == null)
+            {
+                EditorUtility.DisplayDialog("Error", "No generated dungeon found!", "OK");
+                return;
+            }
+            
+            DungeonMeshReplacer.RestoreOriginalMeshes(generatedDungeon);
+        }
+        #endregion
+    }
+}

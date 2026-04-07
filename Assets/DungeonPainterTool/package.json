@@ -1,0 +1,22 @@
+{
+  "name": "com.dungeonpainter.tool",
+  "version": "1.0.0",
+  "displayName": "Dungeon Painter Tool",
+  "description": "Visual grid-based dungeon design tool for Unity. Create organic, multi-level dungeons inspired by series like Danmachi. Paint rooms, connect nodes, create ramps and stairs, all in the editor without runtime generation.",
+  "unity": "2020.3",
+  "keywords": [
+    "dungeon",
+    "level design",
+    "editor",
+    "tool",
+    "procedural",
+    "danmachi",
+    "maze",
+    "grid"
+  ],
+  "author": {
+    "name": "Dungeon Painter",
+    "url": "https://github.com/yourusername/dungeon-painter-tool"
+  },
+  "dependencies": {}
+}

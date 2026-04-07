@@ -1,0 +1,16 @@
+DUNGEON PAINTER TOOL
+====================
+Version: 1.0.8
+Status:  STABLE
+
+CHANGES IN 1.0.8:
+- Tu mejora de SelectionGrid integrada (botones en panel derecho, 2 columnas)
+- URP/HDRP/Built-in material detection automática (MaterialHelper.cs)
+- Keyboard Shortcuts: P N C S D Ctrl+Z Ctrl+C Ctrl+V F Space
+- Undo/Redo en todas las operaciones (Paint, Delete, Place, Connect, etc.)
+- Copy/Paste de salas (Ctrl+C / Ctrl+V o botones en panel)
+- Room Templates: 11 formas predefinidas (L, T, Cruz, Círculo, etc.)
+- Grid Coordinates: coordenadas en tiempo real en la esquina del canvas
+- Center View: tecla F o botón abajo para centrar la vista
+- Space (hold) = pan mode temporal
+- Cursor highlight por modo (verde=nodo, cyan=paint, rojo=delete)
