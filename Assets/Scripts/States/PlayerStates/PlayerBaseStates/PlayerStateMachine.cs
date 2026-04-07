@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -43,29 +43,46 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
 
     //---- START PLAYER OWN MOVEMENT
 
-    //Variables 
-    [SerializeField] float _acceleration = 12f;
-    [SerializeField] float _targetVelocity = 10f;
-    [SerializeField] float jumpHeight = 5f;
+    [Header("Movement Physics Base")]
+    public float maxGroundSpeed = 10f;
+    public float maxCrouchSpeed = 5f;
+    public float maxAirSpeed = 2f; 
+    
+    [Tooltip("Base horizontal acceleration")]
+    public float groundAcceleration = 100f;
+    public float airAcceleration = 12f;
 
-    [SerializeField, Range(0f, 1f)] float _turnaroundStrength;
+    public float groundFriction = 8f;
+    public float airFriction = 0.5f;
+
+    [Header("Jump & Slide")]
+    public float jumpForce = 6f;
+    public float slideBoost = 15f;
+    public float slideFriction = 2f;
+    
+    [Header("Crouch / Slide Config")]
+    public float crouchHeightMultiplier = 0.5f;
+    public float slideDuration = 1.0f;
+    public float heightTransitionSpeed = 10f;
+    private float originalHeight;
+    private float originalCamLocalY;
+    private float targetHeight;
     [SerializeField] float rotationSpeed = 50f;
-   
-    //---- END PLAYER OWN MOVEMENT
 
+    [HideInInspector] public Vector3 PlayerVelocity;
+    //---- END PLAYER OWN MOVEMENT
 
     //----- START PLAYER GRAVITY
 
 
-    [SerializeField] float _gravityForce = 9.81f;
+    [SerializeField] float _gravityForce = 20f;
+    public float GravityForce => _gravityForce;
     public Vector3 GravityDir { get { return _gravityDir; } set { _gravityDir = value.normalized; } }
 
 
     [Header("Upgradeable Stats")]
-    [Tooltip("Base horizontal acceleration")]
-    [SerializeField] private float baseAcceleration = 200f;
-    [Tooltip("Additional acceleration per level")]
-    [SerializeField] private float accelerationIncrement = 500f;
+    [Tooltip("Additional speed per level")]
+    [SerializeField] private float accelerationIncrement = 2f;
     [Tooltip("Maximum upgrade levels")]
     [SerializeField] private int maxUpgradeLevel = 5;
 
@@ -117,6 +134,9 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         GameManager.Instance.AddPlayerTransforms(transform);
         controls = GetComponent<InputReader>();
         
+        originalHeight = cc.height;
+        targetHeight = originalHeight;
+        originalCamLocalY = headCam.localPosition.y;
     }
 
     private void Start()
@@ -146,6 +166,9 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
                 _sliding = true;
                 _slideNormal = hitInfo.normal;
             }
+            
+            // Push player out of slope or floor if clipping slightly
+            // We use PlayerVelocity.y for gravity logic naturally
         }
         else
         {
@@ -179,77 +202,112 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         return moveInput;
     }
 
-    public void PlayerHorizontalMovement(Vector2 input)
+    public Vector3 GetCameraRight() 
     {
-        float vVel = Vector3.Dot(cc.velocity, GroundNormal);
-
-        Vector2 currentVel2d = Get2dOrientation(Vector3.ProjectOnPlane(cc.velocity, GroundNormal), GroundNormal);
-
-
-        currentVel2d = Movement(currentVel2d, input);
-
-
-        Debug.DrawRay(transform.position + transform.up * 0.8f, new Vector3(currentVel2d.x, 0f, currentVel2d.y), Color.green);
-        Vector3 outputHorizontal = MultiplyByPlane(currentVel2d, GroundNormal);
-        Debug.DrawRay(transform.position + transform.up * 0.8f, outputHorizontal, Color.blue);
-        //Debug.Log($"Input: {input}");
-        
-       
-        cc.Move((outputHorizontal + (GroundNormal * vVel)) * Time.deltaTime/**/ );
-
-        
-
-        
+        Vector3 right = Camera.main.transform.right;
+        right.y = 0;
+        return right.normalized;
+    }
+    
+    public Vector3 GetCameraForward() 
+    {
+        Vector3 fore = Camera.main.transform.forward;
+        fore.y = 0;
+        return fore.normalized;
     }
 
-    public Vector2 CameraOritentedMovement(Vector2 input)
+    public void ApplyFriction(float frictionAmount)
     {
-        Transform cameraTransform = Camera.main.transform;
-        Vector3 camRight = cameraTransform.right;
-        Vector3 camForward = cameraTransform.forward;
+        Vector3 vel = new Vector3(PlayerVelocity.x, 0, PlayerVelocity.z);
+        float speed = vel.magnitude;
+        if (speed != 0) 
+        {
+            float drop = speed * frictionAmount * Time.deltaTime;
+            float newSpeed = speed - drop;
+            if (newSpeed < 0) newSpeed = 0;
+            newSpeed /= speed;
 
-        camForward = input.y * Vector3.ProjectOnPlane(camForward, Vector3.up).normalized;
-        camRight = input.x * Vector3.ProjectOnPlane(camRight, Vector3.up).normalized;
-
-        Vector3 camForwardAxis = Vector3.ProjectOnPlane(Vector3.forward, GroundNormal).normalized;
-        Vector3 camRightAxis = Vector3.ProjectOnPlane(Vector3.right, GroundNormal).normalized;
-
-        Vector2 output;
-
-        output.x = (Vector3.Dot(camRight + camForward, camRightAxis));
-        output.y = (Vector3.Dot(camForward + camRight, camForwardAxis));
-
-        Debug.DrawRay(transform.position + (transform.up * 2.5f), new Vector3(output.x, 0f, output.y), Color.cyan);
-
-        return output;
-    }
-    /// <summary>
-    /// change a vector from a 3d vector to a 2d vector 
-    /// </summary>
-    public Vector2 Get2dOrientation(Vector3 value, Vector3 normal) // value is any vector, normal always comes in normalized
-    {
-        // project the value so we are on the plane defined by the normal
-        Vector3 modifiedValue = Vector3.ProjectOnPlane(value, normal).normalized;
-        // get the right direction 
-        Vector3 right = Vector3.Cross(normal, modifiedValue).normalized;
-        // get the forward direction translated to the xz plane
-        Vector3 inputDir = Vector3.Cross(right, Vector3.up).normalized;
-        //add the magnitude back to make it as long as at the start
-        Vector2 output = new Vector2(inputDir.x, inputDir.z).normalized * value.magnitude;
-        worldInputDir = output;
-        return output;
+            PlayerVelocity.x *= newSpeed;
+            PlayerVelocity.z *= newSpeed;
+        }
     }
 
-    /// <summary>
-    /// transforms a 2d plane into a 3d one based on a normal  
-    /// </summary>
-    public Vector3 MultiplyByPlane(Vector2 plane, Vector3 planeNormal)
+    public void Accelerate(Vector3 targetDirection, float targetMaxSpeed, float acceleration)
     {
-        Vector3 planeDir = new Vector3(plane.x, 0f, plane.y);
-        Vector3 translatedRight = Vector3.Cross(planeNormal, planeDir.normalized).normalized;
-        Vector3 translatedForward = Vector3.Cross(translatedRight, planeNormal).normalized;
-        Vector3 output = translatedForward * plane.magnitude;
-        return output;
+        float currentSpeed = Vector3.Dot(PlayerVelocity, targetDirection);
+        float addSpeed = targetMaxSpeed - currentSpeed;
+        if (addSpeed <= 0) return;
+
+        float accelSpeed = acceleration * Time.deltaTime;
+        if (accelSpeed > addSpeed) accelSpeed = addSpeed;
+
+        PlayerVelocity.x += accelSpeed * targetDirection.x;
+        PlayerVelocity.z += accelSpeed * targetDirection.z;
+    }
+
+    public void ApplyGravityCustom()
+    {
+        PlayerVelocity.y -= _gravityForce * Time.deltaTime;
+    }
+    
+    public void Jump()
+    {
+        if(Grounded)
+        {
+            PlayerVelocity.y = jumpForce;
+        }
+    }
+
+    public void SetCrouchedScale(bool isCrouched)
+    {
+        targetHeight = isCrouched ? originalHeight * crouchHeightMultiplier : originalHeight;
+    }
+
+    private void UpdateHeight()
+    {
+        if (cc.height != targetHeight)
+        {
+            float lastHeight = cc.height;
+            cc.height = Mathf.Lerp(cc.height, targetHeight, heightTransitionSpeed * Time.deltaTime);
+            cc.radius = cc.height / 2f; // Ensure radius scales safely if needed, or keep radius same if it's small enough
+
+            // Adjust position so we don't fall off or fly
+            float heightDiff = lastHeight - cc.height;
+            transform.position += new Vector3(0, heightDiff / 2, 0);
+            
+            // Adjust camera Y smoothly
+            float curCamY = headCam.localPosition.y;
+            float targetCamY = targetHeight == originalHeight ? originalCamLocalY : (originalCamLocalY * crouchHeightMultiplier * 0.8f);
+            headCam.localPosition = new Vector3(headCam.localPosition.x, Mathf.Lerp(curCamY, targetCamY, heightTransitionSpeed * Time.deltaTime), headCam.localPosition.z);
+        }
+    }
+
+    public bool CanStandUp()
+    {
+        if (targetHeight == originalHeight) return true; // Already standing or trying to
+        // If we are crouched, check upwards if there's roof
+        RaycastHit hit;
+        float distance = originalHeight - cc.height;
+        Vector3 origin = transform.position + Vector3.up * (cc.height / 2f);
+        if (Physics.SphereCast(origin, cc.radius * 0.9f, Vector3.up, out hit, distance, GroundMask))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public void MovePlayer()
+    {
+        UpdateHeight();
+        
+        cc.Move(PlayerVelocity * Time.deltaTime);
+
+        // Ground sticking / reset Y velocity if colliding with ground
+        if (Grounded && PlayerVelocity.y <= 0)
+        {
+            // Pequeña fuerza descendente extra para mantenerse pegado al suelo al bajar pendientes
+            PlayerVelocity.y = -2f;
+        }
     }
 
     private void OnDrawGizmos()
@@ -258,93 +316,6 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         Gizmos.DrawWireSphere(transform.position + transform.up * _height, _castRadius);
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere((transform.position + (transform.up * _height)) + -transform.up * _castLength, _castRadius);
-    }
-
-    /// <summary>
-    /// Logic for the horizontal movment
-    /// </summary>
-    /// <param name="currentVelocity">Velocity from the player before beeing modified</param>
-    /// <param name="input">Target direction for the player</param>
-    /// <returns>new Velocity for the player</returns>
-    public Vector2 Movement(Vector2 currentVelocity, Vector2 input)
-    {
-        //Example
-
-        //reduction of velocity by change of direction
-        currentVelocity *= VelocityRemaining(currentVelocity.normalized, input);
-
-        //acceleration
-        float targetVelSq = _targetVelocity * _targetVelocity;
-        if (currentVelocity.sqrMagnitude < targetVelSq)
-        {
-            currentVelocity += (input * _acceleration );
-            if (currentVelocity.sqrMagnitude > targetVelSq)
-            {
-                float mag = Mathf.Clamp(currentVelocity.magnitude, 0f, _targetVelocity);
-                currentVelocity = mag * currentVelocity.normalized;
-            }
-        }
-
-        //slide off
-        if (Sliding)
-        {
-            Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, SlideNormal).normalized;
-            Vector3 slideVelocity = Vector3.ProjectOnPlane(new Vector3(currentVelocity.x, 0f, currentVelocity.y), SlideNormal);
-
-            // Combine sliding direction with input
-            currentVelocity = new Vector2(slideVelocity.x, slideVelocity.z);
-
-        }
-
-        return currentVelocity;
-    }
-
-    //can be deleted only used for the example
-    public float VelocityRemaining(Vector3 currentVelocity, Vector3 input)
-    {
-        float dot = Vector2.Dot(currentVelocity.normalized, input.normalized);
-
-        dot += 1f + _turnaroundStrength;
-        dot /= 2f + _turnaroundStrength;
-        dot = Mathf.Pow(dot, 1f - _turnaroundStrength);
-        return dot;
-    }
-
-
-    private Vector3 _horizontalVelocity; // Stores horizontal velocity during sliding
-    [SerializeField] float scalarHVelocity = 50f;
-    private Vector3 currentForceGravity = Vector3.zero;
-    public void ApplyGravity()
-    {
-        if (Grounded)
-        {
-            currentForceGravity = (_gravityDir * _gravityForce) * Time.deltaTime;
-            // Project gravity onto the ground normal to prevent horizontal movement
-            Vector3 groundedGravity = Vector3.ProjectOnPlane(_gravityDir * _gravityForce, GroundNormal.normalized);
-            cc.Move((GravityDir * _gravityForce) * Time.deltaTime);
-
-            
-        }
-        else
-        {
-            if (Sliding)
-            {
-                currentForceGravity = Vector3.zero;
-                // Calculate sliding direction along the slope
-                Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, SlideNormal).normalized;
-                _horizontalVelocity += Vector3.ProjectOnPlane(cc.velocity, SlideNormal);
-                _horizontalVelocity.y = 0f;
-                cc.Move(slideDirection * _gravityForce * Time.deltaTime);
-            }
-            else
-            {
-                currentForceGravity +=  (_gravityDir * _gravityForce) * Time.deltaTime;
-                // Regular airborne gravity
-                cc.Move(( currentForceGravity+ (_horizontalVelocity.normalized*scalarHVelocity)) * Time.deltaTime);
-
-                //cc.Move(((GravityDir * _gravityForce)+ (resetVelo + _horizontalVelocity.normalized)) * Time.deltaTime);
-            }
-        }
     }
 
     private float verticalRotation = 0f;
@@ -444,9 +415,9 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         if (upgradeLevel >= maxUpgradeLevel) return;
         upgradeLevel++;
         // Apply the new acceleration value directly to your state machine field
-        _acceleration = baseAcceleration + upgradeLevel * accelerationIncrement;
-        _targetVelocity = baseAcceleration + upgradeLevel * accelerationIncrement;
-        Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New acc: {_acceleration}");
+        maxGroundSpeed += accelerationIncrement;
+        groundAcceleration += accelerationIncrement * 5f;
+        Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New max speed: {maxGroundSpeed}");
     }
 
     public void ApplyPlayerStat(PlayerStat stat, float value, bool isPercent)
@@ -454,16 +425,16 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         switch (stat)
         {
             case PlayerStat.Acceleration:
-                _acceleration = isPercent
-                  ? _acceleration * (1 + value / 100f)
-                  : _acceleration + value;
+                maxGroundSpeed = isPercent
+                  ? maxGroundSpeed * (1 + value / 100f)
+                  : maxGroundSpeed + value;
 
-                _targetVelocity = _acceleration;
+                groundAcceleration = maxGroundSpeed * 10f; // rough equivalent
                 break;
             case PlayerStat.JumpHeight:
-                jumpHeight = isPercent
-                  ? jumpHeight * (1 + value / 100f)
-                  : jumpHeight + value;
+                jumpForce = isPercent
+                  ? jumpForce * (1 + value / 100f)
+                  : jumpForce + value;
                 break;
             case PlayerStat.MaxHealth:
                 maxHPPlayer = isPercent

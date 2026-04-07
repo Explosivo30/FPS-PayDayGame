@@ -11,27 +11,56 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.controls.InteractEvent += InteractEvent;
-        
+        stateMachine.controls.JumpEvent += OnJump;
     }    
 
     public override void Tick()
     {
-        //Debug.Log("Estoy en idle");
         stateMachine.PlayerLook();
         stateMachine.GroundDetection();
+        
         if(Input.GetKeyDown(KeyCode.H))
         {
             stateMachine.TakeDamage(20);
         }
-        stateMachine.ApplyGravity();
-        stateMachine.PlayerHorizontalMovement(stateMachine.CameraOritentedMovement(stateMachine.GetInput()));
 
-        
+        if (!stateMachine.Grounded)
+        {
+            stateMachine.SwitchState(new PlayerAirState(stateMachine));
+            return;
+        }
 
+        if (stateMachine.controls.isCrouching)
+        {
+            stateMachine.SwitchState(new PlayerCrouchState(stateMachine));
+            return;
+        }
+
+        if (stateMachine.controls.MovementValue.sqrMagnitude > 0.01f)
+        {
+            stateMachine.SwitchState(new PlayerMovementState(stateMachine));
+            return;
+        }
+
+        // Apply friction to stop completely
+        stateMachine.ApplyFriction(stateMachine.groundFriction);
+        stateMachine.ApplyGravityCustom();
+        stateMachine.MovePlayer();
     }
+    
     public override void Exit()
     {
         stateMachine.controls.InteractEvent -= InteractEvent;
+        stateMachine.controls.JumpEvent -= OnJump;
+    }
+
+    private void OnJump()
+    {
+        if (stateMachine.Grounded)
+        {
+            stateMachine.Jump();
+            stateMachine.SwitchState(new PlayerAirState(stateMachine));
+        }
     }
 
     private void InteractEvent()
