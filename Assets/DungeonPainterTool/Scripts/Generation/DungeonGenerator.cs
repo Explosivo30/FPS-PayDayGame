@@ -135,7 +135,8 @@ namespace DungeonPainter.Generation
                 floorRenderer.material = CreateDefaultMaterial(new Color(0.6f, 0.6f, 0.6f));
 
             // ── Walls with doorway openings ────────────────────────
-            float wallHeight = data.defaultTunnelHeight;
+            // Use room-specific height; fall back to defaultTunnelHeight for legacy rooms with height=0
+            float wallHeight = room.roomHeight > 0f ? room.roomHeight : data.defaultTunnelHeight;
             float wallThickness = 0.5f;
             Color wallColor = new Color(0.4f, 0.35f, 0.3f);
 
@@ -177,6 +178,26 @@ namespace DungeonPainter.Generation
                 wallThickness, wallHeight, bounds.size.z,
                 openings.TryGetValue(WallSide.Right, out var rO) ? rO : null,
                 wallColor);
+
+            // ── Ceiling (only when room is marked closed) ──────────
+            if (room.isClosed)
+            {
+                GameObject ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                ceiling.name = "Ceiling";
+                ceiling.transform.SetParent(roomObj.transform);
+                // Top face of ceiling aligns with top of walls
+                ceiling.transform.position = new Vector3(
+                    bounds.center.x,
+                    worldHeight + wallHeight + 0.25f,
+                    bounds.center.z);
+                ceiling.transform.localScale = new Vector3(
+                    bounds.size.x + wallThickness * 2f,
+                    0.5f,
+                    bounds.size.z + wallThickness * 2f);
+                ceiling.tag = "DungeonCeiling";
+                ceiling.GetComponent<Renderer>().material =
+                    CreateDefaultMaterial(new Color(0.35f, 0.30f, 0.28f));
+            }
         }
 
         // ────────────────────────────────────────────────────────────

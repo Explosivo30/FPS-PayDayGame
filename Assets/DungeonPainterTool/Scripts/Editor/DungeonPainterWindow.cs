@@ -52,6 +52,8 @@ namespace DungeonPainter.Editor
         private int brushSize = 1;
         private Vector2Int brushDragStart;
         private List<Vector2Int> polygonVertices = new List<Vector2Int>();
+        private float currentRoomHeight = 3f;   // default height for newly painted rooms
+        private bool currentRoomClosed = false;  // default closed state for newly painted rooms
 
         // Numeric room definition
         private Vector2Int roomSizeNumeric = new Vector2Int(5, 5);
@@ -276,6 +278,12 @@ namespace DungeonPainter.Editor
                     if (GUILayout.Button("Finish Polygon")) FinishPolygon();
                     if (GUILayout.Button("Cancel Polygon")) polygonVertices.Clear();
                 }
+
+                // ── Default room properties for new rooms ───────────
+                EditorGUILayout.Space(4);
+                EditorGUILayout.LabelField("New Room Defaults", EditorStyles.boldLabel);
+                currentRoomHeight = EditorGUILayout.FloatField("Room Height (m):", Mathf.Max(0.5f, currentRoomHeight));
+                currentRoomClosed = EditorGUILayout.Toggle("Closed (with ceiling):", currentRoomClosed);
             }
 
             // ── Object shape selector (only in Place Object mode) ──
@@ -488,6 +496,19 @@ namespace DungeonPainter.Editor
                         GetCellScreenRect(mn, canvasRect).position,
                         GetCellScreenRect(mx, canvasRect).max - GetCellScreenRect(mn, canvasRect).position + Vector2.one * cs);
                     Handles.DrawSolidRectangleWithOutline(br, Color.clear, Handles.color);
+
+                    // ── Closed-room badge ──────────────────────────
+                    if (room.isClosed)
+                    {
+                        float alpha = room.heightLevel != currentHeightLevel ? 0.4f : 1f;
+                        GUIStyle badgeStyle = new GUIStyle(EditorStyles.boldLabel);
+                        badgeStyle.normal.textColor = new Color(0.2f, 0.9f, 1f, alpha);
+                        badgeStyle.fontSize = Mathf.Max(9, Mathf.RoundToInt(cs * 0.28f));
+                        Vector2 badgePos = GridToScreenCenter(mn, canvasRect);
+                        GUI.Label(new Rect(badgePos.x + 2, badgePos.y - cs * 0.5f, 60, 20),
+                            $"[C] {room.roomHeight:0.#}m", badgeStyle);
+                    }
+
                     Handles.EndGUI();
                 }
             }
@@ -727,7 +748,8 @@ namespace DungeonPainter.Editor
                     if (shapeCells.Count > 0 && dungeonData != null)
                     {
                         Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Room (Shape)");
-                        DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
+                        DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
+                        newRoom.isClosed     = currentRoomClosed;
                         newRoom.gridCells.AddRange(shapeCells);
                         newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
                         dungeonData.rooms.Add(newRoom);
@@ -755,12 +777,13 @@ namespace DungeonPainter.Editor
                 if (paintedCells.Count > 0 && dungeonData != null)
                 {
                     Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Room");
-                    DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
+                    DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
+                    newRoom.isClosed     = currentRoomClosed;
                     newRoom.gridCells.AddRange(paintedCells);
                     newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
                     dungeonData.rooms.Add(newRoom);
                     EditorUtility.SetDirty(dungeonData);
-                    Debug.Log($"Created '{newRoom.roomName}' – {newRoom.gridCells.Count} cells");
+                    Debug.Log($"Created '{newRoom.roomName}' – {newRoom.gridCells.Count} cells, height={newRoom.roomHeight}m, closed={newRoom.isClosed}");
                 }
                 isPainting = false; paintedCells.Clear();
                 e.Use(); Repaint();
@@ -833,12 +856,13 @@ namespace DungeonPainter.Editor
             if (cells.Count > 0)
             {
                 Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Polygon Room");
-                DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
+                DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
+                newRoom.isClosed     = currentRoomClosed;
                 newRoom.gridCells.AddRange(cells);
                 newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
                 dungeonData.rooms.Add(newRoom);
                 EditorUtility.SetDirty(dungeonData);
-                Debug.Log($"Created polygon room '{newRoom.roomName}' – {cells.Count} cells");
+                Debug.Log($"Created polygon room '{newRoom.roomName}' – {cells.Count} cells, height={newRoom.roomHeight}m");
             }
             polygonVertices.Clear();
             Repaint();
@@ -1048,10 +1072,28 @@ namespace DungeonPainter.Editor
             if (selectedRoom == null || dungeonData == null) { ClearSelection(); return; }
             EditorGUILayout.LabelField("Room Properties", EditorStyles.boldLabel);
             EditorGUILayout.LabelField("ID:", selectedRoom.id);
+
             string newName = EditorGUILayout.TextField("Name:", selectedRoom.roomName);
-            if (newName != selectedRoom.roomName) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Name"); selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
+            if (newName != selectedRoom.roomName)
+            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Name"); selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
+
             int newH = EditorGUILayout.IntField("Height Level:", selectedRoom.heightLevel);
-            if (newH != selectedRoom.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Height"); selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            if (newH != selectedRoom.heightLevel)
+            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Height Level"); selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+
+            // ── Per-room height & closed toggle ───────────────────
+            float newRH = EditorGUILayout.FloatField("Room Height (m):", selectedRoom.roomHeight);
+            newRH = Mathf.Max(0.5f, newRH);
+            if (!Mathf.Approximately(newRH, selectedRoom.roomHeight))
+            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Wall Height"); selectedRoom.roomHeight = newRH; EditorUtility.SetDirty(dungeonData); }
+
+            bool newClosed = EditorGUILayout.Toggle("Closed (with ceiling):", selectedRoom.isClosed);
+            if (newClosed != selectedRoom.isClosed)
+            { Undo.RegisterCompleteObjectUndo(dungeonData, "Toggle Room Closed"); selectedRoom.isClosed = newClosed; EditorUtility.SetDirty(dungeonData); }
+
+            if (selectedRoom.isClosed)
+                EditorGUILayout.HelpBox($"Ceiling will be generated at {selectedRoom.roomHeight} m above floor.", MessageType.None);
+
             EditorGUILayout.LabelField("Cells:", selectedRoom.gridCells?.Count.ToString() ?? "0");
             EditorGUILayout.Space();
             if (GUILayout.Button("Copy Room")) CopySelectedRoom();
@@ -1340,10 +1382,11 @@ namespace DungeonPainter.Editor
         {
             if (dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Create Numeric Room");
-            DungeonRoom nr = new DungeonRoom(currentHeightLevel);
-            nr.roomName  = "Room_" + (dungeonData.rooms.Count + 1);
+            DungeonRoom nr = new DungeonRoom(currentHeightLevel, currentRoomHeight);
+            nr.isClosed   = currentRoomClosed;
+            nr.roomName   = "Room_" + (dungeonData.rooms.Count + 1);
             nr.manualSize = roomSizeNumeric;
-            nr.shape     = RoomShape.Rectangular;
+            nr.shape      = RoomShape.Rectangular;
             for (int x = 0; x < roomSizeNumeric.x; x++)
                 for (int y = 0; y < roomSizeNumeric.y; y++)
                     nr.gridCells.Add(roomPositionNumeric + new Vector2Int(x, y));
@@ -1364,7 +1407,8 @@ namespace DungeonPainter.Editor
         private void CopySelectedRoom()
         {
             if (selectedRoom == null) { Debug.Log("Select a room first."); return; }
-            copiedRoom = new DungeonRoom(selectedRoom.heightLevel);
+            copiedRoom = new DungeonRoom(selectedRoom.heightLevel, selectedRoom.roomHeight);
+            copiedRoom.isClosed  = selectedRoom.isClosed;
             copiedRoom.gridCells = new List<Vector2Int>(selectedRoom.gridCells);
             copiedRoom.roomName  = selectedRoom.roomName + "_Copy";
             Debug.Log($"Copied: {selectedRoom.roomName}");
@@ -1374,8 +1418,9 @@ namespace DungeonPainter.Editor
         {
             if (copiedRoom == null || dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Paste Room");
-            DungeonRoom nr = new DungeonRoom(copiedRoom.heightLevel);
-            nr.roomName = copiedRoom.roomName;
+            DungeonRoom nr = new DungeonRoom(copiedRoom.heightLevel, copiedRoom.roomHeight);
+            nr.isClosed  = copiedRoom.isClosed;
+            nr.roomName  = copiedRoom.roomName;
             foreach (var cell in copiedRoom.gridCells)
                 nr.gridCells.Add(cell + new Vector2Int(3, 3));
             dungeonData.rooms.Add(nr);
@@ -1404,8 +1449,9 @@ namespace DungeonPainter.Editor
         {
             if (dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Place Template");
-            DungeonRoom nr = new DungeonRoom(currentHeightLevel);
-            nr.roomName = template.name + "_" + (dungeonData.rooms.Count + 1);
+            DungeonRoom nr = new DungeonRoom(currentHeightLevel, currentRoomHeight);
+            nr.isClosed  = currentRoomClosed;
+            nr.roomName  = template.name + "_" + (dungeonData.rooms.Count + 1);
             foreach (var cell in template.GetNormalizedCells())
                 nr.gridCells.Add(cell);
             dungeonData.rooms.Add(nr);

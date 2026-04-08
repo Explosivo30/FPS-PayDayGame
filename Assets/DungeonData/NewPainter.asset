@@ -89,6 +89,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_1
+    roomHeight: 5
+    isClosed: 1
   - id: 48c4a3b0
     gridCells:
     - {x: 296, y: 57}
@@ -129,6 +131,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_2
+    roomHeight: 0
+    isClosed: 0
   - id: 5ee730d5
     gridCells:
     - {x: 257, y: 39}
@@ -140,6 +144,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_3
+    roomHeight: 0
+    isClosed: 0
   - id: ba49087c
     gridCells:
     - {x: 290, y: 36}
@@ -156,6 +162,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_4
+    roomHeight: 0
+    isClosed: 0
   - id: dccb9877
     gridCells:
     - {x: 314, y: 33}
@@ -207,6 +215,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_5
+    roomHeight: 0
+    isClosed: 0
   - id: ae4c2e1e
     gridCells:
     - {x: 311, y: 43}
@@ -261,6 +271,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_6
+    roomHeight: 0
+    isClosed: 0
   - id: 2567af08
     gridCells:
     - {x: 297, y: 30}
@@ -301,6 +313,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_7
+    roomHeight: 0
+    isClosed: 0
   objects: []
   meshSet: {fileID: 0}
   heightPerLevel: 3

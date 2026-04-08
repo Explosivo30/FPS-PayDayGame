@@ -177,10 +177,17 @@ namespace DungeonPainter.Data
         public RoomShape shape;
         public string roomName;
 
-        public DungeonRoom(int height)
+        [Tooltip("Height of this room's walls and ceiling in world units (metres).")]
+        public float roomHeight = 3f;
+
+        [Tooltip("If true, a ceiling slab will be generated over this room.")]
+        public bool isClosed = false;
+
+        public DungeonRoom(int height, float wallHeight = 3f)
         {
             id = System.Guid.NewGuid().ToString().Substring(0, 8);
             heightLevel = height;
+            roomHeight  = wallHeight;
             shape = RoomShape.Custom;
             roomName = "Room";
         }
