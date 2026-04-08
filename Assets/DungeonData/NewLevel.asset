@@ -459,6 +459,13 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_5_Copy
+  - id: 5bf5bb87
+    gridCells:
+    - {x: 176, y: 47}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_7
   objects:
   - id: 60ffb88c
     gridPosition: {x: 155, y: 43}

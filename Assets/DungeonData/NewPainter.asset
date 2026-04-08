@@ -1,0 +1,308 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5a52fe1ecb864098d7e89c37adde3, type: 3}
+  m_Name: NewPainter
+  m_EditorClassIdentifier: 
+  gridCellSize: 5
+  nodes:
+  - id: af25ee5c
+    gridPosition: {x: 297, y: 49}
+    heightLevel: 0
+    type: 1
+  - id: 09842290
+    gridPosition: {x: 292, y: 46}
+    heightLevel: 0
+    type: 1
+  - id: 65554247
+    gridPosition: {x: 294, y: 47}
+    heightLevel: 0
+    type: 1
+  - id: 8092f850
+    gridPosition: {x: 296, y: 46}
+    heightLevel: 0
+    type: 1
+  - id: 857f17cc
+    gridPosition: {x: 298, y: 46}
+    heightLevel: 0
+    type: 1
+  - id: 3214d926
+    gridPosition: {x: 298, y: 47}
+    heightLevel: 0
+    type: 1
+  - id: 53b86434
+    gridPosition: {x: 269, y: 43}
+    heightLevel: 0
+    type: 1
+  - id: 4772c025
+    gridPosition: {x: 271, y: 38}
+    heightLevel: 0
+    type: 1
+  connections: []
+  rooms:
+  - id: 40b74090
+    gridCells:
+    - {x: 267, y: 55}
+    - {x: 268, y: 55}
+    - {x: 269, y: 56}
+    - {x: 269, y: 57}
+    - {x: 270, y: 57}
+    - {x: 270, y: 58}
+    - {x: 271, y: 59}
+    - {x: 271, y: 60}
+    - {x: 272, y: 60}
+    - {x: 272, y: 61}
+    - {x: 273, y: 61}
+    - {x: 273, y: 62}
+    - {x: 274, y: 62}
+    - {x: 274, y: 63}
+    - {x: 275, y: 63}
+    - {x: 275, y: 64}
+    - {x: 276, y: 64}
+    - {x: 277, y: 65}
+    - {x: 278, y: 66}
+    - {x: 279, y: 66}
+    - {x: 279, y: 67}
+    - {x: 280, y: 67}
+    - {x: 280, y: 68}
+    - {x: 281, y: 68}
+    - {x: 281, y: 69}
+    - {x: 282, y: 69}
+    - {x: 283, y: 70}
+    - {x: 284, y: 70}
+    - {x: 284, y: 71}
+    - {x: 285, y: 71}
+    - {x: 286, y: 71}
+    - {x: 286, y: 72}
+    - {x: 287, y: 72}
+    - {x: 288, y: 73}
+    - {x: 289, y: 73}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_1
+  - id: 48c4a3b0
+    gridCells:
+    - {x: 296, y: 57}
+    - {x: 296, y: 56}
+    - {x: 297, y: 56}
+    - {x: 297, y: 57}
+    - {x: 297, y: 58}
+    - {x: 298, y: 59}
+    - {x: 298, y: 60}
+    - {x: 298, y: 61}
+    - {x: 299, y: 61}
+    - {x: 299, y: 62}
+    - {x: 299, y: 63}
+    - {x: 300, y: 63}
+    - {x: 300, y: 64}
+    - {x: 300, y: 65}
+    - {x: 301, y: 65}
+    - {x: 301, y: 66}
+    - {x: 301, y: 67}
+    - {x: 302, y: 67}
+    - {x: 302, y: 68}
+    - {x: 303, y: 68}
+    - {x: 303, y: 69}
+    - {x: 304, y: 70}
+    - {x: 305, y: 70}
+    - {x: 305, y: 71}
+    - {x: 306, y: 71}
+    - {x: 306, y: 72}
+    - {x: 307, y: 72}
+    - {x: 308, y: 73}
+    - {x: 309, y: 73}
+    - {x: 309, y: 74}
+    - {x: 310, y: 74}
+    - {x: 311, y: 75}
+    - {x: 312, y: 75}
+    - {x: 312, y: 76}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_2
+  - id: 5ee730d5
+    gridCells:
+    - {x: 257, y: 39}
+    - {x: 258, y: 39}
+    - {x: 259, y: 39}
+    - {x: 260, y: 39}
+    - {x: 261, y: 39}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_3
+  - id: ba49087c
+    gridCells:
+    - {x: 290, y: 36}
+    - {x: 289, y: 37}
+    - {x: 288, y: 38}
+    - {x: 287, y: 39}
+    - {x: 286, y: 40}
+    - {x: 285, y: 40}
+    - {x: 284, y: 41}
+    - {x: 283, y: 42}
+    - {x: 282, y: 43}
+    - {x: 281, y: 44}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_4
+  - id: dccb9877
+    gridCells:
+    - {x: 314, y: 33}
+    - {x: 314, y: 34}
+    - {x: 314, y: 35}
+    - {x: 314, y: 36}
+    - {x: 314, y: 37}
+    - {x: 315, y: 32}
+    - {x: 315, y: 33}
+    - {x: 315, y: 34}
+    - {x: 315, y: 35}
+    - {x: 315, y: 36}
+    - {x: 315, y: 37}
+    - {x: 315, y: 38}
+    - {x: 316, y: 32}
+    - {x: 316, y: 33}
+    - {x: 316, y: 34}
+    - {x: 316, y: 35}
+    - {x: 316, y: 36}
+    - {x: 316, y: 37}
+    - {x: 316, y: 38}
+    - {x: 317, y: 32}
+    - {x: 317, y: 33}
+    - {x: 317, y: 34}
+    - {x: 317, y: 35}
+    - {x: 317, y: 36}
+    - {x: 317, y: 37}
+    - {x: 317, y: 38}
+    - {x: 318, y: 32}
+    - {x: 318, y: 33}
+    - {x: 318, y: 34}
+    - {x: 318, y: 35}
+    - {x: 318, y: 36}
+    - {x: 318, y: 37}
+    - {x: 318, y: 38}
+    - {x: 319, y: 32}
+    - {x: 319, y: 33}
+    - {x: 319, y: 34}
+    - {x: 319, y: 35}
+    - {x: 319, y: 36}
+    - {x: 319, y: 37}
+    - {x: 319, y: 38}
+    - {x: 320, y: 33}
+    - {x: 320, y: 34}
+    - {x: 320, y: 35}
+    - {x: 320, y: 36}
+    - {x: 320, y: 37}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_5
+  - id: ae4c2e1e
+    gridCells:
+    - {x: 311, y: 43}
+    - {x: 312, y: 43}
+    - {x: 313, y: 43}
+    - {x: 314, y: 43}
+    - {x: 315, y: 43}
+    - {x: 316, y: 43}
+    - {x: 317, y: 43}
+    - {x: 318, y: 43}
+    - {x: 319, y: 43}
+    - {x: 310, y: 44}
+    - {x: 311, y: 44}
+    - {x: 312, y: 44}
+    - {x: 313, y: 44}
+    - {x: 314, y: 44}
+    - {x: 315, y: 44}
+    - {x: 316, y: 44}
+    - {x: 317, y: 44}
+    - {x: 318, y: 44}
+    - {x: 309, y: 45}
+    - {x: 310, y: 45}
+    - {x: 311, y: 45}
+    - {x: 312, y: 45}
+    - {x: 313, y: 45}
+    - {x: 314, y: 45}
+    - {x: 315, y: 45}
+    - {x: 316, y: 45}
+    - {x: 317, y: 45}
+    - {x: 308, y: 46}
+    - {x: 309, y: 46}
+    - {x: 310, y: 46}
+    - {x: 311, y: 46}
+    - {x: 312, y: 46}
+    - {x: 313, y: 46}
+    - {x: 314, y: 46}
+    - {x: 315, y: 46}
+    - {x: 316, y: 46}
+    - {x: 311, y: 47}
+    - {x: 312, y: 47}
+    - {x: 313, y: 47}
+    - {x: 314, y: 47}
+    - {x: 315, y: 47}
+    - {x: 310, y: 47}
+    - {x: 313, y: 48}
+    - {x: 314, y: 48}
+    - {x: 317, y: 46}
+    - {x: 318, y: 45}
+    - {x: 319, y: 44}
+    - {x: 320, y: 43}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_6
+  - id: 2567af08
+    gridCells:
+    - {x: 297, y: 30}
+    - {x: 297, y: 31}
+    - {x: 297, y: 32}
+    - {x: 298, y: 32}
+    - {x: 296, y: 33}
+    - {x: 297, y: 33}
+    - {x: 298, y: 33}
+    - {x: 296, y: 34}
+    - {x: 297, y: 34}
+    - {x: 298, y: 34}
+    - {x: 296, y: 35}
+    - {x: 297, y: 35}
+    - {x: 298, y: 35}
+    - {x: 299, y: 35}
+    - {x: 296, y: 36}
+    - {x: 297, y: 36}
+    - {x: 298, y: 36}
+    - {x: 299, y: 36}
+    - {x: 295, y: 37}
+    - {x: 296, y: 37}
+    - {x: 297, y: 37}
+    - {x: 298, y: 37}
+    - {x: 299, y: 37}
+    - {x: 295, y: 36}
+    - {x: 295, y: 35}
+    - {x: 296, y: 32}
+    - {x: 296, y: 31}
+    - {x: 297, y: 29}
+    - {x: 298, y: 31}
+    - {x: 299, y: 34}
+    - {x: 300, y: 36}
+    - {x: 300, y: 37}
+    - {x: 297, y: 38}
+    - {x: 296, y: 38}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_7
+  objects: []
+  meshSet: {fileID: 0}
+  heightPerLevel: 3
+  tunnelSegments: 8
+  defaultTunnelHeight: 4
