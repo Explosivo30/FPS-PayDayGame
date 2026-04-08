@@ -229,6 +229,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_1
+    roomHeight: 0
+    isClosed: 0
   - id: c44a7ada
     gridCells:
     - {x: 149, y: 35}
@@ -276,6 +278,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_2
+    roomHeight: 0
+    isClosed: 0
   - id: 76226f1e
     gridCells:
     - {x: 234, y: 81}
@@ -341,6 +345,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_5
+    roomHeight: 0
+    isClosed: 0
   - id: c91bcc45
     gridCells:
     - {x: 175, y: 83}
@@ -401,6 +407,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_5
+    roomHeight: 0
+    isClosed: 0
   - id: 6bd96314
     gridCells:
     - {x: 178, y: 96}
@@ -459,6 +467,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_5_Copy
+    roomHeight: 0
+    isClosed: 0
   - id: 5bf5bb87
     gridCells:
     - {x: 176, y: 47}
@@ -466,6 +476,8 @@ MonoBehaviour:
     manualSize: {x: 0, y: 0}
     shape: 1
     roomName: Room_7
+    roomHeight: 0
+    isClosed: 0
   objects:
   - id: 60ffb88c
     gridPosition: {x: 155, y: 43}
@@ -497,6 +509,116 @@ MonoBehaviour:
     prefabOverride: {fileID: 0}
     scale: {x: 1, y: 1, z: 1}
     gizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  walls:
+  - id: 73c58287
+    gridCells: []
+    heightLevel: 5
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_1
+  - id: 98f24eaf
+    gridCells: []
+    heightLevel: 5
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_2
+  - id: e68f5be5
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_3
+  - id: fd45657f
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_4
+  - id: 5691f136
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_5
+  - id: dc7dc4f9
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_6
+  - id: ec3ff7d0
+    gridCells: []
+    heightLevel: 0
+    customHeight: 5
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_7
+  - id: 589f8ebe
+    gridCells: []
+    heightLevel: 0
+    customHeight: 5
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_8
+  - id: 93c1f27f
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_9
+  - id: 5797947f
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_10
+  - id: 3b4ca11b
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_11
+  - id: 6edc36cc
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_12
+  - id: f25918fb
+    gridCells: []
+    heightLevel: 0
+    customHeight: 0
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_13
+  - id: 2f819b14
+    gridCells:
+    - {x: 76, y: 37}
+    - {x: 77, y: 37}
+    - {x: 78, y: 37}
+    - {x: 79, y: 37}
+    - {x: 80, y: 37}
+    - {x: 81, y: 37}
+    - {x: 82, y: 37}
+    - {x: 83, y: 37}
+    - {x: 84, y: 37}
+    - {x: 85, y: 37}
+    - {x: 86, y: 37}
+    - {x: 87, y: 37}
+    - {x: 88, y: 37}
+    - {x: 89, y: 37}
+    - {x: 90, y: 37}
+    - {x: 91, y: 37}
+    - {x: 92, y: 37}
+    - {x: 93, y: 37}
+    - {x: 94, y: 37}
+    - {x: 95, y: 37}
+    - {x: 96, y: 37}
+    - {x: 97, y: 37}
+    - {x: 98, y: 37}
+    - {x: 99, y: 37}
+    - {x: 100, y: 37}
+    heightLevel: 0
+    customHeight: 5
+    color: {r: 0.4, g: 0.35, b: 0.3, a: 1}
+    wallName: Wall_14
   meshSet: {fileID: 0}
   heightPerLevel: 3
   tunnelSegments: 8

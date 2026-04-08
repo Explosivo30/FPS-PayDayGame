@@ -20,6 +20,7 @@ namespace DungeonPainter.Data
         public List<DungeonConnection> connections = new List<DungeonConnection>();
         public List<DungeonRoom> rooms = new List<DungeonRoom>();
         public List<DungeonObject> objects = new List<DungeonObject>();
+        public List<DungeonWall> walls = new List<DungeonWall>();
 
         [Header("Mesh Replacement")]
         public MeshReplacementSet meshSet;
@@ -59,6 +60,7 @@ namespace DungeonPainter.Data
             connections.Clear();
             rooms.Clear();
             objects.Clear();
+            walls.Clear();
             nodeCache = null;
         }
 
@@ -290,6 +292,26 @@ namespace DungeonPainter.Data
         {
             id = System.Guid.NewGuid().ToString().Substring(0, 8);
             gridPosition = pos;
+            heightLevel = height;
+        }
+    }
+
+    /// <summary>
+    /// Represents an independent wall placed on the grid
+    /// </summary>
+    [System.Serializable]
+    public class DungeonWall
+    {
+        public string id;
+        public List<Vector2Int> gridCells = new List<Vector2Int>();
+        public int heightLevel;
+        public float customHeight = 0f; // 0f means auto (inherits from room or 2m default)
+        public Color color = new Color(0.4f, 0.35f, 0.3f);
+        public string wallName = "Wall";
+
+        public DungeonWall(int height)
+        {
+            id = System.Guid.NewGuid().ToString().Substring(0, 8);
             heightLevel = height;
         }
     }

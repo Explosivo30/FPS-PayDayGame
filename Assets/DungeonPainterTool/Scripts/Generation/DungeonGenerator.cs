@@ -57,7 +57,19 @@ namespace DungeonPainter.Generation
                 }
             }
 
-            Debug.Log($"Dungeon generated with {data.rooms.Count} rooms, {data.connections.Count} connections, {(data.objects?.Count ?? 0)} objects");
+            // Generate independent walls
+            if (data.walls != null && data.walls.Count > 0)
+            {
+                GameObject wallsContainer = new GameObject("IndependentWalls");
+                wallsContainer.transform.SetParent(dungeonRoot.transform);
+
+                foreach (var wall in data.walls)
+                {
+                    GenerateIndependentWall(wall, data, wallsContainer.transform);
+                }
+            }
+
+            Debug.Log($"Dungeon generated with {data.rooms.Count} rooms, {data.connections.Count} connections, {(data.objects?.Count ?? 0)} objects, {(data.walls?.Count ?? 0)} walls");
             return dungeonRoot;
         }
 
@@ -99,6 +111,50 @@ namespace DungeonPainter.Generation
             go.transform.position = worldPos;
             go.transform.rotation = rotation;
             go.transform.localScale = obj.scale;
+        }
+
+        static void GenerateIndependentWall(DungeonWall wall, DungeonData data, Transform parent)
+        {
+            if (wall == null || wall.gridCells == null || wall.gridCells.Count == 0) return;
+
+            GameObject wallGroup = new GameObject(wall.wallName + "_" + wall.id);
+            wallGroup.transform.SetParent(parent);
+
+            float actualHeight = 2f; // default
+            if (wall.customHeight > 0f)
+            {
+                actualHeight = wall.customHeight;
+            }
+
+            int index = 0;
+            foreach (var cellPos in wall.gridCells)
+            {
+                float cellHeight = actualHeight;
+                if (wall.customHeight <= 0f)
+                {
+                    // Find if it's inside a room
+                    var room = data.rooms.Find(r => r.gridCells.Contains(cellPos) && r.heightLevel == wall.heightLevel);
+                    if (room != null && room.roomHeight > 0f)
+                    {
+                        cellHeight = room.roomHeight;
+                    }
+                }
+
+                Vector3 worldPos = GridToWorldCenter(cellPos, wall.heightLevel, data);
+            
+                // Adjust Y to place it exactly on the floor level
+                float baseHeight = wall.heightLevel * data.heightPerLevel;
+                worldPos.y = baseHeight + cellHeight / 2f;
+
+                GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                go.name = "Cell_" + index++;
+                go.transform.SetParent(wallGroup.transform);
+                go.transform.position = worldPos;
+                go.transform.localScale = new Vector3(data.gridCellSize, cellHeight, data.gridCellSize);
+            
+                go.GetComponent<Renderer>().material = CreateDefaultMaterial(wall.color);
+                go.tag = "DungeonWall";
+            }
         }
 
         #region Room Generation
