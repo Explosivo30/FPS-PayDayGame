@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 1737084941816505445}
   - component: {fileID: 7194112980758448470}
   - component: {fileID: 1627929677894978513}
+  - component: {fileID: 6863126035208385841}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -861,19 +862,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _height: 0.04
   _castRadius: 0.54
-  _castLength: 1.29
+  _castLength: 1
   _maxAngle: 30
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
   cc: {fileID: 1737084941816505445}
-  _acceleration: 10
-  _targetVelocity: 12
-  jumpHeight: 5
-  _turnaroundStrength: 0.358
+  maxGroundSpeed: 10
+  maxCrouchSpeed: 5
+  maxAirSpeed: 2
+  groundAcceleration: 100
+  airAcceleration: 12
+  groundFriction: 8
+  airFriction: 0.5
+  jumpForce: 26.17
+  slideBoost: 15
+  slideFriction: 2
+  crouchHeightMultiplier: 0.5
+  slideDuration: 1
+  heightTransitionSpeed: 10
   rotationSpeed: 20
-  _gravityForce: 9.81
-  baseAcceleration: 200
+  PlayerVelocity: {x: 0, y: 0, z: 0}
+  _gravityForce: 29.43
   accelerationIncrement: 50
   maxUpgradeLevel: 5
   headCam: {fileID: 4666897098625950039}
@@ -882,7 +892,6 @@ MonoBehaviour:
   damageVolume: {fileID: 7262371989946044427}
   fadeInTime: 0.2
   fadeOutTime: 1
-  scalarHVelocity: 3
 --- !u!143 &1737084941816505445
 CharacterController:
   m_ObjectHideFlags: 0
@@ -945,6 +954,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   isCrouching: 0
+--- !u!114 &6863126035208385841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385531853929317568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c4fcadf1d860640a1b5a702333fb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxUpgradeLevel: 10
+  _maxShield: 15
+  regenDelay: 3
+  regenRate: 5
 --- !u!1 &7909359652019448997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1224,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8715123518859878434, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8903905492506350561, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}
       propertyPath: m_Name
       value: PISTOLA_PLASMA_FIX
@@ -1214,6 +1243,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8903905492506350561, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5172601942804861022}
+    - targetCorrespondingSourceObject: {fileID: 8903905492506350561, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8439095179059547081}
   m_SourcePrefab: {fileID: 100100000, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}
 --- !u!1 &4066840720661885447 stripped
 GameObject:
@@ -1233,9 +1265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunTypeID: Pistol
-  damage: 5
-  ammo: 30
-  currentAmmo: 30
+  damage: 30
+  ammo: 12
+  currentAmmo: 12
   fireRate: 10
   maxRangeGun: 100
   swayData: {fileID: 11400000, guid: a10579332c61f9644801d0db3123fb6a, type: 2}
@@ -1249,6 +1281,113 @@ MonoBehaviour:
   aimSpeed: 10
   weaponHolder: {fileID: 8025424491877238204}
   aimData: {fileID: 11400000, guid: 2f48c390c30e4de49a029c29c15143ad, type: 2}
+--- !u!120 &8439095179059547081
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066840720661885447}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4ea2f476a781bcf4a8012e617df3a624, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.059510008
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!4 &8025424491877238204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3206947516549997658, guid: 693ed2eb3e4c8944e9d8442c22fbd614, type: 3}

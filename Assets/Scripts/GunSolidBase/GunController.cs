@@ -10,6 +10,9 @@ public class GunController : MonoBehaviour
     [NonSerialized] public IWeapon currentWeapon;
     private int currentIndex = 0;
 
+    private InputReader inputReader;
+    private bool wasAttacking = false;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked; // Locks the cursor to the center
@@ -18,6 +21,9 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
+        // Try to find the InputReader on this GameObject or a parent (like the Player)
+        inputReader = GetComponentInParent<InputReader>();
+
         // Cast and store all IWeapon implementations
         foreach (var obj in weaponObjects)
         {
@@ -37,15 +43,24 @@ public class GunController : MonoBehaviour
             Cursor.visible = true;
         }
 
-        if (currentWeapon.IsAutomatic)
+        if (currentWeapon != null)
         {
-            if (Input.GetButton("Fire1"))
-                currentWeapon?.Use();
-        }
-        else
-        {
-            if (Input.GetButtonDown("Fire1"))
-                currentWeapon?.Use();
+            // If we have an InputReader, check isAttacking. Otherwise fallback to false.
+            bool currentAttacking = inputReader != null ? inputReader.isAttacking : false;
+
+            if (currentWeapon.IsAutomatic)
+            {
+                if (currentAttacking)
+                    currentWeapon.Use();
+            }
+            else
+            {
+                // For non-automatic weapons, only fire on the frame the button was pressed
+                if (currentAttacking && !wasAttacking)
+                    currentWeapon.Use();
+            }
+
+            wasAttacking = currentAttacking;
         }
 
 
