@@ -18,3 +18,5 @@ MonoBehaviour:
   spreadHip: 2
   spreadADS: 0.5
   kickbackDistance: 0.05
+  playerImpulseForce: 5
+

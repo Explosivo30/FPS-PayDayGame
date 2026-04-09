@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 [CreateAssetMenu(menuName = "Weapons/RecoilData")]
 public class RecoilData : ScriptableObject
 {
@@ -10,5 +10,9 @@ public class RecoilData : ScriptableObject
     public float spreadADS = 0.5f;
 
     //Gun anim
-    public float kickbackDistance = 0.1f;  // Qué tanto se echa para atrás
+    public float kickbackDistance = 0.1f;  // Que tanto se echa para atras
+
+    [Header("Impulse Knockback")]
+    [Tooltip("Fuerza de impulso aplicada al jugador al disparar")]
+    public float playerImpulseForce = 0f;
 }

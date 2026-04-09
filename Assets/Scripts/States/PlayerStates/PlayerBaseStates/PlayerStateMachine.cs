@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
+public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpulse
 {
     //Control Start
     [NonSerialized] public InputReader controls;
@@ -451,9 +451,19 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable
         }
     }
 
-
-
-
-
+    public void ApplyImpulse(Vector3 force)
+    {
+        PlayerVelocity += force;
+        
+        // Si estamos aplicando una fuerza vertical hacia arriba y actualmente caemos mucho
+        // Ayudamos a frenar esa caída para que el impulso sí se note.
+        if (force.y > 0 && Grounded == false)
+        {
+            if (PlayerVelocity.y < 0)
+            {
+               PlayerVelocity.y += force.y * 0.5f; // extra help to fight negative gravity velocity
+            }
+        }
+    }
 }
 

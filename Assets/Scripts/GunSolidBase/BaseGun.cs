@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTracer
@@ -48,6 +48,16 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     public virtual void ApplyRecoil()
     {
         GunRecoil.Instance.ApplyRecoil(recoilData);
+        
+        if (recoilData.playerImpulseForce > 0f)
+        {
+            IImpulse impulseReceiver = GetComponentInParent<IImpulse>();
+            if (impulseReceiver != null)
+            {
+                Vector3 knockbackDir = -Camera.main.transform.forward;
+                impulseReceiver.ApplyImpulse(knockbackDir * recoilData.playerImpulseForce);
+            }
+        }
     }
 
     protected Vector3 GetShootDirection(bool isAiming)
