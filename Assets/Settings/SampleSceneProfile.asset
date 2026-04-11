@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   skipIterations:
     m_OverrideState: 1
     m_Value: 0
@@ -68,10 +68,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.168
+    m_Value: 0.268
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.147
+    m_Value: 0.575
   rounded:
     m_OverrideState: 0
     m_Value: 1
@@ -92,6 +92,7 @@ MonoBehaviour:
   - {fileID: -7893295128165547882}
   - {fileID: -3357603926938260329}
   - {fileID: 8593865669961114078}
+  - {fileID: 3236905116997412450}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -104,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
@@ -132,6 +133,37 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 1
     m_Value: 647
+--- !u!114 &3236905116997412450
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4762d11d400044d9ec68b8facedd62, type: 3}
+  m_Name: AnimeTonemapper
+  m_EditorClassIdentifier: 
+  active: 1
+  exposure:
+    m_OverrideState: 1
+    m_Value: 1
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1.3
+  saturation:
+    m_OverrideState: 1
+    m_Value: 1.5
+  shadowTint:
+    m_OverrideState: 1
+    m_Value: 0.1
+  highlightSoft:
+    m_OverrideState: 1
+    m_Value: 0.85
+  shadowColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.050980393, g: 0.07058824, b: 0.14901961, a: 1}
 --- !u!114 &8593865669961114078
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -144,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
   m_Name: SplitToning
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   shadows:
     m_OverrideState: 1
     m_Value: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
