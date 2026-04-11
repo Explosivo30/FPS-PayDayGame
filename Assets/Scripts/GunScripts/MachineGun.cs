@@ -26,11 +26,16 @@ public class MachineGun : BaseGun, IAimable
     
     private RecoilData data => recoilData; // hereda de BaseGun
 
+    private CameraShake cm_shake;
+
+   // public override float shakeDuration { get => base.shakeDuration; set => base.shakeDuration = shakeDurationValue; }
+    //public override float shakeMagnitude { get => base.shakeMagnitude; set => base.shakeMagnitude = shakeMagnitudeValue; }
+
     override public void Awake()
     {
         normalFOV = weaponCamera.fieldOfView;
         
-
+        cm_shake = mainCamera.GetComponent<CameraShake>();
         lr = GetComponent<LineRenderer>();
         // Colocamos inicialmente el arma en hipfire:
         weaponHolder.position = hipTransform.position;
@@ -52,6 +57,7 @@ public class MachineGun : BaseGun, IAimable
         float secondsPerShot = 1f / fireRate;
         if (Time.time - lastShotTime >= secondsPerShot)
         {
+            StartCoroutine(cm_shake.Shake(shakeDuration, shakeMagnitude));
             currentAmmo--;
             lastShotTime = Time.time;
             

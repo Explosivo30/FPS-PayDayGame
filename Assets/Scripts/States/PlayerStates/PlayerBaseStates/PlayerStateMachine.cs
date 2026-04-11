@@ -101,7 +101,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
     //----- START CAMERA
 
     public Transform headCam;
-    private CameraTilt cameraTilt;
+    [NonSerialized] public CameraTilt cameraTilt;
     [SerializeField] private float minVerticalAngle = -70f;
     [SerializeField] private float maxVerticalAngle = 70f;
 

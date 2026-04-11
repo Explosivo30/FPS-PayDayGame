@@ -42,6 +42,21 @@ public class PlayerMovementState : PlayerBaseState
         // Get Input
         Vector2 input = stateMachine.controls.MovementValue;
 
+        if (input.x > 0)
+        {
+            stateMachine.cameraTilt.DoTilt(-1f);
+        }
+        else if (input.x < 0)
+        {
+            stateMachine.cameraTilt.DoTilt(1f);
+
+        }
+        else
+        {
+            // Reset camera tilt if no horizontal input
+            stateMachine.cameraTilt.DoTilt(0f);
+        }
+
         if (input.sqrMagnitude < 0.01f)
         {
             stateMachine.SwitchState(new PlayerIdleState(stateMachine));

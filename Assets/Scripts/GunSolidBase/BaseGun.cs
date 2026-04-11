@@ -38,11 +38,16 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     // Velocity ref for SmoothDamp:
     protected Vector3 _kickbackVelocity;
 
+    [field: SerializeField] public virtual float shakeDuration { get; set; } = .08f;
+    [field: SerializeField] public virtual float shakeMagnitude { get; set; } = 0.05f;
+
+
     public abstract void Use();
 
     public virtual void Awake()
     {
         normalFOV = Camera.main.fieldOfView;
+
     }
 
     public virtual void ApplyRecoil()

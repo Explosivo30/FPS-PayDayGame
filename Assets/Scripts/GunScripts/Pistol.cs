@@ -8,6 +8,8 @@ public class Pistol : BaseGun, IAimable
     private float lastShotTime = 0f;
     public bool IsAiming { get; private set; }
 
+    [SerializeField] private Camera mainCamera;
+
     [SerializeField] private Transform aimPosition;
     [SerializeField] private Transform hipPosition;
     [SerializeField] private float aimSpeed = 10f;
@@ -16,9 +18,12 @@ public class Pistol : BaseGun, IAimable
 
     private RecoilData data => recoilData; // hereda de BaseGun
 
+    private CameraShake cm_shake;
+
     public override void Awake()
     {
         base.Awake();
+        cm_shake = mainCamera.GetComponent<CameraShake>();
         lr = GetComponent<LineRenderer>();
     }
 
@@ -33,6 +38,7 @@ public class Pistol : BaseGun, IAimable
         float secondsPerShot = 1f / fireRate;
         if (Time.time - lastShotTime >= secondsPerShot)
         {
+            
             if (Physics.Raycast(weaponHolder.position, transform.forward, out hit, maxRangeGun, layerMask, QueryTriggerInteraction.Collide))
             {
                 Debug.Log(hit.transform.name);
@@ -50,6 +56,7 @@ public class Pistol : BaseGun, IAimable
             {
                 Play(weaponHolder.position, weaponHolder.position + weaponHolder.forward * maxRangeGun);
             }
+            StartCoroutine(cm_shake.Shake(shakeDuration, shakeMagnitude));
             currentAmmo--;
             ApplyRecoil();
             TriggerPhysicalKickback(weaponHolder);
