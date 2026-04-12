@@ -21,10 +21,10 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.349
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   color:
     m_OverrideState: 0
     m_Value: {r: 0, g: 0, b: 0, a: 1}
@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: -7893295128165547882}
   - {fileID: -3357603926938260329}
   - {fileID: 8593865669961114078}
-  - {fileID: 3236905116997412450}
+  - {fileID: 4257536567035690669}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   mode:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   detectPaperWhite:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   paperWhite:
     m_OverrideState: 1
@@ -155,15 +155,100 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: 1.5
-  shadowTint:
-    m_OverrideState: 1
-    m_Value: 0.1
-  highlightSoft:
-    m_OverrideState: 1
-    m_Value: 0.85
+  neonBoost:
+    m_OverrideState: 0
+    m_Value: 1.4
+  shadowHueShift:
+    m_OverrideState: 0
+    m_Value: 0.72
+  shadowHueStr:
+    m_OverrideState: 0
+    m_Value: 0.55
+  shadowThreshold:
+    m_OverrideState: 0
+    m_Value: 0.35
   shadowColor:
     m_OverrideState: 1
     m_Value: {r: 0.050980393, g: 0.07058824, b: 0.14901961, a: 1}
+  highlightSoft:
+    m_OverrideState: 1
+    m_Value: 0.85
+  highlightHueShift:
+    m_OverrideState: 0
+    m_Value: 0.08
+  highlightHueStr:
+    m_OverrideState: 0
+    m_Value: 0.3
+  highlightThreshold:
+    m_OverrideState: 0
+    m_Value: 0.72
+  celBanding:
+    m_OverrideState: 0
+    m_Value: 1
+  celBands:
+    m_OverrideState: 0
+    m_Value: 3
+  celHardness:
+    m_OverrideState: 0
+    m_Value: 0.85
+--- !u!114 &4257536567035690669
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4762d11d400044d9ec68b8facedd62, type: 3}
+  m_Name: AnimeTonemapper
+  m_EditorClassIdentifier: 
+  active: 1
+  exposure:
+    m_OverrideState: 1
+    m_Value: 0.91
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1.54
+  saturation:
+    m_OverrideState: 1
+    m_Value: 1.17
+  neonBoost:
+    m_OverrideState: 1
+    m_Value: 1.18
+  shadowHueShift:
+    m_OverrideState: 1
+    m_Value: 0.72
+  shadowHueStr:
+    m_OverrideState: 1
+    m_Value: 0.234
+  shadowThreshold:
+    m_OverrideState: 1
+    m_Value: 0.45
+  shadowColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.056737266, g: 0.08499466, b: 0.14150941, a: 1}
+  highlightSoft:
+    m_OverrideState: 1
+    m_Value: 0.5
+  highlightHueShift:
+    m_OverrideState: 1
+    m_Value: 0.232
+  highlightHueStr:
+    m_OverrideState: 1
+    m_Value: 0
+  highlightThreshold:
+    m_OverrideState: 1
+    m_Value: 0
+  celBanding:
+    m_OverrideState: 1
+    m_Value: 1
+  celBands:
+    m_OverrideState: 1
+    m_Value: 3
+  celHardness:
+    m_OverrideState: 1
+    m_Value: 0.234
 --- !u!114 &8593865669961114078
 MonoBehaviour:
   m_ObjectHideFlags: 3
