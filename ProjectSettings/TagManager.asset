@@ -14,8 +14,8 @@ TagManager:
   - Enemy
   - Player
   - Weapon
-  - 
-  - 
+  - Destructable
+  - FrozenChunks
   - 
   - 
   - 

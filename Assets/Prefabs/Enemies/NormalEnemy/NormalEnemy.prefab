@@ -111,8 +111,8 @@ MonoBehaviour:
   maxHealth: 100
   detectionRange: 70
   attackRange: 100
-  accuracy: 0.16
-  maxSpreadAngle: 40
+  accuracy: 0.305
+  maxSpreadAngle: 35
   fullHealthColor: {r: 1, g: 0.5, b: 0, a: 1}
   zeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
   layerMask:
