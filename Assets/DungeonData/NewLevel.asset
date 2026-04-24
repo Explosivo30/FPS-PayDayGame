@@ -478,6 +478,15 @@ MonoBehaviour:
     roomName: Room_7
     roomHeight: 0
     isClosed: 0
+  - id: 18ccb0c3
+    gridCells:
+    - {x: 75, y: 6}
+    heightLevel: 0
+    manualSize: {x: 0, y: 0}
+    shape: 1
+    roomName: Room_7
+    roomHeight: 3
+    isClosed: 0
   objects:
   - id: 60ffb88c
     gridPosition: {x: 155, y: 43}

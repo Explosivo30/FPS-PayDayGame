@@ -9,8 +9,8 @@ public class MachineGun : BaseGun, IAimable
 
     // === ADS (Aim Down Sights) ===
     [SerializeField] private Transform weaponHolder;
-    [SerializeField] private Transform hipTransform;   // Posición global hipfire
-    [SerializeField] private Transform aimTransform;   // Posición global ADS
+    [SerializeField] private Transform hipTransform;   // PosiciÃ³n global hipfire
+    [SerializeField] private Transform aimTransform;   // PosiciÃ³n global ADS
     [SerializeField] private AimData aimData;
     private bool isAiming;
     public bool IsAiming => isAiming;
@@ -19,7 +19,7 @@ public class MachineGun : BaseGun, IAimable
     [SerializeField] private Camera mainCamera;
     
 
-    // === Kickback físico ===
+    // === Kickback fÃ­sico ===
     private Vector3 currentKickbackLocal = Vector3.zero; // offset en local del arma
     private Vector3 kickbackVelocity = Vector3.zero;     // ref para SmoothDamp
     private float kickbackReturnSpeed;                   // viene de recoilData.returnSpeed
@@ -64,18 +64,16 @@ public class MachineGun : BaseGun, IAimable
             if (Physics.Raycast(weaponHolder.position,transform.right,out hit,maxRangeGun,layerMask, QueryTriggerInteraction.Collide))
             {
                 Play(weaponHolder.position, hit.point);
-                if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
-                {
-                    damageable.TakeDamage(damage);
-                }
+                HandleHit(hit, damage);
 
-                // (Optional) Spawn impact effects at hit.point…
+                // (Optional) Spawn impact effects at hit.pointâ€¦
             }
             else
             {
+                Debug.Log("Raycast missed!");
                 Play(weaponHolder.position, weaponHolder.position + weaponHolder.right * maxRangeGun);
             }
-            // 1) Aplica recoil de cámara
+            // 1) Aplica recoil de cÃ¡mara
             ApplyRecoil();
            
         }
@@ -84,7 +82,7 @@ public class MachineGun : BaseGun, IAimable
    public override void ApplyRecoil()
     {
         base.ApplyRecoil();
-        // 2) Inicializa kickback físico: –Z local del arma
+        // 2) Inicializa kickback fÃ­sico: â€“Z local del arma
         currentKickbackLocal = -Vector3.right * data.kickbackDistance; //TODO: CAMBIAR POR FORWARD
         kickbackVelocity = Vector3.zero;
     }
@@ -107,17 +105,17 @@ public class MachineGun : BaseGun, IAimable
             1f / kickbackReturnSpeed
         );
 
-        // 2) Posición global base según hipfire o ADS
+        // 2) PosiciÃ³n global base segÃºn hipfire o ADS
         Vector3 baseWorldPos = isAiming ? aimTransform.position : hipTransform.position;
         Quaternion baseWorldRot = isAiming ? aimTransform.rotation : hipTransform.rotation;
 
         // 3) Convierte el offset local a espacio WORLD
         Vector3 kickOffsetWorld = weaponHolder.TransformDirection(currentKickbackLocal);
 
-        // 4) Posición world deseada = posición ADS/Hip + kickback
+        // 4) PosiciÃ³n world deseada = posiciÃ³n ADS/Hip + kickback
         Vector3 desiredWorldPos = baseWorldPos + kickOffsetWorld;
 
-        // 5) Lerp posición y rotación en global
+        // 5) Lerp posiciÃ³n y rotaciÃ³n en global
         weaponHolder.position = Vector3.Lerp(
             weaponHolder.position,
             desiredWorldPos,
@@ -129,7 +127,7 @@ public class MachineGun : BaseGun, IAimable
             Time.deltaTime * aimData.transitionSpeed
         );
 
-        // 6) Lerp FOV de la cámara
+        // 6) Lerp FOV de la cÃ¡mara
         float targetFOV = isAiming ? aimData.fov : normalFOV;
         weaponCamera.fieldOfView = Mathf.Lerp(
             weaponCamera.fieldOfView,

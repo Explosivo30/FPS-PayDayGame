@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ShotGun : BaseGun
 {
@@ -33,10 +33,7 @@ public class ShotGun : BaseGun
             if (Physics.Raycast(weaponHolder.position, transform.forward, out hit, maxRangeGun, layerMask, QueryTriggerInteraction.Collide))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
-                {
-                    damageable.TakeDamage(damage);
-                }
+                HandleHit(hit, damage);
                 Play(weaponHolder.position, hit.point);
 
                 // (Optional) Spawn impact effects at hit.point

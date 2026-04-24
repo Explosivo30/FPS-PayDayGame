@@ -141,4 +141,36 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
                 break;
         }
     }
+
+    /// <summary>
+    /// Handles the impact of a raycast hit, applying damage and triggering impact effects.
+    /// </summary>
+    protected void HandleHit(RaycastHit hit, float damage)
+    {
+        Debug.Log($"Raycast hit: {hit.collider.name} on layer {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+
+        // 1. Apply damage if it's damageable (search in object and parents)
+        IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+        if (damageable == null) damageable = hit.collider.GetComponentInParent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
+        }
+
+        // 2. Trigger raycast impact handlers (like ImpactDetonator)
+        IRaycastHitHandler hitHandler = hit.collider.GetComponent<IRaycastHitHandler>();
+        if (hitHandler == null) hitHandler = hit.collider.GetComponentInParent<IRaycastHitHandler>();
+
+        if (hitHandler != null)
+        {
+            Debug.Log("Triggering IRaycastHitHandler on " + hit.collider.name);
+            hitHandler.HandleRaycastHit(hit, damage);
+        }
+        else
+        {
+            // Debug: check if the component exists but under another name or if it's missing
+            Debug.Log("No IRaycastHitHandler found on " + hit.collider.name);
+        }
+    }
 }
