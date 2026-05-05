@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   mode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
     m_Value: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+    m_Value: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   balance:
     m_OverrideState: 1
-    m_Value: -0
+    m_Value: -56

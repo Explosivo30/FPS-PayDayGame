@@ -32,13 +32,15 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
     [Tooltip("Duration of the traversal of the raycast Line")]
     [SerializeField] private float duration = 0.05f;
 
-    // ── PHYSICAL KICKBACK (shared) ───────────────────────────────────
+    // ── PHYSICAL KICKBACK 
     // Holds how far “back” we are right now, in local space:
     protected Vector3 _kickbackOffset;
     // Velocity ref for SmoothDamp:
     protected Vector3 _kickbackVelocity;
 
+    [field: SerializeField] public virtual float wallDamage { get; set; } = 300f;
     [field: SerializeField] public virtual float shakeDuration { get; set; } = .08f;
+    
     [field: SerializeField] public virtual float shakeMagnitude { get; set; } = 0.05f;
 
 
@@ -166,11 +168,18 @@ public abstract class BaseGun : MonoBehaviour, IWeapon,IReloadable, IBulletTrace
         {
             Debug.Log("Triggering IRaycastHitHandler on " + hit.collider.name);
             hitHandler.HandleRaycastHit(hit, damage);
+
+            return;
         }
         else
         {
             // Debug: check if the component exists but under another name or if it's missing
             Debug.Log("No IRaycastHitHandler found on " + hit.collider.name);
+        }
+
+        if(hit.collider.TryGetComponent(out Rigidbody rb))
+        {
+            rb.AddForce(transform.forward * wallDamage);
         }
     }
 }

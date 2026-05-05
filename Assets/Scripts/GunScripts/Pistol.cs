@@ -62,10 +62,6 @@ public class Pistol : BaseGun, IAimable
             //TODO:  Add sound, muzzle flash
         }
 
-
-
-
-
     }
 
     public override void ApplyRecoil()

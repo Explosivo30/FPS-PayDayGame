@@ -54,6 +54,7 @@ namespace Project.Scripts.Fractures
 
             foreach (var col in fracturedColliders)
             {
+                if (col == null) continue; // MeshCollider may have been destroyed by ChunkNode
                 float dist = Vector3.SqrMagnitude(col.bounds.center - contactPoint);
                 if (dist < minDistance)
                 {
@@ -136,6 +137,7 @@ namespace Project.Scripts.Fractures
 
             foreach (var col in fracturedColliders)
             {
+                if (col == null) continue; // MeshCollider may have been destroyed by ChunkNode
                 float dist = Vector3.SqrMagnitude(col.bounds.center - contactPoint);
                 if (dist < minDistance)
                 {

@@ -6304,6 +6304,7 @@ MonoBehaviour:
   anchor: 4
   chunks: 500
   density: 20
+  density: 5
   internalStrength: 200
   insideMaterial: {fileID: 2100000, guid: 4ea2f476a781bcf4a8012e617df3a624, type: 2}
   outsideMaterial: {fileID: 2100000, guid: 4abee986f4f0b9a408442c761410bf59, type: 2}
@@ -7703,8 +7704,8 @@ Transform:
   m_GameObject: {fileID: 1743757094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.49, y: 3.6, z: 17.5}
-  m_LocalScale: {x: 18.925901, y: 12.033941, z: 6.9785933}
+  m_LocalPosition: {x: 39.49, y: 2.79, z: 19.11}
+  m_LocalScale: {x: 18.925901, y: 6.793521, z: 2.2505116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 760904498}
