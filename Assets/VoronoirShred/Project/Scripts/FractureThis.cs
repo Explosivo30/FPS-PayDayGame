@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity.Jobs;
@@ -47,28 +47,28 @@ namespace Project.Scripts.Fractures
             // Obtenemos el objeto raíz de la fractura ("Fracture")
             GameObject fractureRoot = graphManager.gameObject;
 
+            // CRÍTICO: Desvinculamos fractureRoot del padre (this.gameObject).
+            // Si no lo hacemos, cuando ImpactDetonator llame a wholeObjectParent.SetActive(false),
+            // también desactivará fractureRoot (hijo), haciendo los chunks no detectables.
+            fractureRoot.transform.SetParent(null);
+
             // 2. CONFIGURACIÓN DEL SWAP
-            // En lugar de ocultar 'this.gameObject' inmediatamente, 
+            // En lugar de ocultar 'this.gameObject' inmediatamente,
             // le añadimos el detonador.
 
-            // 3. AÑADIR DETONADORES A LOS HIJOS (La parte que pediste)
-            // Buscamos todos los objetos hijos que tengan mesh (que son los que se ven y chocan)
-            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            // Detonador en el objeto original (whole switch) — encontrado por GetComponent al disparar al collider raíz
+            var wholeDetonator = this.gameObject.GetComponent<ImpactDetonator>();
+            if (wholeDetonator == null)
+                wholeDetonator = this.gameObject.AddComponent<ImpactDetonator>();
+            wholeDetonator.Setup(fractureRoot, this.gameObject);
+            wholeDetonator.impactThreshold = 5f;
 
-            foreach (Renderer rend in renderers)
-            {
-                GameObject childObj = rend.gameObject;
-
-                // Evitamos ponerle el script al propio objeto Fracture si por error está dentro
-                if (childObj.transform.IsChildOf(fractureRoot.transform)) continue;
-
-                // Le añadimos el detonador a esta pieza específica
-                var detonator = childObj.AddComponent<ImpactDetonator>();
-
-                // Le decimos: "Si te golpean a ti, activa 'fractureRoot' y esconde 'this.gameObject' (el padre supremo)"
-                detonator.Setup(fractureRoot, this.gameObject);
-                detonator.impactThreshold = 5f;
-            }
+            // Detonador en fractureRoot — encontrado por GetComponentInParent desde cualquier chunk hijo
+            var fractureDetonator = fractureRoot.GetComponent<ImpactDetonator>();
+            if (fractureDetonator == null)
+                fractureDetonator = fractureRoot.AddComponent<ImpactDetonator>();
+            fractureDetonator.Setup(fractureRoot, this.gameObject);
+            fractureDetonator.impactThreshold = 5f;
 
             // NO desactivamos gameObject aquí.
             // gameObject.SetActive(false); <--- BORRADO
