@@ -1,114 +1,41 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[DefaultExecutionOrder(-150)]
 public class SquadManager : MonoBehaviour
 {
-
-    [Tooltip("Color to tint the squad leaders")]
-    [SerializeField] private Color leaderColor = Color.yellow;
-
-    [Tooltip("Radio base de formación")]
-    [SerializeField] private float baseRadius = 2f;
-    [Tooltip("Tamaño de cada escuadrón")]
-    [SerializeField] private int squadSize = 4;
-
-    // list gets populated by each enemy in Awake()
-    private readonly List<ISquadMember> _allMembers = new List<ISquadMember>();
-    private readonly List<Squad> _squads = new List<Squad>();
-
     public static SquadManager Instance { get; private set; }
-
-    public void Register(ISquadMember member)
-    {
-        if (!_allMembers.Contains(member))
-            _allMembers.Add(member);
-    }
-
-    private void Awake()
-    {
-        if (Instance != null) { return; }
-        Instance = this;
-        
-    }
-
-    private void Start()
-    {
-        Debug.Log($"[SquadManager] Building squads from {_allMembers.Count} members");
-        for (int i = 0; i < _allMembers.Count; i += squadSize)
-        {
-            var group = _allMembers
-                .GetRange(i, Mathf.Min(squadSize, _allMembers.Count - i));
-            _squads.Add(new Squad(
-                group,
-                baseRadius,
-                GameManager.Instance.GetPlayerTransforms()[0]
-            ));
-        }
-
-        foreach (var squad in _squads)
-        {
-            var leaderT = squad.Leader.Transform;
-            var rend = leaderT.GetComponent<Renderer>();
-            if (rend != null)
-            {
-                // To avoid changing the shared material on all instances,
-                // instantiate a fresh material first:
-                rend.material = new Material(rend.material);
-                rend.material.SetColor("_BaseColor", leaderColor);
-            }
-        }
-    }
-
-    private void LateUpdate()
-    {
-        foreach (var squad in _squads)
-            squad.UpdateSquad();
-
-        //Debug.Log(_squads.Count);
-    }
-
+    [SerializeField] private Color leaderColor=Color.yellow;
+    [SerializeField] private float baseRadius=3;
+    [SerializeField] private int squadSize=4;
+    private readonly List<ISquadMember> members=new List<ISquadMember>();
+    private readonly List<Squad> squads=new List<Squad>();
+    private int updatedFrame=-1;
+    private void Awake() { if(Instance!=null&&Instance!=this) { Destroy(this); return; } Instance=this; }
+    private void OnDestroy() { if(Instance==this) Instance=null; }
+    public void Register(ISquadMember member) { if(member!=null&&!members.Contains(member)) members.Add(member); }
+    public void Unregister(ISquadMember member) { members.Remove(member); }
+    private void LateUpdate() { UpdateSquadsOnce(); }
     public void UpdateSquadsOnce()
     {
-        foreach (var s in _squads) s.UpdateSquad();
+        if(updatedFrame==Time.frameCount) return;
+        updatedFrame=Time.frameCount;
+        foreach(var squad in squads) squad.UpdateSquad();
     }
-
     public void RebuildSquads()
     {
-        // 1) Purge any members whose GameObject has been destroyed
-        _allMembers.RemoveAll(m => (m as UnityEngine.Object) == null);
-
-        // 2) Clear old squads
-        _squads.Clear();
-
-        // 3) Re‐partition the remaining live members
-        for (int i = 0; i < _allMembers.Count; i += squadSize)
-        {
-            var group = _allMembers.GetRange(i, Mathf.Min(squadSize, _allMembers.Count - i));
-            _squads.Add(new Squad(
-                group,
-                baseRadius,
-                GameManager.Instance.GetPlayerTransforms()[0]
-            ));
-        }
-
-        // 4) Re‐tint each squad’s leader
-        foreach (var squad in _squads)
-        {
-            var leaderT = squad.Leader.Transform;
-            var rend = (leaderT as Component)?.GetComponent<Renderer>();
-            if (rend != null)
-            {
-                rend.material = new Material(rend.material);
-                rend.material.SetColor("_BaseColor", leaderColor);
-            }
-        }
+        members.RemoveAll(m=>(m as UnityEngine.Object)==null || m is NormalEnemyStateMachine enemy && enemy.IsDead);
+        squads.Clear();
+        if(GameManager.Instance==null||GameManager.Instance.GetPlayerTransforms().Count==0) return;
+        for(int i=0;i<members.Count;i+=Mathf.Max(1,squadSize))
+            squads.Add(new Squad(members.GetRange(i,Mathf.Min(squadSize,members.Count-i)),baseRadius,GameManager.Instance.GetPlayerTransforms()[0]));
+        updatedFrame=-1; UpdateSquadsOnce();
     }
-
 }
 public static class EnemyEvents
 {
     public static Action<IDamageable> OnDeath;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void Reset() { OnDeath=null; }
 }

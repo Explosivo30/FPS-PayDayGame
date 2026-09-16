@@ -1,0 +1,27 @@
+PASS Four equipped weapons
+PASS No uncounted scene enemies
+PASS Walkable elevated access -13
+PASS Walkable elevated access 13
+PASS Recoil returns without drift at 30 FPS
+PASS Recoil returns without drift at 60 FPS
+PASS Recoil returns without drift at 144 FPS
+PASS Recoil peak differs by less than 0.2 degrees across frame rates
+PASS Mouse compensation consumes the pending recovery
+PASS Pistol cadence and one ammunition debit
+PASS Switch cancels magazine reload before ammunition commits
+PASS Carbine reload commits after 1.8 seconds
+PASS Shotgun emits eight damage rays for one cartridge
+PASS Shotgun inserts one cartridge after opening
+PASS Interrupted shell reload preserves inserted cartridges
+PASS Pause blocks firing and freezes reload progress
+PASS Reload resumes after pause
+PASS Inactive weapon upgrades are isolated from shared recoil assets
+PASS Knife damages each target once during the contact window
+PASS Knife cannot hit through cover
+PASS CharacterController traverses ramp -13
+PASS CharacterController traverses ramp 13
+FAIL Five waves complete through real weapon hits
+PASS No more than twelve live enemies
+Automated test at 2x simulation speed; bot health replenished for repeatability.
+ERRORS
+Five waves complete through real weapon hits

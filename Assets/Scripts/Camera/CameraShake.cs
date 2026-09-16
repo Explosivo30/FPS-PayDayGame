@@ -1,35 +1,58 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    // Corutina que maneja el efecto de camera shake
+    [SerializeField, Min(1f)] private float noiseFrequency = 38f;
+    [SerializeField, Min(0f)] private float maximumOffset = 0.012f;
+
+    private Vector3 appliedOffset;
+    private float remainingTime;
+    private float totalDuration;
+    private float amplitude;
+    private float noiseSeed;
+
+    public void AddImpulse(float duration, float magnitude)
+    {
+        totalDuration = Mathf.Max(0.01f, duration);
+        remainingTime = Mathf.Max(remainingTime, totalDuration);
+        amplitude = Mathf.Clamp(Mathf.Max(magnitude, amplitude * 0.65f), 0f, maximumOffset);
+        noiseSeed = Random.Range(0f, 1000f);
+    }
+
+    // Kept for compatibility with older callers. New weapon code calls AddImpulse directly.
     public IEnumerator Shake(float duration, float magnitude)
     {
-        // Guarda la posición original de la cámara
-        Vector3 originalPos = transform.localPosition;
+        AddImpulse(duration, magnitude);
+        yield break;
+    }
 
-        float elapsed = 0.0f;
+    private void LateUpdate()
+    {
+        transform.localPosition -= appliedOffset;
+        appliedOffset = Vector3.zero;
 
-        // Mientras el tiempo transcurrido sea menor que la duración
-        while (elapsed < duration)
+        if (remainingTime <= 0f)
         {
-            // Genera un desplazamiento aleatorio
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
-
-            // Aplica el desplazamiento a la posición de la cámara
-            transform.localPosition = new Vector3(originalPos.x + x, originalPos.y+ y, originalPos.z);
-
-            // Aumenta el tiempo transcurrido
-            elapsed += Time.deltaTime;
-
-            // Espera un frame antes de continuar
-            yield return null;
+            amplitude = 0f;
+            return;
         }
 
-        // Restablece la posición original de la cámara
-        transform.localPosition = originalPos;
+        remainingTime = Mathf.Max(0f, remainingTime - Time.deltaTime);
+        float envelope = remainingTime / totalDuration;
+        envelope *= envelope;
+        float time = Time.unscaledTime * noiseFrequency;
+        float x = Mathf.PerlinNoise(noiseSeed, time) * 2f - 1f;
+        float y = Mathf.PerlinNoise(noiseSeed + 31.7f, time) * 2f - 1f;
+        appliedOffset = new Vector3(x, y, 0f) * amplitude * envelope;
+        transform.localPosition += appliedOffset;
+    }
+
+    private void OnDisable()
+    {
+        transform.localPosition -= appliedOffset;
+        appliedOffset = Vector3.zero;
+        remainingTime = 0f;
+        amplitude = 0f;
     }
 }

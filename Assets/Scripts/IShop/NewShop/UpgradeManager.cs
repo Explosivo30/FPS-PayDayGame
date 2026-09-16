@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
@@ -59,7 +59,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else // arma
         {
-            foreach (BaseGun gun in FindObjectsByType<BaseGun>(FindObjectsSortMode.None))
+            foreach (BaseGun gun in FindObjectsByType<BaseGun>(FindObjectsInactive.Include, FindObjectsSortMode.None))
                 if (gun.GunTypeID == u.gunTypeID)
                     gun.ApplyWeaponStat(u.weaponStat, val);
         }

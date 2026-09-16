@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
@@ -15,9 +15,9 @@ public class CurrencyManager : MonoBehaviour
     {
        
         if (Instance != null) Destroy(this);
-        else { Instance = this; DontDestroyOnLoad(this); }
+        else { Instance = this; }
 
-        Coins = GameManager.Instance.GetPlayerPoints();
+        Coins = GameManager.Instance != null ? GameManager.Instance.GetPlayerPoints() : 0;
 
         UpdateUI();
     }

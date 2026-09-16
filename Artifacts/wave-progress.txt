@@ -1,0 +1,1 @@
+wave=4 completed=3 live=8 remaining=8 position=(-17.88, 1.09, -9.70) time=368,4099 deadline=378,3597

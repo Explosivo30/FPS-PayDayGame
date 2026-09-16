@@ -1,0 +1,11 @@
+Blender 4.0.0 (hash 878f71061b8e built 2023-11-14 01:20:37)
+Read prefs: "C:\Users\Edgar.DESKTOP-BOONDKL\AppData\Roaming\Blender Foundation\Blender\4.0\config\userpref.blend"
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "OperatorArms.blend"
+
+FBX export starting... 'D:/Unity/FPS-PayDayGame/Assets/Art/Laboratory/OperatorArms.fbx'
+(bpy.data.armatures['OperatorRig'], 'POSE')
+export finished in 0.6250 sec.
+OPERATOR ARMS EXPORTED 1168 vertices 36 bones
+
+Blender quit

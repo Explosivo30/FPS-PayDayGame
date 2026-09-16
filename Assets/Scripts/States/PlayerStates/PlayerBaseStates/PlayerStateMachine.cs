@@ -125,13 +125,13 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
 
     private void Awake()
     {
-        GameManager.Instance.Register(this);    // 'this' implementa IUpgradeable y tiene Id
+        GameManager.Instance?.Register(this);    // 'this' implementa IUpgradeable y tiene Id
         cameraTilt = GetComponentInChildren<CameraTilt>();
         if (cameraTilt == null) Debug.LogWarning("NO CAMERA TILT");
         _downDir = _downDir.normalized;
         currentHPPlayer = maxHPPlayer;
-        damageVolume.weight = 0f;
-        GameManager.Instance.AddPlayerTransforms(transform);
+        if (damageVolume != null) damageVolume.weight = 0f;
+        GameManager.Instance?.AddPlayerTransforms(transform);
         controls = GetComponent<InputReader>();
         
         originalHeight = cc.height;
@@ -141,6 +141,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
 
     private void Start()
     {
+        GunRecoil.EnsureExists().ResetRecoil();
         SwitchState(new PlayerIdleState(this));
     }
 
@@ -204,14 +205,16 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
 
     public Vector3 GetCameraRight() 
     {
-        Vector3 right = Camera.main.transform.right;
+        Transform cameraTransform = headCam != null ? headCam : transform;
+        Vector3 right = cameraTransform.right;
         right.y = 0;
         return right.normalized;
     }
     
     public Vector3 GetCameraForward() 
     {
-        Vector3 fore = Camera.main.transform.forward;
+        Transform cameraTransform = headCam != null ? headCam : transform;
+        Vector3 fore = cameraTransform.forward;
         fore.y = 0;
         return fore.normalized;
     }
@@ -269,7 +272,8 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
         {
             float lastHeight = cc.height;
             cc.height = Mathf.Lerp(cc.height, targetHeight, heightTransitionSpeed * Time.deltaTime);
-            cc.radius = cc.height / 2f; // Ensure radius scales safely if needed, or keep radius same if it's small enough
+            // Preserve the collision radius while crouching.
+            // cc.radius = cc.height / 2f; // Ensure radius scales safely if needed, or keep radius same if it's small enough
 
             // Adjust position so we don't fall off or fly
             float heightDiff = lastHeight - cc.height;
@@ -321,19 +325,21 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
     private float verticalRotation = 0f;
     public void PlayerLook()
     {
+        if (WeaponAction.CombatPaused) return;
         Vector2 rotateVector = controls.LookValue;
 
         float horizontalInput = rotateVector.x; // For character rotation (Y-axis)
 
         float verticalInput = rotateVector.y;
 
-        Vector2 recoil = GunRecoil.Instance?.GetRecoilOffset() ?? Vector2.zero;
+        Vector2 mouseDegrees = rotateVector * rotationSpeed * Time.deltaTime;
+        Vector2 recoil = GunRecoil.Instance?.Consume(mouseDegrees) ?? Vector2.zero;
 
         // Rotate the character around the Y-axis (horizontal input)
         //if (horizontalInput != 0)
         //{
             // Calculate the desired rotation angle
-            float rotationAngle = (horizontalInput + recoil.x) * rotationSpeed * Time.deltaTime;
+            float rotationAngle = horizontalInput * rotationSpeed * Time.deltaTime + recoil.x;
             
             // Apply the rotation around the Y-axis
             transform.Rotate(0f, rotationAngle, 0f);
@@ -341,12 +347,13 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
 
         // --- PITCH (rotate camera vertically, clamped) ---
         
-        verticalRotation -= (verticalInput + recoil.y) * rotationSpeed * Time.deltaTime;
+        verticalRotation -= verticalInput * rotationSpeed * Time.deltaTime + recoil.y;
         verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
         headCam.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
 
     }
 
+    public float Health => currentHPPlayer;
     public void TakeDamage(float amount)
     {
 
@@ -370,13 +377,13 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
         {
             if (fadeCoroutine != null)
                 StopCoroutine(fadeCoroutine);
-            damageVolume.weight = 0f;
+            if (damageVolume != null) damageVolume.weight = 0f;
             //DIE
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {
-            fadeCoroutine = StartCoroutine(FadeRoutine());
+            if (damageVolume != null) fadeCoroutine = StartCoroutine(FadeRoutine());
         }
     }
 
@@ -401,7 +408,7 @@ public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpu
             damageVolume.weight = Mathf.Lerp(1f, 0f, elapsed / fadeOutTime);
             yield return null;
         }
-        damageVolume.weight = 0f;
+        if (damageVolume != null) damageVolume.weight = 0f;
         fadeCoroutine = null;
     }
 

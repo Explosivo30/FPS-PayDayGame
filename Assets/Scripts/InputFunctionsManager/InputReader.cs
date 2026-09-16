@@ -28,7 +28,8 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
 
     void OnDestroy()
     {
-        controls.Player.Disable();
+        controls?.Player.Disable();
+        controls?.Dispose();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -48,14 +49,14 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.started) InteractEvent.Invoke();
+        if (context.started) InteractEvent?.Invoke();
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if(context.started)
         {
-            JumpEvent.Invoke();
+            JumpEvent?.Invoke();
         }
     }
 

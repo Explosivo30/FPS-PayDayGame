@@ -1,172 +1,223 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Scripts.Fractures
 {
     public class ImpactDetonator : MonoBehaviour, IRaycastHitHandler
     {
-        [Header("Settings")]
-        public float impactThreshold = 2f; // Fuerza mínima para romper (Collision)
-        public float forceMultiplier = 1.0f; // Potenciador del golpe
+        [Header("Collision settings")]
+        public float impactThreshold = 5f;
+        public float forceMultiplier = 1f;
         public string[] ignoreTags = { "Ground" };
-        // Referencia al objeto fracturado (que estará oculto al principio)
+
+        [Header("Ballistic destruction")]
+        [SerializeField, Min(1f)] private float structuralHealth = 35f;
+        [SerializeField, Min(0.1f)] private float impulsePerDamage = 1.2f;
+        [SerializeField, Min(0.1f)] private float damageRadius = 1.15f;
+        [SerializeField, Min(1)] private int maxReleasedChunks = 18;
+        [SerializeField, Min(0.1f)] private float maximumImpulse = 24f;
+
         private GameObject fracturedObject;
         private Collider[] fracturedColliders;
-        private GameObject wholeObjectParent; // El padre original que contiene todas las piezas sanas
+        private GameObject wholeObjectParent;
+        private float currentStructuralHealth;
+        private bool hasDetonated;
 
         public void Setup(GameObject fracturedRef, GameObject originalParent)
         {
             fracturedObject = fracturedRef;
             wholeObjectParent = originalParent;
+            currentStructuralHealth = structuralHealth;
+            hasDetonated = false;
 
-            fracturedColliders = fracturedObject.GetComponentsInChildren<Collider>(true);
+            fracturedColliders = fracturedObject != null
+                ? fracturedObject.GetComponentsInChildren<Collider>(true)
+                : new Collider[0];
 
-
-            // Nos aseguramos que la versión rota empiece apagada
-            if (fracturedObject.activeSelf) fracturedObject.SetActive(false);
+            if (fracturedObject != null && fracturedObject.activeSelf)
+                fracturedObject.SetActive(false);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            // 1. Verificamos si el golpe es suficientemente fuerte
+            if (ShouldIgnore(collision.gameObject))
+                return;
 
-            foreach (string tag in ignoreTags)
-            {
-                if (collision.gameObject.CompareTag(tag)) return;
-            }
+            if (collision.relativeVelocity.magnitude < impactThreshold || collision.contactCount == 0)
+                return;
 
-            if (collision.relativeVelocity.magnitude >= impactThreshold)
-            {
-                Detonate(collision);
-            }
+            ContactPoint contact = collision.GetContact(0);
+            float impulse = Mathf.Clamp(
+                collision.relativeVelocity.magnitude * forceMultiplier,
+                1f,
+                maximumImpulse);
+
+            ActivateFracturedVersion();
+            ApplyLocalizedForce(contact.point, collision.relativeVelocity.normalized, impulse);
         }
 
-        private void Detonate(Collision collision)
-        {
-            // 2. INTERCAMBIO (SWAP)
-            // Activamos la versión rota
-            fracturedObject.SetActive(true);
-
-            // 3. TRANSFERENCIA DE FUERZA (Física realista)
-            // Buscamos qué trozo estaba más cerca del punto de impacto
-            Vector3 contactPoint = collision.contacts[0].point;
-            Rigidbody bestChunkRb = null;
-            float minDistance = float.MaxValue;
-
-            foreach (var col in fracturedColliders)
-            {
-                if (col == null) continue; // MeshCollider may have been destroyed by ChunkNode
-                float dist = Vector3.SqrMagnitude(col.bounds.center - contactPoint);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    bestChunkRb = col.GetComponent<Rigidbody>();
-                }
-            }
-
-            // Aplicamos la fuerza del impacto a ese trozo específico
-            if (bestChunkRb != null)
-            {
-                // Despertamos el RB si estaba dormido
-                bestChunkRb.WakeUp();
-                // Aplicamos la velocidad del impacto multiplicada
-                bestChunkRb.AddForceAtPosition(collision.relativeVelocity * forceMultiplier, contactPoint, ForceMode.Impulse);
-            }
-
-            // 4. Desactivamos el objeto original (este mismo)
-
-            wholeObjectParent.SetActive(false);
-            // Opcional: Destroy(gameObject); si no vas a regenerarlo
-        }
-
-        /// <summary>
-        /// Implementation of IRaycastHitHandler to handle raycast impacts.
-        /// </summary>
         public void HandleRaycastHit(RaycastHit hit, float damage)
         {
             OnRaycastImpact(hit, damage);
         }
 
-        /// <summary>
-        /// Método para detonar al ser golpeado por un raycast de disparo (ej. pistola, rifle).
-        /// </summary>
-        /// <param name="hit">El RaycastHit del disparo</param>
-        /// <param name="damageDealt">El daño causado por el arma (se usa como referencia de fuerza)</param>
         public void OnRaycastImpact(RaycastHit hit, float damageDealt)
         {
-            Debug.Log($"ImpactDetonator hit on {gameObject.name}");
-            // Verificamos las etiquetas ignoradas
-            foreach (string tag in ignoreTags)
+            if (ShouldIgnore(hit.transform.gameObject))
+                return;
+
+            // When the original object is already disabled, the ray hit a visible chunk.
+            // Further shots should affect that local area immediately.
+            if (wholeObjectParent != null && !wholeObjectParent.activeSelf)
             {
-                if (hit.transform.CompareTag(tag)) 
-                {
-                    Debug.Log($"ImpactDetonator: Ignoring hit because of tag {tag}");
-                    return;
-                }
+                ApplyLocalizedForce(
+                    hit.point,
+                    -hit.normal,
+                    Mathf.Clamp(damageDealt * impulsePerDamage, 1f, maximumImpulse));
+                return;
             }
 
-            // Estimamos la fuerza de impacto basada en el daño del arma
-            // Puedes ajustar este cálculo según necesites más o menos fuerza
-            float impactForce = damageDealt * 10f;
+            if (hasDetonated)
+            {
+                ApplyLocalizedForce(
+                    hit.point,
+                    -hit.normal,
+                    Mathf.Clamp(damageDealt * impulsePerDamage, 1f, maximumImpulse));
+                return;
+            }
 
-            DetonateRaycast(hit, impactForce);
+            currentStructuralHealth -= Mathf.Max(0f, damageDealt);
+            if (currentStructuralHealth > 0f)
+                return;
+
+            DetonateRaycast(hit, damageDealt * impulsePerDamage);
         }
 
-        /// <summary>
-        /// Método para detonar al ser golpeado por un raycast.
-        /// </summary>
-        /// <param name="hit">El RaycastHit del disparo</param>
-        /// <param name="forceMagnitude">La fuerza a aplicar (impulso)</param>
         public void DetonateRaycast(RaycastHit hit, float forceMagnitude)
         {
             if (fracturedObject == null)
             {
-                Debug.LogError($"ImpactDetonator on {gameObject.name} has no fracturedObject assigned! Make sure Setup() is called or assign it in the inspector.");
+                Debug.LogError($"ImpactDetonator on {gameObject.name} has no fractured object assigned.");
                 return;
             }
 
-            // 2. INTERCAMBIO (SWAP)
-            // Activamos la versión rota
-            fracturedObject.SetActive(true);
-            Debug.Log($"ImpactDetonator: Activated fractured version of {gameObject.name}");
-
-            // 3. TRANSFERENCIA DE FUERZA (Física realista)
-            // Usamos el punto de impacto del raycast
-            Vector3 contactPoint = hit.point;
-            Rigidbody bestChunkRb = null;
-            float minDistance = float.MaxValue;
-
-            foreach (var col in fracturedColliders)
-            {
-                if (col == null) continue; // MeshCollider may have been destroyed by ChunkNode
-                float dist = Vector3.SqrMagnitude(col.bounds.center - contactPoint);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    bestChunkRb = col.GetComponent<Rigidbody>();
-                }
-            }
-
-            // Aplicamos la fuerza del impacto a ese trozo específico
-            if (bestChunkRb != null)
-            {
-                // Despertamos el RB si estaba dormido
-                bestChunkRb.WakeUp();
-                
-                // Obtenemos la normal de la superficie golpeada y aplicamos fuerza en dirección opuesta
-                Vector3 impactDir = -hit.normal.normalized; 
-                bestChunkRb.AddForceAtPosition(impactDir * forceMagnitude, contactPoint, ForceMode.Impulse);
-                Debug.Log($"ImpactDetonator: Applied {forceMagnitude} force to chunk {bestChunkRb.name}");
-            }
-            else
-            {
-                Debug.LogWarning("ImpactDetonator: No Rigidbody found in chunks to apply force.");
-            }
-
-            // 4. Desactivamos el objeto original (este mismo)
-                wholeObjectParent.SetActive(false);
-            
-           
+            ActivateFracturedVersion();
+            ApplyLocalizedForce(
+                hit.point,
+                -hit.normal,
+                Mathf.Clamp(forceMagnitude, 1f, maximumImpulse));
         }
 
+        private void ActivateFracturedVersion()
+        {
+            if (fracturedObject == null)
+                return;
+
+            fracturedObject.SetActive(true);
+            hasDetonated = true;
+
+            if (wholeObjectParent != null && wholeObjectParent != fracturedObject)
+                wholeObjectParent.SetActive(false);
+        }
+
+        private void ApplyLocalizedForce(Vector3 point, Vector3 direction, float forceMagnitude)
+        {
+            if (fracturedObject == null || fracturedColliders == null)
+                return;
+
+            if (!fracturedObject.activeSelf)
+                fracturedObject.SetActive(true);
+
+            Vector3 normalizedDirection = direction.sqrMagnitude > 0.001f
+                ? direction.normalized
+                : Vector3.forward;
+            HashSet<Rigidbody> seenBodies = new HashSet<Rigidbody>();
+            List<ChunkCandidate> candidates = new List<ChunkCandidate>();
+
+            foreach (Collider chunkCollider in fracturedColliders)
+            {
+                if (chunkCollider == null)
+                    continue;
+
+                Rigidbody body = chunkCollider.attachedRigidbody;
+                if (body == null || body.isKinematic || !seenBodies.Add(body))
+                    continue;
+
+                float distance = Vector3.Distance(chunkCollider.bounds.ClosestPoint(point), point);
+                if (distance <= damageRadius)
+                    candidates.Add(new ChunkCandidate(body, distance));
+            }
+
+            // Very small objects may have no bounds inside the configured radius.
+            // In that case, release the nearest movable chunk so the hit still reads.
+            if (candidates.Count == 0)
+            {
+                Rigidbody nearest = null;
+                float nearestDistance = float.MaxValue;
+                foreach (Collider chunkCollider in fracturedColliders)
+                {
+                    if (chunkCollider == null || chunkCollider.attachedRigidbody == null || chunkCollider.attachedRigidbody.isKinematic)
+                        continue;
+
+                    float distance = Vector3.Distance(chunkCollider.bounds.center, point);
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearest = chunkCollider.attachedRigidbody;
+                    }
+                }
+
+                if (nearest != null)
+                    candidates.Add(new ChunkCandidate(nearest, 0f));
+            }
+
+            candidates.Sort((a, b) => a.Distance.CompareTo(b.Distance));
+            int releaseCount = Mathf.Min(maxReleasedChunks, candidates.Count);
+
+            for (int i = 0; i < releaseCount; i++)
+            {
+                ChunkCandidate candidate = candidates[i];
+                float falloff = 1f - Mathf.Clamp01(candidate.Distance / damageRadius);
+                Vector3 scatter = Random.insideUnitSphere * 0.16f + Vector3.up * 0.08f;
+                Vector3 impulse = (normalizedDirection + scatter).normalized * forceMagnitude * Mathf.Lerp(0.25f, 1f, falloff);
+
+                ChunkNode node = candidate.Body.GetComponent<ChunkNode>();
+                if (node != null)
+                    node.ReleaseFromImpact(impulse, point);
+                else
+                {
+                    candidate.Body.constraints = RigidbodyConstraints.None;
+                    candidate.Body.useGravity = true;
+                    candidate.Body.WakeUp();
+                    candidate.Body.AddForceAtPosition(impulse, point, ForceMode.Impulse);
+                }
+            }
+        }
+
+        private bool ShouldIgnore(GameObject hitObject)
+        {
+            if (hitObject == null)
+                return true;
+
+            foreach (string ignoredTag in ignoreTags)
+            {
+                if (!string.IsNullOrEmpty(ignoredTag) && hitObject.CompareTag(ignoredTag))
+                    return true;
+            }
+
+            return false;
+        }
+
+        private readonly struct ChunkCandidate
+        {
+            public readonly Rigidbody Body;
+            public readonly float Distance;
+
+            public ChunkCandidate(Rigidbody body, float distance)
+            {
+                Body = body;
+                Distance = distance;
+            }
+        }
     }
 }

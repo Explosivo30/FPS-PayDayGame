@@ -1,0 +1,10 @@
+PASS Four equipped weapons
+PASS No uncounted scene enemies
+PASS Walkable elevated access -13
+PASS Walkable elevated access 13
+PASS Recoil returns without drift at 30 FPS
+PASS Recoil returns without drift at 60 FPS
+PASS Recoil returns without drift at 144 FPS
+PASS Recoil peak differs by less than 0.2 degrees across frame rates
+PASS Mouse compensation consumes the pending recovery
+ERRORS

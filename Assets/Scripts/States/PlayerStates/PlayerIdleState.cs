@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.controls.InteractEvent += InteractEvent;
+
         stateMachine.controls.JumpEvent += OnJump;
     }    
 
@@ -50,7 +50,7 @@ public class PlayerIdleState : PlayerBaseState
     
     public override void Exit()
     {
-        stateMachine.controls.InteractEvent -= InteractEvent;
+
         stateMachine.controls.JumpEvent -= OnJump;
     }
 
@@ -63,25 +63,4 @@ public class PlayerIdleState : PlayerBaseState
         }
     }
 
-    private void InteractEvent()
-    {
-        // 1) If the shop is open, close it immediately:
-        if (ShopManager.Instance.IsOpen)
-        {
-            ShopManager.Instance.CloseShop();
-            return;
-        }
-
-
-        // ray from center of screen
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        if (Physics.Raycast(ray, out var hit, maxInteractDistance,
-                LayerMask.GetMask("Default"), QueryTriggerInteraction.Ignore))
-        {
-            if (hit.collider.TryGetComponent<IInteractable>(out var target))
-            {
-                target.Interact();
-            }
-        }
-    }
 }

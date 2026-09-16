@@ -1,16 +1,39 @@
 DUNGEON PAINTER TOOL
 ====================
-Version: 1.0.8
+Version: 1.3.2
 Status:  STABLE
 
-CHANGES IN 1.0.8:
-- Tu mejora de SelectionGrid integrada (botones en panel derecho, 2 columnas)
-- URP/HDRP/Built-in material detection automática (MaterialHelper.cs)
-- Keyboard Shortcuts: P N C S D Ctrl+Z Ctrl+C Ctrl+V F Space
-- Undo/Redo en todas las operaciones (Paint, Delete, Place, Connect, etc.)
-- Copy/Paste de salas (Ctrl+C / Ctrl+V o botones en panel)
-- Room Templates: 11 formas predefinidas (L, T, Cruz, Círculo, etc.)
-- Grid Coordinates: coordenadas en tiempo real en la esquina del canvas
-- Center View: tecla F o botón abajo para centrar la vista
-- Space (hold) = pan mode temporal
-- Cursor highlight por modo (verde=nodo, cyan=paint, rojo=delete)
+CHANGES IN 1.3.1:
+  [BUGFIX] CS1039: Salto de línea literal en string interpolado (L830) corregido
+
+CHANGES IN 1.3.0:
+
+[BUGFIX]
+  - Eliminado LayerNames/GetLayerName duplicado (causaba CS0111)
+
+[FEATURE] Preview de mazmorra en tiempo real
+  Panel "🗺 PREVIEW MAZMORRA" en la esquina inferior izquierda del canvas.
+  Se actualiza al soltar el ratón después de pintar.
+  Estilo top-down papel D&D:
+    · Fondo papel envejecido (beige)
+    · Grid azul pálido de fondo
+    · Suelo de habitación con sombra interior
+    · Paredes dibujadas como líneas gruesas oscuras
+    · Pasillos como corredores entre nodos
+    · Nodos como puntos
+    · Capas no activas aparecen más tenues
+    · Escala en metros en la esquina del panel
+    · Botón ▼/▲ para colapsar el panel
+
+[FEATURE] Convertir a ProBuilder
+  Botón "⬡ Convertir a ProBuilder" en la barra inferior.
+  Convierte toda la jerarquía generada a ProBuilderMesh de una vez.
+  Permite editar vértices, bordes y caras directamente en ProBuilder.
+
+  REQUISITOS:
+  1. Window → Package Manager → Unity Registry → ProBuilder → Install
+  2. Project Settings → Player → Scripting Define Symbols:
+     Añadir: PROBUILDER_AVAILABLE
+  Sin el define, el botón muestra instrucciones de instalación.
+
+PRÓXIMO: v1.4.0 — Preview 3D con PreviewRenderUtility

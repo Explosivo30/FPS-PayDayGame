@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652dac89054a2d5438e0fc2c16b4888c, type: 3}
   m_Name: RecoilMachineGun
   m_EditorClassIdentifier: 
-  recoilKickUp: 2
-  recoilKickSide: 15
-  returnSpeed: 10
-  spreadHip: 2
-  spreadADS: 0.5
-  kickbackDistance: 0.4
-  playerImpulseForce: 1
+  recoilKickUp: 0.52
+  recoilKickSide: 0.17
+  verticalKickVariation: 0.1
+  maxVerticalRecoil: 5.5
+  maxHorizontalRecoil: 0.8
+  recoilSnappiness: 32
+  recoilReturnDelay: 0.07
+  recoilReturnSpeed: 8.5
+  spreadHip: 1.1
+  spreadADS: 0.16
+  returnSpeed: 18
+  kickbackDistance: 0.05625
+  weaponKickUp: 2.625
+  weaponKickSide: 0.475
+  weaponKickRoll: 0.35
+  playerImpulseForce: 0
 

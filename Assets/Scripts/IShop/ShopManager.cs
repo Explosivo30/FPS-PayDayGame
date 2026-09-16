@@ -30,7 +30,7 @@ public class ShopManager : MonoBehaviour
         int i = 0;
         foreach (var u in UpgradeManager.Instance.catalog)
         {
-            if (i > shops.Count) break;
+            if (i >= shops.Count) break;
             shops[i].Setup(u);
             i++;
         }

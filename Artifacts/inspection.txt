@@ -1,0 +1,205 @@
+Assets/Prefabs/Player/-----Player.prefab
+ pos=(-28.84, -2.72, -14.35) rot=(0.00, 35.27, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,NavMeshModifier
+Player pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,PlayerStateMachine,CharacterController,CapsuleCollider,InputReader,Shield
+Player/GunController pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,GunController
+Player/Skin pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Player/Skin/Capsule pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.84, -2.72, -14.35), Extents: (0.70, 1.00, 0.70)
+Player/Head pos=(0.00, 1.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Player/Head/Camera Gun pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Camera,UniversalAdditionalCameraData
+Player/Head/Hands pos=(0.00, -1.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,GunSway
+Player/Head/Hands/Carbine pos=(0.23, 0.75, 0.59) rot=(0.00, 270.00, 0.00) scale=(2.00, 2.00, 2.00) components=Transform,MeshFilter,MeshRenderer,MachineGun,LineRenderer,WeaponAction
+   bounds=Center: (-28.35, -2.07, -14.05), Extents: (0.31, 0.16, 0.41)
+Player/Head/Hands/Carbine/Bolt pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.31, -1.97, -14.03), Extents: (0.07, 0.03, 0.08)
+Player/Head/Hands/Carbine/Magazine pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.34, -2.15, -14.03), Extents: (0.07, 0.17, 0.08)
+Player/Head/Hands/Carbine/Magazine/Rounds pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.31, -2.01, -14.00), Extents: (0.03, 0.02, 0.04)
+Player/Head/Hands/Carbine/Sights pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.31, -1.91, -14.00), Extents: (0.14, 0.01, 0.18)
+Player/Head/Hands/Carbine/Suppressor pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.00, -1.97, -13.56), Extents: (0.12, 0.03, 0.14)
+Player/Head/Hands/Carbine/TriggerHinge pos=(-0.06, -0.03, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Player/Head/Hands/Carbine/TriggerHinge/Trigger pos=(0.06, 0.03, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-28.38, -2.05, -14.09), Extents: (0.01, 0.02, 0.01)
+Player/Head/Hands/Knife pos=(0.35, 0.80, 0.61) rot=(0.00, 324.73, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer,Knife,WeaponAction
+   bounds=Center: (-28.22, -2.01, -14.05), Extents: (0.04, 0.08, 0.01)
+Player/Head/Hands/HIPPosX pos=(0.23, 0.75, 0.59) rot=(0.00, 270.00, 0.00) scale=(2.00, 2.00, 2.00) components=Transform
+Player/Head/Hands/HIPPosPistol pos=(0.55, 0.15, 0.49) rot=(0.00, 0.00, 0.00) scale=(0.03, 0.03, 0.03) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX pos=(0.71, -0.08, 0.49) rot=(0.00, 0.00, 0.00) scale=(0.03, 0.03, 0.03) components=Transform,Pistol,LineRenderer,WeaponAction
+   bounds=Center: (0.00, 0.00, 0.50), Extents: (0.50, 0.50, 1.00)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores pos=(-0.01, 10.33, 4.59) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/1 pos=(-230.15, 493.56, -272.47) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/1/VentiladorMini_Iz pos=(2.31, -15.26, -1.87) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.97, -2.36, -14.29), Extents: (0.06, 0.04, 0.06)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/2 pos=(235.44, 493.56, -272.47) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/2/Ventilador_Dr pos=(-2.35, -15.26, -1.87) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.93, -2.36, -14.32), Extents: (0.06, 0.04, 0.06)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/3 pos=(162.93, 755.10, 975.86) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/3/VentiladorMini_Dr pos=(-1.62, -17.88, -14.35) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.72, -2.28, -14.03), Extents: (0.03, 0.02, 0.03)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/4 pos=(-160.91, 755.10, 975.86) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Ventiladores/4/Ventilador_Iz pos=(1.62, -17.88, -14.35) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.76, -2.28, -14.00), Extents: (0.03, 0.02, 0.03)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Piezas pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_CuerpoVentilador1_low_Plasma_Gun_low_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.94, -2.32, -14.30), Extents: (0.29, 0.12, 0.37)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Mango_low_Mango_low_Plasma_Gun_low_low1 pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.92, -2.52, -14.27), Extents: (0.32, 0.28, 0.40)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Plasma_Gun_low_low_Gatillo_low_GatilloYCanones_low_pPlane4_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.81, -2.43, -14.11), Extents: (0.22, 0.12, 0.28)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Plasma_Gun_low_low_RellenoMid_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-27.91, -2.31, -14.26), Extents: (0.33, 0.10, 0.43)
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Luz_Cañon pos=(-0.03, 15.49, 20.61) rot=(90.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Light,UniversalAdditionalLightData
+Player/Head/Hands/PISTOLA_PLASMA_FIX/Luz_Cañon_Pequeño pos=(-0.03, 12.82, 18.77) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Light,UniversalAdditionalLightData
+Player/Head/Game Camera pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Camera,AudioListener,UniversalAdditionalCameraData,CameraTilt
+Player/Head/Game Camera/AimPos pos=(0.00, -0.07, 0.59) rot=(0.00, 270.00, 0.00) scale=(2.00, 2.00, 2.00) components=Transform
+Player/Head/Game Camera/AimPosPistol pos=(0.00, -0.72, 0.56) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Player/Head/Game Camera/DamageVolume pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Volume
+Reproductor Musica pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Assets/Prefabs/Weapons/Metralleta/Survival Carbine/Carbine.prefab
+ pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(2.00, 2.00, 2.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.07, -0.10, 0.00), Extents: (0.48, 0.16, 0.03)
+Bolt pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.02, 0.00, -0.02), Extents: (0.06, 0.03, 0.05)
+Magazine pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.05, -0.18, 0.00), Extents: (0.08, 0.17, 0.02)
+Magazine/Rounds pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (0.00, -0.04, 0.00), Extents: (0.03, 0.02, 0.02)
+Sights pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (0.00, 0.06, 0.00), Extents: (0.21, 0.01, 0.02)
+Suppressor pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (0.53, 0.00, 0.00), Extents: (0.15, 0.03, 0.03)
+TriggerHinge pos=(-0.06, -0.03, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+TriggerHinge/Trigger pos=(0.06, 0.03, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.12, -0.08, 0.00), Extents: (0.01, 0.02, 0.01)
+Assets/Prefabs/Weapons/PISTOLA_PLASMA/PISTOLA_PLASMA_FIX.prefab
+ pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+Ventiladores pos=(-0.01, 10.33, 4.59) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform
+Ventiladores/1 pos=(-230.15, 493.56, -272.47) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Ventiladores/1/VentiladorMini_Iz pos=(2.31, -15.26, -1.87) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.98, 15.28, 1.89), Extents: (1.47, 1.41, 1.36)
+Ventiladores/2 pos=(235.44, 493.56, -272.47) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Ventiladores/2/Ventilador_Dr pos=(-2.35, -15.26, -1.87) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (1.02, 15.28, 1.89), Extents: (1.47, 1.41, 1.36)
+Ventiladores/3 pos=(162.93, 755.10, 975.86) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Ventiladores/3/VentiladorMini_Dr pos=(-1.62, -17.88, -14.35) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (0.88, 17.89, 14.36), Extents: (0.82, 0.79, 0.76)
+Ventiladores/4 pos=(-160.91, 755.10, 975.86) rot=(0.00, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform
+Ventiladores/4/Ventilador_Iz pos=(1.62, -17.88, -14.35) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.88, 17.89, 14.36), Extents: (0.82, 0.79, 0.76)
+Piezas pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(0.01, 0.01, 0.01) components=Transform
+Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_CuerpoVentilador1_low_Plasma_Gun_low_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (0.00, 16.61, 2.15), Extents: (2.65, 4.06, 13.78)
+Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Mango_low_Mango_low_Plasma_Gun_low_low1 pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.01, 9.61, 3.53), Extents: (2.87, 9.62, 15.16)
+Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Plasma_Gun_low_low_Gatillo_low_GatilloYCanones_low_pPlane4_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.02, 13.00, 10.51), Extents: (1.63, 4.16, 10.86)
+Piezas/PistolaPlasma_Fixed_PISTOLA_PLASMA_Plasma_Gun_low_low_RellenoMid_low pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-0.01, 17.02, 4.06), Extents: (2.72, 3.37, 16.26)
+Luz_Cañon pos=(-0.03, 15.49, 20.61) rot=(90.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Light,UniversalAdditionalLightData
+Luz_Cañon_Pequeño pos=(-0.03, 12.82, 18.77) rot=(90.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Light,UniversalAdditionalLightData
+Assets/Prefabs/Shotgun Set/Prefabs/BenelliM4.prefab
+ pos=(-13.70, 39.80, 11.90) rot=(0.00, 0.00, 0.00) scale=(1.47, 1.47, 1.47) components=Transform
+BackBody pos=(0.00, -1.50, 4.40) rot=(270.02, 0.00, 0.00) scale=(53.44, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 37.15, 21.91), Extents: (0.96, 0.91, 1.33)
+BarrelDe pos=(0.00, -2.24, -18.01) rot=(0.00, 180.00, 180.00) scale=(56.42, 56.42, 40.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 36.52, -14.62), Extents: (0.82, 0.82, 0.71)
+BarrelDe.001 pos=(0.00, -1.18, -17.00) rot=(0.00, 180.00, 180.00) scale=(40.40, 40.40, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 38.07, -11.08), Extents: (0.59, 0.59, 4.10)
+Body pos=(0.00, -1.50, 4.40) rot=(270.02, 0.00, 0.00) scale=(53.44, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 37.33, 15.19), Extents: (0.96, 1.49, 5.90)
+ButtConnector pos=(0.00, -2.38, 7.56) rot=(15.00, 0.00, 0.00) scale=(35.32, 35.32, 35.32) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 34.67, 29.31), Extents: (0.57, 2.38, 6.96)
+ButtDe pos=(0.00, -2.61, 16.43) rot=(0.00, 0.00, 0.00) scale=(12.40, 12.40, 86.83) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 34.92, 34.98), Extents: (0.71, 1.79, 2.29)
+ButtDe.001 pos=(0.00, -4.03, 13.88) rot=(0.00, 0.00, 0.00) scale=(35.32, 35.32, 35.32) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 34.27, 32.74), Extents: (0.80, 2.42, 4.39)
+ButtstockBack pos=(0.00, -5.00, 18.00) rot=(276.12, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 32.84, 37.86), Extents: (0.88, 3.33, 1.09)
+ButtstockMiddle pos=(0.00, -5.00, 18.00) rot=(276.12, 0.00, 0.00) scale=(100.00, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 33.05, 36.29), Extents: (0.88, 3.38, 1.88)
+Handle pos=(0.00, -1.48, 4.38) rot=(270.02, 0.00, 0.00) scale=(53.44, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 32.81, 22.50), Extents: (0.96, 3.07, 2.07)
+Holder pos=(0.00, -2.24, -10.96) rot=(0.00, 0.00, 180.00) scale=(45.14, 45.14, 129.74) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 36.68, -13.36), Extents: (0.76, 0.93, 0.89)
+MainBarrel pos=(0.00, -1.19, -2.61) rot=(0.00, 180.00, 180.00) scale=(33.14, 33.14, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 38.06, -1.83), Extents: (0.54, 0.54, 11.37)
+Plane pos=(0.00, -3.01, 14.90) rot=(0.00, 270.00, 90.00) scale=(54.43, 54.43, 54.43) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 35.56, 31.14), Extents: (0.71, 1.85, 4.45)
+Reload pos=(-0.64, -1.23, 1.07) rot=(270.02, 0.00, 0.00) scale=(53.44, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-14.61, 38.02, 13.63), Extents: (0.04, 0.53, 3.62)
+ReloadG pos=(0.00, -2.20, -8.25) rot=(0.00, 180.00, 180.00) scale=(57.00, 100.00, 280.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 36.57, -1.08), Extents: (0.83, 1.46, 4.99)
+ReloadG/Cylinder.006 pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 36.51, -6.65), Extents: (0.69, 1.08, 0.58)
+ReloadN pos=(0.66, -1.23, 1.07) rot=(89.98, 0.00, 0.00) scale=(-53.44, -100.00, -100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-12.76, 38.02, 13.63), Extents: (0.04, 0.53, 3.62)
+SecondaryBarrel pos=(0.00, -2.24, -10.96) rot=(0.00, 0.00, 180.00) scale=(45.14, 45.14, 129.74) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 36.52, -2.49), Extents: (0.76, 0.76, 12.38)
+Sight pos=(0.00, -0.40, 4.20) rot=(270.02, 0.00, 0.00) scale=(30.00, 100.00, 35.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 39.33, 18.15), Extents: (0.44, 0.62, 1.45)
+Trigger pos=(0.00, -2.88, 5.00) rot=(270.02, 0.00, 0.00) scale=(6.11, 15.27, 15.27) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 35.12, 19.36), Extents: (0.09, 0.68, 0.44)
+triggerGuard pos=(0.00, -1.50, 4.40) rot=(270.02, 0.00, 0.00) scale=(53.44, 100.00, 100.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (-13.70, 35.03, 19.85), Extents: (0.96, 1.21, 4.37)
+Assets/Prefabs/EnemyRobots/Prefabs/MachineGunRobot.prefab
+ pos=(3.90, 10.92, -8.14) rot=(0.00, 135.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform
+MachineGunRobot_Base pos=(0.00, 1.50, 0.00) rot=(270.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.83, 12.47, -8.06), Extents: (2.16, 1.08, 2.16)
+MachineGunRobot_Base/Robot_Eye pos=(0.00, 0.75, 0.30) rot=(270.00, 180.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.37, 12.72, -7.61), Extents: (0.60, 0.43, 0.60)
+MachineGunRobot_Base/MachineGunRobot_Glass pos=(-0.01, 0.92, 0.30) rot=(270.00, 180.00, 0.00) scale=(1.12, 1.12, 1.12) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.01, 12.72, -7.25), Extents: (0.46, 0.48, 0.46)
+MachineGunRobot_Base/MachineGunRobot_GunJoint pos=(0.00, 1.09, -0.60) rot=(6.61, 1.06, 8.78) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.13, 11.82, -7.37), Extents: (0.39, 0.31, 0.40)
+MachineGunRobot_Base/MachineGunRobot_GunJoint/MachineGunRobot_Gun pos=(0.00, 0.87, 0.00) rot=(270.44, 264.80, 275.20) scale=(1.32, 1.32, 1.32) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (2.62, 11.92, -6.67), Extents: (0.57, 0.26, 0.69)
+MachineGunRobot_Base/MachineGunRobot_GunJoint/MachineGunRobot_Gun/MuzzleFlashEffect pos=(0.00, 0.00, 0.60) rot=(0.00, 90.00, 0.00) scale=(2.50, 2.50, 2.50) components=Transform,ParticleSystem,ParticleSystemRenderer
+   bounds=Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)
+MachineGunRobot_Laser pos=(0.00, 2.64, 0.00) rot=(270.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.78, 13.99, -8.00), Extents: (0.54, 0.51, 0.54)
+MachineGunRobot_Laser/Laser pos=(0.00, 0.51, 0.69) rot=(270.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,LineRenderer
+   bounds=Center: (0.35, 14.25, -4.59), Extents: (3.26, 0.05, 3.26)
+MachineGunRobot_Laser/Laser/Light pos=(0.00, 0.00, 0.27) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,Light
+MachineGunRobot_FireBurster pos=(-0.01, 0.48, 0.00) rot=(89.41, 230.00, 50.00) scale=(1.00, 1.00, 1.00) components=Transform,MeshFilter,MeshRenderer
+   bounds=Center: (3.91, 10.97, -8.13), Extents: (0.57, 0.49, 0.57)
+MachineGunRobot_FireBurster/FireBurstEffect pos=(0.00, 0.00, 0.90) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) components=Transform,ParticleSystem,ParticleSystemRenderer
+   bounds=Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)
+SCENE ROOT Directional Light (0.00, 3.00, 0.00)
+SCENE ROOT Global Volume (0.00, 0.00, 0.00)
+SCENE ROOT -----Player (-100.93, 18.55, -235.82)
+SCENE ROOT Map (-0.20, 0.79, -0.11)
+SCENE ROOT Canvases (1320.96, 595.89, -342.02)
+SCENE ROOT EventSystem (0.00, 0.00, 0.00)
+SCENE ROOT Managers Of the game (-0.26, 2.42, 2.48)
+SCENE ROOT NormalEnemy (-42.30, 1.45, 9.74)
+SCENE ROOT NormalEnemy (1) (-42.30, 1.45, 9.74)
+SCENE ROOT NormalEnemy (2) (-36.00, 1.45, 9.74)
+SCENE ROOT NormalEnemy (6) (-36.00, 1.45, 0.24)
+SCENE ROOT NormalEnemy (7) (-36.00, 1.45, -6.33)
+SCENE ROOT NormalEnemy (8) (-41.12, 1.45, -6.33)
+SCENE ROOT NormalEnemy (9) (-41.12, 1.45, 3.90)
+SCENE ROOT NormalEnemy (3) (-50.80, 1.45, 9.74)
+SCENE ROOT NormalEnemy (4) (-42.30, 1.45, -1.28)
+SCENE ROOT NormalEnemy (5) (-42.30, 1.45, 14.90)
+SCENE ROOT Sphere (10.88, 3.30, -6.72)
+SCENE ROOT Spot Light (11.14, 2.38, 0.45)
+SCENE ROOT Spot Light (1) (7.01, 1.60, 1.25)
+SCENE ROOT Spot Light (2) (-117.60, 41.20, -223.30)
+SCENE ROOT Point Light (20.60, 4.41, -4.26)
+SCENE ROOT Point Light (7) (-97.27, 9.38, -93.66)
+SCENE ROOT Point Light (8) (-97.27, 9.38, -116.36)
+SCENE ROOT Point Light (9) (-97.27, 9.38, -160.50)
+SCENE ROOT Point Light (10) (-97.27, 9.38, -204.73)
+SCENE ROOT Point Light (1) (19.12, 4.41, 0.52)
+SCENE ROOT Point Light (2) (19.96, 4.41, 13.29)
+SCENE ROOT Point Light (4) (27.61, 4.41, 20.74)
+SCENE ROOT Point Light (5) (35.53, 4.41, 24.22)
+SCENE ROOT Point Light (6) (44.78, 4.41, 24.22)
+SCENE ROOT Point Light (3) (26.77, 5.57, 13.66)
+SCENE ROOT Area Light (17.99, 5.98, 19.24)
+SCENE ROOT SHOP OPENER (12.56, 1.05, 18.95)
+SCENE ROOT MIRROR (7.17, 7.79, 13.39)
+SCENE ROOT Wall (14.37, 5.80, 43.74)

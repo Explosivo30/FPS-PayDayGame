@@ -1,58 +1,20 @@
 using UnityEngine;
 
-public class ShotGun : BaseGun
+[RequireComponent(typeof(WeaponAction))]
+public class ShotGun : BaseGun, IAimable
 {
-    public override bool IsAutomatic => false; // not really needed, but explicit
-    private float lastShotTime = 0f;
+    public override bool IsAutomatic => false;
     public bool IsAiming { get; private set; }
-    [SerializeField] private Transform hipPosition;
-
-    [SerializeField] private Transform weaponHolder;
-    private RecoilData data => recoilData; // hereda de BaseGun
-
-    public override void Reload()
-    {
-        currentAmmo = ammo;
-        Debug.Log("Pistol reloaded.");
-    }
-
-
-
-
+    [Min(1)] public int pelletCount = 8;
+    private float lastShotTime = float.NegativeInfinity;
     public override void Use()
     {
-        if (currentAmmo <= 0)
-        {
-            Debug.Log("No ammo!");
-            return;
-        }
-
-        float secondsPerShot = 1f / fireRate;
-        if (Time.time - lastShotTime >= secondsPerShot)
-        {
-            if (Physics.Raycast(weaponHolder.position, transform.forward, out hit, maxRangeGun, layerMask, QueryTriggerInteraction.Collide))
-            {
-                Debug.Log(hit.transform.name);
-                HandleHit(hit, damage);
-                Play(weaponHolder.position, hit.point);
-
-                // (Optional) Spawn impact effects at hit.point
-
-                Debug.Log("ON TARGET");
-            }
-            else
-            {
-                Play(weaponHolder.position, weaponHolder.position + weaponHolder.forward * maxRangeGun);
-            }
-            currentAmmo--;
-            ApplyRecoil();
-            TriggerPhysicalKickback(weaponHolder);
-            Debug.Log("Pistol fired! Damage: " + damage);
-            //TODO:  Add sound, muzzle flash
-
-        }
-
-
+        if (!TryStartShot(ref lastShotTime)) return;
+        for (int i = 0; i < pelletCount; i++) FireHitscan(IsAiming, null, i == 0);
+        ApplyRecoil();
     }
-
+    public override void Reload() { StopAiming(); Action.BeginReload(); }
+    public void StartAiming() { IsAiming = !Action.IsBusy; }
+    public void StopAiming() { IsAiming = false; }
+    protected override void OnDisable() { IsAiming = false; base.OnDisable(); }
 }

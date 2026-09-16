@@ -13,13 +13,7 @@ namespace DungeonPainter.Editor
         private enum ToolMode
         {
             PlaceNode, ConnectNodes, PaintRoom,
-            DefineRoomNumeric, EditConnection, SelectAndMove, DeleteElement,
-            PlaceObject, PlaceWall
-        }
-
-        private enum PaintBrush
-        {
-            Freeform, Rectangle, Circle, Line, Polygon, Eraser
+            DefineRoomNumeric, EditConnection, SelectAndMove, DeleteElement
         }
         #endregion
 
@@ -44,17 +38,11 @@ namespace DungeonPainter.Editor
         private DungeonConnection selectedConnection;
         private DungeonRoom selectedRoom;
         private DungeonNode connectionStartNode;
-        private DungeonWall selectedWall;
 
         // Room painting
         private List<Vector2Int> paintedCells = new List<Vector2Int>();
         private bool isPainting = false;
-        private PaintBrush currentBrush = PaintBrush.Freeform;
-        private int brushSize = 1;
-        private Vector2Int brushDragStart;
-        private List<Vector2Int> polygonVertices = new List<Vector2Int>();
-        private float currentRoomHeight = 3f;   // default height for newly painted rooms
-        private bool currentRoomClosed = false;  // default closed state for newly painted rooms
+        private bool previewDirty = false;
 
         // Numeric room definition
         private Vector2Int roomSizeNumeric = new Vector2Int(5, 5);
@@ -87,10 +75,13 @@ namespace DungeonPainter.Editor
         private GameObject generatedDungeon;
         private Vector2 propertiesScrollPos;
 
-        // Object placement
-        private ObjectPrimitiveShape currentObjectShape = ObjectPrimitiveShape.Cube;
-        private float currentObjectRotation = 0f;
-        private DungeonObject selectedObject;
+        private static readonly string[] LayerNames = { "B3","B2","B1","Planta Baja","Planta 1","Planta 2","Planta 3" };
+        private static string GetLayerName(int level)
+        {
+            int idx = level + 3;
+            return (idx >= 0 && idx < LayerNames.Length) ? LayerNames[idx] : $"Nivel {level}";
+        }
+
         #endregion
 
         #region Window Setup
@@ -104,7 +95,12 @@ namespace DungeonPainter.Editor
         private void OnEnable()
         {
             if (dungeonData != null)
+            {
                 serializedData = new SerializedObject(dungeonData);
+                // Try to recover generated dungeon reference after Unity restart
+                if (generatedDungeon == null)
+                    generatedDungeon = GameObject.Find("Dungeon_" + dungeonData.name);
+            }
             if (roomTemplates == null)
                 roomTemplates = RoomTemplates.GetBuiltInTemplates();
         }
@@ -178,6 +174,32 @@ namespace DungeonPainter.Editor
             if (GUILayout.Button("Create New", EditorStyles.toolbarButton, GUILayout.Width(100)))
                 CreateNewDungeonData();
 
+            if (dungeonData != null)
+            {
+                GUILayout.Space(20);
+                // Layer pill in toolbar
+                Color lc = heightColors.ContainsKey(currentHeightLevel)
+                    ? heightColors[currentHeightLevel] : Color.white;
+                GUIStyle layerStyle = new GUIStyle(EditorStyles.toolbarButton)
+                {
+                    fontStyle = FontStyle.Bold,
+                    fontSize  = 12
+                };
+                Color prev = GUI.backgroundColor;
+                GUI.backgroundColor = new Color(lc.r * 0.7f, lc.g * 0.7f, lc.b * 0.7f, 1f);
+                GUILayout.Label(
+                    $"  ▪  CAPA ACTIVA: {GetLayerName(currentHeightLevel)}  (nivel {currentHeightLevel})  ▪  ",
+                    layerStyle, GUILayout.Height(20));
+                GUI.backgroundColor = prev;
+
+                GUILayout.Space(8);
+                // Quick layer switcher ± buttons
+                if (GUILayout.Button("▼", EditorStyles.toolbarButton, GUILayout.Width(22)))
+                { currentHeightLevel--; Repaint(); }
+                if (GUILayout.Button("▲", EditorStyles.toolbarButton, GUILayout.Width(22)))
+                { currentHeightLevel++; Repaint(); }
+            }
+
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.EndVertical();
         }
@@ -202,11 +224,13 @@ namespace DungeonPainter.Editor
             DrawGrid(canvasRect);
             DrawRooms(canvasRect);
             DrawConnections(canvasRect);
-            DrawWalls(canvasRect);
             DrawNodes(canvasRect);
-            DrawObjects(canvasRect);
             HandleMouseInput(canvasRect);
             DrawModeSpecificUI(canvasRect);
+            DrawScaleRuler(canvasRect);
+            DrawLayerLegend(canvasRect);
+            DrawStats(canvasRect);
+            DungeonMapPreview.Draw(dungeonData, canvasRect, currentHeightLevel, heightColors);
         }
 
         // ── Right panel ────────────────────────────────────────────
@@ -216,16 +240,16 @@ namespace DungeonPainter.Editor
 
             DrawToolPalette();
 
-            EditorGUILayout.Space(8);
-            GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
-            EditorGUILayout.Space(5);
-            EditorGUILayout.LabelField("Inspector", EditorStyles.boldLabel);
+            EditorGUILayout.Space(4);
+            string inspectorTitle = "🔍  INSPECTOR";
+            if      (selectedNode       != null) inspectorTitle = "🔍  INSPECTOR — Nodo";
+            else if (selectedConnection != null) inspectorTitle = "🔍  INSPECTOR — Conexión";
+            else if (selectedRoom       != null) inspectorTitle = "🔍  INSPECTOR — Habitación";
+            DrawSectionHeader(inspectorTitle);
 
             if      (selectedNode       != null) DrawNodeProperties();
             else if (selectedConnection != null) DrawConnectionProperties();
             else if (selectedRoom       != null) DrawRoomProperties();
-            else if (selectedObject     != null) DrawObjectProperties();
-            else if (selectedWall       != null) DrawWallProperties();
             else                                 DrawGeneralProperties();
 
             EditorGUILayout.EndScrollView();
@@ -235,127 +259,112 @@ namespace DungeonPainter.Editor
         {
             if (dungeonData == null) return;
 
-            EditorGUILayout.LabelField("Tool Mode", EditorStyles.boldLabel);
+            // ══ HERRAMIENTAS ══════════════════════════════════════
+            DrawSectionHeader("🔧  HERRAMIENTAS");
 
-            string[]   toolNames  = { "Place Node","Connect Nodes","Paint Room","Define Room","Edit Conn.","Select/Move","Delete","Place Object", "Place Wall" };
+            string[]   toolNames  = { "📍 Nodo","🔗 Conectar","🖌 Pintar Sala","📐 Sala Núm.","✏️ Editar Con.","↔ Seleccionar","🗑 Borrar" };
             ToolMode[] toolValues = { ToolMode.PlaceNode, ToolMode.ConnectNodes, ToolMode.PaintRoom,
                                       ToolMode.DefineRoomNumeric, ToolMode.EditConnection,
-                                      ToolMode.SelectAndMove, ToolMode.DeleteElement, ToolMode.PlaceObject, ToolMode.PlaceWall };
+                                      ToolMode.SelectAndMove, ToolMode.DeleteElement };
 
             int selIdx = -1;
             for (int i = 0; i < toolValues.Length; i++)
                 if (currentMode == toolValues[i]) selIdx = i;
 
-            int newIdx = GUILayout.SelectionGrid(selIdx, toolNames, 2, GUILayout.Height(130));
+            int newIdx = GUILayout.SelectionGrid(selIdx, toolNames, 2, GUILayout.Height(110));
             if (newIdx != selIdx && newIdx >= 0)
             {
                 currentMode = toolValues[newIdx];
                 if (currentMode != ToolMode.SelectAndMove)
-                { selectedNode = null; selectedConnection = null; selectedRoom = null; selectedObject = null; selectedWall = null; }
-                if (currentMode != ToolMode.PaintRoom && currentMode != ToolMode.PlaceWall)
-                    polygonVertices.Clear();
+                { selectedNode = null; selectedConnection = null; selectedRoom = null; }
             }
 
-            // ── Brush selector (Paint Room & Place Wall) ──────────
-            if (currentMode == ToolMode.PaintRoom || currentMode == ToolMode.PlaceWall)
+            // Tool hint
+            string hint = currentMode switch
             {
-                EditorGUILayout.Space(4);
-                EditorGUILayout.LabelField("Brush Shape", EditorStyles.boldLabel);
-                string[] brushNames = { "Freeform", "Rectangle", "Circle", "Line", "Polygon", "Eraser" };
-                PaintBrush[] brushVals = { PaintBrush.Freeform, PaintBrush.Rectangle, PaintBrush.Circle, PaintBrush.Line, PaintBrush.Polygon, PaintBrush.Eraser };
-                int bIdx = -1;
-                for (int i = 0; i < brushVals.Length; i++)
-                    if (currentBrush == brushVals[i]) bIdx = i;
-                int newB = GUILayout.SelectionGrid(bIdx, brushNames, 3, GUILayout.Height(40));
-                if (newB != bIdx && newB >= 0)
-                {
-                    currentBrush = brushVals[newB];
-                    polygonVertices.Clear();
-                }
-                if (currentBrush == PaintBrush.Circle || currentBrush == PaintBrush.Line)
-                    brushSize = EditorGUILayout.IntSlider("Brush Size:", brushSize, 1, 10);
+                ToolMode.PlaceNode         => "Coloca nodos de conexión en el grid. Los pasillos los unen.",
+                ToolMode.ConnectNodes      => "Click en nodo A, luego en nodo B para crear un pasillo.",
+                ToolMode.PaintRoom         => "Click y arrastra para pintar celdas de habitación.",
+                ToolMode.DefineRoomNumeric => "Define el tamaño exacto en celdas desde el Inspector.",
+                ToolMode.EditConnection    => "Click en un pasillo para editar su tipo y anchura.",
+                ToolMode.SelectAndMove     => "Click para seleccionar y editar propiedades.",
+                ToolMode.DeleteElement     => "Click para borrar nodos, salas o conexiones.",
+                _ => ""
+            };
+            if (!string.IsNullOrEmpty(hint))
+                EditorGUILayout.HelpBox(hint, MessageType.None);
 
-                if (currentBrush == PaintBrush.Polygon && polygonVertices.Count > 0)
-                {
-                    EditorGUILayout.HelpBox($"Polygon: {polygonVertices.Count} vertices. Double-click or press Enter to finish.", MessageType.Info);
-                    if (GUILayout.Button("Finish Polygon")) FinishPolygon();
-                    if (GUILayout.Button("Cancel Polygon")) polygonVertices.Clear();
-                }
+            // ══ CAPA ACTIVA ════════════════════════════════════════
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("📐  CAPA ACTIVA");
 
-                if (currentMode == ToolMode.PaintRoom)
-                {
-                    // ── Default room properties for new rooms ───────────
-                    EditorGUILayout.Space(4);
-                    EditorGUILayout.LabelField("New Room Defaults", EditorStyles.boldLabel);
-                    currentRoomHeight = EditorGUILayout.FloatField("Room Height (m):", Mathf.Max(0.5f, currentRoomHeight));
-                    currentRoomClosed = EditorGUILayout.Toggle("Closed (with ceiling):", currentRoomClosed);
-                }
-            }
-
-            // ── Object shape selector (only in Place Object mode) ──
-            if (currentMode == ToolMode.PlaceObject)
-            {
-                EditorGUILayout.Space(4);
-                EditorGUILayout.LabelField("Object Shape", EditorStyles.boldLabel);
-                string[] shapeNames = { "Cube", "Sphere", "Cylinder", "Capsule" };
-                ObjectPrimitiveShape[] shapeVals = { ObjectPrimitiveShape.Cube, ObjectPrimitiveShape.Sphere, ObjectPrimitiveShape.Cylinder, ObjectPrimitiveShape.Capsule };
-                int sIdx = -1;
-                for (int i = 0; i < shapeVals.Length; i++)
-                    if (currentObjectShape == shapeVals[i]) sIdx = i;
-                int newS = GUILayout.SelectionGrid(sIdx, shapeNames, 2, GUILayout.Height(40));
-                if (newS != sIdx && newS >= 0)
-                    currentObjectShape = shapeVals[newS];
-                currentObjectRotation = EditorGUILayout.Slider("Rotation Y°:", currentObjectRotation, 0f, 360f);
-                EditorGUILayout.HelpBox("Click to place. R to rotate 90°. Right-click to delete.", MessageType.None);
-            }
-
-            // ── Editor settings ────────────────────────────────────
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField("Editor Settings", EditorStyles.boldLabel);
-
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Current Level:", GUILayout.Width(95));
-            currentHeightLevel = EditorGUILayout.IntField(currentHeightLevel);
             Color lc = heightColors.ContainsKey(currentHeightLevel) ? heightColors[currentHeightLevel] : Color.white;
-            EditorGUILayout.ColorField(GUIContent.none, lc, false, false, false, GUILayout.Width(25));
-            EditorGUILayout.EndHorizontal();
+            Color prevBg = GUI.backgroundColor;
+            GUI.backgroundColor = new Color(lc.r * 0.5f + 0.1f, lc.g * 0.5f + 0.1f, lc.b * 0.5f + 0.1f, 1f);
+
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            GUIStyle layerBig = new GUIStyle(EditorStyles.boldLabel) { fontSize = 14, alignment = TextAnchor.MiddleCenter };
+            layerBig.normal.textColor = lc == Color.white ? Color.black : Color.white;
+            EditorGUILayout.LabelField(GetLayerName(currentHeightLevel).ToUpper(), layerBig, GUILayout.Height(28));
+
+            float layerH = currentHeightLevel * (dungeonData?.heightPerLevel ?? 3f);
+            GUIStyle layerSub = new GUIStyle(EditorStyles.centeredGreyMiniLabel);
+            EditorGUILayout.LabelField($"Nivel {currentHeightLevel}  ·  Altura {layerH:0.#}m sobre el suelo", layerSub);
+            EditorGUILayout.EndVertical();
+            GUI.backgroundColor = prevBg;
 
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Grid Size:", GUILayout.Width(95));
-            dungeonData.gridCellSize = EditorGUILayout.Slider(dungeonData.gridCellSize, 1f, 20f);
+            if (GUILayout.Button("▼ Bajar capa")) { currentHeightLevel--; Repaint(); }
+            if (GUILayout.Button("▲ Subir capa")) { currentHeightLevel++; Repaint(); }
             EditorGUILayout.EndHorizontal();
 
-            showGridCoordinates = EditorGUILayout.Toggle("Show Coordinates", showGridCoordinates);
+            currentHeightLevel = EditorGUILayout.IntSlider("Nivel:", currentHeightLevel, -3, 3);
 
-            // ── Room templates ─────────────────────────────────────
-            EditorGUILayout.Space(8);
-            showTemplatePanel = EditorGUILayout.Foldout(showTemplatePanel, "Room Templates", true);
+            // ══ PLANTILLAS ════════════════════════════════════════
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("🏗  PLANTILLAS DE SALA");
+            showTemplatePanel = EditorGUILayout.Foldout(showTemplatePanel, "Ver plantillas", true);
             if (showTemplatePanel && roomTemplates != null)
             {
-                EditorGUILayout.HelpBox("Click to place at origin, then Select/Move to reposition.", MessageType.None);
-                templateScrollPos = EditorGUILayout.BeginScrollView(templateScrollPos, GUILayout.Height(130));
+                EditorGUILayout.HelpBox("Click para colocar en el origen. Usa Seleccionar para mover.", MessageType.None);
+                templateScrollPos = EditorGUILayout.BeginScrollView(templateScrollPos, GUILayout.Height(120));
                 foreach (var tmpl in roomTemplates)
-                    if (GUILayout.Button($"{tmpl.name}  ({tmpl.size.x}x{tmpl.size.y})"))
+                    if (GUILayout.Button($"{tmpl.name}  ({tmpl.size.x}×{tmpl.size.y} celdas = {tmpl.size.x * dungeonData.gridCellSize:0}×{tmpl.size.y * dungeonData.gridCellSize:0}m)"))
                         PlaceTemplate(tmpl);
                 EditorGUILayout.EndScrollView();
             }
 
-            // ── Copy / Paste ───────────────────────────────────────
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField("Copy / Paste", EditorStyles.boldLabel);
+            // ══ COPIAR / PEGAR ════════════════════════════════════
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("📋  COPIAR / PEGAR");
             EditorGUILayout.BeginHorizontal();
             using (new EditorGUI.DisabledGroupScope(selectedRoom == null))
-                if (GUILayout.Button("Copy  (Ctrl+C)")) CopySelectedRoom();
+                if (GUILayout.Button("Copiar  (Ctrl+C)")) CopySelectedRoom();
             using (new EditorGUI.DisabledGroupScope(copiedRoom == null))
-                if (GUILayout.Button("Paste  (Ctrl+V)")) PasteRoom();
+                if (GUILayout.Button("Pegar  (Ctrl+V)")) PasteRoom();
             EditorGUILayout.EndHorizontal();
             if (copiedRoom != null)
-                EditorGUILayout.LabelField($"Clipboard: {copiedRoom.roomName}", EditorStyles.miniLabel);
+                EditorGUILayout.LabelField($"Portapapeles: {copiedRoom.roomName}", EditorStyles.miniLabel);
 
-            // ── Shortcuts help ─────────────────────────────────────
-            EditorGUILayout.Space(8);
-            if (GUILayout.Button("Keyboard Shortcuts..."))
-                EditorUtility.DisplayDialog("Shortcuts", KeyboardShortcuts.GetShortcutHelpText(), "OK");
+            // ══ AJUSTES DEL EDITOR ════════════════════════════════
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("⚙️  AJUSTES");
+            showGridCoordinates = EditorGUILayout.Toggle("Mostrar coordenadas", showGridCoordinates);
+
+            EditorGUILayout.Space(4);
+            if (GUILayout.Button("Atajos de teclado..."))
+                EditorUtility.DisplayDialog("Atajos", KeyboardShortcuts.GetShortcutHelpText(), "OK");
+        }
+
+        private void DrawSectionHeader(string title)
+        {
+            EditorGUILayout.Space(2);
+            Rect r = GUILayoutUtility.GetRect(0, 20, GUILayout.ExpandWidth(true));
+            EditorGUI.DrawRect(r, new Color(0.22f, 0.22f, 0.26f));
+            GUIStyle hs = new GUIStyle(EditorStyles.boldLabel) { fontSize = 10 };
+            hs.normal.textColor = new Color(0.7f, 0.75f, 0.85f);
+            GUI.Label(new Rect(r.x + 6, r.y + 3, r.width, r.height), title, hs);
+            EditorGUILayout.Space(2);
         }
 
         // ── Bottom bar ─────────────────────────────────────────────
@@ -369,12 +378,22 @@ namespace DungeonPainter.Editor
                 if (GUILayout.Button("Replace Meshes",    GUILayout.Height(28), GUILayout.Width(130))) ReplaceMeshes();
                 if (GUILayout.Button("Restore Original",  GUILayout.Height(28), GUILayout.Width(130))) RestoreOriginal();
 
+                GUILayout.Space(12);
+                using (new EditorGUI.DisabledGroupScope(generatedDungeon == null))
+                {
+                    Color prevBg = GUI.backgroundColor;
+                    GUI.backgroundColor = new Color(0.3f, 0.6f, 1f);
+                    if (GUILayout.Button("⬡  Convertir a ProBuilder", GUILayout.Height(28), GUILayout.Width(180)))
+                        ProBuilderConverter.Convert(generatedDungeon);
+                    GUI.backgroundColor = prevBg;
+                }
+
                 GUILayout.FlexibleSpace();
 
                 if (dungeonData != null)
                     EditorGUILayout.LabelField(
-                        $"Rooms: {dungeonData.rooms.Count}  Nodes: {dungeonData.nodes.Count}  Conn: {dungeonData.connections.Count}  Obj: {dungeonData.objects.Count}",
-                        GUILayout.Width(360));
+                        $"Rooms: {dungeonData.rooms.Count}  Nodes: {dungeonData.nodes.Count}  Connections: {dungeonData.connections.Count}",
+                        GUILayout.Width(280));
 
                 if (GUILayout.Button("Center View (F)", GUILayout.Height(28), GUILayout.Width(110))) CenterView();
 
@@ -426,7 +445,7 @@ namespace DungeonPainter.Editor
             Handles.BeginGUI();
             foreach (var node in dungeonData.nodes)
             {
-                Vector2 sp = GridToScreenCenter(node.gridPosition, canvasRect);
+                Vector2 sp = GridToScreen(node.gridPosition, canvasRect);
                 Color c = heightColors.ContainsKey(node.heightLevel) ? heightColors[node.heightLevel] : Color.white;
                 if      (node == selectedNode)                c = Color.yellow;
                 else if (node.heightLevel != currentHeightLevel) c = Color.Lerp(c, Color.clear, 0.5f);
@@ -450,8 +469,8 @@ namespace DungeonPainter.Editor
                 var nB = dungeonData.GetNode(conn.nodeBId);
                 if (nA == null || nB == null) continue;
 
-                Vector2 pA = GridToScreenCenter(nA.gridPosition, canvasRect);
-                Vector2 pB = GridToScreenCenter(nB.gridPosition, canvasRect);
+                Vector2 pA = GridToScreen(nA.gridPosition, canvasRect);
+                Vector2 pB = GridToScreen(nB.gridPosition, canvasRect);
                 Color lc = conn == selectedConnection ? Color.cyan : Color.gray;
                 switch (conn.transitionType)
                 {
@@ -468,7 +487,7 @@ namespace DungeonPainter.Editor
 
             if (currentMode == ToolMode.ConnectNodes && connectionStartNode != null)
             {
-                Vector2 sp = GridToScreenCenter(connectionStartNode.gridPosition, canvasRect);
+                Vector2 sp = GridToScreen(connectionStartNode.gridPosition, canvasRect);
                 Handles.color = Color.yellow;
                 Handles.DrawDottedLine(sp, Event.current.mousePosition, 3f);
             }
@@ -502,19 +521,6 @@ namespace DungeonPainter.Editor
                         GetCellScreenRect(mn, canvasRect).position,
                         GetCellScreenRect(mx, canvasRect).max - GetCellScreenRect(mn, canvasRect).position + Vector2.one * cs);
                     Handles.DrawSolidRectangleWithOutline(br, Color.clear, Handles.color);
-
-                    // ── Closed-room badge ──────────────────────────
-                    if (room.isClosed)
-                    {
-                        float alpha = room.heightLevel != currentHeightLevel ? 0.4f : 1f;
-                        GUIStyle badgeStyle = new GUIStyle(EditorStyles.boldLabel);
-                        badgeStyle.normal.textColor = new Color(0.2f, 0.9f, 1f, alpha);
-                        badgeStyle.fontSize = Mathf.Max(9, Mathf.RoundToInt(cs * 0.28f));
-                        Vector2 badgePos = GridToScreenCenter(mn, canvasRect);
-                        GUI.Label(new Rect(badgePos.x + 2, badgePos.y - cs * 0.5f, 60, 20),
-                            $"[C] {room.roomHeight:0.#}m", badgeStyle);
-                    }
-
                     Handles.EndGUI();
                 }
             }
@@ -526,100 +532,50 @@ namespace DungeonPainter.Editor
                 foreach (var cell in paintedCells)
                     EditorGUI.DrawRect(GetCellScreenRect(cell, canvasRect), pc);
             }
-
-            // Shape brush preview while dragging
-            if (isPainting && (currentBrush == PaintBrush.Rectangle || currentBrush == PaintBrush.Circle || currentBrush == PaintBrush.Line))
-            {
-                Vector2Int curGrid = ScreenToGrid(Event.current.mousePosition, canvasRect);
-                var previewCells = GetBrushShapeCells(brushDragStart, curGrid, currentBrush);
-                Color previewCol = heightColors.ContainsKey(currentHeightLevel) ? heightColors[currentHeightLevel] : Color.white;
-                previewCol.a = 0.35f;
-                foreach (var cell in previewCells)
-                    EditorGUI.DrawRect(GetCellScreenRect(cell, canvasRect), previewCol);
-            }
-
-            // Polygon vertices preview
-            if (currentBrush == PaintBrush.Polygon && polygonVertices.Count > 0)
-            {
-                Color polyCol = new Color(0f, 1f, 0.5f, 0.5f);
-                Handles.BeginGUI();
-                Handles.color = polyCol;
-                for (int i = 0; i < polygonVertices.Count; i++)
-                {
-                    Vector2 sp = GridToScreenCenter(polygonVertices[i], canvasRect);
-                    Handles.DrawSolidDisc(sp, Vector3.forward, 5f);
-                    if (i > 0)
-                    {
-                        Vector2 prev = GridToScreenCenter(polygonVertices[i - 1], canvasRect);
-                        Handles.DrawLine(prev, sp);
-                    }
-                }
-                // Closing line preview to mouse
-                if (canvasRect.Contains(Event.current.mousePosition))
-                {
-                    Vector2 last = GridToScreenCenter(polygonVertices[polygonVertices.Count - 1], canvasRect);
-                    Handles.color = new Color(0f, 1f, 0.5f, 0.3f);
-                    Handles.DrawDottedLine(last, Event.current.mousePosition, 3f);
-                }
-                Handles.EndGUI();
-            }
         }
 
         private void DrawModeSpecificUI(Rect canvasRect)
         {
-            GUIStyle bigStyle = new GUIStyle(EditorStyles.boldLabel) { fontSize = 22, alignment = TextAnchor.UpperCenter };
-            GUIStyle subStyle = new GUIStyle(EditorStyles.label)     { fontSize = 13, alignment = TextAnchor.UpperCenter };
-            subStyle.normal.textColor = Color.white;
+            GUIStyle bigStyle = new GUIStyle(EditorStyles.boldLabel) { fontSize = 16, alignment = TextAnchor.UpperCenter };
+            GUIStyle subStyle = new GUIStyle(EditorStyles.label)     { fontSize = 11, alignment = TextAnchor.UpperCenter };
+            subStyle.normal.textColor = new Color(0.85f, 0.85f, 0.85f);
             bigStyle.normal.textColor = Color.yellow;
 
             string modeText = "", info = "";
             switch (currentMode)
             {
-                case ToolMode.PlaceNode:         modeText = "PLACE NODE";       info = "Click to place  [N]";           break;
-                case ToolMode.PaintRoom:
-                    modeText = "PAINT ROOM";
-                    switch (currentBrush)
-                    {
-                        case PaintBrush.Freeform:  info = "Freeform: Click+Drag  [P]"; break;
-                        case PaintBrush.Rectangle: info = "Rectangle: Click+Drag corners"; break;
-                        case PaintBrush.Circle:    info = "Circle: Click center, drag radius"; break;
-                        case PaintBrush.Line:      info = "Line: Click+Drag start→end"; break;
-                        case PaintBrush.Polygon:   info = "Polygon: Click vertices, Enter to fill"; break;
-                        case PaintBrush.Eraser:    info = "Eraser: Click on cells to remove"; break;
-                        default: info = "Click+Drag  [P]"; break;
-                    }
-                    bigStyle.normal.textColor = Color.cyan;
-                    break;
-                case ToolMode.ConnectNodes:      modeText = "CONNECT NODES";    info = "Click node → node  [C]"; bigStyle.normal.textColor = new Color(0.4f,1f,0.4f); break;
-                case ToolMode.SelectAndMove:     modeText = "SELECT / MOVE";    info = "Click to select  [S]";          break;
-                case ToolMode.DeleteElement:     modeText = "DELETE";           info = "Click to delete  [D]"; bigStyle.normal.textColor = Color.red;  break;
-                case ToolMode.DefineRoomNumeric: modeText = "DEFINE ROOM";      info = "Set size in Inspector";         break;
-                case ToolMode.EditConnection:    modeText = "EDIT CONNECTION";  info = "Click a connection line";       break;
-                case ToolMode.PlaceObject:
-                    modeText = "PLACE OBJECT";
-                    info = $"Click to place {currentObjectShape}  [R to rotate]";
-                    bigStyle.normal.textColor = new Color(1f, 0.8f, 0.2f);
-                    break;
-                case ToolMode.PlaceWall:
-                    modeText = "PLACE WALL";
-                    info = "Drag to paint walls, Right-Click drag to erase";
-                    bigStyle.normal.textColor = new Color(0.8f, 0.4f, 0.2f);
-                    break;
+                case ToolMode.PlaceNode:         modeText = "PLACE NODE";       info = "Click para colocar  [N]";           break;
+                case ToolMode.PaintRoom:         modeText = "PAINT ROOM";       info = "Click+Arrastrar  [P]"; bigStyle.normal.textColor = Color.cyan;  break;
+                case ToolMode.ConnectNodes:      modeText = "CONNECT NODES";    info = "Click nodo → nodo  [C]"; bigStyle.normal.textColor = new Color(0.4f,1f,0.4f); break;
+                case ToolMode.SelectAndMove:     modeText = "SELECT / MOVE";    info = "Click para seleccionar  [S]";       break;
+                case ToolMode.DeleteElement:     modeText = "DELETE";           info = "Click para borrar  [D]"; bigStyle.normal.textColor = Color.red;  break;
+                case ToolMode.DefineRoomNumeric: modeText = "DEFINE ROOM";      info = "Configura el tamaño en el Inspector"; break;
+                case ToolMode.EditConnection:    modeText = "EDIT CONNECTION";  info = "Click en una conexión";             break;
             }
 
-            GUI.Label(new Rect(canvasRect.x, canvasRect.y + 8,  canvasRect.width, 28), modeText, bigStyle);
-            GUI.Label(new Rect(canvasRect.x, canvasRect.y + 34, canvasRect.width, 20), info,     subStyle);
+            // Semi-transparent background for mode label
+            Rect modeBg = new Rect(canvasRect.x, canvasRect.y, canvasRect.width, 52);
+            EditorGUI.DrawRect(modeBg, new Color(0, 0, 0, 0.45f));
+            GUI.Label(new Rect(canvasRect.x, canvasRect.y + 6,  canvasRect.width, 22), modeText, bigStyle);
+            GUI.Label(new Rect(canvasRect.x, canvasRect.y + 28, canvasRect.width, 18), info,     subStyle);
 
-            // Grid coordinates
+            // Cursor tooltip with grid position + world meters
             Vector2 mp = Event.current.mousePosition;
-            if (canvasRect.Contains(mp) && showGridCoordinates)
+            if (canvasRect.Contains(mp) && showGridCoordinates && dungeonData != null)
             {
                 Vector2Int gp = ScreenToGrid(mp, canvasRect);
-                Rect cr = new Rect(canvasRect.x + 8, canvasRect.yMax - 26, 210, 20);
-                EditorGUI.DrawRect(new Rect(cr.x - 4, cr.y - 2, cr.width + 8, cr.height + 4), new Color(0,0,0,0.7f));
-                GUIStyle cs2 = new GUIStyle(EditorStyles.label) { fontSize = 11 };
-                cs2.normal.textColor = Color.yellow;
-                GUI.Label(cr, $"({gp.x}, {gp.y})  Level {currentHeightLevel}", cs2);
+                float cellM   = dungeonData.gridCellSize;
+                float worldX  = gp.x * cellM;
+                float worldZ  = gp.y * cellM;
+                float layerY  = currentHeightLevel * dungeonData.heightPerLevel;
+                string coordText = $"Celda ({gp.x}, {gp.y})  →  {worldX:0}m, {worldZ:0}m  |  Altura: {layerY:0.#}m  [{GetLayerName(currentHeightLevel)}]";
+
+                GUIStyle coordStyle = new GUIStyle(EditorStyles.label) { fontSize = 11 };
+                coordStyle.normal.textColor = Color.yellow;
+                float tw = coordStyle.CalcSize(new GUIContent(coordText)).x + 16;
+                Rect cr = new Rect(canvasRect.x + 8, canvasRect.yMax - 30, tw, 20);
+                EditorGUI.DrawRect(new Rect(cr.x - 4, cr.y - 3, cr.width + 8, cr.height + 6), new Color(0, 0, 0, 0.75f));
+                GUI.Label(cr, coordText, coordStyle);
             }
 
             // Cursor cell highlight
@@ -634,8 +590,6 @@ namespace DungeonPainter.Editor
                         cc = heightColors.ContainsKey(currentHeightLevel) ? heightColors[currentHeightLevel] : Color.white;
                         cc.a = 0.4f; break;
                     case ToolMode.DeleteElement: cc = new Color(1,0,0,0.3f); break;
-                    case ToolMode.PlaceObject:    cc = new Color(1f,0.8f,0f,0.35f); break;
-                    case ToolMode.PlaceWall:      cc = new Color(0.8f,0.4f,0.2f,0.4f); break;
                     default:                     cc = new Color(1,1,1,0.1f); break;
                 }
                 EditorGUI.DrawRect(GetCellScreenRect(gp, canvasRect), cc);
@@ -653,14 +607,11 @@ namespace DungeonPainter.Editor
             Vector2Int gridPos = ScreenToGrid(e.mousePosition, canvasRect);
             switch (currentMode)
             {
-                case ToolMode.PlaceNode:         HandlePlaceNodeInput(e, gridPos);             break;
-                case ToolMode.ConnectNodes:      HandleConnectNodesInput(e, gridPos, canvasRect); break;
-                case ToolMode.PaintRoom:         HandlePaintRoomInput(e, gridPos);             break;
-                case ToolMode.SelectAndMove:     HandleSelectAndMoveInput(e, gridPos, canvasRect); break;
-                case ToolMode.EditConnection:    HandleEditConnectionInput(e, canvasRect);     break;
-                case ToolMode.DeleteElement:     HandleDeleteInput(e, gridPos);                break;
-                case ToolMode.PlaceObject:       HandlePlaceObjectInput(e, gridPos);           break;
-                case ToolMode.PlaceWall:         HandlePlaceWallInput(e, gridPos);             break;
+                case ToolMode.PlaceNode:     HandlePlaceNodeInput(e, gridPos);             break;
+                case ToolMode.ConnectNodes:  HandleConnectNodesInput(e, gridPos, canvasRect); break;
+                case ToolMode.PaintRoom:     HandlePaintRoomInput(e, gridPos);             break;
+                case ToolMode.SelectAndMove: HandleSelectAndMoveInput(e, gridPos);         break;
+                case ToolMode.DeleteElement: HandleDeleteInput(e, gridPos);                break;
             }
             if (e.type == EventType.MouseMove) Repaint();
         }
@@ -696,85 +647,6 @@ namespace DungeonPainter.Editor
 
         private void HandlePaintRoomInput(Event e, Vector2Int gridPos)
         {
-            // ── Polygon brush: click to add vertices, double-click/Enter to finish ──
-            if (currentBrush == PaintBrush.Polygon)
-            {
-                if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-                {
-                    // Double-click finishes polygon
-                    if (e.clickCount >= 2 && polygonVertices.Count >= 3)
-                    {
-                        FinishPolygon();
-                    }
-                    else
-                    {
-                        polygonVertices.Add(gridPos);
-                    }
-                    e.Use(); Repaint();
-                }
-                if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Return && polygonVertices.Count >= 3)
-                {
-                    FinishPolygon();
-                    e.Use(); Repaint();
-                }
-                if (e.type == EventType.MouseMove) Repaint();
-                return;
-            }
-
-            // ── Eraser brush: remove cells from existing rooms ──
-            if (currentBrush == PaintBrush.Eraser)
-            {
-                if ((e.type == EventType.MouseDown || e.type == EventType.MouseDrag) && e.button == 0 && !e.alt)
-                {
-                    DungeonRoom room = GetRoomAtPosition(gridPos, currentHeightLevel);
-                    if (room != null)
-                    {
-                        Undo.RegisterCompleteObjectUndo(dungeonData, "Erase Cell");
-                        room.gridCells.Remove(gridPos);
-                        if (room.gridCells.Count == 0)
-                            dungeonData.rooms.Remove(room);
-                        EditorUtility.SetDirty(dungeonData);
-                    }
-                    e.Use(); Repaint();
-                }
-                return;
-            }
-
-            // ── Shape brushes: Rectangle / Circle / Line ──
-            if (currentBrush == PaintBrush.Rectangle || currentBrush == PaintBrush.Circle || currentBrush == PaintBrush.Line)
-            {
-                if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-                {
-                    isPainting = true;
-                    brushDragStart = gridPos;
-                    paintedCells.Clear();
-                    e.Use(); Repaint();
-                }
-                else if (e.type == EventType.MouseDrag && e.button == 0 && isPainting && !e.alt)
-                {
-                    // Preview is drawn via DrawRooms; we just need repaint
-                    e.Use(); Repaint();
-                }
-                else if (e.type == EventType.MouseUp && e.button == 0 && isPainting)
-                {
-                    var shapeCells = GetBrushShapeCells(brushDragStart, gridPos, currentBrush);
-                    if (shapeCells.Count > 0 && dungeonData != null)
-                    {
-                        Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Room (Shape)");
-                        DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
-                        newRoom.isClosed     = currentRoomClosed;
-                        newRoom.gridCells.AddRange(shapeCells);
-                        newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
-                        dungeonData.rooms.Add(newRoom);
-                        EditorUtility.SetDirty(dungeonData);
-                    }
-                    isPainting = false; paintedCells.Clear();
-                    e.Use(); Repaint();
-                }
-                return;
-            }
-
-            // ── Freeform fallback (original behaviour) ──
             if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
             {
                 isPainting = true; paintedCells.Clear(); paintedCells.Add(gridPos);
@@ -790,15 +662,15 @@ namespace DungeonPainter.Editor
                 if (paintedCells.Count > 0 && dungeonData != null)
                 {
                     Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Room");
-                    DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
-                    newRoom.isClosed     = currentRoomClosed;
+                    DungeonRoom newRoom = new DungeonRoom(currentHeightLevel);
                     newRoom.gridCells.AddRange(paintedCells);
                     newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
                     dungeonData.rooms.Add(newRoom);
                     EditorUtility.SetDirty(dungeonData);
-                    Debug.Log($"Created '{newRoom.roomName}' – {newRoom.gridCells.Count} cells, height={newRoom.roomHeight}m, closed={newRoom.isClosed}");
+                    Debug.Log($"Created '{newRoom.roomName}' – {newRoom.gridCells.Count} cells");
                 }
                 isPainting = false; paintedCells.Clear();
+                previewDirty = true;
                 e.Use(); Repaint();
             }
             // Safety catch
@@ -809,308 +681,13 @@ namespace DungeonPainter.Editor
             }
         }
 
-        private void DrawWalls(Rect canvasRect)
-        {
-            if (dungeonData.walls == null) return;
-            foreach (var wall in dungeonData.walls)
-            {
-                if (wall.heightLevel != currentHeightLevel) continue;
-                Color wc = wall.color;
-                wc.a = wall == selectedWall ? 0.9f : 0.6f;
-                foreach (var cellPos in wall.gridCells)
-                {
-                    EditorGUI.DrawRect(GetCellScreenRect(cellPos, canvasRect), wc);
-                }
-
-                if (wall.gridCells.Count > 0 && wall == selectedWall)
-                {
-                    Handles.BeginGUI();
-                    Handles.color = Color.yellow;
-                    Vector2Int mn = wall.gridCells[0], mx = wall.gridCells[0];
-                    foreach (var cell in wall.gridCells)
-                    {
-                        mn.x = Mathf.Min(mn.x, cell.x); mn.y = Mathf.Min(mn.y, cell.y);
-                        mx.x = Mathf.Max(mx.x, cell.x); mx.y = Mathf.Max(mx.y, cell.y);
-                    }
-                    float cs = dungeonData.gridCellSize * gridZoom;
-                    Rect br = new Rect(
-                        GetCellScreenRect(mn, canvasRect).position,
-                        GetCellScreenRect(mx, canvasRect).max - GetCellScreenRect(mn, canvasRect).position + Vector2.one * cs);
-                    Handles.DrawSolidRectangleWithOutline(br, Color.clear, Handles.color);
-                    Handles.EndGUI();
-                }
-            }
-        }
-
-        private void HandlePlaceWallInput(Event e, Vector2Int gridPos)
-        {
-            // ── Eraser brush: remove cells from existing walls ──
-            if (currentBrush == PaintBrush.Eraser)
-            {
-                if ((e.type == EventType.MouseDown || e.type == EventType.MouseDrag) && e.button == 0 && !e.alt)
-                {
-                    DungeonWall wall = GetWallAtPosition(gridPos, currentHeightLevel);
-                    if (wall != null)
-                    {
-                        Undo.RegisterCompleteObjectUndo(dungeonData, "Erase Wall Cell");
-                        wall.gridCells.Remove(gridPos);
-                        if (wall.gridCells.Count == 0)
-                            dungeonData.walls.Remove(wall);
-                        EditorUtility.SetDirty(dungeonData);
-                    }
-                    e.Use(); Repaint();
-                }
-                return;
-            }
-
-            // ── Shape brushes: Rectangle / Circle / Line ──
-            if (currentBrush == PaintBrush.Rectangle || currentBrush == PaintBrush.Circle || currentBrush == PaintBrush.Line)
-            {
-                if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-                {
-                    isPainting = true;
-                    brushDragStart = gridPos;
-                    paintedCells.Clear();
-                    e.Use(); Repaint();
-                }
-                else if (e.type == EventType.MouseDrag && e.button == 0 && isPainting && !e.alt)
-                {
-                    e.Use(); Repaint();
-                }
-                else if (e.type == EventType.MouseUp && e.button == 0 && isPainting)
-                {
-                    var shapeCells = GetBrushShapeCells(brushDragStart, gridPos, currentBrush);
-                    if (shapeCells.Count > 0 && dungeonData != null)
-                    {
-                        Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Wall (Shape)");
-                        var newWall = new DungeonWall(currentHeightLevel);
-                        newWall.gridCells.AddRange(shapeCells);
-                        newWall.wallName = "Wall_" + (dungeonData.walls.Count + 1);
-                        dungeonData.walls.Add(newWall);
-                        EditorUtility.SetDirty(dungeonData);
-                    }
-                    isPainting = false; paintedCells.Clear();
-                    e.Use(); Repaint();
-                }
-                return;
-            }
-
-            // ── Polygon brush ──
-            if (currentBrush == PaintBrush.Polygon)
-            {
-                if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-                {
-                    if (e.clickCount >= 2 && polygonVertices.Count >= 3)
-                        FinishPolygonWall();
-                    else
-                        polygonVertices.Add(gridPos);
-                    e.Use(); Repaint();
-                }
-                if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Return && polygonVertices.Count >= 3)
-                {
-                    FinishPolygonWall();
-                    e.Use(); Repaint();
-                }
-                if (e.type == EventType.MouseMove) Repaint();
-                return;
-            }
-
-            // ── Freeform fallback ──
-            if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-            {
-                isPainting = true; paintedCells.Clear(); paintedCells.Add(gridPos);
-                e.Use(); Repaint();
-            }
-            else if (e.type == EventType.MouseDrag && e.button == 0 && isPainting && !e.alt)
-            {
-                if (!paintedCells.Contains(gridPos)) paintedCells.Add(gridPos);
-                e.Use(); Repaint();
-            }
-            else if (e.type == EventType.MouseUp && e.button == 0 && isPainting)
-            {
-                if (paintedCells.Count > 0 && dungeonData != null)
-                {
-                    Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Wall");
-                    var newWall = new DungeonWall(currentHeightLevel);
-                    newWall.gridCells.AddRange(paintedCells);
-                    newWall.wallName = "Wall_" + (dungeonData.walls.Count + 1);
-                    dungeonData.walls.Add(newWall);
-                    EditorUtility.SetDirty(dungeonData);
-                }
-                isPainting = false; paintedCells.Clear();
-                e.Use(); Repaint();
-            }
-
-            // Safety catch
-            if (e.type == EventType.MouseDrag && e.button == 0 && !isPainting && !e.alt)
-            {
-                isPainting = true; paintedCells.Clear(); paintedCells.Add(gridPos);
-                e.Use(); Repaint();
-            }
-        }
-
-        // ── Brush shape / polygon helpers ─────────────────────────
-        private List<Vector2Int> GetBrushShapeCells(Vector2Int start, Vector2Int end, PaintBrush brush)
-        {
-            var cells = new List<Vector2Int>();
-            switch (brush)
-            {
-                case PaintBrush.Rectangle:
-                    int xMin = Mathf.Min(start.x, end.x), xMax = Mathf.Max(start.x, end.x);
-                    int yMin = Mathf.Min(start.y, end.y), yMax = Mathf.Max(start.y, end.y);
-                    for (int x = xMin; x <= xMax; x++)
-                        for (int y = yMin; y <= yMax; y++)
-                            cells.Add(new Vector2Int(x, y));
-                    break;
-
-                case PaintBrush.Circle:
-                    float radius = Vector2Int.Distance(start, end);
-                    int r = Mathf.Max(1, Mathf.RoundToInt(radius));
-                    for (int x = start.x - r; x <= start.x + r; x++)
-                        for (int y = start.y - r; y <= start.y + r; y++)
-                        {
-                            float dist = Mathf.Sqrt((x - start.x) * (x - start.x) + (y - start.y) * (y - start.y));
-                            if (dist <= radius + 0.5f)
-                                cells.Add(new Vector2Int(x, y));
-                        }
-                    break;
-
-                case PaintBrush.Line:
-                    // Bresenham's line with thickness
-                    int dx = Mathf.Abs(end.x - start.x), dy = Mathf.Abs(end.y - start.y);
-                    int sx = start.x < end.x ? 1 : -1, sy = start.y < end.y ? 1 : -1;
-                    int err = dx - dy;
-                    int cx = start.x, cy = start.y;
-                    int halfThick = Mathf.Max(0, (brushSize - 1) / 2);
-                    while (true)
-                    {
-                        for (int tx = -halfThick; tx <= halfThick; tx++)
-                            for (int ty = -halfThick; ty <= halfThick; ty++)
-                            {
-                                var c = new Vector2Int(cx + tx, cy + ty);
-                                if (!cells.Contains(c)) cells.Add(c);
-                            }
-                        if (cx == end.x && cy == end.y) break;
-                        int e2 = 2 * err;
-                        if (e2 > -dy) { err -= dy; cx += sx; }
-                        if (e2 < dx)  { err += dx; cy += sy; }
-                    }
-                    break;
-            }
-            return cells;
-        }
-
-        private void FinishPolygon()
-        {
-            if (polygonVertices.Count < 3 || dungeonData == null) return;
-
-            // Scanline fill of the polygon
-            var cells = FillPolygon(polygonVertices);
-            if (cells.Count > 0)
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Polygon Room");
-                DungeonRoom newRoom = new DungeonRoom(currentHeightLevel, currentRoomHeight);
-                newRoom.isClosed     = currentRoomClosed;
-                newRoom.gridCells.AddRange(cells);
-                newRoom.roomName = "Room_" + (dungeonData.rooms.Count + 1);
-                dungeonData.rooms.Add(newRoom);
-                EditorUtility.SetDirty(dungeonData);
-                Debug.Log($"Created polygon room '{newRoom.roomName}' – {cells.Count} cells, height={newRoom.roomHeight}m");
-            }
-            polygonVertices.Clear();
-            Repaint();
-        }
-
-        private void FinishPolygonWall()
-        {
-            if (polygonVertices.Count < 3 || dungeonData == null) return;
-
-            var cells = FillPolygon(polygonVertices);
-            if (cells.Count > 0)
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Paint Polygon Wall");
-                var newWall = new DungeonWall(currentHeightLevel);
-                newWall.gridCells.AddRange(cells);
-                newWall.wallName = "Wall_" + (dungeonData.walls.Count + 1);
-                dungeonData.walls.Add(newWall);
-                EditorUtility.SetDirty(dungeonData);
-            }
-            polygonVertices.Clear();
-            Repaint();
-        }
-
-        private List<Vector2Int> FillPolygon(List<Vector2Int> verts)
-        {
-            var filled = new List<Vector2Int>();
-            // Determine bounding box
-            int minX = int.MaxValue, maxX = int.MinValue, minY = int.MaxValue, maxY = int.MinValue;
-            foreach (var v in verts)
-            {
-                if (v.x < minX) minX = v.x; if (v.x > maxX) maxX = v.x;
-                if (v.y < minY) minY = v.y; if (v.y > maxY) maxY = v.y;
-            }
-
-            // Scanline fill using ray-casting point-in-polygon
-            for (int y = minY; y <= maxY; y++)
-            {
-                for (int x = minX; x <= maxX; x++)
-                {
-                    if (PointInPolygon(x, y, verts))
-                        filled.Add(new Vector2Int(x, y));
-                }
-            }
-
-            // Always include edges
-            for (int i = 0; i < verts.Count; i++)
-            {
-                var a = verts[i];
-                var b = verts[(i + 1) % verts.Count];
-                var lineCells = GetBrushShapeCells(a, b, PaintBrush.Line);
-                foreach (var c in lineCells)
-                    if (!filled.Contains(c)) filled.Add(c);
-            }
-            return filled;
-        }
-
-        private bool PointInPolygon(int px, int py, List<Vector2Int> poly)
-        {
-            bool inside = false;
-            int n = poly.Count;
-            for (int i = 0, j = n - 1; i < n; j = i++)
-            {
-                float yi = poly[i].y, yj = poly[j].y;
-                float xi = poly[i].x, xj = poly[j].x;
-                if ((yi > py) != (yj > py) &&
-                    px < (xj - xi) * (py - yi) / (yj - yi) + xi)
-                {
-                    inside = !inside;
-                }
-            }
-            return inside;
-        }
-
-        private void HandleSelectAndMoveInput(Event e, Vector2Int gridPos, Rect canvasRect)
+        private void HandleSelectAndMoveInput(Event e, Vector2Int gridPos)
         {
             if (e.type != EventType.MouseDown || e.button != 0) return;
             DungeonNode n = GetNodeAtPosition(gridPos, currentHeightLevel);
             if (n != null) { selectedNode = n; selectedConnection = null; selectedRoom = null; e.Use(); Repaint(); return; }
             DungeonRoom r = GetRoomAtPosition(gridPos, currentHeightLevel);
             if (r != null) { selectedRoom = r; selectedNode = null; selectedConnection = null; e.Use(); Repaint(); return; }
-            
-            DungeonConnection c = GetConnectionAtPosition(e.mousePosition, canvasRect);
-            if (c != null) { selectedConnection = c; selectedNode = null; selectedRoom = null; selectedObject = null; selectedWall = null; e.Use(); Repaint(); return; }
-
-            DungeonWall w = GetWallAtPosition(gridPos, currentHeightLevel);
-            if (w != null) { selectedWall = w; selectedNode = null; selectedConnection = null; selectedRoom = null; selectedObject = null; e.Use(); Repaint(); return; }
-
-            ClearSelection(); Repaint();
-        }
-
-        private void HandleEditConnectionInput(Event e, Rect canvasRect)
-        {
-            if (e.type != EventType.MouseDown || e.button != 0) return;
-            DungeonConnection c = GetConnectionAtPosition(e.mousePosition, canvasRect);
-            if (c != null) { selectedConnection = c; selectedNode = null; selectedRoom = null; e.Use(); Repaint(); return; }
             ClearSelection(); Repaint();
         }
 
@@ -1125,35 +702,14 @@ namespace DungeonPainter.Editor
                 Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Room");
                 dungeonData.rooms.Remove(r);
                 EditorUtility.SetDirty(dungeonData);
-                e.Use(); Repaint(); return;
-            }
-            // Delete object
-            DungeonObject obj = GetObjectAtPosition(gridPos, currentHeightLevel);
-            if (obj != null)
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Object");
-                dungeonData.objects.Remove(obj);
-                EditorUtility.SetDirty(dungeonData);
-                e.Use(); Repaint(); return;
-            }
-            // Delete wall
-            DungeonWall w = GetWallAtPosition(gridPos, currentHeightLevel);
-            if (w != null)
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Wall");
-                dungeonData.walls.Remove(w);
-                EditorUtility.SetDirty(dungeonData);
-                e.Use(); Repaint(); return;
+                e.Use(); Repaint();
             }
         }
 
         private void HandleCanvasControls(Rect canvasRect)
         {
             Event e = Event.current;
-            // Block only drag/click from interfering with tool-specific input — NOT scroll
-            bool isMouseAction = (e.type == EventType.MouseDown || e.type == EventType.MouseDrag);
-            if (currentMode == ToolMode.PaintRoom && isMouseAction && e.button == 0 && !e.alt) return;
-            if (currentMode == ToolMode.PlaceObject && isMouseAction && e.button == 0 && !e.alt) return;
+            if (currentMode == ToolMode.PaintRoom && e.button == 0 && !e.alt) return;
 
             if ((e.type == EventType.MouseDrag && e.button == 2) ||
                 (e.type == EventType.MouseDrag && e.button == 0 && (e.alt || tempPanMode)))
@@ -1163,7 +719,7 @@ namespace DungeonPainter.Editor
             {
                 float nz  = Mathf.Clamp(gridZoom + -e.delta.y * 0.05f, minZoom, maxZoom);
                 Vector2 l = e.mousePosition - canvasRect.position - gridOffset;
-                gridOffset += l * (1 - nz / gridZoom);
+                gridOffset = gridOffset * (nz / gridZoom) + l * (1 - nz / gridZoom);
                 gridZoom   = nz;
                 e.Use(); Repaint();
             }
@@ -1181,9 +737,9 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("ID:", selectedNode.id);
             EditorGUILayout.LabelField("Position:", selectedNode.gridPosition.ToString());
             int newH = EditorGUILayout.IntField("Height Level:", selectedNode.heightLevel);
-            if (newH != selectedNode.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Node Height"); selectedNode.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            if (newH != selectedNode.heightLevel) { selectedNode.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
             NodeType newT = (NodeType)EditorGUILayout.EnumPopup("Type:", selectedNode.type);
-            if (newT != selectedNode.type) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Node Type"); selectedNode.type = newT; EditorUtility.SetDirty(dungeonData); }
+            if (newT != selectedNode.type) { selectedNode.type = newT; EditorUtility.SetDirty(dungeonData); }
             EditorGUILayout.Space();
             if (GUILayout.Button("Delete Node")) { DeleteNode(selectedNode); selectedNode = null; }
         }
@@ -1195,25 +751,15 @@ namespace DungeonPainter.Editor
             EditorGUILayout.LabelField("ID:", selectedConnection.id);
 
             ConnectionType newT = (ConnectionType)EditorGUILayout.EnumPopup("Type:", selectedConnection.transitionType);
-            if (newT != selectedConnection.transitionType) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Connection Type"); selectedConnection.transitionType = newT; EditorUtility.SetDirty(dungeonData); }
-
-            if (selectedConnection.transitionType == ConnectionType.Tunnel)
-            {
-                float newHeight = EditorGUILayout.FloatField("Height:", selectedConnection.height);
-                if (newHeight != selectedConnection.height) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Connection Height"); selectedConnection.height = newHeight; EditorUtility.SetDirty(dungeonData); }
-            }
+            if (newT != selectedConnection.transitionType) { selectedConnection.transitionType = newT; EditorUtility.SetDirty(dungeonData); }
 
             EditorGUILayout.LabelField("Width Points:", EditorStyles.boldLabel);
             if (selectedConnection.widthPoints == null)
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Initialize Width Points");
                 selectedConnection.widthPoints = new List<WidthPoint>
                 {
                     new WidthPoint { normalizedPosition = 0f, width = 3f },
                     new WidthPoint { normalizedPosition = 1f, width = 3f }
                 };
-                EditorUtility.SetDirty(dungeonData);
-            }
 
             for (int i = 0; i < selectedConnection.widthPoints.Count; i++)
             {
@@ -1222,18 +768,18 @@ namespace DungeonPainter.Editor
                 float np = EditorGUILayout.Slider(selectedConnection.widthPoints[i].normalizedPosition, 0f, 1f);
                 float nw = EditorGUILayout.FloatField(selectedConnection.widthPoints[i].width, GUILayout.Width(45));
                 if (np != selectedConnection.widthPoints[i].normalizedPosition || nw != selectedConnection.widthPoints[i].width)
-                { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Width Point"); selectedConnection.widthPoints[i].normalizedPosition = np; selectedConnection.widthPoints[i].width = nw; EditorUtility.SetDirty(dungeonData); }
+                { selectedConnection.widthPoints[i].normalizedPosition = np; selectedConnection.widthPoints[i].width = nw; EditorUtility.SetDirty(dungeonData); }
                 if (GUILayout.Button("X", GUILayout.Width(20)) && selectedConnection.widthPoints.Count > 2)
-                { Undo.RegisterCompleteObjectUndo(dungeonData, "Remove Width Point"); selectedConnection.widthPoints.RemoveAt(i); EditorUtility.SetDirty(dungeonData); }
+                { selectedConnection.widthPoints.RemoveAt(i); EditorUtility.SetDirty(dungeonData); }
                 EditorGUILayout.EndHorizontal();
             }
             if (GUILayout.Button("Add Width Point"))
-            { Undo.RegisterCompleteObjectUndo(dungeonData, "Add Width Point"); selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0.5f, width = 3f }); EditorUtility.SetDirty(dungeonData); }
+            { selectedConnection.widthPoints.Add(new WidthPoint { normalizedPosition = 0.5f, width = 3f }); EditorUtility.SetDirty(dungeonData); }
 
             if (selectedConnection.transitionType == ConnectionType.Ramp)
             {
                 float ns = EditorGUILayout.FloatField("Custom Slope (°, -1=auto):", selectedConnection.customSlope);
-                if (ns != selectedConnection.customSlope) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Custom Slope"); selectedConnection.customSlope = ns; EditorUtility.SetDirty(dungeonData); }
+                if (ns != selectedConnection.customSlope) { selectedConnection.customSlope = ns; EditorUtility.SetDirty(dungeonData); }
             }
             if (selectedConnection.transitionType == ConnectionType.Stairs)
             {
@@ -1255,29 +801,15 @@ namespace DungeonPainter.Editor
             if (selectedRoom == null || dungeonData == null) { ClearSelection(); return; }
             EditorGUILayout.LabelField("Room Properties", EditorStyles.boldLabel);
             EditorGUILayout.LabelField("ID:", selectedRoom.id);
-
             string newName = EditorGUILayout.TextField("Name:", selectedRoom.roomName);
-            if (newName != selectedRoom.roomName)
-            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Name"); selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
-
+            if (newName != selectedRoom.roomName) { selectedRoom.roomName = newName; EditorUtility.SetDirty(dungeonData); }
             int newH = EditorGUILayout.IntField("Height Level:", selectedRoom.heightLevel);
-            if (newH != selectedRoom.heightLevel)
-            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Height Level"); selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
-
-            // ── Per-room height & closed toggle ───────────────────
-            float newRH = EditorGUILayout.FloatField("Room Height (m):", selectedRoom.roomHeight);
-            newRH = Mathf.Max(0.5f, newRH);
-            if (!Mathf.Approximately(newRH, selectedRoom.roomHeight))
-            { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Room Wall Height"); selectedRoom.roomHeight = newRH; EditorUtility.SetDirty(dungeonData); }
-
-            bool newClosed = EditorGUILayout.Toggle("Closed (with ceiling):", selectedRoom.isClosed);
-            if (newClosed != selectedRoom.isClosed)
-            { Undo.RegisterCompleteObjectUndo(dungeonData, "Toggle Room Closed"); selectedRoom.isClosed = newClosed; EditorUtility.SetDirty(dungeonData); }
-
-            if (selectedRoom.isClosed)
-                EditorGUILayout.HelpBox($"Ceiling will be generated at {selectedRoom.roomHeight} m above floor.", MessageType.None);
-
-            EditorGUILayout.LabelField("Cells:", selectedRoom.gridCells?.Count.ToString() ?? "0");
+            if (newH != selectedRoom.heightLevel) { selectedRoom.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
+            int cellCount = selectedRoom.gridCells?.Count ?? 0;
+            float roomArea = cellCount * dungeonData.gridCellSize * dungeonData.gridCellSize;
+            EditorGUILayout.LabelField("Tamaño:", $"{cellCount} celdas  ·  {roomArea:0} m²");
+            float layerHRoom = selectedRoom.heightLevel * dungeonData.heightPerLevel;
+            EditorGUILayout.LabelField("Capa:", $"{GetLayerName(selectedRoom.heightLevel)}  (altura {layerHRoom:0.#}m)");
             EditorGUILayout.Space();
             if (GUILayout.Button("Copy Room")) CopySelectedRoom();
             if (GUILayout.Button("Delete Room"))
@@ -1291,38 +823,181 @@ namespace DungeonPainter.Editor
         private void DrawGeneralProperties()
         {
             if (dungeonData == null) return;
-            EditorGUILayout.LabelField("General Settings", EditorStyles.boldLabel);
 
-            float newCS = EditorGUILayout.Slider("Cell Size:", dungeonData.gridCellSize, 1f, 20f);
+            // ── Escala del mundo ───────────────────────────────────
+            DrawSectionHeader("📏  Escala del mundo");
+            EditorGUILayout.HelpBox(
+                $"Cada celda = {dungeonData.gridCellSize:0.#}m x {dungeonData.gridCellSize:0.#}m  |  Altura por planta = {dungeonData.heightPerLevel:0.#}m",
+                MessageType.Info);
+
+            float newCS = EditorGUILayout.Slider($"Celda = {dungeonData.gridCellSize:0.#}m", dungeonData.gridCellSize, 1f, 20f);
             if (newCS != dungeonData.gridCellSize) { dungeonData.gridCellSize = newCS; EditorUtility.SetDirty(dungeonData); }
-            float newHL = EditorGUILayout.FloatField("Height Per Level (m):", dungeonData.heightPerLevel);
+
+            float newHL = EditorGUILayout.FloatField("Altura por planta (m):", dungeonData.heightPerLevel);
             if (newHL != dungeonData.heightPerLevel) { dungeonData.heightPerLevel = newHL; EditorUtility.SetDirty(dungeonData); }
-            int newTS = EditorGUILayout.IntSlider("Tunnel Segments:", dungeonData.tunnelSegments, 4, 16);
+
+            // ── Pasillos ───────────────────────────────────────────
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("🚪  Pasillos y túneles");
+            int newTS = EditorGUILayout.IntSlider("Segmentos túnel:", dungeonData.tunnelSegments, 4, 16);
             if (newTS != dungeonData.tunnelSegments) { dungeonData.tunnelSegments = newTS; EditorUtility.SetDirty(dungeonData); }
-            float newTH = EditorGUILayout.FloatField("Tunnel Height (m):", dungeonData.defaultTunnelHeight);
+            float newTH = EditorGUILayout.FloatField("Altura pasillo (m):", dungeonData.defaultTunnelHeight);
             if (newTH != dungeonData.defaultTunnelHeight) { dungeonData.defaultTunnelHeight = newTH; EditorUtility.SetDirty(dungeonData); }
 
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Mesh Replacement (Optional)", EditorStyles.boldLabel);
+            // ── Mesh replacement ───────────────────────────────────
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("🧱  Meshes personalizados (opcional)");
             EditorGUILayout.HelpBox("Sin Mesh Set se usan primitivas de Unity. Compatible URP/HDRP/Built-in.", MessageType.Info);
             MeshReplacementSet newMS = (MeshReplacementSet)EditorGUILayout.ObjectField("Mesh Set:", dungeonData.meshSet, typeof(MeshReplacementSet), false);
             if (newMS != dungeonData.meshSet) { dungeonData.meshSet = newMS; EditorUtility.SetDirty(dungeonData); }
 
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Statistics", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField("Nodes:",       (dungeonData.nodes?.Count       ?? 0).ToString());
-            EditorGUILayout.LabelField("Connections:", (dungeonData.connections?.Count ?? 0).ToString());
-            EditorGUILayout.LabelField("Rooms:",       (dungeonData.rooms?.Count       ?? 0).ToString());
+            // ── Estadísticas ───────────────────────────────────────
+            EditorGUILayout.Space(4);
+            DrawSectionHeader("📊  Estadísticas");
+            int totalCells = 0;
+            foreach (var room in dungeonData.rooms) totalCells += room.gridCells.Count;
+            float areaSqM = totalCells * dungeonData.gridCellSize * dungeonData.gridCellSize;
 
+            EditorGUILayout.LabelField("Habitaciones:", (dungeonData.rooms?.Count ?? 0).ToString());
+            EditorGUILayout.LabelField("Nodos:",        (dungeonData.nodes?.Count ?? 0).ToString());
+            EditorGUILayout.LabelField("Conexiones:",   (dungeonData.connections?.Count ?? 0).ToString());
+            EditorGUILayout.LabelField("Área total:",   $"{areaSqM:0} m²  ({totalCells} celdas)");
+
+            // ── Sala numérica ──────────────────────────────────────
             if (currentMode == ToolMode.DefineRoomNumeric)
             {
-                EditorGUILayout.Space();
-                EditorGUILayout.LabelField("Numeric Room", EditorStyles.boldLabel);
-                roomSizeNumeric     = EditorGUILayout.Vector2IntField("Size:",     roomSizeNumeric);
-                roomPositionNumeric = EditorGUILayout.Vector2IntField("Position:", roomPositionNumeric);
-                if (GUILayout.Button("Create Room")) CreateNumericRoom();
+                EditorGUILayout.Space(4);
+                DrawSectionHeader("📐  Sala numérica");
+                roomSizeNumeric     = EditorGUILayout.Vector2IntField("Tamaño (celdas):", roomSizeNumeric);
+                roomPositionNumeric = EditorGUILayout.Vector2IntField("Posición:",        roomPositionNumeric);
+                float wM = roomSizeNumeric.x * dungeonData.gridCellSize;
+                float hM = roomSizeNumeric.y * dungeonData.gridCellSize;
+                EditorGUILayout.LabelField("Dimensiones:", $"{wM:0}m × {hM:0}m  ({roomSizeNumeric.x * roomSizeNumeric.y} celdas)", EditorStyles.miniLabel);
+                if (GUILayout.Button("Crear habitación")) CreateNumericRoom();
             }
         }
+        #endregion
+
+        #region Canvas Overlays
+
+        /// <summary>
+        /// Regla de escala en la esquina inferior derecha del canvas.
+        /// Muestra cuántos metros representa un segmento visible del grid.
+        /// </summary>
+        private void DrawScaleRuler(Rect canvasRect)
+        {
+            if (dungeonData == null) return;
+
+            float cs      = dungeonData.gridCellSize * gridZoom; // pixels per cell
+            float cellM   = dungeonData.gridCellSize;             // meters per cell
+
+            // Choose a round number of cells that gives a ruler between 60-160px
+            int   rulerCells = 1;
+            float rulerPx    = cs;
+            int[] candidates = { 1, 2, 5, 10, 20, 50 };
+            foreach (int c in candidates)
+            {
+                float px = c * cs;
+                if (px >= 60f) { rulerCells = c; rulerPx = px; break; }
+            }
+
+            float rulerM  = rulerCells * cellM;
+            string label  = rulerM >= 1000 ? $"{rulerM/1000:0.#}km" : $"{rulerM:0}m";
+
+            float margin  = 12f;
+            float rulerY  = canvasRect.yMax - 48f;
+            float rulerX  = canvasRect.xMax - margin - rulerPx;
+
+            // Background
+            EditorGUI.DrawRect(new Rect(rulerX - 6, rulerY - 4, rulerPx + 12, 26), new Color(0, 0, 0, 0.65f));
+
+            // Draw ruler line + ticks
+            Handles.BeginGUI();
+            Handles.color = new Color(1f, 0.92f, 0.3f);
+            float lineY = rulerY + 14f;
+            Handles.DrawLine(new Vector3(rulerX, lineY), new Vector3(rulerX + rulerPx, lineY));
+            Handles.DrawLine(new Vector3(rulerX,          lineY - 5), new Vector3(rulerX,          lineY + 5));
+            Handles.DrawLine(new Vector3(rulerX + rulerPx, lineY - 5), new Vector3(rulerX + rulerPx, lineY + 5));
+            Handles.EndGUI();
+
+            GUIStyle rs = new GUIStyle(EditorStyles.label) { fontSize = 10, alignment = TextAnchor.MiddleCenter };
+            rs.normal.textColor = new Color(1f, 0.92f, 0.3f);
+            GUI.Label(new Rect(rulerX, rulerY, rulerPx, 14), label, rs);
+        }
+
+        /// <summary>
+        /// Leyenda de capas activas en la esquina superior derecha del canvas.
+        /// Solo muestra las capas que tienen contenido.
+        /// </summary>
+        private void DrawLayerLegend(Rect canvasRect)
+        {
+            if (dungeonData == null) return;
+
+            // Collect which levels actually have content
+            var levelsWithContent = new System.Collections.Generic.HashSet<int>();
+            foreach (var room in dungeonData.rooms)    levelsWithContent.Add(room.heightLevel);
+            foreach (var node in dungeonData.nodes)    levelsWithContent.Add(node.heightLevel);
+            if (levelsWithContent.Count == 0) return;
+
+            var levels = new System.Collections.Generic.List<int>(levelsWithContent);
+            levels.Sort();
+
+            float itemH   = 20f;
+            float itemW   = 150f;
+            float padding = 6f;
+            float totalH  = levels.Count * itemH + padding * 2;
+            float startX  = canvasRect.xMax - itemW - 10f;
+            float startY  = canvasRect.y + 62f; // below mode label
+
+            EditorGUI.DrawRect(new Rect(startX - 4, startY, itemW + 8, totalH), new Color(0, 0, 0, 0.65f));
+
+            GUIStyle ls = new GUIStyle(EditorStyles.label) { fontSize = 11 };
+            GUIStyle bs = new GUIStyle(EditorStyles.boldLabel) { fontSize = 11 };
+
+            for (int i = 0; i < levels.Count; i++)
+            {
+                int lv    = levels[i];
+                bool active = lv == currentHeightLevel;
+                Color lc  = heightColors.ContainsKey(lv) ? heightColors[lv] : Color.white;
+                float rowY = startY + padding + i * itemH;
+
+                // Color swatch
+                EditorGUI.DrawRect(new Rect(startX, rowY + 3f, 12f, 12f), lc);
+
+                // Level name
+                GUIStyle style = active ? bs : ls;
+                style.normal.textColor = active ? Color.white : new Color(0.7f, 0.7f, 0.7f);
+                string prefix = active ? "▶ " : "   ";
+                GUI.Label(new Rect(startX + 18f, rowY, itemW - 18f, itemH),
+                    $"{prefix}{GetLayerName(lv)}  ({lv})", style);
+            }
+        }
+
+        /// <summary>
+        /// Stats del dungeon en la parte superior del canvas (área total, habitaciones, pasillos).
+        /// </summary>
+        private void DrawStats(Rect canvasRect)
+        {
+            if (dungeonData == null) return;
+
+            int totalCells = 0;
+            foreach (var room in dungeonData.rooms)
+                totalCells += room.gridCells.Count;
+
+            float cellM = dungeonData.gridCellSize;
+            float areaSqM = totalCells * cellM * cellM;
+            string areaStr = areaSqM >= 10000 ? $"{areaSqM/10000:0.##}ha" : $"{areaSqM:0}m²";
+
+            string statsText = $"Área: {areaStr}   Habitaciones: {dungeonData.rooms.Count}   Nodos: {dungeonData.nodes.Count}   Conexiones: {dungeonData.connections.Count}";
+
+            GUIStyle st = new GUIStyle(EditorStyles.label) { fontSize = 10, alignment = TextAnchor.UpperLeft };
+            st.normal.textColor = new Color(0.75f, 0.75f, 0.75f);
+            float tw = st.CalcSize(new GUIContent(statsText)).x + 16;
+            Rect bg = new Rect(canvasRect.x + 4, canvasRect.y + 54, tw, 18);
+            EditorGUI.DrawRect(bg, new Color(0, 0, 0, 0.5f));
+            GUI.Label(new Rect(bg.x + 6, bg.y + 2, tw, 16), statsText, st);
+        }
+
         #endregion
 
         #region Helpers
@@ -1331,17 +1006,12 @@ namespace DungeonPainter.Editor
             float cs = dungeonData.gridCellSize * gridZoom;
             return new Vector2(r.x + gp.x * cs + gridOffset.x, r.y + gp.y * cs + gridOffset.y);
         }
-        private Vector2 GridToScreenCenter(Vector2Int gp, Rect r)
-        {
-            float cs = dungeonData.gridCellSize * gridZoom;
-            return new Vector2(r.x + (gp.x + 0.5f) * cs + gridOffset.x, r.y + (gp.y + 0.5f) * cs + gridOffset.y);
-        }
         private Vector2Int ScreenToGrid(Vector2 sp, Rect r)
         {
             float cs = dungeonData.gridCellSize * gridZoom;
             return new Vector2Int(
-                Mathf.FloorToInt((sp.x - r.x - gridOffset.x) / cs),
-                Mathf.FloorToInt((sp.y - r.y - gridOffset.y) / cs));
+                Mathf.RoundToInt((sp.x - r.x - gridOffset.x) / cs),
+                Mathf.RoundToInt((sp.y - r.y - gridOffset.y) / cs));
         }
         private Rect GetCellScreenRect(Vector2Int gp, Rect r)
         {
@@ -1353,40 +1023,6 @@ namespace DungeonPainter.Editor
             dungeonData.nodes.Find(n => n.gridPosition == gp && n.heightLevel == h);
         private DungeonRoom GetRoomAtPosition(Vector2Int gp, int h) =>
             dungeonData.rooms.Find(room => room.gridCells.Contains(gp) && room.heightLevel == h);
-
-        private DungeonConnection GetConnectionAtPosition(Vector2 mousePos, Rect canvasRect, float threshold = 15f)
-        {
-            if (dungeonData.connections == null) return null;
-            
-            foreach (var conn in dungeonData.connections)
-            {
-                var nA = dungeonData.GetNode(conn.nodeAId);
-                var nB = dungeonData.GetNode(conn.nodeBId);
-                if (nA == null || nB == null) continue;
-
-                // Only detect links on current floor level conceptually, though connections can bridge floors.
-                if (nA.heightLevel != currentHeightLevel && nB.heightLevel != currentHeightLevel) continue;
-
-                Vector2 pA = GridToScreenCenter(nA.gridPosition, canvasRect);
-                Vector2 pB = GridToScreenCenter(nB.gridPosition, canvasRect);
-
-                float dist = DistancePointLine(mousePos, pA, pB);
-                if (dist <= threshold)
-                {
-                    return conn;
-                }
-            }
-            return null;
-        }
-
-        private float DistancePointLine(Vector2 point, Vector2 lineStart, Vector2 lineEnd)
-        {
-            float l2 = (lineStart - lineEnd).sqrMagnitude;
-            if (l2 == 0f) return Vector2.Distance(point, lineStart);
-            float t = Mathf.Max(0, Mathf.Min(1, Vector2.Dot(point - lineStart, lineEnd - lineStart) / l2));
-            Vector2 projection = lineStart + t * (lineEnd - lineStart);
-            return Vector2.Distance(point, projection);
-        }
 
         private void CreateConnection(DungeonNode nA, DungeonNode nB)
         {
@@ -1413,195 +1049,14 @@ namespace DungeonPainter.Editor
             EditorUtility.SetDirty(dungeonData);
         }
 
-        // ── Object Placement Methods ───────────────────────────────
-        private void DrawObjects(Rect canvasRect)
-        {
-            if (dungeonData == null || dungeonData.objects == null) return;
-            Handles.BeginGUI();
-            GUIStyle labelStyle = new GUIStyle(EditorStyles.miniLabel) { alignment = TextAnchor.MiddleCenter };
-            labelStyle.normal.textColor = Color.white;
-
-            foreach (var obj in dungeonData.objects)
-            {
-                if (obj.heightLevel != currentHeightLevel) continue;
-                Vector2 sp = GridToScreenCenter(obj.gridPosition, canvasRect);
-                float cs = dungeonData.gridCellSize * gridZoom;
-                float halfCs = cs * 0.35f;
-
-                Color oc = obj == selectedObject ? Color.white : obj.gizmoColor;
-
-                switch (obj.primitiveShape)
-                {
-                    case ObjectPrimitiveShape.Cube:
-                        Handles.color = oc;
-                        Rect cubeR = new Rect(sp.x - halfCs, sp.y - halfCs, halfCs * 2, halfCs * 2);
-                        Handles.DrawSolidRectangleWithOutline(cubeR, new Color(oc.r, oc.g, oc.b, 0.5f), oc);
-                        break;
-                    case ObjectPrimitiveShape.Sphere:
-                        Handles.color = new Color(oc.r, oc.g, oc.b, 0.5f);
-                        Handles.DrawSolidDisc(sp, Vector3.forward, halfCs);
-                        Handles.color = oc;
-                        Handles.DrawWireDisc(sp, Vector3.forward, halfCs);
-                        break;
-                    case ObjectPrimitiveShape.Cylinder:
-                        Handles.color = oc;
-                        Rect cylR = new Rect(sp.x - halfCs * 0.5f, sp.y - halfCs, halfCs, halfCs * 2);
-                        Handles.DrawSolidRectangleWithOutline(cylR, new Color(oc.r, oc.g, oc.b, 0.5f), oc);
-                        break;
-                    case ObjectPrimitiveShape.Capsule:
-                        Handles.color = new Color(oc.r, oc.g, oc.b, 0.5f);
-                        Handles.DrawSolidDisc(sp, Vector3.forward, halfCs * 0.7f);
-                        Handles.color = oc;
-                        Handles.DrawWireDisc(sp, Vector3.forward, halfCs * 0.7f);
-                        break;
-                }
-
-                // Rotation indicator line
-                float radians = obj.rotationY * Mathf.Deg2Rad;
-                Vector2 arrow = new Vector2(Mathf.Sin(radians), -Mathf.Cos(radians)) * halfCs;
-                Handles.color = Color.red;
-                Handles.DrawLine(sp, sp + arrow);
-
-                // Name label
-                GUI.Label(new Rect(sp.x - 30, sp.y + halfCs + 2, 60, 14), obj.objectName, labelStyle);
-            }
-            Handles.EndGUI();
-        }
-
-        private void HandlePlaceObjectInput(Event e, Vector2Int gridPos)
-        {
-            // R key rotates by 90°
-            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.R)
-            {
-                currentObjectRotation = (currentObjectRotation + 90f) % 360f;
-                e.Use(); Repaint(); return;
-            }
-
-            if (e.type == EventType.MouseDown && e.button == 0 && !e.alt)
-            {
-                // Check if clicking on existing object (select it)
-                DungeonObject existing = GetObjectAtPosition(gridPos, currentHeightLevel);
-                if (existing != null)
-                {
-                    selectedObject = existing;
-                    selectedNode = null; selectedConnection = null; selectedRoom = null;
-                    e.Use(); Repaint(); return;
-                }
-
-                // Place new object
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Place Object");
-                var newObj = new DungeonObject(gridPos, currentHeightLevel);
-                newObj.primitiveShape = currentObjectShape;
-                newObj.rotationY = currentObjectRotation;
-                newObj.objectName = currentObjectShape.ToString() + "_" + (dungeonData.objects.Count + 1);
-                dungeonData.objects.Add(newObj);
-                selectedObject = newObj;
-                selectedNode = null; selectedConnection = null; selectedRoom = null;
-                EditorUtility.SetDirty(dungeonData);
-                e.Use(); Repaint();
-            }
-            // Right-click to delete
-            else if (e.type == EventType.MouseDown && e.button == 1)
-            {
-                DungeonObject obj = GetObjectAtPosition(gridPos, currentHeightLevel);
-                if (obj != null)
-                {
-                    Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Object");
-                    dungeonData.objects.Remove(obj);
-                    if (selectedObject == obj) selectedObject = null;
-                    EditorUtility.SetDirty(dungeonData);
-                    e.Use(); Repaint();
-                }
-            }
-        }
-
-        private void DrawObjectProperties()
-        {
-            if (selectedObject == null || dungeonData == null) { ClearSelection(); return; }
-            EditorGUILayout.LabelField("Object Properties", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField("ID:", selectedObject.id);
-
-            string newName = EditorGUILayout.TextField("Name:", selectedObject.objectName);
-            if (newName != selectedObject.objectName) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Name"); selectedObject.objectName = newName; EditorUtility.SetDirty(dungeonData); }
-
-            string newTag = EditorGUILayout.TextField("Tag:", selectedObject.objectTag);
-            if (newTag != selectedObject.objectTag) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Tag"); selectedObject.objectTag = newTag; EditorUtility.SetDirty(dungeonData); }
-
-            EditorGUILayout.LabelField("Position:", selectedObject.gridPosition.ToString());
-
-            int newH = EditorGUILayout.IntField("Height Level:", selectedObject.heightLevel);
-            if (newH != selectedObject.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Height"); selectedObject.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
-
-            float newRot = EditorGUILayout.Slider("Rotation Y°:", selectedObject.rotationY, 0f, 360f);
-            if (newRot != selectedObject.rotationY) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Rotation"); selectedObject.rotationY = newRot; EditorUtility.SetDirty(dungeonData); }
-
-            ObjectPrimitiveShape newShape = (ObjectPrimitiveShape)EditorGUILayout.EnumPopup("Primitive Shape:", selectedObject.primitiveShape);
-            if (newShape != selectedObject.primitiveShape) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Shape"); selectedObject.primitiveShape = newShape; EditorUtility.SetDirty(dungeonData); }
-
-            Vector3 newScale = EditorGUILayout.Vector3Field("Scale:", selectedObject.scale);
-            if (newScale != selectedObject.scale) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Scale"); selectedObject.scale = newScale; EditorUtility.SetDirty(dungeonData); }
-
-            Color newColor = EditorGUILayout.ColorField("Gizmo Color:", selectedObject.gizmoColor);
-            if (newColor != selectedObject.gizmoColor) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Color"); selectedObject.gizmoColor = newColor; EditorUtility.SetDirty(dungeonData); }
-
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Prefab Override (optional)", EditorStyles.miniLabel);
-            GameObject newPrefab = (GameObject)EditorGUILayout.ObjectField("Prefab:", selectedObject.prefabOverride, typeof(GameObject), false);
-            if (newPrefab != selectedObject.prefabOverride) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Object Prefab"); selectedObject.prefabOverride = newPrefab; EditorUtility.SetDirty(dungeonData); }
-
-            EditorGUILayout.Space();
-            if (GUILayout.Button("Delete Object"))
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Object");
-                dungeonData.objects.Remove(selectedObject);
-                EditorUtility.SetDirty(dungeonData); selectedObject = null;
-            }
-        }
-
-        private DungeonObject GetObjectAtPosition(Vector2Int gp, int h) =>
-            dungeonData.objects.Find(o => o.gridPosition == gp && o.heightLevel == h);
-
-        private DungeonWall GetWallAtPosition(Vector2Int gp, int h) =>
-            dungeonData.walls.Find(w => w.gridCells.Contains(gp) && w.heightLevel == h);
-
-        private void DrawWallProperties()
-        {
-            if (selectedWall == null || dungeonData == null) { ClearSelection(); return; }
-            EditorGUILayout.LabelField("Wall Properties", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField("ID:", selectedWall.id);
-
-            string newName = EditorGUILayout.TextField("Name:", selectedWall.wallName);
-            if (newName != selectedWall.wallName) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Wall Name"); selectedWall.wallName = newName; EditorUtility.SetDirty(dungeonData); }
-
-            EditorGUILayout.LabelField("Cells:", selectedWall.gridCells.Count.ToString());
-
-            int newH = EditorGUILayout.IntField("Height Level:", selectedWall.heightLevel);
-            if (newH != selectedWall.heightLevel) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Wall Height Level"); selectedWall.heightLevel = newH; EditorUtility.SetDirty(dungeonData); }
-
-            float newCH = EditorGUILayout.FloatField("Custom Height (0=Auto):", selectedWall.customHeight);
-            if (newCH != selectedWall.customHeight) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Wall Custom Height"); selectedWall.customHeight = Mathf.Max(0f, newCH); EditorUtility.SetDirty(dungeonData); }
-
-            Color newC = EditorGUILayout.ColorField("Color:", selectedWall.color);
-            if (newC != selectedWall.color) { Undo.RegisterCompleteObjectUndo(dungeonData, "Change Wall Color"); selectedWall.color = newC; EditorUtility.SetDirty(dungeonData); }
-
-            EditorGUILayout.Space();
-            if (GUILayout.Button("Delete Wall"))
-            {
-                Undo.RegisterCompleteObjectUndo(dungeonData, "Delete Wall");
-                dungeonData.walls.Remove(selectedWall);
-                EditorUtility.SetDirty(dungeonData); selectedWall = null;
-            }
-        }
-
         private void CreateNumericRoom()
         {
             if (dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Create Numeric Room");
-            DungeonRoom nr = new DungeonRoom(currentHeightLevel, currentRoomHeight);
-            nr.isClosed   = currentRoomClosed;
-            nr.roomName   = "Room_" + (dungeonData.rooms.Count + 1);
+            DungeonRoom nr = new DungeonRoom(currentHeightLevel);
+            nr.roomName  = "Room_" + (dungeonData.rooms.Count + 1);
             nr.manualSize = roomSizeNumeric;
-            nr.shape      = RoomShape.Rectangular;
+            nr.shape     = RoomShape.Rectangular;
             for (int x = 0; x < roomSizeNumeric.x; x++)
                 for (int y = 0; y < roomSizeNumeric.y; y++)
                     nr.gridCells.Add(roomPositionNumeric + new Vector2Int(x, y));
@@ -1614,7 +1069,6 @@ namespace DungeonPainter.Editor
         {
             selectedNode = null; selectedConnection = null;
             selectedRoom = null; connectionStartNode = null;
-            selectedObject = null;
         }
         #endregion
 
@@ -1622,8 +1076,7 @@ namespace DungeonPainter.Editor
         private void CopySelectedRoom()
         {
             if (selectedRoom == null) { Debug.Log("Select a room first."); return; }
-            copiedRoom = new DungeonRoom(selectedRoom.heightLevel, selectedRoom.roomHeight);
-            copiedRoom.isClosed  = selectedRoom.isClosed;
+            copiedRoom = new DungeonRoom(selectedRoom.heightLevel);
             copiedRoom.gridCells = new List<Vector2Int>(selectedRoom.gridCells);
             copiedRoom.roomName  = selectedRoom.roomName + "_Copy";
             Debug.Log($"Copied: {selectedRoom.roomName}");
@@ -1633,9 +1086,8 @@ namespace DungeonPainter.Editor
         {
             if (copiedRoom == null || dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Paste Room");
-            DungeonRoom nr = new DungeonRoom(copiedRoom.heightLevel, copiedRoom.roomHeight);
-            nr.isClosed  = copiedRoom.isClosed;
-            nr.roomName  = copiedRoom.roomName;
+            DungeonRoom nr = new DungeonRoom(copiedRoom.heightLevel);
+            nr.roomName = copiedRoom.roomName;
             foreach (var cell in copiedRoom.gridCells)
                 nr.gridCells.Add(cell + new Vector2Int(3, 3));
             dungeonData.rooms.Add(nr);
@@ -1664,9 +1116,8 @@ namespace DungeonPainter.Editor
         {
             if (dungeonData == null) return;
             Undo.RegisterCompleteObjectUndo(dungeonData, "Place Template");
-            DungeonRoom nr = new DungeonRoom(currentHeightLevel, currentRoomHeight);
-            nr.isClosed  = currentRoomClosed;
-            nr.roomName  = template.name + "_" + (dungeonData.rooms.Count + 1);
+            DungeonRoom nr = new DungeonRoom(currentHeightLevel);
+            nr.roomName = template.name + "_" + (dungeonData.rooms.Count + 1);
             foreach (var cell in template.GetNormalizedCells())
                 nr.gridCells.Add(cell);
             dungeonData.rooms.Add(nr);
@@ -1695,13 +1146,33 @@ namespace DungeonPainter.Editor
         private void GenerateDungeon()
         {
             if (dungeonData == null) { EditorUtility.DisplayDialog("Error", "No dungeon data!", "OK"); return; }
+
+            // Recover lost reference (e.g. after Unity restart)
+            if (generatedDungeon == null)
+                generatedDungeon = GameObject.Find("Dungeon_" + dungeonData.name);
+
             if (generatedDungeon != null)
             {
                 if (!EditorUtility.DisplayDialog("Replace?", "Delete existing and regenerate?", "Yes", "Cancel")) return;
-                DestroyImmediate(generatedDungeon);
+                Undo.DestroyObjectImmediate(generatedDungeon);
+                generatedDungeon = null;
             }
+
             generatedDungeon = DungeonGenerator.Generate(dungeonData);
-            if (generatedDungeon != null) { Selection.activeGameObject = generatedDungeon; EditorGUIUtility.PingObject(generatedDungeon); }
+
+            if (generatedDungeon != null)
+            {
+                // CRITICAL: register with Undo system so Unity includes it in the Scene
+                Undo.RegisterCreatedObjectUndo(generatedDungeon, "Generate Dungeon");
+
+                // Mark scene dirty so Unity prompts to save
+                UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+
+                Selection.activeGameObject = generatedDungeon;
+                EditorGUIUtility.PingObject(generatedDungeon);
+                Debug.Log("Dungeon generated. Save the Scene (Ctrl+S) to persist it!");
+            }
         }
 
         private void ReplaceMeshes()

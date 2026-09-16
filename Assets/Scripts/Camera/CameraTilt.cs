@@ -1,9 +1,11 @@
 using UnityEngine;
-using DG.Tweening;
 public class CameraTilt : MonoBehaviour
 {
-    public void DoTilt(float zTilt)
+    private float target, current;
+    public void DoTilt(float zTilt) { target = zTilt; }
+    private void LateUpdate()
     {
-        transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
+        current = Mathf.Lerp(current, target, 1f - Mathf.Exp(-10f * Time.deltaTime));
+        transform.localRotation = Quaternion.Euler(0, 0, current);
     }
 }

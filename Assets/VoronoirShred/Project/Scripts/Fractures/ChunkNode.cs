@@ -18,8 +18,9 @@ namespace Project.Scripts.Fractures
         public bool IsStatic => rb != null && rb.isKinematic;
         public Color Color { get; set; } = Color.black;
         public bool HasBrokenLinks { get; private set; }
-        public float maxTimerDestruction = 120;
+        public float maxTimerDestruction = 30f;
         public bool hasPassed = false;
+        private float colliderDisableTimer = 6f;
         private bool Contains(ChunkNode chunkNode)
         {
             return Neighbours.Contains(chunkNode);
@@ -37,16 +38,25 @@ namespace Project.Scripts.Fractures
 
             if (NeighboursArray.Length == 0)
             {
-
                 if (!hasPassed)
                 {
-                    if (Random.Range(0, 2) == 1) Destroy(GetComponent<MeshCollider>());
-                    maxTimerDestruction = Random.Range(1, maxTimerDestruction);
+                    maxTimerDestruction = Random.Range(18f, 30f);
+                    colliderDisableTimer = Random.Range(4f, 7f);
                     hasPassed = true;
                 }
-                maxTimerDestruction -= Time.deltaTime;
-                if (maxTimerDestruction <= 0f) Destroy(gameObject);
 
+                colliderDisableTimer -= Time.deltaTime;
+                if (colliderDisableTimer <= 0f && rb != null && rb.IsSleeping())
+                {
+                    MeshCollider meshCollider = GetComponent<MeshCollider>();
+                    if (meshCollider != null)
+                        meshCollider.enabled = false;
+                    colliderDisableTimer = float.MaxValue;
+                }
+
+                maxTimerDestruction -= Time.deltaTime;
+                if (maxTimerDestruction <= 0f)
+                    Destroy(gameObject);
             }
 
 
@@ -107,6 +117,55 @@ namespace Project.Scripts.Fractures
             ChunkToJoint.Remove(chunkNode);
             Neighbours.Remove(chunkNode);
             NeighboursArray = Neighbours.ToArray();
+        }
+
+        public void ReleaseFromImpact(Vector3 impulse, Vector3 impactPoint)
+        {
+            Unfreeze();
+
+            ChunkNode[] connectedChunks = Neighbours.ToArray();
+            foreach (ChunkNode neighbour in connectedChunks)
+            {
+                if (neighbour == null)
+                    continue;
+
+                if (ChunkToJoint.TryGetValue(neighbour, out Joint ownJoint))
+                {
+                    JointToChunk.Remove(ownJoint);
+                    if (ownJoint != null)
+                        Destroy(ownJoint);
+                }
+
+                if (neighbour.ChunkToJoint.TryGetValue(this, out Joint neighbourJoint))
+                {
+                    neighbour.JointToChunk.Remove(neighbourJoint);
+                    if (neighbourJoint != null)
+                        Destroy(neighbourJoint);
+                }
+
+                ChunkToJoint.Remove(neighbour);
+                neighbour.ChunkToJoint.Remove(this);
+                neighbour.Neighbours.Remove(this);
+                neighbour.NeighboursArray = neighbour.Neighbours.ToArray();
+            }
+
+            foreach (Joint remainingJoint in GetComponents<Joint>())
+            {
+                if (remainingJoint != null)
+                    Destroy(remainingJoint);
+            }
+
+            JointToChunk.Clear();
+            ChunkToJoint.Clear();
+            Neighbours.Clear();
+            NeighboursArray = new ChunkNode[0];
+            HasBrokenLinks = true;
+
+            if (rb != null)
+            {
+                rb.WakeUp();
+                rb.AddForceAtPosition(impulse, impactPoint, ForceMode.Impulse);
+            }
         }
 
         public void Unfreeze()

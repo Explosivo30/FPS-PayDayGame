@@ -1,97 +1,104 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+[DefaultExecutionOrder(-60)]
 public class GunController : MonoBehaviour
 {
-    [SerializeField] private List<MonoBehaviour> weaponObjects; // All must implement IWeapon
-    private List<IWeapon> weaponInventory = new List<IWeapon>();
+    [SerializeField] private List<MonoBehaviour> weaponObjects = new List<MonoBehaviour>();
     [NonSerialized] public IWeapon currentWeapon;
-    private int currentIndex = 0;
-
+    public event Action<IWeapon> WeaponChanged;
+    public IReadOnlyList<MonoBehaviour> Weapons => weaponObjects;
+    public bool IsSwitching { get; private set; }
+    public int CurrentIndex { get; private set; }
     private InputReader inputReader;
-    private bool wasAttacking = false;
+    private bool wasAttacking;
+    private Coroutine switchRoutine;
+    private Camera worldCamera, weaponCamera;
+    private float normalFOV = 70f;
+    public bool AutomatedInput { get; set; }
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Locks the cursor to the center
-        Cursor.visible = false;
-    }
-
-    void Start()
-    {
-        // Try to find the InputReader on this GameObject or a parent (like the Player)
         inputReader = GetComponentInParent<InputReader>();
-
-        // Cast and store all IWeapon implementations
-        foreach (var obj in weaponObjects)
-        {
-            if (obj is IWeapon weapon)
-                weaponInventory.Add(weapon);
-        }
-
-        EquipWeapon(0);
+        foreach (var cam in transform.root.GetComponentsInChildren<Camera>(true))
+            if (cam.gameObject.layer == LayerMask.NameToLayer("Weapon")) weaponCamera = cam; else worldCamera = cam;
+        if (worldCamera != null) normalFOV = worldCamera.fieldOfView;
     }
-
-    void Update()
+    private void Start()
     {
-
+        weaponObjects.RemoveAll(w => w == null || !(w is IWeapon));
+        if (weaponObjects.Count > 0) EquipImmediate(0);
+        Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
+    }
+    private void Update()
+    {
+        if (WeaponAction.CombatPaused) { wasAttacking = inputReader != null && inputReader.isAttacking; return; }
+        if (AutomatedInput) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
+            return;
         }
-
-        if (currentWeapon != null)
+        if (Cursor.lockState != CursorLockMode.Locked)
         {
-            // If we have an InputReader, check isAttacking. Otherwise fallback to false.
-            bool currentAttacking = inputReader != null ? inputReader.isAttacking : false;
-
-            if (currentWeapon.IsAutomatic)
-            {
-                if (currentAttacking)
-                    currentWeapon.Use();
-            }
-            else
-            {
-                // For non-automatic weapons, only fire on the frame the button was pressed
-                if (currentAttacking && !wasAttacking)
-                    currentWeapon.Use();
-            }
-
-            wasAttacking = currentAttacking;
+            if (Input.GetMouseButtonDown(0)) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; wasAttacking = true; }
+            return;
         }
-
-
-        // Aiming
+        if (Input.GetKeyDown(KeyCode.Q)) SwitchWeapon();
+        if (currentWeapon == null || IsSwitching) { wasAttacking = inputReader != null && inputReader.isAttacking; return; }
         if (currentWeapon is IAimable aimable)
         {
-            if (Input.GetButtonDown("Fire2"))
-                aimable.StartAiming();
-            else if (Input.GetButtonUp("Fire2"))
-                aimable.StopAiming();
+            if (Input.GetMouseButton(1)) aimable.StartAiming(); else aimable.StopAiming();
         }
-
-        if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable)
-            reloadable.Reload();
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            SwitchWeapon();
+        if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable) reloadable.Reload();
+        bool attacking = inputReader != null && inputReader.isAttacking;
+        if (attacking && (currentWeapon.IsAutomatic || !wasAttacking)) currentWeapon.Use();
+        wasAttacking = attacking;
     }
-
-    void EquipWeapon(int index)
+    private void LateUpdate()
     {
-        currentIndex = index;
-        currentWeapon = weaponInventory[index];
-
-        for (int i = 0; i < weaponObjects.Count; i++)
-            weaponObjects[i].gameObject.SetActive(i == index);
+        bool aiming = !IsSwitching && currentWeapon is IAimable aimable && aimable.IsAiming;
+        float target = aiming ? 52f : normalFOV;
+        float blend = 1f - Mathf.Exp(-14f * Time.deltaTime);
+        if (worldCamera != null) worldCamera.fieldOfView = Mathf.Lerp(worldCamera.fieldOfView, target, blend);
+        if (weaponCamera != null) weaponCamera.fieldOfView = Mathf.Lerp(weaponCamera.fieldOfView, aiming ? 52f : normalFOV, blend);
     }
-
-    void SwitchWeapon()
+    public void SwitchWeapon() { SelectWeapon((CurrentIndex + 1) % Mathf.Max(1, weaponObjects.Count)); }
+    public void SelectWeapon(int index)
     {
-        int next = (currentIndex + 1) % weaponInventory.Count;
-        EquipWeapon(next);
+        if (IsSwitching || WeaponAction.CombatPaused || index < 0 || index >= weaponObjects.Count || index == CurrentIndex) return;
+        switchRoutine = StartCoroutine(SwitchRoutine(index));
+    }
+    private IEnumerator SwitchRoutine(int index)
+    {
+        IsSwitching = true;
+        if (currentWeapon is IAimable aimable) aimable.StopAiming();
+        var old = weaponObjects[CurrentIndex].GetComponent<WeaponAction>();
+        if (old != null) { old.BeginHolster(); yield return new WaitForSeconds(old.holsterDuration); }
+        EquipImmediate(index);
+        var next = weaponObjects[index].GetComponent<WeaponAction>();
+        if (next != null) yield return new WaitForSeconds(next.drawDuration);
+        IsSwitching = false; switchRoutine = null;
+    }
+    public void EquipImmediate(int index)
+    {
+        if (index < 0 || index >= weaponObjects.Count) return;
+        if (currentWeapon is IAimable oldAim) oldAim.StopAiming();
+        CurrentIndex = index;
+        for (int i = 0; i < weaponObjects.Count; i++) weaponObjects[i].gameObject.SetActive(i == index);
+        currentWeapon = (IWeapon)weaponObjects[index];
+        weaponObjects[index].GetComponent<WeaponAction>()?.BeginDraw();
+        wasAttacking = inputReader != null && inputReader.isAttacking;
+        WeaponChanged?.Invoke(currentWeapon);
+    }
+    private void OnDisable()
+    {
+        if (switchRoutine != null) StopCoroutine(switchRoutine);
+        IsSwitching = false;
+        if (currentWeapon is IAimable aimable) aimable.StopAiming();
+        if (worldCamera != null) worldCamera.fieldOfView = normalFOV;
+        if (weaponCamera != null) weaponCamera.fieldOfView = normalFOV;
     }
 }
