@@ -72,3 +72,36 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Local tower validation traces
+/Artifacts/Tower/*.log
+/Artifacts/Tower-generate.log
+/Artifacts/Tower/Frames/
+/Artifacts/feel-*.log
+/Artifacts/CombatFeel/Frames/
+/Artifacts/CombatFeel/*.log
+
+/Artifacts/player-*.log
+/Artifacts/Player/Before/
+/Artifacts/Player/*profile*.json
+/Artifacts/Player/*profile*.json.tmp
+
+/Artifacts/MeleeRobot/*.log
+/Artifacts/MeleeRobot/Frames/
+/Artifacts/MeleeRobot/*profile*.json
+/Artifacts/MeleeRobot/*profile*.json.tmp
+/Artifacts/MeleeRobot/gdd-page22.png
+/Artifacts/MeleeRobot/Windows/*.png
+/Artifacts/MeleeRobot/RangedRegression/*.png
+
+# Reward validation intermediates (keep reports, captures and final video)
+/Artifacts/rewards-*.log
+/Artifacts/Rewards/Frames/
+/Artifacts/Rewards/**/*.log
+/Artifacts/Rewards/*profile*.json
+/Artifacts/Rewards/*profile*.json.tmp
+/Artifacts/Rewards/Windows/*.png
+/Artifacts/Rewards/CombatRegression/*.png
+/Artifacts/Rewards/PlayerRegression/*.png
+/Artifacts/Rewards/MeleeRegression/*.png
+/Artifacts/Rewards/LaboratoryRegression/*.png

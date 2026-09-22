@@ -1,0 +1,54 @@
+PASS Melee prefab connected to the real wave manager
+PASS Distinct baseline: 85 health and 18 punch damage
+PASS Pursues immediately using navigation
+PASS Reached Windup
+PASS Windup visibly precedes damage
+PASS Shop freezes pursuit and attack timing
+PASS Reached Recover
+PASS One punch contact produces exactly one damage event
+PASS Punch animation keeps collision and navigation root fixed
+PASS Recovery leaves a punish window without repeated hits
+PASS Reached Windup
+PASS Reached Recover
+PASS Punch cannot hit after side avoidance
+PASS Committed direction preserved after side avoidance
+PASS Reached Windup
+PASS Reached Recover
+PASS Punch cannot hit after back avoidance
+PASS Committed direction preserved after back avoidance
+PASS Reached Windup
+PASS Reached Recover
+PASS Punch cannot hit after behind avoidance
+PASS Committed direction preserved after behind avoidance
+PASS Reached Windup
+PASS Reached Recover
+PASS Punch cannot hit after wall avoidance
+PASS Committed direction preserved after wall avoidance
+PASS Reached Windup
+PASS Reached Recover
+PASS Punch cannot hit after above avoidance
+PASS Committed direction preserved after above avoidance
+PASS Reached Windup
+PASS Death cancels attack and emits one elimination
+PASS Death disables navigation and all hit colliders
+PASS Killed windup never resolves damage
+PASS Body is removed after three seconds
+PASS Reached Windup
+PASS Single contact timing at 30 FPS: 0,699s
+PASS Reached Windup
+PASS Single contact timing at 60 FPS: 0,694s
+PASS Reached Windup
+PASS Single contact timing at 144 FPS: 0,700s
+PASS Melee pursuer climbs forest ramp -1
+PASS Melee pursuer climbs forest ramp 1
+PASS Mixed wave 1: 2 melee / 5 total
+PASS Mixed wave 1 counts each death once
+PASS Mixed wave 1 rewards once
+PASS Mixed wave 2: 3 melee / 7 total
+PASS Mixed wave 2 counts each death once
+PASS Mixed wave 2 rewards once
+PASS Mixed wave 3: 4 melee / 9 total
+PASS Mixed wave 3 counts each death once
+PASS Mixed wave 3 rewards once
+PASS Three mixed waves unlock voluntary extra waves
+ERRORS

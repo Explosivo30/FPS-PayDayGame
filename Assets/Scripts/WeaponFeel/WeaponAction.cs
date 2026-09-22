@@ -23,7 +23,7 @@ public class WeaponAction : MonoBehaviour
     private bool queuedShot;
     private BaseGun gun;
 
-    public static bool CombatPaused => Time.timeScale <= 0f || (ShopManager.Instance != null && ShopManager.Instance.IsOpen);
+    public static bool CombatPaused => RunPause.IsPaused || Time.timeScale <= 0f || (ShopManager.Instance != null && ShopManager.Instance.IsOpen);
     private void Awake() { gun = GetComponent<BaseGun>(); }
     private void OnDisable() { Cancel(); }
     public void BeginDraw() { Cancel(); Set(WeaponActionState.Drawing, drawDuration); }
@@ -50,7 +50,7 @@ public class WeaponAction : MonoBehaviour
     }
     public void BeginReload()
     {
-        if (CombatPaused || IsBusy || gun == null || gun.currentAmmo >= gun.ammo) return;
+        if (CombatPaused || IsBusy || gun == null || gun.currentAmmo >= gun.ammo || !gun.HasReserve) return;
         queuedShot = false; ReloadPhase = 0;
         Set(WeaponActionState.Reloading, shellReload ? reloadStart : reloadDuration);
         ReloadStep?.Invoke();
@@ -65,11 +65,11 @@ public class WeaponAction : MonoBehaviour
         float carry = elapsed - duration;
         if (State == WeaponActionState.Reloading)
         {
-            if (!shellReload) { gun.currentAmmo = gun.ammo; NotifyAmmo(); }
+            if (!shellReload) { gun.TransferFromReserve(gun.ammo); NotifyAmmo(); }
             else if (ReloadPhase < 2)
             {
-                if (ReloadPhase == 1) { gun.currentAmmo = Mathf.Min(gun.ammo, gun.currentAmmo + 1); NotifyAmmo(); ReloadStep?.Invoke(); }
-                ReloadPhase = queuedShot || gun.currentAmmo >= gun.ammo ? 2 : 1;
+                if (ReloadPhase == 1) { gun.TransferFromReserve(1); NotifyAmmo(); ReloadStep?.Invoke(); }
+                ReloadPhase = queuedShot || gun.currentAmmo >= gun.ammo || !gun.HasReserve ? 2 : 1;
                 elapsed = carry; duration = ReloadPhase == 2 ? reloadEnd : shellInsert;
                 return;
             }

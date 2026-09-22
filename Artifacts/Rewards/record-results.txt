@@ -1,0 +1,6 @@
+PASS Tower boot
+PASS 21 configured cards and reward service in persistent core
+PASS Every card has a valid imported icon
+PASS Recording wave spawned
+PASS Recorded actual wave completion, choice, purchase and return to combat
+ERRORS

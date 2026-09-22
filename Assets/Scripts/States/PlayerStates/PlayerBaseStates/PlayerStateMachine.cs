@@ -1,476 +1,163 @@
 using System;
-using System.Collections;
-using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpulse
+[DefaultExecutionOrder(-50)]
+public partial class PlayerStateMachine : StateMachine, IDamageable, IUpgradeable, IImpulse
 {
-    //Control Start
     [NonSerialized] public InputReader controls;
-    //Control End
-
-    //----- START GROUND DETECTION
     [SerializeField] float _height;
-    [SerializeField] float _castRadius = 0.49f;
-    [SerializeField] float _castLength = 0.1f;
-    [SerializeField] float _maxAngle = 45f;
-    Vector3 _downDir = Vector3.down;
-
-    [SerializeField] LayerMask _groundMask = int.MinValue;
-    public LayerMask GroundMask => _groundMask;
-
-    public Vector3 GroundNormal => _groundNormal;
-    Vector3 _groundNormal;
-    public bool Grounded => _grounded;
-    bool _grounded;
-
-    public Vector3 SlideNormal => _slideNormal;
-    Vector3 _slideNormal;
-    public bool Sliding => _sliding;
-    bool _sliding;
-    //----- END GROUND DETECTION
-
-
-    //----START Character Controller
+    [SerializeField] float _castRadius=.36f, _castLength=.74f, _maxAngle=45;
+    [SerializeField] LayerMask _groundMask=1<<3;
     [SerializeField] CharacterController cc;
-
-    Vector2 worldInputDir;
-
-    //---- END Character Controller
-
-    //---- START PLAYER OWN MOVEMENT
-
-    [Header("Movement Physics Base")]
-    public float maxGroundSpeed = 10f;
-    public float maxCrouchSpeed = 5f;
-    public float maxAirSpeed = 2f; 
-    
-    [Tooltip("Base horizontal acceleration")]
-    public float groundAcceleration = 100f;
-    public float airAcceleration = 12f;
-
-    public float groundFriction = 8f;
-    public float airFriction = 0.5f;
-
-    [Header("Jump & Slide")]
-    public float jumpForce = 6f;
-    public float slideBoost = 15f;
-    public float slideFriction = 2f;
-    
-    [Header("Crouch / Slide Config")]
-    public float crouchHeightMultiplier = 0.5f;
-    public float slideDuration = 1.0f;
-    public float heightTransitionSpeed = 10f;
-    private float originalHeight;
-    private float originalCamLocalY;
-    private float targetHeight;
-    [SerializeField] float rotationSpeed = 50f;
-
+    public LayerMask GroundMask=>_groundMask;
+    Vector3 _groundNormal=Vector3.up, _slideNormal=Vector3.up;
+    bool _grounded, _sliding;
+    public Vector3 GroundNormal=>_groundNormal;
+    public Vector3 SlideNormal=>_slideNormal;
+    public bool Grounded=>_grounded;
+    public bool Sliding=>_sliding;
+    [Header("Movement")]
+    public float maxGroundSpeed=8, maxCrouchSpeed=4, maxAirSpeed=5;
+    public float groundAcceleration=80, airAcceleration=12, groundFriction=8, airFriction=.5f;
+    [Header("Jump and slide")]
+    public float jumpForce=6.5f, slideBoost=2, slideFriction=2;
+    public float crouchHeightMultiplier=.5f, slideDuration=.7f, heightTransitionSpeed=12;
+    [SerializeField] float rotationSpeed=50, _gravityForce=22;
+    public float GravityForce=>_gravityForce;
+    Vector3 _gravityDir=Vector3.down;
+    public Vector3 GravityDir { get=>_gravityDir; set=>_gravityDir=value.normalized; }
     [HideInInspector] public Vector3 PlayerVelocity;
-    //---- END PLAYER OWN MOVEMENT
-
-    //----- START PLAYER GRAVITY
-
-
-    [SerializeField] float _gravityForce = 20f;
-    public float GravityForce => _gravityForce;
-    public Vector3 GravityDir { get { return _gravityDir; } set { _gravityDir = value.normalized; } }
-
-
-    [Header("Upgradeable Stats")]
-    [Tooltip("Additional speed per level")]
-    [SerializeField] private float accelerationIncrement = 2f;
-    [Tooltip("Maximum upgrade levels")]
-    [SerializeField] private int maxUpgradeLevel = 5;
-
-    private int upgradeLevel = 0;
-
-    public string Id => "player";
-
-    public int Level => upgradeLevel;
-
-    public int MaxLevel => maxUpgradeLevel;
-
-    Vector3 _gravityDir = Vector3.down;
-
-    //----- END PLAYER GRAVITY
-
-    //----- START CAMERA
-
+    float originalHeight,originalCamLocalY,targetHeight,verticalRotation;
+    Vector3 originalCenter;
     public Transform headCam;
     [NonSerialized] public CameraTilt cameraTilt;
-    [SerializeField] private float minVerticalAngle = -70f;
-    [SerializeField] private float maxVerticalAngle = 70f;
-
-    //----- END CAMERA
-
-    // ------ HP PLAYER
-    protected float maxHPPlayer = 100f;
-    protected float currentHPPlayer;
-    [SerializeField] private Volume damageVolume;
-    private Coroutine fadeCoroutine;
-
-    [Header("Timing")]
-    [Tooltip("Seconds to fade weight from current (or 0) up to 1")]
-    [SerializeField] private float fadeInTime = 0.2f;
-    [Tooltip("Seconds to fade weight from 1 down to 0")]
-    [SerializeField] private float fadeOutTime = 1f;
-
-    
-
-    // ------ HP PLAYER END
-
-    private void Awake()
+    [SerializeField] float minVerticalAngle=-80,maxVerticalAngle=80;
+    [Header("Upgradeable stats")]
+    [SerializeField] float accelerationIncrement=2;
+    [SerializeField] int maxUpgradeLevel=5;
+    int upgradeLevel;
+    public string Id=>"player";
+    public int Level=>upgradeLevel;
+    public int MaxLevel=>maxUpgradeLevel;
+    protected float maxHPPlayer=100,currentHPPlayer;
+    [SerializeField] Volume damageVolume;
+    [SerializeField] float fadeInTime=.2f,fadeOutTime=1;
+    public float Health=>currentHPPlayer;
+    public float MaxHealth=>maxHPPlayer;
+    public bool IsDead { get; private set; }
+    public string LastDamageCause { get; private set; }="Daño recibido";
+    public event Action<PlayerDamage> Damaged;
+    public event Action Died,Jumped;
+    public event Action<float> Landed,Healed;
+    public event Action Stepped;
+    Shield shield;
+    PlayerFeedback feedback;
+    void Awake()
     {
-        GameManager.Instance?.Register(this);    // 'this' implementa IUpgradeable y tiene Id
-        cameraTilt = GetComponentInChildren<CameraTilt>();
-        if (cameraTilt == null) Debug.LogWarning("NO CAMERA TILT");
-        _downDir = _downDir.normalized;
-        currentHPPlayer = maxHPPlayer;
-        if (damageVolume != null) damageVolume.weight = 0f;
-        GameManager.Instance?.AddPlayerTransforms(transform);
-        controls = GetComponent<InputReader>();
-        
-        originalHeight = cc.height;
-        targetHeight = originalHeight;
-        originalCamLocalY = headCam.localPosition.y;
+        controls=GetComponent<InputReader>();cc=cc!=null?cc:GetComponent<CharacterController>();
+        cameraTilt=GetComponentInChildren<CameraTilt>();
+        currentHPPlayer=maxHPPlayer;
+        originalHeight=cc.height;originalCenter=cc.center;targetHeight=originalHeight;
+        originalCamLocalY=headCam.localPosition.y;
+        shield=GetComponent<Shield>();
+        if(damageVolume!=null)damageVolume.weight=0;
+        GameManager.Instance?.Register(this);GameManager.Instance?.AddPlayerTransforms(transform);
+        feedback=GetComponent<PlayerFeedback>();
+        if(feedback==null)feedback=gameObject.AddComponent<PlayerFeedback>();
     }
-
-    private void Start()
+    void OnEnable() { if(controls!=null)controls.JumpEvent+=QueueJump; }
+    void OnDisable() { if(controls!=null)controls.JumpEvent-=QueueJump; jumpQueuedUntil=float.NegativeInfinity; }
+    void Start()
     {
-        GunRecoil.EnsureExists().ResetRecoil();
-        SwitchState(new PlayerIdleState(this));
+        // All scene managers have finished Awake before registration is required by shops and waves.
+        GameManager.Instance?.Register(this);GameManager.Instance?.AddPlayerTransforms(transform);
+        GunRecoil.EnsureExists().ResetRecoil();SwitchState(new PlayerLocomotionState(this));
     }
-
-
-    public void GroundDetection()
-    {
-        if (Physics.SphereCast(transform.position + transform.up * _height, _castRadius, _downDir, out RaycastHit hitInfo, _castLength, _groundMask))
-        {
-           //TODEBUG Debug.Log(hitInfo.transform.up);
-            Debug.DrawRay(hitInfo.point, hitInfo.normal, Color.red, 50f);
-            
-            if (Vector3.Dot(hitInfo.normal, -_downDir) > Mathf.Sin((90f - _maxAngle) * Mathf.PI / 180f))
-            {
-                _groundNormal = hitInfo.normal;
-                _grounded = true;
-                _sliding = false;
-                Debug.DrawRay(hitInfo.point, hitInfo.normal, Color.blue, Time.fixedDeltaTime);
-                _slideNormal = hitInfo.normal;
-            }
-            else
-            {
-                _grounded = false;
-                _sliding = true;
-                _slideNormal = hitInfo.normal;
-            }
-            
-            // Push player out of slope or floor if clipping slightly
-            // We use PlayerVelocity.y for gravity logic naturally
-        }
-        else
-        {
-            _grounded = false;
-            _groundNormal = Vector3.up;
-            _sliding = false;
-        }
-
-        //TODEBUG Debug.Log($"Grounded: {Grounded}, Sliding: {Sliding}");
-    }
-
-    public Vector2 GetInput()
-    {
-        Vector2 moveInput;
-
-        moveInput = controls.MovementValue;
-        moveInput.Normalize();
-
-        if(moveInput.x > 0.01f)
-        {
-            cameraTilt.DoTilt(-1f);
-        } else if(moveInput.x < -0.01f)
-        {
-            cameraTilt.DoTilt(1f);
-        }
-        else
-        {
-            cameraTilt.DoTilt(0f);
-        }
-
-        return moveInput;
-    }
-
-    public Vector3 GetCameraRight() 
-    {
-        Transform cameraTransform = headCam != null ? headCam : transform;
-        Vector3 right = cameraTransform.right;
-        right.y = 0;
-        return right.normalized;
-    }
-    
-    public Vector3 GetCameraForward() 
-    {
-        Transform cameraTransform = headCam != null ? headCam : transform;
-        Vector3 fore = cameraTransform.forward;
-        fore.y = 0;
-        return fore.normalized;
-    }
-
-    public void ApplyFriction(float frictionAmount)
-    {
-        Vector3 vel = new Vector3(PlayerVelocity.x, 0, PlayerVelocity.z);
-        float speed = vel.magnitude;
-        if (speed != 0) 
-        {
-            float drop = speed * frictionAmount * Time.deltaTime;
-            float newSpeed = speed - drop;
-            if (newSpeed < 0) newSpeed = 0;
-            newSpeed /= speed;
-
-            PlayerVelocity.x *= newSpeed;
-            PlayerVelocity.z *= newSpeed;
-        }
-    }
-
-    public void Accelerate(Vector3 targetDirection, float targetMaxSpeed, float acceleration)
-    {
-        float currentSpeed = Vector3.Dot(PlayerVelocity, targetDirection);
-        float addSpeed = targetMaxSpeed - currentSpeed;
-        if (addSpeed <= 0) return;
-
-        float accelSpeed = acceleration * Time.deltaTime;
-        if (accelSpeed > addSpeed) accelSpeed = addSpeed;
-
-        PlayerVelocity.x += accelSpeed * targetDirection.x;
-        PlayerVelocity.z += accelSpeed * targetDirection.z;
-    }
-
-    public void ApplyGravityCustom()
-    {
-        PlayerVelocity.y -= _gravityForce * Time.deltaTime;
-    }
-    
-    public void Jump()
-    {
-        if(Grounded)
-        {
-            PlayerVelocity.y = jumpForce;
-        }
-    }
-
-    public void SetCrouchedScale(bool isCrouched)
-    {
-        targetHeight = isCrouched ? originalHeight * crouchHeightMultiplier : originalHeight;
-    }
-
-    private void UpdateHeight()
-    {
-        if (cc.height != targetHeight)
-        {
-            float lastHeight = cc.height;
-            cc.height = Mathf.Lerp(cc.height, targetHeight, heightTransitionSpeed * Time.deltaTime);
-            // Preserve the collision radius while crouching.
-            // cc.radius = cc.height / 2f; // Ensure radius scales safely if needed, or keep radius same if it's small enough
-
-            // Adjust position so we don't fall off or fly
-            float heightDiff = lastHeight - cc.height;
-            transform.position += new Vector3(0, heightDiff / 2, 0);
-            
-            // Adjust camera Y smoothly
-            float curCamY = headCam.localPosition.y;
-            float targetCamY = targetHeight == originalHeight ? originalCamLocalY : (originalCamLocalY * crouchHeightMultiplier * 0.8f);
-            headCam.localPosition = new Vector3(headCam.localPosition.x, Mathf.Lerp(curCamY, targetCamY, heightTransitionSpeed * Time.deltaTime), headCam.localPosition.z);
-        }
-    }
-
-    public bool CanStandUp()
-    {
-        if (targetHeight == originalHeight) return true; // Already standing or trying to
-        // If we are crouched, check upwards if there's roof
-        RaycastHit hit;
-        float distance = originalHeight - cc.height;
-        Vector3 origin = transform.position + Vector3.up * (cc.height / 2f);
-        if (Physics.SphereCast(origin, cc.radius * 0.9f, Vector3.up, out hit, distance, GroundMask))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    public void MovePlayer()
-    {
-        UpdateHeight();
-        
-        cc.Move(PlayerVelocity * Time.deltaTime);
-
-        // Ground sticking / reset Y velocity if colliding with ground
-        if (Grounded && PlayerVelocity.y <= 0)
-        {
-            // Pequeña fuerza descendente extra para mantenerse pegado al suelo al bajar pendientes
-            PlayerVelocity.y = -2f;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position + transform.up * _height, _castRadius);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere((transform.position + (transform.up * _height)) + -transform.up * _castLength, _castRadius);
-    }
-
-    private float verticalRotation = 0f;
     public void PlayerLook()
     {
-        if (WeaponAction.CombatPaused) return;
-        Vector2 rotateVector = controls.LookValue;
-
-        float horizontalInput = rotateVector.x; // For character rotation (Y-axis)
-
-        float verticalInput = rotateVector.y;
-
-        Vector2 mouseDegrees = rotateVector * rotationSpeed * Time.deltaTime;
-        Vector2 recoil = GunRecoil.Instance?.Consume(mouseDegrees) ?? Vector2.zero;
-
-        // Rotate the character around the Y-axis (horizontal input)
-        //if (horizontalInput != 0)
-        //{
-            // Calculate the desired rotation angle
-            float rotationAngle = horizontalInput * rotationSpeed * Time.deltaTime + recoil.x;
-            
-            // Apply the rotation around the Y-axis
-            transform.Rotate(0f, rotationAngle, 0f);
-       // }
-
-        // --- PITCH (rotate camera vertically, clamped) ---
-        
-        verticalRotation -= verticalInput * rotationSpeed * Time.deltaTime + recoil.y;
-        verticalRotation = Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle);
-        headCam.localEulerAngles = new Vector3(verticalRotation, 0f, 0f);
-
+        if(IsDead||WeaponAction.CombatPaused)return;
+        Vector2 mouse=(controls!=null?controls.LookValue:Vector2.zero)*(rotationSpeed/60f);
+        Vector2 recoil=GunRecoil.Instance?.Consume(mouse)??Vector2.zero;
+        transform.Rotate(0,mouse.x+recoil.x,0);
+        verticalRotation=Mathf.Clamp(verticalRotation-mouse.y-recoil.y,minVerticalAngle,maxVerticalAngle);
+        headCam.localRotation=Quaternion.Euler(verticalRotation,0,0);
     }
-
-    public float Health => currentHPPlayer;
-    public void TakeDamage(float amount)
+    public Vector2 GetInput()=>controls!=null?Vector2.ClampMagnitude(controls.MovementValue,1):Vector2.zero;
+    public Vector3 GetCameraForward()=>Vector3.ProjectOnPlane(headCam.forward,Vector3.up).normalized;
+    public Vector3 GetCameraRight()=>Vector3.ProjectOnPlane(headCam.right,Vector3.up).normalized;
+    public void Heal(float amount)
     {
-
-        // Try shield first
-        if (TryGetComponent<IShield>(out var shield) && shield.Current > 0f)
-        {
-            shield.Absorb(amount);
-            return;
-        }
-
-        currentHPPlayer -= amount;
-
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
-
-       
-        // Start a fresh fade in → out
-       
-
-        if (currentHPPlayer <= 0) 
-        {
-            if (fadeCoroutine != null)
-                StopCoroutine(fadeCoroutine);
-            if (damageVolume != null) damageVolume.weight = 0f;
-            //DIE
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        else
-        {
-            if (damageVolume != null) fadeCoroutine = StartCoroutine(FadeRoutine());
-        }
+        if(IsDead||amount<=0||float.IsNaN(amount)||float.IsInfinity(amount))return;
+        float before=currentHPPlayer;currentHPPlayer=Mathf.Min(maxHPPlayer,currentHPPlayer+amount);
+        if(currentHPPlayer>before)Healed?.Invoke(currentHPPlayer-before);
     }
-
-    private IEnumerator FadeRoutine()
+    public void TeleportTo(Vector3 position,Quaternion rotation)
     {
-        // 1) Fade IN: from current weight to 1
-        float start = damageVolume.weight;
-        float elapsed = 0f;
-        while (elapsed < fadeInTime)
-        {
-            elapsed += Time.deltaTime;
-            damageVolume.weight = Mathf.Lerp(start, 1f, elapsed / fadeInTime);
-            yield return null;
-        }
-        damageVolume.weight = 1f;
-
-        // 2) Fade OUT: from 1 back to 0
-        elapsed = 0f;
-        while (elapsed < fadeOutTime)
-        {
-            elapsed += Time.deltaTime;
-            damageVolume.weight = Mathf.Lerp(1f, 0f, elapsed / fadeOutTime);
-            yield return null;
-        }
-        if (damageVolume != null) damageVolume.weight = 0f;
-        fadeCoroutine = null;
+        bool enabledController=cc.enabled;cc.enabled=false;
+        transform.SetPositionAndRotation(position,rotation);
+        PlayerVelocity=Vector3.zero;verticalRotation=0;headCam.localRotation=Quaternion.identity;
+        cc.height=originalHeight;cc.center=originalCenter;targetHeight=originalHeight;
+        var local=headCam.localPosition;local.y=originalCamLocalY;headCam.localPosition=local;
+        ResetMovement();feedback?.ResetFeedback();cameraTilt?.DoTilt(0);
+        GunRecoil.EnsureExists().ResetRecoil();cc.enabled=enabledController;Physics.SyncTransforms();
     }
-
-    public int GetUpgradeCost()
+    public void TakeDamage(float amount)=>TakeDamage(amount,transform.position,"Daño recibido");
+    public void TakeDamage(float amount,Vector3 source,string cause)
     {
-        return 2 * (Level + 1);
+        if(IsDead||WeaponAction.CombatPaused||amount<=0||float.IsNaN(amount)||float.IsInfinity(amount))return;
+        if(TowerSession.Instance!=null&&TowerSession.Instance.IsTransitioning)return;
+        LastDamageCause=string.IsNullOrEmpty(cause)?"Daño recibido":cause;
+        float before=shield!=null?shield.Current:0;
+        float healthDamage=shield!=null?shield.ConsumeDamage(amount):amount;
+        float lost=Mathf.Min(currentHPPlayer,healthDamage);
+        currentHPPlayer=Mathf.Max(0,currentHPPlayer-healthDamage);
+        bool broken=before>0&&shield!=null&&shield.Current<=0;
+        Damaged?.Invoke(new PlayerDamage(before-(shield!=null?shield.Current:0),lost,broken,source,LastDamageCause));
+        if(currentHPPlayer>0)return;
+        IsDead=true;PlayerVelocity=Vector3.zero;jumpQueuedUntil=float.NegativeInfinity;
+        Died?.Invoke();
+        if(TowerSession.Instance!=null)TowerSession.Instance.EndRun(LastDamageCause);
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+    public int GetUpgradeCost()=>80*(Level+1);
     public void ApplyUpgrade()
     {
-        if (upgradeLevel >= maxUpgradeLevel) return;
-        upgradeLevel++;
-        // Apply the new acceleration value directly to your state machine field
-        maxGroundSpeed += accelerationIncrement;
-        groundAcceleration += accelerationIncrement * 5f;
-        Debug.Log($"Player acceleration upgraded to level {upgradeLevel}. New max speed: {maxGroundSpeed}");
+        if(upgradeLevel>=maxUpgradeLevel)return;
+        upgradeLevel++;maxGroundSpeed+=accelerationIncrement;groundAcceleration+=accelerationIncrement*5;
     }
-
-    public void ApplyPlayerStat(PlayerStat stat, float value, bool isPercent)
+    public void ApplyPlayerStat(PlayerStat stat,float value,bool isPercent)
     {
-        switch (stat)
+        switch(stat)
         {
             case PlayerStat.Acceleration:
-                maxGroundSpeed = isPercent
-                  ? maxGroundSpeed * (1 + value / 100f)
-                  : maxGroundSpeed + value;
-
-                groundAcceleration = maxGroundSpeed * 10f; // rough equivalent
-                break;
+                maxGroundSpeed=isPercent?maxGroundSpeed*(1+value/100):maxGroundSpeed+value;
+                groundAcceleration=Mathf.Max(groundAcceleration,maxGroundSpeed*10);break;
             case PlayerStat.JumpHeight:
-                jumpForce = isPercent
-                  ? jumpForce * (1 + value / 100f)
-                  : jumpForce + value;
-                break;
+                jumpForce=isPercent?jumpForce*(1+value/100):jumpForce+value;break;
             case PlayerStat.MaxHealth:
-                maxHPPlayer = isPercent
-                  ? maxHPPlayer * (1 + value / 100f)
-                  : maxHPPlayer + value;
-                currentHPPlayer = Mathf.Min(currentHPPlayer, maxHPPlayer);
-                break;
-
+                maxHPPlayer=isPercent?maxHPPlayer*(1+value/100):maxHPPlayer+value;
+                currentHPPlayer=Mathf.Min(currentHPPlayer,maxHPPlayer);break;
             case PlayerStat.Shield:
-                // Find your Shield component and bump its level
-                if (TryGetComponent<Shield>(out var shield))
-                    shield.GetNewUpgrade(value,isPercent);  // your IUpgradeable logic
-                break;
+                if(shield!=null)shield.GetNewUpgrade(value,isPercent);break;
         }
     }
-
-    public void ApplyImpulse(Vector3 force)
-    {
-        PlayerVelocity += force;
-        
-        // Si estamos aplicando una fuerza vertical hacia arriba y actualmente caemos mucho
-        // Ayudamos a frenar esa caída para que el impulso sí se note.
-        if (force.y > 0 && Grounded == false)
-        {
-            if (PlayerVelocity.y < 0)
-            {
-               PlayerVelocity.y += force.y * 0.5f; // extra help to fight negative gravity velocity
-            }
-        }
-    }
+    public void ApplyImpulse(Vector3 force) { if(!IsDead&&!WeaponAction.CombatPaused)PlayerVelocity+=force; }
 }
-
+public readonly struct PlayerDamage
+{
+    public readonly float ShieldLoss,HealthLoss;
+    public readonly bool ShieldBroken;
+    public readonly Vector3 Source;
+    public readonly string Cause;
+    public PlayerDamage(float shield,float health,bool broken,Vector3 source,string cause)
+    { ShieldLoss=shield;HealthLoss=health;ShieldBroken=broken;Source=source;Cause=cause; }
+}
+public class PlayerLocomotionState : PlayerBaseState
+{
+    public PlayerLocomotionState(PlayerStateMachine player):base(player){}
+    public override void Enter(){}
+    public override void Tick(){stateMachine.TickLocomotion();}
+    public override void Exit(){}
+}

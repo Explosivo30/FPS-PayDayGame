@@ -20,9 +20,11 @@ public class WeaponPresentation : MonoBehaviour
     private PlayerStateMachine player;
     private Vector3 magazineHome, boltHome, sway, recoilEuler;
     private float kick, stepTime, landing, motion;
+    private float shotTime=float.NegativeInfinity;
+    private Light muzzleLight;
     private bool grounded;
     private AudioSource mechanicalAudio;
-    private AudioClip click;
+    private AudioClip click,swing;
 
     private void Awake()
     {
@@ -31,7 +33,16 @@ public class WeaponPresentation : MonoBehaviour
         if (magazine != null) magazineHome = magazine.localPosition;
         if (bolt != null) boltHome = bolt.localPosition;
         mechanicalAudio = gameObject.AddComponent<AudioSource>(); mechanicalAudio.playOnAwake = false; mechanicalAudio.spatialBlend = 0;
-        click = CreateClick();
+        click = CreateClick();swing=CreateSwing();
+        if(gun!=null)
+        {
+            var glow=new GameObject("Weapon flash light");glow.transform.SetParent(transform,false);
+            glow.transform.localPosition=new Vector3(0,0,.24f);
+            muzzleLight=glow.AddComponent<Light>();muzzleLight.type=LightType.Point;
+            muzzleLight.range=1.4f;muzzleLight.intensity=0;muzzleLight.shadows=LightShadows.None;
+            muzzleLight.cullingMask=1<<LayerMask.NameToLayer("Weapon");
+            muzzleLight.color=gun is Pistol?new Color(.22f,.8f,1):new Color(1,.65f,.25f);
+        }
     }
     private void OnEnable()
     {
@@ -48,8 +59,9 @@ public class WeaponPresentation : MonoBehaviour
         if (magazine != null) magazine.localPosition = magazineHome;
         if (bolt != null) bolt.localPosition = boltHome;
         mechanicalAudio?.Stop();
+        if(muzzleLight!=null)muzzleLight.intensity=0;
     }
-    private void OnDestroy() { if (click != null) Destroy(click); }
+    private void OnDestroy() { if (click != null) Destroy(click);if(swing!=null)Destroy(swing); }
     private void OnState(WeaponActionState state)
     {
         if (state == WeaponActionState.Drawing || state == WeaponActionState.Holstering) OnReloadStep();
@@ -62,12 +74,13 @@ public class WeaponPresentation : MonoBehaviour
     }
     private void OnShot()
     {
+        shotTime=Time.time;
         var data = gun != null ? gun.Recoil : null;
         float aimScale = Mathf.Lerp(1f, .65f, AimBlend) * kickScale;
         kick = Mathf.Min(kick + (data != null ? data.kickbackDistance : .025f) * aimScale, .1f);
         recoilEuler += new Vector3(-(data != null ? data.weaponKickUp : 1.5f), Random.Range(-.25f,.25f), Random.Range(-.45f,.45f)) * aimScale;
         recoilEuler.x = Mathf.Max(recoilEuler.x, -10f); ShotPulse = 1;
-        if (gun == null) OnReloadStep();
+        if (gun == null) mechanicalAudio.PlayOneShot(swing,.45f);
     }
     private void LateUpdate()
     {
@@ -107,9 +120,24 @@ public class WeaponPresentation : MonoBehaviour
         transform.localPosition = pos; transform.localRotation = Quaternion.Euler(rot);
         if (magazine != null) magazine.localPosition = magazineHome + magazine.parent.InverseTransformVector(transform.up * -.24f * ReloadGesture);
         if (bolt != null) bolt.localPosition = boltHome + bolt.parent.InverseTransformVector(-transform.forward * .035f * ShotPulse);
-        kick *= Mathf.Exp(-19f * dt); recoilEuler *= Mathf.Exp(-17f * dt); ShotPulse *= Mathf.Exp(-28f * dt); landing *= Mathf.Exp(-13f * dt);
+        float kickReturn=gun is ShotGun?16:gun is MachineGun?27:22;
+        float rotationReturn=gun is ShotGun?15:gun is MachineGun?24:20;
+        kick *= Mathf.Exp(-kickReturn * dt); recoilEuler *= Mathf.Exp(-rotationReturn * dt);
+        ShotPulse *= Mathf.Exp(-28f * dt); landing *= Mathf.Exp(-13f * dt);
+        if(muzzleLight!=null)muzzleLight.intensity=(gun is ShotGun?.10f:.07f)*Mathf.Clamp01(1-(Time.time-shotTime)/.045f);
     }
     private static float Ease(float t) { return t*t*(3-2*t); }
+    private static AudioClip CreateSwing()
+    {
+        const int rate=22050;var samples=new float[3528];var rng=new System.Random(891);float noise=0;
+        for(int i=0;i<samples.Length;i++)
+        {
+            noise+=((float)rng.NextDouble()*2-1-noise)*.14f;
+            float envelope=Mathf.Sin(Mathf.PI*i/(samples.Length-1));
+            samples[i]=noise*envelope*envelope;
+        }
+        var clip=AudioClip.Create("Knife swing",samples.Length,1,rate,false);clip.SetData(samples,0);return clip;
+    }
     private static AudioClip CreateClick()
     {
         const int rate=22050; var samples=new float[2205]; var rng=new System.Random(47);

@@ -1,122 +1,54 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStateMachine))]
-
-public class Shield : MonoBehaviour, IShield, IUpgradeable
+public class Shield : MonoBehaviour,IShield,IUpgradeable
 {
-    // --- REGISTRATION & UPGRADE TRACKING ---
-    public string Id => "player_shield";
-    private int _level = 0;
-    [SerializeField] private int maxUpgradeLevel = 10;
-    public int Level => _level;
-    public int MaxLevel => maxUpgradeLevel;
-
-    // --- SHIELD STATE ---
-    [SerializeField] private float _maxShield;
-    private float _currentShield;
-    private Coroutine _regenCoroutine;
-    private PlayerStateMachine _player;
-
-    [Header("Regen Settings")]
-    [Tooltip("Seconds after last hit before regen starts")]
-    [SerializeField] private float regenDelay = 3f;
-    [Tooltip("Shield per second")]
-    [SerializeField] private float regenRate = 5f;
-
-    public float Current => _currentShield;
-    public float Max => _maxShield;
-
-    public void Absorb(float amount)
+    public string Id=>"player_shield";
+    int _level;
+    [SerializeField] int maxUpgradeLevel=10;
+    public int Level=>_level;
+    public int MaxLevel=>maxUpgradeLevel;
+    [SerializeField] float _maxShield=50;
+    float _currentShield,delayRemaining;
+    [Header("Recovery")]
+    [SerializeField] float regenDelay=3,regenRate=12;
+    PlayerStateMachine player;
+    public float Current=>_currentShield;
+    public float Max=>_maxShield;
+    public bool IsRegenerating=>delayRemaining<=0&&Current<Max&&player!=null&&!player.IsDead;
+    public float RecoveryDelay=>delayRemaining;
+    void Awake()
+    { player=GetComponent<PlayerStateMachine>();_currentShield=Max;GameManager.Instance?.Register(this); }
+    public float ConsumeDamage(float amount)
     {
-        // stop any running regen while taking damage
-        if (_regenCoroutine != null) StopCoroutine(_regenCoroutine);
-
-        float leftover = amount - _currentShield;
-        _currentShield = Mathf.Max(0f, _currentShield - amount);
-
-        // start regen delay
-        _regenCoroutine = StartCoroutine(RegenerateRoutine());
-
-        // if overflow, pass to health
-        if (leftover > 0f)
-            _player.TakeDamage(leftover);
+        if(amount<=0)return 0;
+        delayRemaining=regenDelay;
+        float absorbed=Mathf.Min(_currentShield,amount);_currentShield-=absorbed;
+        return amount-absorbed;
     }
-
-    private IEnumerator RegenerateRoutine()
+    public void Absorb(float amount){player.TakeDamage(amount);}
+    public void Regenerate(){delayRemaining=regenDelay;}
+    void Update()
     {
-        // wait delay
-        yield return new WaitForSeconds(regenDelay);
-
-        // then regen until full
-        while (_currentShield < Max)
+        if(player==null||player.IsDead||WeaponAction.CombatPaused)return;
+        float dt=Time.deltaTime;
+        if(delayRemaining>0)
         {
-            _currentShield = Mathf.Min(Max, _currentShield + regenRate * Time.deltaTime);
-            yield return null;
+            float waiting=Mathf.Min(delayRemaining,dt);delayRemaining-=waiting;dt-=waiting;
         }
-        _regenCoroutine = null;
+        if(delayRemaining<=0)_currentShield=Mathf.Min(Max,_currentShield+regenRate*dt);
     }
-
-    public void Regenerate()
+    public void Restore(float amount)
+    { if(player!=null&&!player.IsDead&&amount>0)_currentShield=Mathf.Min(Max,Current+amount); }
+    public void IncreaseCapacity(float amount,float restore)
+    { _maxShield=Mathf.Max(0,Max+amount);_currentShield=Mathf.Min(Current,Max);Restore(restore); }
+    public void SetMaxShield(float value)
+    { _maxShield=Mathf.Max(0,value);_currentShield=_maxShield; }
+    public void GetNewUpgrade(float value,bool percent)
     {
-        if (_regenCoroutine != null) StopCoroutine(_regenCoroutine);
-        _regenCoroutine = StartCoroutine(RegenerateRoutine());
+        if(_level>=MaxLevel)return;_level++;
+        SetMaxShield(percent?Max*(1+value/100):Max+value);
     }
-
-
-
-    #region IUpgradeable
-
-
-
-    public void GetNewUpgrade(float value, bool isPercent)
-    {
-        if (_level >= maxUpgradeLevel)
-            return;
-        _level++;
-
-        float newMax = isPercent
-            ? _maxShield * (1 + value / 100f)
-            : _maxShield + value;
-
-        SetMaxShield(newMax);
-        Debug.Log($"[Shield] Upgraded via IUpgradeable: level {_level}, newMax {newMax}");
-    }
-
-
-    #endregion
-
-    private void Awake()
-    {
-        _player = GetComponent<PlayerStateMachine>();
-        _currentShield = Max;
-        GameManager.Instance.Register(this); // so your shop can find it
-
-    }
-
-
-    /// <summary>
-    /// Called by UpgradeManager when the StatUpgrade for Shield happens.
-    /// </summary>
-    public void SetMaxShield(float newMax)
-    {
-        _maxShield = newMax;
-        _currentShield = newMax;  // refill immediately
-        Debug.Log($"[Shield] New MaxShield = {_maxShield}");
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    public int GetUpgradeCost()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void ApplyUpgrade()
-    {
-        throw new System.NotImplementedException();
-    }
+    public int GetUpgradeCost()=>80*(Level+1);
+    public void ApplyUpgrade(){GetNewUpgrade(10,false);}
 }

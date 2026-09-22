@@ -14,6 +14,22 @@ public class GunController : MonoBehaviour
     public int CurrentIndex { get; private set; }
     private InputReader inputReader;
     private bool wasAttacking;
+    private bool requireRelease;
+    public void RequireTriggerRelease(){requireRelease=true;wasAttacking=true;}
+    public void CancelForModal()
+    {
+        if(switchRoutine!=null)StopCoroutine(switchRoutine);
+        switchRoutine=null;IsSwitching=false;
+        foreach(var weapon in weaponObjects)
+        {
+            if(weapon is IAimable aim)aim.StopAiming();
+            if(weapon is Knife knife)knife.CancelPendingStrike();
+            weapon.GetComponent<WeaponAction>()?.Cancel();
+        }
+        if(worldCamera!=null)worldCamera.fieldOfView=normalFOV;
+        if(weaponCamera!=null)weaponCamera.fieldOfView=normalFOV;
+        RequireTriggerRelease();
+    }
     private Coroutine switchRoutine;
     private Camera worldCamera, weaponCamera;
     private float normalFOV = 70f;
@@ -22,6 +38,7 @@ public class GunController : MonoBehaviour
     private void Awake()
     {
         inputReader = GetComponentInParent<InputReader>();
+        if(GetComponent<ImpactFeedbackPlayer>()==null)gameObject.AddComponent<ImpactFeedbackPlayer>();
         foreach (var cam in transform.root.GetComponentsInChildren<Camera>(true))
             if (cam.gameObject.layer == LayerMask.NameToLayer("Weapon")) weaponCamera = cam; else worldCamera = cam;
         if (worldCamera != null) normalFOV = worldCamera.fieldOfView;
@@ -36,6 +53,11 @@ public class GunController : MonoBehaviour
     {
         if (WeaponAction.CombatPaused) { wasAttacking = inputReader != null && inputReader.isAttacking; return; }
         if (AutomatedInput) return;
+        if(requireRelease)
+        {
+            if(Input.GetMouseButton(0)||Input.GetMouseButton(1)||(inputReader!=null&&inputReader.isAttacking))return;
+            requireRelease=false;wasAttacking=false;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None; Cursor.visible = true;

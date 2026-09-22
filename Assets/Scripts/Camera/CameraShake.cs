@@ -41,7 +41,7 @@ public class CameraShake : MonoBehaviour
         remainingTime = Mathf.Max(0f, remainingTime - Time.deltaTime);
         float envelope = remainingTime / totalDuration;
         envelope *= envelope;
-        float time = Time.unscaledTime * noiseFrequency;
+        float time = Time.time * noiseFrequency;
         float x = Mathf.PerlinNoise(noiseSeed, time) * 2f - 1f;
         float y = Mathf.PerlinNoise(noiseSeed + 31.7f, time) * 2f - 1f;
         appliedOffset = new Vector3(x, y, 0f) * amplitude * envelope;

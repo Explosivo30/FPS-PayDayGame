@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LaboratoryFloor.unity
+    guid: b0923bcda9d34d8468ff480be9b347cd
+  - enabled: 1
+    path: Assets/Scenes/RoboticForest.unity
+    guid: b263d038778ba4f43b82748824f73a77
+  - enabled: 1
+    path: Assets/Scenes/CrystalGarden.unity
+    guid: 091e56b910ad4a64aab3aa1a0d4be43f
+  - enabled: 1
+    path: Assets/Scenes/TowerCore.unity
+    guid: afffcc3b29ce4364fb11f7b594ed47f0
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: a2476a185282fc74aa8cd74f05f63426
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:

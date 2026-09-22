@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [Header("Waves")]
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject meleeEnemyPrefab;
+    [SerializeField,Range(0,1)] private float meleeShare=.4f;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private int baseEnemyCount=5,incrementPerWave=2,maxAlive=12;
     [SerializeField] private float baseSpeed=3.4f,speedIncrement=.1f,spawnInterval=.65f;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
     private readonly HashSet<IDamageable> waveEnemies=new HashSet<IDamageable>();
     private Coroutine waveRoutine;
     private int remaining;
+    private TowerFloor floor;
+    private float initialDelay=2f;
     public int CurrentWave { get; private set; }
     public int CompletedWaves { get; private set; }
     public int EnemiesRemaining => remaining;
@@ -31,11 +35,20 @@ public class GameManager : MonoBehaviour
     public bool IsSpawning { get; private set; }
     public float NextWaveIn { get; private set; }
     public bool AutomaticWaves=true;
+    public bool WaitingForExtraWave { get; private set; }
+    public int NextExtraReward=> (baseEnemyCount+CurrentWave*incrementPerWave)*(pointsPerKill+Mathf.Max(0,CurrentWave+1-(floor!=null?floor.mandatoryWaves:3))*2)+30+Mathf.Max(0,CurrentWave+1-(floor!=null?floor.mandatoryWaves:3))*10;
+    public bool RequestExtraWave()
+    {
+        if(!WaitingForExtraWave||WeaponAction.CombatPaused||(TowerSession.Instance?.Rewards?.Pending??false))return false;
+        WaitingForExtraWave=false;
+        TowerSession.Instance?.ShowMessage("OLEADA EXTRA · Amenaza aumentada. Puedes retirarte por el ascensor.",5);
+        return true;
+    }
 
     private void Awake()
     {
         if(Instance!=null && Instance!=this) { Destroy(gameObject); return; }
-        Instance=this; Time.timeScale=1; UpdateScoreUI();
+        Instance=this; if(!RunPause.IsPaused)Time.timeScale=1; UpdateScoreUI();
     }
     private void Start()
     {
@@ -45,6 +58,22 @@ public class GameManager : MonoBehaviour
     public void BeginWaves()
     {
         if(waveRoutine==null) waveRoutine=StartCoroutine(Waves());
+    }
+    public void StopFloor()
+    {
+        if (waveRoutine != null) StopCoroutine(waveRoutine);
+        waveRoutine = null;
+        waveEnemies.Clear();
+        foreach (var enemy in FindObjectsByType<NormalEnemyStateMachine>(FindObjectsSortMode.None))
+            Destroy(enemy.gameObject);
+        remaining = 0; IsSpawning = false; NextWaveIn = 0; WaitingForExtraWave=false;
+    }
+    public void ConfigureFloor(TowerFloor settings)
+    {
+        StopFloor();
+        floor = settings; spawnPoints = settings.spawnPoints;
+        CurrentWave = 0; CompletedWaves = 0; initialDelay = settings.introductionSeconds;
+        BeginWaves();
     }
     private void OnDestroy()
     {
@@ -63,12 +92,14 @@ public class GameManager : MonoBehaviour
     {
         // Scene props, duplicate notifications and old corpses cannot complete a wave.
         if(!waveEnemies.Remove(dead)) return;
-        remaining=Mathf.Max(0,remaining-1); AddScore(pointsPerKill);
+        remaining=Mathf.Max(0,remaining-1); AddScore(pointsPerKill + (floor != null ? Mathf.Max(0,CurrentWave-floor.mandatoryWaves)*2 : 0));
+        if(dead is Component target)TowerSession.Instance?.RecordKill(target.transform.position);
         SquadManager.Instance?.RebuildSquads();
     }
     private IEnumerator Waves()
     {
-        yield return new WaitForSeconds(2);
+        NextWaveIn=initialDelay;
+        while(NextWaveIn>0) { NextWaveIn=Mathf.Max(0,NextWaveIn-Time.deltaTime);yield return null; }
         if(enemyPrefab==null||spawnPoints==null||spawnPoints.Length==0) { Debug.LogError("Wave configuration is incomplete."); yield break; }
         while(true)
         {
@@ -80,11 +111,25 @@ public class GameManager : MonoBehaviour
             {
                 if(waveEnemies.Count>=maxAlive || !TrySpawnPosition(out Vector3 position))
                 { yield return new WaitForSeconds(.25f); continue; }
-                var go=Instantiate(enemyPrefab,position,Quaternion.identity);
+                // Distribute the new common enemy evenly without changing the wave total.
+                int index=baseEnemyCount+(CurrentWave-1)*incrementPerWave-pending;
+                int total=baseEnemyCount+(CurrentWave-1)*incrementPerWave;
+                int meleeCount=Mathf.Clamp(Mathf.RoundToInt(total*meleeShare),0,total);
+                bool melee=meleeEnemyPrefab!=null&&((index+1)*meleeCount/total>index*meleeCount/total);
+                var go=Instantiate(melee?meleeEnemyPrefab:enemyPrefab,position,Quaternion.identity);
                 var enemy=go.GetComponent<NormalEnemyStateMachine>();
                 if(enemy==null) { Destroy(go); Debug.LogError("Wave prefab requires NormalEnemyStateMachine."); yield break; }
                 waveEnemies.Add(enemy);
-                enemy.agent.speed=Mathf.Min(5.5f,baseSpeed+(CurrentWave-1)*speedIncrement);
+                if(floor!=null)
+                {
+                    int extra=Mathf.Max(0,CurrentWave-floor.mandatoryWaves);
+                    enemy.ConfigureDifficulty(floor.enemyHealth*(1+.08f*(CurrentWave-1)+.14f*extra),
+                        floor.enemyDamage*Mathf.Min(2.2f,1+.04f*(CurrentWave-1)+.1f*extra),
+                        Mathf.Min(.9f,.55f+.025f*CurrentWave+.035f*extra));
+                }
+                var closeCombat=enemy.GetComponent<MeleeRobotCombat>();
+                enemy.agent.speed=closeCombat!=null?Mathf.Min(closeCombat.maximumSpeed,(baseSpeed+(CurrentWave-1)*speedIncrement)*closeCombat.speedMultiplier):
+                    Mathf.Min(5.5f,baseSpeed+(CurrentWave-1)*speedIncrement);
                 SquadManager.Instance?.RebuildSquads();
                 pending--;
                 yield return new WaitForSeconds(spawnInterval);
@@ -92,6 +137,15 @@ public class GameManager : MonoBehaviour
             IsSpawning=false;
             while(remaining>0) yield return null;
             CompletedWaves++;
+            if(floor!=null)
+            {
+                AddScore(30+Mathf.Max(0,CurrentWave-floor.mandatoryWaves)*10);
+                TowerSession.Instance?.RecordWaveCompleted();
+                if(CompletedWaves>=floor.mandatoryWaves){WaitingForExtraWave=true;NextWaveIn=0;}
+                while(TowerSession.Instance?.Rewards?.Pending??false)yield return null;
+                if(CompletedWaves>=floor.mandatoryWaves)
+                    while(WaitingForExtraWave)yield return null;
+            }
             if(waveCompletePanel!=null) waveCompletePanel.SetActive(true);
             NextWaveIn=announcementDuration;
             while(NextWaveIn>0) { NextWaveIn=Mathf.Max(0,NextWaveIn-Time.deltaTime); yield return null; }

@@ -4,64 +4,38 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance { get; private set; }
-
-    [Tooltip("Todos los assets StatUpgrade")]
-     public StatUpgrade[] catalog;
-
-    // Mapa asset → nivel actual
-    private Dictionary<StatUpgrade, int> currentLevels = new();
-
-    private void Awake()
+    public StatUpgrade[] catalog;
+    public event System.Action<StatUpgrade> Purchased;
+    readonly Dictionary<StatUpgrade,int> currentLevels=new Dictionary<StatUpgrade,int>();
+    void Awake(){if(Instance!=null&&Instance!=this){Destroy(this);return;}Instance=this;}
+    void OnDestroy(){if(Instance==this)Instance=null;}
+    public int GetLevel(StatUpgrade upgrade)=>upgrade!=null&&currentLevels.TryGetValue(upgrade,out var level)?level:0;
+    public int GetNextCost(StatUpgrade upgrade)=>upgrade!=null&&GetLevel(upgrade)<upgrade.MaxLevel?upgrade.GetCost(GetLevel(upgrade)):-1;
+    public bool CanUpgrade(StatUpgrade upgrade)
     {
-        if (Instance != null) { Destroy(this); return; }
-        Instance = this;
-
-        // inicializa a nivel 0
-        foreach (var u in catalog)
-            currentLevels[u] = 0;
+        if(upgrade==null||GetNextCost(upgrade)<0||CurrencyManager.Instance==null||(TowerSession.Instance?.Rewards?.Pending??false))return false;
+        if(TowerSession.Instance!=null&&!TowerSession.Instance.Progression.IsUnlocked(upgrade.persistentUnlockId))return false;
+        return CurrencyManager.Instance.SpendCheck(GetNextCost(upgrade));
     }
-
-    /// <summary>Devuelve el nivel actual de esa mejora.</summary>
-    public int GetLevel(StatUpgrade u) => currentLevels[u];
-
-    /// <summary>Coste para mejorar al siguiente nivel.</summary>
-    public int GetNextCost(StatUpgrade u)
-        => GetLevel(u) < u.MaxLevel ? u.GetCost(GetLevel(u)) : -1;
-
-    /// <summary>¿Se puede comprar?</summary>
-    public bool CanUpgrade(StatUpgrade u)
-        => GetLevel(u) < u.MaxLevel
-        && CurrencyManager.Instance.SpendCheck(GetNextCost(u));  // solo check
-
-    /// <summary>Compra y aplica la mejora.</summary>
-    public void BuyUpgrade(StatUpgrade u)
+    public void BuyUpgrade(StatUpgrade upgrade)
     {
-        int lvl = GetLevel(u);
-        if (lvl >= u.MaxLevel) return;
-
-        int cost = u.GetCost(lvl);
-        if (!CurrencyManager.Instance.Spend(cost)) return;
-
-        // sube level
-        currentLevels[u] = lvl + 1;
-        ApplyUpgrade(u, lvl + 1);
-        ShopManager.Instance.RefreshAllButtons();
-    }
-
-    private void ApplyUpgrade(StatUpgrade u, int newLevel)
-    {
-        float val = u.GetValue(newLevel - 1);
-        if (u.target == UpgradeTarget.Player)
+        if(!CanUpgrade(upgrade))return;
+        var players=GameManager.Instance?.GetPlayerTransforms();
+        if(players==null||players.Count==0)return;
+        var player=players[0].GetComponent<PlayerStateMachine>();if(player==null||player.IsDead)return;
+        var targets=new List<BaseGun>();
+        if(upgrade.target==UpgradeTarget.Weapon)
         {
-            PlayerStateMachine player = GameManager.Instance.GetPlayerTransforms()[0].GetComponent<PlayerStateMachine>(); // tu referencia
-            
-            player.ApplyPlayerStat(u.playerStat, val, u.upgradeMode == UpgradeMode.Percentual /*mode*/);
+            foreach(var gun in player.GetComponentsInChildren<BaseGun>(true))
+                if(string.IsNullOrEmpty(upgrade.gunTypeID)||gun.GunTypeID==upgrade.gunTypeID)targets.Add(gun);
+            if(targets.Count==0)return;
         }
-        else // arma
-        {
-            foreach (BaseGun gun in FindObjectsByType<BaseGun>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-                if (gun.GunTypeID == u.gunTypeID)
-                    gun.ApplyWeaponStat(u.weaponStat, val);
-        }
+        int level=GetLevel(upgrade);
+        if(!CurrencyManager.Instance.Spend(upgrade.GetCost(level)))return;
+        float value=upgrade.GetValue(level);currentLevels[upgrade]=level+1;
+        if(upgrade.target==UpgradeTarget.Player)player.ApplyPlayerStat(upgrade.playerStat,value,upgrade.upgradeMode==UpgradeMode.Percentual);
+        else foreach(var gun in targets)WeaponStatLedger.For(gun).SetShop(upgrade.GetInstanceID()+":"+level,upgrade.weaponStat,value);
+        Purchased?.Invoke(upgrade);
+        ShopManager.Instance?.RefreshAllButtons();
     }
 }

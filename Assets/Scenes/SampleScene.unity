@@ -37386,6 +37386,10 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8768967337418626071, guid: f5c572643ceb5ae43aeddaee3db1d93b, type: 3}
+      propertyPath: meleeEnemyPrefab
+      value:
+      objectReference: {fileID: 7490838239834341243, guid: 838f8f2a730fa384d821ba254d80623c, type: 3}
+    - target: {fileID: 8768967337418626071, guid: f5c572643ceb5ae43aeddaee3db1d93b, type: 3}
       propertyPath: waveCompletePanel
       value: 
       objectReference: {fileID: 0}

@@ -12,6 +12,22 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
 
     public int ammo = 30;
     public int currentAmmo = 30;
+    [Header("Reserve (tower mode)")]
+    public bool limitedReserve;
+    public int maxReserveAmmo=150;
+    public int reserveAmmo=150;
+    public bool HasReserve => !limitedReserve || reserveAmmo>0;
+    public int TransferFromReserve(int requested)
+    {
+        int count=Mathf.Min(Mathf.Max(0,requested),Mathf.Max(0,ammo-currentAmmo));
+        if(limitedReserve) { count=Mathf.Min(count,reserveAmmo);reserveAmmo-=count; }
+        currentAmmo+=count; return count;
+    }
+    public void AddReserve(int count)
+    {
+        reserveAmmo=Mathf.Clamp(reserveAmmo+Mathf.Max(0,count),0,maxReserveAmmo);
+        Action.NotifyAmmo();
+    }
 
     [Tooltip("Shots per second.")]
     public float fireRate = 10f;
@@ -244,25 +260,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
     }
 
     public void ApplyWeaponStat(WeaponStat stat, float value)
-    {
-        switch (stat)
-        {
-            case WeaponStat.AmmoCapacity:
-                ammo += (int)value;
-                currentAmmo = Mathf.Min(currentAmmo, ammo);
-                break;
-            case WeaponStat.FireRate:
-                fireRate += value;
-                break;
-            case WeaponStat.Damage:
-                damage += value;
-                break;
-            case WeaponStat.RecoilKickUp:
-                if (recoilData != null)
-                    Recoil.recoilKickUp = Mathf.Max(0f, Recoil.recoilKickUp - value);
-                break;
-        }
-    }
+    { WeaponStatLedger.For(this).AddShop(stat,value); }
 
     protected void HandleHit(RaycastHit raycastHit, float dealtDamage, Vector3 shotDirection)
     {
@@ -270,19 +268,25 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
         if (damageable == null)
             damageable = raycastHit.collider.GetComponentInParent<IDamageable>();
 
-        PlayImpactFeedback(raycastHit, damageable != null);
-
-        if (damageable != null)
-        {
-            damageable.TakeDamage(dealtDamage);
-            CombatFeedback.ReportHit();
-        }
+        var robot = damageable as NormalEnemyStateMachine;
+        bool livingTarget = robot == null || !robot.IsDead;
+        // Robots own a coalesced metal burst; other surfaces keep their existing pools.
+        if (robot == null) PlayImpactFeedback(raycastHit, damageable != null);
         IHitReactable hitReactable = raycastHit.collider.GetComponent<IHitReactable>();
         if (hitReactable == null)
             hitReactable = raycastHit.collider.GetComponentInParent<IHitReactable>();
 
-        if (hitReactable != null)
+        if (hitReactable != null && livingTarget)
             hitReactable.ReactToHit(raycastHit, shotDirection, dealtDamage);
+        if (damageable != null && livingTarget)
+        {
+            damageable.TakeDamage(dealtDamage);
+            if(robot!=null&&robot.IsDead)CombatFeedback.ReportPlayerKill(robot,this);
+            CombatFeedback.ReportHit();
+            var component = damageable as Component;
+            CombatFeedback.ReportImpact(new CombatImpact(component != null ? component.GetInstanceID() : raycastHit.collider.GetInstanceID(),
+                raycastHit.point, raycastHit.normal, shotDirection, dealtDamage, robot != null && robot.IsDead, false));
+        }
 
         IRaycastHitHandler hitHandler = raycastHit.collider.GetComponent<IRaycastHitHandler>();
         if (hitHandler == null)
@@ -367,7 +371,8 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
 
     private void PlayShotFeedback(Vector3 muzzlePosition, Vector3 direction)
     {
-        PlayPooledEffect(muzzleFlashPrefab, muzzlePosition, Quaternion.LookRotation(direction), 4, 0.06f);
+        Color flashColor = this is Pistol ? new Color(.2f,.9f,1) : new Color(1,.68f,.25f);
+        PlayPooledEffect(muzzleFlashPrefab, muzzlePosition, Quaternion.LookRotation(direction), 4, .045f, flashColor, this is ShotGun ? 1.5f : this is Pistol ? 1.1f : .85f);
         PlayShotAudio();
 
         if (cameraShake == null)
@@ -382,7 +387,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
         }
 
         if (cameraShake != null)
-            cameraShake.AddImpulse(shakeDuration, shakeMagnitude);
+            cameraShake.AddImpulse(shakeDuration, shakeMagnitude * (this is IAimable a && a.IsAiming ? .35f : .75f));
     }
 
     private void PlayImpactFeedback(RaycastHit raycastHit, bool hitDamageable)
@@ -430,7 +435,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
         return false;
     }
 
-    private void PlayPooledEffect(GameObject prefab, Vector3 position, Quaternion rotation, int poolSize, float maximumLifetime)
+    private void PlayPooledEffect(GameObject prefab, Vector3 position, Quaternion rotation, int poolSize, float maximumLifetime, Color? tint = null, float scale = 1f)
     {
         if (prefab == null)
             return;
@@ -441,13 +446,14 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
             {
                 feedbackPoolRoot = new GameObject(name + " Feedback Pool").transform;
                 feedbackPoolRoot.position = Vector3.zero;
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(feedbackPoolRoot.gameObject,gameObject.scene);
             }
 
             pool = new EffectPool(prefab, poolSize, feedbackPoolRoot);
             effectPools.Add(prefab, pool);
         }
 
-        GameObject instance = pool.Play(position, rotation, maximumLifetime);
+        GameObject instance = pool.Play(position, rotation, maximumLifetime, tint, scale);
         if (pooledEffectRoutines.TryGetValue(instance, out Coroutine previousRoutine) && previousRoutine != null)
             StopCoroutine(previousRoutine);
 
@@ -583,10 +589,12 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
     {
         private readonly GameObject[] instances;
         private int nextIndex;
+        private readonly Vector3[] scales;
 
         public EffectPool(GameObject prefab, int size, Transform root)
         {
             instances = new GameObject[Mathf.Max(1, size)];
+            scales = new Vector3[instances.Length];
             for (int i = 0; i < instances.Length; i++)
             {
                 GameObject instance = Object.Instantiate(prefab, root);
@@ -622,13 +630,14 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
                 }
 
                 instance.SetActive(false);
-                instances[i] = instance;
+                instances[i] = instance;scales[i] = instance.transform.localScale;
             }
         }
 
-        public GameObject Play(Vector3 position, Quaternion rotation, float maximumLifetime)
+        public GameObject Play(Vector3 position, Quaternion rotation, float maximumLifetime, Color? tint, float scale)
         {
             GameObject instance = instances[nextIndex];
+            instance.transform.localScale = scales[nextIndex] * scale;
             nextIndex = (nextIndex + 1) % instances.Length;
 
             instance.SetActive(false);
@@ -641,6 +650,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
                 ParticleSystem.MainModule main = particle.main;
                 main.loop = false;
                 particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                if (tint.HasValue) main.startColor = tint.Value;
                 particle.Play(true);
             }
 

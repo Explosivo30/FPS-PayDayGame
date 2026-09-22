@@ -1636,6 +1636,9 @@ MonoBehaviour:
   damage: 30
   ammo: 12
   currentAmmo: 12
+  limitedReserve: 0
+  maxReserveAmmo: 150
+  reserveAmmo: 150
   fireRate: 5
   maxRangeGun: 80
   swayData: {fileID: 11400000, guid: 79af69b05924c9743aac9f116c5c1c76, type: 2}
@@ -4557,6 +4560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737534127718239768}
   - component: {fileID: 3826833533846501854}
+  - component: {fileID: 1725648587869462391}
   m_Layer: 7
   m_Name: GunController
   m_TagString: Untagged
@@ -4596,6 +4600,20 @@ MonoBehaviour:
   - {fileID: 3761877854108279506}
   - {fileID: 7123172016369313644}
   - {fileID: 6420843080147027683}
+--- !u!114 &1725648587869462391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452791936727231268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1275e6fc4a2ae7949ad8bbe71091dbb2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  confirmationVolume: 0.22
+  metalVolume: 0.3
 --- !u!1 &4472637735804493374
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,6 +5612,9 @@ MonoBehaviour:
   damage: 10
   ammo: 6
   currentAmmo: 6
+  limitedReserve: 0
+  maxReserveAmmo: 150
+  reserveAmmo: 150
   fireRate: 1.25
   maxRangeGun: 80
   swayData: {fileID: 11400000, guid: a3e15fc652890244e92d43bb7cd3f521, type: 2}
@@ -6366,6 +6387,9 @@ MonoBehaviour:
   damage: 12
   ammo: 30
   currentAmmo: 30
+  limitedReserve: 0
+  maxReserveAmmo: 150
+  reserveAmmo: 150
   fireRate: 10
   maxRangeGun: 80
   swayData: {fileID: 11400000, guid: 4dab56d1be5af3d41915ba6c545618ea, type: 2}
@@ -9040,6 +9064,7 @@ GameObject:
   - component: {fileID: 1627929677894978513}
   - component: {fileID: 6863126035208385841}
   - component: {fileID: 3226738419432000661}
+  - component: {fileID: 8813125388466141224}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -9077,6 +9102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b574c15ea7943324d9d8456eb9d060c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coyoteTime: 0.1
+  jumpBuffer: 0.12
+  braking: 55
+  turnAcceleration: 100
+  slideCooldown: 0.9
+  maxSlideSpeed: 12
   _height: 0
   _castRadius: 0.36
   _castLength: 0.74
@@ -9088,24 +9119,24 @@ MonoBehaviour:
   maxGroundSpeed: 8
   maxCrouchSpeed: 4
   maxAirSpeed: 5
-  groundAcceleration: 80
-  airAcceleration: 12
+  groundAcceleration: 65
+  airAcceleration: 16
   groundFriction: 8
   airFriction: 0.5
   jumpForce: 6.5
-  slideBoost: 15
+  slideBoost: 2
   slideFriction: 2
   crouchHeightMultiplier: 0.5
-  slideDuration: 1
-  heightTransitionSpeed: 10
+  slideDuration: 0.7
+  heightTransitionSpeed: 12
   rotationSpeed: 20
-  PlayerVelocity: {x: 0, y: 0, z: 0}
   _gravityForce: 22
-  accelerationIncrement: 50
-  maxUpgradeLevel: 5
+  PlayerVelocity: {x: 0, y: 0, z: 0}
   headCam: {fileID: 4666897098625950039}
   minVerticalAngle: -70
   maxVerticalAngle: 70
+  accelerationIncrement: 50
+  maxUpgradeLevel: 5
   damageVolume: {fileID: 7262371989946044427}
   fadeInTime: 0.2
   fadeOutTime: 1
@@ -9163,7 +9194,7 @@ MonoBehaviour:
   maxUpgradeLevel: 10
   _maxShield: 50
   regenDelay: 3
-  regenRate: 5
+  regenRate: 12
 --- !u!114 &3226738419432000661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9176,6 +9207,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645b3c8dab21ae74aabc461ded25d464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8813125388466141224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385531853929317568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172e55a41bca01044a66ad1a77580ad0, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  soundVolume: 0.26
+  cameraMotion: 0.65
 --- !u!1 &7451031305144167713
 GameObject:
   m_ObjectHideFlags: 0

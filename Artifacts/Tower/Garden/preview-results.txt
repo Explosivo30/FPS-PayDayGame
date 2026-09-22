@@ -1,0 +1,8 @@
+PASS Core loads additively when opening a floor directly
+PASS Exactly one persistent player
+PASS Elevator cannot skip mandatory waves
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 1
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 2
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 3
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 4
+ERRORS

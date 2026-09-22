@@ -1,0 +1,45 @@
+PASS Initial player has 100 health and 50 shield
+PASS Ground acceleration reaches configured speed
+PASS Releasing movement brakes without sliding
+PASS Diagonal movement has no speed bonus
+PASS Crouching keeps capsule feet on the floor
+PASS Low ceiling prevents standing through geometry
+PASS Player stands after leaving obstruction
+PASS Slide gives a bounded impulse
+PASS Repeated crouch presses cannot stack unlimited slide speed
+PASS Buffered input starts one jump
+PASS Jump lands and reports impact
+PASS Coyote jump works just after leaving an edge
+PASS Coyote jump cannot become a double jump
+PASS Jump pressed shortly before landing is consumed on landing
+PASS Jump height consistent at 30 FPS
+PASS Jump height consistent at 60 FPS
+PASS Jump height consistent at 144 FPS
+PASS Pause blocks player motion, jump and damage
+PASS Pause does not leave a queued jump
+PASS Shield absorbs damage without health loss
+PASS Shield break transfers exact overflow once
+PASS Shield overflow emits one player damage event
+PASS Health damage restarts shield recovery delay
+PASS Shield recovery freezes while paused
+PASS Only shield regenerates; health needs healing
+PASS Invalid or negative damage cannot heal or corrupt player
+PASS Shop displays player decisions and pauses combat
+PASS Healing purchase charges once and caps health
+PASS Full health does not consume currency
+PASS Stored weapon upgrade expands capacity without free ammo
+PASS Unresearched recipe cannot be bought
+PASS Ammo pickup respects reserve capacity
+PASS Cleared objective can bank one permanent core
+PASS Same objective cannot award a core twice
+PASS Cores unlock an optional shop recipe
+PASS Unlock survives a profile reload
+PASS Researched recipe affects stored gun for this run
+PASS Death occurs once and opens run summary
+PASS Death blocks movement and combat
+PASS Retry creates one fresh player at laboratory
+PASS Retry restores initial health and shield
+PASS Retry resets run chips and purchased stats
+PASS Permanent recipe survives death and full scene reload
+PASS Retry has no duplicate player
+ERRORS

@@ -100,6 +100,11 @@ MonoBehaviour:
   turret: {fileID: 7574258694428051716}
   sparks: {fileID: 5859517068680764391}
   muzzleFlash: {fileID: 7582232826839984418}
+  hitEffectMaterial: {fileID: 2100000, guid: 98bc76a4bdb82f347a10e2fca4e56370, type: 2}
+  reactionStrength: 1
+  flashDuration: 0.065
+  springFrequency: 24
+  maximumImpactSparks: 20
 --- !u!114 &7014264005899976948
 MonoBehaviour:
   m_ObjectHideFlags: 0

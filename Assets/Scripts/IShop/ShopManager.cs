@@ -15,6 +15,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopUI;
 
     private bool _isOpen;
+    private System.IDisposable pause;
+    private void OnDestroy(){pause?.Dispose();if(Instance==this)Instance=null;}
 
     public bool IsOpen => _isOpen;
 
@@ -50,14 +52,13 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     public void OpenShop()
     {
-        if (_isOpen) return;
+        if (_isOpen || (TowerSession.Instance!=null&&(TowerSession.Instance.IsTransitioning||(TowerSession.Instance.Rewards?.Pending??false)))) return;
         _isOpen = true;
-        shopUI.SetActive(true);
+        if(TowerSession.Instance!=null)TowerSession.Instance.Menu.ShowShop();
+        else shopUI.SetActive(true);
 
         // Freeze time:
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        pause=RunPause.Acquire(true);
     }
 
     public void CloseShop()
@@ -65,10 +66,10 @@ public class ShopManager : MonoBehaviour
         if (!_isOpen) return;
         _isOpen = false;
         shopUI.SetActive(false);
+        TowerSession.Instance?.Menu.Hide();
 
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        pause?.Dispose();pause=null;
+        TowerSession.Instance?.weapons.RequireTriggerRelease();
     }
 
     public void RefreshAllButtons()

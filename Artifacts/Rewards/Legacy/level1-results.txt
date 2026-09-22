@@ -1,0 +1,2 @@
+PASS Level1 starts with the shared player
+ERRORS

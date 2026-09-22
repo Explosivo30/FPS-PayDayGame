@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa7a8dc039cb54885cbcf3627787cb, type: 3}
+  m_Name: autoload
+  m_EditorClassIdentifier: 
+  id: autoload
+  title: Autocargador
+  weaponId: 
+  description: Cada baja con un arma de fuego transfiere un 10% del cargador desde
+    su reserva.
+  icon: {fileID: 21300000, guid: 8e527777b4af8d04f8ccd0aa393cc224, type: 3}
+  group: 1
+  kind: 6
+  stat: 0
+  special: 1
+  maxLevel: 1
+  value: 0.1
+  secondaryValue: 0

@@ -39,11 +39,18 @@ public class Knife : BaseMelee
             if (!Physics.Raycast(view.position, dir, out var hit, range, hitMask, QueryTriggerInteraction.Ignore)) continue;
             var target = hit.collider.GetComponentInParent<IDamageable>();
             if (target == null || !damaged.Add(target)) continue;
-            target.TakeDamage(damage);
+            var robot=target as NormalEnemyStateMachine;
+            if(robot!=null && robot.IsDead)continue;
             hit.collider.GetComponentInParent<IHitReactable>()?.ReactToHit(hit, dir, damage);
+            target.TakeDamage(damage);
+            if(robot!=null&&robot.IsDead)CombatFeedback.ReportPlayerKill(robot,this);
             CombatFeedback.ReportHit();
+            var component=target as Component;
+            CombatFeedback.ReportImpact(new CombatImpact(component!=null?component.GetInstanceID():hit.collider.GetInstanceID(),
+                hit.point,hit.normal,dir,damage,robot!=null&&robot.IsDead,true));
         }
         return damaged.Count;
     }
-    private void OnDisable() { StopAllCoroutines(); action?.Cancel(); }
+    public void CancelPendingStrike() { StopAllCoroutines();action?.Cancel(); }
+    private void OnDisable() { CancelPendingStrike(); }
 }

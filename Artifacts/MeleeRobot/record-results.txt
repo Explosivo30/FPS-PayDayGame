@@ -1,0 +1,2 @@
+PASS Melee prefab connected to the real wave manager
+ERRORS

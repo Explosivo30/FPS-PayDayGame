@@ -18,8 +18,13 @@ public class NormalEnemyStateMachine : StateMachine,IDamageable,IWeapon,ISquadMe
     private float health,cooldown,pathClock;
     private LineRenderer tracer;
     private RobotPresentation presentation;
+    private MeleeRobotCombat meleeCombat;
+    public bool IsMelee => meleeCombat!=null;
     private bool attacking;
     public bool IsDead { get; private set; }
+    bool playerKillClaimed;
+    public bool TryClaimPlayerKill()
+    { if(!IsDead||playerKillClaimed)return false;playerKillClaimed=true;return true; }
     public float Health => health;
     public bool IsAutomatic=>true;
     public SwayData swayData=>null;
@@ -28,15 +33,18 @@ public class NormalEnemyStateMachine : StateMachine,IDamageable,IWeapon,ISquadMe
     private void Awake()
     {
         agent=GetComponent<NavMeshAgent>(); tracer=GetComponent<LineRenderer>(); presentation=GetComponent<RobotPresentation>();
+        meleeCombat=GetComponent<MeleeRobotCombat>();
         health=maxHealth; cooldown=Random.Range(.6f,1.5f);
         if(tracer!=null) tracer.enabled=false;
-        SquadManager.Instance?.Register(this);
+        if(meleeCombat==null)SquadManager.Instance?.Register(this);
         SwitchState(new IdleNormalEnemyState(this));
     }
     private void OnDestroy() { SquadManager.Instance?.Unregister(this); }
     public void TickCombat()
     {
-        if(IsDead||WeaponAction.CombatPaused) return;
+        if(IsDead) return;
+        if(meleeCombat!=null) { meleeCombat.TickCombat();return; }
+        if(WeaponAction.CombatPaused) return;
         var players=GameManager.Instance?.GetPlayerTransforms();
         if(players==null||players.Count==0||agent==null||!agent.isOnNavMesh) return;
         Transform player=players[0]; Vector3 target=player.position+Vector3.up*.6f;
@@ -73,7 +81,7 @@ public class NormalEnemyStateMachine : StateMachine,IDamageable,IWeapon,ISquadMe
         if(Physics.Raycast(muzzle,direction,out var hit,attackRange,layerMask,QueryTriggerInteraction.Ignore))
         {
             end=hit.point;
-            hit.collider.GetComponentInParent<PlayerStateMachine>()?.TakeDamage(shotDamage);
+            hit.collider.GetComponentInParent<PlayerStateMachine>()?.TakeDamage(shotDamage,muzzle,"Disparo de robot centinela");
         }
         presentation?.Fire();
         if(tracer!=null) { tracer.SetPosition(0,muzzle);tracer.SetPosition(1,end);tracer.enabled=true; }
@@ -81,13 +89,20 @@ public class NormalEnemyStateMachine : StateMachine,IDamageable,IWeapon,ISquadMe
         if(tracer!=null) tracer.enabled=false;
         cooldown=shootCooldown; attacking=false;
     }
+    public void ConfigureDifficulty(float hp,float damage,float precision)
+    {
+        maxHealth=Mathf.Max(1,hp*(meleeCombat!=null?meleeCombat.healthMultiplier:1)); health=maxHealth;
+        meleeCombat?.ConfigureDamage(damage);
+        shotDamage=Mathf.Max(1,damage); accuracy=Mathf.Clamp01(precision);
+    }
     public void TakeDamage(float amount)
     {
         if(IsDead||amount<=0) return;
         health=Mathf.Max(0,health-amount);
+        presentation?.SetHealth(health/Mathf.Max(1,maxHealth));
         if(health<=0)
         {
-            IsDead=true; StopAllCoroutines();
+            IsDead=true; StopAllCoroutines();meleeCombat?.CancelOnDeath();
             if(agent!=null&&agent.isOnNavMesh) agent.isStopped=true;
             if(agent!=null) agent.enabled=false;
             foreach(var collider in GetComponentsInChildren<Collider>()) collider.enabled=false;
@@ -98,7 +113,7 @@ public class NormalEnemyStateMachine : StateMachine,IDamageable,IWeapon,ISquadMe
             Destroy(gameObject,3f);
         }
     }
-    public void ReactToHit(RaycastHit hit,Vector3 direction,float amount) { if(!IsDead) presentation?.Hit(direction); }
+    public void ReactToHit(RaycastHit hit,Vector3 direction,float amount) { if(!IsDead) presentation?.Hit(hit.point,hit.normal,direction,amount); }
     public void MoveToFormationPosition(Vector3 p) { _currentFormationPosition=p; }
     public Vector3 SeparationForce()=>Vector3.zero;
     public void ReduceShootCooldown() { }

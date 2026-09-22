@@ -1,0 +1,58 @@
+PASS Core loads additively when opening a floor directly
+PASS Exactly one persistent player
+PASS Elevator cannot skip mandatory waves
+PASS BOSQUE ROBÓTICO connected spawn to elevator: Entry 1
+PASS BOSQUE ROBÓTICO connected spawn to elevator: Entry 2
+PASS BOSQUE ROBÓTICO connected spawn to elevator: Entry 3
+PASS BOSQUE ROBÓTICO connected spawn to elevator: Entry 4
+PASS CharacterController climbs forest ramp -1
+PASS CharacterController climbs forest ramp 1
+PASS Reload transfers only available reserve
+PASS Empty reserve blocks infinite reloads
+PASS Cancelled magazine reload preserves reserve and magazine
+PASS Upgrade can be purchased before travelling
+PASS Wave counter completes exactly three mandatory waves
+PASS 5 + 7 + 9 enemies, with duplicate death calls ignored
+PASS Wave tracking cleared after deaths
+PASS Three real spawned waves unlock elevator
+PASS Mandatory objective banks one core through real wave completion
+PASS Optional farming waits for the player decision
+PASS One explicit request starts one extra wave
+PASS Elevator remains unlocked during active optional wave
+PASS Starting optional farming cannot duplicate banked cores
+PASS Travel button requires being inside cabin
+PASS Inside panel starts door closure and asynchronous travel
+PASS Repeated interaction cannot start duplicate travel
+PASS Scene transition completes within 60 seconds
+PASS Next floor loaded
+PASS Old floor unloaded
+PASS Player and weapon instances preserved
+PASS Magazine, reserve and weapon values preserved
+PASS Equipped weapon preserved
+PASS Health and chips preserved
+PASS Purchased upgrade level preserved
+PASS New floor begins a fresh wave sequence
+PASS No enemies leak from previous floor
+PASS Player HUD survives floor unloading
+PASS Shop opens after travelling with persistent UI
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 1
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 2
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 3
+PASS JARDÍN DE CRISTAL connected spawn to elevator: Entry 4
+PASS Wave counter completes exactly three mandatory waves
+PASS 5 + 7 + 9 enemies, with duplicate death calls ignored
+PASS Wave tracking cleared after deaths
+PASS Second floor can be completed and exited
+PASS Scene transition completes within 60 seconds
+PASS Two consecutive scene transitions
+PASS LABORATORIO connected spawn to elevator: Entry 1
+PASS LABORATORIO connected spawn to elevator: Entry 2
+PASS LABORATORIO connected spawn to elevator: Entry 3
+PASS LABORATORIO connected spawn to elevator: Entry 4
+PASS Death presents a run summary before restarting
+PASS Death restarts at the laboratory
+PASS Restart creates a fresh player
+PASS Restart resets run currency
+PASS Restart resets purchased upgrades
+PASS No duplicate player or game manager after restart
+ERRORS
