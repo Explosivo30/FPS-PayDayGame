@@ -105,3 +105,21 @@ crashlytics-build.properties
 /Artifacts/Rewards/PlayerRegression/*.png
 /Artifacts/Rewards/MeleeRegression/*.png
 /Artifacts/Rewards/LaboratoryRegression/*.png
+
+# Generated QA media: keep game assets and text reports, exclude recordings and captures
+/Artifacts/**/Frames/
+/Artifacts/**/*.mp4
+/Artifacts/**/*.mov
+/Artifacts/**/*.avi
+/Artifacts/**/*.webm
+/Artifacts/**/*.mkv
+/Artifacts/**/*.gif
+/Artifacts/**/*.png
+/Artifacts/**/*.jpg
+/Artifacts/**/*.jpeg
+/Artifacts/**/*.exr
+/Artifacts/**/*.wav
+/Artifacts/**/*.mp3
+/Artifacts/**/*.flac
+/Artifacts/**/*.aac
+/Artifacts/**/*.ogg
