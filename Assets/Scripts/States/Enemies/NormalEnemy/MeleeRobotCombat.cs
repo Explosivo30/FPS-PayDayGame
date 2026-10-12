@@ -25,9 +25,16 @@ public class MeleeRobotCombat : MonoBehaviour
     public int ContactsResolved { get; private set; }
     public event Action<MeleeRobotPhase> PhaseChanged;
     public event Action<bool> PunchResolved;
-    float phaseTime,pathClock;
+    float phaseTime;
     bool resolved;
     Vector3 lockedForward;
+    float chargeTravel;bool chargeBlocked;
+    public float ChargeTravel=>chargeTravel;
+    public void ConfigureVeteran()
+    {
+        var p=TowerSession.Instance?.Threat?.Profile??ThreatProfile.Basic;
+        windupSeconds=Mathf.Max(p.minimumMeleeWarning,p.chargeWarning);recoverySeconds=Mathf.Max(p.minimumMeleeRecovery,p.chargeRecovery);
+    }
     PlayerStateMachine victim;
     NormalEnemyStateMachine owner;
     NavMeshAgent agent;
@@ -37,7 +44,7 @@ public class MeleeRobotCombat : MonoBehaviour
     void Awake()
     {
         owner=GetComponent<NormalEnemyStateMachine>();agent=GetComponent<NavMeshAgent>();
-        if(agent!=null) { agent.updateRotation=false;agent.stoppingDistance=Mathf.Max(.6f,engageDistance-.12f); }
+        if(agent!=null) { agent.updateRotation=false;agent.stoppingDistance=Mathf.Max(.45f,engageDistance-.5f); }
     }
     public void ConfigureDamage(float baseDamage) { punchDamage=Mathf.Max(1,baseDamage*damageMultiplier); }
     public void TickCombat()
@@ -52,21 +59,20 @@ public class MeleeRobotCombat : MonoBehaviour
             if(victim==null||victim.IsDead) { agent.isStopped=true;return; }
         }
         if(Phase!=MeleeRobotPhase.Chase) { AdvanceAttack(Time.deltaTime);return; }
-        Vector3 delta=victim.transform.position-transform.position;delta.y=0;
+        owner.Perception.Tick();
+        Vector3 delta=owner.Perception.LastKnown-transform.position;delta.y=0;
+        bool permit=SquadManager.Instance==null||SquadManager.Instance.CanAttack(owner);
+        float entry=engageDistance+(owner.IsVeteran?owner.Perception.Profile.chargeDistance:0);
         if(delta.sqrMagnitude>.001f)
             transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(delta),420*Time.deltaTime);
-        if(delta.magnitude<=engageDistance&&Vector3.Angle(transform.forward,delta)<20&&ClearContact(victim))
+        if(owner.Perception.Visible&&permit&&delta.magnitude<=entry&&Vector3.Angle(transform.forward,delta)<20&&ClearContact(victim)
+            &&(SquadManager.Instance==null||SquadManager.Instance.TryAttack(owner)))
         {
-            agent.isStopped=true;agent.ResetPath();lockedForward=transform.forward;
-            resolved=false;phaseTime=0;AttacksStarted++;SetPhase(MeleeRobotPhase.Windup);return;
+            agent.isStopped=true;agent.ResetPath();SquadManager.Instance?.ReleaseDestination(owner);lockedForward=transform.forward;
+            resolved=false;chargeTravel=0;chargeBlocked=false;phaseTime=0;AttacksStarted++;
+            GetComponent<EnemySignals>()?.Attack(owner.IsVeteran);SetPhase(MeleeRobotPhase.Windup);return;
         }
-        agent.isStopped=false;pathClock-=Time.deltaTime;
-        if(pathClock<=0)
-        {
-            pathClock=.12f;
-            if(NavMesh.SamplePosition(victim.transform.position,out var sample,2.5f,agent.areaMask))
-                agent.SetDestination(sample.position);
-        }
+        owner.Navigation.Tick(true,permit);
     }
     void AdvanceAttack(float dt)
     {
@@ -76,13 +82,30 @@ public class MeleeRobotCombat : MonoBehaviour
         phaseTime+=dt;
         for(int i=0;i<3;i++)
         {
+            if(owner.IsVeteran&&Phase==MeleeRobotPhase.Strike&&!resolved)AdvanceCharge(Mathf.Min(1,phaseTime/(Duration*.45f))*owner.Perception.Profile.chargeDistance-chargeTravel);
             if(Phase==MeleeRobotPhase.Strike&&!resolved&&phaseTime>=Duration*.45f)ResolvePunch();
             if(phaseTime<Duration)return;
             phaseTime-=Duration;
             if(Phase==MeleeRobotPhase.Windup)SetPhase(MeleeRobotPhase.Strike);
             else if(Phase==MeleeRobotPhase.Strike)SetPhase(MeleeRobotPhase.Recover);
-            else { phaseTime=0;pathClock=0;SetPhase(MeleeRobotPhase.Chase);return; }
+            else { phaseTime=0;SquadManager.Instance?.ReleaseAttack(owner);SetPhase(MeleeRobotPhase.Chase);return; }
         }
+    }
+    void AdvanceCharge(float requestedDistance)
+    {
+        if(chargeBlocked)return;
+        float maximum=owner.Perception.Profile.chargeDistance;
+        float step=Mathf.Min(maximum-chargeTravel,Mathf.Max(0,requestedDistance));
+        if(step<=0)return;
+        Vector3 start=transform.position,next=start+lockedForward*step;
+        if(NavMesh.Raycast(start,next,out var edge,agent.areaMask)||!NavMesh.SamplePosition(next,out var ground,.25f,agent.areaMask)||Mathf.Abs(ground.position.y-start.y)>.25f)
+        {chargeBlocked=true;return;}
+        int blockers=owner.layerMask;
+        // Ignore robots and the player here; the normal contact check resolves the single punch.
+        var hits=Physics.CapsuleCastAll(start+Vector3.up*.4f,start+Vector3.up*1.5f,.32f,lockedForward,step+.08f,blockers,QueryTriggerInteraction.Ignore);
+        foreach(var hit in hits)if(hit.collider.GetComponentInParent<PlayerStateMachine>()==null&&hit.collider.GetComponentInParent<NormalEnemyStateMachine>()==null)
+        {chargeBlocked=true;return;}
+        agent.Move(ground.position-start);chargeTravel+=Vector3.Distance(start,transform.position);
     }
     void ResolvePunch()
     {
@@ -111,6 +134,6 @@ public class MeleeRobotCombat : MonoBehaviour
     void SetPhase(MeleeRobotPhase phase) { Phase=phase;PhaseChanged?.Invoke(phase); }
     public void CancelOnDeath()
     {
-        victim=null;resolved=true;phaseTime=0;SetPhase(MeleeRobotPhase.Dead);
+        victim=null;resolved=true;phaseTime=0;SquadManager.Instance?.ReleaseAttack(owner);SetPhase(MeleeRobotPhase.Dead);
     }
 }

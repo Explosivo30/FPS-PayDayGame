@@ -154,6 +154,8 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
         lastShotTime = Mathf.Max(lastShotTime + secondsPerShot, Time.time - Time.deltaTime * .5f);
         currentAmmo--;
         Action.NotifyShot();
+        var shooter=GetComponentInParent<PlayerStateMachine>();
+        if(shooter!=null)CombatFeedback.ReportPlayerShot(shooter.transform.position);
         return true;
     }
 

@@ -1,0 +1,12 @@
+PASS Shop text fits: 
+PASS Raycast reaches Upgrade 3
+PASS Pointer click buys an affordable upgrade once
+PASS Raycast reaches Collected cards
+PASS Cards text fits: 
+PASS Raycast reaches Card 2
+PASS Pointer selection does not confirm a reward
+PASS Raycast reaches Confirm
+PASS Confirm button applies the selected card
+PASS Shop 1280 text fits: 
+PASS Shop 2560 text fits: 
+PASS Closing interface restores gameplay

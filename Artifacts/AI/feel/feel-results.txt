@@ -1,0 +1,23 @@
+PASS Pistol damage unchanged
+PASS One visible flash and spark burst at real contact
+PASS Bounded directional visual hit reaction
+PASS Hit animation does not move navigation root
+PASS One impact confirmation
+PASS Reaction recovers without drift
+PASS Shared robot material remains unchanged
+PASS Eight pellets keep damage and consume one shell
+PASS Eight pellet contacts merge into one visual and audio cue
+PASS Merged contact retains full pellet energy
+PASS Sustained automatic fire cannot accumulate unlimited displacement
+PASS Automatic fire recovers fully
+PASS Pause blocks shots and new impact cues
+PASS Fatal shot emits a single kill with contact information
+PASS Fatal animation remembers the shot direction
+PASS Death still disables all hit colliders
+PASS Repeated damage cannot duplicate a kill
+PASS Knife feedback waits for contact rather than swing start
+PASS Knife contact damages and confirms once
+PASS Visual spring consistent at 30 FPS
+PASS Visual spring consistent at 60 FPS
+PASS Visual spring consistent at 144 FPS
+ERRORS

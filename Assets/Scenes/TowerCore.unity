@@ -5943,6 +5943,7 @@ GameObject:
   - component: {fileID: 2123859385}
   - component: {fileID: 2123859388}
   - component: {fileID: 2123859387}
+  - component: {fileID: 2123859389}
   m_Layer: 0
   m_Name: Tower session
   m_TagString: Untagged
@@ -6031,6 +6032,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92cfda16beed1054cb1d7f9b97eb155b, type: 2}
   - {fileID: 11400000, guid: 565a62cf05ae9044d8ce7f4acbb4402e, type: 2}
   chipsFallback: {fileID: 11400000, guid: 68fe6819af6153147a6c82372753a507, type: 2}
+--- !u!114 &2123859389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123859384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0739ddad2b2e71042b86754bc326fbb9, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  profile: {fileID: 11400000, guid: 21e36bcb05c91c146b05b9145cc20fe9, type: 2}
 --- !u!1001 &5668944028462376066
 PrefabInstance:
   m_ObjectHideFlags: 0

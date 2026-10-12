@@ -189,6 +189,8 @@ public class TowerPlaytest : MonoBehaviour
         Time.timeScale=8;
         float deadline=Time.realtimeSinceStartup+45;
         int notifications=0;
+        int globalStart=session.Threat?.Current?.Wave??0;
+        int expected=Enumerable.Range(1,3).Sum(w=>new WaveThreat(session.Threat.Profile,globalStart+w,session.Threat.BaseHealth,session.Threat.BaseDamage).Count);
         while((GameManager.Instance.CompletedWaves<3||(session.Rewards?.Pending??false))&&Time.realtimeSinceStartup<deadline)
         {
             if(session.Rewards!=null&&session.Rewards.State==RewardState.Choosing)session.Rewards.Confirm(0);
@@ -202,7 +204,7 @@ public class TowerPlaytest : MonoBehaviour
         }
         Time.timeScale=1;
         Check(GameManager.Instance.CompletedWaves==3,"Wave counter completes exactly three mandatory waves");
-        Check(notifications==21,"5 + 7 + 9 enemies, with duplicate death calls ignored");
+        Check(notifications==expected,"Global wave counts, with duplicate death calls ignored: "+notifications+" / "+expected);
         Check(GameManager.Instance.ActiveEnemies==0,"Wave tracking cleared after deaths");
     }
     IEnumerator WaitForTravel()

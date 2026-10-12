@@ -20,6 +20,7 @@ public class TowerSession : MonoBehaviour
     public RunProgression Progression { get; private set; }
     public PlayerRunMenu Menu { get; private set; }
     public RunRewards Rewards { get; private set; }
+    public RunThreat Threat { get; private set; }
     public bool ModalVisible=>(Menu!=null&&Menu.Visible)||(Rewards!=null&&Rewards.Pending);
     public string RunId=>runToken;
     public int FloorVisit { get; private set; }
@@ -53,7 +54,7 @@ public class TowerSession : MonoBehaviour
     public void EndRun(string cause)
     {
         if(RunEnded||IsTransitioning)return;
-        RunEnded=true;
+        RunEnded=true;SquadManager.Instance?.ClearCombat();
         deathPause=RunPause.Acquire(true);Rewards?.Abort();
         ShopManager.Instance?.CloseShop();
         IsTransitioning=true;player.enabled=false;weapons.enabled=false;
@@ -64,7 +65,7 @@ public class TowerSession : MonoBehaviour
         GameManager.Instance.CompletedWaves >= CurrentFloor.mandatoryWaves;
     public string Message { get; private set; }
     float messageUntil;
-    void Awake() { Instance=this;Progression=gameObject.AddComponent<RunProgression>();Menu=gameObject.AddComponent<PlayerRunMenu>();Rewards=GetComponent<RunRewards>(); }
+    void Awake() { Instance=this;Progression=gameObject.AddComponent<RunProgression>();Menu=gameObject.AddComponent<PlayerRunMenu>();Rewards=GetComponent<RunRewards>();Threat=GetComponent<RunThreat>(); }
     IEnumerator Start()
     {
         yield return null;
@@ -77,7 +78,7 @@ public class TowerSession : MonoBehaviour
     void OnDestroy() { transitionPause?.Dispose();deathPause?.Dispose();if (Instance == this) { Instance = null;RunPause.Reset(); } }
     public void EnterFloor(TowerFloor floor)
     {
-        CurrentFloor = floor;FloorVisit++;
+        CurrentFloor = floor;FloorVisit++;Threat?.EnterFloor(floor);
         SceneManager.SetActiveScene(floor.gameObject.scene);
         player.TeleportTo(floor.arrival.position, floor.arrival.rotation);
         GameManager.Instance.ConfigureFloor(floor);

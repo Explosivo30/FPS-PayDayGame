@@ -6,6 +6,7 @@ public class TowerOverlay : MonoBehaviour
     public CanvasGroup fade;
     Canvas hudCanvas;
     void Awake(){hudCanvas=GetComponentInParent<Canvas>();}
+    void Start(){InterfaceHUD.Tower(this);}
     void Update()
     {
         var session = TowerSession.Instance;

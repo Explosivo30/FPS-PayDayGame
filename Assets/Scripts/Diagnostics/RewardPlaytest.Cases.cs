@@ -113,6 +113,7 @@ public partial class RewardPlaytest
         Set(manager,"spawnInterval",.08f);Set(manager,"announcementDuration",.15f);
         manager.ConfigureFloor(floor);
         int startOffers=rewards.OffersIssued,startWaves=session.RunWaves;
+        int startThreat=session.Threat.Current?.Wave??0;float firstBase=session.Threat.BaseHealth;
         for(int wave=1;wave<=4;wave++)
         {
             if(wave==4)Check(manager.RequestExtraWave(),"Player can explicitly start an extra wave after choosing");
@@ -128,6 +129,8 @@ public partial class RewardPlaytest
             Check(answered&&manager.CompletedWaves==wave&&rewards.OffersIssued==startOffers+wave,"Exactly one card for actual wave "+wave);
         }
         Check(session.RunWaves==startWaves+4,"Run wave count tracks three required waves and one extra");
+        Check(session.Threat.Current.Wave==startThreat+4,"Global threat includes the voluntary extra wave");
+        int threatWave=session.Threat.Current.Wave;
         int rankSum=rewards.catalog.Sum(c=>rewards.Level(c));
         var oldRewards=rewards;string next=floor.nextScene;
         player.TeleportTo(floor.arrival.position,floor.arrival.rotation);
@@ -135,6 +138,7 @@ public partial class RewardPlaytest
         Check(session.RequestTravel(floor.elevator),"Elevator works after reward resolves");
         yield return WaitFor(()=>!session.IsTransitioning,20,"Floor transition completes");
         Check(session.CurrentFloor.gameObject.scene.name==next&&session.Rewards==oldRewards&&rewards.catalog.Sum(c=>rewards.Level(c))==rankSum,"Cards and service persist across floor transition");
+        Check(session.Threat.Current.Wave==threatWave&&session.Threat.BaseHealth==firstBase,"Floor travel preserves global threat and first-floor baseline");
         manager.StopFloor();player.enabled=false;
         // Die in the completion frame before the delayed pause is acquired.
         int oldPlayer=player.GetInstanceID();int cores=session.Progression.Data.cores;
@@ -147,6 +151,7 @@ public partial class RewardPlaytest
         Check(fresh.player.GetInstanceID()!=oldPlayer&&fresh.Rewards.catalog.All(c=>fresh.Rewards.Level(c)==0),"Retry clears card ranks and creates fresh player");
         Check(fresh.weapons.Weapons.OfType<Pistol>().First().damage==30&&fresh.player.Health==100&&fresh.player.GetComponent<Shield>().Max==50,"Retry resets modifiers, health and shield");
         Check(fresh.Progression.Data.cores==cores&&!RunPause.IsPaused&&Time.timeScale==1,"Permanent cores survive; no pause lease leaks into retry");
+        Check(fresh.Threat.Current==null&&fresh.RunWaves==0,"Death clears accumulated threat for the new run");
         GameManager.Instance.StopFloor();
     }
 }

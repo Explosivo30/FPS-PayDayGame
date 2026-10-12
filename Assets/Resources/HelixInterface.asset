@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba62a0c5655e2ef4f954a0f819f4aed3, type: 3}
+  m_Name: HelixInterface
+  m_EditorClassIdentifier: 
+  displayFont: {fileID: 11400000, guid: f6a21bbc581f97b47ad175002e2f4fc4, type: 2}
+  cyan: {r: 0.02, g: 0.91, b: 1, a: 1}
+  magenta: {r: 0.92, g: 0.15, b: 1, a: 1}
+  gold: {r: 1, g: 0.71, b: 0.24, a: 1}
+  text: {r: 0.86, g: 0.95, b: 1, a: 1}
+  muted: {r: 0.44, g: 0.65, b: 0.76, a: 1}
+  panel: {r: 0.009, g: 0.026, b: 0.052, a: 0.985}
+  surface: {r: 0.017, g: 0.048, b: 0.079, a: 0.98}

@@ -36,7 +36,7 @@ public class PlayerFeedback : MonoBehaviour
         motion=pivot;
         audioSource=gameObject.AddComponent<AudioSource>();audioSource.playOnAwake=false;audioSource.spatialBlend=0;
         sounds=new AudioClip[7];for(int i=0;i<sounds.Length;i++)sounds[i]=MakeSound(i);
-        CreateHUD();
+        CreateHUD();InterfaceHUD.Status(canvas);
     }
     void OnEnable()
     { player.Damaged+=OnDamage;player.Landed+=OnLand;player.Jumped+=OnJump;player.Stepped+=OnStep;player.Healed+=OnHeal; }

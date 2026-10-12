@@ -19,6 +19,8 @@ public readonly struct CombatImpact
 public static class CombatFeedback
 {
     public static event Action Hit;
+    public static event Action<Vector3> PlayerShot;
+    public static void ReportPlayerShot(Vector3 origin){PlayerShot?.Invoke(origin);}
     public static event Action<PlayerKill> PlayerEliminated;
     public static void ReportPlayerKill(NormalEnemyStateMachine enemy,Component weapon)
     {
@@ -30,5 +32,5 @@ public static class CombatFeedback
     public static void ReportKill() { Kill?.Invoke(); }
     public static void ReportImpact(CombatImpact impact) { Impact?.Invoke(impact); }
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private static void Reset() { Hit=null;Kill=null;Impact=null;PlayerEliminated=null; }
+    private static void Reset() { Hit=null;Kill=null;Impact=null;PlayerEliminated=null;PlayerShot=null; }
 }

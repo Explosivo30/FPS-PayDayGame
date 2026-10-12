@@ -1,0 +1,79 @@
+PASS Tower boot
+PASS 21 configured cards and reward service in persistent core
+PASS Every card has a valid imported icon
+PASS Shop/card order yields identical damage
+PASS Three damage ranks total +60 percent, not compounding
+PASS Replacing a modifier source is idempotent
+PASS Capacity rounds up without generating ammunition
+PASS Reload factors preserve shop discount and order independence
+PASS Reload safety floors apply to all phases
+PASS Shotgun card changes start, insertion and closure
+PASS Instance upgrades do not modify original weapon or shared prefab
+PASS Partial shield reward preserves regeneration delay
+PASS Shield recovery caps at maximum
+PASS Full health and shield exclude repair
+PASS Missing shield makes repair useful
+PASS Full reserves exclude all supply cards
+PASS Supply caps reserve without filling magazine
+PASS Eight pellet shot attributes one player kill
+PASS Kill restores exactly five shield
+PASS Autoloader transfers one shotgun shell from real reserve
+PASS Repeated kill notification cannot duplicate special effects
+PASS Environmental/direct death grants no player special
+PASS Autoloader cannot create ammo without reserve
+PASS Knife kill restores shield without loading another weapon
+PASS Shotgun commits each inserted shell before the next insertion
+PASS Modal cancellation keeps committed shells and cancels remaining insertions
+PASS Cancelling holster keeps one coherent equipped weapon
+PASS Cancelling draw retains newly equipped weapon without a later switch
+PASS Closing a modal requires releasing fire before combat input resumes
+PASS Can queue first basic offer
+PASS Repeated completion cannot queue a second offer
+PASS Reward becomes selectable
+PASS Three distinct eligible choices
+PASS First two completed waves exclude special cards
+PASS Offense prioritizes equipped weapon
+PASS Opening cards cancels reload, aim and switching without granting ammo
+PASS Reward owns a combat pause
+PASS Shop cannot open during a pending choice
+PASS Travel and extra wave blocked by pending choice
+PASS Direct purchase cannot bypass reward modal
+PASS Supply purchases cannot bypass a pending reward
+PASS Offer survives menu attempts without reroll
+PASS Selecting a card changes focus without confirming or rerolling
+PASS Confirmation applies once even with duplicate input
+PASS Card has independent rank and no chip cost
+PASS Chosen offensive card changes equipped weapon
+PASS Reward presentation completes
+PASS Reward releases its pause after feedback
+PASS Completed token cannot be claimed again
+PASS Closing shop cannot release another pause owner
+PASS Last pause owner restores the previous time scale
+PASS Shop flat is applied before card percentage, without consuming card ranks
+PASS Collected card is listed in shop history
+PASS Second basic offer queued
+PASS Reward becomes selectable
+PASS Second offer remains basic
+PASS Reward presentation completes
+PASS Floor reward queued
+PASS Reward becomes selectable
+PASS Completing a floor guarantees an available special
+PASS Reward presentation completes
+PASS Maxed stats and full supplies exhaust eligible catalogue
+PASS Reward presentation completes
+PASS Exhausted catalogue grants fallback chips without an empty choice
+PASS Exactly one card for actual wave 1
+PASS Exactly one card for actual wave 2
+PASS Exactly one card for actual wave 3
+PASS Player can explicitly start an extra wave after choosing
+PASS Exactly one card for actual wave 4
+PASS Run wave count tracks three required waves and one extra
+PASS Elevator works after reward resolves
+PASS Floor transition completes
+PASS Cards and service persist across floor transition
+PASS Death aborts a pending reward and retains death pause
+PASS Retry starts a new run
+PASS Retry clears card ranks and creates fresh player
+PASS Retry resets modifiers, health and shield
+PASS Permanent cores survive; no pause lease leaks into retry
+ERRORS

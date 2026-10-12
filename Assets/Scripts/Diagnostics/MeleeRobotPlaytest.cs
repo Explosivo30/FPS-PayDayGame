@@ -139,7 +139,7 @@ public class MeleeRobotPlaytest : MonoBehaviour
             deadline=Time.time+15;
             while((manager.CurrentWave<wave||manager.IsSpawning)&&Time.time<deadline)yield return null;
             var living=Object.FindObjectsByType<NormalEnemyStateMachine>(FindObjectsSortMode.None).Where(e=>!e.IsDead).ToArray();
-            int count=5+(wave-1)*2,melee=Mathf.RoundToInt(count*.4f);
+            int count=manager.WavePlan.Count,melee=manager.WavePlan.MeleeCount;
             Check(living.Length==count&&living.Count(e=>e.IsMelee)==melee,"Mixed wave "+wave+": "+melee+" melee / "+count+" total");
             int score=manager.GetPlayerPoints();
             foreach(var e in living) { e.TakeDamage(100000);e.TakeDamage(100000); }

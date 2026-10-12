@@ -1,0 +1,56 @@
+PASS Tower boots
+PASS Wave 1 count and simultaneous attack budget
+PASS Wave 1 additive health and damage
+PASS Wave 1 includes both roles
+PASS Wave 1 veteran allocation
+PASS Wave 3 count and simultaneous attack budget
+PASS Wave 3 additive health and damage
+PASS Wave 3 includes both roles
+PASS Wave 3 veteran allocation
+PASS Wave 6 count and simultaneous attack budget
+PASS Wave 6 additive health and damage
+PASS Wave 6 includes both roles
+PASS Wave 6 veteran allocation
+PASS Wave 9 count and simultaneous attack budget
+PASS Wave 9 additive health and damage
+PASS Wave 9 includes both roles
+PASS Wave 9 veteran allocation
+PASS Counts, speed and precision have caps
+PASS Compositions never repeat consecutively
+PASS Initial budget blocks third attack
+PASS Late budget allows four, at most two melee
+PASS Destination reservations reject occupied slots
+PASS Death releases attack and destination
+PASS Unobstructed player is visible
+PASS Wall blocks sight; memory does not track a hidden player
+PASS Observed position expires after three seconds
+PASS Nearby shot reveals location without granting sight
+PASS Pause freezes hearing and vision decisions
+PASS Ranged robot retreats when player is closer than six metres
+PASS Navigation decisions are staggered rather than calculated every frame
+PASS Veteran starts announced burst
+PASS Pause freezes veteran burst windup
+PASS Veteran fires two rounds
+PASS Burst stays committed to pre-dodge target
+PASS Veteran repositions after burst
+PASS Veteran melee keeps readable windup and recovery
+PASS Veteran prepares charge
+PASS Veteran charge resolves
+PASS Charge respects 1.2m maximum: 1,20
+PASS Charge has exactly one contact
+PASS Veteran melee keeps readable windup and recovery
+PASS Veteran prepares charge
+PASS Veteran charge resolves
+PASS Charge respects obstacle: 0,12
+PASS Charge has exactly one contact
+PASS Death fixture begins windup
+PASS Veteran death cancels attack and yields one attributed kill
+PASS Actual wave 1 composition and veteran count
+PASS Actual wave 1 scaling, twelve-alive cap and entry warning
+PASS Actual wave 3 composition and veteran count
+PASS Actual wave 3 scaling, twelve-alive cap and entry warning
+PASS Actual wave 6 composition and veteran count
+PASS Actual wave 6 scaling, twelve-alive cap and entry warning
+PASS Actual wave 9 composition and veteran count
+PASS Actual wave 9 scaling, twelve-alive cap and entry warning
+ERRORS

@@ -16,6 +16,7 @@ public class LabHUD : MonoBehaviour
         hudCanvas=GetComponentInParent<Canvas>();
         hitStrokes=CreateStrokes(hitMarker,false);killStrokes=CreateStrokes(killMarker,true);
     }
+    private void Start(){InterfaceHUD.Lab(this);}
     private static Image[] CreateStrokes(Image root,bool kill)
     {
         if(root==null)return new Image[0];
@@ -57,6 +58,7 @@ public class LabHUD : MonoBehaviour
         {
             var gm=GameManager.Instance;
             if(waveText!=null) waveText.text=gm.NextWaveIn>0?$"SIGUIENTE OLEADA  /  {Mathf.CeilToInt(gm.NextWaveIn):00}":$"OLEADA {gm.CurrentWave:00}  /  {gm.EnemiesRemaining:00} HOSTILES";
+            if(waveText!=null&&gm.WavePlan!=null)waveText.text+=$"  ·  AMENAZA {gm.WavePlan.Wave:00}";
             if(scoreText!=null) scoreText.text=$"{gm.GetPlayerPoints():0000}  "+(TowerSession.Instance!=null?"CHIPS":"CR");
         }
         if(healthText!=null&&player!=null)

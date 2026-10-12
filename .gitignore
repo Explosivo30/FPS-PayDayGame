@@ -105,6 +105,18 @@ crashlytics-build.properties
 /Artifacts/Rewards/PlayerRegression/*.png
 /Artifacts/Rewards/MeleeRegression/*.png
 /Artifacts/Rewards/LaboratoryRegression/*.png
+/Artifacts/ui-*.log
+/Artifacts/Interface/*profile*.json
+/Artifacts/Interface/*profile*.json.tmp
+
+# AI validation intermediates
+/Artifacts/ai-*.log
+/Artifacts/AI/**/Frames/
+/Artifacts/AI/**/*.log
+/Artifacts/AI/**/*profile*.json
+/Artifacts/AI/**/*profile*.json.tmp
+/Artifacts/AI/*profile*.json
+/Artifacts/AI/*profile*.json.tmp
 
 # Generated QA media: keep game assets and text reports, exclude recordings and captures
 /Artifacts/**/Frames/
