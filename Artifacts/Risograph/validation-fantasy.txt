@@ -1,0 +1,18 @@
+Risograph — Unity GPU validation
+OK: Shader supported
+OK: Calibration unlit shader found
+OK: Four colors, final overlay with postprocessing disabled: 320000/320000 pixels
+OK: Palette ink appears: RGBA(0.204, 0.125, 0.361, 1.000)
+OK: Palette ink appears: RGBA(0.533, 0.459, 0.902, 1.000)
+OK: Palette ink appears: RGBA(0.969, 0.471, 0.769, 1.000)
+OK: Palette ink appears: RGBA(1.000, 0.906, 0.773, 1.000)
+OK: Three colors excludes medium blue: 320000/320000 pixels
+OK: Intensity zero bypasses the effect
+OK: Halftone replaces flat midtones with dots
+OK: Paper grain is temporally stable
+OK: Paper grain and wear change the print
+OK: Actual forest scene loaded
+OK: Global Risograph override installed
+OK: Renderer feature changes the actual game scene
+OK: No shader compiler errors: 
+PASS

@@ -74,6 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Local tower validation traces
+/Artifacts/riso-*.log
 /Artifacts/Tower/*.log
 /Artifacts/Tower-generate.log
 /Artifacts/Tower/Frames/

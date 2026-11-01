@@ -280,6 +280,70 @@ MonoBehaviour:
   SunScatteringIntensity:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &-4818971589148644516
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a01c5a2e0af7e242a21714f64b3e061, type: 3}
+  m_Name: RisographVolume
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+  exposure:
+    m_OverrideState: 1
+    m_Value: 0.15
+  contrast:
+    m_OverrideState: 1
+    m_Value: 1.04
+  saturation:
+    m_OverrideState: 1
+    m_Value: 1.2
+  midtoneLift:
+    m_OverrideState: 1
+    m_Value: 0.72
+  paperHighlights:
+    m_OverrideState: 1
+    m_Value: 0.55
+  paletteSize:
+    m_OverrideState: 1
+    m_Value: 4
+  shadowInk:
+    m_OverrideState: 1
+    m_Value: {r: 0.20392157, g: 0.1254902, b: 0.36078432, a: 1}
+  blueInk:
+    m_OverrideState: 1
+    m_Value: {r: 0.53333336, g: 0.45882353, b: 0.9019608, a: 1}
+  pinkInk:
+    m_OverrideState: 1
+    m_Value: {r: 0.96862745, g: 0.47058824, b: 0.76862746, a: 1}
+  paper:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.90588236, b: 0.77254903, a: 1}
+  halftone:
+    m_OverrideState: 1
+    m_Value: 0.65
+  dotSize:
+    m_OverrideState: 1
+    m_Value: 4.5
+  screenAngle:
+    m_OverrideState: 1
+    m_Value: 35
+  paperGrain:
+    m_OverrideState: 1
+    m_Value: 0.065
+  inkWear:
+    m_OverrideState: 1
+    m_Value: 0.012
+  misregistration:
+    m_OverrideState: 1
+    m_Value: 0.45
 --- !u!114 &-4463884970436517307
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -465,6 +529,7 @@ MonoBehaviour:
   - {fileID: -6288072647309666549}
   - {fileID: 7518938298396184218}
   - {fileID: -1410297666881709256}
+  - {fileID: -4818971589148644516}
 --- !u!114 &853819529557874667
 MonoBehaviour:
   m_ObjectHideFlags: 3
