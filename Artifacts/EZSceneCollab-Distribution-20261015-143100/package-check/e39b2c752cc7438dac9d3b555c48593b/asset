@@ -1,0 +1,409 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using UnityEditor;
+
+namespace EZCollabTool
+{
+    public sealed class EZCollabLanguage
+    {
+        readonly Dictionary<string, string> translations;
+
+        public string code { get; }
+        public string displayName { get; }
+
+        internal EZCollabLanguage(string code, string displayName, IDictionary<string, string> translations)
+        {
+            this.code = code;
+            this.displayName = displayName;
+            this.translations = new Dictionary<string, string>(translations, StringComparer.Ordinal);
+        }
+
+        internal bool TryGet(string key, out string value)
+        {
+            return translations.TryGetValue(key, out value);
+        }
+    }
+
+    public static class EZCollabText
+    {
+        public const string Language = "settings.language";
+        public const string Integrations = "settings.integrations";
+        public const string ProBuilderSync = "settings.probuilderSync";
+        public const string ProBuilderActive = "settings.probuilderActive";
+        public const string ProBuilderDisabled = "settings.probuilderDisabled";
+        public const string ProBuilderNotInstalled = "settings.probuilderNotInstalled";
+        public const string ProBuilderUnsupported = "settings.probuilderUnsupported";
+        public const string SettingsLockedInSession = "settings.lockedInSession";
+        public const string YourName = "connect.yourName";
+        public const string Port = "connect.port";
+        public const string Host = "connect.host";
+        public const string StartHost = "connect.startHost";
+        public const string Client = "connect.client";
+        public const string HostAddress = "connect.hostAddress";
+        public const string Join = "connect.join";
+        public const string Connecting = "connect.connecting";
+        public const string OpenPortFailed = "dialog.openPortFailed";
+        public const string EnterHost = "dialog.enterHost";
+        public const string EnterName = "dialog.enterName";
+        public const string InvalidPort = "dialog.invalidPort";
+        public const string ConnectFailed = "dialog.connectFailed";
+        public const string Ok = "dialog.ok";
+        public const string Yes = "dialog.yes";
+        public const string Cancel = "dialog.cancel";
+        public const string StopConfirmation = "dialog.stopConfirmation";
+        public const string ActiveSession = "session.active";
+        public const string HostRole = "session.hostRole";
+        public const string ClientRole = "session.clientRole";
+        public const string You = "session.you";
+        public const string IndexedObjects = "session.indexedObjects";
+        public const string Reconnecting = "session.reconnecting";
+        public const string Synchronizing = "session.synchronizing";
+        public const string Pointers = "view.pointers";
+        public const string Cameras = "view.cameras";
+        public const string Names = "view.names";
+        public const string Colors = "view.colors";
+        public const string ViewSettingsHint = "view.hint";
+        public const string ViewSettingsInactiveHint = "view.inactiveHint";
+        public const string ConnectedClients = "session.connectedClients";
+        public const string SessionPeers = "session.peers";
+        public const string NobodyElse = "session.nobodyElse";
+        public const string ActiveLocks = "session.activeLocks";
+        public const string YouMarker = "session.youMarker";
+        public const string None = "session.none";
+        public const string AssetWarnings = "session.assetWarnings";
+        public const string MoreWarnings = "session.moreWarnings";
+        public const string ClearWarnings = "session.clearWarnings";
+        public const string StopSession = "session.stop";
+        public const string LockedBy = "lock.lockedBy";
+        public const string LockBadge = "lock.badge";
+        public const string LockSceneLabel = "lock.sceneLabel";
+        public const string Undo = "undo.undo";
+        public const string Redo = "undo.redo";
+        public const string Create = "undo.create";
+        public const string ProBuilderEdit = "undo.probuilderEdit";
+        public const string SessionStartedLog = "log.sessionStarted";
+        public const string ServerStartFailedLog = "log.serverStartFailed";
+        public const string ConnectionLostLog = "log.connectionLost";
+        public const string ConnectionRestoredLog = "log.connectionRestored";
+        public const string ReconnectFailedLog = "log.reconnectFailed";
+        public const string SessionStoppedLog = "log.sessionStopped";
+        public const string ConnectionFailedLog = "log.connectionFailed";
+        public const string SendFailedLog = "log.sendFailed";
+        public const string ReceiveFailedLog = "log.receiveFailed";
+        public const string AcceptFailedLog = "log.acceptFailed";
+        public const string ClientFailedLog = "log.clientFailed";
+        public const string MeshSerializeFailedLog = "log.meshSerializeFailed";
+        public const string ComponentRestoreFailedLog = "log.componentRestoreFailed";
+        public const string ComponentRemoveFailedLog = "log.componentRemoveFailed";
+        public const string ComponentUnavailableLog = "log.componentUnavailable";
+        public const string ComponentAddFailedLog = "log.componentAddFailed";
+        public const string MeshRestoreFailedLog = "log.meshRestoreFailed";
+        public const string ProBuilderRebuildFailedLog = "log.probuilderRebuildFailed";
+        public const string MissingTagLog = "log.missingTag";
+        public const string AssetGuidMismatch = "asset.guidMismatch";
+        public const string AssetMissing = "asset.missing";
+        public const string AssetPathMismatch = "asset.pathMismatch";
+        public const string AssetHashMismatch = "asset.hashMismatch";
+        public const string OldHostProtocol = "protocol.oldHost";
+        public const string IncompatibleProtocol = "protocol.incompatible";
+        public const string HostRejectedProtocol = "protocol.hostRejected";
+    }
+
+    public static class EZCollabLocalization
+    {
+        const string PreferenceKey = "EZCollabTool.Language";
+        const string EnglishCode = "en";
+        const string SpanishCode = "es";
+
+        static readonly object gate = new object();
+        static readonly Dictionary<string, EZCollabLanguage> languages =
+            new Dictionary<string, EZCollabLanguage>(StringComparer.OrdinalIgnoreCase);
+        static readonly List<string> languageOrder = new List<string>();
+        static string currentLanguageCode;
+
+        public static event Action languageChanged;
+
+        static EZCollabLocalization()
+        {
+            RegisterBuiltInLanguages();
+
+            string savedCode = EditorPrefs.GetString(PreferenceKey, EnglishCode);
+            currentLanguageCode = languages.ContainsKey(savedCode) ? savedCode : EnglishCode;
+        }
+
+        public static string currentCode => currentLanguageCode;
+
+        public static IReadOnlyList<EZCollabLanguage> GetLanguages()
+        {
+            lock (gate)
+            {
+                List<EZCollabLanguage> result = new List<EZCollabLanguage>(languageOrder.Count);
+                foreach (string code in languageOrder)
+                {
+                    if (languages.TryGetValue(code, out EZCollabLanguage language))
+                        result.Add(language);
+                }
+                return result;
+            }
+        }
+
+        public static bool SetLanguage(string code)
+        {
+            if (string.IsNullOrWhiteSpace(code))
+                return false;
+
+            lock (gate)
+            {
+                if (!languages.ContainsKey(code))
+                    return false;
+                if (string.Equals(currentLanguageCode, code, StringComparison.OrdinalIgnoreCase))
+                    return true;
+
+                currentLanguageCode = code;
+                EditorPrefs.SetString(PreferenceKey, code);
+            }
+
+            languageChanged?.Invoke();
+            return true;
+        }
+
+        public static bool RegisterLanguage(
+            string code,
+            string displayName,
+            IDictionary<string, string> translations,
+            bool replaceExisting = false)
+        {
+            if (string.IsNullOrWhiteSpace(code) || string.IsNullOrWhiteSpace(displayName) ||
+                translations == null)
+            {
+                return false;
+            }
+
+            lock (gate)
+            {
+                if (languages.ContainsKey(code) && !replaceExisting)
+                    return false;
+
+                if (!languages.ContainsKey(code))
+                    languageOrder.Add(code);
+                languages[code] = new EZCollabLanguage(code, displayName, translations);
+            }
+
+            languageChanged?.Invoke();
+            return true;
+        }
+
+        public static string Tr(string key, params object[] arguments)
+        {
+            string template = null;
+            lock (gate)
+            {
+                if (languages.TryGetValue(currentLanguageCode, out EZCollabLanguage current))
+                    current.TryGet(key, out template);
+
+                if (string.IsNullOrEmpty(template) &&
+                    languages.TryGetValue(EnglishCode, out EZCollabLanguage english))
+                {
+                    english.TryGet(key, out template);
+                }
+            }
+
+            if (string.IsNullOrEmpty(template))
+                template = key;
+            if (arguments == null || arguments.Length == 0)
+                return template;
+
+            try
+            {
+                return string.Format(CultureInfo.CurrentCulture, template, arguments);
+            }
+            catch (FormatException)
+            {
+                return template;
+            }
+        }
+
+        static void RegisterBuiltInLanguages()
+        {
+            RegisterLanguage(SpanishCode, "Español", CreateSpanishTranslations());
+            RegisterLanguage(EnglishCode, "English", CreateEnglishTranslations());
+        }
+
+        static Dictionary<string, string> CreateSpanishTranslations()
+        {
+            return new Dictionary<string, string>
+            {
+                { EZCollabText.Language, "Idioma" },
+                { EZCollabText.Integrations, "Integraciones" },
+                { EZCollabText.ProBuilderSync, "Sincronización de ProBuilder" },
+                { EZCollabText.ProBuilderActive, "ProBuilder {0} detectado — integración activa." },
+                { EZCollabText.ProBuilderDisabled, "ProBuilder {0} detectado — integración desactivada." },
+                { EZCollabText.ProBuilderNotInstalled, "ProBuilder no está instalado. EZ Scene Collab funcionará sin su integración." },
+                { EZCollabText.ProBuilderUnsupported, "ProBuilder {0} está instalado, pero esta versión todavía no es compatible." },
+                { EZCollabText.SettingsLockedInSession, "Detén la sesión para cambiar las integraciones." },
+                { EZCollabText.YourName, "Tu nombre" },
+                { EZCollabText.Port, "Puerto" },
+                { EZCollabText.Host, "Host" },
+                { EZCollabText.StartHost, "Iniciar sesión como host" },
+                { EZCollabText.Client, "Cliente" },
+                { EZCollabText.HostAddress, "IP o nombre del host" },
+                { EZCollabText.Join, "Unirse a la sesión" },
+                { EZCollabText.Connecting, "Conectando y esperando la sincronización inicial..." },
+                { EZCollabText.OpenPortFailed, "No se pudo abrir el puerto TCP {0}." },
+                { EZCollabText.EnterHost, "Introduce la IP o el nombre del host." },
+                { EZCollabText.EnterName, "Introduce tu nombre antes de empezar." },
+                { EZCollabText.InvalidPort, "El puerto debe estar entre 1 y 65535." },
+                { EZCollabText.ConnectFailed, "No se pudo conectar a {0}:{1}." },
+                { EZCollabText.Ok, "Aceptar" },
+                { EZCollabText.Yes, "Sí" },
+                { EZCollabText.Cancel, "Cancelar" },
+                { EZCollabText.StopConfirmation, "¿Terminar la sesión?" },
+                { EZCollabText.ActiveSession, "Sesión activa — {0}" },
+                { EZCollabText.HostRole, "HOST" },
+                { EZCollabText.ClientRole, "cliente" },
+                { EZCollabText.You, "Tú: {0}" },
+                { EZCollabText.IndexedObjects, "Objetos indexados: {0} · Revisión: {1}" },
+                { EZCollabText.Reconnecting, "Conexión perdida. Recuperando únicamente las revisiones pendientes..." },
+                { EZCollabText.Synchronizing, "Sincronizando escena... {0}%" },
+                { EZCollabText.Pointers, "Punteros" },
+                { EZCollabText.Cameras, "Cámaras" },
+                { EZCollabText.Names, "Nombres" },
+                { EZCollabText.Colors, "Colores" },
+                { EZCollabText.ViewSettingsHint, "Preferencias locales de visibilidad de la Scene View." },
+                { EZCollabText.ViewSettingsInactiveHint, "Inicia o únete a una sesión para usar los controles de presencia." },
+                { EZCollabText.ConnectedClients, "Clientes conectados: {0}" },
+                { EZCollabText.SessionPeers, "Participantes en la sesión" },
+                { EZCollabText.NobodyElse, "Nadie más conectado aún" },
+                { EZCollabText.ActiveLocks, "Bloqueos activos" },
+                { EZCollabText.YouMarker, " (tú)" },
+                { EZCollabText.None, "Ninguno" },
+                { EZCollabText.AssetWarnings, "Assets incompatibles ({0})" },
+                { EZCollabText.MoreWarnings, "Y {0} advertencias más en la consola." },
+                { EZCollabText.ClearWarnings, "Limpiar advertencias de assets" },
+                { EZCollabText.StopSession, "Detener sesión" },
+                { EZCollabText.LockedBy, "Bloqueado por {0}" },
+                { EZCollabText.LockBadge, "BLOQ" },
+                { EZCollabText.LockSceneLabel, "BLOQUEADO - {0}" },
+                { EZCollabText.Undo, "Deshacer" },
+                { EZCollabText.Redo, "Rehacer" },
+                { EZCollabText.Create, "crear {0}" },
+                { EZCollabText.ProBuilderEdit, "edición de ProBuilder" },
+                { EZCollabText.SessionStartedLog, "[EZ Scene Collab] Sesión iniciada en el puerto {0} como \"{1}\"." },
+                { EZCollabText.ServerStartFailedLog, "[EZ Scene Collab] No se pudo iniciar el servidor: {0}" },
+                { EZCollabText.ConnectionLostLog, "[EZ Scene Collab] Conexión perdida. Reconectando desde la revisión {0}..." },
+                { EZCollabText.ConnectionRestoredLog, "[EZ Scene Collab] Conexión restaurada. Se solicitaron los cambios incrementales." },
+                { EZCollabText.ReconnectFailedLog, "[EZ Scene Collab] No se pudo reconectar tras 5 intentos. La sesión se ha detenido." },
+                { EZCollabText.SessionStoppedLog, "[EZ Scene Collab] Sesión detenida." },
+                { EZCollabText.ConnectionFailedLog, "[EZ Scene Collab] Falló la conexión: {0}" },
+                { EZCollabText.SendFailedLog, "[EZ Scene Collab] Error al enviar: {0}" },
+                { EZCollabText.ReceiveFailedLog, "[EZ Scene Collab] Error al recibir: {0}" },
+                { EZCollabText.AcceptFailedLog, "[EZ Scene Collab] Error al aceptar la conexión: {0}" },
+                { EZCollabText.ClientFailedLog, "[EZ Scene Collab] Error del cliente ({0}): {1}" },
+                { EZCollabText.MeshSerializeFailedLog, "[EZ Scene Collab] No se pudo serializar la malla de '{0}': {1}" },
+                { EZCollabText.ComponentRestoreFailedLog, "[EZ Scene Collab] No se pudo restaurar el componente '{0}' en '{1}': {2}" },
+                { EZCollabText.ComponentRemoveFailedLog, "[EZ Scene Collab] No se pudo eliminar el componente '{0}' de '{1}': {2}" },
+                { EZCollabText.ComponentUnavailableLog, "[EZ Scene Collab] El tipo de componente no está disponible: {0}" },
+                { EZCollabText.ComponentAddFailedLog, "[EZ Scene Collab] No se pudo añadir el componente '{0}' a '{1}': {2}" },
+                { EZCollabText.MeshRestoreFailedLog, "[EZ Scene Collab] No se pudo restaurar la malla de '{0}': {1}" },
+                { EZCollabText.ProBuilderRebuildFailedLog, "[EZ Scene Collab] No se pudo reconstruir la malla ProBuilder de '{0}': {1}" },
+                { EZCollabText.MissingTagLog, "[EZ Scene Collab] La etiqueta '{0}' no existe en este proyecto." },
+                { EZCollabText.AssetGuidMismatch, "El GUID del asset '{0}' no coincide con el del host ({1})." },
+                { EZCollabText.AssetMissing, "Falta el asset '{0}' ({1})." },
+                { EZCollabText.AssetPathMismatch, "El asset de '{0}' está en una ruta distinta: host='{1}', local='{2}'." },
+                { EZCollabText.AssetHashMismatch, "El asset '{0}' no coincide con el del host ({1})." },
+                { EZCollabText.OldHostProtocol, "El host usa una versión antigua o incompatible de EZ Scene Collab. El host debe actualizar a la versión {0}." },
+                { EZCollabText.IncompatibleProtocol, "Protocolos incompatibles. Este editor usa el protocolo {0} ({1}) y el host usa el protocolo {2} ({3}). Actualiza el editor que tenga la versión antigua para que ambos utilicen la misma versión." },
+                { EZCollabText.HostRejectedProtocol, "El host rechazó la conexión por incompatibilidad. El host usa {0} (protocolo {1}) y este cliente usa {2} (protocolo {3}). Actualiza el editor que tenga la versión antigua." }
+            };
+        }
+
+        static Dictionary<string, string> CreateEnglishTranslations()
+        {
+            return new Dictionary<string, string>
+            {
+                { EZCollabText.Language, "Language" },
+                { EZCollabText.Integrations, "Integrations" },
+                { EZCollabText.ProBuilderSync, "ProBuilder synchronization" },
+                { EZCollabText.ProBuilderActive, "ProBuilder {0} detected — integration active." },
+                { EZCollabText.ProBuilderDisabled, "ProBuilder {0} detected — integration disabled." },
+                { EZCollabText.ProBuilderNotInstalled, "ProBuilder is not installed. EZ Scene Collab will continue without its integration." },
+                { EZCollabText.ProBuilderUnsupported, "ProBuilder {0} is installed, but this version is not supported yet." },
+                { EZCollabText.SettingsLockedInSession, "Stop the session to change integrations." },
+                { EZCollabText.YourName, "Your name" },
+                { EZCollabText.Port, "Port" },
+                { EZCollabText.Host, "Host" },
+                { EZCollabText.StartHost, "Start session as host" },
+                { EZCollabText.Client, "Client" },
+                { EZCollabText.HostAddress, "Host IP or name" },
+                { EZCollabText.Join, "Join session" },
+                { EZCollabText.Connecting, "Connecting and waiting for the initial synchronization..." },
+                { EZCollabText.OpenPortFailed, "Could not open TCP port {0}." },
+                { EZCollabText.EnterHost, "Enter the host IP address or name." },
+                { EZCollabText.EnterName, "Enter your name before starting." },
+                { EZCollabText.InvalidPort, "The port must be between 1 and 65535." },
+                { EZCollabText.ConnectFailed, "Could not connect to {0}:{1}." },
+                { EZCollabText.Ok, "OK" },
+                { EZCollabText.Yes, "Yes" },
+                { EZCollabText.Cancel, "Cancel" },
+                { EZCollabText.StopConfirmation, "End the session?" },
+                { EZCollabText.ActiveSession, "Active session — {0}" },
+                { EZCollabText.HostRole, "HOST" },
+                { EZCollabText.ClientRole, "client" },
+                { EZCollabText.You, "You: {0}" },
+                { EZCollabText.IndexedObjects, "Indexed objects: {0} · Revision: {1}" },
+                { EZCollabText.Reconnecting, "Connection lost. Recovering only the pending revisions..." },
+                { EZCollabText.Synchronizing, "Synchronizing scene... {0}%" },
+                { EZCollabText.Pointers, "Pointers" },
+                { EZCollabText.Cameras, "Cameras" },
+                { EZCollabText.Names, "Names" },
+                { EZCollabText.Colors, "Colors" },
+                { EZCollabText.ViewSettingsHint, "Local Scene View visibility settings." },
+                { EZCollabText.ViewSettingsInactiveHint, "Start or join a session to use presence controls." },
+                { EZCollabText.ConnectedClients, "Connected clients: {0}" },
+                { EZCollabText.SessionPeers, "Session participants" },
+                { EZCollabText.NobodyElse, "Nobody else is connected yet" },
+                { EZCollabText.ActiveLocks, "Active locks" },
+                { EZCollabText.YouMarker, " (you)" },
+                { EZCollabText.None, "None" },
+                { EZCollabText.AssetWarnings, "Incompatible assets ({0})" },
+                { EZCollabText.MoreWarnings, "And {0} more warnings in the Console." },
+                { EZCollabText.ClearWarnings, "Clear asset warnings" },
+                { EZCollabText.StopSession, "Stop session" },
+                { EZCollabText.LockedBy, "Locked by {0}" },
+                { EZCollabText.LockBadge, "LOCK" },
+                { EZCollabText.LockSceneLabel, "LOCKED - {0}" },
+                { EZCollabText.Undo, "Undo" },
+                { EZCollabText.Redo, "Redo" },
+                { EZCollabText.Create, "create {0}" },
+                { EZCollabText.ProBuilderEdit, "ProBuilder edit" },
+                { EZCollabText.SessionStartedLog, "[EZ Scene Collab] Session started on port {0} as \"{1}\"." },
+                { EZCollabText.ServerStartFailedLog, "[EZ Scene Collab] Could not start the server: {0}" },
+                { EZCollabText.ConnectionLostLog, "[EZ Scene Collab] Connection lost. Reconnecting from revision {0}..." },
+                { EZCollabText.ConnectionRestoredLog, "[EZ Scene Collab] Connection restored. Incremental changes were requested." },
+                { EZCollabText.ReconnectFailedLog, "[EZ Scene Collab] Could not reconnect after 5 attempts. The session was stopped." },
+                { EZCollabText.SessionStoppedLog, "[EZ Scene Collab] Session stopped." },
+                { EZCollabText.ConnectionFailedLog, "[EZ Scene Collab] Connection failed: {0}" },
+                { EZCollabText.SendFailedLog, "[EZ Scene Collab] Send error: {0}" },
+                { EZCollabText.ReceiveFailedLog, "[EZ Scene Collab] Receive error: {0}" },
+                { EZCollabText.AcceptFailedLog, "[EZ Scene Collab] Accept error: {0}" },
+                { EZCollabText.ClientFailedLog, "[EZ Scene Collab] Client error ({0}): {1}" },
+                { EZCollabText.MeshSerializeFailedLog, "[EZ Scene Collab] Could not serialize the mesh on '{0}': {1}" },
+                { EZCollabText.ComponentRestoreFailedLog, "[EZ Scene Collab] Could not restore component '{0}' on '{1}': {2}" },
+                { EZCollabText.ComponentRemoveFailedLog, "[EZ Scene Collab] Could not remove component '{0}' from '{1}': {2}" },
+                { EZCollabText.ComponentUnavailableLog, "[EZ Scene Collab] Component type is not available: {0}" },
+                { EZCollabText.ComponentAddFailedLog, "[EZ Scene Collab] Could not add component '{0}' to '{1}': {2}" },
+                { EZCollabText.MeshRestoreFailedLog, "[EZ Scene Collab] Could not restore the mesh on '{0}': {1}" },
+                { EZCollabText.ProBuilderRebuildFailedLog, "[EZ Scene Collab] Could not rebuild the ProBuilder mesh on '{0}': {1}" },
+                { EZCollabText.MissingTagLog, "[EZ Scene Collab] Tag '{0}' does not exist in this project." },
+                { EZCollabText.AssetGuidMismatch, "Asset '{0}' has a different GUID from the host ({1})." },
+                { EZCollabText.AssetMissing, "Asset '{0}' is missing ({1})." },
+                { EZCollabText.AssetPathMismatch, "The asset for '{0}' is at a different path: host='{1}', local='{2}'." },
+                { EZCollabText.AssetHashMismatch, "Asset '{0}' differs from the host version ({1})." },
+                { EZCollabText.OldHostProtocol, "The host uses an older or incompatible EZ Scene Collab protocol. The host must update to version {0}." },
+                { EZCollabText.IncompatibleProtocol, "Incompatible protocols. This editor uses protocol {0} ({1}) and the host uses protocol {2} ({3}). Update the older editor so both use the same version." },
+                { EZCollabText.HostRejectedProtocol, "The host rejected the connection as incompatible. The host uses {0} (protocol {1}) and this client uses {2} (protocol {3}). Update the older editor." }
+            };
+        }
+    }
+}

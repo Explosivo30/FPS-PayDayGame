@@ -1,0 +1,714 @@
+[
+  {
+    "Path": "Assets/Prefabs/Player/-----Player.prefab",
+    "SHA256": "8BEA665072031DE114B2FE5D15D252C7B642C80ADBAFC08BE36CF4C0261C0D82"
+  },
+  {
+    "Path": "Assets/Scenes/CrystalGarden.unity",
+    "SHA256": "F53E072AE0DF93E8480859DB0E16A5EBB05791B77BF05569881C262D91043582"
+  },
+  {
+    "Path": "Assets/Scenes/DestructionPlayground.unity",
+    "SHA256": "B1B424CBF1D0BE6CED7961278EEEBA3777BEEAA4B854E236D9E79B12B274B899"
+  },
+  {
+    "Path": "Assets/Scenes/FundicionReactiva.unity",
+    "SHA256": "BA25616D29A167E5F912707E288DF2007493CBC2662EC728485956F1758793F6"
+  },
+  {
+    "Path": "Assets/Scenes/LaboratoryFloor.unity",
+    "SHA256": "E2513039390FB24867338D2A21C213C577E933EC4488F9059D3372AF98DEB81B"
+  },
+  {
+    "Path": "Assets/Scenes/RoboticForest.unity",
+    "SHA256": "2404787317866B4F3F197A0E0F608A40E4C00C0C6D9CE6540EFE021C471583D5"
+  },
+  {
+    "Path": "Assets/Scenes/TowerCore.unity",
+    "SHA256": "5200CEDE12F0550CD857152F8DA57F6C5A3364186DE948FA996F7DA655DD7977"
+  },
+  {
+    "Path": "Assets/Settings/PC_Renderer.asset",
+    "SHA256": "68D2054F34F89BB6E254064A07A569359B69AB4E854D8EFA56062623D47DE683"
+  },
+  {
+    "Path": "Assets/Settings/PC_RPAsset.asset",
+    "SHA256": "EA4FE45F58E165848B1DEE620F4C2FDB56BFEDAC820F33EA785B6459E410671B"
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapper.cs",
+    "SHA256": "62D838F0CABD26C291AE7C4A08EE75F31C7550889190C9DA034B0B783D81B717"
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapper.shader",
+    "SHA256": "70B4644B7F98D1472542EB52E58C2714DB786F73BADBF8700CD2A8C03157CD57"
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapperFeature.cs",
+    "SHA256": "108272D6F41D15884B635479D1D10DFD0BAC2498AB26F61FE1A7350539A8F248"
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapperPass.cs",
+    "SHA256": "2C635756E64E2579CEC3AEB4B523D16B6B1E9B42B3F2F2932AFD1A227D979A33"
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\BolaFuego.mat",
+    "SHA256": "23BC3885A8D93C34EAB77D5F935B99CC53EC5BBBBAE0E30BD0C4C364EB047C62"
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\BolaFuego.shadergraph",
+    "SHA256": "083DB495E61FAD71685665B1A17281A81C260E8499207EF4FF620BE19A4D2DFD"
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\Electricity.mat",
+    "SHA256": "B9DA84139FA3C320B756F67786DC803FED162D5CD4D9CABF55BE26C9D851E592"
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\Smoke.mat",
+    "SHA256": "99269CA3754A2312E9A6F5E09BBBD0A49B0E65FA0E154EF0507E47C44D44597B"
+  },
+  {
+    "Path": "Assets\\Shader\\CustomFullScreenLightning.hlsl",
+    "SHA256": "5C71331C74C117F2D27E290CC6F338AE04DB69F432E1FB57FEBB0F57C59E5DAF"
+  },
+  {
+    "Path": "Assets\\Shader\\CustomLighting.hlsl",
+    "SHA256": "6F397392F64C546579AF0F8CE8C59DA816F8BA32A764AFC877B85673ECD06FDF"
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.hlsl",
+    "SHA256": "31F3D27A4AFF00017F835E5EC5A16F5A80C0DDEFECFEBECB2E5001C7E71BE36A"
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.mat",
+    "SHA256": "408325A465F55CD007B0B6EAFB2AACB3151752F0D95007FDC1F3E2F457C9FD73"
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.shadergraph",
+    "SHA256": "1ECCBD1AC5C7F0E05B284D800B2648510A87F05CE04F839163D3DF8325EFD3BA"
+  },
+  {
+    "Path": "Assets\\Shader\\Piedra lava\\MagmaRock.shadergraph",
+    "SHA256": "0788CB33DA39E19731B333ADB1B8913D170B5C7D5C1F2F869F3C8DF17229EF40"
+  },
+  {
+    "Path": "Assets\\Shader\\Piedra lava\\MatMagma.mat",
+    "SHA256": "B0546F5842942C0CFEF8F53FDC7FAA9214B2B51D4A976ECA0D6AAB64A254CD54"
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonMat.mat",
+    "SHA256": "8A1CD20F38AF59163EFBA10ABEBC51B9ECD54A9C46BE09B92278A925B1B72A39"
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonShader.shadergraph",
+    "SHA256": "D7E204CE9EC97BB5D2A4F9282E41A95F2F7323C41719D11E455116D51A6D2ED4"
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonShading.hlsl",
+    "SHA256": "AFD043F3123D3114D45DA21CF9A6E64CD986152A4350F0D0492399CABB01F6ED"
+  },
+  {
+    "Path": "Assets\\Shader\\Tilable.mat",
+    "SHA256": "966E1E5B71F07D6A204C085A5E22F681C33A75139E9EFC8A345174E72E4F7585"
+  },
+  {
+    "Path": "Assets\\Shader\\Tiling.shadergraph",
+    "SHA256": "12C32E6CEC10EADACA2219A382FEBE8BB7E4356BDBD1BC7BED615E3A56282284"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Camera Toon\\SG_ToonFullScreen.shadergraph",
+    "SHA256": "C37DA88138458C436282189731117928B7A6B215D71EB6E9939575A6113933F3"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Camera Toon\\ToonShaderGraph.mat",
+    "SHA256": "2BE8195DABE88B3172DB7C048885CDB67D89263D199462620E7308E21277055D"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelMat.mat",
+    "SHA256": "ADB73822387937EC16981011B0587AF80EBE9A8E929FA5EA80D2DB756C88541F"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelShader.shadergraph",
+    "SHA256": "9E5335E7C3B3736B0EAFAF0868D298591B679060C0C903913C25F0DE040E2E7A"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelShading.hlsl",
+    "SHA256": "CE4F5C744BAF3115C3372E7432B38395650740F6024E93388DA961A64BE459C9"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\CustomNodes\\LightingCelShaded.hlsl",
+    "SHA256": "3D688E0DB20F77B23DB6881907964CBC2AF4E3F0E62B6FBB8F1114E5E0A81E04"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\Materials\\CelShadeLitExampleMaterial.mat",
+    "SHA256": "B6AC58A584BE084F2CDC53EDEC29970BD261704ADC4CAFE19F3681B118AE8550"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\ShaderGraphs\\CelShadeLit.shadergraph",
+    "SHA256": "D9D1B1B88563B722116BAFAD1533A702FFF8A26DD6FF7AF8A018AF14D24E5D21"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\ShaderGraphs\\ddwa.mat",
+    "SHA256": "02A14AF4A5B7C8BCD9921E16EA11EBE571897B42C29B11440D439FB703F72E14"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Player_Mat.mat",
+    "SHA256": "5D6FB4DBCFD3DBA289522B11C0066A9967E7D2DBBAA7CEBCD0785155D3ABFC0F"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ShadowReceiver.shader",
+    "SHA256": "464E7EB3AC5E7B9D1E3EE268B07DA81BE2A75B1BCC662130F8CA554F98C5603C"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Toon.mat",
+    "SHA256": "45143EA0AAF45A0C0179C8CFC782F2F3AD7C9BF1CD9A4A1560D7943E3FF1EC28"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Toon.shader",
+    "SHA256": "81F6DC292CDD5817264E7F9417F6FF225FB72555001302505A5D39814E2314F6"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ToonComplete.mat",
+    "SHA256": "AFFEB768C39E5F910B76B4B67842BC2114CBA63FE461D7BD7EF788FD20EE83BC"
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ToonComplete.shader",
+    "SHA256": "6F0E656654AF3509DA7B581433FD8BD6FAED6E94490160A93A416F395F97112C"
+  },
+  {
+    "Path": "Assets\\Shader\\TransparentTest.mat",
+    "SHA256": "32B18BA8E199001FE389B6035D251A9900ABF9BC77581DF34612CF9BB0CD8851"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\DebrisParticle.mat",
+    "SHA256": "C7EBD3A6D6991AD6D947726AE697147248AEED1A8D44CD5998758744520F4BCC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Dust.mat",
+    "SHA256": "C5572FDDCE92082A909CE9DF314BE3BED72D6D9BC05B73A6C92BF3074A1EDC50"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Embers.mat",
+    "SHA256": "7435A8EE7A5BB0B503BF934BD4BCBBD9D26B17C69AE455A6540308FDBEDFFCB4"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\EnergyExplosion.mat",
+    "SHA256": "F640AF2383D492A658A041C641AC8D0F0B3CDEDE042BC2C624F06A0FF31BB2F1"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\EnergyShockwave.mat",
+    "SHA256": "0D954C1B805E2B4110FD7647B1B159E59B02435D592A6263E297CA35B07F5711"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Explosion.mat",
+    "SHA256": "70043C22B2A10D34FB14A4FC451C2A4B96DF61DD24D364BB3A1DB286E7066A36"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\ExplosionDistortion.mat",
+    "SHA256": "1C01CB0F0E269AF9FA3B6CC7F4331206B575A47287252D9CA56EF90034D79C72"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\fireball.mat",
+    "SHA256": "F4A24422F507F8E7E79240741D4B1EEE6D580AF961E1DBF7A8E00FC2CECFA6F9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\FireExplosion.mat",
+    "SHA256": "56908CC75C28FBD7678243B289DAA929A0F3798EB1265F4D793B0FFF080999C0"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame02.mat",
+    "SHA256": "E14B7A47AFBF8F90DBAAED1CB843D93E92BD8E1D248FA3D32D25DA3E61612312"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame03.mat",
+    "SHA256": "0F982F9C4AD8F4994EF9D86ADD03771E795D539B66F6CDF2883C3C88D083F5A9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame04.mat",
+    "SHA256": "D97766722825E208ABF770D39650C384A4D146ED24357F43CC98A56EDF7A1CC9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LargeFlame01.mat",
+    "SHA256": "A52FF20715699FA64316BF5A580A031C7ED69411E8170A55FF6D638BBAAEDA1A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LargeFlame02.mat",
+    "SHA256": "0D0B15F28EE057B1CB9297E2765E185A2114B290E57E53D832E29BB2618E46EF"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Lightning.mat",
+    "SHA256": "F9089E67F66F31237D67DEF7B72C6205FAC4F544A671B353515B68028A46D5C5"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LightningTrail.mat",
+    "SHA256": "2BA6E75EDCB63C9F1BB4EEFF58C35A8B2E179A114A883828C032FB06AEDD1F76"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame01.mat",
+    "SHA256": "663887A3F314A3174633459FB8B548214C1C161E52C15523A0A8369B84FC662B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame02.mat",
+    "SHA256": "8E13DD9AF1C7DCEAFF549C9F91062F9CB027129D27048EEEBC8FA9C03B66A306"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame03.mat",
+    "SHA256": "3A58D4035F5786AE0DB882266DE2191393E2C70FB489C31270CCC783A437ECC3"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\PlasmaExplosion.mat",
+    "SHA256": "9CD75503CA81E23002570416FF40E87BE37B7516BB3015B10C1D047A28CCC04C"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\PlasmaFire.mat",
+    "SHA256": "52C046D03AC58C6B911C6FD6643F8BE5437F60770817F57EB2AFF9EBA20B3AD2"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\SandParticle.mat",
+    "SHA256": "102831797C929432284A03D3D725870B255E3E9DEBDE09EB8B1DEE423EF3F4BE"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\SmokeDark.mat",
+    "SHA256": "09A478A18699818FB56AB71D32EDFF51BC419E3B0B7519FBE0532EFF21A24A8D"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\TinyFlame.mat",
+    "SHA256": "2A4A35D0F5383E55538CD072E53EE5C1731A006E571F4F26C849952A76A20725"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopPoolParticle.mat",
+    "SHA256": "210EEA851C4A31667266286209EEC85C0B79062EFE9BA32E7E78EC996C3BBF2E"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopSplashParticle.mat",
+    "SHA256": "BB8E3B60CEAA7DC83403E623F39C2E21CF5FC28A729BD7F8106444F20A129FA2"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopSplatParticle.mat",
+    "SHA256": "64E2168A80A2576718E76093911D4C325FDBE8871AD6DE41553D6AE981438249"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopStreamParticle.mat",
+    "SHA256": "DF1C635D61854AC694D89628801913BFBBAF67441C8D3B20496FAF9E07F232E9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\ImpactSplashParticle.mat",
+    "SHA256": "095196A2B53B14E08CFB49A6060063AC74B0A9C4D19907424A10DDB3E2633286"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\SparkParticle.mat",
+    "SHA256": "829FAD6D6329670DE1C5763F2F22F6D612CB86F9E00250B13C6A395E1645FB44"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\StormCloudParticle.mat",
+    "SHA256": "7A7A247520130F32FC0861E2E2A9EB34964A1F05000D46CAF6A1A955B958670F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterDropParticle.mat",
+    "SHA256": "68ABBECB14AD0D5F1E6FD09E534704F892CEF3805ABF57B7716A43A7DDDB1CF9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallMain Spray.mat",
+    "SHA256": "7E9524FD1B33786BD0000F551073E4FA98ACA9E7D3693B5010F1B2400DA2661A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallMain.mat",
+    "SHA256": "CB6851DE227BDCBAF05C58D8012C929D881446911A423DB19303C799957840E0"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterFallRipple.mat",
+    "SHA256": "C77A34F54F6AA8C019C274E8137948C22438D42679B6C91D5DCB092EE26062EC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallSplash.mat",
+    "SHA256": "C14F228479C3E83B70819ADD21F6801A6E79525C301ACB0E90277CD9A371F31A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterFallTop.mat",
+    "SHA256": "A71B029F17DFF7EEB0ACF3064EFEE6B76A86DFCC27F17BF04E915C75FD6F97BD"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterRipplesParticle.mat",
+    "SHA256": "50E9C506C9D57C5838290A587CD7855AE7BFE258F201E3063C1D3B3391A2A9CE"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\EarthCrack.mat",
+    "SHA256": "656129F26E622EF474A91F43913C021A419E272C3F40B575B4C38D46BD0F9D28"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Embers.mat",
+    "SHA256": "397D9F75DEE52B9A14A404FF0D3D0DE7DB6B65AFC46693486DB61B7F2E76DE63"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Fireball.mat",
+    "SHA256": "8D2C433596AC332B103BE9BE8B994B08C0AC268FFCB88502774EAD145AA7B810"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Ice.mat",
+    "SHA256": "BC9851E6B01DA5356D51E6C3CB6CF7AF498837DBE8A8E4E5AF6D4267E4D44D10"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceBall.mat",
+    "SHA256": "588622A314D749443A17B183631FB6A0E397AE58354B61D1822904277AFB22D8"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceMist.mat",
+    "SHA256": "CB2FC9B4718D6658224EC328C0BAE4D3B905B3E2B7EB11753C22252A3E0AB5A1"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceTrail.mat",
+    "SHA256": "87846B509C4BFC724D2A4D95C3B22095D3148E7B171A82B5CA57F806FF831A2B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\RockDust.mat",
+    "SHA256": "71ED63DEDA6EFAE77FB107065640839FC89D457B27F056349CC1855A9997DBBC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\RockSpike.mat",
+    "SHA256": "E5DC04B57293238FF199DA11C889D515E4473A7AE2A1FB1B0CADA403D9EA5E43"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice Ball.shadergraph",
+    "SHA256": "89B4A41D00319B94D1610143D008AC18062E2735CC26CC89E00FCB214ED1809A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice Shapes.shadergraph",
+    "SHA256": "A6408A9AA6ECF00CD8BF84E49F0AD35669BB958CF35A49D6F6323DD789D3C719"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice.shader",
+    "SHA256": "7944966ED3308B8824008D3E8DA793326D93EA50C0E51EC4E1EA9BCDFE696678"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\candle.mat",
+    "SHA256": "D0575941AA64D802363C16959AD5C7DEDED76E6E2003F06A9E78D8DCF835798A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\CandleFlame.mat",
+    "SHA256": "80477C20D6D6552798F177D8F38ED97894BC9F0671662605FF40F411D8F0BBE2"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Dissolve.mat",
+    "SHA256": "A1E7B2B9AAB17D57D5AB08B113729C9A6C9287F5D172045A1BB6D08775799824"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DissolveChunks.mat",
+    "SHA256": "2A4390ECAF61A8A7926D9144ED7CB85E5E52887F2F44DB5DCB7959462C31C9E5"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DissolveLineHorizontal.mat",
+    "SHA256": "1614B99926EC88DF846D411705333DF0BB503A453232F805A6BC356F6E40629B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DustMote.mat",
+    "SHA256": "933AAF04D656ACF9907235ACCD1C882305EAAE53B0D403C26DC84D5461567CB3"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\ElectricalSparks.mat",
+    "SHA256": "2553E1DFFECCA23F8B7392D9087AAD52F191011644D099A80CD971FD1B4B1C1D"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Embers.mat",
+    "SHA256": "99B3BDFCE34F173B3CCD622BD5EB175AE3479F741CFF7692C40BAC5E7840A3D3"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\FireFly.mat",
+    "SHA256": "8E418912656F7EAB436C3231651C606785259C4A7ACE850CDAD804A24446D303"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\FireFlyTrail.mat",
+    "SHA256": "76027F59F29A3380E5F94933C165F4089BE11D0031D16E1DA9DD66976B627F6B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\HeatWobble.mat",
+    "SHA256": "1757114B05BB2E9D2282BE4456C46E56CF3BDF46EC0D51309B4BECBC7C7D282A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Respawn.mat",
+    "SHA256": "4BAFFF99E3E87598142EED5921DE3AFA4B53572D130CA5677C8D61B50D646FC7"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SandSwirls.mat",
+    "SHA256": "C415FF3FCD19CD3B6891122F0078AFFAAF0A5DB651E88431EFAA7B7F8D42B6DC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SmokePuff.mat",
+    "SHA256": "EFF811193E3694DA868C1A207F757DCCA2FEF4ADEE3E94AC8BC1726DA478296B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Sparks.mat",
+    "SHA256": "AC7B3B68C6305866832291497334439C44AC19BD599F38B8D061136DCDBBBFEE"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SpawnTrail.mat",
+    "SHA256": "4DB222A665FDC3BB5BAFC19CDF1A52342FC506577F4EB792CF341BC4321C4B18"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Scripts\\SpawnEffect.cs",
+    "SHA256": "C5C00C6BF219DF64B65C9801F905009D4A1BF0415925555C018D5B0AD16EDDFC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Dissolve.shadergraph",
+    "SHA256": "E223DD892177ADC89F7187C17DFAC2870DF15CEF401263FA8A6F338E0B3BA5C8"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\DissolveLine.shadergraph",
+    "SHA256": "D0AD72700B674B0B2C3614B274FF7C05C47FEE5F66755B06834F91BA37CF95BC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\FireFly.shader",
+    "SHA256": "380B150672AFDFB9B3819E49C4904C25DD62E02287756148CCFD2C92A9107650"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\HeatDisstortionWobble.shadergraph",
+    "SHA256": "2B9AE84D62AEF00787639453AF6E5E7050628B0CFDBF43BCEFEAE46B49B62D2F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Respawn.shader",
+    "SHA256": "6FA8F8ADCC2A1C4A51E6F5F2537C81FCCEE8656EAC570CF5D9C1606AD533DD54"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Respawn.shadergraph",
+    "SHA256": "5EE551A68733DD02483865C5429B35D378176E554278A99C2A116FE7BD3032F2"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Dust.mat",
+    "SHA256": "AD6AE0E5BBDBB514188B604A493517C253AF8EFA421B987315AFCFE3F594CEE0"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Embers.mat",
+    "SHA256": "2BFF739BE9BD00BE582D4F4C919C275FE7D02EA946A5EA69B14280EF1EE00A0E"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Flame01.mat",
+    "SHA256": "2FC346B136691C6285A0B515C75A22392A8EE2E067BB767110D94CCD41EAB5A9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\GroundFog.mat",
+    "SHA256": "D3738841947FA005B46AA99AD8171654092EE0D6EE19998E577ABBEE0D9CFF16"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\RockDebris.mat",
+    "SHA256": "DD784EB17E4066180CE594AC1A213B602CED198DA90EBBBA5402543FFA6F942C"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SandParticle.mat",
+    "SHA256": "E14A8F46C623CE2B2031E200B312BEA961A3E8513C242566178A956823B9DB1B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Smoke02.mat",
+    "SHA256": "44926621A1DB19B722A1A7AECF8728A7DD74C6AA26641D58E7FB3ED51EC15FB1"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeLight.mat",
+    "SHA256": "76871C1F3319754A475265721E615340E385D8E02A9BF68C32A05BE892A04112"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam01.mat",
+    "SHA256": "390652E89ECEDFA7FB905BAF711C78CD0CA082544BC273A8C8C379FF86238A41"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam02.mat",
+    "SHA256": "ABCFE02E64C8251946F969C3E38DA0477B06139C5AEBAFD0FDB234609F97702F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam03.mat",
+    "SHA256": "0C4F3B9F12C1E8BDA7BC03D6C2F1149976295FF2A733B336AABE14A8873A46D0"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Twinkle.mat",
+    "SHA256": "3C7099125957F8998EEB579D04CEFF8B94C9CB4791EBC6354C733C90E0570B8E"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\wispySmoke.mat",
+    "SHA256": "A181808E9BFCF83A59B430DE40333D0A651560C043B275943AB81B647C73A8CA"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\Splash.mat",
+    "SHA256": "0D54A09F886062D6805214A03180D86405CB190DBD61BD69DB87EC9A68F0E073"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\SplashDrop.mat",
+    "SHA256": "54602DAFCD773BB97B7B59B267BB4E0381B7E1036E6FB71C702C96815CDE8096"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\Water.mat",
+    "SHA256": "DFFAB602BF647448DD4017C61021D6752C0FDD3C55D7A43A4646C18E25A7D668"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterDropBig.mat",
+    "SHA256": "746215BD9F23206CB1DA2ACD97C26E8C681B58A787341481ACA33791B8DDBB14"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterDropSmall.mat",
+    "SHA256": "F9806FCC8E4BB3449C574B773C04F5EF628527272BD6376478AE67BA59DD9FAD"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterFog.mat",
+    "SHA256": "0B8371032B614F7378852F3ED8C148A06DFF95E4DB3DED1B3B7FB7E6ED7AC66D"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterRipple.mat",
+    "SHA256": "93C9D33C5EC9A46AA1C32B818F6E317D8E54AE35A5EF2B5026AC9A0DCBDF0B79"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalMetal.mat",
+    "SHA256": "F7526DEC7263CBC8A9812B1E666A75EE5671CAA01AE17EE1F787F38E56417368"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalSand.mat",
+    "SHA256": "CD298472BC445DF63EE2BB834110A665AD709716610FB7FCFE8E053B77E09B40"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalStone.mat",
+    "SHA256": "B8C7423943C02F40AAF13D250CAB5769E7E757FA3D4EE7675D1959A7BFEB1CCC"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalWood.mat",
+    "SHA256": "9394DC29E619F15AE8262FABEA77557F4B51C57C38027547A0E4A9D697BA2C5F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletFleshDecal.mat",
+    "SHA256": "3A978ECA765073F5AF8DE009FEC347E11F7FD90475FA14A34E788C487014AEC3"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\DustPuffParticle.mat",
+    "SHA256": "17A314852D88B6AC40317CFE00C30A76876EEA39315216F4EA2E5C1120BEF40E"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\FleshSurface.mat",
+    "SHA256": "EB1149C399FA38A7D79EAF9DF0BC48E3E870BFF6B16712933CF4488F67DECF8B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopMist.mat",
+    "SHA256": "7BB7E00A0CFCF118AD86DD5A814283A3E6E03E623846090CAA5731BFF1382EC9"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopSplat2.mat",
+    "SHA256": "09EE89B5DD51680289BAD596906C7163AF358DF44426D327B07E484E3D83E719"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopStreak.mat",
+    "SHA256": "30E4D82D6330CE7738A2B48189A6F2052706FF41ACB5F3345A6175786D151F2F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MetalSparks.mat",
+    "SHA256": "A0783D14F5737E7011C3578E592A8D7FBA3C72794215E1FECE40703AE6CFBA22"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MetalSurface.mat",
+    "SHA256": "0B1F9C4F82D8F589B98C8679B3C38ED0C9EE27960BB3BCD82C28EED101238AED"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MuzzleFlash.mat",
+    "SHA256": "FCE620C693DB5767E87BB21BDF05FDD421DD8989216F7492DF4036B15688743A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\RockDebris.mat",
+    "SHA256": "64379DDBAABF874F39A89DBF9C7C5736B28E26174D75F85A977A1512A157C54A"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\SandSurface.mat",
+    "SHA256": "46E8A43254F3A16B7920E5A59B9F5778391D9D21E59FD5ADF2DF738E7CCFCCB2"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\StoneSurface.mat",
+    "SHA256": "817AD42BEA2B50C87C0CF74067B4531991799EAE35BA4AC7E590614133F15177"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\TinyStonesParticle.mat",
+    "SHA256": "A56CEFCEF7EEB4EA94CF41192B4E7AA3C66CDD156399838F540F06201E870624"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WaterStreamParticle.mat",
+    "SHA256": "A6E6EEEDD7F5F1EAFF618B1501F715B248F1005DA86011FA906D1241CAFCAC14"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WoodSplintersParticle.mat",
+    "SHA256": "CA739E9FD448106E9A3A0AC88AE3DBC66C65DC84470AB3C73284DB7AC0E107E7"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WoodSurface.mat",
+    "SHA256": "29B8E80086173EE2F09E64D56562DCBEF77A7E30F0B79D93153F8F9E03519993"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ConcreteFloor.mat",
+    "SHA256": "B8B02E705C59CFD492A60CAE33E2B9EDAA8AD0F49D30A93C3558CA9CE5192C1C"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ConcreteWall.mat",
+    "SHA256": "E24830FE10C1CBB1E7586FBBA13454A6170F55C20BB6930459FDB608CF15875F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\Light.mat",
+    "SHA256": "774326F28F9AB90F8A04B8B7B476D52A3D4CC4F7DA8FF353329C9CB7DE79461B"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\LinesWhite.mat",
+    "SHA256": "FF13099A95C03ED2255D5A0E25894931973D33CFA6314E027A69946F26D652FE"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\MetalRailing.mat",
+    "SHA256": "212FE79095AECF42B9C65F8F68E5104A5274AD4E9F25562315423BE39D79A645"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\MetalTrim.mat",
+    "SHA256": "9B5FDFCC1CC0769B496E8E46E088213DE300BA3F6D9F442F3F3454ED14EC41A1"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ShadowCaster.mat",
+    "SHA256": "F2C2EE5AE7EA592FC54B1740C1162E31C1160ACE4AAC3A561043E1E771C4AB62"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\Skybox.mat",
+    "SHA256": "0F0C708FBEA03C7C0824BB840DA0A32FFCE13A71736D519FDE4921DEA7C6E02F"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\UnityLogo.mat",
+    "SHA256": "BFC83C0437DA6BE93A4CD0066F4872DB717FB1F0702F9AF63F0C7E9E05D9493C"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Ramps\\Editor\\RampAssetEditor.cs",
+    "SHA256": "EAE19A287C23CD61930B15603CBEFCFF30DEEFADE8B0436DDA40A772661A0269"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Ramps\\Runtime\\RampAsset.cs",
+    "SHA256": "A31FB1E0BCFEFC4C4E01FB916B9FFED2B47266E9AC8AFF20A7FD85632B2A6D6D"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\AdjustTimeScale.cs",
+    "SHA256": "D9612EC712849B433412590F012BDAD1D4E1F91E1252DD545A2C6112365928CE"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\ProximityActivate.cs",
+    "SHA256": "D7224FF40C5506470C7AD931E31E05F5FC3847F372E719A66017D93D7CBE6D55"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\SimpleCameraController.cs",
+    "SHA256": "0633DC5B635C10B6CDCBBBBD2BBC9FB93D4D72F6E0670744EE9295434BE30780"
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\SimpleCharacterMotor.cs",
+    "SHA256": "4AADA2567DE760C0D3071E0636185281FB98FF61B3CDBCB552889C594337380D"
+  },
+  {
+    "Path": "Assets\\Shader\\WaterBall\\Water.mat",
+    "SHA256": "419BC4E97E465375CB24A7BB56D8F55657212475C4E9054B090F2C6E34095FCC"
+  },
+  {
+    "Path": "Assets\\Shader\\WaterBall\\Water.shadergraph",
+    "SHA256": "2B87AF40D30BB1A3EED4AA11D2CBABF7117D7ED72F8036E62DB85749E7C02F79"
+  },
+  {
+    "Path": "ProjectSettings/EditorBuildSettings.asset",
+    "SHA256": "9BA632DBAC412DE1ABCB0A2ABC07049EA607681B0E7FCC396CF9A9B938D41B82"
+  },
+  {
+    "Path": "ProjectSettings/GraphicsSettings.asset",
+    "SHA256": "56C816BD980CA4B9C5A33F5EF233BCAEA6C08505A1AF65AC5E5E633CE8BAD6FE"
+  },
+  {
+    "Path": "ProjectSettings/NavMeshAreas.asset",
+    "SHA256": "80106CFA7E6181A1928B142C075F3E510D527441E3D79BC83590E4AC91E7CD66"
+  }
+]

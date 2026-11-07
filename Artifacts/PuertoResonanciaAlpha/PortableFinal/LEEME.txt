@@ -1,0 +1,33 @@
+PUERTO DE RESONANCIA / ALPHA - 26 octubre 2026
+
+Extrae la carpeta completa y abre JUGAR.cmd.
+Conserva PuertoResonancia_Data, MonoBleedingEdge y las DLL junto al EXE.
+El lanzador utiliza un perfil separado en esta carpeta.
+
+OBJETIVOS
+Activa con E Bobinas y Raices en el orden que prefieras.
+Cada sistema necesita 18 segundos mientras permaneces en su distrito:
+puedes moverte y combatir; salir pausa su carga.
+Despues llama al transporte desde la Plaza y vuelve al Muelle.
+Embarca con E cuando termine la cuenta de 30 segundos.
+La salida NO exige matar a todos los enemigos.
+
+CONTROLES
+WASD y raton. Izquierdo dispara; derecho apunta.
+R recarga. Q cambia de arma. Espacio salta. C/Ctrl agacha o desliza.
+E interactua. M muestra el mapa. F5 reinicia el nivel completo.
+Escape libera el raton; un clic lo vuelve a capturar. Alt+F4 cierra.
+
+DESTRUCCION
+Los dos soportes rojos de la galeria liberan el brazo industrial.
+El colapso elimina su nido, ocupa el paso inferior y crea una rampa.
+Si el freno de seguridad espera, sal del area rayada.
+Romper la contencion entre Plaza y Raices abre paso y tiro para
+ambos bandos. Los perseguidores tambien usan el nuevo recorrido.
+Puedes terminar conservando las estructuras.
+
+Las recargas son reales; la reserva es ilimitada en esta alpha.
+Bobinas desbloquea la escopeta. El Invernadero tiene un botiquin.
+REVISION.md describe pruebas, limites y el estado de esta version.
+RESEARCH.md explica las referencias y decisiones de diseno.
+DOCUMENTACION.md reune el plan previo y los PDF originales.

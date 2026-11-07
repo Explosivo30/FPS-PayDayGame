@@ -1,0 +1,491 @@
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Waist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Waist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Codpiece", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Codpiece", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Amber tab", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Pelvis_Amber tab", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Spine", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Spine", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Press frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Press frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Rear block", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Rear block", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Back rib.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest foundation", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest foundation", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest press armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest press armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Chest orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Vent depth", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Vent depth", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Vent darkness", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Vent darkness", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Bolt.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar back", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar back", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar front", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar front", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar side", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar side", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar side.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Torso_Collar side.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Neck", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Neck", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Helmet", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Helmet", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Optic socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Optic socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Optic deep", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Optic deep", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Visor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Visor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Brow", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Brow", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Chin", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Chin", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side hinge", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side hinge", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side hinge.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side hinge.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side cap.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Head_Side cap.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder steel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder steel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder top", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder top", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder orange panel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Shoulder orange panel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Upper actuator", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Upper actuator", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_L_Piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Elbow axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Elbow axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Elbow cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Elbow cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Gauntlet orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Inner wrist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Inner wrist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Closed palm", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Closed palm", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Finger knuckle.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Curled finger.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Thumb", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_L_Thumb", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Hip joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Hip joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Thigh backing", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Thigh backing", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Thigh armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Thigh armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Orange strip", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_L_Orange strip", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Knee cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin dark recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin dark recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Shin stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Ankle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Ankle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Boot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Boot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Sole", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Sole", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Toe armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_L_Toe armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder steel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder steel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder top", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder top", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder orange panel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Shoulder orange panel", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Upper actuator", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Upper actuator", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "UpperArm_R_Piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Elbow axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Elbow axle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Elbow cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Elbow cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet frame", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet shell", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Gauntlet orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Bolt", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Bolt.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Inner wrist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Inner wrist", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Closed palm", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Closed palm", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.002", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Finger knuckle.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Curled finger.003", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Thumb", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Forearm_R_Thumb", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Hip joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Hip joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Thigh backing", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Thigh backing", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Thigh armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Thigh armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Orange strip", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Thigh_R_Orange strip", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Knee cap", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin piston", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin dark recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin dark recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Shin stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Ankle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Ankle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Boot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Boot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Sole", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Sole", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Toe armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Shin_R_Toe armor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+Blender 4.0.0 (hash 878f71061b8e built 2023-11-14 01:20:37)
+Info: Total files 0 | Changed 0 | Failed 0
+Fra:1 Mem:44.43M (Peak 44.43M) | Time:00:00.82 | Syncing Pelvis_Frame
+Fra:1 Mem:44.47M (Peak 44.47M) | Time:00:01.31 | Syncing Pelvis_Waist
+Fra:1 Mem:44.48M (Peak 44.48M) | Time:00:01.31 | Syncing Pelvis_Codpiece
+Fra:1 Mem:44.49M (Peak 44.49M) | Time:00:01.31 | Syncing Pelvis_Amber tab
+Fra:1 Mem:44.51M (Peak 44.51M) | Time:00:01.31 | Syncing Torso_Spine
+Fra:1 Mem:44.52M (Peak 44.52M) | Time:00:01.31 | Syncing Torso_Press frame
+Fra:1 Mem:44.53M (Peak 44.53M) | Time:00:01.31 | Syncing Torso_Rear block
+Fra:1 Mem:44.54M (Peak 44.54M) | Time:00:01.31 | Syncing Torso_Back rib
+Fra:1 Mem:44.55M (Peak 44.55M) | Time:00:01.31 | Syncing Torso_Back rib.001
+Fra:1 Mem:44.56M (Peak 44.56M) | Time:00:01.31 | Syncing Torso_Back rib.002
+Fra:1 Mem:44.57M (Peak 44.57M) | Time:00:01.31 | Syncing Torso_Chest foundation
+Fra:1 Mem:44.58M (Peak 44.58M) | Time:00:01.31 | Syncing Torso_Chest press armor
+Fra:1 Mem:44.60M (Peak 44.60M) | Time:00:01.31 | Syncing Torso_Chest orange stripe
+Fra:1 Mem:44.62M (Peak 44.62M) | Time:00:01.31 | Syncing Torso_Vent depth
+Fra:1 Mem:44.63M (Peak 44.63M) | Time:00:01.31 | Syncing Torso_Vent darkness
+Fra:1 Mem:44.64M (Peak 44.64M) | Time:00:01.31 | Syncing Torso_Bolt
+Fra:1 Mem:44.65M (Peak 44.65M) | Time:00:01.31 | Syncing Torso_Bolt slot
+Fra:1 Mem:44.66M (Peak 44.66M) | Time:00:01.31 | Syncing Torso_Bolt.001
+Fra:1 Mem:44.67M (Peak 44.67M) | Time:00:01.31 | Syncing Torso_Bolt slot.001
+Fra:1 Mem:44.68M (Peak 44.68M) | Time:00:01.31 | Syncing Torso_Bolt.002
+Fra:1 Mem:44.69M (Peak 44.69M) | Time:00:01.31 | Syncing Torso_Bolt slot.002
+Fra:1 Mem:44.70M (Peak 44.70M) | Time:00:01.31 | Syncing Torso_Bolt.003
+Fra:1 Mem:44.72M (Peak 44.72M) | Time:00:01.31 | Syncing Torso_Bolt slot.003
+Fra:1 Mem:44.72M (Peak 44.72M) | Time:00:01.31 | Syncing Torso_Collar back
+Fra:1 Mem:44.73M (Peak 44.73M) | Time:00:01.31 | Syncing Torso_Collar front
+Fra:1 Mem:44.75M (Peak 44.75M) | Time:00:01.31 | Syncing Torso_Collar side
+Fra:1 Mem:44.76M (Peak 44.76M) | Time:00:01.31 | Syncing Torso_Collar side.001
+Fra:1 Mem:44.77M (Peak 44.77M) | Time:00:01.32 | Syncing Head_Neck
+Fra:1 Mem:44.78M (Peak 44.78M) | Time:00:01.32 | Syncing Head_Helmet
+Fra:1 Mem:44.79M (Peak 44.79M) | Time:00:01.32 | Syncing Head_Optic socket
+Fra:1 Mem:44.80M (Peak 44.80M) | Time:00:01.32 | Syncing Head_Optic deep
+Fra:1 Mem:44.81M (Peak 44.81M) | Time:00:01.32 | Syncing Head_Visor
+Fra:1 Mem:44.82M (Peak 44.82M) | Time:00:01.32 | Syncing Head_Brow
+Fra:1 Mem:44.83M (Peak 44.83M) | Time:00:01.32 | Syncing Head_Chin
+Fra:1 Mem:44.84M (Peak 44.84M) | Time:00:01.32 | Syncing Head_Side hinge
+Fra:1 Mem:44.86M (Peak 44.86M) | Time:00:01.32 | Syncing Head_Side cap
+Fra:1 Mem:44.87M (Peak 44.87M) | Time:00:01.32 | Syncing Head_Side hinge.001
+Fra:1 Mem:44.88M (Peak 44.88M) | Time:00:01.32 | Syncing Head_Side cap.001
+Fra:1 Mem:44.90M (Peak 44.90M) | Time:00:01.32 | Syncing UpperArm_L_Shoulder axle
+Fra:1 Mem:44.91M (Peak 44.91M) | Time:00:01.32 | Syncing UpperArm_L_Shoulder steel
+Fra:1 Mem:44.92M (Peak 44.92M) | Time:00:01.32 | Syncing UpperArm_L_Shoulder shell
+Fra:1 Mem:44.93M (Peak 44.93M) | Time:00:01.32 | Syncing UpperArm_L_Shoulder top
+Fra:1 Mem:44.94M (Peak 44.94M) | Time:00:01.32 | Syncing UpperArm_L_Shoulder orange panel
+Fra:1 Mem:44.95M (Peak 44.95M) | Time:00:01.32 | Syncing UpperArm_L_Bolt
+Fra:1 Mem:44.96M (Peak 44.96M) | Time:00:01.32 | Syncing UpperArm_L_Bolt slot
+Fra:1 Mem:44.97M (Peak 44.97M) | Time:00:01.32 | Syncing UpperArm_L_Bolt.001
+Fra:1 Mem:44.99M (Peak 44.99M) | Time:00:01.32 | Syncing UpperArm_L_Bolt slot.001
+Fra:1 Mem:44.99M (Peak 44.99M) | Time:00:01.32 | Syncing UpperArm_L_Upper actuator
+Fra:1 Mem:45.01M (Peak 45.01M) | Time:00:01.32 | Syncing UpperArm_L_Piston
+Fra:1 Mem:45.02M (Peak 45.02M) | Time:00:01.32 | Syncing Forearm_L_Elbow axle
+Fra:1 Mem:45.04M (Peak 45.04M) | Time:00:01.32 | Syncing Forearm_L_Elbow cap
+Fra:1 Mem:45.05M (Peak 45.05M) | Time:00:01.32 | Syncing Forearm_L_Gauntlet frame
+Fra:1 Mem:45.06M (Peak 45.06M) | Time:00:01.32 | Syncing Forearm_L_Gauntlet shell
+Fra:1 Mem:45.07M (Peak 45.07M) | Time:00:01.32 | Syncing Forearm_L_Gauntlet orange stripe
+Fra:1 Mem:45.08M (Peak 45.08M) | Time:00:01.32 | Syncing Forearm_L_Bolt
+Fra:1 Mem:45.10M (Peak 45.10M) | Time:00:01.32 | Syncing Forearm_L_Bolt slot
+Fra:1 Mem:45.11M (Peak 45.11M) | Time:00:01.32 | Syncing Forearm_L_Bolt.001
+Fra:1 Mem:45.12M (Peak 45.12M) | Time:00:01.32 | Syncing Forearm_L_Bolt slot.001
+Fra:1 Mem:45.13M (Peak 45.13M) | Time:00:01.32 | Syncing Forearm_L_Inner wrist
+Fra:1 Mem:45.14M (Peak 45.14M) | Time:00:01.32 | Syncing Forearm_L_Closed palm
+Fra:1 Mem:45.15M (Peak 45.15M) | Time:00:01.32 | Syncing Forearm_L_Finger knuckle
+Fra:1 Mem:45.16M (Peak 45.16M) | Time:00:01.32 | Syncing Forearm_L_Curled finger
+Fra:1 Mem:45.17M (Peak 45.17M) | Time:00:01.32 | Syncing Forearm_L_Finger knuckle.001
+Fra:1 Mem:45.18M (Peak 45.18M) | Time:00:01.32 | Syncing Forearm_L_Curled finger.001
+Fra:1 Mem:45.19M (Peak 45.19M) | Time:00:01.32 | Syncing Forearm_L_Finger knuckle.002
+Fra:1 Mem:45.20M (Peak 45.20M) | Time:00:01.32 | Syncing Forearm_L_Curled finger.002
+Fra:1 Mem:45.21M (Peak 45.21M) | Time:00:01.32 | Syncing Forearm_L_Finger knuckle.003
+Fra:1 Mem:45.22M (Peak 45.22M) | Time:00:01.32 | Syncing Forearm_L_Curled finger.003
+Fra:1 Mem:45.23M (Peak 45.23M) | Time:00:01.32 | Syncing Forearm_L_Thumb
+Fra:1 Mem:45.24M (Peak 45.24M) | Time:00:01.32 | Syncing Thigh_L_Hip joint
+Fra:1 Mem:45.26M (Peak 45.26M) | Time:00:01.32 | Syncing Thigh_L_Thigh backing
+Fra:1 Mem:45.27M (Peak 45.27M) | Time:00:01.32 | Syncing Thigh_L_Thigh armor
+Fra:1 Mem:45.28M (Peak 45.28M) | Time:00:01.32 | Syncing Thigh_L_Orange strip
+Fra:1 Mem:45.29M (Peak 45.29M) | Time:00:01.32 | Syncing Shin_L_Knee
+Fra:1 Mem:45.30M (Peak 45.30M) | Time:00:01.33 | Syncing Shin_L_Knee hub
+Fra:1 Mem:45.31M (Peak 45.31M) | Time:00:01.33 | Syncing Shin_L_Knee cap
+Fra:1 Mem:45.32M (Peak 45.32M) | Time:00:01.33 | Syncing Shin_L_Shin piston
+Fra:1 Mem:45.34M (Peak 45.34M) | Time:00:01.33 | Syncing Shin_L_Shin armor
+Fra:1 Mem:45.35M (Peak 45.35M) | Time:00:01.33 | Syncing Shin_L_Shin dark recess
+Fra:1 Mem:45.36M (Peak 45.36M) | Time:00:01.33 | Syncing Shin_L_Shin stripe
+Fra:1 Mem:45.37M (Peak 45.37M) | Time:00:01.33 | Syncing Shin_L_Ankle
+Fra:1 Mem:45.38M (Peak 45.38M) | Time:00:01.33 | Syncing Shin_L_Boot
+Fra:1 Mem:45.39M (Peak 45.39M) | Time:00:01.33 | Syncing Shin_L_Sole
+Fra:1 Mem:45.40M (Peak 45.40M) | Time:00:01.33 | Syncing Shin_L_Toe armor
+Fra:1 Mem:45.41M (Peak 45.41M) | Time:00:01.33 | Syncing UpperArm_R_Shoulder axle
+Fra:1 Mem:45.42M (Peak 45.42M) | Time:00:01.33 | Syncing UpperArm_R_Shoulder steel
+Fra:1 Mem:45.43M (Peak 45.43M) | Time:00:01.33 | Syncing UpperArm_R_Shoulder shell
+Fra:1 Mem:45.44M (Peak 45.44M) | Time:00:01.33 | Syncing UpperArm_R_Shoulder top
+Fra:1 Mem:45.45M (Peak 45.45M) | Time:00:01.33 | Syncing UpperArm_R_Shoulder orange panel
+Fra:1 Mem:45.47M (Peak 45.47M) | Time:00:01.33 | Syncing UpperArm_R_Bolt
+Fra:1 Mem:45.48M (Peak 45.48M) | Time:00:01.33 | Syncing UpperArm_R_Bolt slot
+Fra:1 Mem:45.49M (Peak 45.49M) | Time:00:01.33 | Syncing UpperArm_R_Bolt.001
+Fra:1 Mem:45.50M (Peak 45.50M) | Time:00:01.33 | Syncing UpperArm_R_Bolt slot.001
+Fra:1 Mem:45.51M (Peak 45.51M) | Time:00:01.33 | Syncing UpperArm_R_Upper actuator
+Fra:1 Mem:45.52M (Peak 45.52M) | Time:00:01.33 | Syncing UpperArm_R_Piston
+Fra:1 Mem:45.54M (Peak 45.54M) | Time:00:01.33 | Syncing Forearm_R_Elbow axle
+Fra:1 Mem:45.55M (Peak 45.55M) | Time:00:01.33 | Syncing Forearm_R_Elbow cap
+Fra:1 Mem:45.56M (Peak 45.56M) | Time:00:01.33 | Syncing Forearm_R_Gauntlet frame
+Fra:1 Mem:45.57M (Peak 45.57M) | Time:00:01.33 | Syncing Forearm_R_Gauntlet shell
+Fra:1 Mem:45.59M (Peak 45.59M) | Time:00:01.33 | Syncing Forearm_R_Gauntlet orange stripe
+Fra:1 Mem:45.60M (Peak 45.60M) | Time:00:01.33 | Syncing Forearm_R_Bolt
+Fra:1 Mem:45.61M (Peak 45.61M) | Time:00:01.33 | Syncing Forearm_R_Bolt slot
+Fra:1 Mem:45.62M (Peak 45.62M) | Time:00:01.33 | Syncing Forearm_R_Bolt.001
+Fra:1 Mem:45.63M (Peak 45.63M) | Time:00:01.33 | Syncing Forearm_R_Bolt slot.001
+Fra:1 Mem:45.64M (Peak 45.64M) | Time:00:01.33 | Syncing Forearm_R_Inner wrist
+Fra:1 Mem:45.65M (Peak 45.65M) | Time:00:01.33 | Syncing Forearm_R_Closed palm
+Fra:1 Mem:45.66M (Peak 45.66M) | Time:00:01.33 | Syncing Forearm_R_Finger knuckle
+Fra:1 Mem:45.67M (Peak 45.67M) | Time:00:01.33 | Syncing Forearm_R_Curled finger
+Fra:1 Mem:45.68M (Peak 45.68M) | Time:00:01.33 | Syncing Forearm_R_Finger knuckle.001
+Fra:1 Mem:45.69M (Peak 45.69M) | Time:00:01.33 | Syncing Forearm_R_Curled finger.001
+Fra:1 Mem:45.70M (Peak 45.70M) | Time:00:01.33 | Syncing Forearm_R_Finger knuckle.002
+Fra:1 Mem:45.71M (Peak 45.71M) | Time:00:01.33 | Syncing Forearm_R_Curled finger.002
+Fra:1 Mem:45.72M (Peak 45.72M) | Time:00:01.33 | Syncing Forearm_R_Finger knuckle.003
+Fra:1 Mem:45.73M (Peak 45.73M) | Time:00:01.33 | Syncing Forearm_R_Curled finger.003
+Fra:1 Mem:45.74M (Peak 45.74M) | Time:00:01.33 | Syncing Forearm_R_Thumb
+Fra:1 Mem:45.75M (Peak 45.75M) | Time:00:01.33 | Syncing Thigh_R_Hip joint
+Fra:1 Mem:45.77M (Peak 45.77M) | Time:00:01.33 | Syncing Thigh_R_Thigh backing
+Fra:1 Mem:45.78M (Peak 45.78M) | Time:00:01.33 | Syncing Thigh_R_Thigh armor
+Fra:1 Mem:45.79M (Peak 45.79M) | Time:00:01.34 | Syncing Thigh_R_Orange strip
+Fra:1 Mem:45.80M (Peak 45.80M) | Time:00:01.34 | Syncing Shin_R_Knee
+Fra:1 Mem:45.81M (Peak 45.81M) | Time:00:01.34 | Syncing Shin_R_Knee hub
+Fra:1 Mem:45.82M (Peak 45.82M) | Time:00:01.34 | Syncing Shin_R_Knee cap
+Fra:1 Mem:45.83M (Peak 45.83M) | Time:00:01.34 | Syncing Shin_R_Shin piston
+Fra:1 Mem:45.85M (Peak 45.85M) | Time:00:01.34 | Syncing Shin_R_Shin armor
+Fra:1 Mem:45.86M (Peak 45.86M) | Time:00:01.34 | Syncing Shin_R_Shin dark recess
+Fra:1 Mem:45.87M (Peak 45.87M) | Time:00:01.34 | Syncing Shin_R_Shin stripe
+Fra:1 Mem:45.88M (Peak 45.88M) | Time:00:01.34 | Syncing Shin_R_Ankle
+Fra:1 Mem:45.89M (Peak 45.89M) | Time:00:01.34 | Syncing Shin_R_Boot
+Fra:1 Mem:45.90M (Peak 45.90M) | Time:00:01.34 | Syncing Shin_R_Sole
+Fra:1 Mem:45.91M (Peak 45.91M) | Time:00:01.34 | Syncing Shin_R_Toe armor
+Fra:1 Mem:45.92M (Peak 45.92M) | Time:00:01.34 | Syncing Plane
+Fra:1 Mem:45.93M (Peak 45.93M) | Time:00:01.34 | Syncing Area
+Fra:1 Mem:45.93M (Peak 45.93M) | Time:00:01.34 | Syncing Area.001
+Fra:1 Mem:45.93M (Peak 45.93M) | Time:00:01.34 | Syncing Area.002
+Fra:1 Mem:45.93M (Peak 45.93M) | Time:00:01.34 | Syncing Camera
+Fra:1 Mem:45.85M (Peak 45.93M) | Time:00:01.34 | Rendering 1 / 64 samples
+Fra:1 Mem:45.48M (Peak 45.93M) | Time:00:01.66 | Rendering 26 / 64 samples
+Fra:1 Mem:45.48M (Peak 45.93M) | Time:00:01.72 | Rendering 51 / 64 samples
+Fra:1 Mem:45.48M (Peak 45.93M) | Time:00:01.76 | Rendering 64 / 64 samples
+Saved: 'D:\Unity\FPS-PayDayGame\Artifacts\Veterans\Ariete-studio.png'
+Time: 00:01.99 (Saving: 00:00.22)
+
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Chassis", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Chassis", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Upper armor -1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Upper armor -1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Lower armor -1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Lower armor -1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side optical socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side optical socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side amber port", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side amber port", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Upper armor 1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Upper armor 1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Lower armor 1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Lower armor 1", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side optical socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side optical socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side amber port", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Side amber port", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Visor socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Visor socket", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Optic recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Optic recess", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Amber visor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Amber visor", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Rear vent slot", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Gun gimbal", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Gun gimbal", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Gimbal trim", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Body_Gimbal trim", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch joint", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch hub", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch hub.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Pitch hub.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Barrel core", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Barrel core", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Armor shroud", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Armor shroud", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Top graphite rail", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Top graphite rail", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Orange stripe", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Orange stripe.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Orange stripe.001", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Open octagonal muzzle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+WARN (bke.modifier): C:\Users\blender\git\blender-v400\blender.git\source\blender\blenkernel\intern\modifier.cc:461 BKE_modifier_set_error: Object: "Gun_Open octagonal muzzle", Modifier: "Weighted corner normals", Enable 'Auto Smooth' in Object Data Properties
+Fra:1 Mem:38.57M (Peak 38.57M) | Time:00:00.00 | Syncing Body_Chassis
+Fra:1 Mem:38.58M (Peak 38.58M) | Time:00:00.00 | Syncing Body_Upper armor -1
+Fra:1 Mem:38.59M (Peak 38.59M) | Time:00:00.00 | Syncing Body_Lower armor -1
+Fra:1 Mem:38.60M (Peak 38.60M) | Time:00:00.00 | Syncing Body_Orange shell marking -1
+Fra:1 Mem:38.61M (Peak 38.61M) | Time:00:00.00 | Syncing Body_Side optical socket.001
+Fra:1 Mem:38.63M (Peak 38.63M) | Time:00:00.00 | Syncing Body_Side amber port.001
+Fra:1 Mem:38.64M (Peak 38.64M) | Time:00:00.00 | Syncing Body_Upper armor 1
+Fra:1 Mem:38.65M (Peak 38.65M) | Time:00:00.00 | Syncing Body_Lower armor 1
+Fra:1 Mem:38.66M (Peak 38.66M) | Time:00:00.00 | Syncing Body_Orange shell marking 1
+Fra:1 Mem:38.67M (Peak 38.67M) | Time:00:00.00 | Syncing Body_Side optical socket
+Fra:1 Mem:38.68M (Peak 38.68M) | Time:00:00.00 | Syncing Body_Side amber port
+Fra:1 Mem:38.69M (Peak 38.69M) | Time:00:00.00 | Syncing Body_Visor socket
+Fra:1 Mem:38.70M (Peak 38.70M) | Time:00:00.00 | Syncing Body_Optic recess
+Fra:1 Mem:38.71M (Peak 38.71M) | Time:00:00.00 | Syncing Body_Amber visor
+Fra:1 Mem:38.72M (Peak 38.72M) | Time:00:00.00 | Syncing Body_Rear vent
+Fra:1 Mem:38.73M (Peak 38.73M) | Time:00:00.00 | Syncing Body_Rear vent slot.001
+Fra:1 Mem:38.74M (Peak 38.74M) | Time:00:00.00 | Syncing Body_Rear vent slot.002
+Fra:1 Mem:38.75M (Peak 38.75M) | Time:00:00.00 | Syncing Body_Rear vent slot.003
+Fra:1 Mem:38.76M (Peak 38.76M) | Time:00:00.00 | Syncing Body_Rear vent slot
+Fra:1 Mem:38.77M (Peak 38.77M) | Time:00:00.00 | Syncing Body_Gun gimbal
+Fra:1 Mem:38.79M (Peak 38.79M) | Time:00:00.00 | Syncing Body_Gimbal trim
+Fra:1 Mem:38.80M (Peak 38.80M) | Time:00:00.00 | Syncing Gun_Pitch joint
+Fra:1 Mem:38.81M (Peak 38.81M) | Time:00:00.00 | Syncing Gun_Pitch hub
+Fra:1 Mem:38.83M (Peak 38.83M) | Time:00:00.00 | Syncing Gun_Pitch hub.001
+Fra:1 Mem:38.84M (Peak 38.84M) | Time:00:00.00 | Syncing Gun_Barrel core
+Fra:1 Mem:38.85M (Peak 38.85M) | Time:00:00.00 | Syncing Gun_Armor shroud
+Fra:1 Mem:38.86M (Peak 38.86M) | Time:00:00.00 | Syncing Gun_Top graphite rail
+Fra:1 Mem:38.87M (Peak 38.87M) | Time:00:00.00 | Syncing Gun_Orange stripe
+Fra:1 Mem:38.88M (Peak 38.88M) | Time:00:00.00 | Syncing Gun_Orange stripe.001
+Fra:1 Mem:38.89M (Peak 38.89M) | Time:00:00.00 | Syncing Gun_Open octagonal muzzle
+Fra:1 Mem:38.91M (Peak 38.91M) | Time:00:00.01 | Syncing Gun_Bore darkness
+Fra:1 Mem:38.92M (Peak 38.92M) | Time:00:00.01 | Syncing Plane
+Fra:1 Mem:38.92M (Peak 38.92M) | Time:00:00.01 | Syncing Area
+Fra:1 Mem:38.92M (Peak 38.92M) | Time:00:00.01 | Syncing Area.001
+Fra:1 Mem:38.92M (Peak 38.92M) | Time:00:00.01 | Syncing Area.002
+Fra:1 Mem:38.92M (Peak 38.92M) | Time:00:00.01 | Syncing Camera
+Fra:1 Mem:38.90M (Peak 38.92M) | Time:00:00.01 | Rendering 1 / 64 samples
+Fra:1 Mem:38.82M (Peak 38.92M) | Time:00:00.07 | Rendering 26 / 64 samples
+Fra:1 Mem:38.82M (Peak 38.92M) | Time:00:00.13 | Rendering 51 / 64 samples
+Fra:1 Mem:38.82M (Peak 38.92M) | Time:00:00.15 | Rendering 64 / 64 samples
+Saved: 'D:\Unity\FPS-PayDayGame\Artifacts\Veterans\Aguja-studio.png'
+Time: 00:00.26 (Saving: 00:00.09)
+
+Info: Saved "Ariete.blend"
+
+FBX export starting... 'D:/Unity/FPS-PayDayGame/Assets/Art/Veterans/Ariete.fbx'
+export finished in 0.0469 sec.
+EXPORTED Ariete parts 130 vertices 3964
+Info: Saved "Aguja.blend"
+
+FBX export starting... 'D:/Unity/FPS-PayDayGame/Assets/Art/Veterans/Aguja.fbx'
+export finished in 0.0156 sec.
+EXPORTED Aguja parts 31 vertices 897
+
+Blender quit

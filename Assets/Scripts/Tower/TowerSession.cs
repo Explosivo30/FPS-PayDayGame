@@ -17,6 +17,7 @@ public class TowerSession : MonoBehaviour
     public int RunKills { get; private set; }
     public int RunWaves { get; private set; }
     public bool RunEnded { get; private set; }
+    public System.Action DeathPresentationOverride;
     public RunProgression Progression { get; private set; }
     public PlayerRunMenu Menu { get; private set; }
     public RunRewards Rewards { get; private set; }
@@ -55,11 +56,13 @@ public class TowerSession : MonoBehaviour
     {
         if(RunEnded||IsTransitioning)return;
         RunEnded=true;SquadManager.Instance?.ClearCombat();
+        EnemyProjectile.ClearAll();CombatHazardBudget.ResetAll();
         deathPause=RunPause.Acquire(true);Rewards?.Abort();
         ShopManager.Instance?.CloseShop();
         IsTransitioning=true;player.enabled=false;weapons.enabled=false;
         foreach(var weapon in weapons.Weapons)weapon.GetComponent<WeaponAction>()?.Cancel();
-        Menu.ShowDeath();Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
+        if(DeathPresentationOverride!=null)DeathPresentationOverride();else Menu.ShowDeath();
+        Cursor.lockState=CursorLockMode.None;Cursor.visible=true;
     }
     public bool ExitUnlocked => CurrentFloor != null && GameManager.Instance != null &&
         GameManager.Instance.CompletedWaves >= CurrentFloor.mandatoryWaves;
@@ -78,6 +81,7 @@ public class TowerSession : MonoBehaviour
     void OnDestroy() { transitionPause?.Dispose();deathPause?.Dispose();if (Instance == this) { Instance = null;RunPause.Reset(); } }
     public void EnterFloor(TowerFloor floor)
     {
+        GetComponent<MutationRun>()?.ClearWorld();
         CurrentFloor = floor;FloorVisit++;Threat?.EnterFloor(floor);
         SceneManager.SetActiveScene(floor.gameObject.scene);
         player.TeleportTo(floor.arrival.position, floor.arrival.rotation);

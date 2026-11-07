@@ -41,7 +41,7 @@ public partial class RewardPlaytest : MonoBehaviour
         yield return WaitFor(()=>TowerSession.Instance!=null&&TowerSession.Instance.CurrentFloor!=null,80,"Tower boot");
         if(TowerSession.Instance==null||TowerSession.Instance.CurrentFloor==null){Finish();yield break;}
         Bind();GameManager.Instance.StopFloor();
-        Check(rewards!=null&&rewards.catalog.Length==21,"21 configured cards and reward service in persistent core");
+        Check(rewards!=null&&rewards.catalog.Count(c=>c.kind!=RewardKind.Mutation)==21&&rewards.catalog.Count(c=>c.kind==RewardKind.Mutation)==19,"21 base cards and 19 selected mutations in persistent core");
         Check(rewards!=null&&rewards.catalog.All(c=>c.icon!=null),"Every card has a valid imported icon");
         if(rewards==null){Finish();yield break;}
         foreach(var pulse in Object.FindObjectsByType<RootPulse>(FindObjectsSortMode.None))pulse.enabled=false;
@@ -90,7 +90,7 @@ public partial class RewardPlaytest : MonoBehaviour
         var chosen=rewards.Offer[0];float beforeDamage=pistol.damage,beforeRate=pistol.fireRate;
         Check(rewards.Confirm(0)&&!rewards.Confirm(0),"Confirmation applies once even with duplicate input");
         Check(rewards.Level(chosen)==1&&GameManager.Instance.GetPlayerPoints()==money,"Card has independent rank and no chip cost");
-        Check(pistol.damage>beforeDamage||pistol.fireRate>beforeRate,"Chosen offensive card changes equipped weapon");
+        Check(chosen.kind==RewardKind.Mutation?MutationRun.For(session).Has(chosen.mutation):pistol.damage>beforeDamage||pistol.fireRate>beforeRate,"Chosen offensive card installs an ability or changes equipped weapon");
         yield return WaitIdle();
         Check(!RunPause.IsPaused&&Time.timeScale==1,"Reward releases its pause after feedback");
         Check(!rewards.QueueWave(91,1,false),"Completed token cannot be claimed again");

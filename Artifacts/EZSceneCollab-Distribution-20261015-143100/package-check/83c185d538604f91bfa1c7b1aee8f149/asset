@@ -1,0 +1,223 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using NUnit.Framework;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool.Tests
+{
+    public sealed class EZCollabPresenceTests
+    {
+        readonly List<GameObject> createdObjects = new List<GameObject>();
+
+        bool previousPointers;
+        bool previousCameras;
+        bool previousNames;
+        bool previousColors;
+
+        [SetUp]
+        public void SetUp()
+        {
+            EZCollabPresenceState.Clear();
+            previousPointers = EZCollabViewSettings.pointers;
+            previousCameras = EZCollabViewSettings.cameras;
+            previousNames = EZCollabViewSettings.names;
+            previousColors = EZCollabViewSettings.colors;
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            for (int i = 0; i < createdObjects.Count; i++)
+            {
+                if (createdObjects[i] != null)
+                    UnityEngine.Object.DestroyImmediate(createdObjects[i]);
+            }
+
+            createdObjects.Clear();
+            EZCollabPresenceState.Clear();
+            EZCollabViewSettings.pointers = previousPointers;
+            EZCollabViewSettings.cameras = previousCameras;
+            EZCollabViewSettings.names = previousNames;
+            EZCollabViewSettings.colors = previousColors;
+        }
+
+        [Test]
+        public void PresencePayload_RoundTrips_AndRejectsInvalidNumbers()
+        {
+            EZCollabPresencePayload payload = CreatePointerPayload("scene:test", 7, Vector3.one);
+            payload.hasCamera = true;
+            payload.cameraPosition = EZCollabPresencePayload.FromVector3(new Vector3(1f, 2f, 3f));
+            payload.cameraRotation = EZCollabPresencePayload.FromQuaternion(Quaternion.Euler(10f, 20f, 30f));
+            payload.cameraPivot = EZCollabPresencePayload.FromVector3(Vector3.zero);
+            payload.cameraSize = 10f;
+            payload.cameraFieldOfView = 60f;
+            payload.cameraAspect = 1.777f;
+            payload.cameraNearClip = 0.01f;
+            payload.cameraFarClip = 1000f;
+
+            EZMessage message = EZMessage.Create(EZMessageType.PresenceUpdate, "remote", payload);
+            EZCollabPresencePayload restored = message.GetPayload<EZCollabPresencePayload>();
+
+            Assert.That(restored.IsValid(), Is.True);
+            Assert.That(restored.sceneContext, Is.EqualTo("scene:test"));
+            Assert.That(restored.sampleNumber, Is.EqualTo(7));
+            Assert.That(restored.GetWorldPosition(), Is.EqualTo(Vector3.one));
+
+            restored.worldPosition[0] = float.NaN;
+            Assert.That(restored.IsValid(), Is.False);
+        }
+
+        [Test]
+        public void PointerFade_UsesLastMovement_NotKeepAliveReceipt()
+        {
+            EZCollabPresencePayload first = CreatePointerPayload("scene:test", 1, Vector3.zero);
+            Assert.That(EZCollabPresenceState.Apply("remote-fade", first, 0d), Is.True);
+
+            EZCollabPresencePayload keepAlive = Clone(first);
+            keepAlive.sampleNumber = 2;
+            Assert.That(EZCollabPresenceState.Apply("remote-fade", keepAlive, 0.8d), Is.True);
+
+            EZCollabParticipantPresence state = EZCollabPresenceState.participants["remote-fade"];
+            Assert.That(state.pointerChangedAt, Is.EqualTo(0d));
+            Assert.That(EZCollabPresenceState.GetOpacity(state, 1.5d), Is.EqualTo(1f));
+            Assert.That(EZCollabPresenceState.GetPointerOpacity(state, 1.5d), Is.EqualTo(0.75f).Within(0.001f));
+
+            EZCollabPresencePayload anotherKeepAlive = Clone(keepAlive);
+            anotherKeepAlive.sampleNumber = 3;
+            Assert.That(EZCollabPresenceState.Apply("remote-fade", anotherKeepAlive, 2.4d), Is.True);
+            Assert.That(EZCollabPresenceState.GetPointerOpacity(state, 2.4d), Is.EqualTo(0.3f).Within(0.001f));
+
+            EZCollabPresencePayload moved = Clone(anotherKeepAlive);
+            moved.sampleNumber = 4;
+            moved.worldPosition = EZCollabPresencePayload.FromVector3(Vector3.right);
+            moved.localPosition = EZCollabPresencePayload.FromVector3(Vector3.right);
+            Assert.That(EZCollabPresenceState.Apply("remote-fade", moved, 2.5d), Is.True);
+            Assert.That(EZCollabPresenceState.GetPointerOpacity(state, 2.5d), Is.EqualTo(1f));
+        }
+
+        [Test]
+        public void Presence_Expires_AllowsReconnect_AndTracksContextChange()
+        {
+            EZCollabPresencePayload payload = CreatePointerPayload("scene:first", 10, Vector3.zero);
+            Assert.That(EZCollabPresenceState.Apply("remote-expiry", payload, 0d), Is.True);
+            Assert.That(EZCollabPresenceState.RemoveExpired(2.99d), Is.Zero);
+            Assert.That(EZCollabPresenceState.RemoveExpired(3d), Is.EqualTo(1));
+            Assert.That(EZCollabPresenceState.participants.ContainsKey("remote-expiry"), Is.False);
+
+            EZCollabPresencePayload reconnect = CreatePointerPayload("scene:first", 1, Vector3.zero);
+            Assert.That(EZCollabPresenceState.Apply("remote-expiry", reconnect, 4d), Is.True,
+                "A reconnected peer must not inherit the previous sample sequence.");
+
+            EZCollabPresencePayload changedContext = Clone(reconnect);
+            changedContext.sampleNumber = 2;
+            changedContext.sceneContext = "scene:second";
+            Assert.That(EZCollabPresenceState.Apply("remote-expiry", changedContext, 5d), Is.True);
+            Assert.That(EZCollabPresenceState.participants["remote-expiry"].pointerChangedAt, Is.EqualTo(5d));
+
+            Type contextType = typeof(EZCollabPresencePublisher).Assembly.GetType("EZCollabTool.EZCollabSceneContext");
+            Assert.That(contextType, Is.Not.Null);
+            MethodInfo getCurrent = contextType.GetMethod("GetCurrent", BindingFlags.Static | BindingFlags.Public);
+            MethodInfo isCurrent = contextType.GetMethod("IsCurrent", BindingFlags.Static | BindingFlags.Public);
+            string current = (string)getCurrent.Invoke(null, null);
+            Assert.That((bool)isCurrent.Invoke(null, new object[] { current }), Is.True);
+            Assert.That((bool)isCurrent.Invoke(null, new object[] { "scene:definitely-different" }), Is.False);
+        }
+
+        [Test]
+        public void SurfacePicking_WorksForColliderMeshAndPivotFallback()
+        {
+            MethodInfo picker = typeof(EZCollabPresencePublisher).GetMethod(
+                "TryGetSurfacePoint",
+                BindingFlags.Static | BindingFlags.NonPublic);
+            Assert.That(picker, Is.Not.Null);
+
+            GameObject colliderCube = Track(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            colliderCube.transform.position = Vector3.zero;
+            Physics.SyncTransforms();
+            AssertSurfaceHit(picker, colliderCube, new Ray(Vector3.back * 5f, Vector3.forward));
+
+            GameObject meshWithoutCollider = Track(GameObject.CreatePrimitive(PrimitiveType.Cube));
+            meshWithoutCollider.transform.position = Vector3.right * 3f;
+            UnityEngine.Object.DestroyImmediate(meshWithoutCollider.GetComponent<Collider>());
+            AssertSurfaceHit(
+                picker,
+                meshWithoutCollider,
+                new Ray(meshWithoutCollider.transform.position + Vector3.back * 5f, Vector3.forward));
+
+            GameObject empty = Track(new GameObject("Presence Pivot Fallback"));
+            empty.transform.position = Vector3.left * 3f;
+            AssertSurfaceHit(
+                picker,
+                empty,
+                new Ray(empty.transform.position + Vector3.back * 5f, Vector3.forward));
+        }
+
+        [Test]
+        public void ViewPreferences_Persist_AndColorOffUsesNeutralGray()
+        {
+            EZCollabViewSettings.pointers = false;
+            EZCollabViewSettings.cameras = false;
+            EZCollabViewSettings.names = false;
+            EZCollabViewSettings.colors = false;
+
+            Assert.That(EZCollabViewSettings.pointers, Is.False);
+            Assert.That(EZCollabViewSettings.cameras, Is.False);
+            Assert.That(EZCollabViewSettings.names, Is.False);
+            Assert.That(EZCollabViewSettings.colors, Is.False);
+            Assert.That(EZCollabVisualTheme.GetPeerColor("peer-a"), Is.EqualTo(EZCollabVisualTheme.Neutral));
+            Type aliasType = typeof(EZCollabPresencePublisher).Assembly.GetType("EZCollabTool.EZCollabPeerColors");
+            MethodInfo aliasGet = aliasType?.GetMethod("Get", BindingFlags.Static | BindingFlags.Public);
+            Assert.That(aliasGet, Is.Not.Null);
+            Assert.That((Color)aliasGet.Invoke(null, new object[] { "peer-a" }), Is.EqualTo(EZCollabVisualTheme.Neutral),
+                "Hierarchy and lock indicators must obey the same local Colors toggle.");
+
+            EZCollabViewSettings.colors = true;
+            Assert.That(EZCollabVisualTheme.GetPeerColor("peer-a"), Is.Not.EqualTo(EZCollabVisualTheme.Neutral));
+        }
+
+        static EZCollabPresencePayload CreatePointerPayload(string context, long sample, Vector3 position)
+        {
+            return new EZCollabPresencePayload
+            {
+                sceneContext = context,
+                pointerObjectGuid = "object-guid",
+                hasPointer = true,
+                localPosition = EZCollabPresencePayload.FromVector3(position),
+                localNormal = EZCollabPresencePayload.FromVector3(Vector3.up),
+                worldPosition = EZCollabPresencePayload.FromVector3(position),
+                worldNormal = EZCollabPresencePayload.FromVector3(Vector3.up),
+                hasCamera = false,
+                sampleNumber = sample
+            };
+        }
+
+        static EZCollabPresencePayload Clone(EZCollabPresencePayload payload)
+        {
+            return JsonUtility.FromJson<EZCollabPresencePayload>(JsonUtility.ToJson(payload));
+        }
+
+        GameObject Track(GameObject gameObject)
+        {
+            createdObjects.Add(gameObject);
+            return gameObject;
+        }
+
+        static void AssertSurfaceHit(MethodInfo picker, GameObject target, Ray ray)
+        {
+            object[] arguments = { target, ray, null, null };
+            bool hit = (bool)picker.Invoke(null, arguments);
+            Assert.That(hit, Is.True);
+            AssertFinite((Vector3)arguments[2]);
+            AssertFinite((Vector3)arguments[3]);
+        }
+
+        static void AssertFinite(Vector3 value)
+        {
+            Assert.That(float.IsNaN(value.x) || float.IsInfinity(value.x), Is.False);
+            Assert.That(float.IsNaN(value.y) || float.IsInfinity(value.y), Is.False);
+            Assert.That(float.IsNaN(value.z) || float.IsInfinity(value.z), Is.False);
+        }
+    }
+}

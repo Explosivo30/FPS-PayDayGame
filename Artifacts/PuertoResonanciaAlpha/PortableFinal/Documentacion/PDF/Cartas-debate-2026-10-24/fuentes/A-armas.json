@@ -1,0 +1,93 @@
+{
+  "id": "A",
+  "agent": "Diseñador de armas",
+  "title": "Armas con segunda intención",
+  "thesis": "El arma gana otra forma de resolver el encuentro: dirigir un proyectil, devolver un ataque anunciado o crear un segundo ángulo de tiro. La potencia debe seguir teniendo una causa que el jugador controla. Mi base favorita es Arsenal mutante con una capa de Impulso; no sustituiría un disparo agradable por seis minijuegos simultáneos.",
+  "criteria_note": "Prima el cambio jugable perceptible, después control y lectura, después sinergias y encaje con los PDF 1/2. Coste y fiabilidad desempatan. Los valores son hipótesis; las mutaciones que ocupen el mismo comando serán alternativas, no combinaciones que se interfieran. Una carta antigua puede superar a una nueva.",
+  "cards": [
+    {
+      "id": "A1",
+      "name": "Bala de timón",
+      "trigger": "Pistola: mantén disparo para lanzar y dirigir una bala durante 0,4 s; suelta para fijar su rumbo.",
+      "effect": "El proyectil gira con tu puntería, permitiendo rodear el borde de una cobertura sin dejar de moverte.",
+      "signal": "Bala visible y estela fina que dibuja su curva.",
+      "limit": "Una bala dirigida; giro limitado, colisión real, sin seguimiento automático. Sustituye otra mutación de mantener disparo.",
+      "synergy_ids": ["P1-02"],
+      "synergy": "Fusible doble convierte un impacto indirecto preparado en una detonación posterior.",
+      "distinct_from": "Disco rebota solo; aquí pilotas la trayectoria sin rebote.",
+      "tradeoff": "Muy nueva, pero guiar puede distraer del movimiento. Complejidad alta."
+    },
+    {
+      "id": "A2",
+      "name": "Cerrojo de retorno",
+      "trigger": "Pistola cargada: mantén recarga para preparar durante 0,7 s una pequeña captura frontal.",
+      "effect": "Si un tiro enemigo cruza esa boca, se almacena; el siguiente disparo manual lo devuelve como impacto pesado.",
+      "signal": "Cerrojo abierto, chispa de captura y cartucho luminoso.",
+      "limit": "Un tiro; ocho segundos entre capturas. Solo protege ese cono; no melee ni flancos. Es una capacidad nueva, no reacción a ver viajar un raycast.",
+      "synergy_ids": ["P2-01"],
+      "synergy": "Tiro rasante ofrece una salida ofensiva después de preparar la devolución.",
+      "distinct_from": "Bobina es un objeto; esta defensa exige orientación y tiempo del arma.",
+      "tradeoff": "Riesgo de convertir a Aguja en munición fácil; fuera del primer prototipo."
+    },
+    {
+      "id": "A3",
+      "name": "Eco cruzado",
+      "trigger": "Completa una recarga, deja un eco durante 3 s y sepárate al menos 2 m.",
+      "effect": "Mantén recarga al disparar para usar ese origen en vez de tu cañón. Sueltas el modificador para disparar normalmente.",
+      "signal": "Arma hueca, línea al eco y mira que indica tiro remoto.",
+      "limit": "Un tiro, bala real y colisión desde el eco; no duplica daño ni dispara solo.",
+      "synergy_ids": ["P2-03"],
+      "synergy": "Freno abre espacio para separarte del eco.",
+      "distinct_from": "Cambias el origen del tiro, no añades daño ni dejas cortina.",
+      "tradeoff": "El nuevo modificador puede costar más de lo que aporta en una arena abierta."
+    },
+    {
+      "id": "A4",
+      "name": "Sierra de cable",
+      "trigger": "Carabina: mantén disparo tras acertar a un robot para enganchar un cable durante un segundo.",
+      "effect": "El hilo entre tu arma y ese blanco corta a robots que cruzas al desplazarte lateralmente.",
+      "signal": "Cable tenso con un borde luminoso fino.",
+      "limit": "Un hilo, tres víctimas secundarias, consumo de reserva real; se corta con pared, distancia o muerte del ancla.",
+      "synergy_ids": ["P2-03"],
+      "synergy": "Freno puede apartar una amenaza cercana mientras barres el cable.",
+      "distinct_from": "Cortina es estática; este segmento une jugador y blanco en movimiento.",
+      "tradeoff": "Debe distinguir corte de daño continuo pasivo; coste alto."
+    },
+    {
+      "id": "A5",
+      "name": "Escopeta obús",
+      "trigger": "Escopeta: mantén disparo para escoger una parábola corta; suelta para lanzar el cartucho.",
+      "effect": "El cartucho pasa sobre cobertura baja y abre una salva al primer impacto. El tiro normal cercano permanece con pulsación breve.",
+      "signal": "Guía de arco breve y lluvia compacta de metralla.",
+      "limit": "Un cartucho, trayectoria física y explosión única; techo y paredes pueden interceptarla. No es un ataque desde el cielo garantizado.",
+      "synergy_ids": ["P2-08"],
+      "synergy": "Pantalla da una ventana para preparar el arco.",
+      "distinct_from": "Martillo exige marcar; este disparo indirecto depende de tu puntería.",
+      "tradeoff": "Puede invadir el rol de la escopeta a distancia."
+    },
+    {
+      "id": "A6",
+      "name": "Trofeo de combate",
+      "trigger": "Una baja directa de pistola guarda el módulo del rol enemigo; mantener disparo permite gastarlo.",
+      "effect": "Melee: golpe cónico corto. Tirador: descarga larga que empuja. Decides qué víctima te prepara el próximo recurso.",
+      "signal": "Icono de puño o cañón y transformación breve de la boca.",
+      "limit": "Un módulo; se gasta manualmente, no genera otro. Los veteranos no dan variantes extra. Alternativa a otras cargas de pistola.",
+      "synergy_ids": ["P2-05"],
+      "synergy": "Recolector audaz hace valioso rematar cerca y después recoger.",
+      "distinct_from": "No mejora el arma de la última baja: roba una función del rol vencido.",
+      "tradeoff": "Dos estados nuevos pueden resultar menos claros que una buena transformación fija."
+    }
+  ],
+  "old_directions": [
+    {"name": "Arsenal mutante", "decision": "Base preferida", "reason": "Cámara de ariete se siente en el primer disparo, funciona con la pistola y deja elegir distancia y momento. Algunas cartas restantes repiten explosiones o vuelven secundarios los disparos normales."},
+    {"name": "Impulso de combate", "decision": "Capa complementaria", "reason": "Añade decisiones de espacio y entrada. Tiro rasante y Cámara de ariete no deben ocupar a la vez un prototipo de solo tres cartas: ambos venden perforar filas. Freno o Corte amplían más funciones."},
+    {"name": "Protocolo Dominó", "decision": "Reservar un módulo", "reason": "Circuito cerrado propone una decisión clara A-B-A; otras conexiones simultáneas requieren más lectura. Lo tomaría como carta puntual antes que convertir todo el juego en redes."},
+    {"name": "Ingeniería de chatarra", "decision": "Reservar para después", "reason": "Bomba y señuelo tienen intención visible, pero encadenar dispositivos a cada recarga puede tapar el arma y disparar demasiadas cosas sin querer. Encaja menos con la preferencia 1/2."}
+  ],
+  "provisional": {
+    "direction": "Arsenal mutante como base, movimiento como decisión opcional",
+    "prototype_ids": ["P1-01", "P2-03", "A3"],
+    "reason": "Tres verbos diferenciados desde pistola: cargar para atravesar, frenar para abrir espacio y recargar/moverse para crear fuego cruzado. Ninguna carta necesita otra para demostrar su valor.",
+    "main_objection": "Eco podría ser un segundo impacto gratuito con adornos. Debe probarse si el jugador cambia de posición deliberadamente para ganar un ángulo; si no lo hace, descartarlo antes de pulir VFX."
+  }
+}

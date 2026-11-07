@@ -1,0 +1,132 @@
+# Exact limitations
+
+This document describes EZ Scene Collab 1.1.0 as it exists today. It is part of the product specification, not a future-feature list.
+
+## Platform and version support
+
+- Windows is the only tested operating system.
+- Unity 6000.0.58f2 is the only fully verified Unity release.
+- URP 17.0.4 is present in the development project. Built-in and HDRP clean-project validation is pending.
+- ProBuilder 6.0.9 is the verified optional integration version.
+- macOS, Linux, Unity 6.5+, other ProBuilder versions, and two-physical-computer tests are not yet declared supported.
+- Host and clients must use compatible EZ Scene Collab versions. Protocol 2 rejects incompatible editors before sending scene data.
+
+## Trusted direct TCP only
+
+- The protocol is plain TCP and JSON.
+- There is no built-in account, password, authentication, TLS encryption, relay, or cloud server.
+- The host listens on all available interfaces for the selected port.
+- Anyone able to reach that port may attempt a connection.
+- Use only with trusted people on a trusted LAN or private VPN.
+- Tailscale and Hamachi are optional third-party networking products, not bundled integrations.
+- Opening a public router port is possible in ordinary network terms but is not recommended.
+
+## Host and scene model
+
+- One running Unity Editor is the authoritative host.
+- The host must keep Unity, the project, the active scene, and the EZ Scene Collab session open.
+- If the host closes or permanently stops, clients cannot continue that session without starting a new host.
+- Only the active Unity scene is synchronized.
+- Multi-scene editing, Prefab Mode, project settings, lighting settings, navigation data, and other project-level state are not declared supported.
+- The initial host snapshot is authoritative. Objects outside it may be deleted from the client's active scene.
+- The product is intended for Edit Mode scene work. Play Mode collaboration is not declared supported.
+
+## Assets are not transferred
+
+EZ Scene Collab sends references and validation information, not asset-file contents.
+
+Not transferred:
+
+- Imported meshes from Maya, Blender, FBX, or other DCC tools.
+- Textures, materials, shaders, models, animation clips, audio, scripts, assemblies, packages, TerrainData, and ScriptableObject assets.
+- Prefab files and their dependencies.
+- Source-control changes.
+
+All computers need the same files with matching Unity GUIDs. Git, Unity Version Control, or another source-control system remains necessary.
+
+An imported Maya/FBX mesh can be used safely when the same prefab and mesh asset already exist on every computer. EZ Scene Collab sends the object and asset reference, not the giant imported mesh bytes. If the asset is missing or its GUID differs, the receiving object can exist in the Hierarchy while its visible mesh, material, or script reference is unavailable.
+
+## Prefabs
+
+- A prefab instance is reconstructed from the local prefab asset.
+- The prefab path, GUID, and dependency hash are validated.
+- If the prefab or a dependency is missing or different, a warning is shown and exact reconstruction is not guaranteed.
+- Editing the prefab asset itself is not synchronized.
+- Prefab Mode is not declared supported.
+- Nested and variant prefabs require the exact same local asset graph and still need final stress testing.
+
+## Components and Inspector properties
+
+- Components are captured with Unity `EditorJsonUtility` and serialized-object references.
+- Common serialized fields, lights, colliders, renderers, and materials are expected to work.
+- Nonserialized state, static state, native editor state, custom-editor-only data, unsupported managed-reference graphs, and changes stored inside separate assets may not synchronize.
+- The component type and its assembly must exist on every computer.
+- Components that cannot be added through `AddComponent(Type)`, require special construction, or depend on missing packages can fail to reconstruct.
+- Custom editor tools that bypass normal Unity object-change and Undo events may not be observed.
+- Scene-object references resolve only when the referenced object is part of the synchronized scene state.
+
+## Meshes and ProBuilder
+
+Generated nonpersistent Unity meshes and ProBuilder meshes carry much more data than ordinary transforms.
+
+The generated mesh payload may include:
+
+- Vertex positions.
+- Normals and tangents.
+- Vertex colors.
+- UV channels 0–3.
+- Submesh topology and indices.
+- ProBuilder component data and material asset references when available.
+
+The complete generated mesh state is sent after a tracked edit; it is not a compact vertex-only delta. Dense meshes therefore increase serialization time, allocation, message size, network traffic, and receiving-editor rebuild time.
+
+A single framed message is rejected above 64 MiB. Snapshot chunks target 256 KiB and at most 32 objects; one oversized object travels alone. JSON expands geometry data, and one giant generated mesh can exceed the cooperative time budget and block the TCP stream. No maximum polygon count is guaranteed.
+
+Imported persistent meshes are not serialized as generated mesh data. They are asset references and are safe from repeated mesh transfer when every computer already has the same asset.
+
+Without ProBuilder, a received generated ProBuilder result can become a normal Unity mesh, but it cannot be edited as a ProBuilder object on that computer.
+
+## Performance and scene size
+
+- There is no “unlimited objects” or “unlimited users” guarantee.
+- Normal editing uses an in-memory GUID index and Unity object-change events rather than a complete scene search for every movement.
+- Creation queues process up to 24 objects per Editor update.
+- State queues process up to 8 ready object deltas per Editor update within a shared cooperative 2 ms outbound budget.
+- A normal state change is debounced by approximately 0.15 seconds.
+- Full snapshots require O(N) work, spread across editor updates for capture, application, reference resolution and removal.
+- Snapshot steps and chunks contain at most 32 objects; steps use a cooperative 2 ms budget.
+- Initial connection time and memory scale with object count, component data, references, and generated mesh density.
+- Latency, bandwidth, CPU, storage speed, Unity serialization, and the slowest participant can affect the experience.
+- A 10,000-object scene is not scanned on every transform. See VALIDATION_1_1.md for actual synthetic tests and outstanding production/network checks.
+- No commercial concurrency limit is enforced, but no specific simultaneous-user count has been certified.
+
+## Locks and conflicts
+
+- Locks are authoritative at the host and assigned per object.
+- A remote lock prevents normal Unity selection and transform-tool editing and restores a rejected local manipulation.
+- External editor extensions, scripts, or unusual custom tools may bypass the standard guard.
+- Locks prevent concurrent object ownership; they are not semantic merging.
+- The first request accepted by the host wins.
+- There is no manual conflict-merge UI.
+- Locks held by a disconnected client are released when the host detects the closed connection.
+
+## Undo and Redo
+
+- EZ Scene Collab publishes the resulting supported state of tracked objects after a local Undo or Redo.
+- It does not maintain one distributed Undo stack.
+- One user cannot reliably undo another user's entire transaction history.
+- Remote operations do not become a perfectly equivalent local Undo history.
+- Asset-level Undo, unsupported components, project settings, and changes bypassing Unity Undo may not propagate.
+
+## Reconnection
+
+- A client makes up to five automatic reconnection attempts.
+- Incremental recovery works only while the required revisions remain in host memory.
+- The host retains at most 4,096 state messages or about 32 million JSON payload characters.
+- If history is insufficient, the client receives a full authoritative snapshot.
+- If the host is gone, the address changes, the firewall blocks access, or five attempts fail, the session stops.
+- Unsynchronized edits made locally while disconnected must not be treated as safely merged.
+
+## Version control is still required
+
+EZ Scene Collab is a live scene-editing aid. It does not perform pull, merge, commit, push, branching, binary asset transfer, or repository conflict resolution. Save and commit the scene after a collaboration session using your normal team process.

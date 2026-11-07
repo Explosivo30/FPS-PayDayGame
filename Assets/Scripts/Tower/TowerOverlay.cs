@@ -27,5 +27,7 @@ public class TowerOverlay : MonoBehaviour
         else if (hit.collider.GetComponentInParent<ShopOpener>() != null) interactionText.text = "E   MEJORAR EQUIPO";
         else if (hit.collider.GetComponentInParent<TowerSupply>() is TowerSupply supply)
             interactionText.text = "E   " + (supply.medical ? "RECUPERAR 40 SALUD" : "REPOSICIÓN DE MUNICIÓN") + "  /  " + supply.price + " CHIPS";
+        else if (hit.collider.GetComponentInParent<ArenaPetalConductor>() is ArenaPetalConductor receiver && receiver.petal != null)
+            interactionText.text = receiver.petal.InteractionPrompt;
     }
 }

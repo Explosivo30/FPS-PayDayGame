@@ -1,0 +1,15 @@
+# Presencia y rendimiento en 1.1
+
+Durante una sesión, el overlay acoplable **EZ Scene Collab** de la Scene View ofrece cuatro controles locales: **Pointers**, **Cameras**, **Names** y **Colors**. Empiezan activados y se guardan con EditorPrefs. Desactivar Colors muestra gris neutro; los bloqueos siguen funcionando y los candados permanecen visibles.
+
+Los punteros remotos usan el GUID del objeto y un punto local para seguirlo cuando se mueve. Se prioriza la intersección con collider o mesh, con bounds o pivote del objeto seleccionado como respaldo. La captura responde al movimiento del ratón en la Scene View activa, hasta 12 veces por segundo. Navegar, salir de la vista o pasar sobre controles oculta el puntero. El keepalive cada segundo no reinicia el desvanecimiento de un puntero quieto: empieza tras un segundo de inactividad. La presencia caduca tras tres segundos sin recibir actualizaciones. Solo se muestran otros participantes en el mismo contexto de escena. Editar en Prefab Mode sigue sin estar soportado.
+
+Las cámaras muestran un icono y un frustum representativo. No incluyen Follow User. Ocultar nombres no oculta la lista de participantes.
+
+La sincronización inicial bloquea la edición únicamente del cliente que entra. La captura y aplicación trabajan con hasta 32 elementos por actualización y un presupuesto cooperativo de 2 ms. La lista estable de objetos evita saltarse hermanos cuando cambia la jerarquía. Los padres se envían antes que los hijos; los materiales se deduplican y llegan primero. Los chunks tienen hasta 32 objetos y apuntan a unos 256 KiB. Un objeto enorme viaja solo.
+
+Los cambios posteriores al punto inicial se reproducen antes de habilitar la edición. Crear, borrar y cambiar componentes o materiales conserva orden fiable. Las transformaciones pendientes del mismo objeto y la presencia de una persona conservan solo la muestra más reciente. La presencia queda fuera de snapshots, Undo y recuperación.
+
+Mover un objeto usa su índice GUID y un delta pequeño, sin recorrer la escena ni volver a enviar la mesh. Editar una mesh generada aún envía su geometría completa. Un componente costoso o una mesh enorme puede superar el presupuesto cooperativo y bloquear brevemente el stream TCP. La fragmentación genérica queda pendiente.
+
+El objetivo es 10.000 GameObjects y ocho participantes, p95 del plugin inferior a 3 ms y latencia visual LAN inferior a 200 ms. Son objetivos de aceptación, no garantías para cualquier hardware, mesh o componente. Consulta [la validación](../VALIDATION_1_1.md) para distinguir pruebas automáticas de comprobaciones pendientes entre ordenadores físicos.

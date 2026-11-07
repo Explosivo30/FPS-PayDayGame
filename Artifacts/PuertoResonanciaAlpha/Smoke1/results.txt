@@ -1,0 +1,13 @@
+PASS The alpha district loads its real playable core
+PASS Normal smoke does not enable the QA encounter branch
+PASS Normal player motor and weapon input remain enabled
+PASS Normal startup contains one real player and no tower waves
+PASS Normal startup populates the district with real robots
+PASS Normal arsenal exposes machine gun, pistol and knife while shotgun is a milestone reward
+PASS The actual district pipeline is active in quality and graphics settings
+PASS Real player cameras and renderers receive the district style
+PASS The actual actor shader is supported
+PASS Actual player cameras use renderer zero of the local pipeline
+INFO RENDER pipeline=District pipeline, actorShader=Shader Graphs/ToonShader, styledRenderers=114, cameras=2; visual quality still requires screenshot review.
+PASS Normal framebuffer capture includes the gameplay HUD
+ERRORS

@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "cores": 3,
+    "bestFloor": 3,
+    "unlocked": [],
+    "discoveries": [
+        "LaboratoryFloor",
+        "RoboticForest",
+        "CrystalGarden"
+    ],
+    "awarded": [
+        "f833d5a3c02c4223bc7c117dc712fc12/0",
+        "f833d5a3c02c4223bc7c117dc712fc12/1",
+        "f833d5a3c02c4223bc7c117dc712fc12/2"
+    ]
+}

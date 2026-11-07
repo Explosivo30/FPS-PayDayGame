@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa7a8dc039cb54885cbcf3627787cb, type: 3}
+  m_Name: EmergencyBrake
+  m_EditorClassIdentifier: 
+  id: mutation_EmergencyBrake
+  title: Freno de emergencia
+  weaponId: 
+  description: Terminar el deslizamiento genera una onda frontal que aparta enemigos
+    y abre una salida.
+  activationHint: "Alcance 3 m \xB7 recuperaci\xF3n 5 s \xB7 sin invulnerabilidad"
+  icon: {fileID: 21300000, guid: aec48c9728350e140b2c8f955fd7712d, type: 3}
+  group: 2
+  kind: 8
+  stat: 0
+  mutation: 8
+  special: 0
+  maxLevel: 1
+  value: 0
+  secondaryValue: 0

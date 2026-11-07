@@ -1,0 +1,462 @@
+Mono path[0] = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/Managed'
+Mono config path = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/MonoBleedingEdge/etc'
+Found 3 interfaces on host : 0) 192.168.1.42 1) 192.168.163.1 2) 192.168.235.1
+Player connection [46276]  Target information:
+
+Player connection [46276]  * "[IP] 192.168.1.42 [Port] 55000 [Flags] 2 [Guid] 1268262271 [EditorId] 1776901612 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [46276]  * "[IP] 192.168.163.1 [Port] 55000 [Flags] 2 [Guid] 1268262271 [EditorId] 1776901612 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [46276]  * "[IP] 192.168.235.1 [Port] 55000 [Flags] 2 [Guid] 1268262271 [EditorId] 1776901612 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [46276] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/UnitySubsystems
+kGfxThreadingModeSplitJobs is not supported on Direct3D 11. Reverting to kGfxThreadingModeClientWorkerJobs instead.
+GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.631 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+UnloadTime: 5.330900 ms
+RenderGraph is now enabled.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/UniversalRenderPipeline.cs:259)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/Data/UniversalRenderPipelineAsset.cs:793)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline () (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineAsset.cs:15)
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:165)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:139)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA STYLE: original ToonShader graph + original AnimeTonemapper shader; local renderer on 2 player cameras.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictVisuals/<Start>d__25:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Tower/AlphaDistrictVisuals.cs:58)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The alpha district loads its real playable core
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both real fracture systems are prepared before the encounter
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The level exposes six authored districts
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:106)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Exactly one real player is loaded
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The district does not run tower wave progression
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:108)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The three spatial milestones start incomplete
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:109)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual district pipeline is active in quality and graphics settings
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:557)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player cameras and renderers receive the district style
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:559)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual actor shader is supported
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:560)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual player cameras use renderer zero of the local pipeline
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:566)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO RENDER pipeline=District pipeline, actorShader=Shader Graphs/ToonShader, styledRenderers=43, cameras=2; visual quality still requires screenshot review.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:567)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.B
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:155)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:466)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO collapse-view enters zone=0 phase=collapse-view-via-B position=(0.000,1.090,-43.000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:522)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:240)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO collapse-view enters zone=1 phase=collapse-view-via-B position=(-28.546,1.090,-37.297)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:522)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:240)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches collapse-view-via-B without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:242)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO collapse-view enters zone=4 phase=collapse-view-BE-ramp position=(-36.121,1.856,12.232)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:522)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:240)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches collapse-view-BE-ramp without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:242)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Lateral collapse view reached at (-35.098,4.523,20.234), fixed gaze=(-12.000,6.000,19.000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:476)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual weapon fire severs lateral-gantry-support
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:379)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO lateral-gantry-support structural shots=4; robots and hazards remain active.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:380)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual weapon fire severs lateral-gantry-support
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:379)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO lateral-gantry-support structural shots=4; robots and hazards remain active.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:380)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Lateral warning capture at (-35.058,4.627,20.547), safetyBlocked=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:489)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Lateral midfall capture at (-35.058,4.627,20.547), load descent=4.014
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:495)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Lateral settled capture at (-35.058,4.627,20.547), safetyBlocked=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:502)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Focused live observation settles the gantry once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:509)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Focused observation records warning and a real four-metre descent before settling
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:510)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO collapse-view: seconds=15.747, metres=93.572, damage=0.000, gameHealing=0.000, alive=8; focused event evidence, no objective-completion or human-fun assertion.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<CollapseView>d__68:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:511)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA DISTRICT INTEGRATION COMPLETE: 28 entries, 0 errors. This does not measure human fun.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Finish () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:639)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+PlayerConnection::CleanupInternal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793000944132,"processId":30340,"allocatedMemory":112447,"memoryLabels":[{"Default":136},{"Thread":8960},{"Manager":9451},{"VFX":-104},{"GfxDevice":72},{"GfxThread":26880},{"Serialization":520},{"JobScheduler":59152},{"String":356},{"HashMap":3584},{"PoolAlloc":192},{"VR":1792},{"Video":144},{"NativeArray":648},{"Subsystems":96},{"Gui":448},{"CoreBusinessMetrics":120}]}

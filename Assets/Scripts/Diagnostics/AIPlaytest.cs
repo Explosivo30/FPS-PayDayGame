@@ -94,15 +94,16 @@ public partial class AIPlaytest : MonoBehaviour
         Check(a.Navigation.Decisions<15,"Navigation decisions are staggered rather than calculated every frame");
         Clear();yield return null;
         a=Spawn(false,8,true,true);Set(a.Ranged,"cooldown",0f);
-        yield return Until(()=>a.Ranged.IsAttacking,3,"Veteran starts announced burst");
+        yield return Until(()=>a.Ranged.IsTargetLocked,3,"Aguja completes tracking and locks announced laser");
         Vector3 locked=a.Ranged.CommittedTarget;int shots=a.Ranged.ShotsFired;
         player.TeleportTo(home+Vector3.right*2,Quaternion.identity);
         using(var pause=RunPause.Acquire(false))
-        {yield return new WaitForSecondsRealtime(.6f);Check(a.Ranged.ShotsFired==shots,"Pause freezes veteran burst windup");}
-        yield return Until(()=>a.Ranged.ShotsFired>=2,3,"Veteran fires two rounds");
-        Check(a.Ranged.CommittedTarget==locked,"Burst stays committed to pre-dodge target");
-        yield return new WaitForSeconds(.15f);start=a.transform.position;yield return new WaitForSeconds(.8f);
-        Check(Vector3.Distance(a.transform.position,start)>.2f,"Veteran repositions after burst");
+        {yield return new WaitForSecondsRealtime(.6f);Check(a.Ranged.ShotsFired==shots,"Pause freezes Aguja locked warning");}
+        yield return Until(()=>a.Ranged.LaserShotsFired==1,3,"Aguja fires one precision laser");
+        Check(a.Ranged.CommittedTarget==locked,"Laser stays committed to pre-dodge target");
+        yield return Until(()=>!a.Ranged.IsAttacking,3,"Aguja completes visible recovery");
+        start=a.transform.position;yield return new WaitForSeconds(.8f);
+        Check(Vector3.Distance(a.transform.position,start)>.2f,"Aguja repositions after recovery");
         Clear();yield return null;player.TeleportTo(home,Quaternion.identity);
         foreach(bool blocked in new[]{false,true})
         {

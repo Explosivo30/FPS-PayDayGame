@@ -1,0 +1,362 @@
+using System;
+using System.IO;
+using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public class EZCollabClient
+    {
+        const int ConnectTimeoutMilliseconds = 10000;
+        const int HandshakeTimeoutMilliseconds = 10000;
+        const int InitialSyncTimeoutMilliseconds = 120000;
+
+        TcpClient client;
+        NetworkStream stream;
+        CancellationTokenSource cts;
+        SemaphoreSlim sendLock;
+        TaskCompletionSource<bool> sessionHelloReceived;
+        TaskCompletionSource<bool> initialSyncReceived;
+        volatile bool connected;
+        volatile bool unexpectedDisconnect;
+        volatile bool handshakeFailed;
+
+        sealed class NetworkReadBuffer
+        {
+            public readonly byte[] length = new byte[4];
+            public byte[] payload = new byte[32768];
+        }
+
+        public readonly EZCollabMessageInbox incomingMessages = new EZCollabMessageInbox();
+
+        public bool isConnected => connected;
+        public bool connectionLostUnexpectedly => unexpectedDisconnect;
+        public bool hasCompletedHandshake =>
+            sessionHelloReceived != null && sessionHelloReceived.Task.Status == TaskStatus.RanToCompletion;
+        public bool isSynchronizing =>
+            connected && (initialSyncReceived == null || !initialSyncReceived.Task.IsCompleted);
+        public string lastConnectionError { get; private set; }
+        public string remotePackageVersion { get; private set; }
+        public EZCollabCapabilities remoteCapabilities { get; private set; }
+
+        public async Task<bool> Connect(string host, int port, long lastSequence = 0)
+        {
+            cts = new CancellationTokenSource();
+            sendLock = new SemaphoreSlim(1, 1);
+            sessionHelloReceived =
+                new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+            initialSyncReceived =
+                new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+            unexpectedDisconnect = false;
+            handshakeFailed = false;
+            lastConnectionError = string.Empty;
+            remotePackageVersion = string.Empty;
+            remoteCapabilities = EZCollabCapabilities.None;
+            incomingMessages.Clear();
+
+            client = new TcpClient();
+            client.NoDelay = true;
+
+            try
+            {
+                Task connectTask = client.ConnectAsync(host, port);
+                Task connectTimeout = Task.Delay(ConnectTimeoutMilliseconds, cts.Token);
+                Task completedConnectTask = await Task.WhenAny(connectTask, connectTimeout);
+                if (completedConnectTask != connectTask)
+                    throw new TimeoutException("Connection timed out after 10 seconds.");
+
+                await connectTask;
+                stream = client.GetStream();
+                connected = true;
+
+                PeerPayload peerPayload = new PeerPayload
+                {
+                    peerId = EZCollabState.localPeerId,
+                    peerName = EZCollabState.localPeerName,
+                    lastSequence = lastSequence,
+                    protocolVersion = EZProtocol.CurrentProtocolVersion,
+                    packageVersion = EZProtocol.PackageVersion,
+                    capabilities = EZProtocol.CurrentCapabilities
+                };
+                EZMessage joinMessage = EZMessage.Create(EZMessageType.PeerJoined, EZCollabState.localPeerId, peerPayload);
+                await Send(joinMessage);
+
+                _ = Task.Run(ReceiveLoop);
+
+                await WaitFor(
+                    sessionHelloReceived.Task,
+                    HandshakeTimeoutMilliseconds,
+                    "The host did not send a compatible EZ Scene Collab handshake within 10 seconds.");
+                await WaitFor(
+                    initialSyncReceived.Task,
+                    InitialSyncTimeoutMilliseconds,
+                    "The host did not complete synchronization within 120 seconds.");
+                _ = Task.Run(HeartbeatLoop);
+                return true;
+            }
+            catch (Exception exception)
+            {
+                if (string.IsNullOrEmpty(lastConnectionError))
+                    lastConnectionError = exception.Message;
+                Debug.LogError(EZCollabLocalization.Tr(EZCollabText.ConnectionFailedLog, lastConnectionError));
+                Disconnect();
+                return false;
+            }
+        }
+
+        public void Disconnect()
+        {
+            unexpectedDisconnect = false;
+            connected = false;
+            cts?.Cancel();
+            incomingMessages.Clear();
+
+            try
+            {
+                client?.Close();
+            }
+            catch
+            {
+            }
+        }
+
+        public async Task Send(EZMessage message)
+        {
+            if (!connected || stream == null || cts == null || message == null) return;
+
+            bool lockAcquired = false;
+            try
+            {
+                await sendLock.WaitAsync(cts.Token);
+                lockAcquired = true;
+
+                byte[] payloadBytes = message.ToBytes();
+                byte[] lengthBytes = BitConverter.GetBytes(payloadBytes.Length);
+                if (!BitConverter.IsLittleEndian)
+                    Array.Reverse(lengthBytes);
+
+                await stream.WriteAsync(lengthBytes, 0, lengthBytes.Length, cts.Token);
+                await stream.WriteAsync(payloadBytes, 0, payloadBytes.Length, cts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(EZCollabLocalization.Tr(EZCollabText.SendFailedLog, exception.Message));
+            }
+            finally
+            {
+                if (lockAcquired)
+                    sendLock.Release();
+            }
+        }
+
+        async Task ReceiveLoop()
+        {
+            NetworkReadBuffer readBuffer = new NetworkReadBuffer();
+
+            try
+            {
+                while (!cts.Token.IsCancellationRequested && connected)
+                {
+                    EZMessage message = await ReadMessage(readBuffer, cts.Token);
+                    if (message == null) break;
+
+                    if (message.type == EZMessageType.ConnectionRejected)
+                    {
+                        ConnectionRejectedPayload rejection = message.GetPayload<ConnectionRejectedPayload>();
+                        string reason;
+                        if (rejection != null &&
+                            (rejection.expectedProtocolVersion != EZProtocol.CurrentProtocolVersion ||
+                             rejection.receivedProtocolVersion != EZProtocol.CurrentProtocolVersion))
+                        {
+                            reason = EZCollabLocalization.Tr(
+                                EZCollabText.HostRejectedProtocol,
+                                rejection.packageVersion ?? "unknown",
+                                rejection.expectedProtocolVersion,
+                                EZProtocol.PackageVersion,
+                                EZProtocol.CurrentProtocolVersion);
+                        }
+                        else
+                        {
+                            reason = rejection?.reason;
+                            if (string.IsNullOrWhiteSpace(reason))
+                            {
+                                reason = EZCollabLocalization.Tr(
+                                    EZCollabText.HostRejectedProtocol,
+                                    rejection?.packageVersion ?? "unknown",
+                                    rejection?.expectedProtocolVersion ?? 0,
+                                    EZProtocol.PackageVersion,
+                                    EZProtocol.CurrentProtocolVersion);
+                            }
+                        }
+
+                        FailHandshake(reason);
+                        break;
+                    }
+
+                    if (message.type == EZMessageType.SessionHello)
+                    {
+                        if (!AcceptSessionHello(message))
+                            break;
+                        continue;
+                    }
+
+                    if (!hasCompletedHandshake)
+                    {
+                        FailHandshake(EZCollabLocalization.Tr(
+                            EZCollabText.OldHostProtocol,
+                            EZProtocol.PackageVersion));
+                        break;
+                    }
+
+                    incomingMessages.Enqueue(message);
+                    if (message.type == EZMessageType.RecoveryComplete)
+                        initialSyncReceived.TrySetResult(true);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (EZCollabInboxOverflowException exception)
+            {
+                FailHandshake(exception.Message);
+            }
+            catch (Exception exception) when (!cts.Token.IsCancellationRequested)
+            {
+                if (!(exception is IOException))
+                    Debug.LogWarning(EZCollabLocalization.Tr(EZCollabText.ReceiveFailedLog, exception.Message));
+            }
+            finally
+            {
+                bool wasUnexpected = !cts.Token.IsCancellationRequested;
+                connected = false;
+
+                if (!sessionHelloReceived.Task.IsCompleted)
+                {
+                    if (string.IsNullOrEmpty(lastConnectionError))
+                        lastConnectionError = "The host closed the connection before completing the protocol handshake.";
+                    sessionHelloReceived.TrySetException(new IOException(lastConnectionError));
+                    initialSyncReceived.TrySetCanceled();
+                }
+                else if (!initialSyncReceived.Task.IsCompleted)
+                {
+                    if (string.IsNullOrEmpty(lastConnectionError))
+                        lastConnectionError = "The host closed the connection before synchronization completed.";
+                    initialSyncReceived.TrySetException(new IOException(lastConnectionError));
+                }
+
+                if (wasUnexpected && !handshakeFailed)
+                    unexpectedDisconnect = true;
+            }
+        }
+
+        bool AcceptSessionHello(EZMessage message)
+        {
+            SessionHelloPayload hello = message.GetPayload<SessionHelloPayload>();
+            if (hello == null)
+            {
+                FailHandshake(EZCollabLocalization.Tr(
+                    EZCollabText.OldHostProtocol,
+                    EZProtocol.PackageVersion));
+                return false;
+            }
+
+            if (hello.protocolVersion != EZProtocol.CurrentProtocolVersion)
+            {
+                FailHandshake(EZCollabLocalization.Tr(
+                    EZCollabText.IncompatibleProtocol,
+                    EZProtocol.CurrentProtocolVersion,
+                    EZProtocol.PackageVersion,
+                    hello.protocolVersion,
+                    hello.packageVersion ?? "unknown"));
+                return false;
+            }
+
+            remotePackageVersion = hello.packageVersion ?? string.Empty;
+            remoteCapabilities = hello.capabilities;
+            sessionHelloReceived.TrySetResult(true);
+            return true;
+        }
+
+        void FailHandshake(string error)
+        {
+            handshakeFailed = true;
+            lastConnectionError = error;
+            sessionHelloReceived.TrySetException(new InvalidDataException(error));
+            initialSyncReceived.TrySetCanceled();
+
+            try
+            {
+                client?.Close();
+            }
+            catch
+            {
+            }
+        }
+
+        async Task<EZMessage> ReadMessage(NetworkReadBuffer buffer, CancellationToken token)
+        {
+            int read = await ReadExact(stream, buffer.length, 4, token);
+            if (read == 0) return null;
+
+            if (!BitConverter.IsLittleEndian)
+                Array.Reverse(buffer.length);
+
+            int length = BitConverter.ToInt32(buffer.length, 0);
+            if (length <= 0 || length > EZMessage.MaxPayloadBytes)
+                throw new InvalidOperationException($"Invalid payload length: {length}.");
+
+            if (buffer.payload.Length < length)
+                buffer.payload = new byte[length];
+
+            read = await ReadExact(stream, buffer.payload, length, token);
+            return read == 0 ? null : EZMessage.FromBytes(buffer.payload, length);
+        }
+
+        static async Task<int> ReadExact(NetworkStream networkStream, byte[] buffer, int count, CancellationToken token)
+        {
+            int totalRead = 0;
+            while (totalRead < count)
+            {
+                int read = await networkStream.ReadAsync(buffer, totalRead, count - totalRead, token);
+                if (read == 0) return 0;
+                totalRead += read;
+            }
+
+            return totalRead;
+        }
+
+        async Task WaitFor(Task task, int timeoutMilliseconds, string timeoutMessage)
+        {
+            Task timeout = Task.Delay(timeoutMilliseconds, cts.Token);
+            Task completed = await Task.WhenAny(task, timeout);
+            if (completed != task)
+            {
+                cts.Token.ThrowIfCancellationRequested();
+                throw new TimeoutException(timeoutMessage);
+            }
+
+            await task;
+        }
+
+        async Task HeartbeatLoop()
+        {
+            try
+            {
+                while (!cts.Token.IsCancellationRequested && connected)
+                {
+                    await Task.Delay(5000, cts.Token);
+                    EZMessage heartbeat = EZMessage.Create(EZMessageType.Heartbeat, EZCollabState.localPeerId, null);
+                    await Send(heartbeat);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+    }
+}

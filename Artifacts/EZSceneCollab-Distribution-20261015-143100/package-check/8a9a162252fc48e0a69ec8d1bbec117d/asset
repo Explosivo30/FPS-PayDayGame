@@ -1,0 +1,131 @@
+# EZ Scene Collab 1.1.0 — Manual en español
+
+Consulta [Presencia y rendimiento en 1.1](PRESENCE_PERFORMANCE.md) para los controles de la Scene View, sincronización incremental y compatibilidad del protocolo.
+
+EZ Scene Collab permite que compañeros de confianza editen juntos la escena activa desde distintos Unity Editors. Un Editor aloja la sesión y mantiene el estado autoritativo; los demás se conectan como clientes mediante LAN o una VPN privada. No es necesario entrar en Play Mode.
+
+> Seguridad: la versión 1.1.0 utiliza TCP sin cifrado ni autenticación integrada. Úsala solamente con colaboradores de confianza en una LAN segura o VPN privada.
+
+## Requisitos verificados
+
+- Windows es el único sistema operativo probado.
+- Unity 6000.0.58f2 es la versión de Unity verificada actualmente.
+- Todos deben usar la misma versión de Unity, EZ Scene Collab, revisión y rama del proyecto, escena activa, scripts, assets y packages compatibles.
+- El puerto predeterminado es `9876`. Puedes elegir otro puerto TCP libre.
+- ProBuilder es opcional. El núcleo funciona sin ProBuilder y sin Newtonsoft.Json.
+- ProBuilder 6.0.9 es la versión verificada actualmente para la integración opcional.
+
+Consulta [COMPATIBILITY.md](COMPATIBILITY.md) antes de publicar o comprar basándote en otra configuración.
+
+## Instalación
+
+1. Haz una copia de seguridad o commit del proyecto.
+2. En Unity, abre `Assets > Import Package > Custom Package`.
+3. Selecciona el `.unitypackage` de EZ Scene Collab.
+4. Importa la carpeta completa `Assets/EZSceneCollab`.
+5. Espera a que Unity termine de compilar.
+6. Abre `Window > EZ Scene Collab`.
+
+Una instalación nueva usa inglés por defecto. Puedes cambiar a español en la parte superior de la ventana. La elección se guarda localmente.
+
+## Antes de cada sesión
+
+1. Detén cualquier sesión anterior de EZ Scene Collab.
+2. Guarda y haz commit o copia de seguridad de la escena.
+3. Confirma que todos tengan la misma rama y commit.
+4. Abre la misma escena activa en cada ordenador.
+5. Soluciona primero los scripts ausentes y errores de compilación.
+6. Comprueba que los packages y GUID de assets coincidan.
+7. Decide quién será el host.
+8. Es preferible utilizar una LAN de confianza, Tailscale o Hamachi antes que un puerto público.
+
+La escena activa del cliente se reconcilia con el snapshot inicial del host. Los objetos que no estén en el estado autoritativo del host pueden eliminarse de la escena activa del cliente; por eso es importante tener una copia.
+
+## Inicio rápido
+
+### Host
+
+1. Abre la escena que será autoritativa.
+2. Abre `Window > EZ Scene Collab`.
+3. Escribe un nombre de participante reconocible.
+4. Introduce el puerto TCP, normalmente `9876`.
+5. Activa o desactiva la integración opcional de ProBuilder antes de empezar.
+6. Pulsa **Iniciar sesión como host**.
+7. Comparte con los clientes la dirección LAN, Tailscale o Hamachi y el puerto.
+8. Mantén Unity y la escena abiertos durante toda la sesión.
+
+### Cliente
+
+1. Abre la misma revisión del proyecto y la misma escena activa que el host.
+2. Abre `Window > EZ Scene Collab`.
+3. Escribe un nombre reconocible.
+4. Introduce la dirección del host y el mismo puerto.
+5. Usa la configuración de ProBuilder prevista para la sesión.
+6. Pulsa **Unirse a la sesión**.
+7. Espera a que termine el snapshot inicial antes de editar.
+
+Consulta [NETWORKING.md](NETWORKING.md) para configurar LAN, Tailscale, Hamachi o redirección de puertos.
+
+## Qué se sincroniza
+
+- Posición, rotación y escala.
+- Nombre y estado activo del GameObject.
+- Padre y orden entre hermanos.
+- Creación y eliminación de GameObjects, primitivas de Unity e instancias de prefab.
+- Componentes serializados y propiedades del Inspector compatibles con la serialización del Editor de Unity.
+- Referencias habituales a materiales, luces, colliders, objetos de escena y assets.
+- El estado compatible resultante después de un Undo o Redo detectado.
+- Locks remotos, participantes y colores de propietarios.
+- Snapshot inicial y revisiones de reconexión.
+- Advertencias de assets ausentes, movidos o diferentes.
+
+## Locks y conflictos
+
+Al seleccionar o editar un objeto disponible se solicita su lock. El host decide quién es el propietario de cada lock.
+
+- Tus propios objetos bloqueados no se colorean.
+- Los objetos bloqueados por otro participante reciben el color fantasma de esa persona.
+- Un objeto bloqueado remotamente deja de poder seleccionarse y moverse con las herramientas de Unity.
+- La selección de caras, aristas y vértices se limpia si otra persona posee un objeto ProBuilder compatible.
+- Gana el primer lock aceptado por el host. Una manipulación local rechazada se restaura.
+- Deselecciona el objeto al terminar para enviar el estado final y liberar el lock.
+
+Si dos usuarios actúan casi a la vez, esperad el resultado del lock en lugar de seguir editando. Si un lock parece atascado, comprueba la conexión del propietario, deselecciona y reconecta si es necesario. El host libera los locks de un cliente cuando su conexión se cierra.
+
+## Reconexión
+
+Un cliente desconectado realiza hasta cinco intentos. El primero es inmediato y los siguientes esperan cada vez más.
+
+Si el host conserva el historial necesario, envía únicamente las revisiones posteriores a la última secuencia del cliente. El host guarda como máximo 4.096 mensajes de estado o aproximadamente 32 millones de caracteres JSON. Si el historial ya no basta, se envía un snapshot autoritativo completo.
+
+Después de cinco intentos fallidos se detiene la sesión del cliente. Abre de nuevo la ventana y vuelve a entrar tras comprobar la dirección, el puerto, la VPN y el firewall.
+
+## Integración opcional de ProBuilder
+
+ProBuilder se detecta automáticamente. Con una instalación compatible de ProBuilder 6.x, la integración puede activarse o desactivarse antes de la sesión.
+
+La integración escucha las ediciones terminadas y envía el estado del componente ProBuilder junto con la mesh Unity generada: posiciones, normales, tangentes, colores, canales UV 0–3, topología de submeshes e índices. Los assets de material deben seguir existiendo con el mismo GUID en todos los ordenadores. Se sincronizan sus propiedades serializadas —incluidos colores, texturas, shader cuando esté disponible, keywords y ajustes de renderizado—, pero no se transfieren los archivos del asset.
+
+Sin ProBuilder, EZ Scene Collab se importa y funciona. Una mesh ProBuilder generada recibida puede visualizarse como mesh normal de Unity, pero no podrá editarse con las herramientas de ProBuilder en ese ordenador.
+
+Para añadir un objeto ProBuilder real a la demo, instala una versión compatible y usa `GameObject > EZ Scene Collab > ProBuilder Demo Object`.
+
+## Escena demo
+
+Abre:
+
+`Assets/EZSceneCollab/Samples/Demo/Scenes/EZSceneCollab_Demo.unity`
+
+La demo incluye primitivas normales, una instancia de prefab, dos materiales, una luz, colliders, pruebas de jerarquía y activación, estaciones de locks y un marcador de ProBuilder. Funciona sin tener ProBuilder. Sigue los objetos numerados de la jerarquía y utiliza dos Editors para probar el flujo completo.
+
+## Índice de documentación
+
+- [Red y conexiones](NETWORKING.md)
+- [Limitaciones exactas](LIMITATIONS.md)
+- [Solución de problemas, actualización y desinstalación](TROUBLESHOOTING.md)
+- [Matriz de compatibilidad](COMPATIBILITY.md)
+- [Privacidad y datos de red](PRIVACY.md)
+- [Soporte](SUPPORT.md)
+- [Añadir otro idioma](../ADDING_LANGUAGES.md)
+- [Changelog](../../CHANGELOG.md)
+- [Documentación en inglés](../README.md)

@@ -1,0 +1,726 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 31965 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-11-02T21:41:27Z
+[Licensing::IpcConnector] Channel LicenseClient-Edgar doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 1604)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
+-batchmode
+-projectPath
+C:\Users\Edgar.DESKTOP-BOONDKL\.codex\visualizations\2026\10\29\01a189e4-ccd6-73d2-a757-94fc2d2924b2\PrintStyleLab
+-executeMethod
+TelltaleBuild.Lighting
+-quit
+-logFile
+D:\Unity\FPS-PayDayGame\Artifacts\TelltaleEngraving\02-lighting.log
+Successfully changed project path to: C:\Users\Edgar.DESKTOP-BOONDKL\.codex\visualizations\2026\10\29\01a189e4-ccd6-73d2-a757-94fc2d2924b2\PrintStyleLab
+C:/Users/Edgar.DESKTOP-BOONDKL/.codex/visualizations/2026/10/29/01a189e4-ccd6-73d2-a757-94fc2d2924b2/PrintStyleLab
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [19244]  Target information:
+
+Player connection [19244]  * "[IP] 192.168.1.42 [Port] 55504 [Flags] 2 [Guid] 2684052988 [EditorId] 2684052988 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [19244]  * "[IP] 192.168.163.1 [Port] 55504 [Flags] 2 [Guid] 2684052988 [EditorId] 2684052988 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [19244]  * "[IP] 192.168.235.1 [Port] 55504 [Flags] 2 [Guid] 2684052988 [EditorId] 2684052988 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [19244] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [19244] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar" at "2026-11-02T21:41:28.1864366Z"
+[Package Manager] Connected to IPC stream "Upm-33636" after 0.2 seconds.
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Edgar.DESKTOP-BOONDKL/.codex/visualizations/2026/10/29/01a189e4-ccd6-73d2-a757-94fc2d2924b2/PrintStyleLab/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 1604, path: "C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.2+ff71f16
+  Session Id:              052333e495184dd0a60f46c5bc7bf54e
+  Correlation Id:          fd7f0ef20271c64a2e80d507f3ac1730
+  External correlation Id: 4322195831934965226
+  Machine Id:              GTtX45YE0smgG5i7T1mWzstN3XQ=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Edgar" (connect: 0.25s, validation: 0.04s, handshake: 0.25s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar-notifications" at "2026-11-02T21:41:28.4694071Z"
+[Licensing::Module] Connected to LicensingClient (PId: 1604, launch time: 0.00, total connection time: 0.53s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
+[Licensing::Client] Successfully updated license, isAsync: False, time: 0.03
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56636
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Licensing Background thread has ended after 0.58s
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Registered in 0.038597 seconds.
+- Loaded All Assemblies, in  0.339 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.219 seconds
+Domain Reload Profiling: 552ms
+	BeginReloadAssembly (120ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (78ms)
+	LoadAllAssembliesAndSetupDomain (102ms)
+		LoadAssemblies (114ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (100ms)
+			TypeCache.Refresh (99ms)
+				TypeCache.ScanAssembly (90ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (219ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (194ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (39ms)
+			ProcessInitializeOnLoadAttributes (92ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 58 packages:
+  Built-in packages:
+    com.unity.modules.accessibility@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+  Local packages:
+    com.unity.ai.navigation@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc)
+    com.unity.cinemachine@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.cinemachine@624f919d8cdd (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.cinemachine@624f919d8cdd)
+    com.unity.collab-proxy@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad)
+    com.unity.ide.visualstudio@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13)
+    com.unity.inputsystem@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.multiplayer.center@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997)
+    com.unity.test-framework@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework@1f954279c37e (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework@1f954279c37e)
+    com.unity.timeline@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.timeline@6b9e48457ddb (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.timeline@6b9e48457ddb)
+    com.unity.ugui@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ugui@aa507f3228f0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ugui@aa507f3228f0)
+    com.unity.visualscripting@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.visualscripting@6279e2b7c485 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.visualscripting@6279e2b7c485)
+    com.unity.burst@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.burst@f7a407abf4d5 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.burst@f7a407abf4d5)
+    com.unity.collections@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collections@56bff8827a7e (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collections@56bff8827a7e)
+    com.unity.ext.nunit@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ext.nunit@031a54704bff (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.mathematics@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.mathematics@8017b507cc74 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.nuget.mono-cecil@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f)
+    com.unity.render-pipelines.core@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74)
+    com.unity.render-pipelines.universal-config@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+    com.unity.searcher@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.searcher@1e17ce91558d (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.settings-manager@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.settings-manager@41738c275190 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.settings-manager@41738c275190)
+    com.unity.shadergraph@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88)
+    com.unity.splines@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.splines@b909627b5095 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.splines@b909627b5095)
+    com.unity.test-framework.performance@file:D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.03 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/Edgar.DESKTOP-BOONDKL/.codex/visualizations/2026/10/29/01a189e4-ccd6-73d2-a757-94fc2d2924b2/PrintStyleLab
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s226ms
+[660/844    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.20 seconds), 1 items updated, 844 evaluated
+AssetDatabase: script compilation time: 0.641486s
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+- Loaded All Assemblies, in  0.870 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 0.82 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.020 seconds
+Domain Reload Profiling: 3874ms
+	BeginReloadAssembly (278ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (131ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (113ms)
+	LoadAllAssembliesAndSetupDomain (418ms)
+		LoadAssemblies (353ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (168ms)
+			TypeCache.Refresh (126ms)
+				TypeCache.ScanAssembly (119ms)
+			BuildScriptInfoCaches (33ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (3020ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2860ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (169ms)
+			ProcessInitializeOnLoadAttributes (2498ms)
+			ProcessInitializeOnLoadMethodAttributes (147ms)
+			AfterProcessingInitializeOnLoad (23ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (37ms)
+Start importing Assets/Rendering/TelltaleEngraving/Shaders/TEInput.hlsl using Guid(13046e2870e42f44da8496dbd655c264) (ShaderIncludeImporter)There are inconsistent line endings in the 'Assets/Rendering/TelltaleEngraving/Shaders/TEInput.hlsl' shader include file. Some are Mac OS X (UNIX) and some are Windows.
+This might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands.
+ -> (artifact id: '3a45740c9981047ad83f01eb5873fe4d') in 0.009839 seconds
+Start importing Assets/Rendering/TelltaleEngraving/Shaders/TelltaleCharacter.shader using Guid(80a667873318c244cbe73e88a0dfdc04) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+There are inconsistent line endings in the 'Assets/Rendering/TelltaleEngraving/Shaders/TelltaleCharacter.shader' script. Some are Mac OS X (UNIX) and some are Windows.
+This might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands.
+ -> (artifact id: '35fed7a08b7c0d597e082e2dd6c7a5a9') in 0.0583913 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+ArgumentException: The specified path is not of a legal form (empty).
+  at System.IO.Path.InsecureGetFullPath (System.String path) [0x00025] in <152439c387994a8da523328132967f8d>:0 
+  at System.IO.Path.GetFullPath (System.String path) [0x00000] in <152439c387994a8da523328132967f8d>:0 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.TryGetVisualStudioInstallationForPath (System.String editorPath, System.Boolean lookupDiscoveredInstallations, Microsoft.Unity.VisualStudio.Editor.IVisualStudioInstallation& installation) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:100 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.SyncIfNeeded (System.String[] addedFiles, System.String[] deletedFiles, System.String[] movedFiles, System.String[] movedFromFiles, System.String[] importedFiles) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:171 
+  at UnityEditor.CodeEditorProjectSync.PostprocessSyncProject (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromAssetPaths) [0x0000b] in <5818bc53b12b4560b54110897827736e>:0 
+  at UnityEditor.AssetPostprocessingInternal.PostprocessAllAssets (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromPathAssets, System.Boolean didDomainReload) [0x00173] in <5818bc53b12b4560b54110897827736e>:0 
+
+(Filename: D:/Unity/FPS-PayDayGame/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13/Editor/VisualStudioEditor.cs Line: 100)
+
+Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=40a22f4107c381c45b9f6798e22b1e17): Total: 5.373 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=2 ms, native=3502 ms
+		Asset DB Callback time: managed=209 ms, native=78 ms
+		Scripting: domain reloads=1, domain reload time=870 ms, compile time=643 ms, other=67 ms
+		Project Asset Count: scripts=1272, non-scripts=2598
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 43.730ms
+	ApplyChangesToAssetFolders: 2.596ms
+	Scan: 81.177ms
+	OnSourceAssetsModified: 0.776ms
+	CategorizeAssetsWithTransientArtifact: 43.261ms
+	ProcessAssetsWithTransientArtifactChanges: 59.064ms
+	CategorizeAssets: 38.496ms
+	ImportOutOfDateAssets: 3099.068ms (2383.110ms without children)
+		ImportManagerImport: 70.394ms (1.339ms without children)
+			ImportInProcess: 68.916ms
+			UpdateCategorizedAssets: 0.140ms
+		CompileScripts: 642.808ms
+		ReloadNativeAssets: 0.048ms
+		UnloadImportedAssets: 1.278ms
+		ReloadImportedAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.955ms
+		InitializingProgressBar: 0.012ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.463ms
+	PostProcessAllAssets: 254.109ms
+	Hotreload: 3.018ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.189ms
+	PersistCurrentRevisions: 0.148ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 2.035ms
+	Untracked: 1747.337ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 16.875ms
+Initializing Unity extensions:
+ArgumentException: The specified path is not of a legal form (empty).
+  at System.IO.Path.InsecureGetFullPath (System.String path) [0x00025] in <152439c387994a8da523328132967f8d>:0 
+  at System.IO.Path.GetFullPath (System.String path) [0x00000] in <152439c387994a8da523328132967f8d>:0 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.TryGetVisualStudioInstallationForPath (System.String editorPath, System.Boolean lookupDiscoveredInstallations, Microsoft.Unity.VisualStudio.Editor.IVisualStudioInstallation& installation) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:100 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.SyncAll () [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:197 
+  at UnityEditor.CodeEditorProjectSync.SyncEditorProject () [0x0000b] in <5818bc53b12b4560b54110897827736e>:0 
+
+(Filename: D:/Unity/FPS-PayDayGame/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13/Editor/VisualStudioEditor.cs Line: 100)
+
+Assertion failed on expression: 'SUCCEEDED(hr)'
+Assertion failed on expression: 'SUCCEEDED(hr)'
+Assertion failed on expression: 'ERROR_SUCCESS == status'
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-RobotGame
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Curl error 7: Failed to connect to config.uca.cloud.unity3d.com port 443 after 1 ms: Could not connect to server
+Unloading 56 Unused Serialized files (Serialized files now loaded: 0)
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Unloading 6474 unused Assets / (16.5 MB). Loaded Objects now: 7090.
+Memory consumption went from 204.6 MB to 188.1 MB.
+Total: 10.301400 ms (FindLiveObjects: 0.575400 ms CreateObjectMapping: 0.698900 ms MarkObjects: 4.245500 ms  DeleteObjects: 4.780900 ms)
+
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+[Licensing::Client] Error: Code 404 while processing request (status: Found 0 entitlement groups and 0 free entitlements matching requested entitlement ids)
+[Licensing::Module] Error: 'com.unity.editor.headless' was not found.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (39.8 KB). Loaded Objects now: 7094.
+Memory consumption went from 181.4 MB to 181.3 MB.
+Total: 4.962500 ms (FindLiveObjects: 0.256500 ms CreateObjectMapping: 0.134700 ms MarkObjects: 4.550500 ms  DeleteObjects: 0.020300 ms)
+
+Asset Pipeline Refresh (id=c489f0d1c4e928c4b818847939f11a03): Total: 0.057 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=aea18fe4092441c43a5e453c7d9d6aa9): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0eab86ac1325ca2499f237022dd54777): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=80248d7763ada6247aff060d7d5c00d1): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d7bff6f0100fc1740aa8aed7d532c852): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=01a43ca1582e4e04c83fe47bd7adc7c3): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c0232f8a7a16c584f9852c73d2fc7ca6): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d884f92272bf08349b289e26dac96e97): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a309e4c4ceb25384c8c4e1505cdd4391): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=68d776840aa252c459eb5aefa571f9dc): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8f1aa489c0497354d935547b578af91e): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=9046232533d6dd143a2a125ab7d1e0d8): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e53cd47203e82934ab13fd02bc3254e9): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2adc313dbca95bb43bfaf08e47da858d): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=85314008c9e43d142aff087f5dc2f07a): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c92ae9c0222c02549ba679ab17f0b8e9): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=25342448d71e2f74086aa395f7f255f0): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a212e3ade4addd845a0f9701c57c0765): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=facb43eaaafe75743a473f4c8d68deb0): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d81b505bb255af74fbc08ef59299c8f8): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e23682171e456ae44aa1dcf01a2710a7): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f4b426bc84484fe4e8e7297540d7792b): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d362b57fc3b432047914f3b0644f3712): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d256f9c7138d3d54a82306b3fc4f2ae3): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c3fef6cf09a31b646a0e2fccc0e7fba3): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=53cd30a3c6dfa784898eff1d6e451e74): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=60c8950f1cfe7e543b0758e50f8bc411): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e0a8983f5c7494a4cac0091692ca7cdf): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=dea8b03f1f0bb774babe34cb379977de): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=414bec97872ffd8469eb1b531d74554b): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=96bff9faadf728448a24e2ef64ffbebe): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b81988718f4c89d4dbec43ab5aa82b38): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c764bdd2b1937604ba01a224efc11601): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a5d0b2daa7824e9459a44ba37929e00b): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=80d294df5bf70b549993152bb3871ecc): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=486ca34ceb74c4e4a81d95b300853a12): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d41d8ad79bdf11145aefaff703a2f081): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=20b8112b193848e40b457226f5bdd799): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0f04e434e0d46864d9fcc2190eebe24b): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=501696e0b66476c4bae45bacab1ec3bc): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=20a34c85612722648a90ff87d8c3a801): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=cbf68a394b040bf48adacf01a52b4d7c): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=fcf90eb2a57959d459b67e3d38f546bb): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b3655c0035919a74e9047f1fb6ffaf9d): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c4b7cfacddb4a9342a5ce3243a66439f): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2f62010edbd0d4642aa72dd554b09a48): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a95bce5bf16e3fd499971765ebedcd8b): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c260d9c4b2dcabf4b9219c713637911e): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f989312c1672b56489d8c6bcfb039b55): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=dd624f83738148b4a9529f473afd994f): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c422b6e717c025b41bc88b36e984a182): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=08e30f03e08dc804fb1b5d0f56e72278): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e5f2b5c8636301b42ab3ceb1cd18c1ff): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=287dbae75f3936846ac899856dcd96ca): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f1807eae6f9fac645981684d45ef9208): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ee1f113880be4974189d0171e561c24c): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d507db7b06b21fd40b675e333b59c346): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6230d2311a389b949b65918738466f40): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7a94f01bd48f69947ac883690a161312): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6bae2446035ca0348965b67fa82de40d): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4bae58dc549864a49a2c2b3c6689587e): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=eacc0df9d20b1ce41b54d7c9a8f13417): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=379e68c18621e9c499ba31d14388962f): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4e9264d2ed0344d4eaa8c183f1dd80e0): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=74c9c7f820ca7ee4abfc1b59657f83e9): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=23512ed963574514cb49cfdf1d60ae7b): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5fbd850ff218464418b2511213789801): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=73669daf3f983214b99d25dce61d8dcd): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6b46ecde333658448ae4f0960e13811f): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a4bf0727f0dcc37438f27c0032fed8ff): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c67b51e8a15ebca419b9f78f89a5e5c4): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=aff860f53c1423743b3b5a2d03c271d4): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=bfd00449150821c4086406919bc59650): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f19d48795a0bda244b848fd43f643ab5): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=89786d79c51e5f549a03fb81720bf8eb): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ad8f0c84426a9354c8e4f727d5646489): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=fca913d32fed6c04ca8eaf85a4a74833): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=284fa03ec7227cd489daf7adf5b0ad68): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=36602d1d3f325f948ace1d72cedcacca): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=bed845395e8b7c8479a6fd32e86003a9): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1df4a014dc9c1904c8da8a19a274ed3f): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4de23e5c14d35044da20d80dd4e5cbc8): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a4868566aaa76974693721850b6c0436): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d1c1d12aa66afd4428b7e3015c41defd): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ec26e49b3486a0f4aa4ef2f91d1770ce): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1b33e050b0636a64aa6d6293d1545fde): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2d8bfafc4d432414a8f17ee34e51dd44): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=3094e8a747f18044bac9855de4f61a20): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=535bc6d65b392ea4eb2a5276f57b686f): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=71ad04c47ffc29041b334ae51c9bab1e): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=15a7f57372c141747b2f0904de3fd27f): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=93981eb3d1031e74e944577571b30f22): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7012c51cdef767d46aafd937c6d037d3): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6a6dc483e2b3456429e47209248a0190): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a4a51cc04f01a9642bcca71c59fad857): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1c5dbec1e0219e74097c7151dadcd078): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b28890ba28bf2fa439c41ae1adb34760): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=118b9cd9bd8810641b6109057f27d447): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7477b097ae8cd9346acd50f955c7ba2f): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5f7ddf4a6665b9a4d948d660005d9e19): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2fccb8e196ee4aa4e9c84659e8b0abf6): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d951e80e237d8fd43adbf3a3dce67f7c): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=232422f858dcf3146b859fbe510b73c1): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6debfabc06267804aab15171535111a2): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f931e8e15bd664d4db48debdbba96dbc): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6569a501446a2b74b9fa982553bb690c): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ad96e87440a646c40b6a83a410f4d5cd): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=41874e0615cf9aa438b13d91d91e9bb2): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7bd07d7d89e27224eae2d667e7d90e71): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4eb6ad8d65a9d5f4ca8cbd560368864d): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5ab89ca151879384eb016ba8d8f3b632): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a0ba1d67ad30f2d47b8b0136314941ef): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=593550df7fd058746bf3be538364d78f): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ea4b8c0449f3fcf478b2b1b8bc6b52e7): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c3efcd39be2b8584eb1128205ea73c36): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6006020a37e769c42a984bc13c3adfc1): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=fed1db6dbac710149a39bde17267e3f3): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=11a99047336a24d42a47526216327d42): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=370a10c13d40c2d46912b0a297a5c4d3): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=588f6925fc4f4c24db36ff41d9119925): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e8c54c0c8e7731f408e5b3546befb32e): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=203b16b8f5b2c7746ab9b7e28a81b4f3): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b7790cb6de6e9f941967a64277bd401f): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=dbc16137a1afdc44bb48158f52131212): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=422622b1213cd724fa8793362d60378e): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=381f48fc62d79c149a695242a3a8528d): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4386c761e8b57b34996706605baa1c0f): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=045a4b58b7ceebc4e910c2fd5d355730): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c36d02183f5d7f5449c37777290cf5c1): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=aebe611837ddb8641a4445f817268ef4): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f3c4e9bceb350474299db9ebcde9a5c0): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0634a2cf59f29c4429b28697cb6ca33e): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing ProjectSettings/QualitySettings.asset using Guid(00000000000000009000000000000000) (LibraryAssetImporter) -> (artifact id: 'cf849bd8b8c13aea2ff95359f759e46c') in 0.0067229 seconds
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '1580e6fc36a1b5ab62b3d5128c36b5a5') in 0.0019885 seconds
+ArgumentException: The specified path is not of a legal form (empty).
+  at System.IO.Path.InsecureGetFullPath (System.String path) [0x00025] in <152439c387994a8da523328132967f8d>:0 
+  at System.IO.Path.GetFullPath (System.String path) [0x00000] in <152439c387994a8da523328132967f8d>:0 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.TryGetVisualStudioInstallationForPath (System.String editorPath, System.Boolean lookupDiscoveredInstallations, Microsoft.Unity.VisualStudio.Editor.IVisualStudioInstallation& installation) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:100 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.SyncIfNeeded (System.String[] addedFiles, System.String[] deletedFiles, System.String[] movedFiles, System.String[] movedFromFiles, System.String[] importedFiles) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:171 
+  at UnityEditor.CodeEditorProjectSync.PostprocessSyncProject (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromAssetPaths) [0x0000b] in <5818bc53b12b4560b54110897827736e>:0 
+  at UnityEditor.AssetPostprocessingInternal.PostprocessAllAssets (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromPathAssets, System.Boolean didDomainReload) [0x00173] in <5818bc53b12b4560b54110897827736e>:0 
+UnityEditor.AssetDatabase:SaveAssets()
+TelltaleBuild:Generate(Int32) (at Assets\Rendering\TelltaleEngraving\Editor\TelltaleBuild.cs:82)
+TelltaleBuild:Lighting() (at Assets\Rendering\TelltaleEngraving\Editor\TelltaleBuild.cs:21)
+
+(Filename: D:/Unity/FPS-PayDayGame/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13/Editor/VisualStudioEditor.cs Line: 100)
+
+Refreshing native plugins compatible for Editor in 0.80 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8ed4ea5029bcea64e92f0aefcd9cceb0): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Rendering/TelltaleEngraving/TelltaleComparison.unity using Guid(3d766ab071f984b498e6eafe548a3728) (DefaultImporter) -> (artifact id: 'c32e4571d0a3132593248d959bb036ec') in 0.000904 seconds
+ArgumentException: The specified path is not of a legal form (empty).
+  at System.IO.Path.InsecureGetFullPath (System.String path) [0x00025] in <152439c387994a8da523328132967f8d>:0 
+  at System.IO.Path.GetFullPath (System.String path) [0x00000] in <152439c387994a8da523328132967f8d>:0 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.TryGetVisualStudioInstallationForPath (System.String editorPath, System.Boolean lookupDiscoveredInstallations, Microsoft.Unity.VisualStudio.Editor.IVisualStudioInstallation& installation) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:100 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.SyncIfNeeded (System.String[] addedFiles, System.String[] deletedFiles, System.String[] movedFiles, System.String[] movedFromFiles, System.String[] importedFiles) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:171 
+  at UnityEditor.CodeEditorProjectSync.PostprocessSyncProject (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromAssetPaths) [0x0000b] in <5818bc53b12b4560b54110897827736e>:0 
+  at UnityEditor.AssetPostprocessingInternal.PostprocessAllAssets (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromPathAssets, System.Boolean didDomainReload) [0x00173] in <5818bc53b12b4560b54110897827736e>:0 
+UnityEditor.SceneManagement.EditorSceneManager:SaveSceneInternal_Injected(Scene&, ManagedSpanWrapper&, Boolean)
+UnityEditor.SceneManagement.EditorSceneManager:SaveSceneInternal(Scene, String, Boolean)
+UnityEditor.SceneManagement.EditorSceneManager:SaveScene(Scene, String, Boolean)
+UnityEditor.SceneManagement.EditorSceneManager:SaveScene(Scene, String)
+TelltaleBuild:Generate(Int32) (at Assets\Rendering\TelltaleEngraving\Editor\TelltaleBuild.cs:83)
+TelltaleBuild:Lighting() (at Assets\Rendering\TelltaleEngraving\Editor\TelltaleBuild.cs:21)
+
+(Filename: D:/Unity/FPS-PayDayGame/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13/Editor/VisualStudioEditor.cs Line: 100)
+
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=be4d9c3ffbcd04f40abecb8aaf29ac4f): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+TELLTALE STAGE COMPLETE
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TelltaleBuild:Generate (int) (at Assets/Rendering/TelltaleEngraving/Editor/TelltaleBuild.cs:103)
+TelltaleBuild:Lighting () (at Assets/Rendering/TelltaleEngraving/Editor/TelltaleBuild.cs:21)
+
+(Filename: Assets/Rendering/TelltaleEngraving/Editor/TelltaleBuild.cs Line: 103)
+
+Batchmode quit successfully invoked - shutting down!
+Start importing ProjectSettings/QualitySettings.asset using Guid(00000000000000009000000000000000) (LibraryAssetImporter) -> (artifact id: '9d20282e68ede075b6fca7c73d0979f5') in 0.0025704 seconds
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: 'e3c02c2bce691c8b9a71fe37c400e6ac') in 0.0019665 seconds
+ArgumentException: The specified path is not of a legal form (empty).
+  at System.IO.Path.InsecureGetFullPath (System.String path) [0x00025] in <152439c387994a8da523328132967f8d>:0 
+  at System.IO.Path.GetFullPath (System.String path) [0x00000] in <152439c387994a8da523328132967f8d>:0 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.TryGetVisualStudioInstallationForPath (System.String editorPath, System.Boolean lookupDiscoveredInstallations, Microsoft.Unity.VisualStudio.Editor.IVisualStudioInstallation& installation) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:100 
+  at Microsoft.Unity.VisualStudio.Editor.VisualStudioEditor.SyncIfNeeded (System.String[] addedFiles, System.String[] deletedFiles, System.String[] movedFiles, System.String[] movedFromFiles, System.String[] importedFiles) [0x00000] in D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13\Editor\VisualStudioEditor.cs:171 
+  at UnityEditor.CodeEditorProjectSync.PostprocessSyncProject (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromAssetPaths) [0x0000b] in <5818bc53b12b4560b54110897827736e>:0 
+  at UnityEditor.AssetPostprocessingInternal.PostprocessAllAssets (System.String[] importedAssets, System.String[] addedAssets, System.String[] deletedAssets, System.String[] movedAssets, System.String[] movedFromPathAssets, System.Boolean didDomainReload) [0x00173] in <5818bc53b12b4560b54110897827736e>:0 
+
+(Filename: D:/Unity/FPS-PayDayGame/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13/Editor/VisualStudioEditor.cs Line: 100)
+
+Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d3a59a1d59a9e6e449f43bd157f1b9d8): Total: 0.087 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Edgar-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Edgar channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

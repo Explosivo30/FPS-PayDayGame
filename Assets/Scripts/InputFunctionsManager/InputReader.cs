@@ -15,6 +15,7 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
 
     public bool isAttacking = false;
     public bool isCrouching = false;
+    public bool isJumping { get; private set; }
 
     InputSystem_Actions controls;
     void Start()
@@ -54,6 +55,8 @@ public class InputReader : MonoBehaviour,InputSystem_Actions.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(context.started)isJumping=true;
+        if(context.canceled)isJumping=false;
         if(context.started)
         {
             JumpEvent?.Invoke();

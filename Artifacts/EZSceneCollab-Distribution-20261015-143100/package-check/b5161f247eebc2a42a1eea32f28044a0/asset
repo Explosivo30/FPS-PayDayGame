@@ -1,0 +1,361 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public class EZCollabWindow : EditorWindow
+    {
+        string peerName = "";
+        string hostIp = "";
+        int port = 9876;
+        bool isConnecting;
+        Vector2 scrollPosition;
+
+        [MenuItem("Window/EZ Scene Collab")]
+        static void Open()
+        {
+            GetWindow<EZCollabWindow>("EZ Scene Collab");
+        }
+
+        void OnEnable()
+        {
+            peerName = "User";
+            EZCollabSession.stateChanged += Repaint;
+            EZCollabState.changed += Repaint;
+            EZCollabLocalization.languageChanged += Repaint;
+            EZCollabIntegrations.changed += Repaint;
+        }
+
+        void OnDisable()
+        {
+            EZCollabSession.stateChanged -= Repaint;
+            EZCollabState.changed -= Repaint;
+            EZCollabLocalization.languageChanged -= Repaint;
+            EZCollabIntegrations.changed -= Repaint;
+        }
+
+        void OnGUI()
+        {
+            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+            DrawLanguageSelector();
+
+            if (EZCollabState.inSession)
+                DrawSessionView();
+            else
+                DrawConnectView();
+            EditorGUILayout.EndScrollView();
+        }
+
+        void DrawLanguageSelector()
+        {
+            IReadOnlyList<EZCollabLanguage> languages = EZCollabLocalization.GetLanguages();
+            if (languages.Count == 0)
+                return;
+
+            string[] names = new string[languages.Count];
+            int currentIndex = 0;
+            for (int i = 0; i < languages.Count; i++)
+            {
+                names[i] = languages[i].displayName;
+                if (languages[i].code == EZCollabLocalization.currentCode)
+                    currentIndex = i;
+            }
+
+            int selectedIndex = EditorGUILayout.Popup(
+                EZCollabLocalization.Tr(EZCollabText.Language),
+                currentIndex,
+                names);
+            if (selectedIndex != currentIndex)
+                EZCollabLocalization.SetLanguage(languages[selectedIndex].code);
+        }
+
+        void DrawConnectView()
+        {
+            GUILayout.Space(8);
+            EditorGUILayout.LabelField("EZ Scene Collab", EditorStyles.boldLabel);
+            GUILayout.Space(4);
+
+            peerName = EditorGUILayout.TextField(EZCollabLocalization.Tr(EZCollabText.YourName), peerName);
+            port = EditorGUILayout.IntField(EZCollabLocalization.Tr(EZCollabText.Port), port);
+
+            GUILayout.Space(8);
+            EditorGUILayout.LabelField(EZCollabLocalization.Tr(EZCollabText.Host), EditorStyles.boldLabel);
+
+            if (!isConnecting && GUILayout.Button(EZCollabLocalization.Tr(EZCollabText.StartHost)))
+            {
+                if (!ValidateNameAndPort())
+                    return;
+
+                bool started = EZCollabSession.StartHost(peerName.Trim(), port);
+                if (!started)
+                {
+                    EditorUtility.DisplayDialog(
+                        "EZ Scene Collab",
+                        EZCollabLocalization.Tr(EZCollabText.OpenPortFailed, port),
+                        EZCollabLocalization.Tr(EZCollabText.Ok));
+                }
+            }
+
+            GUILayout.Space(8);
+            EditorGUILayout.LabelField(EZCollabLocalization.Tr(EZCollabText.Client), EditorStyles.boldLabel);
+            hostIp = EditorGUILayout.TextField(EZCollabLocalization.Tr(EZCollabText.HostAddress), hostIp);
+
+            if (!isConnecting && GUILayout.Button(EZCollabLocalization.Tr(EZCollabText.Join)))
+            {
+                if (!ValidateNameAndPort())
+                    return;
+                if (string.IsNullOrWhiteSpace(hostIp))
+                {
+                    EditorUtility.DisplayDialog(
+                        "EZ Scene Collab",
+                        EZCollabLocalization.Tr(EZCollabText.EnterHost),
+                        EZCollabLocalization.Tr(EZCollabText.Ok));
+                    return;
+                }
+
+                ConnectAsClient();
+            }
+
+            if (isConnecting)
+            {
+                EditorGUILayout.HelpBox(
+                    EZCollabLocalization.Tr(EZCollabText.Connecting),
+                    MessageType.Info);
+            }
+
+            DrawIntegrationSettings(true);
+        }
+
+        bool ValidateNameAndPort()
+        {
+            if (string.IsNullOrWhiteSpace(peerName))
+            {
+                EditorUtility.DisplayDialog(
+                    "EZ Scene Collab",
+                    EZCollabLocalization.Tr(EZCollabText.EnterName),
+                    EZCollabLocalization.Tr(EZCollabText.Ok));
+                return false;
+            }
+
+            if (port < 1 || port > 65535)
+            {
+                EditorUtility.DisplayDialog(
+                    "EZ Scene Collab",
+                    EZCollabLocalization.Tr(EZCollabText.InvalidPort),
+                    EZCollabLocalization.Tr(EZCollabText.Ok));
+                return false;
+            }
+
+            return true;
+        }
+
+        async void ConnectAsClient()
+        {
+            isConnecting = true;
+            Repaint();
+
+            bool connected = await EZCollabSession.JoinAsClient(peerName.Trim(), hostIp.Trim(), port);
+            isConnecting = false;
+
+            if (!connected)
+            {
+                EditorUtility.DisplayDialog(
+                    "EZ Scene Collab",
+                    string.IsNullOrEmpty(EZCollabSession.lastConnectionError)
+                        ? EZCollabLocalization.Tr(EZCollabText.ConnectFailed, hostIp, port)
+                        : EZCollabSession.lastConnectionError,
+                    EZCollabLocalization.Tr(EZCollabText.Ok));
+            }
+
+            Repaint();
+        }
+
+        void DrawIntegrationSettings(bool editable)
+        {
+            GUILayout.Space(10);
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(EZCollabText.Integrations),
+                EditorStyles.boldLabel);
+
+            bool compatible = EZCollabIntegrations.proBuilderCompatible;
+            bool enabled = EZCollabIntegrations.proBuilderEnabled;
+            using (new EditorGUI.DisabledScope(!editable || !compatible))
+            {
+                bool selected = EditorGUILayout.Toggle(
+                    EZCollabLocalization.Tr(EZCollabText.ProBuilderSync),
+                    enabled);
+                if (selected != enabled)
+                    EZCollabIntegrations.proBuilderEnabled = selected;
+            }
+
+            string version = EZCollabIntegrations.proBuilderVersion;
+            if (!EZCollabIntegrations.proBuilderInstalled)
+            {
+                EditorGUILayout.HelpBox(
+                    EZCollabLocalization.Tr(EZCollabText.ProBuilderNotInstalled),
+                    MessageType.Info);
+            }
+            else if (!compatible)
+            {
+                EditorGUILayout.HelpBox(
+                    EZCollabLocalization.Tr(EZCollabText.ProBuilderUnsupported, version),
+                    MessageType.Warning);
+            }
+            else
+            {
+                EditorGUILayout.HelpBox(
+                    EZCollabLocalization.Tr(
+                        enabled ? EZCollabText.ProBuilderActive : EZCollabText.ProBuilderDisabled,
+                        version),
+                    MessageType.Info);
+            }
+
+            if (!editable)
+            {
+                EditorGUILayout.LabelField(
+                    EZCollabLocalization.Tr(EZCollabText.SettingsLockedInSession),
+                    EditorStyles.miniLabel);
+            }
+        }
+
+        void DrawSessionView()
+        {
+            GUILayout.Space(8);
+
+            string role = EZCollabLocalization.Tr(
+                EZCollabState.isHost ? EZCollabText.HostRole : EZCollabText.ClientRole);
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(EZCollabText.ActiveSession, role),
+                EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(EZCollabText.You, EZCollabState.localPeerName));
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(
+                    EZCollabText.IndexedObjects,
+                    EZCollabState.guidToObject.Count,
+                    EZCollabState.lastServerSequence),
+                EditorStyles.miniLabel);
+
+            if (EZCollabSession.isReconnecting)
+            {
+                EditorGUILayout.HelpBox(
+                    EZCollabLocalization.Tr(EZCollabText.Reconnecting),
+                    MessageType.Warning);
+            }
+
+            if (EZCollabState.isHost)
+            {
+                int count = EZCollabSession.server?.clientCount ?? 0;
+                EditorGUILayout.LabelField(
+                    EZCollabLocalization.Tr(EZCollabText.ConnectedClients, count));
+            }
+
+            if (EZCollabSession.isSynchronizing)
+            {
+                Rect progressRect = EditorGUILayout.GetControlRect(false, 20f);
+                EditorGUI.ProgressBar(progressRect, EZCollabSession.synchronizationProgress,
+                    EZCollabLocalization.Tr(EZCollabText.Synchronizing,
+                        Mathf.RoundToInt(EZCollabSession.synchronizationProgress * 100f)));
+            }
+
+            GUILayout.Space(6);
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(EZCollabText.SessionPeers),
+                EditorStyles.boldLabel);
+
+            if (EZCollabState.connectedPeers.Count == 0)
+            {
+                EditorGUILayout.LabelField(
+                    EZCollabLocalization.Tr(EZCollabText.NobodyElse),
+                    EditorStyles.miniLabel);
+            }
+            else
+            {
+                foreach (KeyValuePair<string, string> pair in EZCollabState.connectedPeers)
+                    DrawPeerLabel(pair.Key, pair.Value);
+            }
+
+            GUILayout.Space(6);
+            EditorGUILayout.LabelField(
+                EZCollabLocalization.Tr(EZCollabText.ActiveLocks),
+                EditorStyles.boldLabel);
+
+            bool anyLocks = false;
+            foreach (KeyValuePair<string, string> pair in EZCollabState.lockedObjects)
+            {
+                if (!EZCollabState.guidToObject.TryGetValue(pair.Key, out GameObject go) || go == null)
+                    continue;
+
+                string ownerName = EZCollabState.GetLockOwnerName(pair.Key) ?? pair.Value;
+                string marker = pair.Value == EZCollabState.localPeerId
+                    ? EZCollabLocalization.Tr(EZCollabText.YouMarker)
+                    : "";
+                EditorGUILayout.LabelField($"  {go.name} → {ownerName}{marker}", EditorStyles.miniLabel);
+                anyLocks = true;
+            }
+
+            if (!anyLocks)
+            {
+                EditorGUILayout.LabelField(
+                    EZCollabLocalization.Tr(EZCollabText.None),
+                    EditorStyles.miniLabel);
+            }
+
+            if (EZCollabState.assetWarnings.Count > 0)
+            {
+                GUILayout.Space(6);
+                EditorGUILayout.LabelField(
+                    EZCollabLocalization.Tr(
+                        EZCollabText.AssetWarnings,
+                        EZCollabState.assetWarnings.Count),
+                    EditorStyles.boldLabel);
+
+                int displayed = 0;
+                foreach (string warning in EZCollabState.assetWarnings)
+                {
+                    EditorGUILayout.HelpBox(warning, MessageType.Warning);
+                    if (++displayed >= 5)
+                        break;
+                }
+
+                if (EZCollabState.assetWarnings.Count > displayed)
+                {
+                    EditorGUILayout.LabelField(
+                        EZCollabLocalization.Tr(
+                            EZCollabText.MoreWarnings,
+                            EZCollabState.assetWarnings.Count - displayed),
+                        EditorStyles.miniLabel);
+                }
+
+                if (GUILayout.Button(EZCollabLocalization.Tr(EZCollabText.ClearWarnings)))
+                    EZCollabState.assetWarnings.Clear();
+            }
+
+            DrawIntegrationSettings(false);
+            GUILayout.FlexibleSpace();
+
+            if (GUILayout.Button(EZCollabLocalization.Tr(EZCollabText.StopSession)) &&
+                EditorUtility.DisplayDialog(
+                    "EZ Scene Collab",
+                    EZCollabLocalization.Tr(EZCollabText.StopConfirmation),
+                    EZCollabLocalization.Tr(EZCollabText.Yes),
+                    EZCollabLocalization.Tr(EZCollabText.Cancel)))
+            {
+                EZCollabSession.Stop();
+            }
+
+            GUILayout.Space(4);
+        }
+
+        static void DrawPeerLabel(string peerId, string displayName)
+        {
+            Rect row = EditorGUILayout.GetControlRect(false, EditorGUIUtility.singleLineHeight);
+            Rect swatch = new Rect(row.x + 2f, row.y + 3f, 10f, 10f);
+            EditorGUI.DrawRect(swatch, EZCollabPeerColors.Get(peerId));
+            EditorGUI.LabelField(
+                new Rect(row.x + 18f, row.y, row.width - 18f, row.height),
+                displayName);
+        }
+    }
+}

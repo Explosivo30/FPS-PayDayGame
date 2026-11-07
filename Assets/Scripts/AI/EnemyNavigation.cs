@@ -6,7 +6,9 @@ public sealed class EnemyNavigation : MonoBehaviour
     NormalEnemyStateMachine owner;EnemyPerception senses;NavMeshAgent agent;
     NavMeshPath path;
     Vector3 destination;bool hasDestination,forceMove;float nextDecision,searchAngle,moveUntil;
+    FoundryCombatSector Sector => GetComponent<FoundrySectorMember>()?.sector;
     public int Decisions { get; private set; }
+    public bool GroundPlaneMeleeApproach { get; set; }
     public Vector3 Destination=>destination;
     ThreatProfile Profile=>senses.Profile;
     void Awake()
@@ -24,7 +26,19 @@ public sealed class EnemyNavigation : MonoBehaviour
         nextDecision=Time.time+Profile.decisionInterval+Mathf.Abs(GetInstanceID()%5)*.017f;Decisions++;
         Vector3 target=senses.LastKnown;
         float distance=Vector3.Distance(transform.position,target);
-        if(melee&&senses.Visible&&canEngage&&distance<3.5f)
+        // Foundry guards contest a readable part of the level instead of all chasing the arrival.
+        // This restriction belongs to this scene; ordinary robots retain their previous navigation.
+        var sector=Sector;
+        if(!melee&&sector!=null&&(!senses.Visible||forceMove))
+        {
+            if(sector.TryPosition(owner,target,forceMove,out var point)&&Move(point,Profile.slotDistance))
+            {forceMove=false;moveUntil=Time.time+1.3f;return;}
+            Stop();return;
+        }
+        // A raised target can leave a melee robot stopped on its approach ramp.
+        // The foundry opts into horizontal approach distance; attack contact still uses real height and LOS.
+        float approachDistance=melee&&GroundPlaneMeleeApproach?Vector3.ProjectOnPlane(transform.position-target,Vector3.up).magnitude:distance;
+        if(melee&&senses.Visible&&canEngage&&approachDistance<3.5f)
         {
             Vector3 side=Vector3.Cross(Vector3.up,(transform.position-target).normalized);
             Move(target+side*(SquadManager.Instance!=null?SquadManager.Instance.Lane(owner)*.7f:0),.65f);return;
@@ -72,7 +86,10 @@ public sealed class EnemyNavigation : MonoBehaviour
     bool Move(Vector3 point,float separation)
     {
         if(!NavMesh.SamplePosition(point,out var sample,2,agent.areaMask))return false;
+        if(Sector!=null&&!Sector.Contains(sample.position))return false;
         if(!agent.CalculatePath(sample.position,path)||path.status!=NavMeshPathStatus.PathComplete)return false;
+        var sector=Sector;
+        if(sector!=null)foreach(var corner in path.corners)if(!sector.Contains(corner))return false;
         if(SquadManager.Instance!=null&&!SquadManager.Instance.Reserve(owner,sample.position,separation))return false;
         destination=sample.position;hasDestination=true;agent.isStopped=false;agent.SetPath(path);return true;
     }

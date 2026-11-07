@@ -1,0 +1,293 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public enum EZMessageType
+    {
+        SceneSnapshot = 0,
+        SceneSnapshotBegin = 1,
+        SceneSnapshotChunk = 2,
+        SceneSnapshotEnd = 3,
+        RecoveryComplete = 4,
+        CreateObject = 5,
+        DestroyObject = 6,
+        TransformDelta = 7,
+        ComponentDelta = 8,
+        LockRequest = 9,
+        LockGranted = 10,
+        LockDenied = 11,
+        LockRelease = 12,
+        ObjectLocked = 13,
+        ObjectUnlocked = 14,
+        PeerJoined = 15,
+        PeerLeft = 16,
+        Heartbeat = 17,
+        Info = 18,
+        MaterialDelta = 19,
+        SessionHello = 20,
+        ConnectionRejected = 21,
+        PresenceUpdate = 22,
+        SynchronizationReady = 23
+    }
+
+    [Flags]
+    public enum EZCollabCapabilities
+    {
+        None = 0,
+        Presence = 1 << 0,
+        RemoteCamera = 1 << 1,
+        IncrementalSnapshot = 1 << 2,
+        CoalescedTransforms = 1 << 3
+    }
+
+    public static class EZProtocol
+    {
+        public const int CurrentProtocolVersion = 2;
+        public const string PackageVersion = "1.1.0";
+        public const EZCollabCapabilities CurrentCapabilities =
+            EZCollabCapabilities.Presence |
+            EZCollabCapabilities.RemoteCamera |
+            EZCollabCapabilities.IncrementalSnapshot |
+            EZCollabCapabilities.CoalescedTransforms;
+    }
+
+    [Serializable]
+    public class EZMessage
+    {
+        public const int MaxPayloadBytes = 64 * 1024 * 1024;
+
+        public EZMessageType type;
+        public string senderId;
+        public long timestamp;
+        public long sequence;
+        public string payload;
+
+        public static EZMessage Create(EZMessageType type, string senderId, object payload)
+        {
+            return new EZMessage
+            {
+                type = type,
+                senderId = senderId,
+                timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                payload = payload == null ? string.Empty : JsonUtility.ToJson(payload)
+            };
+        }
+
+        public T GetPayload<T>()
+        {
+            return string.IsNullOrEmpty(payload) ? default : JsonUtility.FromJson<T>(payload);
+        }
+
+        public byte[] ToBytes()
+        {
+            return Encoding.UTF8.GetBytes(JsonUtility.ToJson(this));
+        }
+
+        public static EZMessage FromBytes(byte[] bytes, int count)
+        {
+            string json = Encoding.UTF8.GetString(bytes, 0, count);
+            return JsonUtility.FromJson<EZMessage>(json);
+        }
+    }
+
+    [Serializable]
+    public class TransformPayload
+    {
+        public string guid;
+        public float[] position;
+        public float[] rotation;
+        public float[] scale;
+
+        public static TransformPayload FromTransform(string guid, Transform transform)
+        {
+            return new TransformPayload
+            {
+                guid = guid,
+                position = new float[] { transform.position.x, transform.position.y, transform.position.z },
+                rotation = new float[] { transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w },
+                scale = new float[] { transform.localScale.x, transform.localScale.y, transform.localScale.z }
+            };
+        }
+
+        public Vector3 GetPosition()
+        {
+            return new Vector3(position[0], position[1], position[2]);
+        }
+
+        public Quaternion GetRotation()
+        {
+            return new Quaternion(rotation[0], rotation[1], rotation[2], rotation[3]);
+        }
+
+        public Vector3 GetScale()
+        {
+            return new Vector3(scale[0], scale[1], scale[2]);
+        }
+    }
+
+    [Serializable]
+    public class LockPayload
+    {
+        public string guid;
+        public string peerId;
+        public string peerName;
+    }
+
+    [Serializable]
+    public class PeerPayload
+    {
+        public string peerId;
+        public string peerName;
+        public long lastSequence;
+        public int protocolVersion;
+        public string packageVersion;
+        public EZCollabCapabilities capabilities;
+    }
+
+    [Serializable]
+    public class SessionHelloPayload
+    {
+        public int protocolVersion;
+        public string packageVersion;
+        public EZCollabCapabilities capabilities;
+        public string hostPeerId;
+        public string hostPeerName;
+    }
+
+    [Serializable]
+    public class ConnectionRejectedPayload
+    {
+        public string reason;
+        public int expectedProtocolVersion;
+        public int receivedProtocolVersion;
+        public string packageVersion;
+    }
+
+    [Serializable]
+    public class CreateObjectPayload
+    {
+        public string guid;
+        public string parentGuid;
+        public string objectName;
+        public ObjectSourceType sourceType;
+        public string prefabPath;
+        public string prefabGuid;
+        public string prefabHash;
+        public string undoName;
+        public bool releaseLockAfterApply;
+        public PrimitiveType primitiveType;
+        public SerializedTransform localTransform;
+        public int siblingIndex;
+        public bool active;
+        public int layer;
+        public string tag;
+        public int staticEditorFlags;
+        public List<SerializedComponent> components = new List<SerializedComponent>();
+        public List<SerializedMaterial> materials = new List<SerializedMaterial>();
+        public SerializedMesh mesh;
+    }
+
+    public enum ObjectSourceType
+    {
+        Primitive,
+        Prefab,
+        Empty,
+        Generic
+    }
+
+    [Serializable]
+    public class SerializedComponent
+    {
+        public string typeName;
+        public int occurrenceIndex;
+        public string json;
+        public List<SerializedObjectReference> objectReferences = new List<SerializedObjectReference>();
+    }
+
+    [Serializable]
+    public class SerializedObjectReference
+    {
+        public string propertyPath;
+        public string assetGuid;
+        public string assetPath;
+        public string assetHash;
+        public long localFileId;
+        public string sceneObjectGuid;
+        public string componentTypeName;
+        public int componentOccurrenceIndex;
+    }
+
+    [Serializable]
+    public class SerializedMaterial
+    {
+        public SerializedObjectReference materialReference;
+        public string shaderName;
+        public string json;
+        public List<SerializedObjectReference> objectReferences = new List<SerializedObjectReference>();
+    }
+
+    [Serializable]
+    public class SerializedMesh
+    {
+        public string name;
+        public int indexFormat;
+        public float[] positions;
+        public float[] normals;
+        public float[] tangents;
+        public float[] colors;
+        public float[] uv0;
+        public float[] uv1;
+        public float[] uv2;
+        public float[] uv3;
+        public List<SerializedSubMesh> subMeshes = new List<SerializedSubMesh>();
+    }
+
+    [Serializable]
+    public class SerializedSubMesh
+    {
+        public int topology;
+        public int[] indices;
+    }
+
+    [Serializable]
+    public class SerializedTransform
+    {
+        public float[] position;
+        public float[] rotation;
+        public float[] scale;
+
+        public static SerializedTransform FromTransform(Transform transform)
+        {
+            return new SerializedTransform
+            {
+                position = new float[] { transform.localPosition.x, transform.localPosition.y, transform.localPosition.z },
+                rotation = new float[] { transform.localRotation.x, transform.localRotation.y, transform.localRotation.z, transform.localRotation.w },
+                scale = new float[] { transform.localScale.x, transform.localScale.y, transform.localScale.z }
+            };
+        }
+
+        public Vector3 GetPosition()
+        {
+            return new Vector3(position[0], position[1], position[2]);
+        }
+
+        public Quaternion GetRotation()
+        {
+            return new Quaternion(rotation[0], rotation[1], rotation[2], rotation[3]);
+        }
+
+        public Vector3 GetScale()
+        {
+            return new Vector3(scale[0], scale[1], scale[2]);
+        }
+    }
+
+    [Serializable]
+    public class DestroyObjectPayload
+    {
+        public string guid;
+    }
+}

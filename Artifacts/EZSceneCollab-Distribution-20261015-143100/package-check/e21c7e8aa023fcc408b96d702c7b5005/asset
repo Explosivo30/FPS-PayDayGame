@@ -1,0 +1,117 @@
+# Networking guide
+
+EZ Scene Collab uses a direct TCP connection. The host listens on all available network interfaces at the selected port; clients connect to one reachable host address. Port `9876` is the default.
+
+A private VPN is recommended for teams working from different homes. Public port forwarding is the least beginner-friendly and least secure option in version 1.1.0.
+
+## Common preparation
+
+On every computer:
+
+1. Use the same project revision, Unity version, scene, assets, scripts, and EZ Scene Collab version.
+2. Save and back up the scene.
+3. Allow Unity through Windows Firewall only on the network profiles you actually use.
+4. Choose one host and one TCP port.
+5. Test that only the host starts a host session; everyone else joins as a client.
+
+## Same computer
+
+Use this only for a quick development test with separate Unity project copies or processes.
+
+- Host address: `127.0.0.1`
+- Port: `9876` or another free port.
+
+Do not open or forward a router port.
+
+## LAN
+
+Use this when every computer is connected to the same trusted home or office network.
+
+### Host
+
+1. Set the Windows network profile to **Private** only if you trust that LAN.
+2. Find the host's local IPv4 address in Windows network properties or with `ipconfig`. It normally resembles `192.168.x.x` or `10.x.x.x`.
+3. Start EZ Scene Collab as host on port `9876`.
+4. If Windows asks, allow Unity on **Private networks**. Avoid enabling Public networks unless required and understood.
+5. Share the local IPv4 address and port with the clients.
+
+### Client
+
+1. Join the same LAN.
+2. Enter the host's local IPv4 address, not the client's address and not `127.0.0.1`.
+3. Enter the same port and join.
+
+If it fails, first test whether the computers can reach each other and then inspect Windows Firewall, guest Wi-Fi isolation, antivirus network filtering, and whether another program already uses the port.
+
+## Tailscale — recommended for different homes
+
+Tailscale creates a private network and assigns stable device addresses, commonly in the `100.x.y.z` range. It provides connectivity; EZ Scene Collab still runs the host service inside Unity.
+
+Official references:
+
+- [Tailscale installation](https://tailscale.com/docs/install)
+- [Tailscale quickstart](https://tailscale.com/kb/1017/install/)
+- [Connect to devices](https://tailscale.com/docs/how-to/connect-to-devices)
+- [Share a machine with another user](https://tailscale.com/kb/1084/sharing)
+
+Steps:
+
+1. Install Tailscale on the host and every client.
+2. Add the devices to the same tailnet, invite the teammates, or share the host machine according to your Tailscale policy.
+3. Confirm every required device appears online.
+4. Find the host's Tailscale IPv4 address or permitted MagicDNS name.
+5. Start EZ Scene Collab as host on port `9876`.
+6. In each client, enter the host's Tailscale address and the same port.
+7. If access rules are customized, allow TCP `9876` from the intended teammates to the host only.
+
+No router port-forwarding or public IP sharing is normally needed. Keep Windows Firewall scoped to the required network/application and revoke device sharing when the collaboration ends.
+
+## LogMeIn Hamachi
+
+Hamachi can provide a virtual private network similar in purpose to Tailscale. It is a third-party product and is not included with EZ Scene Collab.
+
+1. Install Hamachi on every computer from its official provider.
+2. On one computer, create a private Hamachi network with a strong password.
+3. Let only trusted teammates join using its network ID and password.
+4. Confirm the connection indicators show a working tunnel.
+5. Copy the virtual Hamachi IPv4 address shown for the host.
+6. Start EZ Scene Collab as host on port `9876`.
+7. Clients enter the host's Hamachi address and the same port.
+8. If it fails, check Hamachi diagnostics, Windows Firewall, antivirus filtering, and whether the tunnel is relayed or blocked.
+
+Official support: [LogMeIn Hamachi Support](https://support.goto.com/hamachi).
+
+Do not publish the Hamachi network ID and password. Remove members or delete the network when it is no longer needed.
+
+## Public port forwarding — advanced and not recommended
+
+Version 1.1.0 has no authentication or encryption. Forwarding its port to the Internet exposes the listener to anyone who can reach it. Use a private VPN instead whenever possible.
+
+If you accept the risk:
+
+1. Give the host computer a stable local IPv4 reservation in the router.
+2. Create a **TCP-only** port-forward rule from the chosen external port to the same TCP port on the host computer.
+3. Add a narrow Windows Firewall inbound rule for Unity and that TCP port. Restrict remote source addresses if possible.
+4. Start the host session.
+5. Clients enter the host's public IP or DNS name and the external port.
+6. Test from a different Internet connection; testing through the same router may fail when NAT loopback is unavailable.
+7. Remove or disable the router and firewall rules immediately after the session.
+
+Public forwarding may not work behind CGNAT, double NAT, mobile networks, institutional networks, or restrictive ISPs. Never place a confidential project on an unrestricted listener.
+
+## Multiple hosts
+
+A single Unity Editor participates in one EZ Scene Collab session at a time. Multiple independent host sessions are possible when separate Unity Editor instances/projects host different scenes on different TCP ports. Clients must use the address and port belonging to the intended scene.
+
+## Network troubleshooting checklist
+
+- Host Unity is running and the session is active.
+- Correct IP or hostname and port.
+- TCP, not UDP.
+- Port is not used by another host or application.
+- Windows Firewall profile matches the real connection.
+- VPN shows both devices online and policy permits the port.
+- Same EZ Scene Collab and Unity versions.
+- Same active scene and project revision.
+- No guest Wi-Fi/client-isolation rule.
+- No CGNAT or double NAT when public forwarding is used.

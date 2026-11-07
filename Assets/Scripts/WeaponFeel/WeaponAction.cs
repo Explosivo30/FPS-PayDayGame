@@ -53,6 +53,7 @@ public class WeaponAction : MonoBehaviour
         if (CombatPaused || IsBusy || gun == null || gun.currentAmmo >= gun.ammo || !gun.HasReserve) return;
         queuedShot = false; ReloadPhase = 0;
         Set(WeaponActionState.Reloading, shellReload ? reloadStart : reloadDuration);
+        MutationRun.From(gun)?.OnReloadStarted(gun,gun.currentAmmo);
         ReloadStep?.Invoke();
     }
     private void Update() { Tick(Time.deltaTime); }
@@ -74,8 +75,10 @@ public class WeaponAction : MonoBehaviour
                 return;
             }
         }
+        bool wasReload=State==WeaponActionState.Reloading;
         bool fire = queuedShot; queuedShot = false;
         Set(WeaponActionState.Ready, 0);
+        if(wasReload)MutationRun.From(gun)?.OnReloadCompleted(gun);
         if (fire && gun != null) gun.Use();
     }
 }

@@ -1,0 +1,1 @@
+PASS Release executable survived 20 seconds of normal startup

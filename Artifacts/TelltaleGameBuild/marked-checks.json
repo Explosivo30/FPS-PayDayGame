@@ -1,0 +1,22 @@
+{
+  "runtime_completed": true,
+  "scenes": 5,
+  "runtime_exceptions": 0,
+  "all_eligible_mesh_slots_telltale": true,
+  "before_after_mean_absolute_rgb_delta": [
+    1.8336610243055556,
+    1.8600629340277777,
+    1.8495203993055556
+  ],
+  "hud_note": "HUD material unchanged; translucent background composites over changed world, so framebuffer pixels need not match",
+  "downloads_files_verified": 201,
+  "zip_sha256": "697ff22373d497cd46c5630ad882302f2b4e97bfa1d87a8bf07114f01737d582",
+  "art_agent_review": "accepted corrected stroke shape; movement stability not established by static screenshots",
+  "rows": [
+    "LaboratoryFloor: Telltale slots=497, other mesh slots=0, enemies=4, converted renderers=485, pipeline=Pipeline",
+    "RoboticForest: Telltale slots=1166, other mesh slots=0, enemies=0, converted renderers=1700, pipeline=Pipeline",
+    "CrystalGarden: Telltale slots=1091, other mesh slots=0, enemies=0, converted renderers=2779, pipeline=Pipeline",
+    "Level1: Telltale slots=81, other mesh slots=0, enemies=0, converted renderers=2848, pipeline=Pipeline",
+    "SampleScene: Telltale slots=398, other mesh slots=0, enemies=2, converted renderers=3234, pipeline=Pipeline"
+  ]
+}

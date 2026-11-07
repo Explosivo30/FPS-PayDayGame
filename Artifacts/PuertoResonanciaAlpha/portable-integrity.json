@@ -1,0 +1,1354 @@
+[
+  {
+    "Path": "D3D12\\D3D12Core.dll",
+    "Matches": true
+  },
+  {
+    "Path": "D3D12\\d3d12SDKLayers.dll",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Veteranos-Ariete-Aguja.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\FundicionReactiva-2026-10-22\\LEEME.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\FundicionReactiva-2026-10-23\\LEEME.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Gameplay-2026-10-21\\Arenas.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Gameplay-2026-10-21\\LEEME.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\01-Arsenal-mutante.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\02-Impulso-de-combate.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\03-Protocolo-Domino.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\04-Ingenieria-de-chatarra.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\01-Arsenal-mutante.qa.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\01-arsenal.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\02-Impulso-de-combate.qa.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\02-movimiento.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\03-Protocolo-Domino.qa.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\03-reacciones.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\04-Ingenieria-de-chatarra.qa.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\04-ingenieria.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\generar_pdf.py",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\revision.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\Cartas-nuevas-debate-y-eleccion.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\A-armas.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\A-voto.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\B-impulso.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\B-voto.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\C-ritmo.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\C-voto.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\catalogo-anterior.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\generar_dossier.py",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\LEEME.txt",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\revision-maquetacion.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\sintesis.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\verificacion-final.json",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\PDF\\FundicionReactiva\\FundicionReactiva-Dossier-completo.pdf",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\01-Estudio-de-mercado.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\02-Plan-del-juego.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\03-Tienda-y-balance.md",
+    "Matches": true
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\LEEME.md",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\MonoPosixHelper.dll",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\browscap.ini",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\DefaultWsdlHelpGenerator.aspx",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\machine.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\settings.map",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\web.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\Browsers\\Compat.browser",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\DefaultWsdlHelpGenerator.aspx",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\machine.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\settings.map",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\web.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\Browsers\\Compat.browser",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\DefaultWsdlHelpGenerator.aspx",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\machine.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\settings.map",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\web.config",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\Browsers\\Compat.browser",
+    "Matches": true
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\mconfig\\config.xml",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\app.info",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\boot.config",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers.assets",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers.assets.resS",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\level0",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\level1",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\resources.assets",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\resources.assets.resS",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\RuntimeInitializeOnLoads.json",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\ScriptingAssemblies.json",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.assets",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.assets.resS",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.resource",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.assets",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.assets.resS",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.resource",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp-firstpass.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp-firstpass.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\DOTween.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Mono.Security.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\mscorlib.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\netstandard.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.ComponentModel.Composition.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Configuration.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Core.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Data.DataSetExtensions.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Data.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Drawing.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.EnterpriseServices.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.IO.Compression.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.IO.Compression.FileSystem.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Net.Http.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Numerics.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Runtime.Serialization.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Security.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.ServiceModel.Internals.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Transactions.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Xml.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Xml.Linq.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.AI.Navigation.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.AI.Navigation.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.Unsafe.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Cinemachine.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Cinemachine.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.LowLevel.ILSupport.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.ForUI.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.ForUI.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Mathematics.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Mathematics.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Multiplayer.Center.Common.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Multiplayer.Center.Common.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Rendering.LightTransport.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Rendering.LightTransport.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipeline.Universal.ShaderLibrary.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipeline.Universal.ShaderLibrary.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.Shared.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.Shared.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.ShaderLibrary.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.ShaderLibrary.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.GPUDriven.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.GPUDriven.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.2D.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.2D.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Config.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Config.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Runtime.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Shaders.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Shaders.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Splines.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Splines.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.TextMeshPro.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.TextMeshPro.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Timeline.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Timeline.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Antlr3.Runtime.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Core.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Core.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Flow.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Flow.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.State.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.State.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AccessibilityModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AccessibilityModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AMDModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AMDModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AndroidJNIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AndroidJNIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AnimationModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AnimationModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ARModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ARModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AssetBundleModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AssetBundleModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AudioModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AudioModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClothModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClothModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterInputModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterInputModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterRendererModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterRendererModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ContentLoadModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ContentLoadModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CoreModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CoreModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CrashReportingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CrashReportingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DirectorModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DirectorModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DSPGraphModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DSPGraphModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GameCenterModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GameCenterModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GraphicsStateCollectionSerializerModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GridModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GridModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HierarchyCoreModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HierarchyCoreModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HotReloadModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HotReloadModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ImageConversionModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ImageConversionModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.IMGUIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.IMGUIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputForUIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputForUIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputLegacyModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputLegacyModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.JSONSerializeModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.JSONSerializeModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.LocalizationModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.LocalizationModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MarshallingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MarshallingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MultiplayerModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MultiplayerModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.NVIDIAModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.NVIDIAModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ParticleSystemModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ParticleSystemModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PerformanceReportingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PerformanceReportingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.Physics2DModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.Physics2DModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PhysicsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PhysicsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PropertiesModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PropertiesModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ScreenCaptureModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ScreenCaptureModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ShaderVariantAnalyticsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ShaderVariantAnalyticsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SharedInternalsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SharedInternalsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteMaskModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteMaskModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteShapeModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteShapeModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.StreamingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.StreamingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubstanceModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubstanceModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubsystemsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubsystemsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainPhysicsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainPhysicsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreFontEngineModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreFontEngineModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreTextEngineModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreTextEngineModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextRenderingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextRenderingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TilemapModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TilemapModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TLSModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TLSModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UI.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UI.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIElementsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIElementsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UmbraModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UmbraModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityConnectModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityConnectModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityCurlModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityCurlModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityTestProtocolModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityTestProtocolModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VehiclesModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VehiclesModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VFXModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VFXModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VideoModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VideoModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VirtualTexturingModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VirtualTexturingModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VRModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VRModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.WindModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.WindModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.XRModule.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.XRModule.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\lib_burst_generated.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\lib_burst_generated.pdb",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlast_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtAssetUtils_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtAuthoring_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtExporter_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtPhysX_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtPxSerialization_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtSerialization_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtShaders_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtStress_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtTkSerialization_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtUnity_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastGlobals_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastTk_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\nvToolsExt64_1.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3Cooking_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3Gpu_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PxFoundation_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PxPvdSDK_x64.dll",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Resources\\unity default resources",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Resources\\unity_builtin_extra",
+    "Matches": true
+  },
+  {
+    "Path": "DOCUMENTACION.md",
+    "Matches": true
+  },
+  {
+    "Path": "JUGAR.cmd",
+    "Matches": true
+  },
+  {
+    "Path": "LEEME.txt",
+    "Matches": true
+  },
+  {
+    "Path": "PuertoResonancia.exe",
+    "Matches": true
+  },
+  {
+    "Path": "RESEARCH.md",
+    "Matches": true
+  },
+  {
+    "Path": "REVISION.md",
+    "Matches": true
+  },
+  {
+    "Path": "UnityCrashHandler64.exe",
+    "Matches": true
+  },
+  {
+    "Path": "UnityPlayer.dll",
+    "Matches": true
+  },
+  {
+    "Path": "WinPixEventRuntime.dll",
+    "Matches": true
+  }
+]

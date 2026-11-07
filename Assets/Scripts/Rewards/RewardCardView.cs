@@ -85,8 +85,10 @@ public class RewardCardView : MonoBehaviour
         {
             bool exists=i<rewards.Offer.Count;cards[i].SetActive(exists&&shown!=RewardState.Celebrating);
             if(!exists)continue;
-            var card=rewards.Offer[i];Color accent=card.special?InterfaceStyle.Magenta:InterfaceStyle.Cyan;
-            specialFrames[i].SetActive(card.special);borders[i].doubleRail=card.special;
+            var card=rewards.Offer[i];bool mutation=card.kind==RewardKind.Mutation;
+            Color accent=mutation?InterfaceStyle.Gold:card.special?InterfaceStyle.Magenta:InterfaceStyle.Cyan;
+            specialFrames[i].SetActive(card.special||mutation);borders[i].doubleRail=card.special||mutation;
+            specialFrames[i].GetComponent<TMP_Text>().text=mutation?"MUTACIÓN ÚNICA":"PROTOCOLO ESPECIAL";
             borders[i].SetAccent(i==selected?accent:accent*new Color(.4f,.4f,.4f,1));
             borders[i].SetVerticesDirty();
             selectionRails[i].color=accent;selectionRails[i].gameObject.SetActive(i==selected);
@@ -95,7 +97,7 @@ public class RewardCardView : MonoBehaviour
             titles[i].text=card.title.ToUpperInvariant();titles[i].color=accent;descriptions[i].text=card.description;
             previews[i].text=shown==RewardState.Confirming&&card==rewards.Chosen?rewards.LastResult:rewards.Preview(card);
             int rank=rewards.Level(card)+(shown==RewardState.Confirming&&card==rewards.Chosen?0:1);
-            ranks[i].text=card.maxLevel==0?"CONSUMIBLE  /  EFECTO INMEDIATO":"NIVEL "+Mathf.Min(rank,card.maxLevel)+" / "+card.maxLevel;
+            ranks[i].text=mutation?"CAPACIDAD NUEVA  /  SIN NIVELES":card.maxLevel==0?"CONSUMIBLE  /  EFECTO INMEDIATO":"NIVEL "+Mathf.Min(rank,card.maxLevel)+" / "+card.maxLevel;
         }
         confirm.gameObject.SetActive(shown==RewardState.Choosing);
         confirmation.text="ELEGIR CARTA "+(selected+1)+"    /    ENTER";

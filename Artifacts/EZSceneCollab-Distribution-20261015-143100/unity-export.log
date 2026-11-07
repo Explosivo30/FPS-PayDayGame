@@ -1,0 +1,678 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
+[Licensing::IpcConnector] Channel LicenseClient-Edgar doesn't exist
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 31965 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-10-15T12:31:01Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 37108)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
+-batchmode
+-quit
+-nographics
+-projectPath
+D:\Unity\EZ Scene Collab
+-exportPackage
+Assets/EZSceneCollab
+D:\Unity\FPS-PayDayGame\Artifacts\EZSceneCollab-Distribution-20261015-143100\EZ-Scene-Collab-1.1.0.unitypackage
+-logFile
+D:\Unity\FPS-PayDayGame\Artifacts\EZSceneCollab-Distribution-20261015-143100\unity-export.log
+Successfully changed project path to: D:\Unity\EZ Scene Collab
+D:/Unity/EZ Scene Collab
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [36664]  Target information:
+
+Player connection [36664]  * "[IP] 192.168.1.42 [Port] 55504 [Flags] 2 [Guid] 1844271385 [EditorId] 1844271385 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [36664]  * "[IP] 192.168.163.1 [Port] 55504 [Flags] 2 [Guid] 1844271385 [EditorId] 1844271385 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [36664]  * "[IP] 192.168.235.1 [Port] 55504 [Flags] 2 [Guid] 1844271385 [EditorId] 1844271385 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [36664] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [36664] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar" at "2026-10-15T12:31:01.3334673Z"
+[Package Manager] Connected to IPC stream "Upm-36788" after 0.2 seconds.
+Library Redirect Path: Library/
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 37108, path: "C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.2+ff71f16
+  Session Id:              037341e0d07e49488eacb94059e75f7e
+  Correlation Id:          c95b158b60f50cf54606844e3a16bf6a
+  External correlation Id: 145278149145227808
+  Machine Id:              WadMmAy/osH9k8L5ydYQtjSc8pk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Edgar" (connect: 0.25s, validation: 0.15s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar-notifications" at "2026-10-15T12:31:01.5134322Z"
+[Licensing::Module] Connected to LicensingClient (PId: 37108, launch time: 0.00, total connection time: 0.43s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.46s
+Artifact Garbage Collection - Removed 16 unused hashed content filesRefreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/EZ Scene Collab/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56788
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.013308 seconds.
+- Loaded All Assemblies, in  0.347 seconds
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2205 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.453 seconds
+Domain Reload Profiling: 2789ms
+	BeginReloadAssembly (112ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (126ms)
+		LoadAssemblies (107ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (122ms)
+			TypeCache.Refresh (121ms)
+				TypeCache.ScanAssembly (109ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2454ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2433ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2285ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (35ms)
+			ProcessInitializeOnLoadAttributes (67ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 57 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.9 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc)
+    com.unity.collab-proxy@2.13.5 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.collab-proxy@120d77864ebc)
+    com.unity.ide.visualstudio@2.0.23 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13)
+    com.unity.inputsystem@1.14.2 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.timeline@1.8.9 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.timeline@6b9e48457ddb)
+    com.unity.visualscripting@1.9.7 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.visualscripting@6279e2b7c485)
+    com.unity.nuget.newtonsoft-json@3.2.1 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0)
+    com.unity.collections@2.6.8 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.collections@84e8eb3fc12e)
+    com.unity.searcher@4.9.3 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.mathematics@1.3.2 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.burst@1.8.29 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.burst@6bb9aca3ef38)
+    com.unity.nuget.mono-cecil@1.11.6 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.1.0 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997)
+    com.unity.test-framework@1.5.1 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.test-framework@1f954279c37e)
+    com.unity.ugui@2.0.0 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.ugui@aa507f3228f0)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74)
+    com.unity.shadergraph@17.0.4 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: D:\Unity\EZ Scene Collab\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+  Embedded packages:
+    com.unity.asset-store-tools@file:D:\Unity\EZ Scene Collab\Packages\com.unity.asset-store-tools (location: D:\Unity\EZ Scene Collab\Packages\com.unity.asset-store-tools)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/Unity/EZ Scene Collab
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 0s201ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (0.17 seconds), 0 items updated, 14 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Tools\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: D:/Unity/EZ Scene Collab
+ExitCode: 0 Duration: 0s470ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1900b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: D:/Unity/EZ Scene Collab
+ExitCode: 0 Duration: 1s305ms
+Finished compiling graph: 850 nodes, 14901 flattened edges (12297 ToBuild, 132 ToUse), maximum node priority 914
+[661/847    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[839/847    0s] Csc Library/Bee/artifacts/1900b0aE.dag/EZCollabTool.Editor.dll (+2 others)
+[841/847    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/EZCollabTool.Tests.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/EZCollabTool.Tests.Editor.dll, with 126 defines and 261 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[842/847    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/EZCollabTool.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/EZCollabTool.Editor.dll, with 126 defines and 275 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[845/847    0s] CopyFiles Library/ScriptAssemblies/EZCollabTool.Editor.pdb
+[846/847    0s] CopyFiles Library/ScriptAssemblies/EZCollabTool.Editor.dll
+*** Tundra build success (1.28 seconds), 6 items updated, 847 evaluated
+AssetDatabase: script compilation time: 2.290999s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.920 seconds
+Refreshing native plugins compatible for Editor in 3.63 ms, found 4 plugins.
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.49 ms, found 4 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.230 seconds
+Domain Reload Profiling: 3143ms
+	BeginReloadAssembly (251ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (133ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (605ms)
+		LoadAssemblies (512ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (174ms)
+			TypeCache.Refresh (132ms)
+				TypeCache.ScanAssembly (123ms)
+			BuildScriptInfoCaches (32ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (2230ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1964ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (99ms)
+			ProcessInitializeOnLoadAttributes (1792ms)
+			ProcessInitializeOnLoadMethodAttributes (31ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 1.41 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=39866f4faef1ff445b7bf29c9c3e8438): Total: 6.463 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2988 ms
+		Asset DB Callback time: managed=183 ms, native=33 ms
+		Scripting: domain reloads=1, domain reload time=920 ms, compile time=2295 ms, other=42 ms
+		Project Asset Count: scripts=1376, non-scripts=2316
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 31.333ms
+	ApplyChangesToAssetFolders: 0.603ms
+	Scan: 128.275ms
+	OnSourceAssetsModified: 0.664ms
+	CategorizeAssetsWithTransientArtifact: 80.816ms
+	ProcessAssetsWithTransientArtifactChanges: 53.889ms
+	CategorizeAssets: 53.080ms
+	ImportOutOfDateAssets: 2240.470ms (-55.501ms without children)
+		CompileScripts: 2294.650ms
+		ReloadNativeAssets: 0.016ms
+		UnloadImportedAssets: 0.701ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.407ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.197ms
+	PostProcessAllAssets: 184.418ms
+	Hotreload: 2.634ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.719ms
+	PersistCurrentRevisions: 0.071ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.191ms
+	Untracked: 3685.901ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 19.154ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-EZ Scene Collab
+Unloading 32 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6829 unused Assets / (3.8 MB). Loaded Objects now: 7502.
+Memory consumption went from 192.6 MB to 188.8 MB.
+Total: 6.315700 ms (FindLiveObjects: 0.510700 ms CreateObjectMapping: 0.245500 ms MarkObjects: 3.941600 ms  DeleteObjects: 1.617400 ms)
+
+Export package Assets/EZSceneCollab to D:\Unity\FPS-PayDayGame\Artifacts\EZSceneCollab-Distribution-20261015-143100\EZ-Scene-Collab-1.1.0.unitypackage
+Starting new worker id: 0 with log in D:/Unity/EZ Scene Collab/Logs/AssetImportWorker0.log
+Starting new worker id: 1 with log in D:/Unity/EZ Scene Collab/Logs/AssetImportWorker1.log
+Worker ready: AssetImportWorker0 0
+Worker ready: AssetImportWorker1 1
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabSnapshotReceiver.cs using Guid(d138a7657537b078d50b2040b9a09ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e22c4a2c04b02fa251208bea32c4ddb7') in 0.0023907 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabAdvancedSync.cs using Guid(2d973f193ec14e20b1cd8f4427849827) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '6a3cdf3f175b4dc9997a08e4c72675da') in 0.0002999 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Integrations/ProBuilder using Guid(93d3c1736c9741c986805efc01f8040b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b7fcc393c787540b99ef032229c2124f') in 0.0002507 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabProtocolTests.cs using Guid(19c4a079cf1c4f9e8dbcb06d59dfb0e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '69239d88dbb2fd4cf30e4fe8a2d096d9') in 0.0002698 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabServerTests.cs using Guid(8db9e6165ea7466f9f2fba928137dc14) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '3b7d6cc8e10f575ec5d101e8e02f4a9e') in 0.0002854 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish using Guid(8997ba04fad22a84fb740cc136d1d975) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '3ba5665abac769f7dddef3b4de6daec3') in 0.000289 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo/README.md using Guid(d3ce778e3d2d2734ca1a8055e17d084f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '909c7d985b835a291d739ce9509cb1e0') in 0.0089602 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared/EZCollabSession.cs using Guid(b9b55a7acd6bc9e4d89a57cd96c1a4c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '100471a5e0fdd0eb4d59a6c4a9f7f068') in 0.000249 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/PRESENCE_PERFORMANCE.md using Guid(1689314b0932581b6f38710f174ef57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '54f0de3e959bfb721b93fdfc62f220ec') in 0.0009765 seconds
+[Worker0] Start importing Assets/EZSceneCollab/package.json using Guid(8695ead228cf71c4e99eba7ebabbc0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e93e286538a4eabe42354f8909a7b883') in 0.0008258 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Integrations/ProBuilder/Editor using Guid(3fce25210ac34c2f89e70a934f3fa714) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '6f1595de55624dcb63629fdd5c62e770') in 0.0002485 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo/Prefabs using Guid(5edf8b24061a938418cd42bee0428481) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'd77055540467ccd9ba7acd7cf6cd4720') in 0.0002813 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo/Scenes using Guid(80657e304e19abc44a60fac77948b108) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '8058f2e4a833ef645edc59bc669263e2') in 0.000274 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Client/EZCollabClient.cs using Guid(ec392788f127a634a94fc427a8eca036) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '56df858627c8232d478d0988c6931bb6') in 0.0002798 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/COMPATIBILITY.md using Guid(851b117bf9c5f184fa60773c7471a6f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '3c01ec00938a27cef04e9ce171e386f0') in 0.0009476 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Integrations using Guid(2948bd491d6a47dbabfb8105979c43ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '4ddcf9ce6276866d708b637e88a17882') in 0.0003022 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabLifecycleTests.cs using Guid(aaed7a821396fdab6aed07f5cd90a7ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '8ebe3e4d5c10f9de8ba7ed1b0b4f3368') in 0.0002884 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabTool.Tests.Editor.asmdef using Guid(d80586cf25de407f9050cdb3d305a94b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '27bf7fe32af1a609d086737f2ebb29bb') in 0.0002692 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Server/EZCollabServer.cs using Guid(a6c9c68a9e0472b4983c59a56cb7b6c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e3726e731038b1b7571505aea89deab1') in 0.0003257 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/TROUBLESHOOTING.md using Guid(dd574ac4d6f6b4c42956747d75d82079) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'f78406d1cc67bbd8b0e554d84c01cb6d') in 0.001177 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/README.md using Guid(8a9a162252fc48e0a69ec8d1bbec117d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '760e18a68fdc5eb52b07443904025ad3') in 0.0011044 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZSceneCollabDemoMenu.cs using Guid(b2f4e7bd540bf1f4c87bfdfae222946d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'a51a58f4ad1a4ed5ed0ff95657e5dff9') in 0.0002854 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/LIMITATIONS.md using Guid(986cd39c873b30149b7b2fe372d607d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e662638224513ec718364c9061b611ae') in 0.0012993 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo/Materials using Guid(848ff861bbf4ce9499c2bd5614cdffd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '9f40399b5b58cb9428c654766e2b6aed') in 0.0002703 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabOptionalIntegrationTests.cs using Guid(a5d69047600d51b88f40de9f8730dae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '96eaf792da02f1485a0f1097094591e9') in 0.0002734 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/LIMITATIONS.md using Guid(3a5791648cd500b49802ff1d8bf46091) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '3840e3dc0640145d2156d9019f90b6dc') in 0.0008884 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Server using Guid(24dac8da5786ce1429ff46719ed1dd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '2d79413719c190f9dc0cb19ec7ae8740') in 0.000296 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZCollabObjectSerializer.cs using Guid(fcebd30adbb1af44caa9db8f18d06592) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '775eaf862819a4da051c4cb4dc47107c') in 0.0002784 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabPresencePublisher.cs using Guid(e68bda7a1a214497aa255201a7ded4f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'cb922c4e0f2b80c1c859cda51d995400') in 0.0003441 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared/EZCollabState.cs using Guid(9c6ba5c570d8e764ea0dd42882ee45a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'c18d4c8fee475a76d4f3c8dd8eee29be') in 0.0002737 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/NETWORKING.md using Guid(d8cea15f7e0efad4586a1c50e128b326) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '19aca10516d5af73fdddb10dde2b3a90') in 0.0009915 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabTool.Editor.asmdef using Guid(d10b6b998f748cf4abe5a8cd88cc7375) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '78927477a83be2219a92953ac0fa0662') in 0.0003174 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZSceneSnapshotOperations.cs using Guid(2a5680a1f6b9d974a932dd3c044109e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '3f7707d60fa1ccaeb7809567fdf58530') in 0.0002757 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol using Guid(d0313d539d34ccb4c986d87779634baa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '0686ce79a520e38a8f467736930811da') in 0.0002753 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/EZCollabTool.Runtime.asmdef using Guid(27815db93b0ae73479159cbc9fca64e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '7c04a11fd070b6c5730f8ce2ee1e00cc') in 0.0002781 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Integrations/ProBuilder/Editor/EZCollabTool.ProBuilder.Editor.asmdef using Guid(7201b49dc41d46c9ab5ff68d4a076c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '4f1c4410a5edcbeb3d0e5f5da248cc7f') in 0.0002752 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/README.md using Guid(e7b1b91e8c654acfa11f5e18442f0754) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '1bfd5f7d342daddfbea4aba614af8c72') in 0.0009465 seconds
+[Worker0] Start importing Assets/EZSceneCollab using Guid(650b7c5cae8221b429b43053a631e9ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '99d3a5f5b7cd8c04d8eca846f0999230') in 0.0002607 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Integrations/ProBuilder/Editor/EZCollabProBuilderIntegration.cs using Guid(f7864a0f5b62456ea320bbb00280a900) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '7fe2c56ab9fe1ac9f57b8fcaf91bf8f8') in 0.0002778 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/ASSET_STORE_DESCRIPTION.md using Guid(7efdf11a9339e4b4d987dc8b8621cdc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '5bd92775a78ea08ab213cff2ea655909') in 0.0008916 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests using Guid(379ed35d50c04751861323136f124ad1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'c1d5365414d977e94b50298529a268e9') in 0.0002616 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Server/EZCollabLockManager.cs using Guid(058fa8b4275d6b14dadb740149e3e1ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '67ea61435a5dd22c1eb04f072b581f18') in 0.0002711 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared/EZCollabPresenceState.cs using Guid(2b98ace48ab34f5cad484d683fd42da4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'c23a686fbdceb8ba58085f675f0b2aa0') in 0.000275 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/COMPATIBILITY.md using Guid(61857fedb3a89a345827adf38385567b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'c73ecd3bd121178372b4d608ba192d34') in 0.0009912 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/PRIVACY.md using Guid(8dc66cb5ce65ba94ab802ca9ad7e986a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e0a5288c83beca83a9d559a698a9251c') in 0.0009793 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/PRIVACY.md using Guid(185611c11ffec2e4896c95a40458b47b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '0ed441cfd56e7262ff286d4ad8647cb5') in 0.0010296 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZSceneSerializer.cs using Guid(66e59287f5c369649aa0a9b3f88fa648) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '4d50f4fd6d0ed49cae1eeefe79535dcc') in 0.0002842 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabHooks.cs using Guid(4f01d9355a206c346b96980af3854a7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '8f480d9728373a74a2d12ee7de82e42a') in 0.0002821 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZMessage.cs using Guid(26c1c2bb3e92f2b49bcd2ac3659c47e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b9863436bce08938e59327dc43ddd226') in 0.0002907 seconds
+[Worker0] Start importing Assets/EZSceneCollab/CHANGELOG.md using Guid(5b0948ee5fc55bf4eae0dcb966680226) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'eba7ffcae990ddc59f6896d2fff3b470') in 0.0009988 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZCollabMessageInbox.cs using Guid(3dc0d62f29ae4f61a97c71e1d6a4e5b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'f75310a05318208ad50d7c027d3d5754') in 0.000245 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared/EZCollabIntegrations.cs using Guid(4dfb2ec46f814b55acbdb57e0d90e91d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'ceb7be6e1973c797682646d0c865a5ef') in 0.0003235 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/TROUBLESHOOTING.md using Guid(a54314e1bfcc0db4e9b22ed9b61c4ccf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '63c1cba3aab08936202e2dcff25a32de') in 0.0009931 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabPresenceTests.cs using Guid(83c185d538604f91bfa1c7b1aee8f149) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '8a72715517741e87817f9c81fafaa4db') in 0.0002604 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/VALIDATION_1_1.md using Guid(cd03c699feb750f207f833a0a4d41b4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '850970a900c1bd48a79ed25274547b0f') in 0.0009176 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/DEMO.md using Guid(665f18a98bacc9e46b7fd17d99187628) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '5d473e0be687e2e5f5866ecad42f31f8') in 0.0055139 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabEditGuard.cs using Guid(8f73ae74788d47b4492de3d6f8314a3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'bd6abf1d18733610bd63ae8bcd8f447f') in 0.0002633 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared/EZCollabLocalization.cs using Guid(e39b2c752cc7438dac9d3b555c48593b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b2a761885dacd3500642399876c05f73') in 0.0002689 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Client using Guid(c0bd2f8c06c577c48be4cf4942fbefcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '9ba8000dd8b208a2db96154eefe9d45b') in 0.00029 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabWindow.cs using Guid(b5161f247eebc2a42a1eea32f28044a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b9450996a2912737ca95f29f68a51aca') in 0.0003253 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZCollabAssetValidator.cs using Guid(527dabf0b60c40a0b596122e2c860bbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '107956ed2ced286d1f3c06bf06b97c9c') in 0.000295 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor/EZCollabSnapshotTests.cs using Guid(c4866c2fc46d4271b5549e479b852d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b37026341690916646b1ef3f467f5a60') in 0.000251 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZCollabMaterialSerializer.cs using Guid(8c3b2d5e7a4f4618b9c0d2e3f4a5b6c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '806763441d5c6dee24c2cb302794e64d') in 0.0002527 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples using Guid(0c021498052ad7b438d96a5b7b545b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'd837e16451ace2e1bd7e490468950804') in 0.0002381 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabSceneViewOverlay.cs using Guid(57fcd761321e49c49b0ec3a5b8d892aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '595a44fd9fcfcbf195ace4406e76532b') in 0.0002479 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Protocol/EZCollabPresencePayload.cs using Guid(192813513d514481844699b8b2b6d717) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '233746dd7700f389ddc4714c5665d688') in 0.0003253 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/SUPPORT.md using Guid(d32f2b20ee147544abc455d1664421e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'b21caa1b278b648d5064e52db6071cbb') in 0.0051527 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime/Shared using Guid(dfbd5a74b6bc112479982a813627e9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'f4e8af4a5ddf31b0a318fdfe5f55852b') in 0.0002741 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Third-Party Notices.txt using Guid(ee33feee957480f4d8265d3404655a18) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'd66cf92e3d79ef9d25b7135874b91d10') in 0.0009409 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabOverlay.cs using Guid(a176d0190cd5a0d428dd844ae1d34978) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'ed00c1dcb2b244458ba4e4300f02b1b9') in 0.000284 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabViewSettings.cs using Guid(2b0147fdfbb84500b57030fe002b5319) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'deee1c41b53bc9381b49dcc0180a8a24') in 0.0002812 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabVisualTheme.cs using Guid(4f4e2d6ff0494131a8c30483bc6c95d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '74f2bacc475dcb541d47ce4df92df170') in 0.0002687 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo using Guid(e08a8726050c8af4ca0725c05eb7ebf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '605605b8c8f875e61e95e49d1c364f13') in 0.0002651 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/PRESENCE_PERFORMANCE.md using Guid(afede9f68d52d0d44428f00b75c3c186) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'aa8b5c4813b019d8f94766a433954473') in 0.0011209 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/Spanish/SUPPORT.md using Guid(5c0d1698a460c194d9f04935eabe4f02) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '10fd26155c1d0a4fe93d70392116ab74') in 0.0053885 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Samples/Demo/Scenes/EZSceneCollab_Demo.unity using Guid(e542fbe7d2174d6468dc8f72c25dc487) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'e186a3e95c0e8b3d81b5fdfa88beef1b') in 0.0003056 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor using Guid(1f7a2ff7661d5294794af80ba118c57f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'd1156206eeab2609bcef86aaea762edb') in 0.0002421 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Tests/Editor using Guid(4fb80425ca0648e69ef87f0407ac2eea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'f1b9a4ae27248df1219f4fe9b75d1439') in 0.0002544 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/NETWORKING.md using Guid(e21c7e8aa023fcc408b96d702c7b5005) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '1f0e2b43dd8aa8389d44af471dce9df0') in 0.0010168 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation using Guid(314e76b81d5a43018ec0614ffb3a268c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '9f099f35487a6ea84fdb198a0817f0dd') in 0.0002376 seconds
+[Worker0] Start importing Assets/EZSceneCollab/README.md using Guid(1d2235ccdaa333a4383f67660b008c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '47cf884888863a85d0274fa229c41b1f') in 0.0009484 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Editor/EZCollabPresenceOverlay.cs using Guid(1a22e18122b64e1ab6ae0590da718d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '84a2308b407cf04611e5ca784936a753') in 0.0002552 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/ADDING_LANGUAGES.md using Guid(59433255470f4ab8a4511ad98b741b5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: 'bf029cf13b5026a3edecefbdd185759d') in 0.0046773 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Documentation/PUBLISHER_CHECKLIST.md using Guid(c9fda4695efb9c4469c14fb090fd2a06) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '9dbe591cfb12d3c33d566abd81114265') in 0.0010335 seconds
+[Worker0] Start importing Assets/EZSceneCollab/Runtime using Guid(fa9822ec1f7171a4fac3c73809f335a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) 
+[Worker0] (PreviewImporter)
+[Worker0]  -> (artifact id: '41c708972c9e94e312630260cbcd2695') in 0.000251 seconds
+Batchmode quit successfully invoked - shutting down!
+Killing ADB server in 0,0433785 seconds.
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Edgar-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Edgar channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -1,0 +1,104 @@
+{
+  "number": 2,
+  "title": "Impulso de combate",
+  "short": "Potencia que exige moverse",
+  "accent": "#087A80",
+  "tagline": "El poder se gana entrando, rompiendo una formación y saliendo a tiempo.",
+  "thesis": "Convertir posiciones y tiempos en ataques espectaculares: deslizar para perforar una fila, acercarse para cargar una detonación y retirarse creando espacio. Cada ventaja exige una acción reconocible del jugador; la carta no limpia la sala sola.",
+  "today_proposal": "Hoy existen deslizamiento, cuchillo y escudo pasivo; deslizar no concede invulnerabilidad. Las ocho cartas son propuestas nuevas. Embestidas terrestres y pantallas tampoco existen todavía. Mantendría el cuchillo accesible desde el inicio; cualquier oferta dependiente exigiría tenerlo.",
+  "moment": "Una horda tapa a Aguja. Te deslizas lateralmente, alineas tres robots y disparas un pulso perforante. Al terminar, una onda abre espacio ante Ariete. Has atravesado la formación con el disparo, sin atravesar cuerpos ni volverte invulnerable.",
+  "choose_if": "Quieres que una buena partida se reconozca por cómo te mueves, cuándo arriesgas y cómo combinas cuchillo y armas.",
+  "cards": [
+    {
+      "name": "Tiro rasante",
+      "trigger": "Dispara durante el deslizamiento o 0,8 s después.",
+      "effect": "Ese disparo se vuelve un pulso que perfora hasta tres robots alineados.",
+      "signal": "Trazo ancho y contador de robots perforados.",
+      "combo": "Freno de emergencia abre la línea.",
+      "cap": "Un pulso cada 4 s; paredes lo detienen. Escopeta: un pulso total, sin multiplicación por perdigón. Conserva alcance base."
+    },
+    {
+      "name": "Estela de escoria",
+      "trigger": "Recorre al menos 2 m deslizándote.",
+      "effect": "Dejas una franja caliente durante 2 s: quema a robots que cruzan tu ruta.",
+      "signal": "Suelo naranja delimitado y chasquido metálico.",
+      "combo": "Tiro rasante remata la fila perseguidora.",
+      "cap": "Una estela cada 4 s; una aplicación por enemigo y estela. No activa otras cartas ni atraviesa paredes."
+    },
+    {
+      "name": "Freno de emergencia",
+      "trigger": "Termina o suelta el deslizamiento.",
+      "effect": "Una onda frontal de 3 m aparta enemigos y abre una salida.",
+      "signal": "Abanico eléctrico y golpe de compresor.",
+      "combo": "Corte de apertura permite retirarte tras marcar.",
+      "cap": "Cada 5 s. Empuje orientativo: normales 1 m, veteranos 0,3 m. Sin daño, invulnerabilidad ni cancelación garantizada del ataque."
+    },
+    {
+      "name": "Corte de apertura",
+      "trigger": "Golpea con cuchillo; dispara al mismo objetivo antes de 2 s.",
+      "effect": "Detonas la abrazadera: golpe fuerte al marcado y daño cercano.",
+      "signal": "Pinza naranja, pitido y explosión delimitada.",
+      "combo": "Punta de lanza facilita entrar.",
+      "cap": "Una marca activa; hasta tres vecinos, con visión. Solo un disparo manual la detona. Ni explosiones ni estelas reinician cadenas."
+    },
+    {
+      "name": "Recolector audaz",
+      "trigger": "Mata directamente con arma o cuchillo a menos de 4 m.",
+      "effect": "Deja una batería: debes pasar sobre ella para recuperar 15 de escudo.",
+      "signal": "Batería cian y sonido claro de recogida.",
+      "combo": "Corte de apertura prepara la baja cercana.",
+      "cap": "Una cada 3 s; desaparece tras 3 s. Sin curación, sobreescudo ni baterías por efectos secundarios."
+    },
+    {
+      "name": "Recámara de choque",
+      "trigger": "Vacía un arma; cambia a cuchillo y acierta antes de 3 s.",
+      "effect": "Rellena el cargador del arma vaciada usando su reserva.",
+      "signal": "Chispazo al cargador y contador actualizado.",
+      "combo": "Corte de apertura prepara el disparo de regreso.",
+      "cap": "Una activación cada 8 s. Sin reserva no recarga; nunca genera munición ni rellena todas las armas."
+    },
+    {
+      "name": "Punta de lanza",
+      "trigger": "Tras impactar con arma, usa cuchillo apuntando al mismo robot desde menos de 3 m.",
+      "effect": "Nueva embestida terrestre de hasta 1,2 m para alcanzar el contacto.",
+      "signal": "Marca triangular y surco corto.",
+      "combo": "Corte de apertura convierte contacto en detonación.",
+      "cap": "Una carga, dura 1,5 s. Requiere apuntar y suelo; frena ante cuerpos, paredes y bordes. Sin invulnerabilidad."
+    },
+    {
+      "name": "Pantalla de chispas",
+      "trigger": "Inicia un deslizamiento.",
+      "effect": "Una pantalla fija cubre físicamente la línea de tiro detrás de ti.",
+      "signal": "Marco translúcido que se agrieta al recibir impactos.",
+      "combo": "Recolector audaz permite recoger con cobertura.",
+      "cap": "Una cada 6 s; dura 1,5 s o tres impactos. Melee y cuerpos pasan. Tus disparos salen; solo bloquea tiros que realmente la cruzan."
+    }
+  ],
+  "flow": "Pistola inicial; propongo conservar cuchillo. Tras cada oleada: pausa y elección de una entre tres cartas compatibles. Primera oferta: Tiro rasante, Freno de emergencia, Pantalla de chispas. Al cerrar el primer piso, elegir carabina o escopeta en un hito separado del arsenal. Cartas sin niveles repetidos.",
+  "shop": "Daño, cadencia, capacidad y escudo máximo permanecen en tienda. Las cartas añaden reglas y acciones visibles. Evitar ofertas de tres porcentajes y no exigir mejorar estadísticas para que una carta resulte perceptible.",
+  "builds": [
+    {
+      "name": "Pasillo imposible",
+      "cards": ["Tiro rasante", "Estela de escoria", "Freno de emergencia"],
+      "sequence": "Ante horda, Ariete delante y Aguja al fondo: dibuja una ruta lateral sin chocar, deja escoria y dispara al alinear robots. El freno separa al perseguidor más cercano. Cambia de posición después del aviso de Aguja; su tiro es instantáneo, no una bala lenta que esquivar.",
+      "decision": "Cruzar frente al grupo gana una línea potente, pero acercarte demasiado al Ariete sigue siendo peligroso. El suelo conserva un límite visible."
+    },
+    {
+      "name": "Cirugía agresiva",
+      "cards": ["Punta de lanza", "Corte de apertura", "Recolector audaz"],
+      "sequence": "Hiere al Ariete tras su ataque, usa cuchillo para acercarte y marcar, retrocede y detona disparando. Si sobrevive, remata directamente y recoge batería. Con horda, busca su borde; con Aguja, espera su aviso, cambia de línea y entra cuando puedas alcanzarlo por suelo. Las explosiones no producen baterías.",
+      "decision": "Elegir el momento de entrar vale más que pulsar rápido. Un Aguja elevado o fuera de alcance exige resolverlo con el arma."
+    }
+  ],
+  "choice": "Con poca vida elegiría Pantalla para preparar entradas; con buen control, Tiro rasante para dominar filas. Ninguna opción debería ser obligatoria: veteranos, paredes y alcance todavía condicionan la ruta.",
+  "prototype": "Solo Tiro rasante, Corte de apertura y Freno de emergencia. Demuestran tres cambios diferentes: movimiento que transforma un tiro, combinación cuchillo-arma y control del espacio. Probarlas individualmente y juntas antes de añadir embestidas, baterías o pantallas.",
+  "effort": "Complejidad media: eventos de deslizamiento, marcas e impactos únicos; alta para empujes y geometría segura. Pantallas y embestidas son las más delicadas y quedan después. Todos los efectos deben respetar cobertura, pausa, muerte, reinicio y atribución de bajas.",
+  "risks": "Exigir precisión temporal puede excluir jugadores: ventanas amplias y reajustables. Reutilizar botones existentes; explicar mantener o soltar agacharse. Reducir destellos, sacudidas y ruido. Una marca nunca dependerá solo del color. Evitar cadenas, empujes infinitos y recuperar escudo sin exponerse.",
+  "tests": [
+    "Tras usar cada carta, pedir al tester que la explique y la repita sin releer. Objetivo inicial: cuatro de cinco personas.",
+    "Repetir una oleada equivalente con mismas armas y estadísticas: sin cartas y con cada build. ¿Cambian ruta, distancia y momento de atacar?",
+    "Preguntar cuál produjo un momento de poder y cuál elegiría de nuevo. Registrar activaciones intencionadas, confusión y muertes por entrada forzada.",
+    "Comprobar esquiva tras aviso, paredes, bordes, veteranos, pausa y reinicio. Ningún perdigón, batería o explosión duplica eventos ni deja oleadas bloqueadas."
+  ],
+  "tradeoff": "Esta dirección premia ejecución y posición; requiere animación, señales limpias y controles cómodos. Puede cansar a quien quiera jugar quieto. Mantendría alternativas sencillas en las ofertas y descartaría cualquier carta que obligue a deslizar constantemente para hacer daño normal."
+}

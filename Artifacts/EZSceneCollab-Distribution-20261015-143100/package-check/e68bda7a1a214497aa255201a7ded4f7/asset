@@ -1,0 +1,459 @@
+using System;
+using System.Reflection;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabPresencePublisher
+    {
+        const double SendInterval = 1d / 12d;
+        const double KeepAliveInterval = 1d;
+        const float PositionEpsilonSquared = 0.000001f;
+        const float RotationEpsilon = 0.02f;
+        const int MaxVerticesForPreciseMeshPick = 250000;
+
+        delegate bool IntersectRayMeshDelegate(Ray ray, Mesh mesh, Matrix4x4 matrix, out RaycastHit hit);
+
+        static readonly IntersectRayMeshDelegate IntersectRayMesh = CreateMeshIntersectionDelegate();
+        static bool meshIntersectionDisabled;
+
+        static SceneView activeView;
+        static GameObject pointerObject;
+        static Vector3 pointerWorldPosition;
+        static Vector3 pointerWorldNormal = Vector3.up;
+        static Vector3 pointerLocalPosition;
+        static Vector3 pointerLocalNormal = Vector3.up;
+        static bool hasPointer;
+        static bool navigating;
+        static bool pendingPointerCapture;
+        static Vector2 latestMousePosition;
+        static bool dirty = true;
+        static double nextPointerCaptureAt;
+        static double nextSendAt;
+        static double lastSentAt = double.NegativeInfinity;
+        static long sampleNumber;
+        static EZCollabPresencePayload lastSent;
+
+        static EZCollabPresencePublisher()
+        {
+            SceneView.duringSceneGui += OnSceneGUI;
+            EditorApplication.update += OnUpdate;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            AssemblyReloadEvents.beforeAssemblyReload += ResetLocalState;
+            EZCollabSession.stateChanged += OnSessionStateChanged;
+        }
+
+        public static void RequestPublish()
+        {
+            dirty = true;
+            nextSendAt = 0d;
+            if (EZCollabState.inSession && !EZCollabSession.isSynchronizing)
+            {
+                activeView = SceneView.lastActiveSceneView;
+                TrySend(EditorApplication.timeSinceStartup);
+            }
+        }
+
+        static void OnSceneGUI(SceneView view)
+        {
+            if (!EZCollabState.inSession || EZCollabSession.isSynchronizing ||
+                view == null || view != SceneView.lastActiveSceneView)
+            {
+                return;
+            }
+
+            activeView = view;
+            Event current = Event.current;
+            if (current == null)
+                return;
+
+            if (current.type == EventType.MouseDown && (current.alt || current.button == 1))
+                navigating = true;
+            else if (current.type == EventType.MouseUp && current.button == 1)
+                navigating = false;
+            else if (!current.alt && current.type != EventType.MouseDrag && current.type != EventType.MouseDown)
+                navigating = false;
+
+            if (current.type == EventType.MouseLeaveWindow)
+            {
+                SetPointerHidden();
+                TrySend(EditorApplication.timeSinceStartup);
+                return;
+            }
+
+            if (current.type == EventType.MouseMove || current.type == EventType.MouseDrag ||
+                current.type == EventType.MouseDown || current.type == EventType.MouseUp)
+            {
+                Rect sceneRect = new Rect(0f, 0f, view.position.width, view.position.height);
+                bool overScene = sceneRect.Contains(current.mousePosition) && current.mousePosition.y >= 24f;
+                bool overControl = GUIUtility.hotControl != 0 || IsOverSceneControl(view, current.mousePosition);
+                if (!overScene || navigating || current.alt || current.button == 1 || overControl)
+                    SetPointerHidden();
+                else
+                {
+                    latestMousePosition = current.mousePosition;
+                    pendingPointerCapture = true;
+                    TryCapturePointer(EditorApplication.timeSinceStartup);
+                }
+            }
+
+            if (current.type == EventType.Repaint)
+            {
+                TryCapturePointer(EditorApplication.timeSinceStartup);
+                MarkDirtyIfCameraChanged(view);
+            }
+
+            TrySend(EditorApplication.timeSinceStartup);
+        }
+
+        static void OnUpdate()
+        {
+            double now = EditorApplication.timeSinceStartup;
+            EZCollabPresenceState.RemoveExpired(Time.realtimeSinceStartupAsDouble);
+
+            if (!EZCollabState.inSession || EZCollabSession.isSynchronizing || EditorApplication.isPlayingOrWillChangePlaymode)
+                return;
+
+            if (hasPointer && !(EditorWindow.focusedWindow is SceneView))
+            {
+                SetPointerHidden();
+            }
+
+            SceneView view = SceneView.lastActiveSceneView;
+            if (view != null)
+            {
+                activeView = view;
+                MarkDirtyIfCameraChanged(view);
+            }
+
+            if (pendingPointerCapture && now >= nextPointerCaptureAt)
+                EZCollabSceneRepaintScheduler.Request();
+
+            if (now - lastSentAt >= KeepAliveInterval)
+                dirty = true;
+
+            TrySend(now);
+        }
+
+        static void TrySend(double now)
+        {
+            if (!dirty || now < nextSendAt || !EZCollabState.inSession ||
+                EZCollabSession.isSynchronizing || string.IsNullOrEmpty(EZCollabState.localPeerId))
+            {
+                return;
+            }
+
+            EZCollabPresencePayload payload = BuildPayload(activeView);
+            if (payload == null)
+                return;
+
+            payload.sampleNumber = ++sampleNumber;
+            EZMessage message = EZMessage.Create(EZMessageType.PresenceUpdate, EZCollabState.localPeerId, payload);
+            EZCollabSession.PublishLatest("presence:" + EZCollabState.localPeerId, message);
+
+            lastSent = payload;
+            lastSentAt = now;
+            nextSendAt = now + SendInterval;
+            dirty = false;
+        }
+
+        static EZCollabPresencePayload BuildPayload(SceneView view)
+        {
+            if (view == null || view.camera == null)
+                return null;
+
+            Transform cameraTransform = view.camera.transform;
+            EZCollabPresencePayload payload = new EZCollabPresencePayload
+            {
+                sceneContext = EZCollabSceneContext.GetCurrent(),
+                hasCamera = true,
+                cameraPosition = EZCollabPresencePayload.FromVector3(cameraTransform.position),
+                cameraRotation = EZCollabPresencePayload.FromQuaternion(cameraTransform.rotation),
+                cameraPivot = EZCollabPresencePayload.FromVector3(view.pivot),
+                cameraSize = Mathf.Max(0.0001f, view.size),
+                cameraFieldOfView = Mathf.Clamp(view.camera.fieldOfView, 1f, 179f),
+                cameraAspect = Mathf.Max(0.01f, view.camera.aspect),
+                cameraNearClip = Mathf.Max(0f, view.camera.nearClipPlane),
+                cameraFarClip = Mathf.Max(view.camera.nearClipPlane + 0.01f, view.camera.farClipPlane),
+                cameraOrthographic = view.orthographic,
+                hasPointer = hasPointer && pointerObject != null
+            };
+
+            if (!payload.hasPointer)
+                return payload;
+
+            pointerWorldPosition = pointerObject.transform.TransformPoint(pointerLocalPosition);
+            pointerWorldNormal = pointerObject.transform.TransformDirection(pointerLocalNormal).normalized;
+            if (EZCollabState.TryGetGuid(pointerObject, out string guid))
+                payload.pointerObjectGuid = guid;
+            payload.localPosition = EZCollabPresencePayload.FromVector3(pointerLocalPosition);
+            payload.localNormal = EZCollabPresencePayload.FromVector3(pointerLocalNormal);
+            payload.worldPosition = EZCollabPresencePayload.FromVector3(pointerWorldPosition);
+            payload.worldNormal = EZCollabPresencePayload.FromVector3(pointerWorldNormal);
+            return payload;
+        }
+
+        static void UpdatePointer(Vector2 mousePosition)
+        {
+            GameObject picked = HandleUtility.PickGameObject(mousePosition, false);
+            if (picked == null)
+            {
+                GameObject selected = Selection.activeGameObject;
+                if (selected != null && selected.scene.IsValid() &&
+                    Vector2.Distance(HandleUtility.WorldToGUIPoint(selected.transform.position), mousePosition) <= 18f)
+                {
+                    picked = selected;
+                }
+            }
+            if (picked == null || !picked.scene.IsValid())
+            {
+                SetPointerHidden();
+                return;
+            }
+
+            Ray ray = HandleUtility.GUIPointToWorldRay(mousePosition);
+            if (!TryGetSurfacePoint(picked, ray, out Vector3 point, out Vector3 normal))
+            {
+                point = picked.transform.position;
+                normal = -ray.direction;
+            }
+
+            normal = normal.sqrMagnitude > 0.000001f ? normal.normalized : Vector3.up;
+            bool changed = !hasPointer || pointerObject != picked ||
+                           (pointerWorldPosition - point).sqrMagnitude > PositionEpsilonSquared ||
+                           Vector3.Dot(pointerWorldNormal, normal) < 0.9999f;
+            if (!changed)
+                return;
+
+            pointerObject = picked;
+            pointerWorldPosition = point;
+            pointerWorldNormal = normal;
+            pointerLocalPosition = picked.transform.InverseTransformPoint(point);
+            pointerLocalNormal = picked.transform.InverseTransformDirection(normal).normalized;
+            hasPointer = true;
+            dirty = true;
+        }
+
+        static void TryCapturePointer(double now)
+        {
+            if (!pendingPointerCapture || now < nextPointerCaptureAt)
+                return;
+
+            pendingPointerCapture = false;
+            nextPointerCaptureAt = now + SendInterval;
+            UpdatePointer(latestMousePosition);
+        }
+
+        internal static bool TryGetSurfacePoint(GameObject picked, Ray ray, out Vector3 point, out Vector3 normal)
+        {
+            Collider collider = picked.GetComponent<Collider>();
+            if (collider != null && collider.enabled && collider.Raycast(ray, out RaycastHit colliderHit, float.MaxValue))
+            {
+                point = colliderHit.point;
+                normal = colliderHit.normal;
+                return true;
+            }
+
+            MeshFilter meshFilter = picked.GetComponent<MeshFilter>();
+            Mesh mesh = meshFilter != null ? meshFilter.sharedMesh : null;
+            if (mesh != null && mesh.vertexCount <= MaxVerticesForPreciseMeshPick &&
+                IntersectRayMesh != null && !meshIntersectionDisabled)
+            {
+                try
+                {
+                    if (IntersectRayMesh(ray, mesh, picked.transform.localToWorldMatrix, out RaycastHit meshHit))
+                    {
+                        point = meshHit.point;
+                        normal = meshHit.normal;
+                        return true;
+                    }
+                }
+                catch
+                {
+                    // Unity may change the internal optimized helper. Bounds remain a safe fallback.
+                    meshIntersectionDisabled = true;
+                }
+            }
+
+            Renderer renderer = picked.GetComponent<Renderer>();
+            Bounds bounds = renderer != null
+                ? renderer.bounds
+                : new Bounds(picked.transform.position, Vector3.one * 0.25f);
+            if (bounds.IntersectRay(ray, out float distance))
+            {
+                point = ray.GetPoint(distance);
+                normal = GetBoundsNormal(bounds, point, -ray.direction);
+                return true;
+            }
+
+            point = picked.transform.position;
+            normal = -ray.direction;
+            return true;
+        }
+
+        static bool IsOverSceneControl(SceneView view, Vector2 mousePosition)
+        {
+            UnityEngine.UIElements.VisualElement root = view.rootVisualElement;
+            UnityEngine.UIElements.VisualElement picked = root?.panel?.Pick(mousePosition);
+            for (UnityEngine.UIElements.VisualElement element = picked;
+                 element != null && element != root; element = element.parent)
+            {
+                string name = element.name ?? string.Empty;
+                string type = element.GetType().Name;
+                if (name.IndexOf("overlay", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    type.IndexOf("Toolbar", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    type == "Button" || type == "Toggle") return true;
+            }
+            return false;
+        }
+
+        static Vector3 GetBoundsNormal(Bounds bounds, Vector3 point, Vector3 fallback)
+        {
+            Vector3 extents = bounds.extents;
+            Vector3 offset = point - bounds.center;
+            float x = extents.x > 0.00001f ? Mathf.Abs(offset.x / extents.x) : 0f;
+            float y = extents.y > 0.00001f ? Mathf.Abs(offset.y / extents.y) : 0f;
+            float z = extents.z > 0.00001f ? Mathf.Abs(offset.z / extents.z) : 0f;
+            if (x >= y && x >= z)
+                return new Vector3(Mathf.Sign(offset.x), 0f, 0f);
+            if (y >= x && y >= z)
+                return new Vector3(0f, Mathf.Sign(offset.y), 0f);
+            if (z > 0f)
+                return new Vector3(0f, 0f, Mathf.Sign(offset.z));
+            return fallback;
+        }
+
+        static void SetPointerHidden()
+        {
+            if (!hasPointer)
+                return;
+
+            hasPointer = false;
+            pointerObject = null;
+            pendingPointerCapture = false;
+            dirty = true;
+        }
+
+        static void MarkDirtyIfCameraChanged(SceneView view)
+        {
+            if (view == null || view.camera == null)
+                return;
+
+            if (lastSent == null || !lastSent.hasCamera ||
+                (lastSent.GetCameraPosition() - view.camera.transform.position).sqrMagnitude > PositionEpsilonSquared ||
+                Quaternion.Angle(lastSent.GetCameraRotation(), view.camera.transform.rotation) > RotationEpsilon ||
+                (lastSent.GetCameraPivot() - view.pivot).sqrMagnitude > PositionEpsilonSquared ||
+                Mathf.Abs(lastSent.cameraSize - view.size) > 0.0001f ||
+                lastSent.cameraOrthographic != view.orthographic ||
+                !string.Equals(lastSent.sceneContext, EZCollabSceneContext.GetCurrent(), StringComparison.Ordinal))
+            {
+                dirty = true;
+            }
+        }
+
+        static IntersectRayMeshDelegate CreateMeshIntersectionDelegate()
+        {
+            try
+            {
+                MethodInfo method = typeof(HandleUtility).GetMethod(
+                    "IntersectRayMesh",
+                    BindingFlags.Static | BindingFlags.NonPublic,
+                    null,
+                    new[] { typeof(Ray), typeof(Mesh), typeof(Matrix4x4), typeof(RaycastHit).MakeByRefType() },
+                    null);
+                return method == null
+                    ? null
+                    : (IntersectRayMeshDelegate)Delegate.CreateDelegate(typeof(IntersectRayMeshDelegate), method);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        static void OnSessionStateChanged()
+        {
+            if (!EZCollabState.inSession)
+            {
+                ResetLocalState();
+                EZCollabPresenceState.Clear();
+                return;
+            }
+
+            dirty = true;
+            nextSendAt = 0d;
+            if (!EZCollabSession.isSynchronizing)
+            {
+                activeView = SceneView.lastActiveSceneView;
+                TrySend(EditorApplication.timeSinceStartup);
+            }
+        }
+
+        static void OnPlayModeStateChanged(PlayModeStateChange change)
+        {
+            if (change == PlayModeStateChange.ExitingEditMode || change == PlayModeStateChange.EnteredPlayMode)
+            {
+                ResetLocalState();
+                EZCollabPresenceState.Clear();
+            }
+        }
+
+        static void ResetLocalState()
+        {
+            activeView = null;
+            pointerObject = null;
+            hasPointer = false;
+            navigating = false;
+            pendingPointerCapture = false;
+            dirty = true;
+            nextPointerCaptureAt = 0d;
+            nextSendAt = 0d;
+            lastSentAt = double.NegativeInfinity;
+            lastSent = null;
+        }
+    }
+
+    internal static class EZCollabSceneContext
+    {
+        static string cachedSourceKey;
+        static string cachedContext;
+
+        public static string GetCurrent()
+        {
+            PrefabStage prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
+            if (prefabStage != null)
+            {
+                string sourceKey = "prefab-path:" + prefabStage.assetPath;
+                if (sourceKey == cachedSourceKey)
+                    return cachedContext;
+
+                string prefabGuid = AssetDatabase.AssetPathToGUID(prefabStage.assetPath);
+                cachedSourceKey = sourceKey;
+                cachedContext = "prefab:" + (string.IsNullOrEmpty(prefabGuid) ? prefabStage.assetPath : prefabGuid);
+                return cachedContext;
+            }
+
+            Scene scene = SceneManager.GetActiveScene();
+            string sceneSourceKey = "scene-handle:" + scene.handle + ":" + scene.path;
+            if (sceneSourceKey == cachedSourceKey)
+                return cachedContext;
+
+            string sceneGuid = string.IsNullOrEmpty(scene.path) ? null : AssetDatabase.AssetPathToGUID(scene.path);
+            cachedSourceKey = sceneSourceKey;
+            cachedContext = "scene:" + (!string.IsNullOrEmpty(sceneGuid)
+                ? sceneGuid
+                : scene.name + ":" + scene.buildIndex);
+            return cachedContext;
+        }
+
+        public static bool IsCurrent(string context)
+        {
+            return !string.IsNullOrEmpty(context) &&
+                   string.Equals(context, GetCurrent(), StringComparison.Ordinal);
+        }
+    }
+}

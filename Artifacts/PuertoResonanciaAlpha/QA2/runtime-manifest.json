@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/Managed/Assembly-CSharp.dll",
+    "SHA256": "A87D7C7963BBC0EAC372595BBB5426DB581B9C7D65E769995A89AD0AE600805D"
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictDirector.cs",
+    "SHA256": "13785BF956BD6B9C3A045C0B423332152B3A5509A046BF0AD97A55B78C518628"
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictCollapse.cs",
+    "SHA256": "23A32D2C012AA74B60A575EC86A8DFD1B4EF1F277AF7C7379568F27B02FCC509"
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictVisuals.cs",
+    "SHA256": "EA3458EAD18E41F833A3412CF70EE9FFDC38AC2684F52601EF69D8201C062779"
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictAnimeFeature.cs",
+    "SHA256": "8087C56A9215A0869211F7867338AEFB697882C22F44C3E749A698763986B500"
+  },
+  {
+    "Path": "Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs",
+    "SHA256": "3769642C5A68E4ADEEC0D3DBA5563B10A75DAD7B7D7631059564FC51FFCAB40C"
+  }
+]

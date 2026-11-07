@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HELIX Game
+  m_Shader: {fileID: 4800000, guid: 07658fd7245092d44a7e14d012e580e0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorRetention: 0.28
+    - _Contrast: 1.04
+    - _DotSize: 3.2
+    - _EdgePreservation: 0.45
+    - _Exposure: 0
+    - _FormRetention: 0.3
+    - _Grain: 0.018
+    - _Halftone: 0.58
+    - _Intensity: 0.92
+    - _MidtoneLift: 0.24
+    - _PaperHighlights: 0.16
+    - _Registration: 0
+    - _Saturation: 1.02
+    - _ScreenAngle: 35
+    - _SignalLuminance: 0.12
+    - _SignalPreservation: 0.55
+    - _SignalSaturation: 0.5
+    - _Wear: 0.002
+    m_Colors:
+    - _AccentInk: {r: 0.86, g: 0.34, b: 0.16, a: 1}
+    - _MainInk: {r: 0.12, g: 0.48, b: 0.48, a: 1}
+    - _Paper: {r: 0.96, g: 0.91, b: 0.8, a: 1}
+    - _ShadowInk: {r: 0.055, g: 0.08, b: 0.13, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

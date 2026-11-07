@@ -1,0 +1,56 @@
+Mono path[0] = 'D:/Unity/FPS-PayDayGame/Artifacts/TelltaleGameBuild/ExtractedCheck/HELIX-Telltale-Engraving-2026-11-05/HELIX-Telltale_Data/Managed'
+Mono config path = 'D:/Unity/FPS-PayDayGame/Artifacts/TelltaleGameBuild/ExtractedCheck/HELIX-Telltale-Engraving-2026-11-05/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Artifacts/TelltaleGameBuild/ExtractedCheck/HELIX-Telltale-Engraving-2026-11-05/HELIX-Telltale_Data/UnitySubsystems
+Forcing GfxDevice: Direct3D 11
+kGfxThreadingModeSplitJobs is not supported on Direct3D 11. Reverting to kGfxThreadingModeClientWorkerJobs instead.
+GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.083 seconds
+- Finished resetting the current domain, in  0.001 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+UnloadTime: 0.952600 ms
+RenderGraph is now enabled.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.681600 ms
+Unloading 580 unused Assets to reduce memory usage. Loaded Objects now: 7601.
+Total: 2.139900 ms (FindLiveObjects: 0.217500 ms CreateObjectMapping: 0.091400 ms MarkObjects: 1.236600 ms  DeleteObjects: 0.594300 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.444700 ms
+Unloading 580 unused Assets to reduce memory usage. Loaded Objects now: 7462.
+Total: 1.830000 ms (FindLiveObjects: 0.188200 ms CreateObjectMapping: 0.086500 ms MarkObjects: 1.286200 ms  DeleteObjects: 0.269000 ms)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.276700 ms
+Unloading 493 unused Assets to reduce memory usage. Loaded Objects now: 4591.
+Total: 1.668600 ms (FindLiveObjects: 0.237500 ms CreateObjectMapping: 0.061200 ms MarkObjects: 1.213900 ms  DeleteObjects: 0.155700 ms)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.646000 ms
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 7917.
+Total: 1.659500 ms (FindLiveObjects: 0.210700 ms CreateObjectMapping: 0.100600 ms MarkObjects: 1.277300 ms  DeleteObjects: 0.070700 ms)
+
+TELLTALE GAME SMOKE COMPLETE
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

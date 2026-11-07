@@ -1,0 +1,79 @@
+{
+  "winner_title": "Arsenal mutante + movimiento selectivo",
+  "verdict": "Los tres agentes nuevos coinciden: la mejor base sigue siendo Arsenal mutante, complementada por una capacidad de Impulso. La mejor novedad es Cámara abierta. No recomiendan sustituir todo por un catálogo nuevo ni acumular controles: el primer conjunto debe ofrecer tres decisiones diferentes desde la pistola.",
+  "one_line": "Cargar para atravesar una fila; elegir un soplete al quedarse vacío; abrir espacio para retirarse.",
+  "prototype": [
+    {"id": "P1-01", "why": "Cámara de ariete, del PDF 1: cambia el disparo con una acción que controlas. Es el mejor punto de entrada individual para los tres agentes."},
+    {"id": "C1", "why": "Cámara abierta, nueva: el cargador vacío abre otra función del arma, en vez de limitarse a esperar una recarga. El soplete se elige con una pulsación nueva."},
+    {"id": "P2-03", "why": "Freno de emergencia, del PDF 2: añade espacio y retirada. Aporta más contraste que una segunda carta de perforación o de detonación cercana."}
+  ],
+  "agreement_scope": "Acuerdo 3 de 3 sobre la dirección, las tres cartas y la mejor novedad. También comparten reservas: el slide no debe volverse obligatorio, el soplete no debe activarse sin querer ni forzar a vaciar la pistola para jugar bien. No han validado diversión ni balance.",
+  "directions": [
+    {"name": "Arsenal mutante / PDF 1", "judgment": "Base ganadora", "reason": "La función del arma cambia en el primer uso. Permite estilos distintos sin imponer una maniobra constante."},
+    {"name": "Impulso de combate / PDF 2", "judgment": "Complemento", "reason": "Una entrada o salida añade otra decisión. Recompensar cada slide con varios efectos puede convertirlo en obligación."},
+    {"name": "Armas con segunda intención / A", "judgment": "Reservar", "reason": "Ángulos remotos y tiros dirigidos son distintos; su control y lectura cuestan más que el cambio inmediato del soplete."},
+    {"name": "Cuerpo de asalto / B", "judgment": "Probar después", "reason": "Una maniobra puede valer mucho; seis sistemas de locomoción a la vez distraerían del combate que ya engancha."},
+    {"name": "Relevo brutal / C", "judgment": "Tomar C1", "reason": "Cámara abierta funciona con pistola sola. Herencias entre armas y relojes alterados complican el resto del paquete."},
+    {"name": "Protocolo Dominó / PDF 3", "judgment": "Rama posterior", "reason": "Circuito cerrado propone preparación intencional, pero muchas conexiones simultáneas exigen otra lectura de la horda."},
+    {"name": "Ingeniería de chatarra / PDF 4", "judgment": "Fuera del estreno", "reason": "La fantasía táctica es válida; acumular objetos al recargar aleja el foco de las armas y puede activar cosas sin querer."}
+  ],
+  "comparison_note": "Los tres autores han dejado fuera su dirección completa. La selección mezcla dos cartas anteriores y una nueva porque cambian decisiones diferentes. Ser nueva, espectacular o barata no bastó: Eco perdió su plaza al revisarse y Retropropulsor debe justificar su ventaja frente a una retirada normal.",
+  "best_new": "Cámara abierta: con la pistola vacía, soltar y volver a mantener disparo activa un soplete cercano que gasta reserva. Ante Aguja lejana conviene recargar; ante un grupo próximo puede convenir atacar. Esa elección, no un multiplicador, es su valor propuesto.",
+  "debate": [
+    {"topic": "1 / ¿Eco cruzado era solo doble daño disfrazado?", "objection": "B y C señalaron que quedarse quieto, recargar y copiar un disparo no crea otra decisión. A aceptó la crítica.", "answer": "A lo convirtió en tiro remoto voluntario: separarse 2 m y usar el eco en vez del cañón, consumiendo una bala normal.", "result": "La identidad mejora, pero exige explicar otro origen y control. A retira su propia carta del primer conjunto y prefiere C1."},
+    {"topic": "2 / ¿Retropropulsor cambia algo frente a retroceder?", "objection": "A y C cuestionaron una salida tras cada cartucho; B admitió que 2 m podían aportar poco o convertir saltar en rutina.", "answer": "B lo hizo opcional: cancelación de inercia, hasta 4 m, una carga, recuperación y colisión. La distancia mayor sigue siendo una hipótesis.", "result": "Se reserva tras adquirir escopeta. Solo avanzará si permite una maniobra que retroceder disparando no resuelva igual."},
+    {"topic": "3 / ¿Freno o Corte? ¿Soplete elegido o accidental?", "objection": "B prefería Corte de apertura por su secuencia cuchillo-disparo. También objetó que mantener el último tiro podía gastar reserva sin querer en C1.", "answer": "C exige soltar y pulsar de nuevo, gasto visible y cancelación inmediata. Con C1 como ataque cercano, B acepta Freno para añadir una salida distinta.", "result": "Voto común, con reserva explícita: ni slide obligatorio ni rutina única de vaciar, quemar y huir. Corte sigue como alternativa agresiva posterior."}
+  ],
+  "votes": [
+    {"agent": "A / Armas", "direction": "Arsenal + Impulso selectivo", "cards": "P1-01 + C1 + P2-03", "reservation": "Evitar una sola rutina de vaciar y huir."},
+    {"agent": "B / Movimiento", "direction": "Arsenal + movimiento opcional", "cards": "P1-01 + C1 + P2-03", "reservation": "Corte sigue siendo alternativa; slide no obligatorio."},
+    {"agent": "C / Ritmo", "direction": "Arsenal + Impulso selectivo", "cards": "P1-01 + C1 + P2-03", "reservation": "Reserva y riesgo ante Ariete sin validar."}
+  ],
+  "prototype_rules": "Valores iniciales para probar, no balance aprobado. Cámara de ariete: carga de 0,6 s, tres balas, doble daño y hasta tres robots atravesados; clic breve conserva tiro normal. Cámara abierta: cargador vacío y nueva pulsación mantenida; 3 m, cuatro balas de reserva, hasta 1 s, tres víctimas distintas en toda activación y recuperación de 6 s. Soltar, R o cambiar cancela. Freno: onda frontal de 3 m cada 5 s al terminar el slide; empuja normales 1 m y veteranos 0,3 m, sin daño ni invulnerabilidad.",
+  "encounter": [
+    {"title": "Una fila y un tirador al fondo", "body": "Cargas la pistola y atraviesas la fila. Si Aguja mantiene distancia, recargar y seguir disparando debe ser una respuesta buena: no se exige entrar al soplete."},
+    {"title": "Cargador vacío, grupo cercano", "body": "Puedes elegir el soplete y gastar reserva. Acercarte a Ariete sigue exponiéndote; el máximo de víctimas corresponde a toda la descarga, no a cada tick. Si falta reserva, no se activa: recarga si queda munición."},
+    {"title": "Salir conserva una decisión", "body": "Puedes recolocarte normalmente o usar el slide y orientar Freno para abrir una salida. La carta no cancela todo ataque. Si deslizarse se vuelve obligatorio para jugar bien, hay que revisarla."}
+  ],
+  "offer_rules": "Primero comparar cada carta sola y después las tres con armas y estadísticas iguales. Ese ensayo guiado no sustituye la run: conservar elección de una entre tres, excluir duplicados y armas ausentes, y adquirir otras armas en hitos posteriores.",
+  "tests": [
+    "¿El tester explica y repite la función nueva por decisión propia, sin releer ni confundir carga y soplete?",
+    "¿Recargar sigue siendo una opción buena? Observar reserva, activaciones involuntarias y entradas suicidas ante Ariete.",
+    "¿Cambian ángulos, distancias y momentos? Si solo sube el daño o se repite una rutina, revisar antes de pulir efectos.",
+    "Pausa, muerte, cobertura y cierre de oleada conservan su funcionamiento; daños derivados dan crédito sin generar bucles."
+  ],
+  "old_triage": [
+    {"id":"P1-01","status":"Prototipo","reason":"Mejor entrada: apuntar y cargar cambia el disparo desde la pistola."},
+    {"id":"P1-02","status":"Reserva","reason":"Marca y detonación útiles; otra ofensiva cercana resta contraste al estreno."},
+    {"id":"P1-03","status":"Después","reason":"Ramales automáticos añaden menos decisión que apuntar y cargar."},
+    {"id":"P1-04","status":"Después","reason":"Persistencia y trazos pueden saturar la lectura de una horda."},
+    {"id":"P1-05","status":"Reserva","reason":"Agrupar cambia blancos; verificar desplazamiento sin borrar amenaza melee."},
+    {"id":"P1-06","status":"Reserva","reason":"Rebote visible y patrón distinto; tras adquirir escopeta."},
+    {"id":"P1-07","status":"Reserva","reason":"Lanzamiento y retorno añaden otra función al cuchillo."},
+    {"id":"P1-08","status":"Después","reason":"Activarse al recargar puede volverse rutina con explosiones añadidas."},
+    {"id":"P2-01","status":"Variante","reason":"Alternativa móvil a Cámara; no duplicar dos perforaciones al empezar."},
+    {"id":"P2-02","status":"Después","reason":"Premiar cada slide arriesga convertir una ruta en obligación."},
+    {"id":"P2-03","status":"Prototipo","reason":"Salida local con contraste; condición: no volver obligatorio el slide."},
+    {"id":"P2-04","status":"Reserva","reason":"Alternativa agresiva preferida por B; C1 ya cubre ofensiva cercana."},
+    {"id":"P2-05","status":"Después","reason":"Recoger cambia ruta; menor transformación ofensiva en el primer conjunto."},
+    {"id":"P2-06","status":"Después","reason":"Favorece vaciar y cuchillo; conserva la función del disparo."},
+    {"id":"P2-07","status":"Después","reason":"Entrada y controles merecen otra prueba con cuchillo."},
+    {"id":"P2-08","status":"Reserva","reason":"Cobertura útil; vigilar que no borre el rol del tirador."},
+    {"id":"P3-01","status":"Reserva","reason":"Secuencia A-B-A intencional; probar aislada antes de añadir más cables."},
+    {"id":"P3-02","status":"Después","reason":"Agrupar interesa; controlar desplazamientos sin atrapar a los enemigos."},
+    {"id":"P3-03","status":"Después","reason":"Proyectar cuerpos amplía física y navegación; valor aún por probar."},
+    {"id":"P3-04","status":"Después","reason":"Otro enlace exige atención; el primer núcleo ya combina fases."},
+    {"id":"P3-05","status":"Después","reason":"Transferencias y temporizador aumentan seguimiento durante una horda."},
+    {"id":"P3-06","status":"Después","reason":"Más suelo marcado; encaja menos con las preferencias de armas."},
+    {"id":"P3-07","status":"Fuera núcleo","reason":"Interrumpir puede borrar ventanas y amenazas combinadas."},
+    {"id":"P3-08","status":"Después","reason":"Cargar, colocar y contar recursos añade otro foco de atención."},
+    {"id":"P4-01","status":"Variante","reason":"Detonación manual válida; corresponde a otra dirección táctica."},
+    {"id":"P4-02","status":"Variante","reason":"Elegir una pantalla; no sumar duplicados con Pantalla de chispas."},
+    {"id":"P4-03","status":"Después","reason":"Cambiar blancos de IA añade una dependencia ajena al núcleo."},
+    {"id":"P4-04","status":"Después","reason":"Otro imán; no estrenar varios sistemas de agrupación a la vez."},
+    {"id":"P4-05","status":"Después","reason":"Control de cuerpos y navegación amplía el ensayo de armas."},
+    {"id":"P4-06","status":"Después","reason":"Marca y demora añaden otra preparación; menos directo al empezar."},
+    {"id":"P4-07","status":"Después","reason":"Recoger herramienta cambia ruta; comparar con Hoja de retorno."},
+    {"id":"P4-08","status":"Fuera núcleo","reason":"Capturar disparos exige conservar el peligro real de Aguja."}
+  ]
+}

@@ -1,0 +1,322 @@
+[
+  {
+    "id": "P1-01",
+    "direction": "Arsenal mutante",
+    "name": "Cámara de ariete",
+    "trigger": "Pistola: mantén disparo 0,6 s y suelta.",
+    "effect": "Lanza de doble daño que atraviesa hasta tres robots.",
+    "signal": "Cámara encendida, chasquido grave y trazo grueso.",
+    "combo": "Siembra Fusible doble en una fila.",
+    "cap": "Consume tres balas; un impacto por robot y disparo. Clic breve conserva el tiro normal."
+  },
+  {
+    "id": "P1-02",
+    "direction": "Arsenal mutante",
+    "name": "Fusible doble",
+    "trigger": "Cualquier arma de fuego: impacto directo sobre un robot.",
+    "effect": "Coloca una marca; otro disparo directo la detona en área.",
+    "signal": "Fusible naranja visible y aviso corto al armarse.",
+    "combo": "Cámara de ariete marca varios cuerpos.",
+    "cap": "Una marca por robot; caduca en tres segundos. Explosión: máximo cuatro víctimas; no activa cartas."
+  },
+  {
+    "id": "P1-03",
+    "direction": "Arsenal mutante",
+    "name": "Horquilla",
+    "trigger": "Carabina: cada cuarto disparo que impacta.",
+    "effect": "Dos ramales saltan a otros robots visibles, hasta cinco metros.",
+    "signal": "Bifurcación naranja en forma de Y.",
+    "combo": "Embudo de chatarra acerca blancos secundarios.",
+    "cap": "Cada ramal inflige medio impacto; exige visión libre. No rebota ni activa cartas. Contador avanza solo con disparos primarios."
+  },
+  {
+    "id": "P1-04",
+    "direction": "Arsenal mutante",
+    "name": "Cortina láser",
+    "trigger": "Carabina: cada disparo primario.",
+    "effect": "Su trayectoria queda fija y daña robots que la crucen durante 0,6 s.",
+    "signal": "Tres hilos luminosos finos; nunca una pared opaca.",
+    "combo": "Embudo conduce la horda hacia los trazos.",
+    "cap": "Tres trazos activos. Un daño reducido por robot cada 0,6 s. No activa cartas."
+  },
+  {
+    "id": "P1-05",
+    "direction": "Arsenal mutante",
+    "name": "Embudo de chatarra",
+    "trigger": "Escopeta: cada disparo, incluidos los discos.",
+    "effect": "Un pulso agrupa robots hacia el eje del cono, sin acercarlos al jugador.",
+    "signal": "Arcos naranjas cierran una pinza.",
+    "combo": "Alinea blancos para Horquilla o Cámara de ariete.",
+    "cap": "Máximo 1,5 m lateral; Ariete 0,4 m. Inmunidad al tirón durante dos segundos. No atraviesa paredes."
+  },
+  {
+    "id": "P1-06",
+    "direction": "Arsenal mutante",
+    "name": "Disco de demolición",
+    "trigger": "Escopeta: sustituye los perdigones; conserva el pulso de Embudo.",
+    "effect": "Lanza un disco que corta robots y permite un rebote contra una pared.",
+    "signal": "Disco dentado grande; chispa y sonido metálico al rebotar.",
+    "combo": "Embudo concentra objetivos en su recorrido.",
+    "cap": "Un cartucho; tres víctimas distintas, un rebote y 1,2 s. Sus impactos no generan activaciones adicionales de cartas."
+  },
+  {
+    "id": "P1-07",
+    "direction": "Arsenal mutante",
+    "name": "Hoja de retorno",
+    "trigger": "Cuchillo: mantén ataque 0,5 s y suelta.",
+    "effect": "Arroja la hoja hasta doce metros; después regresa al jugador.",
+    "signal": "Hoja física y cinta naranja dibujan ida y vuelta.",
+    "combo": "Embudo alinea objetivos antes del lanzamiento.",
+    "cap": "Dos víctimas por trayecto; un impacto por víctima en cada dirección. Sin ataques de cuchillo mientras vuela; permite cambiar de arma."
+  },
+  {
+    "id": "P1-08",
+    "direction": "Arsenal mutante",
+    "name": "Recarga explosiva",
+    "trigger": "Pistola o carabina: recarga manual tras gastar tres balas.",
+    "effect": "Expulsa el cargador hacia delante; explota tras un segundo en un radio pequeño.",
+    "signal": "Cargador rojo físico, pitido y círculo previo en el suelo.",
+    "combo": "Cámara de ariete satisface el gasto de tres balas.",
+    "cap": "Un cargador activo; explosiones no activan cartas. No concede munición gratuita."
+  },
+  {
+    "id": "P2-01",
+    "direction": "Impulso de combate",
+    "name": "Tiro rasante",
+    "trigger": "Dispara durante el deslizamiento o 0,8 s después.",
+    "effect": "Ese disparo se vuelve un pulso que perfora hasta tres robots alineados.",
+    "signal": "Trazo ancho y contador de robots perforados.",
+    "combo": "Freno de emergencia abre la línea.",
+    "cap": "Un pulso cada 4 s; paredes lo detienen. Escopeta: un pulso total, sin multiplicación por perdigón. Conserva alcance base."
+  },
+  {
+    "id": "P2-02",
+    "direction": "Impulso de combate",
+    "name": "Estela de escoria",
+    "trigger": "Recorre al menos 2 m deslizándote.",
+    "effect": "Dejas una franja caliente durante 2 s: quema a robots que cruzan tu ruta.",
+    "signal": "Suelo naranja delimitado y chasquido metálico.",
+    "combo": "Tiro rasante remata la fila perseguidora.",
+    "cap": "Una estela cada 4 s; una aplicación por enemigo y estela. No activa otras cartas ni atraviesa paredes."
+  },
+  {
+    "id": "P2-03",
+    "direction": "Impulso de combate",
+    "name": "Freno de emergencia",
+    "trigger": "Termina o suelta el deslizamiento.",
+    "effect": "Una onda frontal de 3 m aparta enemigos y abre una salida.",
+    "signal": "Abanico eléctrico y golpe de compresor.",
+    "combo": "Corte de apertura permite retirarte tras marcar.",
+    "cap": "Cada 5 s. Empuje orientativo: normales 1 m, veteranos 0,3 m. Sin daño, invulnerabilidad ni cancelación garantizada del ataque."
+  },
+  {
+    "id": "P2-04",
+    "direction": "Impulso de combate",
+    "name": "Corte de apertura",
+    "trigger": "Golpea con cuchillo; dispara al mismo objetivo antes de 2 s.",
+    "effect": "Detonas la abrazadera: golpe fuerte al marcado y daño cercano.",
+    "signal": "Pinza naranja, pitido y explosión delimitada.",
+    "combo": "Punta de lanza facilita entrar.",
+    "cap": "Una marca activa; hasta tres vecinos, con visión. Solo un disparo manual la detona. Ni explosiones ni estelas reinician cadenas."
+  },
+  {
+    "id": "P2-05",
+    "direction": "Impulso de combate",
+    "name": "Recolector audaz",
+    "trigger": "Mata directamente con arma o cuchillo a menos de 4 m.",
+    "effect": "Deja una batería: debes pasar sobre ella para recuperar 15 de escudo.",
+    "signal": "Batería cian y sonido claro de recogida.",
+    "combo": "Corte de apertura prepara la baja cercana.",
+    "cap": "Una cada 3 s; desaparece tras 3 s. Sin curación, sobreescudo ni baterías por efectos secundarios."
+  },
+  {
+    "id": "P2-06",
+    "direction": "Impulso de combate",
+    "name": "Recámara de choque",
+    "trigger": "Vacía un arma; cambia a cuchillo y acierta antes de 3 s.",
+    "effect": "Rellena el cargador del arma vaciada usando su reserva.",
+    "signal": "Chispazo al cargador y contador actualizado.",
+    "combo": "Corte de apertura prepara el disparo de regreso.",
+    "cap": "Una activación cada 8 s. Sin reserva no recarga; nunca genera munición ni rellena todas las armas."
+  },
+  {
+    "id": "P2-07",
+    "direction": "Impulso de combate",
+    "name": "Punta de lanza",
+    "trigger": "Tras impactar con arma, usa cuchillo apuntando al mismo robot desde menos de 3 m.",
+    "effect": "Nueva embestida terrestre de hasta 1,2 m para alcanzar el contacto.",
+    "signal": "Marca triangular y surco corto.",
+    "combo": "Corte de apertura convierte contacto en detonación.",
+    "cap": "Una carga, dura 1,5 s. Requiere apuntar y suelo; frena ante cuerpos, paredes y bordes. Sin invulnerabilidad."
+  },
+  {
+    "id": "P2-08",
+    "direction": "Impulso de combate",
+    "name": "Pantalla de chispas",
+    "trigger": "Inicia un deslizamiento.",
+    "effect": "Una pantalla fija cubre físicamente la línea de tiro detrás de ti.",
+    "signal": "Marco translúcido que se agrieta al recibir impactos.",
+    "combo": "Recolector audaz permite recoger con cobertura.",
+    "cap": "Una cada 6 s; dura 1,5 s o tres impactos. Melee y cuerpos pasan. Tus disparos salen; solo bloquea tiros que realmente la cruzan."
+  },
+  {
+    "id": "P3-01",
+    "direction": "Protocolo Dominó",
+    "name": "Circuito cerrado",
+    "trigger": "Impacta a dos robots distintos con disparos directos.",
+    "effect": "Quedan conectados; volver a disparar a un nodo descarga un pulso en todos. Puedes añadir un tercero antes.",
+    "signal": "Cables azules y sellos numerados sobre los nodos.",
+    "combo": "Chatarra imantada mantiene el grupo cerca.",
+    "cap": "Una red, 5 s, alcance 6 m; 3 s entre descargas."
+  },
+  {
+    "id": "P3-02",
+    "direction": "Protocolo Dominó",
+    "name": "Chatarra imantada",
+    "trigger": "Consigue una baja directa del jugador.",
+    "effect": "El cadáver atrae brevemente a robots cercanos. Puedes crear un punto de reunión donde quieres concentrar el fuego.",
+    "signal": "Anillos azules hacia dentro y chatarra flotando.",
+    "combo": "Reúne blancos para Circuito cerrado o Portador.",
+    "cap": "Un imán cada 8 s, dura 1,2 s, máximo cuatro atraídos; los veteranos apenas se desplazan."
+  },
+  {
+    "id": "P3-03",
+    "direction": "Protocolo Dominó",
+    "name": "Bola de bolos",
+    "trigger": "Acierta un escopetazo cercano al centro de un robot.",
+    "effect": "Proyecta al blanco; si alcanza a otro, ambos sufren un impacto y una interrupción breve.",
+    "signal": "Estela corta y golpe seco al chocar.",
+    "combo": "Cable de retirada facilita alinear la colisión.",
+    "cap": "Una proyección cada 4 s y una colisión; veteranos con desplazamiento corto, sin encadenar empujones."
+  },
+  {
+    "id": "P3-04",
+    "direction": "Protocolo Dominó",
+    "name": "Corte de enlace",
+    "trigger": "Alcanza a un robot con el cuchillo.",
+    "effect": "Lo enlazas al vecino más cercano: los dos siguientes impactos directos recibidos por el primero mandan un pulso al segundo.",
+    "signal": "Corte luminoso y cable doble entre ambos.",
+    "combo": "Marca desde cerca y cambia a escopeta.",
+    "cap": "Un enlace, 3 s, alcance 4 m; cada ataque cuenta una vez."
+  },
+  {
+    "id": "P3-05",
+    "direction": "Protocolo Dominó",
+    "name": "Portador",
+    "trigger": "El primer impacto de pistola después de recargar incrusta una carga.",
+    "effect": "Otro impacto al portador la pasa a un vecino; termina explotando donde acaba el temporizador.",
+    "signal": "Carga visible, anillo de tiempo y arco al siguiente receptor.",
+    "combo": "Chatarra imantada proporciona un buen destino.",
+    "cap": "Una carga, 2,5 s sin reinicio, dos transferencias; explosión limitada a seis blancos."
+  },
+  {
+    "id": "P3-06",
+    "direction": "Protocolo Dominó",
+    "name": "Cable de retirada",
+    "trigger": "Completa una recarga cerca de tu última baja directa.",
+    "effect": "Dibuja un cable por el suelo entre el cadáver y tu posición. Ralentiza brevemente a quienes lo crucen.",
+    "signal": "Línea azul discontinua y chispa en cada cruce.",
+    "combo": "Coloca el cable para preparar Bola de bolos.",
+    "cap": "Un cable, 3 s, longitud 6 m, cuatro cruces; no atraviesa paredes ni inmoviliza."
+  },
+  {
+    "id": "P3-07",
+    "direction": "Protocolo Dominó",
+    "name": "Silencio propagado",
+    "trigger": "Acierta a un robot durante su aviso de ataque.",
+    "effect": "Interrumpe ese ataque y envía una pausa breve a un único vecino que también esté preparando el suyo.",
+    "signal": "Símbolo de ataque tachado y un arco corto.",
+    "combo": "Circuito cerrado ayuda a vigilar blancos conectados.",
+    "cap": "Disponible cada 8 s; salto de 4 m y pausa secundaria de 0,4 s."
+  },
+  {
+    "id": "P3-08",
+    "direction": "Protocolo Dominó",
+    "name": "Arco de suelo",
+    "trigger": "Carga la carta con tres bajas directas; después dispara al suelo.",
+    "effect": "Colocas una franja eléctrica breve. Los robots que la crucen reciben un pulso y una ralentización corta.",
+    "signal": "Tres segmentos en la mira y una franja azul baja.",
+    "combo": "Chatarra imantada reúne enemigos sobre la franja.",
+    "cap": "Una carga, franja de 4 m durante 1,5 s, cuatro blancos; nunca atraviesa obstáculos."
+  },
+  {
+    "id": "P4-01",
+    "direction": "Ingeniería de chatarra",
+    "name": "Cargador bomba",
+    "trigger": "Recarga manual con munición restante, usando pistola o carabina.",
+    "effect": "El cargador cae como explosivo; dispararle lo detona.",
+    "signal": "Carcasa naranja, pitido y radio dibujado en suelo.",
+    "combo": "Ancla magnética concentra enemigos alrededor.",
+    "cap": "Uno activo; recarga interna de 10 s. Desaparece tras 6 s. Sin cadenas automáticas."
+  },
+  {
+    "id": "P4-02",
+    "direction": "Ingeniería de chatarra",
+    "name": "Parapeto plegable",
+    "trigger": "Termina un deslizamiento sobre suelo.",
+    "effect": "Dejas detrás un emisor que proyecta pantalla contra disparos; cualquiera puede atravesarla.",
+    "signal": "Placas se abren, pantalla ámbar y grietas por impacto.",
+    "combo": "Recarga bajo fuego de Aguja y prepara Cargador bomba.",
+    "cap": "Una pantalla; 3 impactos o 4 s. Los melee la atraviesan. Recarga interna: 12 s."
+  },
+  {
+    "id": "P4-03",
+    "direction": "Ingeniería de chatarra",
+    "name": "Baliza señuelo",
+    "trigger": "Comienza una recarga manual con el arma vacía.",
+    "effect": "Suelta una silueta ruidosa que atrae brevemente la atención enemiga.",
+    "signal": "Robot de chatarra parpadeante; enemigos giran hacia él.",
+    "combo": "Atrae perseguidores hacia Mina catapulta.",
+    "cap": "Una baliza; 2 s. Pierde prioridad al atacarles tú. Recarga interna: 14 s."
+  },
+  {
+    "id": "P4-04",
+    "direction": "Ingeniería de chatarra",
+    "name": "Ancla magnética",
+    "trigger": "Recarga manual apuntando a suelo cercano.",
+    "effect": "Coloca un imán que agrupa enemigos ligeros; los pesados solo se frenan.",
+    "signal": "Disco dentado, cables luminosos y chatarra atraída.",
+    "combo": "Agrupa objetivos para Cargador bomba o Martillo de obra.",
+    "cap": "Una ancla; 2 s, radio orientativo 3 m. Requiere visión. No encierra veteranos. Recarga interna: 14 s."
+  },
+  {
+    "id": "P4-05",
+    "direction": "Ingeniería de chatarra",
+    "name": "Mina catapulta",
+    "trigger": "Deslízate junto a un enemigo.",
+    "effect": "Dejas una mina que lanza al siguiente enemigo ligero; un pesado tropieza.",
+    "signal": "Muelle comprimido, zona rayada y golpe metálico.",
+    "combo": "Baliza señuelo hace pasar perseguidores por ella.",
+    "cap": "Una mina; caduca en 5 s. Un objetivo, sin daño por caída obligatorio. Recarga interna: 10 s."
+  },
+  {
+    "id": "P4-06",
+    "direction": "Ingeniería de chatarra",
+    "name": "Martillo de obra",
+    "trigger": "Tras tres impactos directos al mismo enemigo, recarga manualmente.",
+    "effect": "Un martillo suspendido golpea su última posición marcada.",
+    "signal": "Marca cuadrada, sombra descendente y aviso de impacto.",
+    "combo": "Ancla magnética mantiene a los ligeros bajo el golpe.",
+    "cap": "Un golpe tras 0,8 s; el objetivo puede salir. Pierde marca si cambias objetivo. Recarga interna: 12 s."
+  },
+  {
+    "id": "P4-07",
+    "direction": "Ingeniería de chatarra",
+    "name": "Sierra recuperable",
+    "trigger": "Primera recarga manual tras tres bajas con disparos directos.",
+    "effect": "Lanzas una sierra recta; cae al final y recogerla recupera su disponibilidad.",
+    "signal": "Disco amarillo, estela dentada y baliza de recogida.",
+    "combo": "Parapeto plegable cubre la ruta para recuperarla.",
+    "cap": "Una sierra; golpea una vez por enemigo, no rebota. Caduca en 8 s; sin recogida exige otras tres bajas directas."
+  },
+  {
+    "id": "P4-08",
+    "direction": "Ingeniería de chatarra",
+    "name": "Bobina de descarga",
+    "trigger": "Primera recarga manual después de perder el escudo.",
+    "effect": "Despliega bobina que intercepta disparos; dispararle libera una onda con la energía capturada.",
+    "signal": "Aros cargándose, contador de impactos y crujido eléctrico.",
+    "combo": "Ancla magnética acerca blancos a la onda.",
+    "cap": "Una bobina; 3 impactos o 4 s. Sin capturas solo empuja. Recarga interna: 18 s; excluye daño aliado."
+  }
+]

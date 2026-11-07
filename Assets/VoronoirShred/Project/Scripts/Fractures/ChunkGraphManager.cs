@@ -23,6 +23,10 @@ namespace Project.Scripts.Fractures
         private void LateUpdate()
         {
             var runSearch = false;
+            if (nodes == null) return;
+            nodes = nodes.Where(n => n != null).ToArray();
+            if (nodes == null) return;
+            nodes = nodes.Where(n => n != null).ToArray();
             foreach (var brokenNodes in nodes.Where(n => n.HasBrokenLinks))
             {
                 brokenNodes.CleanBrokenLinks();
@@ -70,7 +74,7 @@ namespace Project.Scripts.Fractures
 
         private void Traverse(ChunkNode o, ISet<ChunkNode> search, ISet<ChunkNode> visited)
         {
-            if (search.Contains(o) && visited.Contains(o) == false)
+            if (o != null && search.Contains(o) && visited.Contains(o) == false)
             {
                 visited.Add(o);
 

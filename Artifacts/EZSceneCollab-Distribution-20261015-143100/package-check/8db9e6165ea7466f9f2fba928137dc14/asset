@@ -1,0 +1,533 @@
+using System;
+using System.Collections;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+namespace EZCollabTool.Tests
+{
+    public class EZCollabServerTests
+    {
+        const BindingFlags InstancePrivate = BindingFlags.Instance | BindingFlags.NonPublic;
+        const BindingFlags InstanceAny = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        const BindingFlags StaticPrivate = BindingFlags.Static | BindingFlags.NonPublic;
+
+        [SetUp]
+        public void SetUp()
+        {
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            EZCollabState.Initialize("Server Test Host", true);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            EZCollabState.Shutdown();
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        }
+
+        [Test]
+        public void RecoveryHistoryKeepsOnlyLatestTransformPerObject()
+        {
+            EZCollabServer server = new EZCollabServer();
+            Stamp(server, Transform("cube", 1f));
+            Stamp(server, Transform("cube", 2f));
+
+            LinkedList<EZMessage> history = History(server);
+            Assert.That(history.Count, Is.EqualTo(1));
+            EZMessage latest = history.First.Value;
+            Assert.That(latest.sequence, Is.EqualTo(2));
+            Assert.That(latest.GetPayload<TransformPayload>().position[0], Is.EqualTo(2f));
+        }
+
+        [Test]
+        public void FullStateInvalidatesOlderTransformInRecoveryHistory()
+        {
+            EZCollabServer server = new EZCollabServer();
+            Stamp(server, Transform("cube", 1f));
+            Stamp(server, EZMessage.Create(
+                EZMessageType.ComponentDelta,
+                "peer-a",
+                new CreateObjectPayload { guid = "cube" }));
+
+            LinkedList<EZMessage> history = History(server);
+            Assert.That(history.Count, Is.EqualTo(1));
+            Assert.That(history.First.Value.type, Is.EqualTo(EZMessageType.ComponentDelta));
+        }
+
+        [Test]
+        public void PresenceIsExcludedFromRecoveryState()
+        {
+            EZCollabServer server = new EZCollabServer();
+            Stamp(server, EZMessage.Create(EZMessageType.PresenceUpdate, "peer-a", null));
+            Assert.That(History(server).Count, Is.Zero);
+
+            MethodInfo recoverable = typeof(EZCollabServer).GetMethod(
+                "IsRecoverableStateMessage",
+                StaticPrivate);
+            Assert.That(recoverable, Is.Not.Null);
+            Assert.That((bool)recoverable.Invoke(null, new object[] { EZMessageType.PresenceUpdate }), Is.False);
+            Assert.That((bool)recoverable.Invoke(null, new object[] { EZMessageType.TransformDelta }), Is.True);
+        }
+
+        [Test]
+        public void PendingReliableQueueStopsAtConfiguredLimit()
+        {
+            EZCollabServer server = new EZCollabServer();
+            object client = NewConnectedClient();
+            MethodInfo sendOrQueue = typeof(EZCollabServer).GetMethod("SendOrQueue", InstancePrivate);
+            Assert.That(sendOrQueue, Is.Not.Null);
+
+            for (int index = 0; index < 4097; index++)
+            {
+                sendOrQueue.Invoke(server, new object[]
+                {
+                    client,
+                    EZMessage.Create(EZMessageType.Info, "host", null),
+                    CancellationToken.None
+                });
+            }
+
+            Assert.That(GetField<int>(client, "pendingReliableCount"), Is.EqualTo(4096));
+            Assert.That(GetField<bool>(client, "isClosing"), Is.True);
+        }
+
+        [Test]
+        public void PendingFullStateRemovesSupersededRealtimeTransform()
+        {
+            EZCollabServer server = new EZCollabServer();
+            object client = NewConnectedClient();
+            MethodInfo sendOrQueue = typeof(EZCollabServer).GetMethod("SendOrQueue", InstancePrivate);
+
+            EZMessage transform = Transform("cube", 1f);
+            transform.sequence = 1;
+            sendOrQueue.Invoke(server, new object[] { client, transform, CancellationToken.None });
+            EZMessage component = EZMessage.Create(
+                EZMessageType.ComponentDelta,
+                "peer-a",
+                new CreateObjectPayload { guid = "cube" });
+            component.sequence = 2;
+            sendOrQueue.Invoke(server, new object[] { client, component, CancellationToken.None });
+
+            IDictionary realtimeKeys = GetField<IDictionary>(client, "realtimeStateKeys");
+            Queue<EZMessage> reliableState = GetField<Queue<EZMessage>>(client, "stateMessages");
+            Assert.That(realtimeKeys.Count, Is.Zero);
+            Assert.That(reliableState.Count, Is.EqualTo(1));
+            Assert.That(reliableState.Peek().type, Is.EqualTo(EZMessageType.ComponentDelta));
+        }
+
+        [Test, Timeout(10000)]
+        public async Task CompatibleClientReceivesHelloBeforeSnapshot()
+        {
+            int port = FindFreePort();
+            EZCollabServer server = new EZCollabServer();
+            server.Start(port);
+            try
+            {
+                using (TcpClient client = new TcpClient())
+                {
+                    await client.ConnectAsync(IPAddress.Loopback, port);
+                    await WriteMessage(client.GetStream(), Join(EZProtocol.CurrentProtocolVersion));
+                    EZMessage first = await ReadMessage(client.GetStream());
+                    Assert.That(first.type, Is.EqualTo(EZMessageType.SessionHello));
+                    Assert.That(first.GetPayload<SessionHelloPayload>().protocolVersion,
+                        Is.EqualTo(EZProtocol.CurrentProtocolVersion));
+                }
+            }
+            finally
+            {
+                server.Stop();
+            }
+        }
+
+        [Test, Timeout(10000)]
+        public async Task IncompatibleClientIsRejectedBeforeSynchronization()
+        {
+            int port = FindFreePort();
+            EZCollabServer server = new EZCollabServer();
+            server.Start(port);
+            try
+            {
+                using (TcpClient client = new TcpClient())
+                {
+                    await client.ConnectAsync(IPAddress.Loopback, port);
+                    await WriteMessage(client.GetStream(), Join(EZProtocol.CurrentProtocolVersion - 1));
+                    EZMessage first = await ReadMessage(client.GetStream());
+                    Assert.That(first.type, Is.EqualTo(EZMessageType.ConnectionRejected));
+                    ConnectionRejectedPayload rejection = first.GetPayload<ConnectionRejectedPayload>();
+                    Assert.That(rejection.expectedProtocolVersion, Is.EqualTo(EZProtocol.CurrentProtocolVersion));
+                    Assert.That(rejection.receivedProtocolVersion, Is.EqualTo(EZProtocol.CurrentProtocolVersion - 1));
+                }
+            }
+            finally
+            {
+                server.Stop();
+            }
+        }
+
+        [UnityTest]
+        public IEnumerator JoiningClientReceivesEditMadeAfterSnapshotBaseline()
+        {
+            GameObject target = new GameObject("Collaborative Target");
+            string targetGuid = EZCollabState.GetOrAssignGuid(target);
+            for (int index = 0; index < 96; index++)
+                EZCollabState.GetOrAssignGuid(new GameObject("Snapshot Filler " + index));
+
+            int port = FindFreePort();
+            EZCollabServer server = new EZCollabServer();
+            WireClient first = new WireClient("peer-one");
+            WireClient joining = new WireClient("peer-two");
+            MethodInfo applyMessage = Type.GetType("EZCollabTool.EZCollabHooks, EZCollabTool.Editor")
+                ?.GetMethod("ApplyMessage", StaticPrivate);
+            Assert.That(applyMessage, Is.Not.Null);
+            server.Start(port);
+
+            try
+            {
+                Task firstConnect = first.Connect(port);
+                double deadline = UnityEditor.EditorApplication.timeSinceStartup + 15d;
+                while ((!firstConnect.IsCompleted || !first.Has(EZMessageType.RecoveryComplete)) &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    server.ProcessMainThreadRequests();
+                    DrainHost(server, applyMessage);
+                    yield return null;
+                }
+                AssertTaskSucceeded(firstConnect);
+                Assert.That(first.Has(EZMessageType.RecoveryComplete), Is.True, "First client did not synchronize.");
+
+                Task readySend = first.Send(EZMessage.Create(
+                    EZMessageType.SynchronizationReady,
+                    first.peerId,
+                    null));
+                while (!readySend.IsCompleted)
+                    yield return null;
+                AssertTaskSucceeded(readySend);
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 5d;
+                while (!EZCollabState.connectedPeers.ContainsKey(first.peerId) &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    DrainHost(server, applyMessage);
+                    yield return null;
+                }
+                Assert.That(EZCollabState.connectedPeers.ContainsKey(first.peerId), Is.True);
+
+                Task lockSend = first.Send(EZMessage.Create(
+                    EZMessageType.LockRequest,
+                    first.peerId,
+                    new LockPayload { guid = targetGuid, peerId = first.peerId, peerName = "Peer One" }));
+                while (!lockSend.IsCompleted)
+                    yield return null;
+                AssertTaskSucceeded(lockSend);
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 5d;
+                while (!first.Has(EZMessageType.LockGranted) &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    DrainHost(server, applyMessage);
+                    yield return null;
+                }
+                Assert.That(first.Has(EZMessageType.LockGranted), Is.True, "First client did not acquire the lock.");
+
+                Task joiningConnect = joining.Connect(port);
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 5d;
+                while (!joining.Has(EZMessageType.SessionHello) &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    yield return null;
+                }
+                Assert.That(joining.Has(EZMessageType.SessionHello), Is.True);
+
+                // Start capture and consume exactly its first main-thread slice. The
+                // target is first in the stable index, so its snapshot is now old.
+                FieldInfo activeSnapshot = typeof(EZCollabServer).GetField(
+                    "activeSnapshotRequest",
+                    InstancePrivate);
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 5d;
+                while (activeSnapshot.GetValue(server) == null &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    DrainHost(server, applyMessage);
+                    server.ProcessMainThreadRequests();
+                    yield return null;
+                }
+                Assert.That(activeSnapshot.GetValue(server), Is.Not.Null);
+
+                EZMessage transform = Transform(targetGuid, 7f);
+                transform.senderId = joining.peerId; // The socket identity must win.
+                Task transformSend = first.Send(transform);
+                while (!transformSend.IsCompleted)
+                    yield return null;
+                AssertTaskSucceeded(transformSend);
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 5d;
+                while (Mathf.Abs(target.transform.position.x - 7f) > 0.001f &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    DrainHost(server, applyMessage);
+                    yield return null;
+                }
+                Assert.That(target.transform.position.x, Is.EqualTo(7f).Within(0.001f));
+
+                deadline = UnityEditor.EditorApplication.timeSinceStartup + 15d;
+                while ((!joiningConnect.IsCompleted || !joining.Has(EZMessageType.RecoveryComplete)) &&
+                       UnityEditor.EditorApplication.timeSinceStartup < deadline)
+                {
+                    server.ProcessMainThreadRequests();
+                    DrainHost(server, applyMessage);
+                    yield return null;
+                }
+                AssertTaskSucceeded(joiningConnect);
+                Assert.That(joining.Has(EZMessageType.RecoveryComplete), Is.True,
+                    "Joining client did not finish synchronization.");
+
+                List<EZMessage> received = joining.SnapshotMessages();
+                int snapshotEnd = received.FindIndex(message => message.type == EZMessageType.SceneSnapshotEnd);
+                int replayedTransform = received.FindIndex(message =>
+                    message.type == EZMessageType.TransformDelta &&
+                    message.GetPayload<TransformPayload>()?.guid == targetGuid);
+                Assert.That(snapshotEnd, Is.GreaterThanOrEqualTo(0));
+                Assert.That(replayedTransform, Is.GreaterThan(snapshotEnd),
+                    "The post-baseline transform must be replayed after the snapshot.");
+                Assert.That(received[replayedTransform].senderId, Is.EqualTo(first.peerId));
+                Assert.That(ReconstructPositionX(received, targetGuid), Is.EqualTo(7f).Within(0.001f));
+            }
+            finally
+            {
+                first.Dispose();
+                joining.Dispose();
+                server.Stop();
+            }
+        }
+
+        static void Stamp(EZCollabServer server, EZMessage message)
+        {
+            MethodInfo method = typeof(EZCollabServer).GetMethod("StampAndRemember", InstancePrivate);
+            Assert.That(method, Is.Not.Null);
+            method.Invoke(server, new object[] { message });
+        }
+
+        static LinkedList<EZMessage> History(EZCollabServer server)
+        {
+            FieldInfo field = typeof(EZCollabServer).GetField("stateHistory", InstancePrivate);
+            Assert.That(field, Is.Not.Null);
+            return (LinkedList<EZMessage>)field.GetValue(server);
+        }
+
+        static object NewConnectedClient()
+        {
+            Type type = typeof(EZCollabServer).GetNestedType("ConnectedClient", BindingFlags.NonPublic);
+            Assert.That(type, Is.Not.Null);
+            return Activator.CreateInstance(type, true);
+        }
+
+        static T GetField<T>(object instance, string name)
+        {
+            FieldInfo field = instance.GetType().GetField(name, InstanceAny);
+            Assert.That(field, Is.Not.Null, name);
+            return (T)field.GetValue(instance);
+        }
+
+        static EZMessage Transform(string guid, float x)
+        {
+            return EZMessage.Create(
+                EZMessageType.TransformDelta,
+                "peer-a",
+                new TransformPayload
+                {
+                    guid = guid,
+                    position = new[] { x, 0f, 0f },
+                    rotation = new[] { 0f, 0f, 0f, 1f },
+                    scale = new[] { 1f, 1f, 1f }
+                });
+        }
+
+        static EZMessage Join(int protocolVersion)
+        {
+            return EZMessage.Create(
+                EZMessageType.PeerJoined,
+                "peer-a",
+                new PeerPayload
+                {
+                    peerId = "peer-a",
+                    peerName = "Peer A",
+                    protocolVersion = protocolVersion,
+                    packageVersion = EZProtocol.PackageVersion,
+                    capabilities = EZProtocol.CurrentCapabilities
+                });
+        }
+
+        static int FindFreePort()
+        {
+            TcpListener listener = new TcpListener(IPAddress.Loopback, 0);
+            listener.Start();
+            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            listener.Stop();
+            return port;
+        }
+
+        static async Task WriteMessage(NetworkStream stream, EZMessage message)
+        {
+            byte[] payload = message.ToBytes();
+            byte[] length = BitConverter.GetBytes(payload.Length);
+            await stream.WriteAsync(length, 0, length.Length);
+            await stream.WriteAsync(payload, 0, payload.Length);
+        }
+
+        static async Task<EZMessage> ReadMessage(NetworkStream stream)
+        {
+            byte[] length = new byte[4];
+            await ReadExact(stream, length, length.Length);
+            int count = BitConverter.ToInt32(length, 0);
+            byte[] payload = new byte[count];
+            await ReadExact(stream, payload, payload.Length);
+            return EZMessage.FromBytes(payload, payload.Length);
+        }
+
+        static async Task ReadExact(NetworkStream stream, byte[] buffer, int count)
+        {
+            int offset = 0;
+            while (offset < count)
+            {
+                int read = await stream.ReadAsync(buffer, offset, count - offset);
+                if (read == 0)
+                    throw new InvalidOperationException("Socket closed before the framed message completed.");
+                offset += read;
+            }
+        }
+
+        static void DrainHost(EZCollabServer server, MethodInfo applyMessage)
+        {
+            int guard = 0;
+            while (guard++ < 512 && server.incomingMessages.TryDequeue(out EZMessage message))
+                applyMessage.Invoke(null, new object[] { message });
+        }
+
+        static void AssertTaskSucceeded(Task task)
+        {
+            Assert.That(task.IsCompleted, Is.True);
+            if (task.IsFaulted)
+                Assert.Fail(task.Exception?.Flatten().InnerException?.ToString());
+            Assert.That(task.IsCanceled, Is.False);
+        }
+
+        static float ReconstructPositionX(List<EZMessage> messages, string guid)
+        {
+            float? position = null;
+            foreach (EZMessage message in messages)
+            {
+                if (message.type == EZMessageType.SceneSnapshotChunk)
+                {
+                    SceneSnapshot chunk = message.GetPayload<SceneSnapshot>();
+                    if (chunk?.objects == null)
+                        continue;
+                    foreach (SerializedObject serializedObject in chunk.objects)
+                        if (serializedObject?.guid == guid)
+                            position = serializedObject.localTransform.GetPosition().x;
+                }
+                else if (message.type == EZMessageType.TransformDelta)
+                {
+                    TransformPayload transform = message.GetPayload<TransformPayload>();
+                    if (transform?.guid == guid)
+                        position = transform.GetPosition().x;
+                }
+            }
+
+            Assert.That(position.HasValue, Is.True, "Target never appeared in the joining client's state stream.");
+            return position.Value;
+        }
+
+        sealed class WireClient : IDisposable
+        {
+            readonly TcpClient client = new TcpClient { NoDelay = true };
+            readonly CancellationTokenSource cancellation = new CancellationTokenSource();
+            readonly ConcurrentQueue<EZMessage> received = new ConcurrentQueue<EZMessage>();
+            readonly SemaphoreSlim sendLock = new SemaphoreSlim(1, 1);
+            NetworkStream stream;
+
+            public readonly string peerId;
+
+            public WireClient(string peerId)
+            {
+                this.peerId = peerId;
+            }
+
+            public async Task Connect(int port)
+            {
+                await client.ConnectAsync(IPAddress.Loopback, port);
+                stream = client.GetStream();
+                await Send(JoinFor(peerId));
+                _ = Task.Run(ReadLoop);
+            }
+
+            public async Task Send(EZMessage message)
+            {
+                await sendLock.WaitAsync(cancellation.Token);
+                try
+                {
+                    byte[] payload = message.ToBytes();
+                    byte[] length = BitConverter.GetBytes(payload.Length);
+                    await stream.WriteAsync(length, 0, length.Length, cancellation.Token);
+                    await stream.WriteAsync(payload, 0, payload.Length, cancellation.Token);
+                }
+                finally
+                {
+                    sendLock.Release();
+                }
+            }
+
+            public bool Has(EZMessageType type)
+            {
+                foreach (EZMessage message in received)
+                    if (message.type == type)
+                        return true;
+                return false;
+            }
+
+            public List<EZMessage> SnapshotMessages()
+            {
+                return new List<EZMessage>(received.ToArray());
+            }
+
+            async Task ReadLoop()
+            {
+                try
+                {
+                    while (!cancellation.IsCancellationRequested)
+                        received.Enqueue(await EZCollabServerTests.ReadMessage(stream));
+                }
+                catch
+                {
+                }
+            }
+
+            public void Dispose()
+            {
+                cancellation.Cancel();
+                try { client.Close(); }
+                catch { }
+            }
+
+            static EZMessage JoinFor(string peerId)
+            {
+                return EZMessage.Create(
+                    EZMessageType.PeerJoined,
+                    peerId,
+                    new PeerPayload
+                    {
+                        peerId = peerId,
+                        peerName = peerId,
+                        protocolVersion = EZProtocol.CurrentProtocolVersion,
+                        packageVersion = EZProtocol.PackageVersion,
+                        capabilities = EZProtocol.CurrentCapabilities
+                    });
+            }
+        }
+    }
+}

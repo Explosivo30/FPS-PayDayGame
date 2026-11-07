@@ -1,0 +1,88 @@
+PASS Foundry loads the shared playable core
+PASS Voronoi graph is prepared before validation
+PASS The independent foundry remains the active scene
+PASS Exactly one real player is loaded
+PASS The experiment does not start tower progression
+PASS QA starts before the fixed encounter
+PASS Foundry has its mechanism and suspended load
+PASS Scene anchor exists: QA.BreachSouth
+PASS Scene anchor exists: QA.BreachNorth
+PASS Scene anchor exists: QA.WestBypass
+PASS Scene anchor exists: QA.EastSouth
+PASS Scene anchor exists: QA.EastDeck
+PASS Scene anchor exists: QA.EastNorth
+PASS The west bypass is navigable while the barrier is intact
+PASS The eastern route reaches its raised deck and exit
+PASS An intact barrier blocks the direct portal while leaving a complete detour
+PASS The breakable is a real FractureThis graph
+INFO Prepared Voronoi chunks: 64
+PASS The prepared barrier uses a bounded Voronoi graph rather than one fake box
+PASS The structural portal starts closed and physically blocked
+PASS The actual pistol/muzzle shot damages the structural pool once
+PASS Pause rejects additional structural damage
+PASS A real camera ray reaches the intact or fractured structural relay
+PASS Weapon hit dispatch opens a collider-clear structural portal
+PASS Removing the carved obstacle opens the direct navigation segment
+PASS Destruction creates a shorter real route than the original detour
+INFO Portal path metres before/after: 16,73 / 9,00
+PASS An actual player-sized capsule fits through the cleared aperture
+PASS First fixed group contains two real Centinelas and Aguja
+PASS A clear navigable firing position exists for Centinela
+PASS The foundry Centinela emits its real three-projectile salvo
+PASS Centinela retains its projectile role
+PASS Pause freezes the real foundry projectile and lifetime
+PASS A clear navigable line exists for Aguja
+PASS The actual Aguja tracks and then locks its line
+PASS Pause freezes Aguja before its committed shot
+PASS Aguja resolves one precision laser in the new arena
+PASS The laser remains committed after the staged dodge
+PASS Aguja completes its visible recovery
+PASS Aguja really repositions in the foundry before aiming again
+PASS Second group replaces Aguja with the real Ariete
+PASS A navigable close approach exists for Ariete
+PASS Ariete visibly commits its foundry charge
+PASS Pause freezes charge timing and chassis
+PASS Ariete resolves and visibly recovers
+PASS Ariete keeps one committed contact and its existing bounded travel
+PASS Scene anchor exists: QA.PetalUse
+PASS The shared E-interaction ray activates the actual petal conductor
+PASS The foundry petal completes its warned transition
+PASS A fixed off-centre physical ray changes from blocked to clear
+PASS The safety fixture starts a second deliberate petal activation
+PASS An actor in the entire sweep prevents collider movement
+PASS The mechanism safely resumes when its occupant leaves
+PASS A real Centinela occupies the load's impact area
+PASS Scene anchor exists: QA.CraneLanding
+PASS One severed latch cannot drop the suspended load
+PASS A repeated latch hit is deduplicated
+PASS A paused cut cannot arm the crane
+PASS Both independent latches arm the actual crane
+PASS The warning waits for the player instead of dropping a solid load onto them
+PASS Scene anchor exists: QA.CraneSafe
+PASS Clearing the warning volume permits the real fall
+PASS Pause freezes the falling load
+PASS The load lands and becomes new cover
+PASS The landed load eliminates its real robot target
+PASS Landing enables solid collision rather than a visual-only load
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.EastNorth
+PASS A complete route remains around the landed obstacle
+PASS The landed crane cannot generate repeated impacts
+PASS Landing releases the shared major-danger reservation
+PASS All three real second-group enemies still spawn after the central load occupies an entry
+PASS The real director completes its second group without duplicate deaths
+PASS The experiment grants no tower card or floor progress
+PASS The F5 restart route also works during pause
+PASS Restart reconstructs the actual Voronoi graph
+PASS Restart restores structure, latches, load and mechanism states
+PASS Restart restores a fresh playable encounter
+PASS No projectile or danger reservation leaks across the complete restart
+PASS Complete restart keeps one shared player
+PASS The real player death route pauses the experiment
+PASS The F5 restart route also works after death
+PASS Restart reconstructs the actual Voronoi graph
+PASS Restart restores structure, latches, load and mechanism states
+PASS Restart restores a fresh playable encounter
+PASS No projectile or danger reservation leaks across the complete restart
+PASS Complete restart keeps one shared player
+ERRORS

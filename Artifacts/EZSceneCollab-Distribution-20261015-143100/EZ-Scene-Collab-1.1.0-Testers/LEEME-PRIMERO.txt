@@ -1,0 +1,40 @@
+EZ SCENE COLLAB 1.1.0 - PAQUETE PARA TESTERS
+
+Herramienta de colaboración de escenas dentro del Editor de Unity.
+Este paquete se importa en Unity; no es un juego ni un ejecutable.
+
+REQUISITOS
+- Windows y Unity 6000.0.58f2: configuración verificada en la documentación de esta versión.
+- Al menos dos ordenadores con la misma revisión del proyecto, escena, assets y versión de la herramienta.
+- ProBuilder es opcional. Para sus pruebas, la versión verificada es ProBuilder 6.0.9.
+
+INSTALACIÓN
+1. Extrae este ZIP completo.
+2. Utiliza una copia de un proyecto de pruebas y guarda la escena antes de empezar.
+3. Si ya tienes una versión anterior, guarda una copia y elimina su carpeta Assets/EZSceneCollab antes de importar esta versión. No dejes dos copias dentro de Assets.
+4. En Unity, abre Assets > Import Package > Custom Package.
+5. Selecciona EZ-Scene-Collab-1.1.0.unitypackage e importa la carpeta completa.
+6. Espera a que termine la compilación y abre Window > EZ Scene Collab.
+7. Puedes cambiar el idioma a español desde la ventana.
+
+PRIMERA PRUEBA
+1. En todos los equipos abre la escena demo:
+   Assets/EZSceneCollab/Samples/Demo/Scenes/EZSceneCollab_Demo.unity
+2. Un participante inicia la sesión como host, con puerto 9876.
+3. Los demás se unen indicando la dirección LAN o VPN del host y ese mismo puerto.
+4. Espera a que termine la sincronización inicial antes de editar. No hace falta Play Mode.
+5. Sigue PRUEBAS.txt para revisar objetos, bloqueos, presencia y reconexión.
+
+RED Y ESCENA
+- Usa una LAN o VPN privada con participantes de confianza. Esta versión utiliza TCP sin cifrado ni autenticación integrada.
+- La escena del host es la autoritativa; al conectar puede reemplazar o eliminar objetos de la escena activa del cliente. Trabaja sobre una copia de pruebas.
+- Los assets no se transfieren como archivos: deben existir en todos los proyectos.
+
+DOCUMENTACIÓN SIN CONEXIÓN
+Manual: Documentation/Spanish/README.md
+Conexión entre ordenadores: Documentation/Spanish/NETWORKING.md
+Limitaciones: Documentation/Spanish/LIMITATIONS.md
+Solución de problemas: Documentation/Spanish/TROUBLESHOOTING.md
+Validación previa y pruebas manuales pendientes: Documentation/VALIDATION_1_1.md
+
+Antes de compartir resultados, indica que estás usando EZ Scene Collab 1.1.0.

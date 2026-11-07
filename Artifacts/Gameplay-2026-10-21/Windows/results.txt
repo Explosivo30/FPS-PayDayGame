@@ -1,0 +1,108 @@
+PASS Real tower/player boot
+PASS Two persistent salvos admitted
+PASS Third live salvo is refused
+PASS Laser/charge/environment share one main slot
+PASS Reservations release exactly once
+PASS Pause refuses new danger
+PASS Destroyed owner cannot hold budget
+PASS Environmental pulse waits while main attack budget is occupied
+PASS RootPulse reserves shared budget before its warning
+PASS Warning boundary never shrinks inside damaging radius
+PASS Pause freezes environmental warning
+PASS Pulse keeps main slot throughout active damage window
+PASS Disabling pulse clears its danger and releases budget
+PASS Projectile travels before damage, rather than hitscan
+PASS Pause freezes projectile and lifetime
+PASS Travelling projectile reaches first collider
+PASS Projectile damages actual player once on arrival
+PASS Swept projectile catches thin cover at high speed
+PASS Thin cover prevents damage behind it
+PASS Salvo budget stays occupied after emission while bullet lives
+PASS Owner death cancels bullets and releases persistent salvo
+PASS Centinela emits three travelling projectiles
+PASS Centinela does not emit Aguja hitscan
+PASS Aguja enters explicit target-lock phase
+PASS Pause freezes Aguja lock before firing
+PASS Aguja fires one announced precision laser
+PASS Aguja does not follow dodge after lock or become ordinary salvo
+PASS Aguja recovery prevents second instant shot
+PASS Ariete visibly commits charge windup
+PASS Ariete keeps response and punishment windows
+PASS Ariete resolves committed charge and recovers
+PASS Charge has one contact and preserves bounded movement
+PASS Fixture finds a visible, distant, reachable physical entry
+PASS All-visible entrances recover with announced safe spawn
+PASS Fallback really spawns instead of deleting pending enemies
+PASS Destroyed unreported enemy cannot strand count
+PASS Bookkeeping recovery invents no reward
+PASS LaboratoryFloor contains installed reactive cover
+PASS LaboratoryFloor intact cover blocks real shot line
+PASS LaboratoryFloor Ariete can commit near actual screen
+PASS LaboratoryFloor charge recovers against actual mount
+PASS LaboratoryFloor Ariete breaks actual screen exactly once without crossing plinth (travel=0,86, impacts=1)
+PASS LaboratoryFloor actual pistol/muzzle impact applies exactly one damage event
+PASS LaboratoryFloor a weapon impact damages structure once
+PASS LaboratoryFloor structural damage breaks designated screen
+PASS LaboratoryFloor broken screen really opens line
+PASS LaboratoryFloor repeated charge cannot break screen twice
+PASS Prepared fragments respect global active cap
+PASS LaboratoryFloor entry remains connected after destruction: Entry 1
+PASS LaboratoryFloor entry remains connected after destruction: Entry 2
+PASS LaboratoryFloor entry remains connected after destruction: Entry 3
+PASS LaboratoryFloor entry remains connected after destruction: Entry 4
+PASS Actual mandatory waves complete with duplicate death protection
+PASS Destroyed cover remains broken through mandatory waves
+PASS Real elevator accepts completed floor
+PASS Actual additive floor transition finishes
+PASS RoboticForest contains installed reactive cover
+PASS RoboticForest intact cover blocks real shot line
+PASS RoboticForest Ariete can commit near actual screen
+PASS RoboticForest charge recovers against actual mount
+PASS RoboticForest Ariete breaks actual screen exactly once without crossing plinth (travel=0,83, impacts=1)
+PASS RoboticForest actual pistol/muzzle impact applies exactly one damage event
+PASS RoboticForest a weapon impact damages structure once
+PASS RoboticForest structural damage breaks designated screen
+PASS RoboticForest broken screen really opens line
+PASS RoboticForest repeated charge cannot break screen twice
+PASS Prepared fragments respect global active cap
+PASS RoboticForest entry remains connected after destruction: Entry 1
+PASS RoboticForest entry remains connected after destruction: Entry 2
+PASS RoboticForest entry remains connected after destruction: Entry 3
+PASS RoboticForest entry remains connected after destruction: Entry 4
+PASS Actual mandatory waves complete with duplicate death protection
+PASS Destroyed cover remains broken through mandatory waves
+PASS Real elevator accepts completed floor
+PASS Actual additive floor transition finishes
+PASS CrystalGarden contains installed reactive cover
+PASS CrystalGarden intact cover blocks real shot line
+PASS CrystalGarden Ariete can commit near actual screen
+PASS CrystalGarden charge recovers against actual mount
+PASS CrystalGarden Ariete breaks actual screen exactly once without crossing plinth (travel=0,81, impacts=1)
+PASS CrystalGarden actual pistol/muzzle impact applies exactly one damage event
+PASS CrystalGarden a weapon impact damages structure once
+PASS CrystalGarden structural damage breaks designated screen
+PASS CrystalGarden broken screen really opens line
+PASS CrystalGarden repeated charge cannot break screen twice
+PASS Prepared fragments respect global active cap
+PASS CrystalGarden entry remains connected after destruction: Entry 1
+PASS CrystalGarden entry remains connected after destruction: Entry 2
+PASS CrystalGarden entry remains connected after destruction: Entry 3
+PASS CrystalGarden entry remains connected after destruction: Entry 4
+PASS Closed petal blocks a concrete side firing lane
+PASS Player interaction ray activates marked conductor within reach
+PASS Repeated activation cannot skip mechanism warning
+PASS Pause freezes mechanism transition
+PASS Mechanical petal completes a real state change
+PASS Opening petal really releases that same firing lane
+PASS Petal can be reactivated after its cooldown
+PASS An actor on the decorative island stops the complete sweep
+PASS Mechanism resumes safely after actor leaves sweep
+PASS Actual pistol hit activates conductor through normal gun hit path
+PASS Actual mandatory waves complete with duplicate death protection
+PASS Destroyed cover remains broken through mandatory waves
+PASS Real elevator accepts completed floor
+PASS Actual additive floor transition finishes
+PASS A new floor visit restores its cover without resetting it between waves
+PASS No attack resources survive floor stop
+PASS Actual player death clears travelling dangers immediately
+ERRORS

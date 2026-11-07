@@ -1,0 +1,246 @@
+Mono path[0] = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/Managed'
+Mono config path = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/MonoBleedingEdge/etc'
+Found 3 interfaces on host : 0) 192.168.1.42 1) 192.168.163.1 2) 192.168.235.1
+Player connection [32648]  Target information:
+
+Player connection [32648]  * "[IP] 192.168.1.42 [Port] 55000 [Flags] 2 [Guid] 1786799576 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [32648]  * "[IP] 192.168.163.1 [Port] 55000 [Flags] 2 [Guid] 1786799576 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [32648]  * "[IP] 192.168.235.1 [Port] 55000 [Flags] 2 [Guid] 1786799576 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [32648] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/UnitySubsystems
+kGfxThreadingModeSplitJobs is not supported on Direct3D 11. Reverting to kGfxThreadingModeClientWorkerJobs instead.
+GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.821 seconds
+- Finished resetting the current domain, in  0.004 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+UnloadTime: 1.088600 ms
+RenderGraph is now enabled.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/UniversalRenderPipeline.cs:259)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/Data/UniversalRenderPipelineAsset.cs:793)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline () (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineAsset.cs:15)
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:165)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:139)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA STYLE: original ToonShader graph + original AnimeTonemapper shader; local renderer on 2 player cameras.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictVisuals/<Start>d__24:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Tower/AlphaDistrictVisuals.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The alpha district loads its real playable core
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal smoke does not enable the QA encounter branch
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:483)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal player motor and weapon input remain enabled
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:485)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal startup contains one real player and no tower waves
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:486)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal startup populates the district with real robots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:488)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal arsenal exposes machine gun, pistol and knife while shotgun is a milestone reward
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:491)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual district pipeline is active in quality and graphics settings
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:469)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:493)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player cameras and renderers receive the district style
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:471)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:493)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual actor shader is supported
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:472)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:493)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual player cameras use renderer zero of the local pipeline
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:478)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:493)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO RENDER pipeline=District pipeline, actorShader=Shader Graphs/ToonShader, styledRenderers=114, cameras=2; visual quality still requires screenshot review.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:479)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:493)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Normal framebuffer capture includes the gameplay HUD
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA DISTRICT NORMAL SMOKE COMPLETE: 12 entries, 0 errors. This does not measure human fun.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Finish () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:529)
+AlphaDistrictPlaytest/<NormalSmoke>d__71:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:496)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+PlayerConnection::Cleanup##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792959567702,"processId":44936,"allocatedMemory":108117,"memoryLabels":[{"Default":136},{"Thread":5888},{"Manager":9451},{"VFX":-104},{"GfxDevice":72},{"GfxThread":17664},{"Serialization":520},{"JobScheduler":67016},{"String":442},{"HashMap":3584},{"PoolAlloc":192},{"VR":1792},{"Video":144},{"NativeArray":648},{"Subsystems":96},{"Gui":456},{"CoreBusinessMetrics":120}]}

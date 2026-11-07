@@ -1,0 +1,17 @@
+{
+  "pages": 12,
+  "previous_cards": 32,
+  "new_cards": 18,
+  "new_agents": 3,
+  "votes_agree": 3,
+  "prototype_ids": [
+    "P1-01",
+    "C1",
+    "P2-03"
+  ],
+  "best_new_id": "C1",
+  "all_names_extracted": true,
+  "all_12_pages_visually_reviewed": true,
+  "sha256": "f9464cb4da9344536fbc7e7681adfbe246f7259c13813435e8b81e37746745d7",
+  "game_files_changed": false
+}

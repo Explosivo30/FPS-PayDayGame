@@ -1,0 +1,34 @@
+# EZ Scene Collab 1.1 validation record
+
+Environment: Windows 10, Unity 6000.0.58f2. Validation used a separate clean Unity project, leaving the Parkour scenes unchanged.
+
+## Verified automatically
+
+- Core import and compilation with no ProBuilder or Newtonsoft dependency.
+- ProBuilder 6.0.9 import, compilation, object serialization and mesh reconstruction.
+- Explicit wire IDs, handshake metadata and compatible/incompatible TCP handshakes.
+- Coalescing, reliable ordering, transform invalidation, recovery barriers and queue safety limits.
+- TCP host with two loopback clients: an edit made during capture is replayed after the joining client's snapshot. Connection identity overrides a forged message sender.
+- Pointer payload validation, expiry, reconnect/context state, inactivity fade independent of keepalives, collider/mesh/pivot fallback and local gray-mode preferences.
+- Incremental capture/application and removal, including native component ownership protection.
+
+The clean project with ProBuilder passed 30/30 tests. The final core run without ProBuilder or Newtonsoft passed 31/31, including a complete 10,000-object incremental snapshot. Follow-up runs verify lifecycle cleanup, socket-authoritative identity, localized presence controls and lock/state queue barriers. In total, all 34 distinct tests passed in the applicable configurations.
+
+## Synthetic scale measurements
+
+Two 30-second runs used 1,000 and 10,000 empty GameObjects, eight simulated participants, transform changes and pointer payloads. The measured main-thread segment exercised payload creation, coalescing, dequeuing and presence storage. It did not include GPU drawing, the entire Unity editor frame, or a physical LAN.
+
+In the final core run, p95 was 0.191 ms for 1,000 objects and 0.194 ms for 10,000 objects. Retained managed-memory growth was 901,120 and 913,408 bytes respectively, including the test's growing timing-sample list. The realtime queue remained bounded at 16 entries for eight transforms plus eight presences and returned to zero after processing. The 10,000-object snapshot used 315 updates for capture and 939 for application/reference resolution/cleanup, with no step processing more than 32 objects. These figures describe this synthetic fixture only.
+
+## Required manual checks before certifying production targets
+
+- Host and two Unity clients on separate computers, including VPN/LAN connections.
+- LAN visual latency below 200 ms, measured from input to remote display.
+- Full plugin main-thread p95 below 3 ms with Scene View rendering, production meshes/components and continuous editing.
+- Visual review of docked controls, pointer hiding over all Unity controls, remote camera frusta and names.
+- Large generated meshes and large prefab hierarchies; individual native Unity operations cannot be preempted by the cooperative budget.
+- Cancel/reconnect while a large snapshot is actively applying; sustained-memory profiling with production edits.
+- Actual assembly reload and editor shutdown with connected remote editors.
+- Built-in/URP/HDRP visual checks and other Unity/OS versions before expanding compatibility claims.
+
+Follow User, avatars, Inspector-field presence, Working Zones, relay and generic large-mesh fragmentation remain outside 1.1.

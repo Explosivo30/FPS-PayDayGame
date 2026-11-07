@@ -91,6 +91,7 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
     private Coroutine traceRoutine;
     private readonly Dictionary<GameObject, Coroutine> pooledEffectRoutines = new Dictionary<GameObject, Coroutine>();
     private float nextDryFireTime;
+    public int ShotSequence { get; private set; }
 
     public abstract void Use();
 
@@ -138,10 +139,10 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
             Destroy(dryFireClip);
     }
 
-    protected bool TryStartShot(ref float lastShotTime)
+    protected bool TryStartShot(ref float lastShotTime,int cost=1)
     {
         if (!Action.RequestFire()) return false;
-        if (currentAmmo <= 0)
+        if (currentAmmo < cost)
         {
             PlayDryFire();
             return false;
@@ -152,8 +153,9 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
             return false;
 
         lastShotTime = Mathf.Max(lastShotTime + secondsPerShot, Time.time - Time.deltaTime * .5f);
-        currentAmmo--;
+        currentAmmo-=cost;ShotSequence++;
         Action.NotifyShot();
+        MutationRun.From(this)?.OnGunShot(this,cost);
         var shooter=GetComponentInParent<PlayerStateMachine>();
         if(shooter!=null)CombatFeedback.ReportPlayerShot(shooter.transform.position);
         return true;
@@ -216,6 +218,27 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
         Play(muzzlePosition, aimPoint);
         if (feedback) PlayShotFeedback(muzzlePosition, shotDirection);
         return hasHit;
+    }
+
+    protected void FirePiercing(bool aiming,int maximum,float multiplier)
+    {
+        var camera=GetAimCamera();var view=camera!=null?camera.transform:transform;
+        Vector3 direction=GetShootDirection(aiming,view),origin=ResolveMuzzlePosition(null,direction,view.position);
+        if(Physics.Linecast(view.position,origin,out var block,layerMask,QueryTriggerInteraction.Ignore))
+        {HandleHit(block,damage*multiplier,direction);Play(origin,block.point);PlayShotFeedback(origin,direction);return;}
+        Vector3 end=origin+direction*maxRangeGun;
+        var hits=Physics.RaycastAll(origin,direction,maxRangeGun,layerMask,QueryTriggerInteraction.Ignore);
+        System.Array.Sort(hits,(a,b)=>a.distance.CompareTo(b.distance));
+        var struck=new HashSet<IDamageable>();
+        foreach(var contact in hits)
+        {
+            var target=contact.collider.GetComponentInParent<IDamageable>();
+            if(target!=null&&!struck.Add(target))continue;
+            HandleHit(contact,damage*multiplier,direction);end=contact.point;
+            if(!(target is NormalEnemyStateMachine)||struck.Count>=maximum)break;
+        }
+        Play(origin,end);PlayShotFeedback(origin,direction);
+        MutationVisual.Line(origin,end,new Color(.3f,.95f,1),.11f,.18f,MutationRun.From(this));
     }
 
     public virtual void ApplyRecoil()
@@ -288,7 +311,9 @@ public abstract class BaseGun : MonoBehaviour, IWeapon, IReloadable, IBulletTrac
             var component = damageable as Component;
             CombatFeedback.ReportImpact(new CombatImpact(component != null ? component.GetInstanceID() : raycastHit.collider.GetInstanceID(),
                 raycastHit.point, raycastHit.normal, shotDirection, dealtDamage, robot != null && robot.IsDead, false));
+            if(robot!=null)MutationRun.From(this)?.OnDirectHit(this,robot,raycastHit);
         }
+        else if(robot==null)MutationRun.From(this)?.OnWorldHit(this,raycastHit);
 
         IRaycastHitHandler hitHandler = raycastHit.collider.GetComponent<IRaycastHitHandler>();
         if (hitHandler == null)

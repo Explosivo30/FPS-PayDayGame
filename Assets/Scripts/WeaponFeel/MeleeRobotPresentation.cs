@@ -18,6 +18,30 @@ public class MeleeRobotPresentation : MonoBehaviour
     Quaternion[] rest;
     float stride,walk,previousStep;
     bool audioPaused;
+    bool heavyVeteran;
+    public void BindRig(VeteranRig rig)
+    {
+        torso=rig.torso;head=rig.head;leftArm=rig.leftArm;rightArm=rig.rightArm;
+        leftForearm=rig.leftForearm;rightForearm=rig.rightForearm;
+        leftThigh=rig.leftThigh;rightThigh=rig.rightThigh;leftShin=rig.leftShin;rightShin=rig.rightShin;
+        CacheJoints();heavyVeteran=true;
+        if(warning!=null)
+        {
+            // Ariete signals through its visor, body pulse and large fist windup.
+            // Keep the normal robot's floating marker out of the reference silhouette.
+            warning.gameObject.SetActive(false);warning=null;
+        }
+        if(fistTrail!=null)
+        {
+            fistTrail.transform.SetParent(rightForearm,false);
+            fistTrail.transform.localPosition=new Vector3(.40f,-.55f,.42f);
+            fistTrail.transform.localRotation=Quaternion.identity;fistTrail.widthMultiplier=.22f;
+        }
+    }
+    void CacheJoints()
+    {
+        CacheJoints();
+    }
     void Awake()
     {
         combat=GetComponent<MeleeRobotCombat>();owner=GetComponent<NormalEnemyStateMachine>();
@@ -60,8 +84,8 @@ public class MeleeRobotPresentation : MonoBehaviour
         if(owner.IsDead)return;
         float speed=agent!=null&&agent.enabled?agent.velocity.magnitude:0;
         walk=Mathf.MoveTowards(walk,Mathf.Clamp01(speed/3.5f),Time.deltaTime*7);
-        stride+=speed*Time.deltaTime*3.3f;
-        float step=Mathf.Sin(stride),swing=step*27*walk;
+        stride+=speed*Time.deltaTime*(heavyVeteran?2.7f:3.3f);
+        float step=Mathf.Sin(stride),swing=step*(heavyVeteran?19:27)*walk;
         if(walk>.25f&&Mathf.Sign(step)!=Mathf.Sign(previousStep))feet.PlayOneShot(stepSound,.2f);
         previousStep=step;
         Vector3 body=new Vector3(4*walk,-step*4*walk,0),face=Vector3.zero;

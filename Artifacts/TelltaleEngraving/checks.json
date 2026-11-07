@@ -1,0 +1,55 @@
+{
+  "skinned-rest vs skinned-bent": {
+    "mean_delta_0_255": 4.385772380952381,
+    "bbox": [
+      238,
+      42,
+      613,
+      473
+    ]
+  },
+  "skinned-rest vs skinned-blendshape": {
+    "mean_delta_0_255": 2.1074480952380954,
+    "bbox": [
+      312,
+      17,
+      688,
+      321
+    ]
+  },
+  "forward-point vs forwardplus-point": {
+    "mean_delta_0_255": 0.0,
+    "bbox": null
+  },
+  "forward-point vs forward-no-point": {
+    "mean_delta_0_255": 0.7607733333333333,
+    "bbox": [
+      186,
+      244,
+      971,
+      379
+    ]
+  },
+  "cloth-close vs cloth-close-no-hatch": {
+    "mean_delta_0_255": 0.022080476190476192,
+    "bbox": [
+      273,
+      150,
+      723,
+      576
+    ]
+  },
+  "fixtures-warmup vs presets-colors": {
+    "mean_delta_0_255": 0.0,
+    "bbox": null
+  },
+  "source_colors_preserved": [
+    "Graphite",
+    "Steel",
+    "Orange",
+    "Ivory",
+    "Black",
+    "Amber"
+  ],
+  "validated_images": 86
+}

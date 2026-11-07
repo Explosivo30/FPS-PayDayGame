@@ -22,9 +22,9 @@ public static class CombatFeedback
     public static event Action<Vector3> PlayerShot;
     public static void ReportPlayerShot(Vector3 origin){PlayerShot?.Invoke(origin);}
     public static event Action<PlayerKill> PlayerEliminated;
-    public static void ReportPlayerKill(NormalEnemyStateMachine enemy,Component weapon)
+    public static void ReportPlayerKill(NormalEnemyStateMachine enemy,Component weapon,bool direct=true)
     {
-        if(enemy!=null&&enemy.TryClaimPlayerKill())PlayerEliminated?.Invoke(new PlayerKill(enemy,weapon));
+        if(enemy!=null&&enemy.TryClaimPlayerKill())PlayerEliminated?.Invoke(new PlayerKill(enemy,weapon,direct));
     }
     public static event Action Kill;
     public static event Action<CombatImpact> Impact;

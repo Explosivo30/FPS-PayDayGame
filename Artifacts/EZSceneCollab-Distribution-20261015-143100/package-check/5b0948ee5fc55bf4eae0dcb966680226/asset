@@ -1,0 +1,99 @@
+# Changelog
+
+All notable changes to EZ Scene Collab are documented here.
+
+## [1.1.0] - 2026-10-14
+
+### Added
+
+- Remote 3D pointers, participant names and Scene View camera indicators.
+- Dockable Scene View controls for Pointers, Cameras, Names and Colors, saved locally.
+- Explicit protocol version and capability handshake with incompatible-version rejection.
+- Incremental snapshot capture, application, reference resolution and cleanup.
+- Edit Mode regression and synthetic scale tests.
+
+### Changed
+
+- Latest-wins queues for transforms and ephemeral presence; reliable state retains order.
+- Recovery history compacts transforms; complete object state and deletion supersede old transforms.
+- Slow-client reliable queues have safety limits of 4,096 messages or 32 MiB.
+- Transform movement does not capture generated mesh data.
+- Lock picking updates and collaboration window repaint respond to events.
+- Sessions stop on assembly reload, editor shutdown and entry into Play Mode.
+
+### Fixed
+
+- Reserved native component identity fields are excluded from restoration, preventing corrupted component ownership when reconstructing objects, including ProBuilder meshes.
+- Final object state is sent before releasing its lock.
+- Pointer inactivity fade is independent of keepalive messages.
+
+### Notes
+
+- Protocol 2 sessions require compatible 1.1 editors; 1.0 clients cannot join.
+- Snapshot budgets are cooperative. One expensive component or giant mesh can exceed a time slice.
+- See Documentation/VALIDATION_1_1.md for actual verification and outstanding physical-computer checks.
+
+## [1.0.0] - 2026-08-21
+
+### Added
+
+- First stable release prepared for distribution on itch.io.
+- Installable Unity package with the complete English and Spanish offline documentation and demo content.
+
+### Changed
+
+- Package and documentation version updated to 1.0.0.
+- Release documentation now describes the current material-property synchronization and safe shader fallback behavior.
+
+### Notes
+
+- This release does not expand the declared compatibility: Windows and Unity 6000.0.58f2 remain the verified environment.
+- Networking remains direct, unencrypted TCP intended for trusted LANs or private VPNs.
+
+## [0.5.0] - 2026-07-22
+
+### Added
+
+- New product name: **EZ Scene Collab**.
+- Complete offline English and Spanish manuals.
+- LAN, Tailscale, Hamachi, and port-forwarding tutorials.
+- Host, client, lock, conflict, and reconnection workflows.
+- Compatibility matrix and exact limitations.
+- Update, uninstall, privacy, support, and troubleshooting guides.
+- Asset Store listing draft and publisher checklist.
+- Demo scene with primitives, hierarchy tests, a prefab, materials, a light, colliders, an inactive object, and test stations.
+- Optional command for creating a real ProBuilder test object when ProBuilder 6.x is installed.
+
+### Changed
+
+- English remains the default language for new users.
+- Visible menu and window names now use EZ Scene Collab.
+- Package display version updated to 0.5.0.
+
+### Fixed
+
+- Material color and serialized-property edits now synchronize between editors.
+- Missing or unsupported remote material/shader references no longer replace a valid local material with a broken pink one.
+
+### Known limitations
+
+- Windows is the only tested operating system.
+- Networking is direct, unencrypted TCP without built-in authentication.
+- Asset files are not transferred.
+- Built-in Render Pipeline and HDRP validation are still pending.
+
+## [0.4.0] - 2026-07-14
+
+### Added
+
+- Optional ProBuilder 6.x integration with automatic detection.
+- English and Spanish UI with English fallback.
+- Authoritative locks and colored overlays for objects locked by other users.
+- Component, hierarchy, prefab-reference, generated-mesh, and Inspector-state synchronization.
+- Incremental recovery after disconnection with full-snapshot fallback.
+- Asset GUID, path, and dependency-hash warnings.
+- Unity JSON serialization without a Newtonsoft dependency.
+
+## [0.3.0 and earlier]
+
+- Initial direct-TCP host/client collaboration prototype.

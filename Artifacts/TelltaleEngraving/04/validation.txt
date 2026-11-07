@@ -1,0 +1,6 @@
+Source: Assets/Art/Veterans/Ariete.fbx; bounds=Center: (0.15, 1.06, -0.01), Extents: (1.23, 1.06, 0.54)
+Unity 6000.0.58f2 / NVIDIA GeForce RTX 3070
+Telltale Engraving stage 4. Source colors and maps copied into independent materials.
+Ariete rigid articulated source. Object-triplanar test mapping. Organic facial readability requires a separate human character test.
+Shader compilation errors: 0
+

@@ -1,0 +1,1902 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
+[Licensing::IpcConnector] Channel LicenseClient-Edgar doesn't exist
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 31965 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-10-28T10:03:25Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 19168)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
+-batchmode
+-projectPath
+D:\Unity\FPS-PayDayGame
+-executeMethod
+MutationCardBuild.Play
+-mutation-qa
+-mutation-output
+D:\Unity\FPS-PayDayGame\Artifacts\MutationCards\EditorFinal
+-player-profile
+D:\Unity\FPS-PayDayGame\Artifacts\MutationCards\final-profile.json
+-logFile
+D:\Unity\FPS-PayDayGame\Artifacts\MutationCards\editor-final.log
+Successfully changed project path to: D:\Unity\FPS-PayDayGame
+D:/Unity/FPS-PayDayGame
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28176]  Target information:
+
+Player connection [28176]  * "[IP] 192.168.1.42 [Port] 55504 [Flags] 2 [Guid] 80691258 [EditorId] 80691258 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28176]  * "[IP] 192.168.163.1 [Port] 55504 [Flags] 2 [Guid] 80691258 [EditorId] 80691258 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28176]  * "[IP] 192.168.235.1 [Port] 55504 [Flags] 2 [Guid] 80691258 [EditorId] 80691258 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28176] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [28176] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar" at "2026-10-28T10:03:25.8805134Z"
+[Package Manager] Connected to IPC stream "Upm-25524" after 0.2 seconds.
+Library Redirect Path: Library/
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 19168, path: "C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.2+ff71f16
+  Session Id:              d97c9b44c4e840b0b0783720811ebab9
+  Correlation Id:          295ac83166de9882118fef23e913a3c4
+  External correlation Id: 4361659764277346621
+  Machine Id:              WadMmAy/osH9k8L5ydYQtjSc8pk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Edgar" (connect: 0.25s, validation: 0.14s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar-notifications" at "2026-10-28T10:03:26.0488987Z"
+[Licensing::Module] Connected to LicensingClient (PId: 19168, launch time: 0.00, total connection time: 0.42s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+Refreshing native plugins compatible for Editor in 5.50 ms, found 19 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.45s
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56524
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.010410 seconds.
+- Loaded All Assemblies, in  0.309 seconds
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2202 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.451 seconds
+Domain Reload Profiling: 2754ms
+	BeginReloadAssembly (108ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (115ms)
+		LoadAssemblies (102ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (112ms)
+			TypeCache.Refresh (110ms)
+				TypeCache.ScanAssembly (99ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2451ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2427ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2281ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (34ms)
+			ProcessInitializeOnLoadAttributes (70ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 58 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc)
+    com.unity.cinemachine@3.1.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.cinemachine@624f919d8cdd)
+    com.unity.collab-proxy@2.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad)
+    com.unity.ide.visualstudio@2.0.23 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13)
+    com.unity.inputsystem@1.14.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.timeline@1.8.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.timeline@6b9e48457ddb)
+    com.unity.visualscripting@1.9.7 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.visualscripting@6279e2b7c485)
+    com.unity.splines@2.8.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.splines@b909627b5095)
+    com.unity.searcher@4.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.24 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.burst@f7a407abf4d5)
+    com.unity.mathematics@1.3.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collections@56bff8827a7e)
+    com.unity.settings-manager@2.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.settings-manager@41738c275190)
+    com.unity.nuget.mono-cecil@1.11.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f)
+    com.unity.test-framework.performance@3.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997)
+    com.unity.test-framework@1.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework@1f954279c37e)
+    com.unity.ugui@2.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ugui@aa507f3228f0)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74)
+    com.unity.shadergraph@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/Unity/FPS-PayDayGame
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s197ms
+[674/861    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+*** Tundra build success (0.17 seconds), 1 items updated, 861 evaluated
+AssetDatabase: script compilation time: 0.479348s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.685 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 3.16 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.856 seconds
+Domain Reload Profiling: 2535ms
+	BeginReloadAssembly (242ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (126ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (367ms)
+		LoadAssemblies (297ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (154ms)
+			TypeCache.Refresh (114ms)
+				TypeCache.ScanAssembly (107ms)
+			BuildScriptInfoCaches (30ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1858ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1641ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (1463ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Asset Pipeline Refresh (id=e8f5dbd899a327642a8c0e7718e68d66): Total: 3.455 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2199 ms
+		Asset DB Callback time: managed=15 ms, native=18 ms
+		Scripting: domain reloads=1, domain reload time=685 ms, compile time=494 ms, other=42 ms
+		Project Asset Count: scripts=1570, non-scripts=3470
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 20.181ms
+	ApplyChangesToAssetFolders: 0.620ms
+	Scan: 70.331ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 39.664ms
+	ProcessAssetsWithTransientArtifactChanges: 53.197ms
+	CategorizeAssets: 44.937ms
+	ImportOutOfDateAssets: 1869.397ms (1373.942ms without children)
+		CompileScripts: 493.944ms
+		ReloadNativeAssets: 0.017ms
+		UnloadImportedAssets: 0.642ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.478ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.374ms
+	PostProcessAllAssets: 15.630ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 1.264ms
+	PersistCurrentRevisions: 0.088ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 7.278ms
+	Untracked: 1339.990ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 15.554ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-RobotGame
+Unloading 33 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6799 unused Assets / (6.2 MB). Loaded Objects now: 7536.
+Memory consumption went from 205.3 MB to 199.1 MB.
+Total: 6.849400 ms (FindLiveObjects: 0.587000 ms CreateObjectMapping: 0.239000 ms MarkObjects: 4.140100 ms  DeleteObjects: 1.882600 ms)
+
+Asset Pipeline Refresh (id=d813ca4537a21fe41b0f8df22c18b7e8): Total: 0.032 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Opening scene 'Assets/Scenes/TowerCore.unity'
+Unloading 85 Unused Serialized files (Serialized files now loaded: 0)
+LightingSettings: switching bake backend from 1 to 2.
+Loaded scene 'Assets/Scenes/TowerCore.unity'
+	Deserialize:            40.759 ms
+	Integration:            236.081 ms
+	Integration of assets:  1.191 ms
+	Thread Wait Time:       0.015 ms
+	Total Operation Time:   278.046 ms
+Unloading 5 unused Assets / (5.5 KB). Loaded Objects now: 10075.
+Memory consumption went from 200.8 MB to 200.8 MB.
+Total: 4.846700 ms (FindLiveObjects: 0.441900 ms CreateObjectMapping: 0.270900 ms MarkObjects: 4.089200 ms  DeleteObjects: 0.044400 ms)
+
+Start importing Assets/Resources/Mutations/Effect.mat using Guid(5e4db0d51ae9c46479c33420a2d7badf) (NativeFormatImporter) -> (artifact id: 'e88f6559fe7e3ef3ca91d79c0ec67aeb') in 0.0046028 seconds
+Start importing Assets/Art/Rewards/Mutations/WorkHammer.asset using Guid(20f153e94906ffd46b0f32e29e9e76f0) (NativeFormatImporter) -> (artifact id: '93cab3997e2b50d011c80c9c3107b441') in 0.0008252 seconds
+Start importing Assets/Art/Rewards/Mutations/ReturningBlade.asset using Guid(30e3166e1db479e4fac5c0682c5fa3b9) (NativeFormatImporter) -> (artifact id: '647b21119422ae708c66d316abec2843') in 0.0008395 seconds
+Start importing Assets/Art/Rewards/Mutations/DoubleFuse.asset using Guid(8168047b52c92af4b81291328c5a2d73) (NativeFormatImporter) -> (artifact id: 'dd79e8456b14e5cc8fdd037d4359d771') in 0.0007834 seconds
+Start importing Assets/Art/Rewards/Mutations/ScrapFunnel.asset using Guid(428080c322c042c44be442533442e3ce) (NativeFormatImporter) -> (artifact id: 'a65c18d2a852bee335896a89914813d6') in 0.0007982 seconds
+Start importing Assets/Art/Rewards/Mutations/EmergencyBrake.asset using Guid(c2ac718ad8de29e4db74be730d0b3599) (NativeFormatImporter) -> (artifact id: '4e6412278e68a96cc695ec83bd291af1') in 0.0007843 seconds
+Start importing Assets/Art/Rewards/Mutations/DischargeCoil.asset using Guid(c20d05e06f2c7a64ab80b805627ad56c) (NativeFormatImporter) -> (artifact id: '10f3e1e71521fcd2364098e84c3b719d') in 0.000775 seconds
+Start importing Assets/Art/Rewards/Mutations/MagazineBomb.asset using Guid(73f108ec3186fae458d4ab232a10b047) (NativeFormatImporter) -> (artifact id: 'a6dfa0ed3e249cb773d4c4b7b9473640') in 0.0007898 seconds
+Start importing Assets/Art/Rewards/Mutations/DecoyBeacon.asset using Guid(4479b9ab55fb3c3489d3c519f9731a1f) (NativeFormatImporter) -> (artifact id: '3803c804a0d68474c8ac939bbdecf126') in 0.0007771 seconds
+Start importing Assets/Art/Rewards/Mutations/RecoverableSaw.asset using Guid(15392b989ed9c854dabc3164e7603459) (NativeFormatImporter) -> (artifact id: '760ddc95a577b4d2ea685b4639bb9465') in 0.0007691 seconds
+Start importing Assets/Art/Rewards/Mutations/Fork.asset using Guid(563f3ae08c545cf4bb05295c7372a8b2) (NativeFormatImporter) -> (artifact id: 'cd0e38ebc15c905d4d5c833657e75086') in 0.0007812 seconds
+Start importing Assets/Art/Rewards/Mutations/MagneticScrap.asset using Guid(374c0308b2ea3e346865a18c0bfe8731) (NativeFormatImporter) -> (artifact id: 'bda6121db0229665d2ce976a5516c951') in 0.0008105 seconds
+Start importing Assets/Art/Rewards/Mutations/OpeningCut.asset using Guid(08e4bf5acf3df2d428215439d0b6639e) (NativeFormatImporter) -> (artifact id: 'ba2c99e290277045c536c58d9432773c') in 0.0007665 seconds
+Start importing Assets/Art/Rewards/Mutations/SlagTrail.asset using Guid(b82cc7de63053d140b46a51184ad2076) (NativeFormatImporter) -> (artifact id: '7ba0abb52fc7d888aa2e02b1263f8b7a') in 0.000755 seconds
+Start importing Assets/Art/Rewards/Mutations/GroundArc.asset using Guid(9ae73e60cbf689f40a97bcf7dc4580f8) (NativeFormatImporter) -> (artifact id: 'b2fa8f1bda95ec56e70b4698701d8531') in 0.0007866 seconds
+Start importing Assets/Art/Rewards/Mutations/MagneticAnchor.asset using Guid(3b02c822d7407b74b9b13a4cc7c04191) (NativeFormatImporter) -> (artifact id: '884b2a86cd06878da3db5becae2e2aa2') in 0.000776 seconds
+Start importing Assets/Art/Rewards/Mutations/RamChamber.asset using Guid(bd337293425110a46994719e934d6d38) (NativeFormatImporter) -> (artifact id: '15bb5074772486a3503ce9be5d40e3f2') in 0.0007617 seconds
+Start importing Assets/Art/Rewards/Mutations/Carrier.asset using Guid(2eb4605e969278a4bab5eed3eba3873a) (NativeFormatImporter) -> (artifact id: '7c40520d3063f63bd75eb64f2d737f72') in 0.0008666 seconds
+Start importing Assets/Art/Rewards/Mutations/Retrothruster.asset using Guid(4f229f9c7a6e8464abe564944a58d075) (NativeFormatImporter) -> (artifact id: 'c2aa6c22b3b4b8ffb8e1a335d5bb2335') in 0.0007867 seconds
+Start importing Assets/Art/Rewards/Mutations/ExplosiveReload.asset using Guid(dff3b5a777495f64784b47900ddb947b) (NativeFormatImporter) -> (artifact id: 'a3868f6989a54e5ebfaee6f210269f13') in 0.0008068 seconds
+Refreshing native plugins compatible for Editor in 2.91 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=a77cc0272516aaf43b1cd4940b0644f7): Total: 0.150 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/TowerCore.unity using Guid(afffcc3b29ce4364fb11f7b594ed47f0) (DefaultImporter) -> (artifact id: '2f290a7495791d801ed8023b1c2d0e6d') in 0.0006276 seconds
+Refreshing native plugins compatible for Editor in 2.79 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6f9fe3d4b9a58964099e940f6d304f89): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+MUTATIONS CONFIGURED: 19 selected cards, base rewards retained
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationCardBuild:Configure () (at Assets/Editor/Tower/MutationCardBuild.cs:69)
+MutationCardBuild:Play () (at Assets/Editor/Tower/MutationCardBuild.cs:93)
+
+(Filename: Assets/Editor/Tower/MutationCardBuild.cs Line: 69)
+
+Opening scene 'Assets/Scenes/RoboticForest.unity'
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/RoboticForest.unity'
+	Deserialize:            38.944 ms
+	Integration:            160.598 ms
+	Integration of assets:  0.105 ms
+	Thread Wait Time:       0.004 ms
+	Total Operation Time:   199.651 ms
+Unloading 1439 unused Assets / (10.2 MB). Loaded Objects now: 12304.
+Memory consumption went from 219.7 MB to 209.6 MB.
+Total: 5.569500 ms (FindLiveObjects: 0.623300 ms CreateObjectMapping: 0.151800 ms MarkObjects: 3.735800 ms  DeleteObjects: 1.058300 ms)
+
+[Project] Loading completed in 9.961 seconds
+	Project init time: 				7.823 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.210 seconds
+		Asset Database init time: 		0.158 seconds
+		Global illumination init time: 	0.002 seconds
+		Assemblies load time: 			2.783 seconds
+		Unity extensions init time: 	0.024 seconds
+		Asset Database refresh time: 	3.455 seconds
+	Scene opening time: 			2.094 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1793181815579,"processId":25524,"projectLoad":9.9613148,"projectInit":7.8227311,"templateInit":0.0,"packageManagerInit":0.2100851,"assetDatabaseInit":0.1584199,"globalIlluminationInit":0.0021767,"assembliesLoad":2.7830182,"unityExtensionsInit":0.0239329,"assetDatabaseRefresh":3.4553921,"sceneOpening":2.0939034}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1793181815579,"processId":25524,"editorVersion":"6000.0.58f2 (92dee566b325)","branch":"6000.0/respin/6000.0.58f2-44b8bf3a32","buildType":"Release","platform":"Windows"}
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.519 seconds
+Refreshing native plugins compatible for Editor in 2.74 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.628 seconds
+Domain Reload Profiling: 1142ms
+	BeginReloadAssembly (315ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (194ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (146ms)
+		LoadAssemblies (115ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (93ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (628ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (419ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (92ms)
+			ProcessInitializeOnLoadAttributes (242ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (29ms)
+Asset Pipeline Refresh (id=b9acee9ed0723f046a60c9e2b669aa60): Total: 1.258 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=704 ms
+		Asset DB Callback time: managed=14 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=537 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=1570, non-scripts=3470
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 2.006ms
+	ApplyChangesToAssetFolders: 0.271ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.002ms
+	ProcessAssetsWithTransientArtifactChanges: 3.639ms
+	CategorizeAssets: 43.255ms
+	ImportOutOfDateAssets: 638.075ms (633.946ms without children)
+		CompileScripts: 0.802ms
+		CollectScriptTypesHashes: 1.943ms
+		ReloadNativeAssets: 0.726ms
+		UnloadImportedAssets: 0.042ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.405ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.210ms
+	PostProcessAllAssets: 14.733ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.093ms
+	UnloadStreamsBegin: 0.038ms
+	PersistCurrentRevisions: 0.087ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.530ms
+	Untracked: 556.260ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            9.580 ms
+	Integration:            211.123 ms
+	Integration of assets:  0.028 ms
+	Thread Wait Time:       0.002 ms
+	Total Operation Time:   220.732 ms
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+LightingSettings: switching bake backend from 1 to 2.
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+Asset Pipeline Refresh (id=d0c93ca5cc3e05b4f993a3b6bd7c59f6): Total: 0.050 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Couldn't find a readme
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReadmeEditor:SelectReadme () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:59)
+ReadmeEditor:SelectReadmeAutomatically () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:26)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs Line: 59)
+
+Created GICache directory at C:/Users/Edgar.DESKTOP-BOONDKL/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.029s, timestamps: [11.551 - 11.579]
+Loaded scene 'Assets/Scenes/TowerCore.unity'
+	Deserialize:            91.212 ms
+	Integration:            54.361 ms
+	Integration of assets:  0.149 ms
+	Thread Wait Time:       373.540 ms
+	Total Operation Time:   519.262 ms
+PASS Playable tower boots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:58)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Exactly the 19 selected mutations, no unselected cards
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:70)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Every mutation has an icon, action hint and one rank
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:71)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Offers exclude absent carbine, knife and shotgun
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:73)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Pistol and compatible global cards remain available
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:74)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Ram chamber uses held/released production input and consumes three bullets
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:17)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Charged physical ray pierces exactly three distinct robots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:18)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Brief charge release preserves normal pistol shot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:23)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Charged ray cannot penetrate solid cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:26)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS First direct shot arms a visible fuse without exploding
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:30)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Second distinct shot explodes the fuse and reaches neighbors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:32)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Fuse reaction is bounded and does not recursively create direct hits
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:33)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Shotgun pellets count as one direct attack for a fuse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:35)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Fork waits for the fourth successful carbine shot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:39)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Fourth hit sends exactly two half-damage branches
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:41)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Scrap funnel actually moves a normal laterally into the shot axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:46)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Funnel keeps the veteran displacement smaller
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:47)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A real knife contact places the opening-cut clamp
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:51)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Shooting the knife mark adds the heavy contact and nearby explosion
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:53)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Holding knife and releasing launches the actual blade
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:58)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Outgoing blade limits its leg to two distinct victims
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:59)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Blade hits, returns and allows weapon switching during flight
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:61)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Both blade legs together deal at most four knife contacts
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:62)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The returning leg makes additional physical knife contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:63)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Blade return restores the held knife renderers
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:64)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Reload arms the next pistol impact as a carrier
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:68)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Carrier transfers to a visible neighbor without restarting the fuse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:70)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Carrier explodes at its committed timer and latest position
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:71)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Three real direct kills charge ground arc
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:75)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A physical ground hit consumes the charge and places the arc
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:77)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Crossing the arc deals one pulse, not repeated damage per frame
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:79)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Ground arc expires without leaving a permanent hazard
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:80)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Real slide movement of two metres produces a ground-following slag path
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:89)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS An enemy crossing the real slide path is damaged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:91)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Slag applies damage once per enemy and trail
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:92)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Ending the actual slide triggers a forward brake displacement
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:96)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Brake has a cooldown and grants no repeated free wave
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:97)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Retrothruster cancels inertia and makes a bounded physical withdrawal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:103)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Retrothruster spends a charge and waits six seconds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:104)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Landing does not bypass the retrothruster cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:107)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A normal shotgun shot never spends the recovered optional impulse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:109)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Landing and cooldown together restore the retrothruster charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:111)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Retrothruster's CharacterController cannot pass through the wall behind the player
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:115)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Retrothruster does not buy invulnerability or alter health/shield
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:116)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Timed explosive reload and manually shot magazine bomb coexist as different devices
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:15)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Timed magazine respects its one-second warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:16)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Timed explosion damages enemies but does not chain-detonate the manual bomb
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:17)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Shooting the real bomb collider detonates it exactly once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:20)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS No delayed second detonation after a manual bomb is consumed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:21)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Magazine bomb requires a partial magazine, not an empty reload
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:25)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Explosive reload cannot be farmed without firing three bullets
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:27)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Decoy changes the real enemy's perceived combat target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:31)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The ranged body and weapon aim at the decoy rather than pretending in VFX
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:33)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A direct hit breaks that robot's distraction
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:35)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Decoy expires and leaves no permanent target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:36)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A real direct kill creates magnetic scrap at the corpse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:40)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Magnetic scrap moves a nearby robot toward the kill site
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:42)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Scrap magnet has bounded duration and an eight-second cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:43)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Reloading toward valid ground places an anchor and groups light robots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:48)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Anchor slows veterans without pulling their bodies
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:49)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The veteran's movement speed is restored after the magnetic field
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:51)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Three distinct direct shots mark the same enemy for the hammer
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:55)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Hammer telegraphs a committed world position before contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:56)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Hammer strikes the committed position after its warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:57)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS An enemy can move out of the hammer instead of being homed on after lock
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:61)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Three direct firearm kills prepare one recoverable saw
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:65)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Reload launches a physical saw with one hit per enemy, then it drops
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:68)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Picking up the dropped saw restores its availability
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:70)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Breaking shield and reloading creates a discharge coil
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:74)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A real travelling enemy projectile is intercepted and stored
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:80)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Aguja's actual locked laser is captured as the coil's third charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:86)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The absorbed third laser visibly ends at the coil instead of passing through
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:88)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Coil stores at most three shots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:91)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A saturated coil no longer grants unlimited cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:93)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The player's shot releases the stored energy into nearby enemies
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:95)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Explosions preserve exactly one attributed kill for each victim
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:105)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Derived kills do not recursively charge direct-kill cards
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:106)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS All selected cards can coexist, and a duplicate cannot install twice
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:110)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Pause freezes every mutation clock, warning and cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:116)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Combined cards remain bounded and do not cascade indefinitely
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:118)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS A complete real wave enters the actual wave ledger: wave=1 active=5 pending=0 wait=
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:130)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Derived damage completes a real wave exactly once without leaving a missing enemy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:135)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Derived kills retain normal chips and the wave completion reward
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:136)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Real wave reward offers three selected, compatible mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:139)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS The real card UI selection path applies only once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:143)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Confirmed mutation is installed and recorded in run history
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:145)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+Loaded scene 'Assets/Scenes/LaboratoryFloor.unity'
+	Deserialize:            19.448 ms
+	Integration:            2.693 ms
+	Integration of assets:  0.081 ms
+	Thread Wait Time:       2.140 ms
+	Total Operation Time:   24.362 ms
+PASS Actual additive floor load/unload retains all cards and clears old physical effects
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:155)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+PASS Player death cleans devices, flying blades and all active mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:159)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+Unloading 78 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.497700 ms
+Loaded scene 'Assets/Scenes/LaboratoryFloor.unity'
+	Deserialize:            16.339 ms
+	Integration:            163.013 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       3.948 ms
+	Total Operation Time:   183.303 ms
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+Unloading 1429 unused Assets / (66.3 MB). Loaded Objects now: 10100.
+Memory consumption went from 355.4 MB to 289.0 MB.
+Total: 7.200100 ms (FindLiveObjects: 0.486600 ms CreateObjectMapping: 0.130600 ms MarkObjects: 5.219800 ms  DeleteObjects: 1.362700 ms)
+
+Loaded scene 'Assets/Scenes/TowerCore.unity'
+	Deserialize:            49.964 ms
+	Integration:            15.007 ms
+	Integration of assets:  10.051 ms
+	Thread Wait Time:       1.074 ms
+	Total Operation Time:   76.097 ms
+PASS Restart through the real run menu starts with no previous mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:163)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 39)
+
+MUTATION TEST COMPLETE: 89 checks, 0 errors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MutationPlaytest:Finish () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:139)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:76)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/MutationPlaytest.cs Line: 139)
+
+Clearing [HelixDisplay] dynamic font asset data.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TMPro.EditorEventCallbacks/<>c:<InitializeFontAssetResourceChangeCallBacks>b__0_0 () (at ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs:36)
+UnityEditor.EditorApplication:Internal_EditorApplicationQuit ()
+MutationPlaytest:Finish () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:141)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:76)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs Line: 36)
+
+Clearing [LiberationSans SDF - Fallback] dynamic font asset data.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TMPro.EditorEventCallbacks/<>c:<InitializeFontAssetResourceChangeCallBacks>b__0_0 () (at ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs:36)
+UnityEditor.EditorApplication:Internal_EditorApplicationQuit ()
+MutationPlaytest:Finish () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:141)
+MutationPlaytest/<Execute>d__29:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:76)
+MutationPlaytest/<Guard>d__28:MoveNext () (at Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs Line: 36)
+
+Killing ADB server in 0,0346201 seconds.
+Start importing Assets/Resources/HelixDisplay.asset using Guid(f6a21bbc581f97b47ad175002e2f4fc4) (NativeFormatImporter) -> (artifact id: '7532148f4bfe81ee3ba692a3876e0240') in 0.0053768 seconds
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) (NativeFormatImporter) -> (artifact id: '37c4f4e4e6d27549cbd76cc8ec1e66c6') in 0.0011013 seconds
+Refreshing native plugins compatible for Editor in 2.87 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2327bf5cc03824c4ebf153e6e9ed8dff): Total: 0.052 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Edgar-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Edgar channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793181831036,"processId":25524,"allocatedMemory":15784847,"memoryLabels":[{"Default":26245},{"Permanent":15356},{"NewDelete":69649},{"Thread":4230344},{"Manager":815994},{"VertexData":1784},{"Geometry":816},{"VFX":-104},{"Texture":296},{"Shader":83403},{"Material":24},{"GfxDevice":56248},{"Animation":392},{"Audio":4040},{"FontEngine":256},{"Physics":1241},{"Serialization":688},{"Input":14824},{"JobScheduler":71104},{"TextLib":160},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1621072},{"Resource":1304},{"Renderer":2928},{"Transform":4646},{"File":18566},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":15321},{"DynamicArray":126161},{"HashMap":92762},{"Utility":2660078},{"Curl":48},{"PoolAlloc":1960},{"AI":104},{"TypeTree":5005},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7928},{"Director":8240},{"CloudService":8216},{"WebRequest":808},{"VR":45969},{"SceneManager":496},{"Video":208},{"LazyScriptCache":32},{"Camera":17},{"Secure":1},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":384},{"Hierarchy":272},{"Gui":80},{"EditorUtility":283141},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4915940},{"EditorGi":328},{"UnityConnect":24208},{"Upm":2036},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":14954},{"Licensing":1232},{"AssetReference":32},{"IPCStream":32}]}

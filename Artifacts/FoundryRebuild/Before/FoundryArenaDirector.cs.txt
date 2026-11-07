@@ -1,0 +1,100 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.AI;
+
+/// <summary>Fixed encounter using the shipped player and robot roles, without banking tower progress.</summary>
+public sealed class FoundryArenaDirector : MonoBehaviour
+{
+    public Transform arrival;
+    public NormalEnemyStateMachine rangedPrefab,meleePrefab;
+    public Transform[] sentrySpawns;
+    public Transform sniperSpawn,bruteSpawn;
+    public FoundryStructure breach;
+    public FoundryCrane crane;
+    public ArenaMechanicalPetal petal;
+    public bool Ready { get; private set; }
+    public PlayerStateMachine Player { get; private set; }
+    public IReadOnlyList<NormalEnemyStateMachine> Enemies=>enemies;
+    public FoundryStructure Breach=>breach;
+    public FoundryCrane Crane=>crane;
+    public ArenaMechanicalPetal Petal=>petal;
+    public int Wave { get; private set; }
+    public bool Completed { get; private set; }
+    readonly List<NormalEnemyStateMachine> enemies=new List<NormalEnemyStateMachine>();
+    float nextWave=8;
+    bool qa,restarting,localDeath;
+    IEnumerator Start()
+    {
+        qa=System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-foundry-qa")>=0;
+        if(TowerSession.Instance==null)yield return SceneManager.LoadSceneAsync("TowerCore",LoadSceneMode.Additive);
+        while(TowerSession.Instance==null||!TowerSession.Instance.Ready)yield return null;
+        yield return null;
+        SceneManager.SetActiveScene(gameObject.scene);
+        GameManager.Instance.AutomaticWaves=false;GameManager.Instance.StopFloor();
+        TowerSession.Instance.firstScene="FundicionReactiva";
+        TowerSession.Instance.DeathPresentationOverride=()=>localDeath=true;
+        Player=TowerSession.Instance.player;Player.TeleportTo(arrival.position,arrival.rotation);
+        foreach(var gun in Player.GetComponentsInChildren<BaseGun>(true)) {gun.limitedReserve=false;gun.currentAmmo=gun.ammo;}
+        if(TowerSession.Instance.overlay)TowerSession.Instance.overlay.gameObject.SetActive(false);
+        Ready=true;
+    }
+    public void SpawnWave(int number)
+    {
+        foreach(var enemy in enemies)if(enemy&&!enemy.IsDead)Destroy(enemy.gameObject);
+        enemies.Clear();EnemyProjectile.ClearAll();CombatHazardBudget.ResetAll();
+        Wave=number;Completed=false;
+        SquadManager.Instance?.Configure(3,1);
+        for(int i=0;i<sentrySpawns.Length;i++)Spawn(rangedPrefab,sentrySpawns[i],false);
+        Spawn(number==1?rangedPrefab:meleePrefab,number==1?sniperSpawn:bruteSpawn,true);
+    }
+    void Spawn(NormalEnemyStateMachine prefab,Transform point,bool veteran)
+    {
+        NavMeshHit sample=default;bool found=false;
+        // The landed load can occupy an earlier entry. Reuse a free nearby physical entry.
+        var offsets=new[]{Vector3.zero,Vector3.right*5,Vector3.left*5,Vector3.back*4,Vector3.forward*4,Vector3.right*8,Vector3.left*8};
+        foreach(var offset in offsets)
+        {
+            if(!NavMesh.SamplePosition(point.position+offset,out var candidate,1.5f,NavMesh.AllAreas))continue;
+            if(Vector3.Distance(candidate.position,Player.transform.position)<4)continue;
+            if(Physics.CheckCapsule(candidate.position+Vector3.up*.4f,candidate.position+Vector3.up*1.5f,.35f,
+                (1<<0)|(1<<3)|(1<<6)|(1<<7)|(1<<10),QueryTriggerInteraction.Ignore))continue;
+            sample=candidate;found=true;break;
+        }
+        if(!found){Debug.LogError("No free foundry entry: "+point.name);return;}
+        var enemy=Instantiate(prefab,sample.position,point.rotation);
+        SceneManager.MoveGameObjectToScene(enemy.gameObject,gameObject.scene);
+        enemy.ConfigureDifficulty(veteran?100:70,6,.7f);enemy.ConfigureVeteran(veteran);
+        enemy.detectionRange=42;enemy.Perception.SeedSearch(Player.transform.position);enemies.Add(enemy);
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F5)&&!restarting) {RestartEncounter();return;}
+        if(!Ready||WeaponAction.CombatPaused||Completed)return;
+        if(Wave==0){if(!qa){nextWave-=Time.deltaTime;if(nextWave<=0)SpawnWave(1);}return;}
+        if(enemies.Count>0&&enemies.TrueForAll(e=>e==null||e.IsDead))
+        {
+            if(Wave==2){Completed=true;return;}
+            nextWave-=Time.deltaTime;
+            if(nextWave<=0){Player.Heal(30);SpawnWave(2);}
+        }
+        else nextWave=5;
+    }
+    public void RestartEncounter()
+    { if(restarting)return;restarting=true;RunPause.Reset();EnemyProjectile.ClearAll();SceneManager.LoadScene("FundicionReactiva"); }
+    void OnGUI()
+    {
+        GUI.color=new Color(.025f,.045f,.065f,.9f);GUI.DrawTexture(new Rect(20,18,760,100),Texture2D.whiteTexture);GUI.color=Color.white;
+        var title=new GUIStyle(GUI.skin.label){fontSize=22,fontStyle=FontStyle.Bold};
+        GUI.Label(new Rect(34,24,730,32),"FUNDICIÓN REACTIVA  /  ABRE TU PROPIA RUTA",title);
+        GUI.Label(new Rect(34,58,730,24),"WASD / ratón · R recarga · Q arma · E mecanismo · F5 reconstruir / reiniciar");
+        string status=localDeath?"OPERADOR CAÍDO · F5 para volver a intentarlo":Completed?"FUNDICIÓN ASEGURADA · Explora o pulsa F5 para repetir.":Wave==0?"Explora: corta ambos anclajes dorados, rompe la barrera coral o gira la pantalla.":$"Tanda {Wave}/2 · Centinelas + {(Wave==1?"Aguja":"Ariete")} · Rutas oeste / pasarela este";
+        GUI.Label(new Rect(34,85,730,24),status);
+        string craneStatus=crane==null?"":crane.State==FoundryCrane.CraneState.Armed?$"ANCLAJES {crane.LatchesCut}/2":
+            crane.State==FoundryCrane.CraneState.Warning?(crane.WarningActive?"AVISO DE CAÍDA":"PENDIENTE DE TURNO"):crane.State==FoundryCrane.CraneState.Falling?"CAYENDO":"COBERTURA CREADA";
+        string utility=crane&&crane.PlayerSafetyBlocked?"CARGA EN ESPERA · Sal de la zona marcada":$"Atajo: {(breach&&breach.IsOpen?"ABIERTO":"barrera rompible")}  |  Grúa: {craneStatus}  |  Reserva ilimitada";
+        GUI.Label(new Rect(24,Screen.height-42,1000,25),utility);
+        if(localDeath&&GUI.Button(new Rect(Screen.width/2-100,Screen.height/2,200,45),"REINTENTAR / F5"))RestartEncounter();
+    }
+}

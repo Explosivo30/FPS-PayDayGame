@@ -1,0 +1,413 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabSession
+    {
+        const int MaxReliableMessages = 4096;
+        const long MaxReliablePayloadBytes = 32L * 1024L * 1024L;
+
+        public static EZCollabServer server { get; private set; }
+        public static EZCollabClient client { get; private set; }
+        public static bool isReconnecting { get; private set; }
+        public static bool isSynchronizing { get; private set; }
+        public static float synchronizationProgress { get; private set; }
+        public static string synchronizationStatus { get; private set; }
+        public static string lastConnectionError { get; private set; }
+
+        public static event Action stateChanged;
+
+        static readonly object outboundLock = new object();
+        static readonly Queue<EZMessage> reliableOutbound = new Queue<EZMessage>();
+        static readonly Queue<EZMessage> controlOutbound = new Queue<EZMessage>();
+        static readonly Dictionary<string, EZMessage> latestOutbound =
+            new Dictionary<string, EZMessage>();
+
+        static string lastHost;
+        static int lastPort;
+        static int reconnectGeneration;
+        static long reliablePayloadBytes;
+        static Task activeSend;
+
+        static EZCollabSession()
+        {
+            EditorApplication.update += PumpOutbound;
+            AssemblyReloadEvents.beforeAssemblyReload += ShutdownForEditorLifecycle;
+            EditorApplication.quitting += ShutdownForEditorLifecycle;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        public static bool StartHost(string peerName, int port)
+        {
+            lastConnectionError = string.Empty;
+            ResetOutbound();
+            EZCollabState.Initialize(peerName, true);
+            server = new EZCollabServer();
+
+            try
+            {
+                server.Start(port);
+                SetSynchronizing(false, 0f);
+                Debug.Log(EZCollabLocalization.Tr(EZCollabText.SessionStartedLog, port, peerName));
+                NotifyStateChanged();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                lastConnectionError = exception.Message;
+                Debug.LogError(EZCollabLocalization.Tr(EZCollabText.ServerStartFailedLog, exception.Message));
+                server.Stop();
+                server = null;
+                EZCollabState.Shutdown();
+                SetSynchronizing(false, 0f);
+                NotifyStateChanged();
+                return false;
+            }
+        }
+
+        public static async Task<bool> JoinAsClient(string peerName, string host, int port)
+        {
+            lastConnectionError = string.Empty;
+            ResetOutbound();
+            EZCollabState.Initialize(peerName, false);
+            lastHost = host;
+            lastPort = port;
+            isReconnecting = false;
+            SetSynchronizing(true, 0f, "Connecting");
+
+            EZCollabClient joiningClient = new EZCollabClient();
+            client = joiningClient;
+            bool connected = await joiningClient.Connect(host, port, 0);
+
+            if (!connected)
+            {
+                lastConnectionError = joiningClient.lastConnectionError;
+                joiningClient.Disconnect();
+                if (ReferenceEquals(client, joiningClient))
+                    client = null;
+                EZCollabState.Shutdown();
+                SetSynchronizing(false, 0f);
+            }
+            NotifyStateChanged();
+            return connected;
+        }
+
+        public static async void BeginReconnect()
+        {
+            if (!EZCollabState.inSession || EZCollabState.isHost || isReconnecting ||
+                string.IsNullOrEmpty(lastHost))
+            {
+                return;
+            }
+
+            isReconnecting = true;
+            SetSynchronizing(true, 0f, "Reconnecting");
+            int generation = ++reconnectGeneration;
+            long lastSequence = EZCollabState.lastServerSequence;
+            EZCollabState.PrepareForReconnect();
+            client?.Disconnect();
+            Debug.LogWarning(EZCollabLocalization.Tr(EZCollabText.ConnectionLostLog, lastSequence));
+            NotifyStateChanged();
+
+            for (int attempt = 1; attempt <= 5; attempt++)
+            {
+                if (!EZCollabState.inSession || generation != reconnectGeneration)
+                    return;
+
+                if (attempt > 1)
+                    await Task.Delay(Math.Min(5000, attempt * 1000));
+
+                if (!EZCollabState.inSession || generation != reconnectGeneration)
+                    return;
+
+                EZCollabClient replacement = new EZCollabClient();
+                client = replacement;
+                if (await replacement.Connect(lastHost, lastPort, lastSequence))
+                {
+                    if (generation != reconnectGeneration)
+                    {
+                        replacement.Disconnect();
+                        return;
+                    }
+
+                    lastConnectionError = string.Empty;
+                    isReconnecting = false;
+                    Debug.Log(EZCollabLocalization.Tr(EZCollabText.ConnectionRestoredLog));
+                    NotifyStateChanged();
+                    return;
+                }
+
+                lastConnectionError = replacement.lastConnectionError;
+            }
+
+            if (generation == reconnectGeneration && EZCollabState.inSession)
+            {
+                isReconnecting = false;
+                Debug.LogError(EZCollabLocalization.Tr(EZCollabText.ReconnectFailedLog));
+                Stop();
+            }
+        }
+
+        public static void SendReliable(EZMessage message)
+        {
+            if (message == null || !EZCollabState.inSession)
+                return;
+
+            bool overflow;
+            lock (outboundLock)
+            {
+                EZMessage barrierTransform = null;
+                if (TryGetFullStateGuid(message, out string fullStateGuid))
+                {
+                    latestOutbound.Remove("transform:" + fullStateGuid);
+                }
+                else if (TryGetTransformBarrierGuid(message, out string barrierGuid) &&
+                         latestOutbound.TryGetValue("transform:" + barrierGuid, out barrierTransform))
+                {
+                    latestOutbound.Remove("transform:" + barrierGuid);
+                }
+
+                int addedMessages = barrierTransform == null ? 1 : 2;
+                long addedBytes = EstimateMessageBytes(message) +
+                                  (barrierTransform == null ? 0 : EstimateMessageBytes(barrierTransform));
+                overflow = reliableOutbound.Count + controlOutbound.Count + addedMessages > MaxReliableMessages ||
+                           reliablePayloadBytes + addedBytes > MaxReliablePayloadBytes;
+                if (!overflow)
+                {
+                    bool control = IsControlMessage(message.type);
+                    // Releasing ownership is a barrier for all state already queued.
+                    // Keep that state before the release even under control priority.
+                    if (TryGetTransformBarrierGuid(message, out _))
+                        while (reliableOutbound.Count > 0) controlOutbound.Enqueue(reliableOutbound.Dequeue());
+                    if (barrierTransform != null)
+                        EnqueueReliableLocked(barrierTransform, control);
+                    EnqueueReliableLocked(message, control);
+                }
+            }
+
+            if (overflow)
+                AbortForOutboundOverflow();
+        }
+
+        public static void PublishLatest(string key, EZMessage message)
+        {
+            if (message == null || !EZCollabState.inSession)
+                return;
+
+            if (string.IsNullOrEmpty(key))
+            {
+                SendReliable(message);
+                return;
+            }
+
+            lock (outboundLock)
+                latestOutbound[key] = message;
+        }
+
+        public static void SetSynchronizing(bool value, float progress = 0f, string status = null)
+        {
+            float clampedProgress = progress < 0f ? 0f : progress > 1f ? 1f : progress;
+            string normalizedStatus = value ? status ?? string.Empty : string.Empty;
+            bool changed = isSynchronizing != value ||
+                           Math.Abs(synchronizationProgress - clampedProgress) > 0.0001f ||
+                           !string.Equals(synchronizationStatus, normalizedStatus, StringComparison.Ordinal);
+
+            isSynchronizing = value;
+            synchronizationProgress = clampedProgress;
+            synchronizationStatus = normalizedStatus;
+            if (changed)
+                NotifyStateChanged();
+        }
+
+        public static void Stop()
+        {
+            bool hadSession = EZCollabState.inSession;
+            reconnectGeneration++;
+            isReconnecting = false;
+            server?.Stop();
+            client?.Disconnect();
+            server = null;
+            client = null;
+            EZCollabState.Shutdown();
+            lastHost = null;
+            lastPort = 0;
+            ResetOutbound();
+            isSynchronizing = false;
+            synchronizationProgress = 0f;
+            synchronizationStatus = string.Empty;
+            NotifyStateChanged();
+
+            if (hadSession)
+                Debug.Log(EZCollabLocalization.Tr(EZCollabText.SessionStoppedLog));
+        }
+
+        static void PumpOutbound()
+        {
+            System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            int processed = 0;
+            while (processed < 32 && stopwatch.Elapsed.TotalMilliseconds < 2d)
+            {
+                if (activeSend != null)
+                {
+                    if (!activeSend.IsCompleted)
+                        return;
+
+                    if (activeSend.IsFaulted)
+                        Debug.LogException(activeSend.Exception?.GetBaseException() ?? activeSend.Exception);
+                    activeSend = null;
+                }
+
+                if (!EZCollabState.inSession)
+                    return;
+
+                EZMessage message = null;
+                lock (outboundLock)
+                {
+                    if (controlOutbound.Count > 0)
+                    {
+                        message = controlOutbound.Dequeue();
+                        reliablePayloadBytes -= EstimateMessageBytes(message);
+                    }
+                    else if (reliableOutbound.Count > 0)
+                    {
+                        message = reliableOutbound.Dequeue();
+                        reliablePayloadBytes -= EstimateMessageBytes(message);
+                    }
+                    else
+                    {
+                        string selectedKey = null;
+                        foreach (KeyValuePair<string, EZMessage> pair in latestOutbound)
+                        {
+                            selectedKey = pair.Key;
+                            message = pair.Value;
+                            break;
+                        }
+
+                        if (selectedKey != null)
+                            latestOutbound.Remove(selectedKey);
+                    }
+                }
+
+                if (message == null)
+                    return;
+
+                activeSend = Dispatch(message);
+                processed++;
+            }
+        }
+
+        static Task Dispatch(EZMessage message)
+        {
+            Task send = EZCollabState.isHost
+                ? server?.SendFromHost(message)
+                : client?.Send(message);
+            return send ?? Task.CompletedTask;
+        }
+
+        static void EnqueueReliableLocked(EZMessage message, bool control = false)
+        {
+            if (control) controlOutbound.Enqueue(message);
+            else reliableOutbound.Enqueue(message);
+            reliablePayloadBytes += EstimateMessageBytes(message);
+        }
+
+        static bool TryGetFullStateGuid(EZMessage message, out string guid)
+        {
+            guid = null;
+            switch (message.type)
+            {
+                case EZMessageType.CreateObject:
+                case EZMessageType.ComponentDelta:
+                    guid = message.GetPayload<CreateObjectPayload>()?.guid;
+                    break;
+                case EZMessageType.DestroyObject:
+                    guid = message.GetPayload<DestroyObjectPayload>()?.guid;
+                    break;
+            }
+
+            return !string.IsNullOrEmpty(guid);
+        }
+
+        static bool TryGetTransformBarrierGuid(EZMessage message, out string guid)
+        {
+            guid = null;
+            if (message.type != EZMessageType.LockRelease &&
+                message.type != EZMessageType.ObjectUnlocked)
+            {
+                return false;
+            }
+
+            guid = message.GetPayload<LockPayload>()?.guid;
+            return !string.IsNullOrEmpty(guid);
+        }
+
+        static void AbortForOutboundOverflow()
+        {
+            lastConnectionError =
+                "The local reliable message queue exceeded its safety limit. Reconnect and try again.";
+            Debug.LogError($"[EZ Scene Collab] {lastConnectionError}");
+            Stop();
+        }
+
+        static void ResetOutbound()
+        {
+            lock (outboundLock)
+            {
+                reliableOutbound.Clear();
+                controlOutbound.Clear();
+                latestOutbound.Clear();
+                reliablePayloadBytes = 0;
+            }
+        }
+
+        static long EstimateMessageBytes(EZMessage message)
+        {
+            return 128L + Encoding.UTF8.GetByteCount(message?.payload ?? string.Empty);
+        }
+
+        static void OnPlayModeStateChanged(PlayModeStateChange change)
+        {
+            if (change == PlayModeStateChange.ExitingEditMode ||
+                change == PlayModeStateChange.ExitingPlayMode)
+            {
+                ShutdownForEditorLifecycle();
+            }
+        }
+
+        static void ShutdownForEditorLifecycle()
+        {
+            if (EZCollabState.inSession)
+                Stop();
+            else
+                ResetOutbound();
+        }
+
+        static void NotifyStateChanged()
+        {
+            try
+            {
+                stateChanged?.Invoke();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+            }
+        }
+
+        static bool IsControlMessage(EZMessageType type)
+        {
+            return type == EZMessageType.LockRequest || type == EZMessageType.LockRelease ||
+                   type == EZMessageType.LockGranted || type == EZMessageType.LockDenied ||
+                   type == EZMessageType.ObjectLocked || type == EZMessageType.ObjectUnlocked ||
+                   type == EZMessageType.PeerJoined || type == EZMessageType.PeerLeft ||
+                   type == EZMessageType.SessionHello || type == EZMessageType.ConnectionRejected ||
+                   type == EZMessageType.SynchronizationReady || type == EZMessageType.Heartbeat;
+        }
+    }
+}

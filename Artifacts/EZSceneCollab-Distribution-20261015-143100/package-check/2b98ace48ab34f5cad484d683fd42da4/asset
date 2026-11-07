@@ -1,0 +1,169 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public sealed class EZCollabParticipantPresence
+    {
+        public string peerId { get; internal set; }
+        public EZCollabPresencePayload payload { get; internal set; }
+        public double receivedAt { get; internal set; }
+        public double pointerChangedAt { get; internal set; }
+    }
+
+    /// <summary>
+    /// Main-thread store for short-lived participant presence. It deliberately owns no scene data.
+    /// </summary>
+    public static class EZCollabPresenceState
+    {
+        public const double FadeAfterSeconds = 1d;
+        public const double RemoveAfterSeconds = 3d;
+
+        static readonly Dictionary<string, EZCollabParticipantPresence> entries =
+            new Dictionary<string, EZCollabParticipantPresence>();
+        static readonly ReadOnlyDictionary<string, EZCollabParticipantPresence> readOnlyEntries =
+            new ReadOnlyDictionary<string, EZCollabParticipantPresence>(entries);
+
+        public static IReadOnlyDictionary<string, EZCollabParticipantPresence> participants => readOnlyEntries;
+        public static int count => entries.Count;
+
+        public static event Action<string> presenceChanged;
+        public static event Action<string> presenceRemoved;
+        public static event Action cleared;
+
+        public static bool Apply(string peerId, EZCollabPresencePayload payload, double receivedAt)
+        {
+            if (string.IsNullOrEmpty(peerId) || peerId == EZCollabState.localPeerId ||
+                payload == null || !payload.IsValid())
+            {
+                return false;
+            }
+
+            if (entries.TryGetValue(peerId, out EZCollabParticipantPresence current) &&
+                current.payload != null && payload.sampleNumber <= current.payload.sampleNumber)
+            {
+                return false;
+            }
+
+            bool pointerChanged = current == null || HasPointerChanged(current.payload, payload);
+            if (current == null)
+            {
+                current = new EZCollabParticipantPresence
+                {
+                    peerId = peerId,
+                    pointerChangedAt = receivedAt
+                };
+                entries[peerId] = current;
+            }
+
+            current.payload = payload;
+            current.receivedAt = receivedAt;
+            if (pointerChanged)
+                current.pointerChangedAt = receivedAt;
+            presenceChanged?.Invoke(peerId);
+            return true;
+        }
+
+        public static bool Apply(string peerId, EZCollabPresencePayload payload)
+        {
+            return Apply(peerId, payload, Time.realtimeSinceStartupAsDouble);
+        }
+
+        public static float GetOpacity(EZCollabParticipantPresence presence, double now)
+        {
+            if (presence == null)
+                return 0f;
+
+            double age = Math.Max(0d, now - presence.receivedAt);
+            if (age <= FadeAfterSeconds)
+                return 1f;
+            if (age >= RemoveAfterSeconds)
+                return 0f;
+
+            return (float)(1d - ((age - FadeAfterSeconds) /
+                                (RemoveAfterSeconds - FadeAfterSeconds)));
+        }
+
+        public static float GetPointerOpacity(EZCollabParticipantPresence presence, double now)
+        {
+            if (presence?.payload == null || !presence.payload.hasPointer)
+                return 0f;
+
+            double age = Math.Max(0d, now - presence.pointerChangedAt);
+            if (age <= FadeAfterSeconds)
+                return 1f;
+            if (age >= RemoveAfterSeconds)
+                return 0f;
+
+            return (float)(1d - ((age - FadeAfterSeconds) /
+                                (RemoveAfterSeconds - FadeAfterSeconds)));
+        }
+
+        public static int RemoveExpired(double now)
+        {
+            if (entries.Count == 0)
+                return 0;
+
+            List<string> expired = null;
+            foreach (KeyValuePair<string, EZCollabParticipantPresence> pair in entries)
+            {
+                if (now - pair.Value.receivedAt < RemoveAfterSeconds)
+                    continue;
+
+                if (expired == null)
+                    expired = new List<string>();
+                expired.Add(pair.Key);
+            }
+
+            if (expired == null)
+                return 0;
+
+            for (int i = 0; i < expired.Count; i++)
+                RemovePeer(expired[i]);
+            return expired.Count;
+        }
+
+        public static bool RemovePeer(string peerId)
+        {
+            if (string.IsNullOrEmpty(peerId) || !entries.Remove(peerId))
+                return false;
+
+            presenceRemoved?.Invoke(peerId);
+            return true;
+        }
+
+        public static void Clear()
+        {
+            if (entries.Count == 0)
+                return;
+
+            entries.Clear();
+            cleared?.Invoke();
+        }
+
+        static bool HasPointerChanged(EZCollabPresencePayload previous, EZCollabPresencePayload current)
+        {
+            if (previous == null || previous.hasPointer != current.hasPointer ||
+                !string.Equals(previous.sceneContext, current.sceneContext, StringComparison.Ordinal) ||
+                !string.Equals(previous.pointerObjectGuid, current.pointerObjectGuid, StringComparison.Ordinal))
+            {
+                return true;
+            }
+
+            if (!current.hasPointer)
+                return false;
+
+            const float epsilonSquared = 0.000001f;
+            if (!string.IsNullOrEmpty(current.pointerObjectGuid))
+            {
+                return (previous.GetLocalPosition() - current.GetLocalPosition()).sqrMagnitude > epsilonSquared ||
+                       (previous.GetLocalNormal() - current.GetLocalNormal()).sqrMagnitude > epsilonSquared;
+            }
+
+            return (previous.GetWorldPosition() - current.GetWorldPosition()).sqrMagnitude > epsilonSquared ||
+                   (previous.GetWorldNormal() - current.GetWorldNormal()).sqrMagnitude > epsilonSquared;
+        }
+    }
+}

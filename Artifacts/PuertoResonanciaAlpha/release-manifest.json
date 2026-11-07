@@ -1,0 +1,1354 @@
+[
+  {
+    "Path": "D3D12\\D3D12Core.dll",
+    "SHA256": "31F364F2B3AA1753E7BA9FF912D0721C8F424BE5FA14503EFDDAFBB30C635D3B"
+  },
+  {
+    "Path": "D3D12\\d3d12SDKLayers.dll",
+    "SHA256": "5DFC320D5EE27190181B1A63E74EB481B07EA727513DBEB38A96DB6157969D24"
+  },
+  {
+    "Path": "Documentacion\\Veteranos-Ariete-Aguja.md",
+    "SHA256": "0DB0A9413B89B75443520449D73968953CB4686DF542171DE945B71FE27E8F1C"
+  },
+  {
+    "Path": "Documentacion\\FundicionReactiva-2026-10-22\\LEEME.md",
+    "SHA256": "49ED83E6AD1A8C1F070A558AEA6F37D83F4BEFD94DA689DF78A5C4FBAE5B1EE6"
+  },
+  {
+    "Path": "Documentacion\\FundicionReactiva-2026-10-23\\LEEME.md",
+    "SHA256": "8107A2BB3CDEC77682286C9EBC16DE72D7536B7605CBAA6ED477BF867867EB5B"
+  },
+  {
+    "Path": "Documentacion\\Gameplay-2026-10-21\\Arenas.md",
+    "SHA256": "3A79DC3DA2CDA5251789CD439A12CC57E151CB5B12A42E411CD3DF39052C160C"
+  },
+  {
+    "Path": "Documentacion\\Gameplay-2026-10-21\\LEEME.md",
+    "SHA256": "31C37CC8D6FB6655D1F21D300C39D5174A5FC5FBD420ABBC3F8CD74D5FA6555D"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\01-Arsenal-mutante.pdf",
+    "SHA256": "B8F81E0B408B9DC74BB76D2FA7D1E54C075B074FF3D86C1C28DC6842780A25B9"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\02-Impulso-de-combate.pdf",
+    "SHA256": "E07D979A82340530FAAE27F7E8D1D0BDFC0AED8A48CB703E2BEEEDC6397FB5DF"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\03-Protocolo-Domino.pdf",
+    "SHA256": "F3C150EBB4BB8D6765C81F5F48E2D0B3281B5048CB1F726B2571EF674E6582D6"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\04-Ingenieria-de-chatarra.pdf",
+    "SHA256": "6CC738ECFE297135A57213C874B4AAD61D3E2F43A3175C15B3114218DC9658D8"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\01-Arsenal-mutante.qa.json",
+    "SHA256": "42E2C1F1CCDCD4494E44C578A873700F98D814B3A7E1FED9DB269A18AFB5B492"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\01-arsenal.json",
+    "SHA256": "524F16DC89205878F9A9ABE164DE3B4DB00BF2DDCA67E379ED684E9BC82B61F7"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\02-Impulso-de-combate.qa.json",
+    "SHA256": "CF173A9E600BFDACD8A32CA3A023EB53E96FE4D9D946E2EC26E16F7BD5F2A244"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\02-movimiento.json",
+    "SHA256": "F45C6F8CF790533881168519E8796BE6C387A81A052BE2F9000B2E064D306AE8"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\03-Protocolo-Domino.qa.json",
+    "SHA256": "F62BD34247D25B7A9603B665B41485B6A01A2ABCB5ACC7DA6921F7BCE62FAE5C"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\03-reacciones.json",
+    "SHA256": "680CEB6FEFEA753145B116EC7D38216D05262BDB9065A16E7BC1128606D543A2"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\04-Ingenieria-de-chatarra.qa.json",
+    "SHA256": "FFA4F6BC9B4A071766F061BB3DD39E03A2572727BA4E969EA04D6EED86E6B809"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\04-ingenieria.json",
+    "SHA256": "F9648E6021A96ACD8D0F071408F73B83E7EE9B9614FD87C5CB1BC02F95E8B84F"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\generar_pdf.py",
+    "SHA256": "1DB977417CA7A0D1C9EFFB84B6192A8D16952F1764ACDCA9E2B39B561443E425"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-4-propuestas\\fuentes\\revision.json",
+    "SHA256": "551C93B18FB874A63A9F75D0DC5D1668307C5AE44A3040C2E3702BFB7820F8E0"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\Cartas-nuevas-debate-y-eleccion.pdf",
+    "SHA256": "F9464CB4DA9344536FBC7E7681ADFBE246F7259C13813435E8B81E37746745D7"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\A-armas.json",
+    "SHA256": "A179FEB4DEF9A4B94CB1E767DCBBE65D3E7B6FC7DFDB41860F3D46CC741F9155"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\A-voto.json",
+    "SHA256": "79B4D13BFA04C5D1A342E34A30C491652DBEE233D099591D3C59C36B0952AF30"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\B-impulso.json",
+    "SHA256": "521C34C2C7737E5BABA1AA13F80FAAA24C9C20E1B33CE580B0170D66214CA7DF"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\B-voto.json",
+    "SHA256": "05B0340A8427CF2F1A526A9DF10890DAE401F507EC05A5AC23C7B64376867DB6"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\C-ritmo.json",
+    "SHA256": "29F6E7175D8A0A844E571AFB6209C7E5A5DF0F099F43FADD4434D24CDB4C0D1C"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\C-voto.json",
+    "SHA256": "8B9C836DE997853B62F6E0750EEDF876BD3D754BA2C216EEF9790045961C6074"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\catalogo-anterior.json",
+    "SHA256": "CB02AA33A1CFC2726832EB265203545FFFAC6F184BCCC6792A7944657725E874"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\generar_dossier.py",
+    "SHA256": "DBBA72BED123338F9A15DEACA9B5A475ADED7EF63206FB31C64AC382F4AA9B99"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\LEEME.txt",
+    "SHA256": "F5349CD94AAB6F8BE1A81FD9027E0C17D79F9437E247785252AA9E4BBA802E6E"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\revision-maquetacion.json",
+    "SHA256": "76DAE3CE46C558B0F982D620C3711963CEDE57472D83B113CB2C110B6F63F3D5"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\sintesis.json",
+    "SHA256": "6DDD7F735098E6AFBD9BED1E4751EF3D66FC4DB97706FFFD51FFC2CEF2E75C8F"
+  },
+  {
+    "Path": "Documentacion\\PDF\\Cartas-debate-2026-10-24\\fuentes\\verificacion-final.json",
+    "SHA256": "FC1112B4CDFCC0C20DA7C0B066C6DF39DFB7C6BADCFBA01A862473BB745768B3"
+  },
+  {
+    "Path": "Documentacion\\PDF\\FundicionReactiva\\FundicionReactiva-Dossier-completo.pdf",
+    "SHA256": "331C47A293714640FA7239FA1CC8F1300AEB28DE34B545C2C00D5BCFE63507C6"
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\01-Estudio-de-mercado.md",
+    "SHA256": "4D18D2388F48A5CC89F727FA1FAA4FB846534996F956A6CE2032E887CB5A3B90"
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\02-Plan-del-juego.md",
+    "SHA256": "60386260430054D6196AB6BB76CAC36C8A3109557358BC911B202CDC018E801C"
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\03-Tienda-y-balance.md",
+    "SHA256": "A13C4A9A129118D8AA5F4425D8B75079BCD8D19CC23428827E76F8B38A3B50D0"
+  },
+  {
+    "Path": "Documentacion\\Plan-Maestro-2026-10-18\\LEEME.md",
+    "SHA256": "4257009FD2D64A236EA83E9EF8FA08033F427276D9AB3DE39AA7434941B407EC"
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll",
+    "SHA256": "7C0397BF77EA0459969896A11DEB77E025823C897BA0A89B2757C4EE3E396386"
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\MonoPosixHelper.dll",
+    "SHA256": "3ED9CEB27F4433225FDD5574E46C0A55A79B3543F6EBD24717726529903B2DF4"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\browscap.ini",
+    "SHA256": "4DDD50F31FB968F30BEDEFC253A46DC3F2890192D05CDAA9E0A64A056EEE807E"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\config",
+    "SHA256": "5776169973A26A387B8B3E5C0F2301A7AB9A6DD7C7D3EFA22A96ABC47FBF8662"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\DefaultWsdlHelpGenerator.aspx",
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\machine.config",
+    "SHA256": "E91782A27FA39FC6C1D6EE8B08529F5D35052310D0006034B878EB04B8F2AF30"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\settings.map",
+    "SHA256": "49C6160F9D54AF4270A3B4E997FC4A8301F79B9E2070118FA46DDBCBBC44F9A2"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\web.config",
+    "SHA256": "CF2B54339E069B9E42F7D6795EECBF562C50C1011F4CA8F65F578FE52D97FF92"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\Browsers\\Compat.browser",
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\DefaultWsdlHelpGenerator.aspx",
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\machine.config",
+    "SHA256": "E60AEC2C5115D65B3ACB3C55EA21576DBD770F579166C017125571E46AE560ED"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\settings.map",
+    "SHA256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\web.config",
+    "SHA256": "E38BB8CC68FE5B4EDECDFD288D094B9E8CED7629039B2A347682ABA0D8BD7492"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\Browsers\\Compat.browser",
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\DefaultWsdlHelpGenerator.aspx",
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\machine.config",
+    "SHA256": "EE950004B576FB28DC85F4B0435ED04BF96612DE2E8B53BE84D07AFE85A0DE6C"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\settings.map",
+    "SHA256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\web.config",
+    "SHA256": "C4CBDDD4FD9347B58CC5A72B36DC4BA1AD2BB699E65869D05CD3FB9865F0D824"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\Browsers\\Compat.browser",
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\mconfig\\config.xml",
+    "SHA256": "0C56E34C69124510FA8C19E7B4C2CA6C1C4FF460AE19F798DD0CA035809E396D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\app.info",
+    "SHA256": "35C84EFE92928ADD0F8961910870BF10DE5EA04A7CE4BCB02DFCEA5498FA9313"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\boot.config",
+    "SHA256": "08507DC8C86251ACFB9A0D9FF24792CA23E4E20949735AEF4B4B9EF3F1D4F242"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers",
+    "SHA256": "911850083FF5D2138169F9D0709B88EB87FEB8E06EB70920711D199492DDFC1A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers.assets",
+    "SHA256": "83D96D7F315848E67259BC311BC272C92194031C9B7A1C3557A5B05121EBA059"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\globalgamemanagers.assets.resS",
+    "SHA256": "F122983B2E999B7F97C5B76FF4A4D07663DF0407E3D921D2826AA61D3671A70A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\level0",
+    "SHA256": "4D1873A5AD89E600C49E71F94AEC8E2308A802689D9DD459C38A50B631EFA180"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\level1",
+    "SHA256": "3821175E6D38BBDAF6A383983DA306B1EA08F6CD20569B9F2ACF84F5750ABD09"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\resources.assets",
+    "SHA256": "A0AA2B6F8521C89937774891B3D733011C867171411FCD97D29A1FD7260B3B38"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\resources.assets.resS",
+    "SHA256": "01DEED581C49596F031535FE8C5364A2CBC64DA8A30B9D2FDB9E83F4C2370875"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\RuntimeInitializeOnLoads.json",
+    "SHA256": "DB54E704B3F7680DFA811ABF0B45EF0D69B556505BF98FB078D070E9254D5EB8"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\ScriptingAssemblies.json",
+    "SHA256": "88F19819DB64D9953293365F4246777C72286529B103E9C71CB215C46B33CDEB"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.assets",
+    "SHA256": "DF0388A40CC3321EFF02CFFF30D94407E569A0E6014245BE062F0A0530A5FE3E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.assets.resS",
+    "SHA256": "F7F0D4554672405C72CDB73950ED1E4B830F00ACD052D8B5AE0DD6706EAF48BD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets0.resource",
+    "SHA256": "4284DD7D7B407B47D450BCC2DFD8AB363A4CA535D2CF4F3E5718CBC6E73F2355"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.assets",
+    "SHA256": "D06E6CB9734AA0FA71D1FBB91BB6A6B3AC0D15EC618E2143CC1B74E6DF2BC37D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.assets.resS",
+    "SHA256": "011E4DAF091E2C84B7BD7406A93623E02F360D1BE2B1063179D888E16126D426"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\sharedassets1.resource",
+    "SHA256": "58946CB36D3D5EEDBAC452D31F4901F94817B219147B0C16FCCD92CC86ABC6AB"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp-firstpass.dll",
+    "SHA256": "6FC4E22FA95C90C195791806854A0209F1BB176634079AC73FF15DA654E3EC27"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp-firstpass.pdb",
+    "SHA256": "BD63493610964F3CDCCF78DE89EC83E17881FC6507FF4D545F3EF8C8D4406F79"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp.dll",
+    "SHA256": "1460F42ACF573421CC3BAFEFB7E1CD61CFADE885B437F7AC07CA172DC406E7BC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Assembly-CSharp.pdb",
+    "SHA256": "2D3CE20271005E287790FCABCAAA2D295B0AFBDE8ADF3B92D19D0CAECEE7DD44"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\DOTween.dll",
+    "SHA256": "8E90FC43AB564A5A51424AF56531AB074A5A2E9CAB271B2D653D287954237B83"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Mono.Security.dll",
+    "SHA256": "89C5A8F103357DAB335AC52FD968B9262E6B9A758971E17A0738CD94472A446A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\mscorlib.dll",
+    "SHA256": "925724ECFEE16CADD83707CFCB2083139879960305AFCC509A615D765C56AACC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\netstandard.dll",
+    "SHA256": "6AE62E082DC494A2433984177F60CA4DB5FAE69B1F360A8B33754172B310B8C5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.ComponentModel.Composition.dll",
+    "SHA256": "A05A8A5FB41330717D0F588560D2AB40EC75DEAB1754B2241F380A7301F52F1B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Configuration.dll",
+    "SHA256": "E288591F8E58E4CE8385070A0125DB5E3D5F84F15293F20B24803A8129DD8A08"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Core.dll",
+    "SHA256": "B79F2FB4FE2352252C8C7621B056DBA64D8FFABF1B5EA178D3675D48E7B3E772"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Data.DataSetExtensions.dll",
+    "SHA256": "268C437E946D9A1E6E265F9D7A0A1012C4FBA5BE0FDFE1A1C4B42705FFE30013"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Data.dll",
+    "SHA256": "C2C94379CBE60BBB66EE04D2FDD8826A418A14C7C00F71E812438009A92FACFC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.dll",
+    "SHA256": "1B5698D667F22C0AF033FCC55D2A2B625D5C3475B1F234C3B8043F3F4461397A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Drawing.dll",
+    "SHA256": "7B7B1C0BF273C88925C4F3310330E4216074258964327ABD8ED9BB53B8E68D79"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.EnterpriseServices.dll",
+    "SHA256": "E5F191D22C32125189AEC1E0CA7717769555F169D7F020416AD8F83DC2D5191A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.IO.Compression.dll",
+    "SHA256": "09E009CF694D40EB84BD05BA730E3CD6FF8B8A31D6E7F4641F989F802A1DAEB5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.IO.Compression.FileSystem.dll",
+    "SHA256": "3C99ADEF1B3E4A19DF9A65B86B65C6447A2F441E0B5DF2A7D3B32DE52FDC601D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Net.Http.dll",
+    "SHA256": "A21DBA5035542AAA18324231DC6C7EA7D0D4118488315C2CAA607493155BF15F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Numerics.dll",
+    "SHA256": "31E888AEA86977FEB04F46662E1DB23E71EDEA44C07729B847032F10B2F2E991"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Runtime.dll",
+    "SHA256": "E0A7334B7BA419AAAB6BD3BB6992D693E689341A9178172C9BF99C2AA6A085BD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Runtime.Serialization.dll",
+    "SHA256": "2BBCAECD8A7F3F68E209D30373A8AA3D7E625AED0360EEF0FC01E0C80302CF0C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Security.dll",
+    "SHA256": "B553B7C6EDB3C9D432FE51795250DDDA9B955C19A44448E0B99271DF9DFADC4A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.ServiceModel.Internals.dll",
+    "SHA256": "8BA772F462803F8EAC48C2D8556B261C9EFC87B7BEB3A0E73D93D9E869916F24"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Transactions.dll",
+    "SHA256": "BEBAB4D22351ECBEDA1E8CBD50B40C9C3F831685FF5293E1A98313402DDE9FD9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Xml.dll",
+    "SHA256": "C9889B062ED551F04DF10C8729A847AA710389F855C88150C3D03ADF9A5BC259"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\System.Xml.Linq.dll",
+    "SHA256": "CCC1C3E0EBECF401F6EE736743D43A48961152B05DE78630106DFC1BAE72DF07"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.AI.Navigation.dll",
+    "SHA256": "3F6496F81867611F9344049D29CDAE74FBB274212697790242E27E2F4BD62FAE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.AI.Navigation.pdb",
+    "SHA256": "5A943FC8188C6A87AE80149312671543B1C0D69021FC9501B0BB199A154AC3C7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.dll",
+    "SHA256": "40671E234CADA167AA856E40D91BD17EE387A9E2A1B81CD6F112E2D951FFD766"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.pdb",
+    "SHA256": "531EA0651313268C364E47E1628F0849AB7022B4376552F8626EE8C355D24DE7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Burst.Unsafe.dll",
+    "SHA256": "9D9C1FF52411DECBEE5D9F0D1CD61EBEAA222077AA77A52101EA3DEBAFAE98E2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Cinemachine.dll",
+    "SHA256": "922C7AF4A3DDE9741C65C7578997359BB0AFCA68197E9B9F8FE98E85C2E5D28C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Cinemachine.pdb",
+    "SHA256": "95899660EC98D54A9A44DA749A661CE4A8EB9A19A18CF3297D5ECEE91EA8F6D0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.dll",
+    "SHA256": "87BFCC4364A044C9E8FD524C65AB7DE6372A419DA35AF76F4D634BCD08A01E98"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.LowLevel.ILSupport.dll",
+    "SHA256": "FF50383F807F9692E4913B97E47D86FEFCB8FAA33D6D48CD3E3FD6FC7FFB448D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Collections.pdb",
+    "SHA256": "C9CA694FCCA037480C6098DA6EB8D7473C5A9075FB71BCCF5CF97BD40A079540"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.dll",
+    "SHA256": "B75D4CB463B2C69026459616F1EE88FA2C5E0C30CC28DFD28BAE35E32AD37E9D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.ForUI.dll",
+    "SHA256": "E344E4B1A2AB6DFA0D8B6E840B4EBBDCC3D976DC4FFB404732A70AC9875BEA04"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.ForUI.pdb",
+    "SHA256": "90842CCFC0E17C4193F591C3C2620267A26E7F048FB391D5A1CE4314CA3BBD31"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.InputSystem.pdb",
+    "SHA256": "7A7AF9178793D33E25F707DC8E89C5C86EA66F4D1A5F78B8229B638B52A4BBF5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Mathematics.dll",
+    "SHA256": "17A10308A0571EF8CE2D9EEDEB725504875FF70FD80ED3408D496FE7303FCB98"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Mathematics.pdb",
+    "SHA256": "60C96B9F10669D5D63EB9283542EBB9AB9FB35C0AE3EDC15FE5F2BB6228B0009"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Multiplayer.Center.Common.dll",
+    "SHA256": "954D02CAAA95CA25D94C2A2E49FAAA671F2B6AF667415C31EC3DE37A54FD588B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Multiplayer.Center.Common.pdb",
+    "SHA256": "CFD816B9A21CAF4A077A03FA06700FBE662968C004034C8A30A5973BD60596BC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Rendering.LightTransport.Runtime.dll",
+    "SHA256": "CB393FD88D34DD71FE26ACC9AEFFD78F0D7CB82BC3174FAC03D7559BF27D8734"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Rendering.LightTransport.Runtime.pdb",
+    "SHA256": "F558E02E512EE714338C8E7E687EAAC56C9B6EA4381A233CA02B3BA948F43945"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipeline.Universal.ShaderLibrary.dll",
+    "SHA256": "B273ACD2169751B6A1194B94E757411C89C87E371E78E416B3918BFBD6993D58"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipeline.Universal.ShaderLibrary.pdb",
+    "SHA256": "B1D513961A1A9F22C584754523C8700712E724F5AC40088EFB5AED00F8812101"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.dll",
+    "SHA256": "2A595D570AFED25432F142B7B077DEE62DB2278F656B2BDC6D2F45AAB2E280FF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.pdb",
+    "SHA256": "E06ED7515E74A74E2F92FC0D601575C2601D2CE8DF0C75B8396149F6C5AAA2CA"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.Shared.dll",
+    "SHA256": "DD582BA32AED17CF10988C724103DEC8BE7D756F33EBCD406A74D96BDDA2326E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.Shared.pdb",
+    "SHA256": "11CD4FE69405AC32DB08F48F220C04A5A62DAE3C03276BA02D04AEA811D0B1BD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.ShaderLibrary.dll",
+    "SHA256": "80FEF8DFC8F57CED633CA1156BADBA487449CA353B6E06E1068CF2A0FC734F30"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Core.ShaderLibrary.pdb",
+    "SHA256": "6504E416B192F770015C8AE2DE9C87562E5B3586DD506683A794CC78978F200B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.GPUDriven.Runtime.dll",
+    "SHA256": "0A63D930D2E77164A3347B94F19C3987F410A260F6B283CEB12D0C9715DEEA12"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.GPUDriven.Runtime.pdb",
+    "SHA256": "66263F6FE0A97C06812CB4F0B95D818F6FE6B643AAE2FD63FE4637891E0CAF3D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
+    "SHA256": "6F03A67039997B4C07EED3B849FEF7B9D569B8DF7067DFB42F3874F97C6DB679"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.pdb",
+    "SHA256": "E3028CB0082B7B3553BB27810B46726A7AAA31386C74827807AF6031A9DCC119"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.2D.Runtime.dll",
+    "SHA256": "606064DBE20D71395C93656B1F97637E1002AFE7F2FBB43CA1A8EE92B4F48F52"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.2D.Runtime.pdb",
+    "SHA256": "5F6C6EA8ED21103D4E89246D7E54FF584248F19371DC0F1FB8976CA02E3B6B1B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Config.Runtime.dll",
+    "SHA256": "5E001CEBA4248799583BE6A47005F7CF43F1322FE11220FB5EADC66EDEB18C39"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Config.Runtime.pdb",
+    "SHA256": "729B462A527E6F718097A15B032CE73200B778A6A78F4C73F6363384746902A0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Runtime.dll",
+    "SHA256": "DFED574E553AFDF9F049F85B78BC2C7BF9460FE7BD5B75AC7A8E95CB5226CF26"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Runtime.pdb",
+    "SHA256": "736A9B7467978A0D960DD0C74F4171941E4B75F254247600DD85ED985D09E86D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Shaders.dll",
+    "SHA256": "9041E9BFADB258275840AE1860F59C2236BDEF6725BF1EC737F91B3F3C29E041"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.RenderPipelines.Universal.Shaders.pdb",
+    "SHA256": "4F10C70CF8DEB2C6AA201720A2C4CE521991E30F73DBAC40706B3A481C71B951"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Splines.dll",
+    "SHA256": "8261D1D46E52620315E1C49F140C1B3CA6B99D2111075A5D3EE667D0688C1D71"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Splines.pdb",
+    "SHA256": "9A87BB54690312AAA8E4D3A9BFC8A2FEC8ED1D3A2DD04CB90100D173D4115885"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.TextMeshPro.dll",
+    "SHA256": "DF92FDC780C3E005962C7D944A5F2F7D8BA9F763558DCEBFB9777274CAD2A702"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.TextMeshPro.pdb",
+    "SHA256": "A40CD62F0FB5F5F7C6C855DE6578E38308322B298F41C1169C17DC2301D6CD3E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Timeline.dll",
+    "SHA256": "50199A4F64AAED40A050F01BBCD922593359EAFD1AE1670934C9A85EEC01081A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.Timeline.pdb",
+    "SHA256": "0A1CF159AFB305B6517972279A926389541E0B6C43F12E2517A823C215E0BF30"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Antlr3.Runtime.dll",
+    "SHA256": "ED7CE205F66EAFE39BBB5D084D42E7FE11CB4B386FF208E5D5110891BE0B7B37"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Core.dll",
+    "SHA256": "B5224397F1EDB3E4A8DF6350A690289579C1495734900C3D305FE816F10F9489"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Core.pdb",
+    "SHA256": "446A3698DB9D9B1A26E51B3CEB061D852BDBB0F955ACA74A8345275D26EF7F27"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Flow.dll",
+    "SHA256": "531FBD3F79EF693E9BD08A5B01F722134F83D73EDFC79C11625930B9D18092DA"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.Flow.pdb",
+    "SHA256": "F8C037B9B249983D7023C11815ED21774509CD3F2ADA51B73B5473F477327993"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.State.dll",
+    "SHA256": "54DF13FED1F8D31D22514260308398F634837426BB7793101171897C79D54149"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\Unity.VisualScripting.State.pdb",
+    "SHA256": "13A9B5F0E26D114B34D3A5E6C890EFF2F6648B7A899B1B67E8C4C196757B21D6"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AccessibilityModule.dll",
+    "SHA256": "B741D7736083CC342135C29B644FB8CEEDD634FFEC7FD29FC8DA1224F77D45A0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AccessibilityModule.pdb",
+    "SHA256": "41868BBE3770BA200034E39D2E1B54FA7E898C5BE0BB9A0A8F4DA2D4E02BC44F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AIModule.dll",
+    "SHA256": "F6150C58442443EF0E001841E3ACD97AB3EB1436CD0859BC032A4ED12D10842D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AIModule.pdb",
+    "SHA256": "49AAF71526F6241FDF4C0A9F1531C8101A8F1569B5FF0370349A60460B2C837B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AMDModule.dll",
+    "SHA256": "6BEC58C746DAB63AD3F8768BB171F0693AA42F6252A7914706DC8BE71A7E800D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AMDModule.pdb",
+    "SHA256": "53121269443CC83A4B62BF918F33B750D97875133FA435E4C5105AE48998C77F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AndroidJNIModule.dll",
+    "SHA256": "6AAB197B88B4CC0ADF49129B8B0B8A2EC22C5FAAE92BC16C13645F09D495C53E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AndroidJNIModule.pdb",
+    "SHA256": "E1FDF95577D24FA428D6AC2695EC29CAC4134E387E4C46DDEB225AF1DE3B70D2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AnimationModule.dll",
+    "SHA256": "CF6C77AE7CC93B4E0F8DFBC65B256D421946BF92B3713BF97941827A7747C955"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AnimationModule.pdb",
+    "SHA256": "A58B00DCF304A69D633F85D5070FC04303579472F2F077B39D56CBE9B18C0A40"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ARModule.dll",
+    "SHA256": "309DA8D79B54B7ACF37583EAC17560F9481541F154646A7F51B49FECAB3382C7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ARModule.pdb",
+    "SHA256": "17496691C883A1FE9131FB04828A65FA530678A47EEA083D5E96DC8612DEA2A1"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AssetBundleModule.dll",
+    "SHA256": "6DB188DA95E0809E18EA2D239FEF389B4900609D337C2FE07CD7872D69B40C7A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AssetBundleModule.pdb",
+    "SHA256": "C396EAC06930F6E2BD027E66A40B993ACE71ABF7D2ADD4913AE3AAE572C417AD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AudioModule.dll",
+    "SHA256": "5773F2D985475C1225CEB070D0597C71C02A8828CF084998914206ECB18893FE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.AudioModule.pdb",
+    "SHA256": "E3EB85A9C00F41F185AC3888CCB070ABF98F2B04FCCD2BB7CD31B9B398D5F296"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClothModule.dll",
+    "SHA256": "F578D26C007B7B191A3EBD367F6E7B9FC0879B85D32A7C1461EA38B98A9CAB8B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClothModule.pdb",
+    "SHA256": "68FDF7DFBFF18C36A887642A9FB463B295D6661D47B8A738F057317D019B11BE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterInputModule.dll",
+    "SHA256": "A523D66297D141902F4D8FAA990E5C144BB24342334B929E2CA99C9F05ED5B80"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterInputModule.pdb",
+    "SHA256": "7E3D431153AAE75E9BBD9B1A44474A8ECC3F486AC33BFE753B912E1A6B64FD5D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterRendererModule.dll",
+    "SHA256": "62232307BA36ABBE0907824D86A8D71135D8302CD6FCE617D90A6AF3632B7FC9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ClusterRendererModule.pdb",
+    "SHA256": "E0AD610661D403880CE2AAE42C6ACCA4A9E130881CB5C482B95C4279AC6419CC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ContentLoadModule.dll",
+    "SHA256": "ED220D30FBA887719504A85DFD665245823A5EF9EB4F10403B410D42BADCFF68"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ContentLoadModule.pdb",
+    "SHA256": "378E3AE39E7F4E76A4EAF136DA26288C753B8FF4F835007FB4FE68F19A45AA94"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CoreModule.dll",
+    "SHA256": "3EC6453FF7C9DC6F9D372E95935EDC04113117051517386A9735BB4DE9CB18D1"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CoreModule.pdb",
+    "SHA256": "88B7B42E29216B822A4B5978B1409CCCEC307F96AED7FEC97CA9C2D3BFBDACED"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CrashReportingModule.dll",
+    "SHA256": "266BDEABE7799DA2A90964AC562028831F72F8360E082E2E2365D0CE51B3638B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.CrashReportingModule.pdb",
+    "SHA256": "D29CACFB3F0E14A1826FEC83BF2BB3AE3954C5FD0FA4A9AFE4CB8526080F7024"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DirectorModule.dll",
+    "SHA256": "B51017BB827677DDBD98C3C97E104A98A8C14E0879584558CB61FE2BCD97A07F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DirectorModule.pdb",
+    "SHA256": "3E859774271C85F0A85E5CC70E9CCA98C7C745C883A48A4E6A2285639A20E2D2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.dll",
+    "SHA256": "F03D0915EC200F9BCC09CA43C01D08329B2E6CDB4F0F6BE88910F3D0A014F263"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DSPGraphModule.dll",
+    "SHA256": "CC9127807CF07F8814DBEDF9B212F75572E406C198F6CB918894C5B78535AB16"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.DSPGraphModule.pdb",
+    "SHA256": "825B43AC628B755F18533C7353FA1B6D98BA91F6BFE6E8D44F3D511295E05E18"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GameCenterModule.dll",
+    "SHA256": "3581690A5C0225D07E9A41594D9957750DB563E77BA62E81ED907BDDB49FA2C0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GameCenterModule.pdb",
+    "SHA256": "EA8756A687352EE6676FF13A521694F62C1F9A332AB143A6E37A9575B802A7E2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GIModule.dll",
+    "SHA256": "F651185104DDFEA8A15F9355D4CC98B0BC91102AB521CDDC1A1B84F5FE21F21C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GIModule.pdb",
+    "SHA256": "CE33DA0FFEABE474C49AD79B190453C5E6454F8BB398BABBC33D147C5A5D61B0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+    "SHA256": "755763E10E01C94D8B996F84B19CBEF91174F258965A9DBB18A6B7706F2A72E2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GraphicsStateCollectionSerializerModule.pdb",
+    "SHA256": "4DCB8BA4ABAF4DA97A5A62E2946648AB48140BC623BB378E1C2D3F60ABA9AD81"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GridModule.dll",
+    "SHA256": "2BEFAED75D4D752E7AAAE78DAFF72AC8D1B02BB104D5EF4BA9246F20EED8E413"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.GridModule.pdb",
+    "SHA256": "1C86FAA96A761B0CCACE60F00DEFA36F38E818B486321F15EB78D7ACEAC7D81D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HierarchyCoreModule.dll",
+    "SHA256": "0E5C898AC14BA2ABE31825601ECC528554A3E0AD4CF7FA1CD51F77A7265365DE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HierarchyCoreModule.pdb",
+    "SHA256": "282D96027FB283821E15AAFF0042E9D06F1583D663DD68D33D9D464A76E18A79"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HotReloadModule.dll",
+    "SHA256": "858D40F3433C7E5BA37DBD11D33E2473E8136C84D0A3DDB1920DDB3904231DB9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.HotReloadModule.pdb",
+    "SHA256": "2A4B08D18521324877A82773859A318E7837DEB341C608C034B0B66B1654C6D0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ImageConversionModule.dll",
+    "SHA256": "4B00CBBDB7687046AA2F9AF516A49B3A26E7CBD15FAA19B763062AD0A06EFE4C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ImageConversionModule.pdb",
+    "SHA256": "63A84D885A1010755D181A2B7EC34CE0A6DA36282393BBAA55CA6FA046E63695"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.IMGUIModule.dll",
+    "SHA256": "0CF8D631BAE4AE5B08F492BBBF746C900713AEB5DB4FF61B528F44CD20DA6E34"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.IMGUIModule.pdb",
+    "SHA256": "8F60DBD090FA568852A60B23453FA8DDEB01651D50972475AFF7E88273FA5FC7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputForUIModule.dll",
+    "SHA256": "1AC3FF28D13B8DD67890AED3FDD8C5CC632E8E08E40624DC36E953277C2F4134"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputForUIModule.pdb",
+    "SHA256": "40D104C5028014E9AD988B5B56E15DA7454EE68F4B635C5DC96FA054F9F4AB38"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputLegacyModule.dll",
+    "SHA256": "507C8C0178389C00A9847A3CD57C8A496012342101EA3334899851588EF514DC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputLegacyModule.pdb",
+    "SHA256": "9B657E7C171ABC921729D57248C765D3FD88014A69618F22FCAD81A9BB80B7A7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputModule.dll",
+    "SHA256": "F8C075C5C216F770A2441F043C99C11C7C522BEE257AE89FCBDC26DA4799354E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.InputModule.pdb",
+    "SHA256": "DF2F16D0CCAF71BAEA7A81670AC787415188E4333471D25A843537FEE55FCBCE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.JSONSerializeModule.dll",
+    "SHA256": "FC0905E26DE959B68A3C39FB44B1D7DC12CAD426D0EE7C23B0B23F45579ABA9B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.JSONSerializeModule.pdb",
+    "SHA256": "D3288C0EE9EAF49FF4D40835B884D24AD818295E7C0B9CFE0F4B1DD474F2E0B7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.LocalizationModule.dll",
+    "SHA256": "B46B5CEC4FD074FCE1504E95EED0716E89A8A029840902153538845BD15DB2D0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.LocalizationModule.pdb",
+    "SHA256": "2131204454DF6AE3579FA8D97016A8A08F41C42D3546315BF4A3A246F8D400A7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MarshallingModule.dll",
+    "SHA256": "526BBE83CB313F13C70082C6994978A9230C66D26D61297100617ED71E161B36"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MarshallingModule.pdb",
+    "SHA256": "BDE945DC7272415F870DF4A18BC83CEF62A1AAC060ADED90D3878236E617CE7E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MultiplayerModule.dll",
+    "SHA256": "8AA62CC7A2AF40C1C669982761CAB39C32C14219558DD67BE13A4DFB195CCC63"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.MultiplayerModule.pdb",
+    "SHA256": "9BEEB5D940D525AA9F305049F9C15D83A18787B90BEE440FBB16465DC3FBD29A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.NVIDIAModule.dll",
+    "SHA256": "474432CA372B54B30F886BEED19D0753B6BDE6DCF410CB34129246B0BEF650A9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.NVIDIAModule.pdb",
+    "SHA256": "7B55F771BB7B249C3DEA8E5795224C3FA3BE1CDCCF4D98174DBE20026C67419F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ParticleSystemModule.dll",
+    "SHA256": "D005471CDF43AB400344FAB49A1869B95BAEFEFBE38226F538A65543E4942A6E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ParticleSystemModule.pdb",
+    "SHA256": "9D2D76A592F7B3B20194AE88D6433E8B6EADFCCCBF51E8BAEE80AABC94CECFEE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.pdb",
+    "SHA256": "B5C0207F390F89FABC22B036BE0E74F47E5D36CAC10D96BC4CFE66969326D70F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PerformanceReportingModule.dll",
+    "SHA256": "7D2AFAF4107F589F231A19FC92D6DB83BE9E46A93430106A594C827A946F547F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PerformanceReportingModule.pdb",
+    "SHA256": "92E9121532E312CCF67E5A4B8A6B2D958FDA4EC8AE9C11F367D2AEAD8D4CDF1A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.Physics2DModule.dll",
+    "SHA256": "B5AEC65361C3799C95E0D26E273D9D18ED8D0C40BA50AAFD267A488BC6B1B71B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.Physics2DModule.pdb",
+    "SHA256": "8EDFE254CCAB782E2F90F1B4A81D893C30C514113A4474D963B769B849F2609B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PhysicsModule.dll",
+    "SHA256": "72C03305C6FD4A0AC85E2266B6972EA289F870F13238DA8E534A5CED452F34AF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PhysicsModule.pdb",
+    "SHA256": "4A6C5C98C93D096EFD466E5EF90369D7F46C549A408423C9C6C8E34EC93B7BDE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PropertiesModule.dll",
+    "SHA256": "D556F76C6E9A94EBFD1BD7A343438C79B104081C8759A78E222915269EEEBA80"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.PropertiesModule.pdb",
+    "SHA256": "E739B35ED8FF516A76C97BF2BFAF3983F3CFE5C6478E5A1FCFFE7581F37E858D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+    "SHA256": "C84B3C93E2D332508EA0EFAFBAB23C77F4B2AF134683BBADC49B1EC8A2F91811"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.pdb",
+    "SHA256": "1A4CE923877E91009C3D55E2AFB2813449D238B2F6CC0B63A8697DB04C6DDE4E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ScreenCaptureModule.dll",
+    "SHA256": "EC40F148D0C0748C18B91E0367FBDE4E5F80B1185A04414DD40A8CB7610919CC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ScreenCaptureModule.pdb",
+    "SHA256": "4408486B1A212E6411BB462EF70180DC2FD19B3C7435BA855136C60AF39E6D6D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ShaderVariantAnalyticsModule.dll",
+    "SHA256": "29E4BEE8E68B862B62B08EA6F4821D144E3CD8AD2C52435C1DB680966700FB09"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.ShaderVariantAnalyticsModule.pdb",
+    "SHA256": "B67CF9B6B16631B4EE9F3A16B33ABD1B74AD0A2092C144A927BD99695BA3FD63"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SharedInternalsModule.dll",
+    "SHA256": "1E3D49BD8F969BE6FE3787CC42EB8239A28B0F1F9B4D903B4C26333024415B7F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SharedInternalsModule.pdb",
+    "SHA256": "8B56FDC0D8B11AAF00437DA816560F026A41CBECCBF28A2D2AC25563C7D3BE67"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteMaskModule.dll",
+    "SHA256": "723CE5780FDBADD891BDE88AC903D868252530BBCBA7F9EDAB384E936A5CF9A7"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteMaskModule.pdb",
+    "SHA256": "4DBE658DBB7D86E5CEBEB87F81F3876C665C3DD0F79F491870B1B2C7362D81CB"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteShapeModule.dll",
+    "SHA256": "A58853BEF15EDE7F7D29B29D2CBB95283B4EBA4BA2D427CC466FE12A61E14DF5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SpriteShapeModule.pdb",
+    "SHA256": "F853E49EE83FFA59D8B75F3D862FCB3D5F00A17AF69FFC5DCACC60701593F050"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.StreamingModule.dll",
+    "SHA256": "F52B7705F5D5D496BA28CA96FA21D95DC55A3A5B933ADF63E8E20F7D9CEBA7E5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.StreamingModule.pdb",
+    "SHA256": "3D84F7DA1411F2463D80C268E9E5234D5D63C01096205DAB9166839732A1D78B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubstanceModule.dll",
+    "SHA256": "AC6520B7BD93E76873A43690C2193E802109F163BB9DF328C6EDDCCA65023C3F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubstanceModule.pdb",
+    "SHA256": "DF06EEDD6683CFB64E000DCBF75038C706CBDF48D0EC2AB5316625BE20DD06D3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubsystemsModule.dll",
+    "SHA256": "61BC7659A68962E01FFE4FD50C11F9F02488921C854219AB411A8549FBDB01F2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.SubsystemsModule.pdb",
+    "SHA256": "BCB503D751E5B73CB55054FE07A4B00BA3ABA2E372130FF0F9ABECCA94DE62B3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainModule.dll",
+    "SHA256": "97BC4A21517178051BFB2F321502FABBA002EC73792F915D15E0F20809FAD5E0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainModule.pdb",
+    "SHA256": "8163CC74B8ED740E6DB03C0967C64D2D139A6577E09C2AA733BA43CC26119C28"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainPhysicsModule.dll",
+    "SHA256": "6A1609640CF4B4A8827D64B8A2F72CAEB3F3B891E3AE6FD4AF98892EDA478477"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TerrainPhysicsModule.pdb",
+    "SHA256": "510CE1C4820D037391543D0344AAE6D7B18F6DBD6A24D4372DFB4E1EE278FE0B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreFontEngineModule.dll",
+    "SHA256": "3A23101EC69398E0488F6D5F33FA1063101D6DBCEB294D249CDE3E7A4E2155BD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreFontEngineModule.pdb",
+    "SHA256": "858C5DD4177DBCC424369EB6B4DC4F988665B0546DC9910847CC7E704487F8EF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreTextEngineModule.dll",
+    "SHA256": "BA7FA1C966669F1134615B496D3D62DFE8D7A134D727769D94254F337A34D370"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextCoreTextEngineModule.pdb",
+    "SHA256": "E8A049D12D8315E68B2687EFD5F5E40FFADF9FF664C113BF0838A9FA815C57CB"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextRenderingModule.dll",
+    "SHA256": "A7258DF120A35C2BE90C3F107CDF439BADCFC73A6611C046D2C1C30E482B6DF5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TextRenderingModule.pdb",
+    "SHA256": "0E449B18A5AB8EEE730B551830F812A40782FEBAF7902694B4EC3EFF94813651"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TilemapModule.dll",
+    "SHA256": "2306E50797EFA5462EBA33AD566D557BCA6C534D88A80CE386BC8466C55CE2AF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TilemapModule.pdb",
+    "SHA256": "495BEDAE010A690A83474B9912FB565292C7079905612D7AE36CA7009083E35C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TLSModule.dll",
+    "SHA256": "76CFB8A9B0706DA0C5BB9952C9DB036A6CED4780364758D439263BB46A96EE77"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.TLSModule.pdb",
+    "SHA256": "8476C9792DAC3AD541EBCA021FD1A1206437B711BB1F16B0AD6BA6BC0E2A401C"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UI.dll",
+    "SHA256": "F8AE713219AD3D3DCB890C3262634504EAC85476DB47AD7A9489CC4FC6BB291D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UI.pdb",
+    "SHA256": "47C605593F68B6F37F28347B0FA8B68F8A316B3F461873A5E9A19E24F8545753"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIElementsModule.dll",
+    "SHA256": "37E01414047A09D8269D849511B89CB46B5199221AFB442ECBA7D54F8CAA1A8E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIElementsModule.pdb",
+    "SHA256": "EC39D5B5C8026C1F5489A6EAD79B7703085A989E9181323C9103916A8DB44B8D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIModule.dll",
+    "SHA256": "5EDED5648977D690E032ED78717E3A8B66B867FC0FB4D68E5CF22EC180932669"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UIModule.pdb",
+    "SHA256": "16ECDB6684532706DFEF2DE987F4C3CADBFB6934E618F80BF568D7ED69F10DC9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UmbraModule.dll",
+    "SHA256": "B5820888A866DED6C04F048FFB13F61C7568070BCE0A220D35F1CCC644780CF1"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UmbraModule.pdb",
+    "SHA256": "BFE17882150C0CDB527B1C54A44286964C873D654172541E5BE5A2E5FA21FC76"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.dll",
+    "SHA256": "3EF1AEB58FFD9DA9B04D1ADA97CC023F1CFF2551E96D6C977417C215C494BCC3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.pdb",
+    "SHA256": "E5CFD07575953BBCF1D4AB16C60DDB3C9A920548F94DADC307A80BECF8FA5AC9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsModule.dll",
+    "SHA256": "F1FE3D6EF47EA6F326C375CB3E4BCF51EE6F514BA2EF816D370F9AB2E434F6CF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityAnalyticsModule.pdb",
+    "SHA256": "67821F8E9693FA9E57E0723D33AFFCF61DA8028B37932C1EDE1526CD6C856761"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityConnectModule.dll",
+    "SHA256": "75F666BE2EB7245AA1B5AF96346083EF79A89849BDA44EE578362BA7552306BE"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityConnectModule.pdb",
+    "SHA256": "79C45FA72BFEE5DE3B23D218C12A412F848C2EFC6A563AE51C7D07FEB13E8694"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityCurlModule.dll",
+    "SHA256": "5F27431AFA8F2FC257BDB667BB670BD3113C3BC6BB37E37FC54D04C592A8306B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityCurlModule.pdb",
+    "SHA256": "4B5E05CD90FC07DE7EDC017E6C6E046F91C8E60425389D103F1FD99A82F6A0A2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityTestProtocolModule.dll",
+    "SHA256": "1F933B1835C6C44F2974515FA73F86460B3468D4CA8FBDAE4A05F7844CC49236"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityTestProtocolModule.pdb",
+    "SHA256": "048C730072A02F443D479CC9C0250124D38E39D3A33F6178C759052C90CF3FEF"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.dll",
+    "SHA256": "32A0367E224A7D18F7BFAAC662879F5E5C5C80C1C80542EC4EAC52A6881244C6"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.pdb",
+    "SHA256": "DCF177BF5FF650CB66D31D05ABA39B05EB486C63BEF621206F2D0FB78FBD1B04"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.dll",
+    "SHA256": "B210AB0CEF3E8BFB684C2722E3885BD29A54AECA8CAF10FD230DEA1024A4FACA"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.pdb",
+    "SHA256": "2E986D3E647CB663FDA54AADE97460781630F195C3EB79179A2CE9F994BCFAB3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestModule.dll",
+    "SHA256": "F92714CE51D99D8B54FEF7421110FA89E0E568DA0BC2FE6FC7257116638C1BD0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestModule.pdb",
+    "SHA256": "14220FB20B7F1F8410189B36A7495308EDD88F64DC9C8771DD886D41D1140083"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.dll",
+    "SHA256": "E2FF18D3E89BBFA8946C9CF3A7DD8BFBCA73D3AC7DA797720CE0444D5F7E461B"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.pdb",
+    "SHA256": "78888AB31F1C127AF0CF762DB3BD419870B91BCA20D9A32FDB09ADD4A75AE1E5"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.dll",
+    "SHA256": "075DBD5CA36868482D62BB8BF727C158BFF9920BE7210FC8AFD046F603EEA36D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.pdb",
+    "SHA256": "FADCCCCBB989D656E404CB245371687D14FFD9B62062A70BF9D56207105EBB82"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VehiclesModule.dll",
+    "SHA256": "F24EFC9D3464E7D9EE3DB96E856B6BFDACA34430DF419233529C896DC691892E"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VehiclesModule.pdb",
+    "SHA256": "F4C05E3F40CEB11490797346C84E5C8849F5512103796E33D97A2E4E703EBB99"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VFXModule.dll",
+    "SHA256": "5ABAC57A81DD4BF18CE0A0565136C0F9A9A44AE3D29867EA9F2F86B3CF09A8CD"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VFXModule.pdb",
+    "SHA256": "9D5E5ECABC6E41F8E9A26A0C1D21EF6942CE82025013E9C0BC9A4206AA98C1C3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VideoModule.dll",
+    "SHA256": "CA2F95BF74011C8C4662D8CDB736208B869AA669311D271C22B07D823BC8E8B0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VideoModule.pdb",
+    "SHA256": "568733F70DAD0D00B90FD84E43071B3E6069EB8203139F49F1227198978856C6"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VirtualTexturingModule.dll",
+    "SHA256": "8F7699F417C53BF019364234CB6A690FE59D253280DF70AF225451F19E75F573"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VirtualTexturingModule.pdb",
+    "SHA256": "DA60FA31587F02521C22B2B6DFF9B21801160D2DC60F95157900FE992D492A10"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VRModule.dll",
+    "SHA256": "736B4B7137CCC6DCE1B2842D494B9A60B307F6D4A8A10C4283DB442DB718C1B4"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.VRModule.pdb",
+    "SHA256": "E788F7C2C5C025F049168DB30B033CE755A522D7DAC12C7818EDFB83C3D339CC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.WindModule.dll",
+    "SHA256": "933B3E39E0B81ADB4E39399DD7F2ED937FC705FA26F50865A8F4AA7997C2CDD8"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.WindModule.pdb",
+    "SHA256": "9178C4BD2A714C66F564BA6C6180ECE7AC6C481EA521FA0A497B3B82F357B0CB"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.XRModule.dll",
+    "SHA256": "EE1D8576A5A0765663E45D01E12CCC450429D5D3BEE7167BA1338E2CEC783D21"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Managed\\UnityEngine.XRModule.pdb",
+    "SHA256": "FE72D40924F9970A3529ED8B449E73F294E1F7BBC54200C5C5BDAC1076ABEEA6"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\lib_burst_generated.dll",
+    "SHA256": "1E60D57FE16D7FA80DEA78F85311691E510278EBDCF37BEB51DB81C3194E9451"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\lib_burst_generated.pdb",
+    "SHA256": "7438D823B24533C4811C49B58E92CE0251FD1BB2513118E3C620212F98207EDC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlast_x64.dll",
+    "SHA256": "924D7442718DC3503256BD527BD8890A2ADDA3924BF78B95F4182B89DCE92CD2"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtAssetUtils_x64.dll",
+    "SHA256": "C3DB5355A3CC41441ADE41D7A659FEF25B2B45CFF0A9B4D1DDDCDB12CF845C78"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtAuthoring_x64.dll",
+    "SHA256": "E606D292EF80C870D5A6197FD7197C8EAB8FF66A1BE62D125A6A4380052B41DC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtExporter_x64.dll",
+    "SHA256": "453FA806E2C788AAFC4971BBB83CA960E33FEDD17986FFF586B02BE0A091DF0D"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtPhysX_x64.dll",
+    "SHA256": "8CF28A43A764E329239F84724AC90CE823E45E903370D9257C3522AC501C4EC3"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtPxSerialization_x64.dll",
+    "SHA256": "0BA78CCF02D054C38F43494698CC7C250E01672D85C97E2C0B1C507F55EFFF93"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtSerialization_x64.dll",
+    "SHA256": "37A65395A85A0EBBB913A974159F524134079AA8ECAA60F34084C72A6B540847"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtShaders_x64.dll",
+    "SHA256": "15189A0B5F6F55F6F84A3ECC4C8DF2C2A40AB881F9FB7415FDDFC4B392315755"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtStress_x64.dll",
+    "SHA256": "C40E54B22ADB1C2785B19D3B413D98527DF6DCE2C1B17D1BA16F9FFB1A3C6952"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtTkSerialization_x64.dll",
+    "SHA256": "D0C6F75055E908D481D36E01CB7ED1EC5AFA7376C4FCD0027E196CAB286752B8"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastExtUnity_x64.dll",
+    "SHA256": "754C2A860DBCD6CFBA58882A4AC0E471E5209F32C2AAD92936BD881A4A0901CC"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastGlobals_x64.dll",
+    "SHA256": "866BFCBEA0626455334CE16065FD948A185703A099E7A0FCD0D9ADFDA8E7CB59"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\NvBlastTk_x64.dll",
+    "SHA256": "3CB80485321B441A4F0CC096C63B55AD6167DF599B5FC4C553AA089F2C95F866"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\nvToolsExt64_1.dll",
+    "SHA256": "81BD0159A73411791FA1606FE2426B763CC055AC1A50C141CE7E890392ECE10A"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3_x64.dll",
+    "SHA256": "89D5734052B5A4692CE03E773158F7D188D2F1C632F7B8FFB33B9696BC09260F"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3Cooking_x64.dll",
+    "SHA256": "AB2A1EDF1D53D94AE63CF923FAB240C5AC2BAB7566172BC9117578E4086E90A0"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PhysX3Gpu_x64.dll",
+    "SHA256": "A73507A3B98476EE33217EE8681DC82EF64BDB1A9A6A5C9A15E23328C12CF9A9"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PxFoundation_x64.dll",
+    "SHA256": "4335C17D28BFA187BD6920D1CD3C9ED49287DAB4E6DD3E735096122341672F85"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Plugins\\x86_64\\PxPvdSDK_x64.dll",
+    "SHA256": "28647A57AE3DA375164994AE02C932336073BCA58E2F47D363B3F644B1955907"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Resources\\unity default resources",
+    "SHA256": "D656C46A47E39C4346E1AE506F6CD8328408FF2D97156274D8AC7ADF7B844513"
+  },
+  {
+    "Path": "PuertoResonancia_Data\\Resources\\unity_builtin_extra",
+    "SHA256": "FB84C77539EE630019681030D8ECC2E7A7761DCF83EF0016C05DAE4B28159657"
+  },
+  {
+    "Path": "DOCUMENTACION.md",
+    "SHA256": "05BD7C05A890294949BBFD507D87626A881AF75735E8B945BABC15C032F0629A"
+  },
+  {
+    "Path": "JUGAR.cmd",
+    "SHA256": "CFE2D2AD0FD217D97C4C3372842287A32A5FBE3B213DB840BB600F9B14139C56"
+  },
+  {
+    "Path": "LEEME.txt",
+    "SHA256": "B572C4C02E274DD00A3895AABFB598516289DBB365B31AFA26120ABD20C5A0C3"
+  },
+  {
+    "Path": "PuertoResonancia.exe",
+    "SHA256": "6D69E772C811261A2646FBF9354D032D990DBF87F983CFD31B2024B041619C4C"
+  },
+  {
+    "Path": "RESEARCH.md",
+    "SHA256": "5F1B4345FEE7C46762D1026532746F909018A287AB7E11E50794B6A6073E1C67"
+  },
+  {
+    "Path": "REVISION.md",
+    "SHA256": "A4B9B5C8638CDD12C04CC85085F290506C5CFDD1719D57545E0FD51B545BB965"
+  },
+  {
+    "Path": "UnityCrashHandler64.exe",
+    "SHA256": "931999F1726C2CF91C97A321C1044AE7B0B2B9BF5B3681EAF6F0A663DE9292F8"
+  },
+  {
+    "Path": "UnityPlayer.dll",
+    "SHA256": "9C1007494DB7523CB90B64101A7A57ADEEB1337F3AB79D136F954616C2BD3427"
+  },
+  {
+    "Path": "WinPixEventRuntime.dll",
+    "SHA256": "81ADCFD8253C3489BE720DA7E30F16004DC9A1F02A8B418C6C3AEF4993032E6D"
+  }
+]

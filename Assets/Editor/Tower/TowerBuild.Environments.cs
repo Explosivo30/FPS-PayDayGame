@@ -78,6 +78,7 @@ public static partial class TowerBuild
         floor.elevator=Elevator(new Vector3(0,0,-24.7f),2);floor.arrival=floor.elevator.transform.Find("Arrival");
         Supplies(new Vector3(-8,0,-22),true);
         Entries(floor,25,18);
+        ConfigureReactiveArena(floor.gameObject.scene);
         Lighting(false);
         Bake(floor.gameObject.scene,"RoboticForest");
     }
@@ -119,6 +120,7 @@ public static partial class TowerBuild
         Sign("03   /   LUMINESCENT CONSERVATORY",new Vector3(0,5.5f,22.4f),3.1f,new Color(1,.6f,.8f));
         floor.elevator=Elevator(new Vector3(0,0,-22.7f),3);floor.arrival=floor.elevator.transform.Find("Arrival");
         Supplies(new Vector3(-8,0,-20),true);Entries(floor,22,18);
+        ConfigureReactiveArena(floor.gameObject.scene);
         Lighting(true);Bake(floor.gameObject.scene,"CrystalGarden");
     }
     static void Path(Vector3 p,Vector3 size)

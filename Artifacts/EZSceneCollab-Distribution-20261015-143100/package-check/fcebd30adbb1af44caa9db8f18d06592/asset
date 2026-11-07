@@ -1,0 +1,726 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+namespace EZCollabTool
+{
+    public static class EZCollabObjectSerializer
+    {
+        sealed class PendingObjectReference
+        {
+            public Component component;
+            public SerializedObjectReference reference;
+        }
+
+        static readonly List<PendingObjectReference> pendingObjectReferences =
+            new List<PendingObjectReference>();
+
+        public static List<SerializedComponent> CaptureComponents(GameObject go)
+        {
+            List<SerializedComponent> serializedComponents = new List<SerializedComponent>();
+            Dictionary<Type, int> occurrences = new Dictionary<Type, int>();
+
+            foreach (Component component in go.GetComponents<Component>())
+            {
+                if (component == null || component is Transform)
+                    continue;
+
+                Type type = component.GetType();
+                occurrences.TryGetValue(type, out int occurrenceIndex);
+                occurrences[type] = occurrenceIndex + 1;
+
+                SerializedComponent data = new SerializedComponent
+                {
+                    typeName = type.AssemblyQualifiedName,
+                    occurrenceIndex = occurrenceIndex,
+                    json = SanitizeComponentJson(EditorJsonUtility.ToJson(component))
+                };
+
+                CaptureObjectReferences(component, data.objectReferences);
+                serializedComponents.Add(data);
+            }
+
+            return serializedComponents;
+        }
+
+        public static SerializedMesh CaptureGeneratedMesh(GameObject go)
+        {
+            MeshFilter meshFilter = go.GetComponent<MeshFilter>();
+            Mesh mesh = meshFilter != null ? meshFilter.sharedMesh : null;
+            if (mesh == null || EditorUtility.IsPersistent(mesh))
+                return null;
+
+            try
+            {
+                SerializedMesh data = new SerializedMesh
+                {
+                    name = mesh.name,
+                    indexFormat = (int)mesh.indexFormat,
+                    positions = Flatten(mesh.vertices),
+                    normals = Flatten(mesh.normals),
+                    tangents = Flatten(mesh.tangents),
+                    colors = Flatten(mesh.colors),
+                    uv0 = CaptureUv(mesh, 0),
+                    uv1 = CaptureUv(mesh, 1),
+                    uv2 = CaptureUv(mesh, 2),
+                    uv3 = CaptureUv(mesh, 3)
+                };
+
+                for (int i = 0; i < mesh.subMeshCount; i++)
+                {
+                    data.subMeshes.Add(new SerializedSubMesh
+                    {
+                        topology = (int)mesh.GetTopology(i),
+                        indices = mesh.GetIndices(i)
+                    });
+                }
+
+                return data.positions != null && data.positions.Length >= 3 ? data : null;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(EZCollabLocalization.Tr(
+                    EZCollabText.MeshSerializeFailedLog,
+                    go.name,
+                    exception.Message));
+                return null;
+            }
+        }
+
+        public static void ApplyObjectData(
+            GameObject go,
+            List<SerializedComponent> serializedComponents,
+            SerializedMesh serializedMesh,
+            bool removeMissingComponents = false,
+            bool resolvePendingReferences = true)
+        {
+            if (go == null)
+                return;
+
+            if (removeMissingComponents)
+                RemoveMissingComponents(go, serializedComponents);
+
+            Dictionary<SerializedComponent, Component> targets = EnsureComponents(go, serializedComponents);
+            foreach (KeyValuePair<SerializedComponent, Component> pair in targets)
+            {
+                SerializedComponent data = pair.Key;
+                Component component = pair.Value;
+                if (component == null)
+                    continue;
+
+                try
+                {
+                    Dictionary<string, UnityEngine.Object> previousReferences =
+                        CaptureCurrentObjectReferences(component, data.objectReferences);
+                    if (!string.IsNullOrEmpty(data.json))
+                        EditorJsonUtility.FromJsonOverwrite(SanitizeComponentJson(data.json), component);
+
+                    ApplyObjectReferences(component, data.objectReferences, previousReferences);
+                }
+                catch (Exception exception)
+                {
+                    Debug.LogWarning(EZCollabLocalization.Tr(
+                        EZCollabText.ComponentRestoreFailedLog,
+                        component.GetType().FullName,
+                        go.name,
+                        exception.Message));
+                }
+            }
+
+            if (EZCollabIntegrations.TryFinalizeObject(go))
+            {
+                if (resolvePendingReferences) ResolvePendingObjectReferences();
+                return;
+            }
+
+            ApplyGeneratedMesh(go, serializedMesh);
+            if (resolvePendingReferences) ResolvePendingObjectReferences();
+        }
+
+        public static void ResetPendingReferences()
+        {
+            pendingObjectReferences.Clear();
+        }
+
+        public static int BeginPendingReferencePass() => pendingObjectReferences.Count;
+
+        public static bool ResolvePendingObjectReferencesBatch(ref int remaining, int maxItems)
+        {
+            for (int processed = 0; remaining > 0 && pendingObjectReferences.Count > 0 && processed < maxItems; processed++)
+            {
+                int index = Math.Min(remaining, pendingObjectReferences.Count) - 1;
+                remaining--;
+                PendingObjectReference pending = pendingObjectReferences[index];
+                if (pending.component == null)
+                {
+                    pendingObjectReferences.RemoveAt(index);
+                    continue;
+                }
+                UnityEngine.Object resolved = ResolveReference(pending.reference);
+                if (resolved == null) continue;
+                UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(pending.component);
+                SerializedProperty property = serializedObject.FindProperty(pending.reference.propertyPath);
+                if (property != null && property.propertyType == SerializedPropertyType.ObjectReference)
+                {
+                    property.objectReferenceValue = resolved;
+                    serializedObject.ApplyModifiedPropertiesWithoutUndo();
+                }
+                pendingObjectReferences.RemoveAt(index);
+            }
+            if (pendingObjectReferences.Count == 0) remaining = 0;
+            return remaining <= 0;
+        }
+
+        public static void ResolvePendingObjectReferences()
+        {
+            for (int i = pendingObjectReferences.Count - 1; i >= 0; i--)
+            {
+                PendingObjectReference pending = pendingObjectReferences[i];
+                if (pending.component == null)
+                {
+                    pendingObjectReferences.RemoveAt(i);
+                    continue;
+                }
+
+                UnityEngine.Object resolved = ResolveReference(pending.reference);
+                if (resolved == null)
+                    continue;
+
+                UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(pending.component);
+                SerializedProperty property = serializedObject.FindProperty(pending.reference.propertyPath);
+                if (property != null && property.propertyType == SerializedPropertyType.ObjectReference)
+                {
+                    property.objectReferenceValue = resolved;
+                    serializedObject.ApplyModifiedPropertiesWithoutUndo();
+                }
+                pendingObjectReferences.RemoveAt(i);
+            }
+        }
+
+        static void RemoveMissingComponents(GameObject go, List<SerializedComponent> serializedComponents)
+        {
+            Dictionary<Type, int> expectedCounts = new Dictionary<Type, int>();
+            if (serializedComponents != null)
+                foreach (SerializedComponent data in serializedComponents)
+                {
+                    Type type = ResolveType(data.typeName);
+                    if (type != null && typeof(Component).IsAssignableFrom(type) && type != typeof(Transform))
+                        expectedCounts[type] = System.Math.Max(expectedCounts.TryGetValue(type, out int count) ? count : 0, data.occurrenceIndex + 1);
+                }
+
+            Component[] existing = go.GetComponents<Component>();
+            for (int i = existing.Length - 1; i >= 0; i--)
+            {
+                Component component = existing[i];
+                if (component == null || component is Transform) continue;
+                Type type = component.GetType();
+                expectedCounts.TryGetValue(type, out int keepCount);
+                if (go.GetComponents(type).Length <= keepCount) continue;
+                try { UnityEngine.Object.DestroyImmediate(component); }
+                catch (Exception exception)
+                {
+                    Debug.LogWarning(EZCollabLocalization.Tr(
+                        EZCollabText.ComponentRemoveFailedLog,
+                        type.FullName,
+                        go.name,
+                        exception.Message));
+                }
+            }
+        }
+
+        static Dictionary<SerializedComponent, Component> EnsureComponents(
+            GameObject go,
+            List<SerializedComponent> serializedComponents)
+        {
+            Dictionary<SerializedComponent, Component> targets =
+                new Dictionary<SerializedComponent, Component>();
+            if (serializedComponents == null)
+                return targets;
+
+            foreach (SerializedComponent data in serializedComponents)
+            {
+                Type type = ResolveType(data.typeName);
+                if (type == null || !typeof(Component).IsAssignableFrom(type) || type == typeof(Transform))
+                {
+                    Debug.LogWarning(EZCollabLocalization.Tr(
+                        EZCollabText.ComponentUnavailableLog,
+                        data.typeName));
+                    continue;
+                }
+
+                Component[] matches = go.GetComponents(type);
+                while (matches.Length <= data.occurrenceIndex)
+                {
+                    try
+                    {
+                        if (go.AddComponent(type) == null)
+                            break;
+                    }
+                    catch (Exception exception)
+                    {
+                        Debug.LogWarning(EZCollabLocalization.Tr(
+                            EZCollabText.ComponentAddFailedLog,
+                            type.FullName,
+                            go.name,
+                            exception.Message));
+                        break;
+                    }
+
+                    matches = go.GetComponents(type);
+                }
+
+                if (data.occurrenceIndex >= 0 && data.occurrenceIndex < matches.Length)
+                    targets[data] = matches[data.occurrenceIndex];
+            }
+
+            return targets;
+        }
+
+        static Type ResolveType(string assemblyQualifiedName)
+        {
+            if (string.IsNullOrEmpty(assemblyQualifiedName))
+                return null;
+
+            Type type = Type.GetType(assemblyQualifiedName, false);
+            if (type != null)
+                return type;
+
+            int commaIndex = assemblyQualifiedName.IndexOf(',');
+            string fullName = commaIndex < 0
+                ? assemblyQualifiedName
+                : assemblyQualifiedName.Substring(0, commaIndex);
+
+            foreach (System.Reflection.Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                type = assembly.GetType(fullName, false);
+                if (type != null)
+                    return type;
+            }
+
+            return null;
+        }
+
+        static void CaptureObjectReferences(Component component, List<SerializedObjectReference> output)
+        {
+            UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(component);
+            SerializedProperty property = serializedObject.GetIterator();
+            bool enterChildren = true;
+
+            while (property.Next(enterChildren))
+            {
+                enterChildren = false;
+                if (IsNativeIdentityProperty(property.propertyPath)) continue;
+                if (property.propertyType != SerializedPropertyType.ObjectReference)
+                    continue;
+
+                UnityEngine.Object reference = property.objectReferenceValue;
+                if (reference == null)
+                    continue;
+
+                SerializedObjectReference data = new SerializedObjectReference
+                {
+                    propertyPath = property.propertyPath
+                };
+
+                if (EditorUtility.IsPersistent(reference))
+                {
+                    data.assetPath = AssetDatabase.GetAssetPath(reference);
+                    data.assetHash = EZCollabAssetValidator.GetDependencyHash(data.assetPath);
+                    AssetDatabase.TryGetGUIDAndLocalFileIdentifier(
+                        reference,
+                        out data.assetGuid,
+                        out data.localFileId);
+                    output.Add(data);
+                    continue;
+                }
+
+                GameObject targetObject = reference as GameObject;
+                Component targetComponent = reference as Component;
+                if (targetComponent != null)
+                    targetObject = targetComponent.gameObject;
+
+                if (targetObject == null || !EZCollabState.TryGetGuid(targetObject, out data.sceneObjectGuid))
+                    continue;
+
+                if (targetComponent != null)
+                {
+                    Type componentType = targetComponent.GetType();
+                    data.componentTypeName = componentType.AssemblyQualifiedName;
+                    Component[] matches = targetObject.GetComponents(componentType);
+                    data.componentOccurrenceIndex = Array.IndexOf(matches, targetComponent);
+                }
+
+                output.Add(data);
+            }
+        }
+
+        static Dictionary<string, UnityEngine.Object> CaptureCurrentObjectReferences(
+            Component component,
+            List<SerializedObjectReference> references)
+        {
+            Dictionary<string, UnityEngine.Object> result =
+                new Dictionary<string, UnityEngine.Object>();
+            if (component == null || references == null)
+                return result;
+
+            UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(component);
+            foreach (SerializedObjectReference data in references)
+            {
+                if (IsNativeIdentityProperty(data.propertyPath)) continue;
+                SerializedProperty property = serializedObject.FindProperty(data.propertyPath);
+                if (property != null && property.propertyType == SerializedPropertyType.ObjectReference)
+                    result[data.propertyPath] = property.objectReferenceValue;
+            }
+
+            return result;
+        }
+
+        static void ApplyObjectReferences(
+            Component component,
+            List<SerializedObjectReference> references,
+            Dictionary<string, UnityEngine.Object> previousReferences)
+        {
+            if (references == null || references.Count == 0)
+                return;
+
+            UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(component);
+            bool changed = false;
+
+            foreach (SerializedObjectReference data in references)
+            {
+                if (IsNativeIdentityProperty(data.propertyPath)) continue;
+                SerializedProperty property = serializedObject.FindProperty(data.propertyPath);
+                if (property == null || property.propertyType != SerializedPropertyType.ObjectReference)
+                    continue;
+
+                UnityEngine.Object reference = ResolveReference(data);
+                if (reference == null)
+                {
+                    if (!string.IsNullOrEmpty(data.sceneObjectGuid))
+                    {
+                        pendingObjectReferences.RemoveAll(item => item.component == component && item.reference.propertyPath == data.propertyPath);
+                        pendingObjectReferences.Add(new PendingObjectReference
+                            { component = component, reference = data });
+                    }
+
+                    if (previousReferences != null &&
+                        previousReferences.TryGetValue(data.propertyPath, out UnityEngine.Object previous))
+                    {
+                        property.objectReferenceValue = previous;
+                        changed = true;
+                    }
+                    continue;
+                }
+
+                property.objectReferenceValue = reference;
+                changed = true;
+            }
+
+            if (changed)
+                serializedObject.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        static UnityEngine.Object ResolveReference(SerializedObjectReference data)
+        {
+            if (!string.IsNullOrEmpty(data.assetGuid) || !string.IsNullOrEmpty(data.assetPath))
+            {
+                string assetPath = EZCollabAssetValidator.ResolveAndValidate(
+                    data.assetPath,
+                    data.assetGuid,
+                    data.assetHash,
+                    data.propertyPath);
+                if (string.IsNullOrEmpty(assetPath))
+                    return null;
+
+                UnityEngine.Object[] assets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+                foreach (UnityEngine.Object asset in assets)
+                {
+                    if (asset == null)
+                        continue;
+
+                    if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(asset, out _, out long localFileId) &&
+                        localFileId == data.localFileId)
+                    {
+                        return asset;
+                    }
+                }
+
+                return assets.Length > 0 ? assets[0] : null;
+            }
+
+            if (string.IsNullOrEmpty(data.sceneObjectGuid) ||
+                !EZCollabState.guidToObject.TryGetValue(data.sceneObjectGuid, out GameObject target) ||
+                target == null)
+            {
+                return null;
+            }
+
+            if (string.IsNullOrEmpty(data.componentTypeName))
+                return target;
+
+            Type type = ResolveType(data.componentTypeName);
+            if (type == null)
+                return null;
+
+            Component[] matches = target.GetComponents(type);
+            return data.componentOccurrenceIndex >= 0 && data.componentOccurrenceIndex < matches.Length
+                ? matches[data.componentOccurrenceIndex]
+                : null;
+        }
+
+        static bool IsNativeIdentityProperty(string propertyPath)
+        {
+            return propertyPath == "m_GameObject" || propertyPath == "m_Script" ||
+                   propertyPath == "m_CorrespondingSourceObject" || propertyPath == "m_PrefabInstance" ||
+                   propertyPath == "m_PrefabAsset";
+        }
+
+        // EditorJsonUtility also serializes native component ownership. Overwriting
+        // m_GameObject can detach native components from their owner and corrupt Unity.
+        // Remove only reserved root fields; nested user data is left untouched.
+        public static string SanitizeComponentJson(string json)
+        {
+            if (string.IsNullOrEmpty(json)) return json;
+            System.Text.StringBuilder output = new System.Text.StringBuilder(json.Length);
+            output.Append('{');
+            bool wroteField = false;
+            int position = 0;
+            while (position < json.Length && json[position] != '{') position++;
+            position++;
+            while (position < json.Length)
+            {
+                while (position < json.Length && (char.IsWhiteSpace(json[position]) || json[position] == ',')) position++;
+                if (position >= json.Length || json[position] == '}') break;
+                int fieldStart = position;
+                if (json[position] != '"') return json;
+                int keyStart = ++position;
+                while (position < json.Length && json[position] != '"')
+                {
+                    if (json[position] == '\\') position++;
+                    position++;
+                }
+                if (position >= json.Length) return json;
+                string key = json.Substring(keyStart, position - keyStart);
+                position++;
+                while (position < json.Length && char.IsWhiteSpace(json[position])) position++;
+                if (position >= json.Length || json[position] != ':') return json;
+                position++;
+                int depth = 0;
+                bool inString = false;
+                while (position < json.Length)
+                {
+                    char current = json[position];
+                    if (inString)
+                    {
+                        if (current == '\\') { position += 2; continue; }
+                        if (current == '"') inString = false;
+                    }
+                    else if (current == '"') inString = true;
+                    else if (current == '{' || current == '[') depth++;
+                    else if (current == ']' || (current == '}' && depth > 0)) depth--;
+                    else if (depth == 0 && (current == ',' || current == '}')) break;
+                    position++;
+                }
+                if (!IsNativeIdentityProperty(key))
+                {
+                    if (wroteField) output.Append(',');
+                    output.Append(json, fieldStart, position - fieldStart);
+                    wroteField = true;
+                }
+            }
+            output.Append('}');
+            return output.ToString();
+        }
+
+        static void ApplyGeneratedMesh(GameObject go, SerializedMesh data)
+        {
+            if (data == null || data.positions == null || data.positions.Length < 3)
+                return;
+
+            try
+            {
+                Mesh mesh = new Mesh
+                {
+                    name = string.IsNullOrEmpty(data.name) ? $"{go.name} (EZCollab)" : data.name,
+                    indexFormat = (IndexFormat)data.indexFormat
+                };
+
+                mesh.vertices = ExpandVector3(data.positions);
+                mesh.subMeshCount = data.subMeshes != null ? data.subMeshes.Count : 0;
+                for (int i = 0; i < mesh.subMeshCount; i++)
+                {
+                    SerializedSubMesh subMesh = data.subMeshes[i];
+                    mesh.SetIndices(subMesh.indices, (MeshTopology)subMesh.topology, i, false);
+                }
+
+                Vector3[] normals = ExpandVector3(data.normals);
+                if (normals.Length == mesh.vertexCount)
+                    mesh.normals = normals;
+                else
+                    mesh.RecalculateNormals();
+
+                Vector4[] tangents = ExpandVector4(data.tangents);
+                if (tangents.Length == mesh.vertexCount)
+                    mesh.tangents = tangents;
+
+                Color[] colors = ExpandColor(data.colors);
+                if (colors.Length == mesh.vertexCount)
+                    mesh.colors = colors;
+
+                ApplyUv(mesh, 0, data.uv0);
+                ApplyUv(mesh, 1, data.uv1);
+                ApplyUv(mesh, 2, data.uv2);
+                ApplyUv(mesh, 3, data.uv3);
+                mesh.RecalculateBounds();
+
+                MeshFilter filter = go.GetComponent<MeshFilter>();
+                if (filter == null)
+                    filter = go.AddComponent<MeshFilter>();
+                filter.sharedMesh = mesh;
+
+                foreach (MeshCollider collider in go.GetComponents<MeshCollider>())
+                    collider.sharedMesh = mesh;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(EZCollabLocalization.Tr(
+                    EZCollabText.MeshRestoreFailedLog,
+                    go.name,
+                    exception.Message));
+            }
+        }
+
+        static float[] CaptureUv(Mesh mesh, int channel)
+        {
+            List<Vector4> values = new List<Vector4>();
+            mesh.GetUVs(channel, values);
+            return Flatten(values);
+        }
+
+        static void ApplyUv(Mesh mesh, int channel, float[] values)
+        {
+            Vector4[] expanded = ExpandVector4(values);
+            if (expanded.Length == mesh.vertexCount)
+                mesh.SetUVs(channel, new List<Vector4>(expanded));
+        }
+
+        static float[] Flatten(Vector2[] values)
+        {
+            if (values == null || values.Length == 0)
+                return null;
+
+            float[] result = new float[values.Length * 2];
+            for (int i = 0; i < values.Length; i++)
+            {
+                result[i * 2] = values[i].x;
+                result[i * 2 + 1] = values[i].y;
+            }
+
+            return result;
+        }
+
+        static float[] Flatten(Vector3[] values)
+        {
+            if (values == null || values.Length == 0)
+                return null;
+
+            float[] result = new float[values.Length * 3];
+            for (int i = 0; i < values.Length; i++)
+            {
+                result[i * 3] = values[i].x;
+                result[i * 3 + 1] = values[i].y;
+                result[i * 3 + 2] = values[i].z;
+            }
+
+            return result;
+        }
+
+        static float[] Flatten(Vector4[] values)
+        {
+            if (values == null || values.Length == 0)
+                return null;
+
+            float[] result = new float[values.Length * 4];
+            for (int i = 0; i < values.Length; i++)
+            {
+                result[i * 4] = values[i].x;
+                result[i * 4 + 1] = values[i].y;
+                result[i * 4 + 2] = values[i].z;
+                result[i * 4 + 3] = values[i].w;
+            }
+
+            return result;
+        }
+
+        static float[] Flatten(List<Vector4> values)
+        {
+            return values == null ? null : Flatten(values.ToArray());
+        }
+
+        static float[] Flatten(Color[] values)
+        {
+            if (values == null || values.Length == 0)
+                return null;
+
+            float[] result = new float[values.Length * 4];
+            for (int i = 0; i < values.Length; i++)
+            {
+                result[i * 4] = values[i].r;
+                result[i * 4 + 1] = values[i].g;
+                result[i * 4 + 2] = values[i].b;
+                result[i * 4 + 3] = values[i].a;
+            }
+
+            return result;
+        }
+
+        static Vector3[] ExpandVector3(float[] values)
+        {
+            if (values == null || values.Length == 0)
+                return Array.Empty<Vector3>();
+
+            Vector3[] result = new Vector3[values.Length / 3];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = new Vector3(values[i * 3], values[i * 3 + 1], values[i * 3 + 2]);
+            return result;
+        }
+
+        static Vector4[] ExpandVector4(float[] values)
+        {
+            if (values == null || values.Length == 0)
+                return Array.Empty<Vector4>();
+
+            Vector4[] result = new Vector4[values.Length / 4];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = new Vector4(
+                    values[i * 4],
+                    values[i * 4 + 1],
+                    values[i * 4 + 2],
+                    values[i * 4 + 3]);
+            }
+
+            return result;
+        }
+
+        static Color[] ExpandColor(float[] values)
+        {
+            if (values == null || values.Length == 0)
+                return Array.Empty<Color>();
+
+            Color[] result = new Color[values.Length / 4];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = new Color(
+                    values[i * 4],
+                    values[i * 4 + 1],
+                    values[i * 4 + 2],
+                    values[i * 4 + 3]);
+            }
+
+            return result;
+        }
+    }
+}

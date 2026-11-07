@@ -1,0 +1,209 @@
+ROBOT TOWER / LABORATORIO DE CARTAS
+PROPUESTA 3 / La horda se convierte en arma
+1 / 5
+Protocolo Dominó
+Conecta robots, reúne objetivos y decide dónde empieza la reacción.
+01 / LO QUE PIDIÓ EL TESTER
+La base engancha, pero las mejoras parecen "jugar al Excel". Pide cartas que permitan hacer algo nuevo y
+sentirse muy poderoso. Empezar con todas las armas reduce la evolución de la partida.
+02 / QUÉ PROPONE ESTE AGENTE
+Las cartas te permiten preparar una situación y resolverla de forma espectacular: conectar enemigos, mover una
+carga y convertir una baja en un punto de reunión. La fuerza de la build depende de las relaciones que creas entre
+los robots.
+03 / HOY Y PROPUESTA
+El tester disfruta la base, pero llama a las mejoras actuales 'jugar al Excel'. Propongo ocho capacidades nuevas, sin
+implementar. Respeto la dirección de pistola inicial y arsenal progresivo; los problemas de IA, mapas y oleadas
+siguen siendo trabajo separado.
+04 / UN MOMENTO DE JUEGO
+Una baja imanta a los robots cercanos. Dibujas un circuito entre tres y pasas una bomba al centro. Un disparo
+cierra la red: ves una combinación que preparaste tú, mientras Aguja conserva un ángulo de tiro que te obliga a
+moverte.
+ELIGE ESTA DIRECCIÓN SI...
+Quieres que sentirse poderoso venga de preparar y detonar grupos, con decisiones espaciales fáciles de reconocer.
+Documento de ideas. No se ha cambiado el juego. Valores orientativos para prototipar; requieren playtest. Las estadísticas pequeñas pueden
+seguir en la tienda.
+
+ROBOT TOWER / LABORATORIO DE CARTAS
+PROPUESTA 3 / La horda se convierte en arma
+2 / 5
+Ocho cartas para cambiar la partida
+Texto de diseño propuesto. Cada carta debe poder explicarse por su acción y su resultado visible.
+01
+Circuito cerrado
+ACTIVA
+Impacta a dos robots distintos con disparos directos.
+CAMBIA
+Quedan conectados; volver a disparar a un nodo descarga
+un pulso en todos. Puedes añadir un tercero antes.
+SE VE / SE OYE
+Cables azules y sellos numerados sobre los nodos.
+COMBINA
+Chatarra imantada mantiene el grupo cerca.
+LÍMITE
+Una red, 5 s, alcance 6 m; 3 s entre descargas.
+02
+Chatarra imantada
+ACTIVA
+Consigue una baja directa del jugador.
+CAMBIA
+El cadáver atrae brevemente a robots cercanos. Puedes
+crear un punto de reunión donde quieres concentrar el
+fuego.
+SE VE / SE OYE
+Anillos azules hacia dentro y chatarra flotando.
+COMBINA
+Reúne blancos para Circuito cerrado o Portador.
+LÍMITE
+Un imán cada 8 s, dura 1,2 s, máximo cuatro atraídos; los
+veteranos apenas se desplazan.
+03
+Bola de bolos
+ACTIVA
+Acierta un escopetazo cercano al centro de un robot.
+CAMBIA
+Proyecta al blanco; si alcanza a otro, ambos sufren un
+impacto y una interrupción breve.
+SE VE / SE OYE
+Estela corta y golpe seco al chocar.
+COMBINA
+Cable de retirada facilita alinear la colisión.
+LÍMITE
+Una proyección cada 4 s y una colisión; veteranos con
+desplazamiento corto, sin encadenar empujones.
+04
+Corte de enlace
+ACTIVA
+Alcanza a un robot con el cuchillo.
+CAMBIA
+Lo enlazas al vecino más cercano: los dos siguientes
+impactos directos recibidos por el primero mandan un
+pulso al segundo.
+SE VE / SE OYE
+Corte luminoso y cable doble entre ambos.
+COMBINA
+Marca desde cerca y cambia a escopeta.
+LÍMITE
+Un enlace, 3 s, alcance 4 m; cada ataque cuenta una vez.
+
+ROBOT TOWER / LABORATORIO DE CARTAS
+PROPUESTA 3 / La horda se convierte en arma
+3 / 5
+Más piezas para construir tu estilo
+Texto de diseño propuesto. Cada carta debe poder explicarse por su acción y su resultado visible.
+05
+Portador
+ACTIVA
+El primer impacto de pistola después de recargar incrusta
+una carga.
+CAMBIA
+Otro impacto al portador la pasa a un vecino; termina
+explotando donde acaba el temporizador.
+SE VE / SE OYE
+Carga visible, anillo de tiempo y arco al siguiente receptor.
+COMBINA
+Chatarra imantada proporciona un buen destino.
+LÍMITE
+Una carga, 2,5 s sin reinicio, dos transferencias; explosión
+limitada a seis blancos.
+06
+Cable de retirada
+ACTIVA
+Completa una recarga cerca de tu última baja directa.
+CAMBIA
+Dibuja un cable por el suelo entre el cadáver y tu posición.
+Ralentiza brevemente a quienes lo crucen.
+SE VE / SE OYE
+Línea azul discontinua y chispa en cada cruce.
+COMBINA
+Coloca el cable para preparar Bola de bolos.
+LÍMITE
+Un cable, 3 s, longitud 6 m, cuatro cruces; no atraviesa
+paredes ni inmoviliza.
+07
+Silencio propagado
+ACTIVA
+Acierta a un robot durante su aviso de ataque.
+CAMBIA
+Interrumpe ese ataque y envía una pausa breve a un único
+vecino que también esté preparando el suyo.
+SE VE / SE OYE
+Símbolo de ataque tachado y un arco corto.
+COMBINA
+Circuito cerrado ayuda a vigilar blancos conectados.
+LÍMITE
+Disponible cada 8 s; salto de 4 m y pausa secundaria de
+0,4 s.
+08
+Arco de suelo
+ACTIVA
+Carga la carta con tres bajas directas; después dispara al
+suelo.
+CAMBIA
+Colocas una franja eléctrica breve. Los robots que la
+crucen reciben un pulso y una ralentización corta.
+SE VE / SE OYE
+Tres segmentos en la mira y una franja azul baja.
+COMBINA
+Chatarra imantada reúne enemigos sobre la franja.
+LÍMITE
+Una carga, franja de 4 m durante 1,5 s, cuatro blancos;
+nunca atraviesa obstáculos.
+
+ROBOT TOWER / LABORATORIO DE CARTAS
+PROPUESTA 3 / La horda se convierte en arma
+4 / 5
+Cómo se construye una partida
+ADQUISICIÓN Y OFERTAS
+Empiezas con pistola. Tras cada oleada eliges una de tres cartas: una del arma equipada y dos globales. En hitos
+prefijados, una opción global ofrece un arma pendiente. Las cartas de escopeta o cuchillo sólo aparecen tras
+obtenerlos. Sin armas pendientes, se mantiene la oferta de tres cartas.
+CARTAS Y TIENDA TIENEN FUNCIONES DISTINTAS
+La tienda conserva daño, cadencia, cargador, recarga, salud y escudo. Las cartas ofrecen capacidades durante el
+intento. No se compran copias para acumular multiplicadores; armas y cartas se explican antes de aceptar.
+BUILD 1 / CENTRO DE TORMENTA
+Chatarra imantada + Circuito cerrado + Portador
+Antes: Ariete avanza con la horda y Aguja presiona desde un lateral. Después: una baja reúne normales; conectas dos de
+ellos y Ariete. Pasas la carga hacia el grupo y cierras el circuito. Aguja sigue fuera del centro y conserva su línea de tiro.
+Decisión y respuesta: Decides dónde reunirlos y cuándo detonar; debes abandonar tu preparación si Aguja te gana el ángulo.
+BUILD 2 / EL CALLEJÓN QUE DIBUJAS
+Cable de retirada + Corte de enlace + Bola de bolos
+Antes: correr en círculo separa poco a la horda. Después: una baja y tu posición dibujan un cable. Un normal que lo cruza
+ofrece una entrada de cuchillo para enlazarlo con Ariete; la escopeta lo proyecta contra él. Aguja obliga a cambiar de
+posición después.
+Decisión y respuesta: Eliges la línea de cruce y asumes el riesgo de acercarte. Un empujón mal orientado rompe tu oportunidad.
+LA ELECCIÓN QUE CAMBIA TU PLAN
+Mi apuesta es Centro de tormenta: permite reconocer inmediatamente qué carta reunió a los robots, cuál los
+conectó y cuál hizo explotar la combinación. Cada pieza también funciona por separado.
+
+ROBOT TOWER / LABORATORIO DE CARTAS
+PROPUESTA 3 / La horda se convierte en arma
+5 / 5
+Qué probar primero y cómo elegir
+PROTOTIPO MÍNIMO: TRES CARTAS
+Probaría primero Circuito cerrado, después Chatarra imantada y finalmente Portador. Tres cartas, una arena
+existente y ninguna estadística nueva. Compararía partidas con y sin cartas, presentadas individualmente antes de
+ofrecer la combinación completa.
+COSTE RELATIVO Y DEPENDENCIA REAL
+Coste relativo: Circuito medio; Chatarra alto por desplazamientos y navegación; Portador medio por selección y
+lectura. Bola de bolos y cables son caros. Los valores propuestos son hipótesis de prototipo, sin estimación de
+calendario.
+POTENCIA, LÍMITES Y RIESGOS
+Las reacciones no cuentan como impactos ni bajas directos para activar cartas. Límites globales de blancos y
+efectos evitan bucles y saturación. Interrupciones devuelven el control del ataque correctamente; ningún control
+puede bloquear indefinidamente a Ariete o Aguja.
+PRUEBA CON EL TESTER
+1. Tras recibir cada carta, al menos cuatro de cinco testers explican qué hacer y reconocen su efecto en menos de una
+oleada.
+2. Comparar dos intentos equivalentes: registrar agrupaciones y detonaciones deliberadas; preguntar qué combinación
+prepararían después, sin sugerir nombres.
+3. Verificar que ningún robot queda atrapado en controles sucesivos y que daño de reacción nunca genera activaciones
+recursivas ni atasca oleadas.
+4. En la horda máxima actual, medir el coste frente a la misma escena sin cartas y comprobar que avisos enemigos siguen
+visibles.
+QUÉ HAY QUE ACEPTAR AL ELEGIR ESTA PROPUESTA
+Exige más lectura espacial que una mejora pasiva. La recompensa puede ser mayor, pero la preparación debe
+caber en segundos y sobrevivir al caos. Si los testers sólo entienden las explosiones, simplificaría conexiones antes
+de añadir más cartas.
+Base revisada: feedback de Edgar y su tester; cartas y flujo actuales en RewardCards.md, RewardCard.cs, RewardEffects.cs y RunRewards.cs. La afinidad
+ofensiva actual usa el arma equipada, no la última baja. El arsenal progresivo es una dirección elegida, pendiente de implementar. Fiabilidad de
+oleadas primero; IA y mapas quedan fuera de estas propuestas.

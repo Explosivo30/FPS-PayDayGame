@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa7a8dc039cb54885cbcf3627787cb, type: 3}
+  m_Name: WorkHammer
+  m_EditorClassIdentifier: 
+  id: mutation_WorkHammer
+  title: Martillo de obra
+  weaponId: 
+  description: "Acierta tres disparos al mismo robot y recarga para golpear su \xFAltima
+    posici\xF3n con un martillo suspendido."
+  activationHint: "Impacto tras 0,8 s \xB7 recuperaci\xF3n 12 s \xB7 cambiar blanco
+    reinicia marca"
+  icon: {fileID: 21300000, guid: 40c88402e6d69f94085562900af212de, type: 3}
+  group: 0
+  kind: 8
+  stat: 0
+  mutation: 16
+  special: 0
+  maxLevel: 1
+  value: 85
+  secondaryValue: 0

@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "Assets/Scripts/Managers/GameManager.cs",
+    "Hash": "E1E93F4436C3AF5C7C1B9DA562B09C423564126A0F345206E9C7E6847E7CD749"
+  },
+  {
+    "Path": "Assets/Scenes/LaboratoryFloor.unity",
+    "Hash": "3842D74B1595385A12AC4EE038678DAC10DFE4632FD59FCBA572A66A8A14D8A5"
+  },
+  {
+    "Path": "Assets/Scenes/RoboticForest.unity",
+    "Hash": "4FB073D50A4D2C6A120A8E4184B9BABB34E812DD2FD1BB8F3BC37CF8968F65CD"
+  },
+  {
+    "Path": "Assets/Scenes/CrystalGarden.unity",
+    "Hash": "AE56E81D3E3660E0E595F1062CBD83D2BEE88FE5B068850B25840FABD3B97869"
+  },
+  {
+    "Path": "Assets/Scenes/TowerCore.unity",
+    "Hash": "5200CEDE12F0550CD857152F8DA57F6C5A3364186DE948FA996F7DA655DD7977"
+  },
+  {
+    "Path": "ProjectSettings/GraphicsSettings.asset",
+    "Hash": "56C816BD980CA4B9C5A33F5EF233BCAEA6C08505A1AF65AC5E5E633CE8BAD6FE"
+  },
+  {
+    "Path": "Assets/Art/Tower/TowerCel.shader",
+    "Hash": "ED706AE432A5C288FBC27C069A991232BC9E9F0B76EBF14DCD5CC0350F717598"
+  },
+  {
+    "Path": "Assets/Settings/PC_RPAsset.asset",
+    "Hash": "EA4FE45F58E165848B1DEE620F4C2FDB56BFEDAC820F33EA785B6459E410671B"
+  }
+]

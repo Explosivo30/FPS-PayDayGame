@@ -1,0 +1,57 @@
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public static class EZCollabVisualTheme
+    {
+        static readonly Color[] Palette =
+        {
+            FromRgb(67, 160, 255),
+            FromRgb(255, 99, 99),
+            FromRgb(62, 207, 142),
+            FromRgb(255, 174, 66),
+            FromRgb(186, 104, 200),
+            FromRgb(0, 188, 212),
+            FromRgb(240, 98, 146),
+            FromRgb(139, 195, 74),
+            FromRgb(255, 112, 67),
+            FromRgb(126, 87, 194),
+            FromRgb(38, 198, 218),
+            FromRgb(255, 202, 40)
+        };
+
+        public static readonly Color Neutral = FromRgb(155, 160, 170);
+
+        public static Color GetPeerColor(string peerId, bool honorColorPreference = true)
+        {
+            if (honorColorPreference && !EZCollabViewSettings.colors)
+                return Neutral;
+
+            uint hash = 2166136261;
+            if (!string.IsNullOrEmpty(peerId))
+            {
+                unchecked
+                {
+                    for (int i = 0; i < peerId.Length; i++)
+                    {
+                        hash ^= peerId[i];
+                        hash *= 16777619;
+                    }
+                }
+            }
+
+            return Palette[hash % (uint)Palette.Length];
+        }
+
+        public static Color WithAlpha(Color color, float alpha)
+        {
+            color.a = alpha;
+            return color;
+        }
+
+        static Color FromRgb(byte red, byte green, byte blue)
+        {
+            return new Color32(red, green, blue, 255);
+        }
+    }
+}

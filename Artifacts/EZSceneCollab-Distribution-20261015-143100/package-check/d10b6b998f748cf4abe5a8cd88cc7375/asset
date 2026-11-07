@@ -1,0 +1,14 @@
+{
+  "name": "EZCollabTool.Editor",
+  "rootNamespace": "EZCollabTool",
+  "references": [
+    "EZCollabTool.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "autoReferenced": false
+}

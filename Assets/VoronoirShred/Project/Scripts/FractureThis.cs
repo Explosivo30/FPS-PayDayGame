@@ -22,6 +22,7 @@ namespace Project.Scripts.Fractures
 
         private System.Random rng = new System.Random();
         private ChunkGraphManager graphManager;
+        public ChunkGraphManager GeneratedGraph => graphManager;
 
         private void Start()
         {

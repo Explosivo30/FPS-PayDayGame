@@ -1,0 +1,133 @@
+PASS The alpha district loads its real playable core
+PASS Both real fracture systems are prepared before the encounter
+PASS The level exposes six authored districts
+PASS Exactly one real player is loaded
+PASS The district does not run tower wave progression
+PASS The three spatial milestones start incomplete
+PASS The actual district pipeline is active in quality and graphics settings
+PASS Real player cameras and renderers receive the district style
+PASS The actual actor shader is supported
+PASS Actual player cameras use renderer zero of the local pipeline
+INFO RENDER pipeline=District pipeline, actorShader=Shader Graphs/ToonShader, styledRenderers=43, cameras=2; visual quality still requires screenshot review.
+PASS Authored motor marker exists: QA.B
+INFO B-first-intact enters zone=0 phase=B position=(4.000,1.090,-43.000)
+INFO B-first-intact enters zone=1 phase=B position=(-28.474,1.090,-37.184)
+PASS Real player motor reaches B without an internal teleport
+PASS The real interaction terminal exists for kind 0
+PASS Authored motor marker exists: QA.B
+PASS Real player motor reaches approach-power-0 without an internal teleport
+INFO Real E-handler reached terminal 0 at (-46.752,1.090,-5.049)
+PASS Actual three-metre E-ray starts power objective 0
+PASS Power objective 0 completes under live pressure in its authored district
+INFO Power 0 observed duration=18.000s; authored bot orbit is not human pacing.
+PASS Authored motor marker exists: QA.E
+INFO B-first-intact enters zone=4 phase=E position=(-33.674,1.538,11.280)
+PASS Real player motor reaches E without an internal teleport
+PASS Authored motor marker exists: QA.F
+INFO B-first-intact enters zone=5 phase=F position=(0.028,3.110,34.016)
+PASS Real player motor reaches F without an internal teleport
+PASS The real interaction terminal exists for kind 1
+PASS Authored motor marker exists: QA.F
+PASS Real player motor reaches approach-power-1 without an internal teleport
+INFO Real E-handler reached terminal 1 at (17.980,1.090,38.787)
+PASS Actual three-metre E-ray starts power objective 1
+PASS Power objective 1 completes under live pressure in its authored district
+INFO Power 1 observed duration=18.001s; authored bot orbit is not human pacing.
+PASS Authored motor marker exists: QA.C
+INFO B-first-intact enters zone=3 phase=C-radio position=(31.030,1.090,13.982)
+INFO B-first-intact enters zone=2 phase=C-radio position=(20.755,1.090,-4.631)
+PASS Real player motor reaches C-radio without an internal teleport
+PASS The real interaction terminal exists for kind 2
+PASS Authored motor marker exists: QA.C
+PASS Real player motor reaches radio-E-ray without an internal teleport
+INFO Real E-handler reached terminal 2 at (7.176,1.090,4.613)
+PASS The radio is reached by the actual E-handler
+PASS Both powers enable the evacuation alarm
+PASS Authored motor marker exists: QA.A
+INFO B-first-intact enters zone=0 phase=A-return position=(3.452,1.090,-22.019)
+PASS Real player motor reaches A-return without an internal teleport
+PASS The real interaction terminal exists for kind 3
+PASS Authored motor marker exists: QA.A
+INFO Real E-handler reached terminal 3 at (1.917,1.090,-43.829)
+PASS B-first-intact: spatial milestones and actual extraction complete
+PASS B-first-intact: observed population respects declared caps
+INFO Initially intact trace ends containmentOpen=False, collapseSettled=False; enemy-caused changes are reported, not silently attributed to a player decision.
+INFO B-first-intact: seconds=101.318, metres=724.828, damage=13.500, gameHealing=0.000, aliveAtExit=11, completed=True; not a human fun/difficulty score.
+PASS Restart reconstructs the actual district
+PASS Both real fracture systems are prepared before the encounter
+PASS Restart restores a living, unpaused player
+PASS Authored motor marker exists: QA.D
+INFO F-first-reactive enters zone=0 phase=D position=(4.004,1.090,-42.999)
+INFO F-first-reactive enters zone=3 phase=D position=(31.678,1.090,-36.171)
+PASS Real player motor reaches D without an internal teleport
+PASS Authored motor marker exists: QA.F
+INFO F-first-reactive enters zone=5 phase=F position=(33.183,1.090,14.095)
+PASS Real player motor reaches F without an internal teleport
+PASS The real interaction terminal exists for kind 1
+PASS Authored motor marker exists: QA.F
+PASS Real player motor reaches approach-power-1 without an internal teleport
+INFO Real E-handler reached terminal 1 at (18.011,1.090,38.801)
+PASS Actual three-metre E-ray starts power objective 1
+PASS Power objective 1 completes under live pressure in its authored district
+INFO Power 1 observed duration=18.001s; authored bot orbit is not human pacing.
+PASS Authored motor marker exists: QA.ContainmentFar
+PASS Authored motor marker exists: QA.ContainmentNear
+PASS Real player motor reaches F-side-containment without an internal teleport
+PASS Actual weapon fire severs C-F-containment
+INFO C-F-containment structural shots=10; robots and hazards remain active.
+PASS Both containment states preserve a real district route
+PASS Containment destruction opens reciprocal firing lines
+INFO Containment path metres before/after=76.354/6.800; distance alone does not validate the choice.
+PASS Real player motor reaches C-F-new-crossing without an internal teleport
+PASS Authored motor marker exists: QA.CollapseNear
+PASS Authored motor marker exists: QA.CollapseFar
+INFO F-first-reactive enters zone=2 phase=collapse-safe-approach position=(11.910,1.090,17.051)
+PASS Real player motor reaches collapse-safe-approach without an internal teleport
+PASS Actual weapon fire severs gantry-support
+INFO gantry-support structural shots=5; robots and hazards remain active.
+PASS Actual weapon fire severs gantry-support
+INFO gantry-support structural shots=7; robots and hazards remain active.
+PASS The live gantry settles once after both real supports are severed
+PASS Settling replaces the hostile nest and low passage with stable ramp geometry
+PASS The districts remain connected in both gantry states
+INFO Gantry path metres before/after=40.334/40.334, live impact kills=1; no immobilized target guarantees a crush.
+INFO F-first-reactive enters zone=4 phase=actual-final-ramp-surface position=(-10.974,2.338,17.751)
+PASS Real player motor reaches actual-final-ramp-surface without an internal teleport
+PASS Real player motor reaches gantry-ramp-exit without an internal teleport
+PASS Authored motor marker exists: QA.E
+PASS Real player motor reaches E without an internal teleport
+PASS Authored motor marker exists: QA.B
+INFO F-first-reactive enters zone=1 phase=B position=(-34.474,1.655,11.553)
+PASS Real player motor reaches B without an internal teleport
+PASS The real interaction terminal exists for kind 0
+PASS Authored motor marker exists: QA.B
+PASS Real player motor reaches approach-power-0 without an internal teleport
+INFO Real E-handler reached terminal 0 at (-46.734,1.090,-5.037)
+PASS Actual three-metre E-ray starts power objective 0
+PASS Power objective 0 completes under live pressure in its authored district
+INFO Power 0 observed duration=18.002s; authored bot orbit is not human pacing.
+PASS Authored motor marker exists: QA.C
+INFO F-first-reactive enters zone=2 phase=C-radio position=(-19.302,1.090,-11.889)
+PASS Real player motor reaches C-radio without an internal teleport
+PASS The real interaction terminal exists for kind 2
+PASS Authored motor marker exists: QA.C
+PASS Real player motor reaches radio-E-ray without an internal teleport
+INFO Real E-handler reached terminal 2 at (7.141,1.090,4.615)
+PASS The radio is reached by the actual E-handler
+PASS Both powers enable the evacuation alarm
+PASS Authored motor marker exists: QA.A
+INFO F-first-reactive enters zone=0 phase=A-return position=(3.452,1.090,-22.019)
+PASS Real player motor reaches A-return without an internal teleport
+PASS The real interaction terminal exists for kind 3
+PASS Authored motor marker exists: QA.A
+INFO Real E-handler reached terminal 3 at (1.915,1.090,-43.864)
+PASS F-first-reactive: spatial milestones and actual extraction complete
+PASS F-first-reactive: observed population respects declared caps
+PASS The reactive route transforms both connections
+INFO F-first-reactive: seconds=115.106, metres=709.739, damage=40.500, gameHealing=0.000, aliveAtExit=9, completed=True; not a human fun/difficulty score.
+PASS Restart reconstructs the actual district
+PASS Both real fracture systems are prepared before the encounter
+PASS Restart restores a living, unpaused player
+PASS Restart restores both structures and all milestones
+PASS QA restart leaves no projectile or danger lease before the encounter starts
+ERRORS

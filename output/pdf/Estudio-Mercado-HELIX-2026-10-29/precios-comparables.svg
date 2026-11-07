@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="500" height="588" preserveAspectRatio="xMinYMin meet" viewBox="0 0 500 588" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="500" height="588"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-588)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="500" height="588" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(95%,96%,96%); fill-rule: evenodd;"/>
+			<path d="M 142,43 L 142,555 Z" style="stroke: rgb(86%,89%,89%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="139.775390625" y="28" style="font-family: Arial; font-size: 8px;fill: rgb(32%,39%,45%); stroke:none;" transform="translate(0,56) scale(1,-1)">0</text>
+			<path d="M 215.333333,43 L 215.333333,555 Z" style="stroke: rgb(86%,89%,89%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="210.88411458333331" y="28" style="font-family: Arial; font-size: 8px;fill: rgb(32%,39%,45%); stroke:none;" transform="translate(0,56) scale(1,-1)">10</text>
+			<path d="M 288.666667,43 L 288.666667,555 Z" style="stroke: rgb(86%,89%,89%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="284.21744791666663" y="28" style="font-family: Arial; font-size: 8px;fill: rgb(32%,39%,45%); stroke:none;" transform="translate(0,56) scale(1,-1)">20</text>
+			<path d="M 362,43 L 362,555 Z" style="stroke: rgb(86%,89%,89%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="357.55078125" y="28" style="font-family: Arial; font-size: 8px;fill: rgb(32%,39%,45%); stroke:none;" transform="translate(0,56) scale(1,-1)">30</text>
+			<path d="M 435.333333,43 L 435.333333,555 Z" style="stroke: rgb(86%,89%,89%); stroke-linecap: butt; stroke-width: 0.5;"/>
+			<text x="430.8841145833333" y="28" style="font-family: Arial; font-size: 8px;fill: rgb(32%,39%,45%); stroke:none;" transform="translate(0,56) scale(1,-1)">40</text>
+			<text x="80.87934570312501" y="542.0" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Tower of Guns</text>
+			<rect x="142" y="538.0" width="98.92666666666668" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="240.92666666666668" cy="544.5" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="78.62099609375" y="519.2" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,1038) scale(1,-1)">Gunfire Reborn</text>
+			<rect x="142" y="515.2" width="123.12666666666667" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="228.16666666666666" cy="521.7" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="68.27846679687501" y="496.4" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,992) scale(1,-1)">Immortal Redneck</text>
+			<rect x="142" y="492.4" width="146.29999999999995" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="288.29999999999995" cy="498.9" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="80.86748046875" y="473.6" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,947) scale(1,-1)">Battle Shapers</text>
+			<rect x="142" y="469.6" width="146.5933333333333" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="288.5933333333333" cy="476.1" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="97.53022460937501" y="450.8" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,901) scale(1,-1)">Ziggurat 2</text>
+			<rect x="142" y="446.8" width="161.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="303.26" cy="453.3" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="102.481982421875" y="428.0" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,856) scale(1,-1)">Deadlink</text>
+			<rect x="142" y="424.0" width="179.66666666666663" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="321.66666666666663" cy="430.5" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="67.819677734375" y="405.2" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,810) scale(1,-1)">Nightmare Reaper</text>
+			<rect x="142" y="401.2" width="179.66666666666663" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="321.66666666666663" cy="407.7" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="94.82099609375001" y="382.4" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,764) scale(1,-1)">Roboquest</text>
+			<rect x="142" y="378.4" width="183.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="266.5933333333333" cy="384.9" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="61.997802734375" y="359.6" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,719) scale(1,-1)">MOTHERGUNSHIP</text>
+			<rect x="142" y="355.6" width="183.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="325.26" cy="362.1" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="68.70166015625" y="336.79999999999995" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,673) scale(1,-1)">Deadzone: Rogue</text>
+			<rect x="142" y="332.79999999999995" width="183.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="325.26" cy="339.29999999999995" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="103.3876953125" y="314.0" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,628) scale(1,-1)">Abyssus</text>
+			<rect x="142" y="310.0" width="183.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="325.26" cy="316.5" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="87.63857421875" y="291.2" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,582) scale(1,-1)">UNYIELDER</text>
+			<rect x="142" y="287.2" width="183.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<circle cx="325.26" cy="293.7" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="99.32978515625001" y="268.4" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,536) scale(1,-1)">Post Void</text>
+			<rect x="142" y="264.4" width="21.926666666666677" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="163.92666666666668" cy="270.9" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="83.12978515625" y="245.59999999999997" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,491) scale(1,-1)">Devil Daggers</text>
+			<rect x="142" y="241.59999999999997" width="52.43333333333334" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="157.69333333333333" cy="248.09999999999997" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="73.69296875" y="222.8" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,445) scale(1,-1)">HYPER DEMON</text>
+			<rect x="142" y="218.8" width="78.83333333333331" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="220.83333333333331" cy="225.3" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="111.49560546875" y="200.0" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,400) scale(1,-1)">DUSK</text>
+			<rect x="142" y="196.0" width="142.92666666666662" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="189.15333333333334" cy="202.5" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="56.567480468750006" y="177.2" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,354) scale(1,-1)">Warstride Challenges</text>
+			<rect x="142" y="173.2" width="146.5933333333333" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="288.5933333333333" cy="179.7" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="94.38593750000001" y="154.39999999999998" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,308) scale(1,-1)">Sker Ritual</text>
+			<rect x="142" y="150.39999999999998" width="146.5933333333333" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="191.79333333333332" cy="156.89999999999998" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="90.782861328125" y="131.59999999999997" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,263) scale(1,-1)">ULTRAKILL</text>
+			<rect x="142" y="127.59999999999997" width="157.5933333333333" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="299.5933333333333" cy="134.09999999999997" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="84.929345703125" y="108.80000000000001" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,217) scale(1,-1)">Killing Floor 2</text>
+			<rect x="142" y="104.80000000000001" width="205.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="162.46" cy="111.30000000000001" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="101.596044921875" y="86.0" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,172) scale(1,-1)">SULFUR</text>
+			<rect x="142" y="82.0" width="219.92666666666662" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="361.9266666666666" cy="88.5" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="84.929345703125" y="63.19999999999999" style="font-family: Arial; font-size: 8.1px;fill: rgb(6%,16%,22%); stroke:none;" transform="translate(0,126) scale(1,-1)">Killing Floor 3</text>
+			<rect x="142" y="59.19999999999999" width="293.26" height="13.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<circle cx="288.5933333333333" cy="65.69999999999999" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<rect x="145" y="570" width="12" height="7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(64%,80%,79%); fill-rule: evenodd;"/>
+			<text x="162" y="569" style="font-family: Arial; font-size: 8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1138) scale(1,-1)">Base roguelite</text>
+			<rect x="260" y="570" width="12" height="7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(70%,76%,80%); fill-rule: evenodd;"/>
+			<text x="277" y="569" style="font-family: Arial; font-size: 8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1138) scale(1,-1)">Base otros</text>
+			<circle cx="363" cy="574" r="2.7" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(78%,34%,18%); fill-rule: evenodd;"/>
+			<text x="372" y="569" style="font-family: Arial; font-size: 8px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1138) scale(1,-1)">Observado</text>
+			<text x="235.95751953125" y="8" style="font-family: Arial; font-size: 9px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,16) scale(1,-1)">EUR - región España - 29/10/2026</text>
+		</g>
+	</g>
+</svg>

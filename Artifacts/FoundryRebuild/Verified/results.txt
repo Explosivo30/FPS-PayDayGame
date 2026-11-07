@@ -1,0 +1,186 @@
+PASS The rebuilt level loads its shared playable core
+PASS The central screen has a prepared fracture graph
+PASS The rebuilt foundry is the active scene
+PASS There is exactly one real player
+PASS Local level does not start tower progression
+PASS Opt-in QA starts before the actual encounter
+PASS Remote collection and the locked exit cannot skip the spatial objective
+INFO Previous Artifacts/FoundryArena results belong to the old room and are not this level's validation.
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.BreachSouth
+PASS Scene anchor exists: QA.BreachNorth
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.ExitApproach
+PASS Scene anchor exists: QA.CombatCenter
+PASS The intact screen leaves a complete route to the locked exit approach
+PASS The intact central screen blocks the direct crossing but has a detour
+PASS The intact central screen blocks the measured reciprocal firing line
+PASS The screen uses a bounded real fracture graph
+PASS The actual starting pistol is available
+PASS A real pistol shot damages the shared structural pool once
+PASS Pause refuses structural damage
+PASS Actual weapon fire opens a collider-clear screen
+PASS Collapse opens the real direct navigation crossing
+PASS The opened screen creates a shorter physical connection
+INFO Measured local crossing metres intact/open: 9.010 / 4.800; this is not evidence of a good combat decision.
+PASS Collapse opens that firing line in both directions
+PASS Opening the screen preserves the complete route to the locked exit approach
+PASS The opened crossing fits the actual player capsule
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+INFO Dry motor access starts at the actual arrival without enemies. No teleport is used inside the arrival/foot/gallery/core route.
+INFO Actual motor capsule height=2.000, radius=0.400, stepOffset=0.320, slopeLimit=45.000
+PASS Scene anchor exists: QA.SouthRampFoot
+PASS Actual player motor reaches QA.SouthRampFoot without a jump or teleport
+PASS Scene anchor exists: QA.High
+PASS Actual player motor reaches QA.High without a jump or teleport
+PASS Scene anchor exists: QA.Core
+PASS Actual player motor reaches QA.Core without a jump or teleport
+PASS The isolated motor route does not silently start a QA encounter
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS An occupied first reinforcement entry does not strand the other two physical entries
+PASS The blocked Aguja entry does not materialize a sniper on the occupying player
+INFO Occupied-entry fixture: spawned=6, pending=1, blocked attempts=1; no freeze or healing during its four seconds.
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO stationary-intact: 10.4s, distance 0.0m, damage 150.0, dead=True. Observation only; not a pass/fail for fun, fairness or strategy quality.
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO orbit-intact: 12.0s, distance 85.3m, damage 7.0, dead=False. Observation only; not a pass/fail for fun, fairness or strategy quality.
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.BreachSouth
+PASS Actual weapon fire opens a collider-clear screen
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO stationary-open: 10.2s, distance 0.0m, damage 150.0, dead=True. Observation only; not a pass/fail for fun, fairness or strategy quality.
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.BreachSouth
+PASS Actual weapon fire opens a collider-clear screen
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO orbit-open: 12.0s, distance 90.2m, damage 14.0, dead=False. Observation only; not a pass/fail for fun, fairness or strategy quality.
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Exit
+PASS Scene anchor exists: QA.Core
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO advance-intact: gallery hold begins at (-0.153,3.890,6.668), alive=2, pending=2
+INFO BRUTE OBS advance-intact gallery=1.337 enemy=(-5.864,0.020,12.960) player=(-0.456,3.890,7.128) flat=7.954 deltaY=3.870 visible=True canAttack=True contactHeight=2.182 contactRay=False contactClear=False firstCollider=North gallery descent phase=Chase primary=0 remaining=Infinity stopping=1.150 destination=(-0.076,2.468,9.902) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-intact gallery=3.333 enemy=(-1.297,1.170,12.088) player=(-0.456,3.890,7.128) flat=5.030 deltaY=2.720 visible=True canAttack=False contactHeight=1.050 contactRay=True contactClear=False firstCollider=Player phase=Chase primary=1 remaining=3.640 stopping=1.150 destination=(0.720,2.740,9.495) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-intact gallery=5.333 enemy=(1.226,2.820,6.282) player=(-0.456,3.890,7.128) flat=1.882 deltaY=1.070 visible=True canAttack=True contactHeight=0.000 contactRay=True contactClear=True firstCollider=Player phase=Windup primary=1 remaining=0.000 stopping=1.150 destination=(1.226,2.820,6.282) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-intact gallery=7.333 enemy=(-0.174,2.825,4.491) player=(-0.973,3.890,7.259) flat=2.881 deltaY=1.065 visible=True canAttack=False contactHeight=0.000 contactRay=True contactClear=True firstCollider=Player phase=Chase primary=1 remaining=0.705 stopping=1.150 destination=(-0.879,2.820,4.487) chargeStop=Player contact chargeTravel=1.163 contactsResolved=1
+INFO advance-intact: gallery no-fire hold received damage=64.000, alive=4
+INFO advance-intact: gallery complete 8+8s hold damage=71.000, alive=0; zero surviving threats would make the safety test inconclusive.
+INFO advance-intact: 22.5s, distance 47.8m, damage 71.0, dead=False, completed=True. Human evaluation remains required.
+PASS advance-intact: the limited armed controller reaches the actual core/clear/exit objective
+PASS advance-intact: zero-input hold never passes through the enabled north deck while remaining inside its footprint
+PASS advance-intact: the unlocked extraction has an observed complete navigation route
+INFO Initially intact trace ends with screen intact=True; enemy impacts or physical muzzle obstruction can cause emergent destruction.
+PASS The local objective does not grant tower progress
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.BreachSouth
+PASS Actual weapon fire opens a collider-clear screen
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Arrival
+PASS Scene anchor exists: QA.Exit
+PASS Scene anchor exists: QA.Core
+PASS Scene anchor exists: QA.Orbit.0
+PASS Scene anchor exists: QA.Orbit.1
+PASS Scene anchor exists: QA.Orbit.2
+PASS Scene anchor exists: QA.Orbit.3
+INFO advance-open: gallery hold begins at (-0.184,3.890,6.716), alive=2, pending=1
+INFO BRUTE OBS advance-open gallery=1.337 enemy=(-5.384,0.020,13.187) player=(-0.495,3.890,7.189) flat=7.738 deltaY=3.870 visible=True canAttack=True contactHeight=2.180 contactRay=False contactClear=False firstCollider=North gallery descent phase=Chase primary=0 remaining=Infinity stopping=1.150 destination=(-2.267,2.735,9.357) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-open gallery=3.337 enemy=(-1.742,1.626,11.305) player=(-0.495,3.890,7.189) flat=4.301 deltaY=2.264 visible=True canAttack=True contactHeight=0.615 contactRay=True contactClear=True firstCollider=Player phase=Chase primary=1 remaining=1.721 stopping=1.150 destination=(-1.307,2.468,9.869) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-open gallery=5.337 enemy=(-0.665,2.845,7.747) player=(-0.495,3.890,7.189) flat=0.583 deltaY=1.045 visible=True canAttack=True contactHeight=0.000 contactRay=True contactClear=True firstCollider=Player phase=Windup primary=1 remaining=0.000 stopping=1.150 destination=(-0.665,2.845,7.747) chargeStop= chargeTravel=0.000 contactsResolved=0
+INFO BRUTE OBS advance-open gallery=7.337 enemy=(-0.665,2.845,7.747) player=(-0.495,3.890,7.189) flat=0.583 deltaY=1.045 visible=True canAttack=True contactHeight=0.000 contactRay=True contactClear=True firstCollider=Player phase=Chase primary=1 remaining=0.584 stopping=1.150 destination=(-0.495,2.842,7.189) chargeStop=Player contact chargeTravel=0.000 contactsResolved=1
+INFO advance-open: gallery no-fire hold received damage=50.000, alive=3
+INFO advance-open: gallery complete 8+8s hold damage=57.000, alive=0; zero surviving threats would make the safety test inconclusive.
+INFO advance-open: 22.6s, distance 48.0m, damage 57.0, dead=False, completed=True. Human evaluation remains required.
+PASS advance-open: the limited armed controller reaches the actual core/clear/exit objective
+PASS advance-open: zero-input hold never passes through the enabled north deck while remaining inside its footprint
+PASS advance-open: the unlocked extraction has an observed complete navigation route
+PASS The local objective does not grant tower progress
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Scene anchor exists: QA.CombatCenter
+PASS Actual player death pauses the level
+PASS Restart loads a fresh level and player state
+PASS Restart reconstructs the screen fracture graph
+PASS Restart restores the screen and spatial objective
+PASS Restart restores a living unpaused player
+PASS Restart leaves no projectile or hazard lease
+PASS Restart keeps exactly one shared player
+PASS Observed sector guards stay within their assigned bounds (0.25m avoidance tolerance)
+PASS Observed simultaneous population respects the six-robot ceiling
+ERRORS

@@ -1,0 +1,15 @@
+# Presence and performance in 1.1
+
+During a session, the dockable **EZ Scene Collab** Scene View overlay provides four local visibility controls: **Pointers**, **Cameras**, **Names** and **Colors**. All start enabled. Preferences are stored with EditorPrefs and do not alter another participant's view. Disabling Colors uses neutral gray, including lock indicators; locks remain enforced and badges remain visible.
+
+Remote pointers identify a scene object by GUID and store a local surface point, so they follow that object when it moves. Collider and mesh intersections are preferred; bounds or the selected object's pivot provide a fallback. Pointer capture is driven by mouse movement in the active Scene View, at most 12 times per second. Navigation, leaving the view and overlay controls hide the pointer. Identical keepalives every second maintain connection presence without restarting the pointer's inactivity fade. Pointers fade after one second without movement and expire three seconds after their last received update. Only other participants in the same scene context are shown. Prefab Mode editing remains unsupported.
+
+Camera icons use a constant screen-relative size with a small representative frustum. They are indicators, not a Follow User feature. Names are drawn beside the visible pointer or camera. The participant list remains available when names are hidden.
+
+Initial synchronization blocks editing only on the joining client. Capture and application process at most 32 items per editor update with a cooperative 2 ms budget. Objects are captured from stable membership with parents before children. Material data is deduplicated and transmitted first. Chunks target approximately 256 KiB and at most 32 objects. An exceptionally large object travels alone.
+
+Changes since the snapshot baseline are replayed before editing is enabled. Creation, deletion, components and materials remain reliable; unsent transforms for the same object and presence for the same user replace older samples. Presence is excluded from snapshots, Undo, recovery history and synchronization queues. Reconnection uses compacted history when available and falls back to a snapshot otherwise.
+
+Normal movement uses the GUID index and modified objects, without scanning all scene objects. Moving an imported or generated mesh sends its transform, not the mesh. Editing a generated mesh still sends its complete supported geometry. One expensive object can exceed the cooperative main-thread budget and block the TCP stream briefly. Generic mesh fragmentation is not included in 1.1.
+
+The scale target is 10,000 GameObjects and eight participants, with normal plugin main-thread p95 below 3 ms and LAN visual latency below 200 ms. These are acceptance targets, not a guarantee for arbitrary components, meshes or hardware. Refer to [the validation record](VALIDATION_1_1.md) for measurements and manual checks still required.

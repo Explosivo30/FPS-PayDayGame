@@ -1,0 +1,259 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabPresenceOverlay
+    {
+        const double FadeRepaintInterval = 0.1d;
+
+        static GUIStyle nameStyle;
+        static double nextFadeRepaint;
+
+        static EZCollabPresenceOverlay()
+        {
+            SceneView.duringSceneGui += OnSceneGUI;
+            EZCollabPresenceState.presenceChanged += OnPresenceChanged;
+            EZCollabPresenceState.presenceRemoved += OnPresenceRemoved;
+            EZCollabPresenceState.cleared += OnPresenceCleared;
+            EZCollabViewSettings.changed += EZCollabSceneRepaintScheduler.Request;
+            EditorApplication.update += OnUpdate;
+        }
+
+        static void OnSceneGUI(SceneView view)
+        {
+            if (!EZCollabState.inSession || Event.current == null || Event.current.type != EventType.Repaint ||
+                EZCollabPresenceState.count == 0)
+            {
+                return;
+            }
+
+            bool drawPointers = EZCollabViewSettings.pointers;
+            bool drawCameras = EZCollabViewSettings.cameras;
+            bool drawNames = EZCollabViewSettings.names;
+            if (!drawPointers && !drawCameras && !drawNames)
+                return;
+
+            double now = Time.realtimeSinceStartupAsDouble;
+            foreach (KeyValuePair<string, EZCollabParticipantPresence> pair in EZCollabPresenceState.participants)
+            {
+                if (pair.Key == EZCollabState.localPeerId)
+                    continue;
+
+                EZCollabParticipantPresence presence = pair.Value;
+                EZCollabPresencePayload payload = presence?.payload;
+                if (payload == null || !EZCollabSceneContext.IsCurrent(payload.sceneContext))
+                    continue;
+
+                float connectionOpacity = EZCollabPresenceState.GetOpacity(presence, now);
+                if (connectionOpacity <= 0f)
+                    continue;
+
+                Color peerColor = EZCollabVisualTheme.GetPeerColor(pair.Key);
+                float pointerOpacity = EZCollabPresenceState.GetPointerOpacity(presence, now) * connectionOpacity;
+                Vector3 pointerPosition = Vector3.zero;
+                Vector3 pointerNormal = Vector3.up;
+                bool pointerVisible = drawPointers && pointerOpacity > 0f && payload.hasPointer &&
+                                      TryResolvePointer(payload, out pointerPosition, out pointerNormal);
+                bool cameraVisible = drawCameras && payload.hasCamera;
+                Color pointerColor = EZCollabVisualTheme.WithAlpha(peerColor, pointerOpacity);
+                Color cameraColor = EZCollabVisualTheme.WithAlpha(peerColor, connectionOpacity);
+
+                if (pointerVisible)
+                    DrawPointer(pointerPosition, pointerNormal, pointerColor);
+                if (cameraVisible)
+                    DrawCamera(payload, cameraColor);
+
+                if (drawNames && (pointerVisible || cameraVisible))
+                {
+                    Vector3 labelPosition = pointerVisible
+                        ? pointerPosition + pointerNormal * HandleUtility.GetHandleSize(pointerPosition) * 0.16f
+                        : payload.GetCameraPosition() + Vector3.up * HandleUtility.GetHandleSize(payload.GetCameraPosition()) * 0.16f;
+                    DrawName(
+                        labelPosition,
+                        GetPeerName(pair.Key),
+                        pointerVisible ? pointerColor : cameraColor);
+                }
+            }
+        }
+
+        static bool TryResolvePointer(
+            EZCollabPresencePayload payload,
+            out Vector3 position,
+            out Vector3 normal)
+        {
+            if (!string.IsNullOrEmpty(payload.pointerObjectGuid) &&
+                EZCollabState.guidToObject.TryGetValue(payload.pointerObjectGuid, out GameObject target) &&
+                target != null)
+            {
+                position = target.transform.TransformPoint(payload.GetLocalPosition());
+                normal = target.transform.TransformDirection(payload.GetLocalNormal()).normalized;
+            }
+            else
+            {
+                position = payload.GetWorldPosition();
+                normal = payload.GetWorldNormal().normalized;
+            }
+
+            if (normal.sqrMagnitude < 0.000001f)
+                normal = Vector3.up;
+            return IsFinite(position) && IsFinite(normal);
+        }
+
+        static void DrawPointer(Vector3 position, Vector3 normal, Color color)
+        {
+            float handleSize = HandleUtility.GetHandleSize(position);
+            float radius = handleSize * 0.055f;
+            Vector3 tip = position + normal * handleSize * 0.22f;
+            using (new Handles.DrawingScope(color))
+            {
+                Handles.SphereHandleCap(0, position, Quaternion.identity, radius * 2f, EventType.Repaint);
+                Handles.DrawAAPolyLine(2.5f, position, tip);
+                Handles.ConeHandleCap(
+                    0,
+                    tip,
+                    Quaternion.LookRotation(normal),
+                    radius * 1.8f,
+                    EventType.Repaint);
+            }
+        }
+
+        static void DrawCamera(EZCollabPresencePayload payload, Color color)
+        {
+            Vector3 position = payload.GetCameraPosition();
+            Quaternion rotation = payload.GetCameraRotation();
+            float handleSize = HandleUtility.GetHandleSize(position);
+            float iconSize = handleSize * 0.11f;
+
+            using (new Handles.DrawingScope(color, Matrix4x4.TRS(position, rotation, Vector3.one)))
+            {
+                Handles.DrawWireCube(Vector3.zero, new Vector3(iconSize * 1.4f, iconSize, iconSize));
+                Vector3 lensBase = Vector3.forward * iconSize * 0.52f;
+                Handles.DrawLine(new Vector3(-iconSize * 0.7f, -iconSize * 0.5f, 0f), lensBase);
+                Handles.DrawLine(new Vector3(iconSize * 0.7f, -iconSize * 0.5f, 0f), lensBase);
+                Handles.DrawLine(new Vector3(-iconSize * 0.7f, iconSize * 0.5f, 0f), lensBase);
+                Handles.DrawLine(new Vector3(iconSize * 0.7f, iconSize * 0.5f, 0f), lensBase);
+
+                float depth = handleSize * 1.35f;
+                float halfHeight;
+                float halfWidth;
+                if (payload.cameraOrthographic)
+                {
+                    halfHeight = Mathf.Min(Mathf.Max(iconSize, payload.cameraSize), handleSize * 1.1f);
+                    halfWidth = halfHeight * Mathf.Clamp(payload.cameraAspect, 0.2f, 5f);
+                }
+                else
+                {
+                    halfHeight = Mathf.Tan(Mathf.Deg2Rad * Mathf.Clamp(payload.cameraFieldOfView, 1f, 175f) * 0.5f) * depth;
+                    halfWidth = halfHeight * Mathf.Clamp(payload.cameraAspect, 0.2f, 5f);
+                }
+
+                Vector3[] corners =
+                {
+                    new Vector3(-halfWidth, -halfHeight, depth),
+                    new Vector3(-halfWidth, halfHeight, depth),
+                    new Vector3(halfWidth, halfHeight, depth),
+                    new Vector3(halfWidth, -halfHeight, depth)
+                };
+
+                for (int i = 0; i < corners.Length; i++)
+                {
+                    Handles.DrawLine(Vector3.zero, corners[i]);
+                    Handles.DrawLine(corners[i], corners[(i + 1) % corners.Length]);
+                }
+            }
+        }
+
+        static void DrawName(Vector3 position, string peerName, Color color)
+        {
+            if (string.IsNullOrEmpty(peerName))
+                return;
+
+            if (nameStyle == null)
+            {
+                nameStyle = new GUIStyle(EditorStyles.miniBoldLabel)
+                {
+                    alignment = TextAnchor.MiddleCenter,
+                    padding = new RectOffset(5, 5, 2, 2)
+                };
+            }
+
+            nameStyle.normal.textColor = color;
+            Handles.Label(position, peerName, nameStyle);
+        }
+
+        static string GetPeerName(string peerId)
+        {
+            return EZCollabState.connectedPeers.TryGetValue(peerId, out string peerName) &&
+                   !string.IsNullOrEmpty(peerName)
+                ? peerName
+                : peerId;
+        }
+
+        static void OnUpdate()
+        {
+            if (EZCollabPresenceState.count == 0)
+                return;
+
+            double now = EditorApplication.timeSinceStartup;
+            if (now < nextFadeRepaint)
+                return;
+
+            nextFadeRepaint = now + FadeRepaintInterval;
+            EZCollabSceneRepaintScheduler.Request();
+        }
+
+        static void OnPresenceChanged(string peerId)
+        {
+            EZCollabSceneRepaintScheduler.Request();
+        }
+
+        static void OnPresenceRemoved(string peerId)
+        {
+            EZCollabSceneRepaintScheduler.Request();
+        }
+
+        static void OnPresenceCleared()
+        {
+            EZCollabSceneRepaintScheduler.Request();
+        }
+
+        static bool IsFinite(Vector3 value)
+        {
+            return !float.IsNaN(value.x) && !float.IsInfinity(value.x) &&
+                   !float.IsNaN(value.y) && !float.IsInfinity(value.y) &&
+                   !float.IsNaN(value.z) && !float.IsInfinity(value.z);
+        }
+    }
+
+    [InitializeOnLoad]
+    public static class EZCollabSceneRepaintScheduler
+    {
+        static bool pending;
+
+        static EZCollabSceneRepaintScheduler()
+        {
+            EditorApplication.update += Flush;
+        }
+
+        public static void Request()
+        {
+            pending = true;
+        }
+
+        static void Flush()
+        {
+            if (!pending)
+                return;
+
+            pending = false;
+            foreach (SceneView sceneView in SceneView.sceneViews)
+            {
+                if (sceneView != null)
+                    sceneView.Repaint();
+            }
+        }
+    }
+}

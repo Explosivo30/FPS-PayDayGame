@@ -60,7 +60,7 @@ public static class MeleeRobotBuild
         var capsule=root.AddComponent<CapsuleCollider>();capsule.height=1.98f;capsule.radius=.42f;capsule.center=Vector3.up*.99f;
         var reactions=root.AddComponent<RobotPresentation>();reactions.visual=visual;reactions.telegraphStrength=.22f;
         reactions.hitEffectMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/Art/CombatFeel/Impact particles.mat");
-        var enemy=root.AddComponent<NormalEnemyStateMachine>();enemy.agent=nav;enemy.maxHealth=85;enemy.attackRange=1.85f;
+        var enemy=root.AddComponent<NormalEnemyStateMachine>();enemy.agent=nav;enemy.maxHealth=150;enemy.attackRange=1.85f;
         enemy.layerMask=~(1<<6|1<<8|1<<2);
         root.AddComponent<MeleeRobotCombat>();
         var pose=root.AddComponent<MeleeRobotPresentation>();pose.torso=joints["Torso"];pose.head=joints["Head"];

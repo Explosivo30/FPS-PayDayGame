@@ -1,0 +1,15 @@
+Enemy polish validation - 2026-10-15
+Unity 6000.0.58f2, Windows x64
+
+Editor AI: 152 PASS, 0 FAIL, 0 errors
+Editor melee: 53 PASS, 0 FAIL, 0 errors
+Editor combat feedback: 22 PASS, 0 FAIL, 0 errors
+Total: 227 PASS
+Windows release build: SUCCEEDED
+Windows graphics startup: alive for 56 seconds, no exceptions or missing shader warnings
+
+Build: Builds/EnemyPolish/RobotTower.exe (keep the full folder)
+Visual review: EditorAI/variants-front.png, variants-back.png, overload-ranged-shot.png,
+overload-melee-windup.png, overload-melee-recovery.png.
+Editor captures were reviewed. These are controlled checks, not a human balance or performance evaluation.
+The ZIP shared on 2026-10-08 was not modified.

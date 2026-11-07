@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "Assets/Scenes/FundicionReactiva.unity",
+    "SHA256": "BA25616D29A167E5F912707E288DF2007493CBC2662EC728485956F1758793F6"
+  },
+  {
+    "Path": "Assets/Editor/Tower/FoundryArenaBuild.cs",
+    "SHA256": "06B3CE9BE114B8A5CFD5DD7C479C4CFA6E7A3550F481B68180A22DC0450B26EC"
+  },
+  {
+    "Path": "Assets/Scripts/Tower/FoundryArenaDirector.cs",
+    "SHA256": "3351C265C89155FB7C89B29791399ACDE3CCA9C4745BF8D8AA683DD1D808DC97"
+  },
+  {
+    "Path": "Assets/Scripts/Diagnostics/FoundryArenaPlaytest.cs",
+    "SHA256": "AB731F7CAA433F8F0C12A0B7B52AD5DE511B6E5A98221C2E58CBA3746A06F5D7"
+  },
+  {
+    "Path": "Assets/Scripts/AI/EnemyNavigation.cs",
+    "SHA256": "75B805369282D6E02CD7ECE7164B10C1C9EE57B62476A3A00D097587A796D031"
+  },
+  {
+    "Path": "Assets/Scripts/States/Enemies/NormalEnemy/MeleeRobotCombat.cs",
+    "SHA256": "CE65F39814967507700A9B716FDA118DC48FDAAD5637B050AB7AB358680A4B11"
+  },
+  {
+    "Path": "Builds/FoundryRebuilt/Trasvase.exe",
+    "SHA256": "6D69E772C811261A2646FBF9354D032D990DBF87F983CFD31B2024B041619C4C"
+  },
+  {
+    "Path": "Builds/FoundryRebuilt/Trasvase_Data/Managed/Assembly-CSharp.dll",
+    "SHA256": "55E8D83B2173E9FCD9C14433C5CB78932C6258FFB6DB58820707695F8E45C160"
+  }
+]

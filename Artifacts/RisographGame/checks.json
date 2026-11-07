@@ -1,0 +1,29 @@
+{
+  "shader_errors": 0,
+  "fresh_character_views": 17,
+  "archived_fps_frames": 3,
+  "fps-RoboticForest riso-old mean_delta_255": 74.32064887152778,
+  "fps-RoboticForest riso-game mean_delta_255": 10.010193504050926,
+  "fps-LaboratoryFloor riso-old mean_delta_255": 79.15201461226852,
+  "fps-LaboratoryFloor riso-game mean_delta_255": 16.90550021701389,
+  "fps-CrystalGarden riso-old mean_delta_255": 59.95807978877315,
+  "fps-CrystalGarden riso-game mean_delta_255": 18.210860460069444,
+  "character-155 riso-old mean_delta_255": 46.99829305555556,
+  "character-155 riso-game mean_delta_255": 20.804203935185186,
+  "fixed_input_repeat_identical": true,
+  "signal_chart_distances_game_rgb": [
+    213.32188509178602,
+    117.60690279558669,
+    215.19612810240486
+  ],
+  "signal_chart_error_source_game": [
+    12.953230876992704,
+    50.97641320030909,
+    13.461495046463709
+  ],
+  "signal_chart_error_source_fantasy": [
+    217.17875278684565,
+    159.82222259800957,
+    175.36013900422628
+  ]
+}

@@ -1,0 +1,159 @@
+PASS Tower boots
+PASS Polish wave 1 health ranged normal
+PASS Polish wave 1 health ranged veteran
+PASS Polish wave 1 health melee normal
+PASS Polish wave 1 health melee veteran
+PASS Polish wave 3 health ranged normal
+PASS Polish wave 3 health ranged veteran
+PASS Polish wave 3 health melee normal
+PASS Polish wave 3 health melee veteran
+PASS Polish wave 6 health ranged normal
+PASS Polish wave 6 health ranged veteran
+PASS Polish wave 6 health melee normal
+PASS Polish wave 6 health melee veteran
+PASS Polish wave 9 health ranged normal
+PASS Polish wave 9 health ranged veteran
+PASS Polish wave 9 health melee normal
+PASS Polish wave 9 health melee veteran
+PASS Authored model only on veteran 0
+PASS Authored model only on veteran 1
+PASS Veteran has complete authored mesh without dynamic lights 1
+PASS Correct chosen model installed once 1
+PASS Authored armor receives real weapon raycasts 1
+PASS Authored model only on veteran 2
+PASS Authored model only on veteran 3
+PASS Veteran has complete authored mesh without dynamic lights 3
+PASS Correct chosen model installed once 3
+PASS Authored armor receives real weapon raycasts 3
+PASS Ariete animated forearms use authored model
+PASS Ariete animated fist trail retains a valid material
+PASS Veteran hit surfaces follow new geometry; normal capsule unchanged
+PASS Aligned windup False/180/0
+PASS Pause freezes turning and shot False/180/0
+PASS Aligned shot count and barrel direction False/180/0 error=0
+PASS Ray uses committed target and muzzle False/180/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 90
+PASS Aligned windup False/90/0
+PASS Pause freezes turning and shot False/90/0
+PASS Aligned shot count and barrel direction False/90/0 error=0,05934703
+PASS Ray uses committed target and muzzle False/90/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 0
+PASS Aligned windup False/0/0
+PASS Pause freezes turning and shot False/0/0
+PASS Aligned shot count and barrel direction False/0/0 error=0,01978234
+PASS Ray uses committed target and muzzle False/0/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Aligned windup True/180/0
+PASS Pause freezes turning and shot True/180/0
+PASS Aligned shot count and barrel direction True/180/0 error=0,05934703
+PASS Ray uses committed target and muzzle True/180/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 90
+PASS Aligned windup True/90/0
+PASS Pause freezes turning and shot True/90/0
+PASS Aligned shot count and barrel direction True/90/0 error=0
+PASS Ray uses committed target and muzzle True/90/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 0
+PASS Aligned windup True/0/0
+PASS Pause freezes turning and shot True/0/0
+PASS Aligned shot count and barrel direction True/0/0 error=0,06255726
+PASS Ray uses committed target and muzzle True/0/0
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 90
+PASS Aligned windup True/90/-1,2
+PASS Pause freezes turning and shot True/90/-1,2
+PASS Aligned shot count and barrel direction True/90/-1,2 error=0
+PASS Ray uses committed target and muzzle True/90/-1,2
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Turns before warning from yaw 90
+PASS Aligned windup True/90/3
+PASS Pause freezes turning and shot True/90/3
+PASS Aligned shot count and barrel direction True/90/3 error=0
+PASS Ray uses committed target and muzzle True/90/3
+PASS Muzzle and flash follow gun joint
+PASS Muzzle follows physical barrel mesh axis
+PASS Shot originates at end of barrel rather than body
+PASS Obstacle fixture starts windup 4
+PASS Obstacle cancels blocked burst 4
+PASS Blocked shot releases attack budget, including cover behind muzzle 4
+PASS Obstacle fixture starts windup 0,7
+PASS Obstacle cancels blocked burst 0,7
+PASS Blocked shot releases attack budget, including cover behind muzzle 0,7
+PASS Misalignment fixture starts windup
+PASS Misaligned barrel cancels attack
+PASS No backwards shot or leaked permit after forced rotation
+PASS Ariete winds up
+PASS Ariete extends articulated hammer fist
+PASS Ariete recovers after punch
+PASS Wave 1 count and simultaneous attack budget
+PASS Wave 1 additive health and damage
+PASS Wave 1 includes both roles
+PASS Wave 1 veteran allocation
+PASS Wave 3 count and simultaneous attack budget
+PASS Wave 3 additive health and damage
+PASS Wave 3 includes both roles
+PASS Wave 3 veteran allocation
+PASS Wave 6 count and simultaneous attack budget
+PASS Wave 6 additive health and damage
+PASS Wave 6 includes both roles
+PASS Wave 6 veteran allocation
+PASS Wave 9 count and simultaneous attack budget
+PASS Wave 9 additive health and damage
+PASS Wave 9 includes both roles
+PASS Wave 9 veteran allocation
+PASS Counts, speed and precision have caps
+PASS Compositions never repeat consecutively
+PASS Initial budget blocks third attack
+PASS Late budget allows four, at most two melee
+PASS Destination reservations reject occupied slots
+PASS Death releases attack and destination
+PASS Unobstructed player is visible
+PASS Wall blocks sight; memory does not track a hidden player
+PASS Observed position expires after three seconds
+PASS Nearby shot reveals location without granting sight
+PASS Pause freezes hearing and vision decisions
+PASS Ranged robot retreats when player is closer than six metres
+PASS Navigation decisions are staggered rather than calculated every frame
+PASS Veteran starts announced burst
+PASS Pause freezes veteran burst windup
+PASS Veteran fires two rounds
+PASS Burst stays committed to pre-dodge target
+PASS Veteran repositions after burst
+PASS Veteran melee keeps readable windup and recovery
+PASS Veteran prepares charge
+PASS Veteran charge resolves
+PASS Charge respects 1.2m maximum: 1,20
+PASS Charge has exactly one contact
+PASS Veteran melee keeps readable windup and recovery
+PASS Veteran prepares charge
+PASS Veteran charge resolves
+PASS Charge respects obstacle: 0,12
+PASS Charge has exactly one contact
+PASS Death fixture begins windup
+PASS Veteran death cancels attack and yields one attributed kill
+PASS Actual wave 1 composition and veteran count
+PASS Actual wave 1 scaling, twelve-alive cap and entry warning
+PASS Actual wave 3 composition and veteran count
+PASS Actual wave 3 scaling, twelve-alive cap and entry warning
+PASS Actual wave 6 composition and veteran count
+PASS Actual wave 6 scaling, twelve-alive cap and entry warning
+PASS Actual wave 9 composition and veteran count
+PASS Actual wave 9 scaling, twelve-alive cap and entry warning
+ERRORS

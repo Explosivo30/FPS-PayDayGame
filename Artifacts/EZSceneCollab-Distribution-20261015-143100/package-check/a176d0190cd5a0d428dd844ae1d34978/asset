@@ -1,0 +1,192 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabOverlay
+    {
+        const float GhostFillOpacity = 0.18f;
+        const float WireAlpha = 0.9f;
+
+        sealed class LockVisual
+        {
+            public GameObject gameObject;
+            public Renderer[] renderers;
+            public Bounds bounds;
+            public Matrix4x4 localToWorld;
+        }
+
+        static readonly Dictionary<string, LockVisual> visualCache =
+            new Dictionary<string, LockVisual>();
+
+        static EZCollabOverlay()
+        {
+            SceneView.duringSceneGui += OnSceneGUI;
+            ObjectChangeEvents.changesPublished += OnObjectChanges;
+            EditorApplication.hierarchyChanged += InvalidateAll;
+            EZCollabViewSettings.changed += EZCollabSceneRepaintScheduler.Request;
+            EZCollabSession.stateChanged += OnSessionStateChanged;
+        }
+
+        static void OnSceneGUI(SceneView view)
+        {
+            if (!EZCollabState.inSession)
+            {
+                if (visualCache.Count > 0)
+                    visualCache.Clear();
+                return;
+            }
+
+            if (Event.current == null || Event.current.type != EventType.Repaint)
+                return;
+
+            PruneUnlockedVisuals();
+            foreach (KeyValuePair<string, string> pair in EZCollabState.lockedObjects)
+            {
+                if (pair.Value == EZCollabState.localPeerId)
+                    continue;
+
+                if (!EZCollabState.guidToObject.TryGetValue(pair.Key, out GameObject go) || go == null)
+                    continue;
+
+                string ownerName = EZCollabState.GetLockOwnerName(pair.Key);
+                DrawLockIndicator(pair.Key, go, EZCollabVisualTheme.GetPeerColor(pair.Value), ownerName);
+            }
+        }
+
+        static void PruneUnlockedVisuals()
+        {
+            if (visualCache.Count <= EZCollabState.lockedObjects.Count + 16)
+                return;
+
+            List<string> stale = null;
+            foreach (string guid in visualCache.Keys)
+            {
+                if (EZCollabState.lockedObjects.ContainsKey(guid))
+                    continue;
+
+                if (stale == null)
+                    stale = new List<string>();
+                stale.Add(guid);
+            }
+
+            if (stale == null)
+                return;
+            for (int i = 0; i < stale.Count; i++)
+                visualCache.Remove(stale[i]);
+        }
+
+        static void DrawLockIndicator(string guid, GameObject go, Color peerColor, string ownerName)
+        {
+            LockVisual visual = GetVisual(guid, go);
+
+            if (visual.renderers.Length > 0)
+                Handles.DrawOutline(visual.renderers, peerColor, GhostFillOpacity);
+
+            Color wireColor = peerColor;
+            wireColor.a = WireAlpha;
+            using (new Handles.DrawingScope(wireColor))
+                Handles.DrawWireCube(visual.bounds.center, visual.bounds.size * 1.035f);
+
+            if (!string.IsNullOrEmpty(ownerName))
+            {
+                Handles.Label(
+                    visual.bounds.center + Vector3.up * (visual.bounds.extents.y + 0.3f),
+                    EZCollabLocalization.Tr(EZCollabText.LockSceneLabel, ownerName),
+                    EditorStyles.boldLabel);
+            }
+        }
+
+        static LockVisual GetVisual(string guid, GameObject go)
+        {
+            Matrix4x4 matrix = go.transform.localToWorldMatrix;
+            if (visualCache.TryGetValue(guid, out LockVisual cached) &&
+                cached.gameObject == go && cached.localToWorld == matrix &&
+                AreRenderersValid(cached.renderers))
+            {
+                return cached;
+            }
+
+            Renderer[] renderers = go.GetComponents<Renderer>();
+            LockVisual visual = new LockVisual
+            {
+                gameObject = go,
+                renderers = renderers,
+                bounds = GetBounds(go, renderers),
+                localToWorld = matrix
+            };
+            visualCache[guid] = visual;
+            return visual;
+        }
+
+        static bool AreRenderersValid(Renderer[] renderers)
+        {
+            if (renderers == null)
+                return false;
+
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                if (renderers[i] == null)
+                    return false;
+            }
+
+            return true;
+        }
+
+        static Bounds GetBounds(GameObject go, Renderer[] renderers)
+        {
+            if (renderers.Length > 0)
+            {
+                Bounds bounds = renderers[0].bounds;
+                for (int i = 1; i < renderers.Length; i++)
+                    bounds.Encapsulate(renderers[i].bounds);
+                return bounds;
+            }
+
+            Collider collider = go.GetComponent<Collider>();
+            return collider != null
+                ? collider.bounds
+                : new Bounds(go.transform.position, Vector3.one * 0.5f);
+        }
+
+        static void OnObjectChanges(ref ObjectChangeEventStream stream)
+        {
+            // Unity already coalesces these events. Clearing this lock-only cache avoids any
+            // hierarchy traversal while still invalidating ProBuilder and renderer edits.
+            if (!EZCollabState.inSession && visualCache.Count == 0)
+                return;
+            InvalidateAll();
+        }
+
+        static void OnSessionStateChanged()
+        {
+            if (!EZCollabState.inSession)
+                visualCache.Clear();
+            EZCollabSceneRepaintScheduler.Request();
+        }
+
+        static void InvalidateAll()
+        {
+            if (!EZCollabState.inSession && visualCache.Count == 0)
+                return;
+
+            visualCache.Clear();
+            EZCollabSceneRepaintScheduler.Request();
+        }
+    }
+
+    internal static class EZCollabPeerColors
+    {
+        public static Color Get(string peerId)
+        {
+            return EZCollabVisualTheme.GetPeerColor(peerId);
+        }
+
+        public static Color WithAlpha(Color color, float alpha)
+        {
+            return EZCollabVisualTheme.WithAlpha(color, alpha);
+        }
+    }
+}

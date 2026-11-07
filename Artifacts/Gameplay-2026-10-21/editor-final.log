@@ -1,0 +1,1290 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-Edgar doesn't exist
+Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 31965 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-10-21T13:17:40Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 58304)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
+-batchmode
+-force-d3d11
+-projectPath
+D:\Unity\FPS-PayDayGame
+-executeMethod
+ReactiveGameplayBuild.PlayValidation
+-gameplay-qa
+-gameplay-output
+D:\Unity\FPS-PayDayGame\Artifacts\Gameplay-2026-10-21\Editor-Final
+-player-profile
+D:\Unity\FPS-PayDayGame\Artifacts\Gameplay-2026-10-21\editor-final-profile.json
+-logFile
+D:\Unity\FPS-PayDayGame\Artifacts\Gameplay-2026-10-21\editor-final.log
+Successfully changed project path to: D:\Unity\FPS-PayDayGame
+D:/Unity/FPS-PayDayGame
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [4224]  Target information:
+
+Player connection [4224]  * "[IP] 192.168.1.42 [Port] 55504 [Flags] 2 [Guid] 3290144775 [EditorId] 3290144775 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [4224]  * "[IP] 192.168.163.1 [Port] 55504 [Flags] 2 [Guid] 3290144775 [EditorId] 3290144775 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [4224]  * "[IP] 192.168.235.1 [Port] 55504 [Flags] 2 [Guid] 3290144775 [EditorId] 3290144775 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [4224] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [4224] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar" at "2026-10-21T13:17:40.405301Z"
+[Package Manager] Connected to IPC stream "Upm-39308" after 0.2 seconds.
+Library Redirect Path: Library/
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 58304, path: "C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.2+ff71f16
+  Session Id:              ddc361c29893497e93dbfc5c836d7f8d
+  Correlation Id:          eb4229c4586f18a06fa387115b73500b
+  External correlation Id: 6844369846723312751
+  Machine Id:              WadMmAy/osH9k8L5ydYQtjSc8pk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Edgar" (connect: 0.25s, validation: 0.17s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar-notifications" at "2026-10-21T13:17:40.6044685Z"
+[Licensing::Module] Connected to LicensingClient (PId: 58304, launch time: 0.00, total connection time: 0.45s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+Refreshing native plugins compatible for Editor in 4.71 ms, found 19 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Assets
+Forcing GfxDevice: Direct3D 11
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.47s
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.1686
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56308
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.011174 seconds.
+- Loaded All Assemblies, in  0.296 seconds
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2199 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.437 seconds
+Domain Reload Profiling: 2727ms
+	BeginReloadAssembly (103ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (107ms)
+		LoadAssemblies (98ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (104ms)
+			TypeCache.Refresh (103ms)
+				TypeCache.ScanAssembly (93ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2438ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2417ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2278ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (32ms)
+			ProcessInitializeOnLoadAttributes (67ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 58 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc)
+    com.unity.cinemachine@3.1.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.cinemachine@624f919d8cdd)
+    com.unity.collab-proxy@2.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad)
+    com.unity.ide.visualstudio@2.0.23 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13)
+    com.unity.inputsystem@1.14.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.timeline@1.8.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.timeline@6b9e48457ddb)
+    com.unity.visualscripting@1.9.7 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.visualscripting@6279e2b7c485)
+    com.unity.splines@2.8.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.splines@b909627b5095)
+    com.unity.searcher@4.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.24 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.burst@f7a407abf4d5)
+    com.unity.mathematics@1.3.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collections@56bff8827a7e)
+    com.unity.settings-manager@2.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.settings-manager@41738c275190)
+    com.unity.nuget.mono-cecil@1.11.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f)
+    com.unity.test-framework.performance@3.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997)
+    com.unity.test-framework@1.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework@1f954279c37e)
+    com.unity.ugui@2.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ugui@aa507f3228f0)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74)
+    com.unity.shadergraph@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/Unity/FPS-PayDayGame
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 1s892ms
+[672/861    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[853/861    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Diagnostics\AIPlaytest.Polish.cs(40,30): warning CS0252: Possible unintended reference comparison; to get a value comparison, cast the left hand side to type 'Object'
+
+Assets\VoronoirShred\Project\SelectMesh.cs(30,55): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(13,10): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(18,13): warning CS0618: 'StandaloneInputModule.forceModuleActive' is obsolete: 'forceModuleActive has been deprecated. There is no need to force the module awake as StandaloneInputModule works for all platforms'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\TimedObjectDestructor.cs(24,13): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs(38,27): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs(44,63): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\ActivateTrigger.cs(57,33): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+
+Assets\VoronoirShred\Tools\PostProcessing\Runtime\Components\MotionBlurComponent.cs(350,60): warning CS0618: 'GraphicsDeviceType.OpenGLES2' is obsolete: 'OpenGL ES 2.0 is no longer supported in Unity 2023.1'
+
+Assets\Scripts\InputFunctionsManager\InputReader.cs(13,25): warning CS0067: The event 'InputReader.TargetEvent' is never used
+
+Assets\Scripts\InputFunctionsManager\InputReader.cs(12,25): warning CS0067: The event 'InputReader.DodgeEvent' is never used
+
+Assets\Scripts\Managers\GameManager.cs(22,36): warning CS0414: The field 'GameManager.baseSpeed' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,28): warning CS0414: The field 'PlayerStateMachine.fadeInTime' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(22,51): warning CS0414: The field 'GameManager.speedIncrement' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerIdleState.cs(9,9): warning CS0414: The field 'PlayerIdleState.maxInteractDistance' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,43): warning CS0414: The field 'PlayerStateMachine.fadeOutTime' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(21,34): warning CS0414: The field 'GameManager.baseEnemyCount' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(21,51): warning CS0414: The field 'GameManager.incrementPerWave' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,46): warning CS0414: The field 'PlayerStateMachine._castLength' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(19,47): warning CS0414: The field 'GameManager.meleeShare' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,28): warning CS0414: The field 'PlayerStateMachine._castRadius' is assigned but its value is never used
+[855/861    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 127 defines and 325 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[857/861    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 129 defines and 304 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[858/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[859/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+*** Tundra build success (1.86 seconds), 6 items updated, 861 evaluated
+Assets\Scripts\Diagnostics\AIPlaytest.Polish.cs(40,30): warning CS0252: Possible unintended reference comparison; to get a value comparison, cast the left hand side to type 'Object'
+Assets\VoronoirShred\Project\SelectMesh.cs(30,55): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(13,10): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(18,13): warning CS0618: 'StandaloneInputModule.forceModuleActive' is obsolete: 'forceModuleActive has been deprecated. There is no need to force the module awake as StandaloneInputModule works for all platforms'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\TimedObjectDestructor.cs(24,13): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs(38,27): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs(44,63): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\ActivateTrigger.cs(57,33): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+Assets\VoronoirShred\Tools\PostProcessing\Runtime\Components\MotionBlurComponent.cs(350,60): warning CS0618: 'GraphicsDeviceType.OpenGLES2' is obsolete: 'OpenGL ES 2.0 is no longer supported in Unity 2023.1'
+Assets\Scripts\InputFunctionsManager\InputReader.cs(13,25): warning CS0067: The event 'InputReader.TargetEvent' is never used
+Assets\Scripts\InputFunctionsManager\InputReader.cs(12,25): warning CS0067: The event 'InputReader.DodgeEvent' is never used
+Assets\Scripts\Managers\GameManager.cs(22,36): warning CS0414: The field 'GameManager.baseSpeed' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,28): warning CS0414: The field 'PlayerStateMachine.fadeInTime' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(22,51): warning CS0414: The field 'GameManager.speedIncrement' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerIdleState.cs(9,9): warning CS0414: The field 'PlayerIdleState.maxInteractDistance' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,43): warning CS0414: The field 'PlayerStateMachine.fadeOutTime' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(21,34): warning CS0414: The field 'GameManager.baseEnemyCount' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(21,51): warning CS0414: The field 'GameManager.incrementPerWave' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,46): warning CS0414: The field 'PlayerStateMachine._castLength' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(19,47): warning CS0414: The field 'GameManager.meleeShare' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,28): warning CS0414: The field 'PlayerStateMachine._castRadius' is assigned but its value is never used
+AssetDatabase: script compilation time: 2.182711s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.777 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 3.58 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.000 seconds
+Domain Reload Profiling: 2770ms
+	BeginReloadAssembly (250ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (132ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (459ms)
+		LoadAssemblies (364ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (178ms)
+			TypeCache.Refresh (125ms)
+				TypeCache.ScanAssembly (117ms)
+			BuildScriptInfoCaches (42ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (2000ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1796ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (29ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (1554ms)
+			ProcessInitializeOnLoadMethodAttributes (90ms)
+			AfterProcessingInitializeOnLoad (18ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Refreshing native plugins compatible for Editor in 3.12 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8c9752b9d642eb746a5e56b6b78d7914): Total: 5.545 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2322 ms
+		Asset DB Callback time: managed=189 ms, native=25 ms
+		Scripting: domain reloads=1, domain reload time=777 ms, compile time=2184 ms, other=45 ms
+		Project Asset Count: scripts=1561, non-scripts=3303
+		Asset File Changes: new=0, changed=7, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 20.247ms
+	ApplyChangesToAssetFolders: 0.469ms
+	Scan: 69.757ms
+	OnSourceAssetsModified: 0.633ms
+	CategorizeAssetsWithTransientArtifact: 38.236ms
+	ProcessAssetsWithTransientArtifactChanges: 57.670ms
+	CategorizeAssets: 50.859ms
+	ImportOutOfDateAssets: 2012.503ms (-172.972ms without children)
+		CompileScripts: 2183.921ms
+		ReloadNativeAssets: 0.022ms
+		UnloadImportedAssets: 0.667ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.503ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.361ms
+	PostProcessAllAssets: 191.487ms
+	Hotreload: 4.328ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 1.170ms
+	PersistCurrentRevisions: 0.106ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 5.177ms
+	Untracked: 3098.031ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 16.480ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-RobotGame
+Unloading 33 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6768 unused Assets / (6.9 MB). Loaded Objects now: 7505.
+Memory consumption went from 212.2 MB to 205.3 MB.
+Total: 7.071200 ms (FindLiveObjects: 0.713800 ms CreateObjectMapping: 0.271800 ms MarkObjects: 3.950500 ms  DeleteObjects: 2.134500 ms)
+
+Opening scene 'Assets/Scenes/LaboratoryFloor.unity'
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+LightingSettings: switching bake backend from 1 to 2.
+Loaded scene 'Assets/Scenes/LaboratoryFloor.unity'
+	Deserialize:            29.771 ms
+	Integration:            193.881 ms
+	Integration of assets:  1.373 ms
+	Thread Wait Time:       0.004 ms
+	Total Operation Time:   225.030 ms
+Unloading 4 unused Assets / (5.5 KB). Loaded Objects now: 9181.
+Memory consumption went from 200.7 MB to 200.7 MB.
+Total: 4.492800 ms (FindLiveObjects: 0.402200 ms CreateObjectMapping: 0.102500 ms MarkObjects: 3.942500 ms  DeleteObjects: 0.045200 ms)
+
+[Project] Loading completed in 11.574 seconds
+	Project init time: 				10.048 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.210 seconds
+		Asset Database init time: 		0.186 seconds
+		Global illumination init time: 	0.002 seconds
+		Assemblies load time: 			2.755 seconds
+		Unity extensions init time: 	0.008 seconds
+		Asset Database refresh time: 	5.546 seconds
+	Scene opening time: 			1.478 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1792588671718,"processId":39308,"projectLoad":11.5741888,"projectInit":10.0475606,"templateInit":0.0,"packageManagerInit":0.2100905,"assetDatabaseInit":0.1863079,"globalIlluminationInit":0.0020053,"assembliesLoad":2.7549169,"unityExtensionsInit":0.0082609,"assetDatabaseRefresh":5.5455628,"sceneOpening":1.4775601}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1792588671718,"processId":39308,"editorVersion":"6000.0.58f2 (92dee566b325)","branch":"6000.0/respin/6000.0.58f2-44b8bf3a32","buildType":"Release","platform":"Windows"}
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.531 seconds
+Refreshing native plugins compatible for Editor in 2.94 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.622 seconds
+Domain Reload Profiling: 1149ms
+	BeginReloadAssembly (322ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (199ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (149ms)
+		LoadAssemblies (119ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (109ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (94ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (622ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (419ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (92ms)
+			ProcessInitializeOnLoadAttributes (239ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (28ms)
+Asset Pipeline Refresh (id=3c6fd5c532892dd4da3d697835703c8d): Total: 1.260 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=694 ms
+		Asset DB Callback time: managed=14 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=549 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=1561, non-scripts=3303
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 1.765ms
+	ApplyChangesToAssetFolders: 0.247ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.002ms
+	ProcessAssetsWithTransientArtifactChanges: 3.317ms
+	CategorizeAssets: 37.873ms
+	ImportOutOfDateAssets: 632.482ms (628.430ms without children)
+		CompileScripts: 0.769ms
+		CollectScriptTypesHashes: 1.905ms
+		ReloadNativeAssets: 0.762ms
+		UnloadImportedAssets: 0.041ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.397ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.178ms
+	PostProcessAllAssets: 14.608ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.093ms
+	UnloadStreamsBegin: 0.096ms
+	PersistCurrentRevisions: 0.089ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.198ms
+	Untracked: 569.049ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            5.708 ms
+	Integration:            204.990 ms
+	Integration of assets:  0.042 ms
+	Thread Wait Time:       0.003 ms
+	Total Operation Time:   210.743 ms
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+Asset Pipeline Refresh (id=55852ce103157c7478dd59d16b220a07): Total: 0.036 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Couldn't find a readme
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReadmeEditor:SelectReadme () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:59)
+ReadmeEditor:SelectReadmeAutomatically () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:26)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs Line: 59)
+
+Created GICache directory at C:/Users/Edgar.DESKTOP-BOONDKL/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.025s, timestamps: [13.147 - 13.172]
+Loaded scene 'Assets/Scenes/TowerCore.unity'
+	Deserialize:            83.852 ms
+	Integration:            50.866 ms
+	Integration of assets:  0.148 ms
+	Thread Wait Time:       428.884 ms
+	Total Operation Time:   563.750 ms
+PASS Real tower/player boot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Two persistent salvos admitted
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:76)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Third live salvo is refused
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:77)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Laser/charge/environment share one main slot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:79)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Reservations release exactly once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:81)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Pause refuses new danger
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Destroyed owner cannot hold budget
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Budget>d__23:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:84)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Projectile travels before damage, rather than hitscan
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:94)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Pause freezes projectile and lifetime
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:99)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Travelling projectile reaches first collider
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Projectile damages actual player once on arrival
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:102)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Swept projectile catches thin cover at high speed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Thin cover prevents damage behind it
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:108)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Salvo budget stays occupied after emission while bullet lives
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:112)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Owner death cancels bullets and releases persistent salvo
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Projectiles>d__24:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:114)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Centinela emits three travelling projectiles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Centinela does not emit Aguja hitscan
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:122)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Aguja enters explicit target-lock phase
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Pause freezes Aguja lock before firing
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:128)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Aguja fires one announced precision laser
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Aguja does not follow dodge after lock or become ordinary salvo
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:131)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Aguja recovery prevents second instant shot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:133)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Ariete visibly commits charge windup
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Ariete keeps response and punishment windows
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:137)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Ariete resolves committed charge and recovers
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Charge has one contact and preserves bounded movement
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<EnemyRoles>d__25:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:140)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Fixture finds a visible, distant, reachable physical entry
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<SpawnRecovery>d__26:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:157)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS All-visible entrances recover with announced safe spawn
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Fallback really spawns instead of deleting pending enemies
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<SpawnRecovery>d__26:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:164)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+Wave recovered a missing enemy reference; no kill reward granted.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+GameManager:ReconcileMissingEnemies () (at Assets/Scripts/Managers/GameManager.cs:125)
+GameManager/<Waves>d__95:MoveNext () (at Assets/Scripts/Managers/GameManager.cs:148)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Managers/GameManager.cs Line: 125)
+
+PASS Destroyed unreported enemy cannot strand count
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Bookkeeping recovery invents no reward
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<SpawnRecovery>d__26:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:170)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor contains installed reactive cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:180)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor intact cover blocks real shot line
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:189)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor actual pistol/muzzle impact applies exactly one damage event
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:196)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor a weapon impact damages structure once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:199)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor structural damage breaks designated screen
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:201)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor broken screen really opens line
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:204)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor repeated charge cannot break screen twice
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:205)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+TrimDiskCacheJob: Current cache size 5881mb
+FAIL Actual mandatory waves complete with duplicate death protection
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<CompleteFloor>d__28:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:247)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS Destroyed cover remains broken through mandatory waves
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<CompleteFloor>d__28:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:248)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+FAIL Real elevator accepts completed floor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Travel>d__29:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:253)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+FAIL Actual additive floor transition finishes
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Until>d__19:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:39)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor contains installed reactive cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:180)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+FAIL LaboratoryFloor intact cover blocks real shot line
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:189)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+
+PASS LaboratoryFloor entry remains connected after destruction: Entry 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReactiveGameplayPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:35)
+ReactiveGameplayPlaytest/<Arena>d__27:MoveNext () (at Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs:212)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/ReactiveGameplayPlaytest.cs Line: 35)
+

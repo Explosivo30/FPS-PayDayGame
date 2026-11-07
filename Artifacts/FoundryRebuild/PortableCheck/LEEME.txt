@@ -1,0 +1,27 @@
+HELIX / CAMARA DE TRASVASE - 23 octubre 2026
+
+Extrae la carpeta completa y abre JUGAR.cmd.
+Conserva Trasvase_Data, MonoBleedingEdge y las DLL junto al ejecutable.
+JUGAR.cmd utiliza un perfil separado dentro de esta carpeta.
+
+OBJETIVO
+Recupera la carabina de la plataforma, asegura la camara y alcanza
+el terminal de salida norte. Mira el equipo o el terminal y pulsa E.
+
+CONTROLES
+WASD: moverse. Raton: mirar. Izquierdo: disparar. Derecho: apuntar.
+Espacio: saltar. C o Ctrl: agacharse / deslizar en movimiento.
+R: recargar. Q: cambiar arma disponible. E: recoger / salir.
+F5: reiniciar todo el encuentro, incluso despues de morir o terminar.
+Escape: liberar el raton. Clic izquierdo: volver a capturarlo.
+Alt+F4: cerrar el juego.
+
+DESACTIVAR LA PANTALLA ES OPCIONAL
+La pieza rojiza bajo la galeria usa Voronoi Shred. Romperla abre
+un cruce y el tiro en ambos sentidos. Puede protegerte si la conservas.
+La cubierta ceramica de la galeria tambien se puede perforar.
+
+Esta entrega reconstruye el espacio y el encuentro. La valoracion
+humana de ritmo, dificultad y ganas de repetir sigue abierta.
+La revision y las evidencias estan en Docs/FundicionReactiva-2026-10-23
+dentro del proyecto original.

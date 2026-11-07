@@ -14,6 +14,11 @@ public static class ShareBuild
         var output = index >= 0 && index + 1 < args.Length
             ? args[index + 1]
             : "Builds/Share/RobotTower.exe";
+        BuildPackage(output, BuildOptions.None);
+    }
+
+    public static void BuildPackage(string output, BuildOptions options)
+    {
         Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(output)));
         // Shader.Find alone is not a build dependency. Include the color effect for
         // this build, then restore the project's existing graphics configuration.
@@ -39,7 +44,7 @@ public static class ShareBuild
                 scenes = TowerBuild.ScenePaths,
                 locationPathName = output,
                 target = BuildTarget.StandaloneWindows64,
-                options = BuildOptions.None
+                options = options
             });
             if (report.summary.result != BuildResult.Succeeded)
                 throw new Exception("Windows share build failed: " + report.summary.result);

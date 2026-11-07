@@ -1,0 +1,14 @@
+{
+  "player_completed": true,
+  "runtime_exceptions": 0,
+  "scenes": 5,
+  "all_eligible_mesh_slots_telltale": true,
+  "spawned_enemies_checked": true,
+  "rows": [
+    "LaboratoryFloor: Telltale slots=497, other mesh slots=0, enemies=4, converted renderers=485, pipeline=Pipeline",
+    "RoboticForest: Telltale slots=1166, other mesh slots=0, enemies=0, converted renderers=1700, pipeline=Pipeline",
+    "CrystalGarden: Telltale slots=1091, other mesh slots=0, enemies=0, converted renderers=2779, pipeline=Pipeline",
+    "Level1: Telltale slots=81, other mesh slots=0, enemies=0, converted renderers=2848, pipeline=Pipeline",
+    "SampleScene: Telltale slots=399, other mesh slots=0, enemies=2, converted renderers=3235, pipeline=Pipeline"
+  ]
+}

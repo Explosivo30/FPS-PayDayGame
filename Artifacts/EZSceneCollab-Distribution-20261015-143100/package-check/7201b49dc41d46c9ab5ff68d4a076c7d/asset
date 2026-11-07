@@ -1,0 +1,28 @@
+{
+  "name": "EZCollabTool.ProBuilder.Editor",
+  "rootNamespace": "EZCollabTool.ProBuilderIntegration",
+  "references": [
+    "EZCollabTool.Runtime",
+    "EZCollabTool.Editor",
+    "Unity.ProBuilder",
+    "Unity.ProBuilder.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "autoReferenced": true,
+  "defineConstraints": [
+    "EZCOLLAB_PROBUILDER"
+  ],
+  "versionDefines": [
+    {
+      "name": "com.unity.probuilder",
+      "expression": "[6.0.0,7.0.0)",
+      "define": "EZCOLLAB_PROBUILDER"
+    }
+  ],
+  "noEngineReferences": false
+}

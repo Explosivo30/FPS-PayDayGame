@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RobotPresentation : MonoBehaviour
 {
     public Transform visual,muzzle,turret;
+    [HideInInspector] public int rangedRigVersion;
     public ParticleSystem sparks,muzzleFlash;
     public Material hitEffectMaterial;
     [Header("Impact feel")]
@@ -14,8 +15,8 @@ public class RobotPresentation : MonoBehaviour
     [Range(0,1)] public float telegraphStrength=1;
     public float springFrequency=24;
     public int maximumImpactSparks=20;
-    Vector3 home,target,hitOffset,hitVelocity,hitAngles,angleVelocity,lastDirection=Vector3.forward;
-    Quaternion rotation,turretRotation,deathStart,moveRotation;
+    Vector3 turretHome,home,target,hitOffset,hitVelocity,hitAngles,angleVelocity,lastDirection=Vector3.forward;
+    Quaternion rotation,deathStart,moveRotation;
     float firePulse,telegraph,deathTime=-1,flash,health01=1,damageClock;
     NavMeshAgent agent;
     Renderer[] bodyRenderers;
@@ -34,16 +35,89 @@ public class RobotPresentation : MonoBehaviour
     public Vector3 LastHitDirection => lastDirection;
     public int ImpactBursts { get; private set; }
     public Vector3 MuzzlePosition=>muzzle!=null?muzzle.position:transform.position+Vector3.up;
+    public Vector3 AimDirection=>muzzle!=null?muzzle.forward:transform.forward;
+    public Vector3 AimTarget=>target;
+    public bool IsAimAligned(Vector3 point,float tolerance)=>muzzle!=null&&Vector3.Angle(AimDirection,point-MuzzlePosition)<=tolerance;
+
+    public void ReplaceVisual(VeteranRig rig)
+    {
+        var previous=visual;
+        visual=rig.transform;turret=rig.gunPivot;muzzle=rig.muzzle;rangedRigVersion=2;
+        if(muzzleFlash!=null&&muzzle!=null)
+        {
+            muzzleFlash.transform.SetParent(muzzle,false);
+            muzzleFlash.transform.localPosition=Vector3.zero;muzzleFlash.transform.localRotation=Quaternion.identity;
+        }
+        if(previous!=null)previous.gameObject.SetActive(false);
+        foreach(var material in ownedMaterials)if(material!=null)Destroy(material);
+        ownedMaterials.Clear();
+        home=visual.localPosition;rotation=moveRotation=visual.localRotation;
+        if(turret!=null)turretHome=turret.localPosition;
+        CaptureRenderers();
+    }
+
+    // Imported joints have arbitrary axes. A normalized parent lets the physical barrel,
+    // muzzle flash and shot ray share the same forward direction without editing the mesh.
+    public void ConfigureRangedRig()
+    {
+        if(turret==null||muzzle==null||rangedRigVersion>=1)return;
+        // The source sentinel is authored looking down -Z; navigation uses +Z.
+        visual.localRotation=Quaternion.Euler(0,180,0)*visual.localRotation;
+        var imported=turret;
+        if(turret.name=="Ranged aim pivot")
+            foreach(Transform child in turret)if(child.name=="MachineGunRobot_GunJoint"){imported=child;break;}
+        var barrel=imported.GetComponentInChildren<MeshFilter>();
+        foreach(var mesh in imported.GetComponentsInChildren<MeshFilter>())
+            if(mesh.name=="MachineGunRobot_Gun")barrel=mesh;
+        Vector3 forward=transform.forward,tip=muzzle.position;
+        if(barrel!=null&&barrel.sharedMesh!=null)
+        {
+            var bounds=barrel.sharedMesh.bounds;
+            Vector3 axis=bounds.size.x>bounds.size.y&&bounds.size.x>bounds.size.z?Vector3.right:
+                bounds.size.y>bounds.size.z?Vector3.up:Vector3.forward;
+            if(Vector3.Dot(barrel.transform.TransformVector(axis),forward)<0)axis=-axis;
+            forward=barrel.transform.TransformVector(axis).normalized;
+            float length=Vector3.Dot(bounds.extents,new Vector3(Mathf.Abs(axis.x),Mathf.Abs(axis.y),Mathf.Abs(axis.z)));
+            tip=barrel.transform.TransformPoint(bounds.center+axis*length)+forward*.015f;
+        }
+        var pivot=turret.name=="Ranged aim pivot"?turret:new GameObject("Ranged aim pivot").transform;
+        Vector3 joint=imported.position;
+        imported.SetParent(visual,true);muzzle.SetParent(visual,true);
+        pivot.SetParent(visual,true);pivot.position=joint;pivot.rotation=Quaternion.LookRotation(forward,transform.up);
+        imported.SetParent(pivot,true);muzzle.SetParent(pivot,true);
+        muzzle.position=tip;muzzle.rotation=pivot.rotation;
+        turret=pivot;rangedRigVersion=1;
+    }
+    public void UpdateAim()
+    {
+        if(turret==null||muzzle==null||deathTime>=0||WeaponAction.CombatPaused)return;
+        // Solve muzzle parallax as well as pitch. Limit yaw until the chassis has turned.
+        for(int i=0;i<3;i++)
+        {
+            Vector3 direction=target-MuzzlePosition;
+            if(direction.sqrMagnitude<.0001f)return;
+            var desired=Quaternion.FromToRotation(muzzle.forward,direction.normalized)*turret.rotation;
+            Vector3 forward=Quaternion.Inverse(transform.rotation)*(desired*Vector3.forward);
+            float yaw=Mathf.Clamp(Mathf.Atan2(forward.x,forward.z)*Mathf.Rad2Deg,-30,30);
+            float pitch=Mathf.Clamp(-Mathf.Atan2(forward.y,new Vector2(forward.x,forward.z).magnitude)*Mathf.Rad2Deg,-35,35);
+            turret.rotation=transform.rotation*Quaternion.Euler(pitch,yaw,0);
+        }
+    }
     void Awake()
     {
         agent=GetComponent<NavMeshAgent>();random=new System.Random(GetInstanceID());
         // Never animate the navigation/collision root as a fallback.
         if(visual==null||visual==transform) { enabled=false;return; }
+        ConfigureRangedRig();
+        if(turret!=null)turretHome=turret.localPosition;
         home=visual.localPosition;rotation=moveRotation=visual.localRotation;
-        if(turret!=null)turretRotation=turret.localRotation;
+        CaptureRenderers();
+    }
+    void CaptureRenderers()
+    {
         var body=new List<Renderer>();
         foreach(var renderer in visual.GetComponentsInChildren<Renderer>())
-            if(!(renderer is ParticleSystemRenderer)&&!(renderer is LineRenderer))body.Add(renderer);
+            if(!(renderer is ParticleSystemRenderer)&&!(renderer is LineRenderer)&&!(renderer is TrailRenderer))body.Add(renderer);
         bodyRenderers=body.ToArray();baseColors=new Color[body.Count];baseEmission=new Color[body.Count];
         properties=new MaterialPropertyBlock();
         var copies=new Dictionary<Material,Material>();
@@ -168,12 +242,8 @@ public class RobotPresentation : MonoBehaviour
             visual.localPosition=home+Vector3.up*Mathf.Sin(Time.time*5+GetInstanceID())*.025f+hitOffset;
             moveRotation=Quaternion.Slerp(moveRotation,rotation*Quaternion.Euler(velocity.z*1.5f,0,-velocity.x*2),1-Mathf.Exp(-12*dt));
             visual.localRotation=moveRotation*Quaternion.Euler(hitAngles);
-            if(turret!=null)
-            {
-                Vector3 direction=target-MuzzlePosition;
-                float pitch=-Mathf.Atan2(direction.y,new Vector2(direction.x,direction.z).magnitude)*Mathf.Rad2Deg;
-                turret.localRotation=turretRotation*Quaternion.Euler(Mathf.Clamp(pitch,-35,35)-firePulse*8,0,0);
-            }
+            if(turret!=null)turret.localPosition=turretHome+turret.parent.InverseTransformVector(-AimDirection*firePulse*.025f);
+            UpdateAim();
             Spring(ref hitOffset,ref hitVelocity,springFrequency,dt);
             Spring(ref hitAngles,ref angleVelocity,springFrequency,dt);
             damageClock-=dt;

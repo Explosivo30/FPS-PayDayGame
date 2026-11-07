@@ -12,12 +12,16 @@ public class GunController : MonoBehaviour
     public IReadOnlyList<MonoBehaviour> Weapons => weaponObjects;
     public bool IsSwitching { get; private set; }
     public int CurrentIndex { get; private set; }
+    // Optional scene-local arsenal progression; ordinary tower scenes keep their current behavior.
+    public Func<MonoBehaviour,bool> WeaponAvailable;
+    public bool IsAvailable(int index) => index>=0 && index<weaponObjects.Count && (WeaponAvailable==null || WeaponAvailable(weaponObjects[index]));
     private InputReader inputReader;
     private bool wasAttacking;
     private bool requireRelease;
     public void RequireTriggerRelease(){requireRelease=true;wasAttacking=true;}
     public void CancelForModal()
     {
+        TowerSession.Instance?.GetComponent<MutationRun>()?.CancelInput();
         if(switchRoutine!=null)StopCoroutine(switchRoutine);
         switchRoutine=null;IsSwitching=false;
         foreach(var weapon in weaponObjects)
@@ -76,7 +80,16 @@ public class GunController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && currentWeapon is IReloadable reloadable) reloadable.Reload();
         bool attacking = inputReader != null && inputReader.isAttacking;
-        if (attacking && (currentWeapon.IsAutomatic || !wasAttacking)) currentWeapon.Use();
+        ProcessCombatInput(attacking,inputReader!=null&&inputReader.isJumping);
+    }
+    public void ProcessCombatInput(bool attacking,bool jumpHeld)
+    {
+        if(WeaponAction.CombatPaused||IsSwitching||currentWeapon==null)return;
+        if(requireRelease){if(attacking)return;requireRelease=false;wasAttacking=false;}
+        var mutations=TowerSession.Instance?.GetComponent<MutationRun>();
+        if(mutations!=null)mutations.JumpHeld=jumpHeld;
+        bool handled=mutations!=null&&mutations.ProcessAttack(currentWeapon as Component,attacking,wasAttacking);
+        if (!handled&&attacking && (currentWeapon.IsAutomatic || !wasAttacking)) currentWeapon.Use();
         wasAttacking = attacking;
     }
     private void LateUpdate()
@@ -87,10 +100,11 @@ public class GunController : MonoBehaviour
         if (worldCamera != null) worldCamera.fieldOfView = Mathf.Lerp(worldCamera.fieldOfView, target, blend);
         if (weaponCamera != null) weaponCamera.fieldOfView = Mathf.Lerp(weaponCamera.fieldOfView, aiming ? 52f : normalFOV, blend);
     }
-    public void SwitchWeapon() { SelectWeapon((CurrentIndex + 1) % Mathf.Max(1, weaponObjects.Count)); }
+    public void SwitchWeapon()
+    { for(int step=1;step<weaponObjects.Count;step++){int index=(CurrentIndex+step)%weaponObjects.Count;if(IsAvailable(index)){SelectWeapon(index);return;}} }
     public void SelectWeapon(int index)
     {
-        if (IsSwitching || WeaponAction.CombatPaused || index < 0 || index >= weaponObjects.Count || index == CurrentIndex) return;
+        if (IsSwitching || WeaponAction.CombatPaused || !IsAvailable(index) || index == CurrentIndex) return;
         switchRoutine = StartCoroutine(SwitchRoutine(index));
     }
     private IEnumerator SwitchRoutine(int index)
@@ -106,7 +120,8 @@ public class GunController : MonoBehaviour
     }
     public void EquipImmediate(int index)
     {
-        if (index < 0 || index >= weaponObjects.Count) return;
+        if (!IsAvailable(index)) return;
+        TowerSession.Instance?.GetComponent<MutationRun>()?.CancelInput();
         if (currentWeapon is IAimable oldAim) oldAim.StopAiming();
         CurrentIndex = index;
         for (int i = 0; i < weaponObjects.Count; i++) weaponObjects[i].gameObject.SetActive(i == index);

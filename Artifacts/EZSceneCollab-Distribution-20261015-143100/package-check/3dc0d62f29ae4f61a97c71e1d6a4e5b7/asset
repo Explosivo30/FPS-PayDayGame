@@ -1,0 +1,310 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EZCollabTool
+{
+    public sealed class EZCollabInboxOverflowException : InvalidOperationException
+    {
+        public EZCollabInboxOverflowException(string message) : base(message)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Thread-safe inbound buffer. Reliable messages retain FIFO order; high-frequency
+    /// state stores one latest value per object or peer. All queue transitions share a
+    /// gate so barriers and invalidations are atomic with the consumer.
+    /// </summary>
+    public sealed class EZCollabMessageInbox
+    {
+        const int MaxReliableMessages = 16384;
+        const long MaxReliableBytes = 256L * 1024L * 1024L;
+
+        sealed class PendingTransform
+        {
+            public string guid;
+            public EZMessage message;
+            public long orderedSequence;
+            public long arrival;
+        }
+
+        sealed class PendingTransformComparer : IComparer<PendingTransform>
+        {
+            public int Compare(PendingTransform left, PendingTransform right)
+            {
+                if (ReferenceEquals(left, right))
+                    return 0;
+                int sequence = left.orderedSequence.CompareTo(right.orderedSequence);
+                if (sequence != 0)
+                    return sequence;
+                int arrival = left.arrival.CompareTo(right.arrival);
+                if (arrival != 0)
+                    return arrival;
+                return string.CompareOrdinal(left.guid, right.guid);
+            }
+        }
+
+        readonly object gate = new object();
+        readonly Queue<EZMessage> reliable = new Queue<EZMessage>();
+        readonly Dictionary<string, PendingTransform> transforms =
+            new Dictionary<string, PendingTransform>();
+        readonly SortedSet<PendingTransform> orderedTransforms =
+            new SortedSet<PendingTransform>(new PendingTransformComparer());
+        readonly Dictionary<string, EZMessage> presences = new Dictionary<string, EZMessage>();
+        long reliableBytes;
+        long nextTransformArrival;
+
+        public int Count
+        {
+            get
+            {
+                lock (gate)
+                    return reliable.Count + transforms.Count + presences.Count;
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get
+            {
+                lock (gate)
+                    return reliable.Count == 0 && transforms.Count == 0 && presences.Count == 0;
+            }
+        }
+
+        public bool HasPendingSceneState
+        {
+            get
+            {
+                lock (gate)
+                    return reliable.Count > 0 || transforms.Count > 0;
+            }
+        }
+
+        public void Enqueue(EZMessage message)
+        {
+            if (message == null)
+                return;
+
+            string transformGuid = null;
+            if (message.type == EZMessageType.TransformDelta)
+                transformGuid = message.GetPayload<TransformPayload>()?.guid;
+
+            string invalidatedGuid = string.IsNullOrEmpty(transformGuid)
+                ? GetSupersededTransformGuid(message)
+                : null;
+            bool hasTransformBarrier = TryGetTransformBarrierGuid(message, out string barrierGuid);
+            long messageBytes = EstimateBytes(message);
+
+            lock (gate)
+            {
+                if (!string.IsNullOrEmpty(transformGuid))
+                {
+                    if (transforms.TryGetValue(transformGuid, out PendingTransform previous))
+                        orderedTransforms.Remove(previous);
+
+                    PendingTransform pending = new PendingTransform
+                    {
+                        guid = transformGuid,
+                        message = message,
+                        orderedSequence = NormalizeSequence(message.sequence),
+                        arrival = ++nextTransformArrival
+                    };
+                    transforms[transformGuid] = pending;
+                    orderedTransforms.Add(pending);
+                    return;
+                }
+
+                if (message.type == EZMessageType.PresenceUpdate &&
+                    !string.IsNullOrEmpty(message.senderId))
+                {
+                    presences[message.senderId] = message;
+                    return;
+                }
+
+                bool flushAllTransforms = message.type == EZMessageType.RecoveryComplete ||
+                                          (!hasTransformBarrier && message.sequence > 0);
+
+                int addedMessages = 1;
+                long addedBytes = messageBytes;
+                if (flushAllTransforms)
+                {
+                    foreach (KeyValuePair<string, PendingTransform> pair in transforms)
+                    {
+                        if (pair.Key == invalidatedGuid)
+                            continue;
+                        addedMessages++;
+                        addedBytes += EstimateBytes(pair.Value.message);
+                    }
+                }
+                else if (hasTransformBarrier &&
+                         transforms.TryGetValue(barrierGuid, out PendingTransform barrierTransform))
+                {
+                    addedMessages++;
+                    addedBytes += EstimateBytes(barrierTransform.message);
+                }
+
+                EnsureReliableCapacityLocked(addedMessages, addedBytes);
+                if (!string.IsNullOrEmpty(invalidatedGuid))
+                    RemoveTransformLocked(invalidatedGuid);
+
+                if (flushAllTransforms)
+                    FlushTransformsToReliableLocked();
+                else if (hasTransformBarrier)
+                    FlushTransformToReliableLocked(barrierGuid);
+
+                EnqueueReliableUnchecked(message);
+            }
+        }
+
+        public bool TryDequeue(out EZMessage message)
+        {
+            lock (gate)
+            {
+                if (reliable.Count > 0)
+                {
+                    message = reliable.Dequeue();
+                    reliableBytes -= EstimateBytes(message);
+                    return true;
+                }
+
+                if (TryTakeTransformLocked(out message))
+                    return true;
+
+                return TryTakePresenceLocked(out message);
+            }
+        }
+
+        public void Clear()
+        {
+            lock (gate)
+            {
+                reliable.Clear();
+                transforms.Clear();
+                orderedTransforms.Clear();
+                presences.Clear();
+                reliableBytes = 0;
+                nextTransformArrival = 0;
+            }
+        }
+
+        bool TryTakeTransformLocked(out EZMessage message)
+        {
+            if (orderedTransforms.Count == 0)
+            {
+                message = null;
+                return false;
+            }
+
+            PendingTransform pending = orderedTransforms.Min;
+            orderedTransforms.Remove(pending);
+            transforms.Remove(pending.guid);
+            message = pending.message;
+            return true;
+        }
+
+        bool TryTakePresenceLocked(out EZMessage message)
+        {
+            string selectedKey = null;
+            foreach (KeyValuePair<string, EZMessage> pair in presences)
+            {
+                selectedKey = pair.Key;
+                break;
+            }
+
+            if (selectedKey == null)
+            {
+                message = null;
+                return false;
+            }
+
+            message = presences[selectedKey];
+            presences.Remove(selectedKey);
+            return true;
+        }
+
+        static long NormalizeSequence(long sequence)
+        {
+            // Unsequenced messages cannot advance the recovery watermark and are
+            // therefore safe to apply before positive server revisions.
+            return sequence > 0 ? sequence : long.MinValue;
+        }
+
+        void FlushTransformsToReliableLocked()
+        {
+            while (TryTakeTransformLocked(out EZMessage transform))
+                EnqueueReliableUnchecked(transform);
+        }
+
+        void FlushTransformToReliableLocked(string guid)
+        {
+            if (!string.IsNullOrEmpty(guid) &&
+                transforms.TryGetValue(guid, out PendingTransform transform))
+            {
+                RemoveTransformLocked(guid);
+                EnqueueReliableUnchecked(transform.message);
+            }
+        }
+
+        void RemoveTransformLocked(string guid)
+        {
+            if (!transforms.TryGetValue(guid, out PendingTransform pending))
+                return;
+
+            transforms.Remove(guid);
+            orderedTransforms.Remove(pending);
+        }
+
+        void EnsureReliableCapacityLocked(int addedMessages, long addedBytes)
+        {
+            if (reliable.Count + addedMessages > MaxReliableMessages ||
+                reliableBytes + addedBytes > MaxReliableBytes)
+            {
+                throw new EZCollabInboxOverflowException(
+                    "The incoming reliable queue exceeded 16,384 messages or 256 MB. Reconnect to request a fresh synchronization.");
+            }
+        }
+
+        void EnqueueReliableUnchecked(EZMessage message)
+        {
+            reliable.Enqueue(message);
+            reliableBytes += EstimateBytes(message);
+        }
+
+        static long EstimateBytes(EZMessage message)
+        {
+            return 128L + Encoding.UTF8.GetByteCount(message?.payload ?? string.Empty);
+        }
+
+        static bool TryGetTransformBarrierGuid(EZMessage message, out string guid)
+        {
+            guid = null;
+            if (message.type != EZMessageType.LockRelease &&
+                message.type != EZMessageType.ObjectUnlocked)
+            {
+                return false;
+            }
+
+            guid = message.GetPayload<LockPayload>()?.guid;
+            return !string.IsNullOrEmpty(guid);
+        }
+
+        static string GetSupersededTransformGuid(EZMessage message)
+        {
+            string guid = null;
+            switch (message.type)
+            {
+                case EZMessageType.CreateObject:
+                case EZMessageType.ComponentDelta:
+                    guid = message.GetPayload<CreateObjectPayload>()?.guid;
+                    break;
+                case EZMessageType.DestroyObject:
+                    guid = message.GetPayload<DestroyObjectPayload>()?.guid;
+                    break;
+            }
+
+            return guid;
+        }
+    }
+}

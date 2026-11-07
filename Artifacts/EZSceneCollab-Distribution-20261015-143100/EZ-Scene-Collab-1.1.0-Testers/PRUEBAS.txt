@@ -1,0 +1,50 @@
+GUION DE PRUEBAS - EZ SCENE COLLAB 1.1.0
+
+Usa la misma escena demo en todos los equipos, preferiblemente un host y dos clientes.
+Haz las pruebas sobre una copia del proyecto y guarda la escena de partida.
+
+1. INSTALACIÓN Y CONEXIÓN
+- ¿Se importa sin errores y aparece Window > EZ Scene Collab?
+- ¿Conectan los participantes y termina el snapshot inicial?
+- Prueba primero en LAN. Si pruebas desde casas distintas, anota la VPN utilizada.
+
+2. EDICIÓN
+- Mueve, rota y escala objetos desde distintos participantes.
+- Crea, duplica y elimina una primitiva.
+- Cambia nombre, estado activo, padre y orden de un objeto.
+- Cambia propiedades de una luz o un collider y observa el otro Editor.
+- Prueba Undo y Redo después de una edición compatible.
+
+3. BLOQUEOS
+- Selecciona un objeto desde un equipo y comprueba que el otro ve su bloqueo.
+- Intenta seleccionar o mover el mismo objeto desde otro participante.
+- Deselecciona y confirma que vuelve a estar disponible.
+- Intentad seleccionarlo a la vez: anotad si hay saltos o cambios que no se revierten.
+
+4. PRESENCIA Y RECONEXIÓN
+- Revisa nombres, colores y señales de presencia en la Scene View.
+- Desconecta un cliente, cambia un objeto en el host y vuelve a conectar el cliente.
+- Confirma que recibe el estado actual y que no quedan bloqueos atascados.
+- Detén la sesión, cierra la ventana y vuelve a abrirla.
+
+5. PROBUILDER (SOLO SI ESTÁ INSTALADO EN LOS EQUIPOS)
+- Anota la versión.
+- Crea un objeto real desde GameObject > EZ Scene Collab > ProBuilder Demo Object.
+- Edita caras o vértices y revisa forma, material y bloqueos en el otro Editor.
+
+PLANTILLA PARA DEVOLVER OPINIONES
+- Versión de Unity:
+- Versión de EZ Scene Collab: 1.1.0
+- Número de equipos y sistema operativo:
+- Conexión: LAN / VPN (cuál):
+- Rol del equipo afectado: host / cliente:
+- ProBuilder instalado y versión:
+- Pasos exactos para reproducir el problema:
+- Qué esperabas:
+- Qué ocurrió:
+- ¿Se repite siempre o algunas veces?:
+- Mensaje de Console, captura o vídeo si puedes:
+- ¿Qué parte fue más confusa?:
+- ¿Qué función te resultó más útil?:
+
+No hace falta probar proyectos grandes para empezar: primero comprueba el flujo básico en la demo.

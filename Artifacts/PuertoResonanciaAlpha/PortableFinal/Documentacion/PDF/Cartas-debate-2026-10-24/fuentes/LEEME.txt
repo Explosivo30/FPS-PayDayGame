@@ -1,0 +1,22 @@
+RONDA 2 - CARTAS Y DEBATE - 24/10/2026
+
+Encargo: nuevos agentes deben proponer ideas nuevas, contrastar las 32 cartas
+anteriores y las nuevas, discutir directamente entre ellos y elegir la mejor
+direccion y un primer conjunto pequeno para probar. No implementar el juego.
+
+Preferencia explicita de Edgar: "PDF 1 Y 2 SOBRETODO".
+Son Arsenal mutante e Impulso de combate. La preferencia orienta la comparacion;
+no convierte cada carta de ambos documentos en una decision aprobada.
+
+Criterios por prioridad: cambio jugable y potencial de diversion; claridad y
+control; variedad de combinaciones; encaje con las preferencias del usuario.
+Coste y fiabilidad sirven como desempate y para escoger un prototipo viable.
+No son resultados de un playtest humano ni medidas objetivas de diversion.
+
+Identificadores anteriores: P1-01 a P1-08 (Arsenal), P2-01 a P2-08 (Impulso),
+P3-01 a P3-08 (Domino), P4-01 a P4-08 (Ingenieria).
+Nuevas cartas: A1-A6, B1-B6 y C1-C6, cada grupo escrito por un agente nuevo.
+
+Fases: propuestas independientes; critica cruzada con ejemplos; respuesta y
+revisiones; votos finales; sintesis del coordinador con desacuerdos conservados.
+El informe PDF se genera despues de recibir las votaciones reales.

@@ -1,0 +1,104 @@
+{
+  "number": 4,
+  "title": "Ingeniería de chatarra",
+  "short": "Artefactos para combatir",
+  "accent": "#A47708",
+  "tagline": "Recargas, deslizamientos y disparos convierten la arena en tu caja de herramientas.",
+  "thesis": "Las cartas conceden artefactos temporales que colocas mientras combates. Tú preparas una trampa, atraes a la horda y eliges cuándo detonarla. La potencia nace de encadenar decisiones rápidas: ninguna torreta ni dron dispara por ti.",
+  "today_proposal": "Hoy las cartas modifican principalmente cifras y recursos. Propongo conservar la elección de una entre tres al acabar cada oleada, pero añadir capacidades con objetos visibles. Desplegar usa acciones existentes; disparar a algunos artefactos ofrece control manual.",
+  "moment": "Aguja te apunta. Te deslizas y dejas una pantalla que intercepta su tiro. Un imán junta a la horda; disparas al cargador bomba y abres un pasillo. Ariete atraviesa la pantalla: debes moverte otra vez.",
+  "choose_if": "Quieres sentirte un chatarrero peligroso que improvisa trampas, cambia posiciones y sigue disparando sin detenerse a construir.",
+  "cards": [
+    {
+      "name": "Cargador bomba",
+      "trigger": "Recarga manual con munición restante, usando pistola o carabina.",
+      "effect": "El cargador cae como explosivo; dispararle lo detona.",
+      "signal": "Carcasa naranja, pitido y radio dibujado en suelo.",
+      "combo": "Ancla magnética concentra enemigos alrededor.",
+      "cap": "Uno activo; recarga interna de 10 s. Desaparece tras 6 s. Sin cadenas automáticas."
+    },
+    {
+      "name": "Parapeto plegable",
+      "trigger": "Termina un deslizamiento sobre suelo.",
+      "effect": "Dejas detrás un emisor que proyecta pantalla contra disparos; cualquiera puede atravesarla.",
+      "signal": "Placas se abren, pantalla ámbar y grietas por impacto.",
+      "combo": "Recarga bajo fuego de Aguja y prepara Cargador bomba.",
+      "cap": "Una pantalla; 3 impactos o 4 s. Los melee la atraviesan. Recarga interna: 12 s."
+    },
+    {
+      "name": "Baliza señuelo",
+      "trigger": "Comienza una recarga manual con el arma vacía.",
+      "effect": "Suelta una silueta ruidosa que atrae brevemente la atención enemiga.",
+      "signal": "Robot de chatarra parpadeante; enemigos giran hacia él.",
+      "combo": "Atrae perseguidores hacia Mina catapulta.",
+      "cap": "Una baliza; 2 s. Pierde prioridad al atacarles tú. Recarga interna: 14 s."
+    },
+    {
+      "name": "Ancla magnética",
+      "trigger": "Recarga manual apuntando a suelo cercano.",
+      "effect": "Coloca un imán que agrupa enemigos ligeros; los pesados solo se frenan.",
+      "signal": "Disco dentado, cables luminosos y chatarra atraída.",
+      "combo": "Agrupa objetivos para Cargador bomba o Martillo de obra.",
+      "cap": "Una ancla; 2 s, radio orientativo 3 m. Requiere visión. No encierra veteranos. Recarga interna: 14 s."
+    },
+    {
+      "name": "Mina catapulta",
+      "trigger": "Deslízate junto a un enemigo.",
+      "effect": "Dejas una mina que lanza al siguiente enemigo ligero; un pesado tropieza.",
+      "signal": "Muelle comprimido, zona rayada y golpe metálico.",
+      "combo": "Baliza señuelo hace pasar perseguidores por ella.",
+      "cap": "Una mina; caduca en 5 s. Un objetivo, sin daño por caída obligatorio. Recarga interna: 10 s."
+    },
+    {
+      "name": "Martillo de obra",
+      "trigger": "Tras tres impactos directos al mismo enemigo, recarga manualmente.",
+      "effect": "Un martillo suspendido golpea su última posición marcada.",
+      "signal": "Marca cuadrada, sombra descendente y aviso de impacto.",
+      "combo": "Ancla magnética mantiene a los ligeros bajo el golpe.",
+      "cap": "Un golpe tras 0,8 s; el objetivo puede salir. Pierde marca si cambias objetivo. Recarga interna: 12 s."
+    },
+    {
+      "name": "Sierra recuperable",
+      "trigger": "Primera recarga manual tras tres bajas con disparos directos.",
+      "effect": "Lanzas una sierra recta; cae al final y recogerla recupera su disponibilidad.",
+      "signal": "Disco amarillo, estela dentada y baliza de recogida.",
+      "combo": "Parapeto plegable cubre la ruta para recuperarla.",
+      "cap": "Una sierra; golpea una vez por enemigo, no rebota. Caduca en 8 s; sin recogida exige otras tres bajas directas."
+    },
+    {
+      "name": "Bobina de descarga",
+      "trigger": "Primera recarga manual después de perder el escudo.",
+      "effect": "Despliega bobina que intercepta disparos; dispararle libera una onda con la energía capturada.",
+      "signal": "Aros cargándose, contador de impactos y crujido eléctrico.",
+      "combo": "Ancla magnética acerca blancos a la onda.",
+      "cap": "Una bobina; 3 impactos o 4 s. Sin capturas solo empuja. Recarga interna: 18 s; excluye daño aliado."
+    }
+  ],
+  "flow": "Empiezas con pistola y adquieres armas durante el intento. Cada oleada ofrece una entre tres cartas: artefacto nuevo, otra táctica o arma disponible. Cargador bomba solo aparece con pistola o carabina. Una recarga de escopeta cuenta como una acción completa, nunca por cartucho.",
+  "shop": "La tienda conserva salud, munición y ajustes pequeños. Las cartas aportan acciones y objetos. No comprar otra mejora porcentual para que un artefacto empiece a resultar útil: su primera versión ya debe funcionar.",
+  "builds": [
+    {
+      "name": "Taller de demolición",
+      "cards": ["Ancla magnética", "Cargador bomba", "Martillo de obra"],
+      "sequence": "Disparas tres veces a Ariete y recargas apuntando al suelo de la horda. Se colocan ancla y bomba; cae el martillo en la posición marcada. Disparas a la bomba cuando llegan los ligeros. Ariete resiste el arrastre y sigue avanzando.",
+      "decision": "Agrupar la horda o fijar a Ariete cambia dónde recargas. El martillo puede fallar; no es una eliminación garantizada."
+    },
+    {
+      "name": "Recoger bajo fuego",
+      "cards": ["Parapeto plegable", "Baliza señuelo", "Sierra recuperable"],
+      "sequence": "Tres bajas directas preparan la sierra. Vacías el arma y recargas: lanzas la sierra y dejas señuelo. Aguja apunta a la silueta; te deslizas hacia el disco, dejando pantalla contra disparos. La horda atraviesa esa protección y obliga a recoger en movimiento.",
+      "decision": "Recuperar la sierra devuelve su uso; abandonar la zona protege tu vida. Disparar a Aguja puede romper la distracción antes de recoger."
+    }
+  ],
+  "choice": "¿Tomas Cargador bomba para preparar explosiones, Parapeto plegable para cruzar fuego o Sierra recuperable para perseguir tu propia herramienta? La elección cambia tu próxima maniobra, incluso manteniendo la misma pistola.",
+  "prototype": "Probar primero Cargador bomba, Parapeto plegable y Ancla magnética en una arena existente. Un artefacto por carta, sin variantes ni árbol de fabricación. Comparar cada carta sola y las tres juntas contra horda, Ariete y Aguja.",
+  "effort": "Coste medio-alto: objetos temporales, colisiones de raycast, colocación válida, efectos, atribución de bajas y limpieza. Señuelo exige selección de objetivo en IA; Martillo requiere animación propia. Empezaría sin estas dos dependencias. El imán necesita respetar navegación y masas.",
+  "risks": "Muchos artefactos pueden tapar enemigos o dispararse sin intención. Colores y límites legibles; colocación solo en suelo válido. Los daños de artefactos conservan bajas, chips y progreso de oleada, pero no activan disparadores de impactos o bajas directas.",
+  "tests": [
+    "Tras una sola carta, ¿explica el tester qué acción nueva puede hacer sin leer porcentajes?",
+    "¿Coloca y detona dos bombas a propósito, manteniendo movimiento y puntería, sin activar por error una recarga?",
+    "¿Distingue que la pantalla frena a Aguja pero Ariete puede atravesarla, y decide recolocarse?",
+    "¿La combinación produce una jugada recordable sin atrapar veteranos permanentemente ni perder bajas o bloquear la siguiente oleada?"
+  ],
+  "tradeoff": "Aceptas más objetos, reglas de colocación y efectos en pantalla a cambio de tácticas visibles. Aquí la fantasía es preparar y ejecutar una jugada. Si prefieres potencia inmediata al apretar el gatillo, otra propuesta tendrá una lectura más directa."
+}

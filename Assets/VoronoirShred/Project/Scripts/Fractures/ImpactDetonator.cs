@@ -22,6 +22,8 @@ namespace Project.Scripts.Fractures
         private GameObject wholeObjectParent;
         private float currentStructuralHealth;
         private bool hasDetonated;
+        public event System.Action<float> StructuralHit;
+        public bool HasDetonated => hasDetonated;
 
         public void Setup(GameObject fracturedRef, GameObject originalParent)
         {
@@ -66,13 +68,27 @@ namespace Project.Scripts.Fractures
             if (ShouldIgnore(hit.transform.gameObject))
                 return;
 
+            ApplyWorldImpact(hit.point, -hit.normal, damageDealt);
+        }
+
+        // The same receiver serves physical projectiles, fists and player hitscan.
+        public void ApplyWorldImpact(Vector3 point, Vector3 direction, float damageDealt)
+        {
+            if (damageDealt <= 0 || float.IsNaN(damageDealt) || float.IsInfinity(damageDealt)) return;
+            ResolveWorldImpact(point, direction, damageDealt);
+            StructuralHit?.Invoke(damageDealt);
+        }
+
+        private void ResolveWorldImpact(Vector3 point, Vector3 direction, float damageDealt)
+        {
+
             // When the original object is already disabled, the ray hit a visible chunk.
             // Further shots should affect that local area immediately.
             if (wholeObjectParent != null && !wholeObjectParent.activeSelf)
             {
                 ApplyLocalizedForce(
-                    hit.point,
-                    -hit.normal,
+                    point,
+                    direction,
                     Mathf.Clamp(damageDealt * impulsePerDamage, 1f, maximumImpulse));
                 return;
             }
@@ -80,8 +96,8 @@ namespace Project.Scripts.Fractures
             if (hasDetonated)
             {
                 ApplyLocalizedForce(
-                    hit.point,
-                    -hit.normal,
+                    point,
+                    direction,
                     Mathf.Clamp(damageDealt * impulsePerDamage, 1f, maximumImpulse));
                 return;
             }
@@ -90,7 +106,8 @@ namespace Project.Scripts.Fractures
             if (currentStructuralHealth > 0f)
                 return;
 
-            DetonateRaycast(hit, damageDealt * impulsePerDamage);
+            ActivateFracturedVersion();
+            ApplyLocalizedForce(point, direction, Mathf.Clamp(damageDealt * impulsePerDamage, 1f, maximumImpulse));
         }
 
         public void DetonateRaycast(RaycastHit hit, float forceMagnitude)

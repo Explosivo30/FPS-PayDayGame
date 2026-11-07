@@ -1,0 +1,404 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public sealed class EZSceneSnapshotCaptureOperation
+    {
+        readonly int membershipLimit;
+        readonly HashSet<int> capturedIds = new HashSet<int>();
+        readonly Stack<GameObject> parentChain = new Stack<GameObject>();
+        int nextObject;
+        readonly HashSet<string> materialKeys = new HashSet<string>();
+        readonly HashSet<int> capturedMaterialIds = new HashSet<int>();
+
+        public SceneSnapshot snapshot { get; } = new SceneSnapshot();
+        public bool isComplete { get; private set; }
+        public int capturedObjects => snapshot.objects.Count;
+
+        public EZSceneSnapshotCaptureOperation()
+        {
+            membershipLimit = EZCollabState.stableObjectCount;
+        }
+
+        public void Step(int maxObjects, double budgetSeconds)
+        {
+            if (isComplete)
+                return;
+
+            long started = Stopwatch.GetTimestamp();
+            int processed = 0;
+            while (processed < Math.Max(1, maxObjects) && WithinBudget(started, budgetSeconds))
+            {
+                if (!TryGetNext(out GameObject go))
+                {
+                    isComplete = true;
+                    return;
+                }
+
+                if (go == null)
+                    continue;
+
+                string guid = EZCollabState.GetOrAssignGuid(go);
+                CreateObjectPayload payload = EZSceneSerializer.CreatePayload(go, guid, capturedMaterialIds);
+                snapshot.objects.Add(new SerializedObject
+                {
+                    guid = guid,
+                    persistentId = EZSceneSerializer.GetPersistentId(go),
+                    parentGuid = payload.parentGuid,
+                    name = payload.objectName,
+                    active = payload.active,
+                    sourceType = payload.sourceType,
+                    prefabPath = payload.prefabPath,
+                    prefabGuid = payload.prefabGuid,
+                    prefabHash = payload.prefabHash,
+                    primitiveType = payload.primitiveType,
+                    localTransform = payload.localTransform,
+                    siblingIndex = payload.siblingIndex,
+                    layer = payload.layer,
+                    tag = payload.tag,
+                    staticEditorFlags = payload.staticEditorFlags,
+                    components = payload.components,
+                    mesh = payload.mesh
+                });
+
+                if (payload.materials != null)
+                {
+                    foreach (SerializedMaterial material in payload.materials)
+                    {
+                        if (material != null &&
+                            EZCollabMaterialSerializer.TryGetMaterialKey(material, out string key) &&
+                            materialKeys.Add(key))
+                        {
+                            snapshot.materials.Add(material);
+                        }
+                    }
+                }
+
+                processed++;
+            }
+        }
+
+        bool TryGetNext(out GameObject go)
+        {
+            while (true)
+            {
+                if (parentChain.Count > 0)
+                {
+                    go = parentChain.Pop();
+                    if (go != null && capturedIds.Add(go.GetInstanceID())) return true;
+                    continue;
+                }
+                if (nextObject >= membershipLimit)
+                {
+                    go = null;
+                    return false;
+                }
+                GameObject candidate = EZCollabState.GetStableObject(nextObject++);
+                while (candidate != null && !capturedIds.Contains(candidate.GetInstanceID()))
+                {
+                    parentChain.Push(candidate);
+                    candidate = candidate.transform.parent != null
+                        ? candidate.transform.parent.gameObject : null;
+                }
+            }
+        }
+
+        static bool WithinBudget(long started, double budgetSeconds)
+        {
+            if (budgetSeconds <= 0d)
+                return true;
+
+            return (Stopwatch.GetTimestamp() - started) / (double)Stopwatch.Frequency < budgetSeconds;
+        }
+    }
+
+    public sealed class EZSceneSnapshotApplyOperation
+    {
+        enum ApplyStage
+        {
+            IndexExisting,
+            ApplyContent,
+            ScanRemovals,
+            RemoveExtras,
+            ResolveReferences,
+            Complete,
+            Cancelled
+        }
+
+        readonly GameObject[] initialRoots;
+        readonly HierarchyWalker existingWalker;
+        readonly Dictionary<string, GameObject> existingByPersistentId =
+            new Dictionary<string, GameObject>();
+        readonly HashSet<GameObject> claimedObjects = new HashSet<GameObject>();
+        readonly HashSet<GameObject> initialObjects = new HashSet<GameObject>();
+        readonly HashSet<string> snapshotGuids = new HashSet<string>();
+        readonly Queue<SerializedMaterial> pendingMaterials = new Queue<SerializedMaterial>();
+        readonly Queue<SerializedObject> pendingObjects = new Queue<SerializedObject>();
+        readonly List<GameObject> removalCandidates = new List<GameObject>();
+
+        ApplyStage stage = ApplyStage.IndexExisting;
+        HierarchyWalker removalWalker;
+        bool endReceived;
+        int removalIndex = -1;
+        int pendingReferencePass;
+
+        public int totalObjects { get; private set; }
+        public int appliedObjects { get; private set; }
+        public int pendingItemCount => pendingMaterials.Count + pendingObjects.Count;
+        public bool isComplete => stage == ApplyStage.Complete;
+        public bool isCancelled => stage == ApplyStage.Cancelled;
+        public float progress
+        {
+            get
+            {
+                if (stage == ApplyStage.Complete)
+                    return 1f;
+                if (totalObjects <= 0)
+                    return stage == ApplyStage.IndexExisting ? 0.02f : 0.05f;
+
+                float objectProgress = Mathf.Clamp01(appliedObjects / (float)totalObjects);
+                if (stage == ApplyStage.IndexExisting)
+                    return 0.02f;
+                if (stage == ApplyStage.ApplyContent)
+                    return Mathf.Lerp(0.05f, 0.9f, objectProgress);
+                if (stage == ApplyStage.ScanRemovals || stage == ApplyStage.RemoveExtras)
+                    return 0.94f;
+                return 0.98f;
+            }
+        }
+
+        public EZSceneSnapshotApplyOperation(SceneSnapshotBeginPayload begin)
+        {
+            totalObjects = Math.Max(0, begin?.totalObjects ?? 0);
+            initialRoots = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+            existingWalker = new HierarchyWalker(initialRoots);
+            EZCollabState.isApplyingRemoteChange = true;
+        }
+
+        public void Enqueue(SceneSnapshot chunk)
+        {
+            if (chunk?.materials != null)
+                foreach (SerializedMaterial material in chunk.materials)
+                    if (material != null)
+                        pendingMaterials.Enqueue(material);
+
+            if (chunk?.objects != null)
+                foreach (SerializedObject serializedObject in chunk.objects)
+                    if (serializedObject != null)
+                        pendingObjects.Enqueue(serializedObject);
+        }
+
+        public void MarkEnd()
+        {
+            endReceived = true;
+        }
+
+        public void Step(int maxItems, double budgetSeconds)
+        {
+            if (isComplete || isCancelled)
+                return;
+
+            long started = Stopwatch.GetTimestamp();
+            int processed = 0;
+            int limit = Math.Max(1, maxItems);
+
+            while (processed < limit && WithinBudget(started, budgetSeconds) &&
+                   !isComplete && !isCancelled)
+            {
+                switch (stage)
+                {
+                    case ApplyStage.IndexExisting:
+                        if (existingWalker.TryMoveNext(out GameObject existing))
+                        {
+                            if (existing != null)
+                            {
+                                initialObjects.Add(existing);
+                                string persistentId = EZSceneSerializer.GetPersistentId(existing);
+                                if (!string.IsNullOrEmpty(persistentId) &&
+                                    !existingByPersistentId.ContainsKey(persistentId))
+                                {
+                                    existingByPersistentId.Add(persistentId, existing);
+                                }
+                            }
+                            processed++;
+                            break;
+                        }
+
+                        EZSceneSerializer.BeginIncrementalSnapshotApply();
+                        stage = ApplyStage.ApplyContent;
+                        break;
+
+                    case ApplyStage.ApplyContent:
+                        if (pendingMaterials.Count > 0)
+                        {
+                            EZCollabMaterialSerializer.ApplyMaterial(pendingMaterials.Dequeue());
+                            processed++;
+                            break;
+                        }
+
+                        if (pendingObjects.Count > 0)
+                        {
+                            ApplyObject(pendingObjects.Dequeue());
+                            processed++;
+                            break;
+                        }
+
+                        if (!endReceived)
+                            return;
+
+                        removalWalker = new HierarchyWalker(
+                            UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects());
+                        stage = ApplyStage.ScanRemovals;
+                        break;
+
+                    case ApplyStage.ScanRemovals:
+                        if (removalWalker.TryMoveNext(out GameObject candidate))
+                        {
+                            if (candidate != null &&
+                                (!EZCollabState.TryGetGuid(candidate, out string candidateGuid) ||
+                                 !snapshotGuids.Contains(candidateGuid)))
+                            {
+                                removalCandidates.Add(candidate);
+                            }
+                            processed++;
+                            break;
+                        }
+
+                        removalIndex = removalCandidates.Count - 1;
+                        stage = ApplyStage.RemoveExtras;
+                        break;
+
+                    case ApplyStage.RemoveExtras:
+                        if (removalIndex >= 0)
+                        {
+                            GameObject extra = removalCandidates[removalIndex--];
+                            if (extra != null)
+                            {
+                                EZCollabState.RemoveObject(extra);
+                                UnityEngine.Object.DestroyImmediate(extra);
+                            }
+                            processed++;
+                            break;
+                        }
+
+                        pendingReferencePass = EZCollabObjectSerializer.BeginPendingReferencePass();
+                        stage = ApplyStage.ResolveReferences;
+                        break;
+
+                    case ApplyStage.ResolveReferences:
+                        int batch = Math.Min(limit - processed, 32);
+                        if (EZCollabObjectSerializer.ResolvePendingObjectReferencesBatch(
+                                ref pendingReferencePass,
+                                Math.Max(1, batch)))
+                        {
+                            stage = ApplyStage.Complete;
+                            EZCollabState.isApplyingRemoteChange = false;
+                        }
+                        processed += Math.Max(1, batch);
+                        break;
+                }
+            }
+        }
+
+        public void Cancel()
+        {
+            if (isComplete || isCancelled)
+                return;
+
+            pendingMaterials.Clear();
+            pendingObjects.Clear();
+            removalCandidates.Clear();
+            stage = ApplyStage.Cancelled;
+            EZCollabState.isApplyingRemoteChange = false;
+        }
+
+        void ApplyObject(SerializedObject data)
+        {
+            if (data == null || string.IsNullOrEmpty(data.guid) || !snapshotGuids.Add(data.guid))
+                return;
+
+            GameObject go = EZSceneSerializer.FindExistingObject(
+                data,
+                existingByPersistentId,
+                initialRoots,
+                claimedObjects,
+                initialObjects);
+            if (go == null)
+                go = EZSceneSerializer.CreateFromSerialized(data, true);
+            else
+            {
+                EZSceneSerializer.RegisterSnapshotGuid(go, data.guid);
+                EZSceneSerializer.ApplySerializedState(go, data, true);
+            }
+            claimedObjects.Add(go);
+            appliedObjects++;
+        }
+
+        static bool WithinBudget(long started, double budgetSeconds)
+        {
+            if (budgetSeconds <= 0d)
+                return true;
+
+            return (Stopwatch.GetTimestamp() - started) / (double)Stopwatch.Frequency < budgetSeconds;
+        }
+    }
+
+    sealed class HierarchyWalker
+    {
+        sealed class Frame
+        {
+            public Transform transform;
+            public int nextChild;
+        }
+
+        readonly GameObject[] roots;
+        readonly Stack<Frame> stack = new Stack<Frame>();
+        int nextRoot;
+
+        public HierarchyWalker(GameObject[] roots)
+        {
+            this.roots = roots ?? Array.Empty<GameObject>();
+        }
+
+        public bool TryMoveNext(out GameObject gameObject)
+        {
+            while (true)
+            {
+                if (stack.Count == 0)
+                {
+                    while (nextRoot < roots.Length)
+                    {
+                        GameObject root = roots[nextRoot++];
+                        if (root == null)
+                            continue;
+
+                        stack.Push(new Frame { transform = root.transform });
+                        gameObject = root;
+                        return true;
+                    }
+
+                    gameObject = null;
+                    return false;
+                }
+
+                Frame frame = stack.Peek();
+                if (frame.transform == null || frame.nextChild >= frame.transform.childCount)
+                {
+                    stack.Pop();
+                    continue;
+                }
+
+                Transform child = frame.transform.GetChild(frame.nextChild++);
+                if (child == null)
+                    continue;
+
+                stack.Push(new Frame { transform = child });
+                gameObject = child.gameObject;
+                return true;
+            }
+        }
+    }
+}

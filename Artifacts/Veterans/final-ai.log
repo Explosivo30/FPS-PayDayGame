@@ -1,0 +1,2807 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
+[Licensing::IpcConnector] Channel LicenseClient-Edgar doesn't exist
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 31965 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-10-15T20:23:27Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 3312)
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
+-batchmode
+-projectPath
+D:\Unity\FPS-PayDayGame
+-executeMethod
+VeteranModelBuild.Play
+-ai-qa
+-ai-output
+D:\Unity\FPS-PayDayGame\Artifacts\Veterans\FinalAI
+-player-profile
+VeteranModelQA
+-logFile
+D:\Unity\FPS-PayDayGame\Artifacts\Veterans\final-ai.log
+Successfully changed project path to: D:\Unity\FPS-PayDayGame
+D:/Unity/FPS-PayDayGame
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [27104]  Target information:
+
+Player connection [27104]  * "[IP] 192.168.1.42 [Port] 55504 [Flags] 2 [Guid] 827330667 [EditorId] 827330667 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [27104]  * "[IP] 192.168.163.1 [Port] 55504 [Flags] 2 [Guid] 827330667 [EditorId] 827330667 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [27104]  * "[IP] 192.168.235.1 [Port] 55504 [Flags] 2 [Guid] 827330667 [EditorId] 827330667 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BOONDKL) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [27104] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [27104] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar" at "2026-10-15T20:23:27.3135422Z"
+[Package Manager] Connected to IPC stream "Upm-29340" after 0.2 seconds.
+Library Redirect Path: Library/
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 3312, path: "C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 3.49 ms, found 19 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.2+ff71f16
+  Session Id:              f4025811444142c79b4c972f3f7ff654
+  Correlation Id:          baf3d1941116621a866d4909ee5cbe3f
+  External correlation Id: 5768196343570143749
+  Machine Id:              WadMmAy/osH9k8L5ydYQtjSc8pk=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Edgar" (connect: 0.25s, validation: 0.12s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Edgar-notifications" at "2026-10-15T20:23:27.4607937Z"
+[Licensing::Module] Connected to LicensingClient (PId: 3312, launch time: 0.00, total connection time: 0.39s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.43s
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.1686
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56340
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.010025 seconds.
+- Loaded All Assemblies, in  0.291 seconds
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2185 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.430 seconds
+Domain Reload Profiling: 2715ms
+	BeginReloadAssembly (101ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (103ms)
+		LoadAssemblies (96ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (100ms)
+			TypeCache.Refresh (99ms)
+				TypeCache.ScanAssembly (91ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2430ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2408ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2265ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (36ms)
+			ProcessInitializeOnLoadAttributes (68ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-DNGM-2Y5G-P62H-EJWF-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 6369978-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Application.AssetDatabase Initial Refresh Start
+Package Manager log level set to [2]
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 58 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc)
+    com.unity.cinemachine@3.1.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.cinemachine@624f919d8cdd)
+    com.unity.collab-proxy@2.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collab-proxy@ab839cc7d2ad)
+    com.unity.ide.visualstudio@2.0.23 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ide.visualstudio@198cdf337d13)
+    com.unity.inputsystem@1.14.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.inputsystem@be6c4fd0abf5)
+    com.unity.timeline@1.8.9 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.timeline@6b9e48457ddb)
+    com.unity.visualscripting@1.9.7 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.visualscripting@6279e2b7c485)
+    com.unity.splines@2.8.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.splines@b909627b5095)
+    com.unity.searcher@4.9.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.24 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.burst@f7a407abf4d5)
+    com.unity.mathematics@1.3.2 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.collections@56bff8827a7e)
+    com.unity.settings-manager@2.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.settings-manager@41738c275190)
+    com.unity.nuget.mono-cecil@1.11.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f)
+    com.unity.test-framework.performance@3.1.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework.performance@92d1d09a72ed)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal@e1fa89d1f997)
+    com.unity.test-framework@1.5.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.test-framework@1f954279c37e)
+    com.unity.ugui@2.0.0 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ugui@aa507f3228f0)
+    com.unity.modules.accessibility@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.accessibility)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.hierarchycore)
+    com.unity.ext.nunit@2.0.5 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.render-pipelines.core@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.core@05f02f04fe74)
+    com.unity.shadergraph@17.0.4 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.shadergraph@7ccd16edcc88)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.rendering.light-transport@1.0.1 (location: D:\Unity\FPS-PayDayGame\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.02 seconds
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/Unity/FPS-PayDayGame
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 2s22ms
+[672/861    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[853/861    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Diagnostics\AIPlaytest.Polish.cs(40,30): warning CS0252: Possible unintended reference comparison; to get a value comparison, cast the left hand side to type 'Object'
+
+Assets\VoronoirShred\Project\SelectMesh.cs(30,55): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(13,10): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(18,13): warning CS0618: 'StandaloneInputModule.forceModuleActive' is obsolete: 'forceModuleActive has been deprecated. There is no need to force the module awake as StandaloneInputModule works for all platforms'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\TimedObjectDestructor.cs(24,13): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs(38,27): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+
+Assets\VoronoirShred\Tools\Standard Assets\Utility\ActivateTrigger.cs(57,33): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs(44,63): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\VoronoirShred\Tools\PostProcessing\Runtime\Components\MotionBlurComponent.cs(350,60): warning CS0618: 'GraphicsDeviceType.OpenGLES2' is obsolete: 'OpenGL ES 2.0 is no longer supported in Unity 2023.1'
+
+Assets\Scripts\InputFunctionsManager\InputReader.cs(13,25): warning CS0067: The event 'InputReader.TargetEvent' is never used
+
+Assets\Scripts\InputFunctionsManager\InputReader.cs(12,25): warning CS0067: The event 'InputReader.DodgeEvent' is never used
+
+Assets\Scripts\Managers\GameManager.cs(22,51): warning CS0414: The field 'GameManager.speedIncrement' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerIdleState.cs(9,9): warning CS0414: The field 'PlayerIdleState.maxInteractDistance' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(19,47): warning CS0414: The field 'GameManager.meleeShare' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(21,34): warning CS0414: The field 'GameManager.baseEnemyCount' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,46): warning CS0414: The field 'PlayerStateMachine._castLength' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,28): warning CS0414: The field 'PlayerStateMachine._castRadius' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,28): warning CS0414: The field 'PlayerStateMachine.fadeInTime' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(21,51): warning CS0414: The field 'GameManager.incrementPerWave' is assigned but its value is never used
+
+Assets\Scripts\Managers\GameManager.cs(22,36): warning CS0414: The field 'GameManager.baseSpeed' is assigned but its value is never used
+
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,43): warning CS0414: The field 'PlayerStateMachine.fadeOutTime' is assigned but its value is never used
+[854/861    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+Assets\DungeonPainterTool\Scripts\Editor\DungeonMapPreview.cs(37,31): warning CS0414: The field 'DungeonMapPreview._visible' is assigned but its value is never used
+
+Assets\DungeonPainterTool\Scripts\Editor\DungeonPainterWindow.cs(45,22): warning CS0414: The field 'DungeonPainterWindow.previewDirty' is assigned but its value is never used
+[855/861    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 127 defines and 325 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[856/861    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 129 defines and 304 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[857/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[858/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[859/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[860/861    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (2.00 seconds), 9 items updated, 861 evaluated
+Assets\Scripts\Diagnostics\AIPlaytest.Polish.cs(40,30): warning CS0252: Possible unintended reference comparison; to get a value comparison, cast the left hand side to type 'Object'
+Assets\VoronoirShred\Project\SelectMesh.cs(30,55): warning CS0618: 'Object.FindObjectsOfType<T>()' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(13,10): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\EventSystemChecker.cs(18,13): warning CS0618: 'StandaloneInputModule.forceModuleActive' is obsolete: 'forceModuleActive has been deprecated. There is no need to force the module awake as StandaloneInputModule works for all platforms'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\TimedObjectDestructor.cs(24,13): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs(38,27): warning CS0618: 'Object.FindObjectsOfType(Type)' is obsolete: 'Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.'
+Assets\VoronoirShred\Tools\Standard Assets\Utility\ActivateTrigger.cs(57,33): warning CS0618: 'Object.DestroyObject(Object)' is obsolete: 'use Object.Destroy instead.'
+Assets\VoronoirShred\Tools\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs(44,63): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\VoronoirShred\Tools\PostProcessing\Runtime\Components\MotionBlurComponent.cs(350,60): warning CS0618: 'GraphicsDeviceType.OpenGLES2' is obsolete: 'OpenGL ES 2.0 is no longer supported in Unity 2023.1'
+Assets\Scripts\InputFunctionsManager\InputReader.cs(13,25): warning CS0067: The event 'InputReader.TargetEvent' is never used
+Assets\Scripts\InputFunctionsManager\InputReader.cs(12,25): warning CS0067: The event 'InputReader.DodgeEvent' is never used
+Assets\Scripts\Managers\GameManager.cs(22,51): warning CS0414: The field 'GameManager.speedIncrement' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerIdleState.cs(9,9): warning CS0414: The field 'PlayerIdleState.maxInteractDistance' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(19,47): warning CS0414: The field 'GameManager.meleeShare' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(21,34): warning CS0414: The field 'GameManager.baseEnemyCount' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,46): warning CS0414: The field 'PlayerStateMachine._castLength' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(11,28): warning CS0414: The field 'PlayerStateMachine._castRadius' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,28): warning CS0414: The field 'PlayerStateMachine.fadeInTime' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(21,51): warning CS0414: The field 'GameManager.incrementPerWave' is assigned but its value is never used
+Assets\Scripts\Managers\GameManager.cs(22,36): warning CS0414: The field 'GameManager.baseSpeed' is assigned but its value is never used
+Assets\Scripts\States\PlayerStates\PlayerBaseStates\PlayerStateMachine.cs(46,43): warning CS0414: The field 'PlayerStateMachine.fadeOutTime' is assigned but its value is never used
+Assets\DungeonPainterTool\Scripts\Editor\DungeonMapPreview.cs(37,31): warning CS0414: The field 'DungeonMapPreview._visible' is assigned but its value is never used
+Assets\DungeonPainterTool\Scripts\Editor\DungeonPainterWindow.cs(45,22): warning CS0414: The field 'DungeonPainterWindow.previewDirty' is assigned but its value is never used
+AssetDatabase: script compilation time: 2.303792s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.970 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 2.90 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.124 seconds
+Domain Reload Profiling: 3088ms
+	BeginReloadAssembly (250ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (128ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (657ms)
+		LoadAssemblies (582ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (161ms)
+			TypeCache.Refresh (119ms)
+				TypeCache.ScanAssembly (112ms)
+			BuildScriptInfoCaches (31ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (2124ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1952ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (96ms)
+			ProcessInitializeOnLoadAttributes (1772ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Start importing Assets/Resources/Veterans/ArieteVisual.prefab using Guid(a0ed310ee657a344c9a1425ca3686bb7) (PrefabImporter) -> (artifact id: '5baea38809df416ef20ba112454a2109') in 0.0259219 seconds
+Start importing Assets/Resources/Veterans/AgujaVisual.prefab using Guid(8dc18b7234653804ca95fa5680456c6a) (PrefabImporter) -> (artifact id: 'bfa632403c011bc0190fdc1569edb694') in 0.0056707 seconds
+Refreshing native plugins compatible for Editor in 2.91 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3980aa5da55ac514ca80b4a80933ac16): Total: 6.004 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=1 ms, native=2473 ms
+		Asset DB Callback time: managed=179 ms, native=28 ms
+		Scripting: domain reloads=1, domain reload time=970 ms, compile time=2305 ms, other=45 ms
+		Project Asset Count: scripts=1561, non-scripts=3303
+		Asset File Changes: new=0, changed=4, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 24.419ms
+	ApplyChangesToAssetFolders: 0.546ms
+	Scan: 72.937ms
+	OnSourceAssetsModified: 0.651ms
+	CategorizeAssetsWithTransientArtifact: 38.788ms
+	ProcessAssetsWithTransientArtifactChanges: 54.053ms
+	CategorizeAssets: 37.367ms
+	ImportOutOfDateAssets: 2173.545ms (-167.125ms without children)
+		ImportManagerImport: 34.248ms (2.229ms without children)
+			ImportInProcess: 32.020ms
+		CompileScripts: 2304.631ms
+		ReloadNativeAssets: 0.043ms
+		UnloadImportedAssets: 0.786ms
+		ReloadImportedAssets: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.631ms
+		InitializingProgressBar: 0.006ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.324ms
+	PostProcessAllAssets: 180.642ms
+	Hotreload: 4.061ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 1.196ms
+	PersistCurrentRevisions: 0.146ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 2.012ms
+	Untracked: 3416.137ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 18.776ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-RobotGame
+Unloading 33 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6760 unused Assets / (5.7 MB). Loaded Objects now: 7499.
+Memory consumption went from 220.9 MB to 215.2 MB.
+Total: 6.228900 ms (FindLiveObjects: 0.480100 ms CreateObjectMapping: 0.266800 ms MarkObjects: 3.764600 ms  DeleteObjects: 1.717000 ms)
+
+Asset Pipeline Refresh (id=a618201bba24e094caa342a9059cf9dd): Total: 0.032 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Veterans/Ariete.fbx using Guid(f7db9be082e85ab4a820b78f6f57d4c2) (FBXImporter) -> (artifact id: '63d6dd11d364b8f83e8522eb3326245c') in 0.0516096 seconds
+Refreshing native plugins compatible for Editor in 2.89 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=fc925ac4282e3154399d16efce212276): Total: 0.084 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Resources/Veterans/ArieteVisual.prefab using Guid(a0ed310ee657a344c9a1425ca3686bb7) (PrefabImporter) -> (artifact id: '9ecfea83dbb1783f3fb3d81e06d4eec3') in 0.0047064 seconds
+Refreshing native plugins compatible for Editor in 2.72 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=437dfc480e8636444a26c9ba82baff40): Total: 0.036 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Veterans/Aguja.fbx using Guid(8e09a0eb751399e4aaf082b324a8eb69) (FBXImporter) -> (artifact id: 'e6c97282b4feb684b488b6fb4796a8c0') in 0.0175527 seconds
+Refreshing native plugins compatible for Editor in 3.03 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=b369c28912043294d8d6dda267d8b622): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Resources/Veterans/AgujaVisual.prefab using Guid(8dc18b7234653804ca95fa5680456c6a) (PrefabImporter) -> (artifact id: 'b4e1b59942f291b20dee147be879ba9d') in 0.0027719 seconds
+Refreshing native plugins compatible for Editor in 2.82 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7f493b9fadae64043b5766dcef60fa8a): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/Veterans/Materials/Black.mat using Guid(778566f642cca6c42b560c73ceedcf1a) (NativeFormatImporter) -> (artifact id: 'a294a266137d4cbf6f47831ccc16f6cb') in 0.0014485 seconds
+Start importing Assets/Art/Veterans/Materials/Ivory.mat using Guid(e7894998d497ca14fbdbe56a4098511c) (NativeFormatImporter) -> (artifact id: 'bfc389239a06160252ac8c7370c60434') in 0.0011996 seconds
+Start importing Assets/Art/Veterans/Materials/Graphite.mat using Guid(a84f60a1c6d4cb542b433ce3e3e4d8b3) (NativeFormatImporter) -> (artifact id: 'ac6674bf0cbf7ed85f23fb41f9a99875') in 0.0009963 seconds
+Start importing Assets/Art/Veterans/Materials/Orange.mat using Guid(595d19f2323a738409073a49dc7c570e) (NativeFormatImporter) -> (artifact id: '49062747e7ea623d108be52187110e33') in 0.0009347 seconds
+Start importing Assets/Art/Veterans/Materials/Amber.mat using Guid(6ae0084901b753c4ab1b91f69e7feb0c) (NativeFormatImporter) -> (artifact id: '3d0e456e86e352c037e63040420c169b') in 0.0008384 seconds
+Start importing Assets/Art/Veterans/Materials/Steel.mat using Guid(dd85f81cd03ddfa4a91990388f0cfda8) (NativeFormatImporter) -> (artifact id: '808616627043bed83c71af8aef73cfc3') in 0.000842 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Pelvis_Steel.asset using Guid(002b6f23cc12e5d498027dc07ea89dc6) (NativeFormatImporter) -> (artifact id: '98bef9906318bb0636129cd02a07c3c0') in 0.0008373 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Head_Graphite.asset using Guid(30d35e10834a62c4384ec4367db54e9d) (NativeFormatImporter) -> (artifact id: 'da6abbb94df0743307ea245747ab2a8b') in 0.0008667 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_L_Ivory.asset using Guid(50659b051d4ebd84db341eab8577d86b) (NativeFormatImporter) -> (artifact id: '35b4f2592c9a8757f8d628cf10ffbd01') in 0.0011719 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_R_Ivory.asset using Guid(d0a24a238649f7442b9e7176a3e5a904) (NativeFormatImporter) -> (artifact id: 'f5e2bc395ddc45d7de98f479e1958003') in 0.0008382 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_R_Graphite.asset using Guid(01fe4f7bfe17c964fbe9807a3b15442d) (NativeFormatImporter) -> (artifact id: '03bcfdd19a1fb421ac2266e883cf9998') in 0.0010359 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Ivory.asset using Guid(21838833e7938f34c9b77dae7d81c083) (NativeFormatImporter) -> (artifact id: '212332be192ba52f7c9799f7cdb2ec43') in 0.000894 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Pelvis_Graphite.asset using Guid(81a9e9e192e95af41ba5cd7cafaf4076) (NativeFormatImporter) -> (artifact id: '517fcbadac5cf5f6473fc08bf3180b3d') in 0.0008251 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Gun_Ivory.asset using Guid(c17f70a851e0f46498923a4f9aab925e) (NativeFormatImporter) -> (artifact id: '9f983d4d850f37adadb7ef681289e8c9') in 0.0008323 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Pelvis_Orange.asset using Guid(f10290b9797086f40be8313e52cbac02) (NativeFormatImporter) -> (artifact id: '305813ea4ed133e28a93a6d4c4633543') in 0.0008306 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Head_Black.asset using Guid(4230741af6f4d4947b03b8c4ae381f1d) (NativeFormatImporter) -> (artifact id: 'bba57c9f3dd584030c7bb971340ecaae') in 0.00079 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Gun_Steel.asset using Guid(52dbe5d9ba940a2499790d0f7565cfee) (NativeFormatImporter) -> (artifact id: '166967830dcef8cf70358ce7feec01c4') in 0.0008974 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Head_Steel.asset using Guid(b263fea4ff917904b8bb9ccdd1396091) (NativeFormatImporter) -> (artifact id: '3d1f38b51714f571781ad8d9df1f8c0e') in 0.0010256 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Torso_Black.asset using Guid(c258d1dbc1ecc274ab2f2f0ec164ad70) (NativeFormatImporter) -> (artifact id: '28d20286b6330dcbd3234125f3375732') in 0.0009787 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Orange.asset using Guid(c2ec6d33dd1099446b1619c93d128d7f) (NativeFormatImporter) -> (artifact id: 'dfabc42840f3d1ce0386f69d0db75553') in 0.0009185 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Head_Amber.asset using Guid(33ed5eb200d667c48ac0456a4efc9db4) (NativeFormatImporter) -> (artifact id: '9b2b9c8b737790a9f6a7fa6463d2d4ee') in 0.0007936 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Torso_Steel.asset using Guid(43e0b96236617b44c885355cf8aabbdd) (NativeFormatImporter) -> (artifact id: '960f82720959bb39dec97a5c9883e3ca') in 0.0008954 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Gun_Black.asset using Guid(041bcc9471371654dbd2ba425fcc072c) (NativeFormatImporter) -> (artifact id: '274f78cc2882c214d1e6fdf39a034a7c') in 0.0010341 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Gun_Orange.asset using Guid(546b3650656ae494aa7ff444787e7de5) (NativeFormatImporter) -> (artifact id: '9f24c6e54ccaad2558da8cf8f63354db') in 0.0008172 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Head_Ivory.asset using Guid(641c7ef99338c9144a352e38467afafa) (NativeFormatImporter) -> (artifact id: '976f57c25e9bf12738089eb556d9c6bb') in 0.0008069 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_R_Graphite.asset using Guid(c4334ab06103bdc45bdd068ca6b8ad37) (NativeFormatImporter) -> (artifact id: '0a8edca05d82a1bbca95b115752c1d6a') in 0.0008982 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_R_Orange.asset using Guid(35a0b7fe7da7a634098f06424a53c965) (NativeFormatImporter) -> (artifact id: '6fcb8f7a557a85785d2a1faa7305ba5d') in 0.0008726 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_L_Steel.asset using Guid(d58a91b14680294478b237bd0606037b) (NativeFormatImporter) -> (artifact id: '62ebeaf85a6475aa2a831ba900c13f16') in 0.0008587 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_R_Graphite.asset using Guid(47525f2d538e7dc46b613f8159942e3f) (NativeFormatImporter) -> (artifact id: '0d34ac5145366907e51cd21294685ff0') in 0.0010239 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_L_Graphite.asset using Guid(489e06e56c0756f4a9b9a049eb71ae44) (NativeFormatImporter) -> (artifact id: '912c5225b1ad0f0976e0683bd6cf2b60') in 0.0009535 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_R_Steel.asset using Guid(68ab9c4147e95b84eaeb42ab1d0b14e9) (NativeFormatImporter) -> (artifact id: '500268400d04cc21044e06ca0902b618') in 0.0008413 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_L_Graphite.asset using Guid(78a444d4b0f015448b63427bc8609374) (NativeFormatImporter) -> (artifact id: '4879c68b88966ff64a26d86223150d7c') in 0.0008199 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Torso_Graphite.asset using Guid(d85f50e059cd4784f9f774368cb13012) (NativeFormatImporter) -> (artifact id: 'a653527db8e2667c9e887d9b65f963c3') in 0.0009797 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_L_Steel.asset using Guid(69539d5dd153bc24d846eccfcf581018) (NativeFormatImporter) -> (artifact id: '3c1a3b76ed4926ca3f5718dad4102a20') in 0.000864 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Torso_Ivory.asset using Guid(79413385ebb41aa47a9ea0a0e6353faa) (NativeFormatImporter) -> (artifact id: 'c70de7bbc1657490013132e6975e6f00') in 0.000841 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_R_Graphite.asset using Guid(0aa3f5cf9e166694db82d78331f2a0ff) (NativeFormatImporter) -> (artifact id: 'ffa3fa6185cfb11527bfdf3956550a81') in 0.0008221 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_R_Orange.asset using Guid(4a590f6cb438eac4f9e77694072267d8) (NativeFormatImporter) -> (artifact id: '04cb875786a00a4616717075edd03127') in 0.0007966 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Black.asset using Guid(7a2860841d13ff1459d06dc16fe4c0ea) (NativeFormatImporter) -> (artifact id: 'b4443e8a549b8de3114781f7834faa1c') in 0.0010093 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_L_Ivory.asset using Guid(7a2e2ddfa571db64bb6698a96b0212e2) (NativeFormatImporter) -> (artifact id: '17fd295b1cfa32505823b5351d88b330') in 0.0008461 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_R_Steel.asset using Guid(ba43a58ca440f544dbb74c8c6b301183) (NativeFormatImporter) -> (artifact id: '7d1071c9bb6522ff54cffb4c6ee5a16b') in 0.000854 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_R_Steel.asset using Guid(fa64fa27be892c54d850686d3056ba9c) (NativeFormatImporter) -> (artifact id: 'da6576fb9a1c5442c926501056c5788d') in 0.0012249 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Torso_Orange.asset using Guid(0b297a58eb7611a478bb3a013b95abeb) (NativeFormatImporter) -> (artifact id: 'c4092cd2d3d6afa1bc69f6c9ca47c346') in 0.000935 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_L_Graphite.asset using Guid(0b3d06639b9c2f44aab602c831db6bbb) (NativeFormatImporter) -> (artifact id: '570c1ab8a2c61849e2c6a765c0b34ac2') in 0.0011903 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_R_Orange.asset using Guid(1b9242f17dbe19f44b32159e9ca2ee52) (NativeFormatImporter) -> (artifact id: '82eedaab4be7b7a640a399ebe9f88efe') in 0.0010197 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Amber.asset using Guid(4b5c9c9fcbdb4464095fd543b657d8a1) (NativeFormatImporter) -> (artifact id: 'ec257d7bff8c235f78e059ae8ea43afd') in 0.0009231 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_L_Steel.asset using Guid(3cdd5fbb03520e54daa8c77d42da5013) (NativeFormatImporter) -> (artifact id: 'c3f33d8071701d2659854c7ed0157581') in 0.0009486 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_R_Orange.asset using Guid(7cfd18e5f19d5054fb37acfa1727cd4c) (NativeFormatImporter) -> (artifact id: '6e9d17b0d3eacf2a363eec560d22eb16') in 0.000904 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_L_Orange.asset using Guid(bc95dffda6d3c594b9008da92e76fa4e) (NativeFormatImporter) -> (artifact id: '6bfc03bde5de5119756081d0dea81882') in 0.000836 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_L_Steel.asset using Guid(ccaad391b4231a6458466ce505dd9b49) (NativeFormatImporter) -> (artifact id: '4e0307e89359512fc1c296bce03397fe') in 0.000812 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Steel.asset using Guid(ccdc6d5084dcd9246ac08943f8b3f39b) (NativeFormatImporter) -> (artifact id: 'ddd8629c588ecfef474f3efbb9c4d0a6') in 0.0008472 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_R_Ivory.asset using Guid(ec8ba7bc6e2905e4ab44870e712fceaa) (NativeFormatImporter) -> (artifact id: 'ce86d42ffabd02859a963d751f9997b9') in 0.000818 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_UpperArm_L_Ivory.asset using Guid(2de25012f54dbba4bba8ef58edfeae92) (NativeFormatImporter) -> (artifact id: 'f410322eca819015db9a570c21351d50') in 0.0009 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Gun_Graphite.asset using Guid(2ddfbf030bf1fe548bb893fbe987e428) (NativeFormatImporter) -> (artifact id: 'd32874f3ea714c7ba6685988a8389e01') in 0.0010038 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_L_Orange.asset using Guid(6d595de581d045f499de745d60f2c221) (NativeFormatImporter) -> (artifact id: 'bc6001e1d8c73d0acd5f9204cbeec392') in 0.0008838 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_L_Ivory.asset using Guid(bd2fb2de7a77d0e47a0dcefd87e3cb07) (NativeFormatImporter) -> (artifact id: '7acac011462ebcbbaf5576cbb8149ae3') in 0.0008192 seconds
+Start importing Assets/Art/Veterans/Meshes/Aguja_Body_Graphite.asset using Guid(8e34252e716a19d46af4fa7c4ca62b37) (NativeFormatImporter) -> (artifact id: 'ead2c2842bcb94b7b77b01f506c02c4c') in 0.0008246 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_L_Orange.asset using Guid(2fc1ae1dcf209d347a3804b35facb091) (NativeFormatImporter) -> (artifact id: '69da2e1fa87732bae164c027f21819b0') in 0.0008169 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Shin_R_Ivory.asset using Guid(3f53a536d666d194faa2426f1664e4b6) (NativeFormatImporter) -> (artifact id: 'fb2a72ebded6a0943d8b8c88c24143a6') in 0.0008315 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_L_Orange.asset using Guid(3fdca9470f55de14b8fd540019e408ce) (NativeFormatImporter) -> (artifact id: '12a4ba6a8acd6691e7f861d4e58bd7a5') in 0.0007996 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_R_Steel.asset using Guid(4fdd986f999b2094ab278350554987b9) (NativeFormatImporter) -> (artifact id: '37af03e9230d1e1c5cbf6936394d4519') in 0.000826 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Forearm_R_Ivory.asset using Guid(7fd2f5f53dc041945875171d5eadd4be) (NativeFormatImporter) -> (artifact id: 'ad23a40e74b7dac971cbae9d3b442f2a') in 0.0007972 seconds
+Start importing Assets/Art/Veterans/Meshes/Ariete_Thigh_L_Graphite.asset using Guid(df954fb56f0fa314896c6a60bf24b726) (NativeFormatImporter) -> (artifact id: '26af06ac6e0d87a9d39a993bae2bbe78') in 0.0008248 seconds
+Refreshing native plugins compatible for Editor in 2.90 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=e0e0d6b0a9effdb41851c4f43b6b0bd6): Total: 0.088 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+AUTHORED VETERANS READY: Ariete + Aguja
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+VeteranModelBuild:Configure () (at Assets/Editor/Tower/VeteranModelBuild.cs:28)
+VeteranModelBuild:Play () (at Assets/Editor/Tower/VeteranModelBuild.cs:115)
+
+(Filename: Assets/Editor/Tower/VeteranModelBuild.cs Line: 28)
+
+Opening scene 'Assets/Scenes/RoboticForest.unity'
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/RoboticForest.unity'
+	Deserialize:            52.246 ms
+	Integration:            222.625 ms
+	Integration of assets:  1.013 ms
+	Thread Wait Time:       0.005 ms
+	Total Operation Time:   275.889 ms
+Unloading 1214 unused Assets / (0.7 MB). Loaded Objects now: 12200.
+Memory consumption went from 202.2 MB to 201.5 MB.
+Total: 6.365000 ms (FindLiveObjects: 0.564200 ms CreateObjectMapping: 0.123900 ms MarkObjects: 4.345800 ms  DeleteObjects: 1.330700 ms)
+
+[Project] Loading completed in 12.715 seconds
+	Project init time: 				10.437 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.210 seconds
+		Asset Database init time: 		0.122 seconds
+		Global illumination init time: 	0.002 seconds
+		Assemblies load time: 			2.742 seconds
+		Unity extensions init time: 	0.006 seconds
+		Asset Database refresh time: 	6.005 seconds
+	Scene opening time: 			2.233 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1792095819765,"processId":29340,"projectLoad":12.7149097,"projectInit":10.4368201,"templateInit":0.0,"packageManagerInit":0.2100878,"assetDatabaseInit":0.1215668,"globalIlluminationInit":0.0019826,"assembliesLoad":2.7416919,"unityExtensionsInit":0.0064729,"assetDatabaseRefresh":6.0045637,"sceneOpening":2.2327538}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1792095819765,"processId":29340,"editorVersion":"6000.0.58f2 (92dee566b325)","branch":"6000.0/respin/6000.0.58f2-44b8bf3a32","buildType":"Release","platform":"Windows"}
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.548 seconds
+Refreshing native plugins compatible for Editor in 2.91 ms, found 22 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.646 seconds
+Domain Reload Profiling: 1190ms
+	BeginReloadAssembly (337ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (203ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (152ms)
+		LoadAssemblies (126ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (113ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (98ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (646ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (441ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (107ms)
+			ProcessInitializeOnLoadAttributes (248ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (31ms)
+Asset Pipeline Refresh (id=f8563c4af16df764aa53a87220e98193): Total: 1.303 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=718 ms
+		Asset DB Callback time: managed=15 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=568 ms, compile time=1 ms, other=0 ms
+		Project Asset Count: scripts=1561, non-scripts=3303
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 1.861ms
+	ApplyChangesToAssetFolders: 0.274ms
+	Scan: 0.001ms
+	OnSourceAssetsModified: 0.001ms
+	CategorizeAssetsWithTransientArtifact: 0.003ms
+	ProcessAssetsWithTransientArtifactChanges: 3.812ms
+	CategorizeAssets: 38.238ms
+	ImportOutOfDateAssets: 656.853ms (651.663ms without children)
+		CompileScripts: 0.783ms
+		CollectScriptTypesHashes: 2.728ms
+		ReloadNativeAssets: 0.791ms
+		UnloadImportedAssets: 0.048ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.492ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.348ms
+	PostProcessAllAssets: 15.270ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.104ms
+	UnloadStreamsBegin: 0.107ms
+	PersistCurrentRevisions: 0.113ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 3.495ms
+	Untracked: 586.329ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            9.644 ms
+	Integration:            201.206 ms
+	Integration of assets:  0.026 ms
+	Thread Wait Time:       0.001 ms
+	Total Operation Time:   210.877 ms
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+LightingSettings: switching bake backend from 1 to 2.
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+Asset Pipeline Refresh (id=e7388b3de472cb24bb6421579b31c85d): Total: 0.045 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+Couldn't find a readme
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+ReadmeEditor:SelectReadme () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:59)
+ReadmeEditor:SelectReadmeAutomatically () (at Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs:26)
+UnityEditor.EditorApplication:Internal_CallDelayFunctions ()
+
+(Filename: Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs Line: 59)
+
+Created GICache directory at C:/Users/Edgar.DESKTOP-BOONDKL/AppData/LocalLow/Unity/Caches/GiCache. Took: 0.025s, timestamps: [14.345 - 14.371]
+Loaded scene 'Assets/Scenes/TowerCore.unity'
+	Deserialize:            86.916 ms
+	Integration:            53.238 ms
+	Integration of assets:  0.145 ms
+	Thread Wait Time:       382.499 ms
+	Total Operation Time:   522.798 ms
+PASS Tower boots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 1 health ranged normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 1 health ranged veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 1 health melee normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 1 health melee veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 3 health ranged normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 3 health ranged veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 3 health melee normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 3 health melee veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 6 health ranged normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 6 health ranged veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 6 health melee normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 6 health melee veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 9 health ranged normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 9 health ranged veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 9 health melee normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Polish wave 9 health melee veteran
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:20)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored model only on veteran 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:29)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored model only on veteran 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:29)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran has complete authored mesh without dynamic lights 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:32)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Correct chosen model installed once 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:35)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored armor receives real weapon raycasts 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:40)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored model only on veteran 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:29)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored model only on veteran 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:29)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran has complete authored mesh without dynamic lights 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:32)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Correct chosen model installed once 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:35)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Authored armor receives real weapon raycasts 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:40)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ariete animated forearms use authored model
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:45)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ariete warning retains valid amber material
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:46)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran hit surfaces follow new geometry; normal capsule unchanged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:51)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup False/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot False/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction False/180/0 error=0,03956468
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle False/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 90
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup False/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot False/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction False/90/0 error=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle False/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup False/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot False/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction False/0/0 error=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle False/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup True/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot True/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction True/180/0 error=0,01978234
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle True/180/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 90
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup True/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot True/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction True/90/0 error=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle True/90/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup True/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot True/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction True/0/0 error=0,07912937
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle True/0/0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 90
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup True/90/-1,2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot True/90/-1,2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction True/90/-1,2 error=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle True/90/-1,2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Turns before warning from yaw 90
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned windup True/90/3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:101)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes turning and shot True/90/3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Aligned shot count and barrel direction True/90/3 error=0,02797646
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ray uses committed target and muzzle True/90/3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle and flash follow gun joint
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:117)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Muzzle follows physical barrel mesh axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:123)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Shot originates at end of barrel rather than body
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<FacingCase>d__29:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:125)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Obstacle fixture starts windup 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Obstacle cancels blocked burst 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Blocked shot releases attack budget, including cover behind muzzle 4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:71)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Obstacle fixture starts windup 0,7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Obstacle cancels blocked burst 0,7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Blocked shot releases attack budget, including cover behind muzzle 0,7
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:71)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Misalignment fixture starts windup
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Misaligned barrel cancels attack
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS No backwards shot or leaked permit after forced rotation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Polish>d__28:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.Polish.cs:79)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ariete winds up
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ariete extends articulated hammer fist
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ariete recovers after punch
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 1 count and simultaneous attack budget
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 1 additive health and damage
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:58)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 1 includes both roles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:59)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 1 veteran allocation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:60)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 3 count and simultaneous attack budget
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 3 additive health and damage
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:58)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 3 includes both roles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:59)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 3 veteran allocation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:60)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 6 count and simultaneous attack budget
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 6 additive health and damage
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:58)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 6 includes both roles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:59)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 6 veteran allocation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:60)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 9 count and simultaneous attack budget
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 9 additive health and damage
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:58)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 9 includes both roles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:59)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wave 9 veteran allocation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:60)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Counts, speed and precision have caps
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:62)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Compositions never repeat consecutively
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:63)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Initial budget blocks third attack
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:66)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Late budget allows four, at most two melee
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:68)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Destination reservations reject occupied slots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:70)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Death releases attack and destination
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:72)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Unobstructed player is visible
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:75)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Wall blocks sight; memory does not track a hidden player
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:80)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Observed position expires after three seconds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:82)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Nearby shot reveals location without granting sight
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:84)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes hearing and vision decisions
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:89)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Ranged robot retreats when player is closer than six metres
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:94)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Navigation decisions are staggered rather than calculated every frame
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:95)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran starts announced burst
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Pause freezes veteran burst windup
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:102)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran fires two rounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Burst stays committed to pre-dodge target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:104)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran repositions after burst
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:106)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran melee keeps readable windup and recovery
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:111)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran prepares charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran charge resolves
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Charge respects 1.2m maximum: 1,20
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Charge has exactly one contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:116)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran melee keeps readable windup and recovery
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:111)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran prepares charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran charge resolves
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Charge respects obstacle: 0,11
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:115)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Charge has exactly one contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:116)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Death fixture begins windup
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Until>d__20:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Veteran death cancels attack and yields one attributed kill
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:126)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 1 composition and veteran count
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:158)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 1 scaling, twelve-alive cap and entry warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:159)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 3 composition and veteran count
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:158)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 3 scaling, twelve-alive cap and entry warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:159)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 6 composition and veteran count
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:158)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 6 scaling, twelve-alive cap and entry warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:159)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+TrimDiskCacheJob: Current cache size 5881mb
+PASS Actual wave 9 composition and veteran count
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:158)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+PASS Actual wave 9 scaling, twelve-alive cap and entry warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Check (bool,string) (at Assets/Scripts/Diagnostics/AIPlaytest.cs:34)
+AIPlaytest/<ActualWaves>d__22:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:159)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 34)
+
+AI TEST COMPLETE: 0 errors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+AIPlaytest:Finish () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:186)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:128)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: Assets/Scripts/Diagnostics/AIPlaytest.cs Line: 186)
+
+Clearing [HelixDisplay] dynamic font asset data.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+TMPro.EditorEventCallbacks/<>c:<InitializeFontAssetResourceChangeCallBacks>b__0_0 () (at ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs:36)
+UnityEditor.EditorApplication:Internal_EditorApplicationQuit ()
+AIPlaytest:Finish () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:188)
+AIPlaytest/<Start>d__21:MoveNext () (at Assets/Scripts/Diagnostics/AIPlaytest.cs:128)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+(Filename: ./Library/PackageCache/com.unity.ugui@aa507f3228f0/Editor/TMP/TMP_EditorResourceManager.cs Line: 36)
+
+Killing ADB server in 0,0350868 seconds.
+Start importing Assets/Art/Veterans/Materials/Amber.mat using Guid(6ae0084901b753c4ab1b91f69e7feb0c) (NativeFormatImporter) -> (artifact id: '3385bf4e3bc0cd4ef5c63e4ff31c1bca') in 0.0038954 seconds
+Start importing Assets/Resources/HelixDisplay.asset using Guid(f6a21bbc581f97b47ad175002e2f4fc4) (NativeFormatImporter) -> (artifact id: '0caf62d63f2f60ac83d5c6af7dfdf8c4') in 0.0012612 seconds
+Refreshing native plugins compatible for Editor in 2.85 ms, found 22 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=6bdacb73072e0524db5d51868c87f6df): Total: 0.059 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-Edgar-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-Edgar channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792095856762,"processId":29340,"allocatedMemory":15807964,"memoryLabels":[{"Default":26733},{"Permanent":15348},{"NewDelete":71009},{"Thread":4230344},{"Manager":815994},{"VertexData":1976},{"Geometry":816},{"VFX":-104},{"Texture":296},{"Shader":83403},{"Material":24},{"GfxDevice":56320},{"Animation":392},{"Audio":4040},{"FontEngine":256},{"Physics":1241},{"Serialization":688},{"Input":14824},{"JobScheduler":80048},{"TextLib":160},{"Mono":32},{"MonoCode":64},{"ScriptingNativeRuntime":155060},{"BaseObject":1620656},{"Resource":1304},{"Renderer":2928},{"Transform":4646},{"File":9795},{"WebCam":616},{"Culling":32},{"Terrain":11394},{"Wind":24},{"STL":40},{"String":19425},{"DynamicArray":125689},{"HashMap":100386},{"Utility":2660078},{"Curl":48},{"PoolAlloc":1960},{"AI":104},{"TypeTree":5005},{"ScriptManager":512},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":112},{"GI":7888},{"Director":8240},{"CloudService":9968},{"WebRequest":808},{"VR":45969},{"SceneManager":496},{"Video":208},{"LazyScriptCache":32},{"Camera":17},{"Secure":1},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57888},{"StaticSafetyDebugInfo":278528},{"Analytics":384},{"Hierarchy":272},{"Gui":80},{"EditorUtility":291389},{"VersionControl":4},{"Undo":947},{"AssetDatabase":4915980},{"EditorGi":328},{"UnityConnect":24208},{"Upm":2036},{"DrivenProperties":72},{"LocalIPC":211},{"ProfilerEditor":9746},{"CoreBusinessMetrics":14954},{"Licensing":1232},{"AssetReference":32},{"IPCStream":32}]}

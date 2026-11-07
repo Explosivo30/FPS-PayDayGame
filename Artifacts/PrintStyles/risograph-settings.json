@@ -1,0 +1,91 @@
+{
+    "active": true,
+    "intensity": {
+        "m_OverrideState": true,
+        "m_Value": 1.0
+    },
+    "exposure": {
+        "m_OverrideState": true,
+        "m_Value": 0.15000000596046449
+    },
+    "contrast": {
+        "m_OverrideState": true,
+        "m_Value": 1.0399999618530274
+    },
+    "saturation": {
+        "m_OverrideState": true,
+        "m_Value": 1.2000000476837159
+    },
+    "midtoneLift": {
+        "m_OverrideState": true,
+        "m_Value": 0.7200000286102295
+    },
+    "paperHighlights": {
+        "m_OverrideState": true,
+        "m_Value": 0.550000011920929
+    },
+    "paletteSize": {
+        "m_OverrideState": true,
+        "m_Value": 4
+    },
+    "shadowInk": {
+        "m_OverrideState": true,
+        "m_Value": {
+            "r": 0.20392157137393952,
+            "g": 0.125490203499794,
+            "b": 0.3607843220233917,
+            "a": 1.0
+        }
+    },
+    "blueInk": {
+        "m_OverrideState": true,
+        "m_Value": {
+            "r": 0.5333333611488342,
+            "g": 0.4588235318660736,
+            "b": 0.9019607901573181,
+            "a": 1.0
+        }
+    },
+    "pinkInk": {
+        "m_OverrideState": true,
+        "m_Value": {
+            "r": 0.9686274528503418,
+            "g": 0.47058823704719546,
+            "b": 0.7686274647712708,
+            "a": 1.0
+        }
+    },
+    "paper": {
+        "m_OverrideState": true,
+        "m_Value": {
+            "r": 1.0,
+            "g": 0.9058823585510254,
+            "b": 0.772549033164978,
+            "a": 1.0
+        }
+    },
+    "halftone": {
+        "m_OverrideState": true,
+        "m_Value": 0.6499999761581421
+    },
+    "dotSize": {
+        "m_OverrideState": true,
+        "m_Value": 4.5
+    },
+    "screenAngle": {
+        "m_OverrideState": true,
+        "m_Value": 35.0
+    },
+    "paperGrain": {
+        "m_OverrideState": true,
+        "m_Value": 0.06499999761581421
+    },
+    "inkWear": {
+        "m_OverrideState": true,
+        "m_Value": 0.012000000104308129
+    },
+    "misregistration": {
+        "m_OverrideState": true,
+        "m_Value": 0.44999998807907107
+    }
+}

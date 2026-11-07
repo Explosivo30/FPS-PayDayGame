@@ -42,6 +42,7 @@ public static class RewardBuild
         EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
         if(setup.Any(s=>s.isLoaded))EditorSceneManager.RestoreSceneManagerSetup(setup);
         Debug.Log("REWARD CONFIGURATION COMPLETE: "+cards.Count+" cards");
+        MutationCardBuild.Configure();
     }
     static RewardCard Card(string id,string title,string weapon,RewardKind kind,RewardGroup group,WeaponStat stat,float value,float secondary,int max,bool special,string description,Sprite icon)
     {

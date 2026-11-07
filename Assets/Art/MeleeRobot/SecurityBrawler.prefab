@@ -4407,7 +4407,7 @@ MonoBehaviour:
     m_Bits: 64
   separationDistance: 1.5
   separationStrength: 2
-  maxHealth: 85
+  maxHealth: 150
   detectionRange: 28
   attackRange: 1.85
   accuracy: 0.8
@@ -4440,7 +4440,7 @@ MonoBehaviour:
   reach: 1.85
   halfAngle: 42
   punchDamage: 18
-  healthMultiplier: 0.85
+  healthMultiplier: 1.5
   damageMultiplier: 1.5
   speedMultiplier: 1.12
   maximumSpeed: 4.6

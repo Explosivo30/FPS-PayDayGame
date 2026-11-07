@@ -1,0 +1,143 @@
+{
+    "Material": {
+        "serializedVersion": "8",
+        "m_Name": "HELIX Game",
+        "m_Shader": {
+            "fileID": 4800000,
+            "guid": "07658fd7245092d44a7e14d012e580e0",
+            "type": 3
+        },
+        "m_Parent": {
+            "instanceID": 0
+        },
+        "m_ModifiedSerializedProperties": 0,
+        "m_ValidKeywords": [],
+        "m_InvalidKeywords": [],
+        "m_LightmapFlags": 4,
+        "m_EnableInstancingVariants": false,
+        "m_DoubleSidedGI": false,
+        "m_CustomRenderQueue": -1,
+        "stringTagMap": {},
+        "disabledShaderPasses": [],
+        "m_LockedProperties": "",
+        "m_SavedProperties": {
+            "serializedVersion": "3",
+            "m_TexEnvs": [],
+            "m_Ints": [],
+            "m_Floats": [
+                {
+                    "first": "_ColorRetention",
+                    "second": 0.2800000011920929
+                },
+                {
+                    "first": "_Contrast",
+                    "second": 1.0399999618530274
+                },
+                {
+                    "first": "_DotSize",
+                    "second": 3.200000047683716
+                },
+                {
+                    "first": "_EdgePreservation",
+                    "second": 0.44999998807907107
+                },
+                {
+                    "first": "_Exposure",
+                    "second": 0.0
+                },
+                {
+                    "first": "_FormRetention",
+                    "second": 0.30000001192092898
+                },
+                {
+                    "first": "_Grain",
+                    "second": 0.017999999225139619
+                },
+                {
+                    "first": "_Halftone",
+                    "second": 0.5799999833106995
+                },
+                {
+                    "first": "_Intensity",
+                    "second": 0.9200000166893005
+                },
+                {
+                    "first": "_MidtoneLift",
+                    "second": 0.23999999463558198
+                },
+                {
+                    "first": "_PaperHighlights",
+                    "second": 0.1599999964237213
+                },
+                {
+                    "first": "_Registration",
+                    "second": 0.0
+                },
+                {
+                    "first": "_Saturation",
+                    "second": 1.0199999809265137
+                },
+                {
+                    "first": "_ScreenAngle",
+                    "second": 35.0
+                },
+                {
+                    "first": "_SignalLuminance",
+                    "second": 0.11999999731779099
+                },
+                {
+                    "first": "_SignalPreservation",
+                    "second": 0.550000011920929
+                },
+                {
+                    "first": "_SignalSaturation",
+                    "second": 0.5
+                },
+                {
+                    "first": "_Wear",
+                    "second": 0.0020000000949949028
+                }
+            ],
+            "m_Colors": [
+                {
+                    "first": "_AccentInk",
+                    "second": {
+                        "r": 0.8600000143051148,
+                        "g": 0.3400000035762787,
+                        "b": 0.1599999964237213,
+                        "a": 1.0
+                    }
+                },
+                {
+                    "first": "_MainInk",
+                    "second": {
+                        "r": 0.11999999731779099,
+                        "g": 0.47999998927116396,
+                        "b": 0.47999998927116396,
+                        "a": 1.0
+                    }
+                },
+                {
+                    "first": "_Paper",
+                    "second": {
+                        "r": 0.9599999785423279,
+                        "g": 0.9100000262260437,
+                        "b": 0.800000011920929,
+                        "a": 1.0
+                    }
+                },
+                {
+                    "first": "_ShadowInk",
+                    "second": {
+                        "r": 0.054999999701976779,
+                        "g": 0.07999999821186066,
+                        "b": 0.12999999523162843,
+                        "a": 1.0
+                    }
+                }
+            ]
+        },
+        "m_BuildTextureStacks": [],
+        "m_AllowLocking": true
+    }
+}

@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
     private TowerFloor floor;
     private EnemyEntrySignal entrySignal;
     private int nextEntry;
+    [Header("Spawn recovery")]
+    [SerializeField,Min(1)] private float visibleEntryFallbackAfter=5f;
+    private float blockedSpawnSeconds;
+    readonly List<IDamageable> missingEnemies=new List<IDamageable>();
+    public int PendingSpawns { get; private set; }
+    public int SpawnFallbacks { get; private set; }
+    public int ReconciledEnemies { get; private set; }
+    public string SpawnWaitReason { get; private set; }
     public WaveThreat WavePlan { get; private set; }
     ThreatProfile Profile=>TowerSession.Instance?.Threat?.Profile??ThreatProfile.Basic;
     private float initialDelay=2f;
@@ -68,10 +76,12 @@ public class GameManager : MonoBehaviour
         if (waveRoutine != null) StopCoroutine(waveRoutine);
         waveRoutine = null;
         waveEnemies.Clear();SquadManager.Instance?.ClearCombat();
+        EnemyProjectile.ClearAll();CombatHazardBudget.ResetAll();
         if(entrySignal!=null)Destroy(entrySignal.gameObject);
         foreach (var enemy in FindObjectsByType<NormalEnemyStateMachine>(FindObjectsSortMode.None))
             Destroy(enemy.gameObject);
         remaining = 0; IsSpawning = false; NextWaveIn = 0; WaitingForExtraWave=false;
+        PendingSpawns=0;blockedSpawnSeconds=0;SpawnWaitReason=null;
     }
     public void ConfigureFloor(TowerFloor settings)
     {
@@ -101,6 +111,20 @@ public class GameManager : MonoBehaviour
         if(dead is Component target)TowerSession.Instance?.RecordKill(target.transform.position);
         SquadManager.Instance?.RebuildSquads();
     }
+    void ReconcileMissingEnemies()
+    {
+        missingEnemies.Clear();
+        foreach(var enemy in waveEnemies)
+            if(enemy is Object unityObject&&unityObject==null)missingEnemies.Add(enemy);
+        foreach(var enemy in missingEnemies)
+            if(waveEnemies.Remove(enemy))
+            {
+                // A destroyed, unreported object cannot be killed a second time. Repair
+                // bookkeeping without inventing a kill, currency or reward attribution.
+                remaining=Mathf.Max(PendingSpawns,remaining-1);ReconciledEnemies++;
+                Debug.LogWarning("Wave recovered a missing enemy reference; no kill reward granted.");
+            }
+    }
     private IEnumerator Waves()
     {
         NextWaveIn=initialDelay;
@@ -118,14 +142,24 @@ public class GameManager : MonoBehaviour
             if(roundText!=null) roundText.text="OLEADA "+CurrentWave;
             IsSpawning=true;
             int pending=remaining;
+            PendingSpawns=pending;blockedSpawnSeconds=0;
             while(pending>0)
             {
-                if(waveEnemies.Count>=Mathf.Min(maxAlive,Profile.maximumAlive) || !TrySpawnPosition(out Vector3 position))
-                { yield return new WaitForSeconds(.25f); continue; }
+                ReconcileMissingEnemies();
+                if(waveEnemies.Count>=Mathf.Min(maxAlive,Profile.maximumAlive))
+                {SpawnWaitReason="Alive enemy limit";yield return new WaitForSeconds(.25f);continue;}
+                bool visibleFallback=blockedSpawnSeconds>=visibleEntryFallbackAfter;
+                if(!TrySpawnPosition(out Vector3 position,visibleFallback))
+                {SpawnWaitReason="No safe reachable entry";blockedSpawnSeconds+=.25f;yield return new WaitForSeconds(.25f);continue;}
                 entrySignal=EnemyEntrySignal.Create(position);
                 yield return new WaitForSeconds(Mathf.Max(.2f,Profile.spawnWarningSeconds));
                 Destroy(entrySignal.gameObject);entrySignal=null;
-                if(InDirectView(position))continue;
+                // After a bounded wait an existing physical entrance may be visible,
+                // but distance, clear space, reachability and its full warning remain.
+                if(!visibleFallback&&InDirectView(position))
+                {blockedSpawnSeconds+=Mathf.Max(.2f,Profile.spawnWarningSeconds);continue;}
+                if(!SafeEntry(position))
+                {blockedSpawnSeconds+=.25f;continue;}
                 int index=WavePlan.Count-pending;
                 bool melee=meleeEnemyPrefab!=null&&WavePlan.IsMelee(index);
                 var go=Instantiate(melee?meleeEnemyPrefab:enemyPrefab,position,Quaternion.identity);
@@ -139,11 +173,12 @@ public class GameManager : MonoBehaviour
                 var closeCombat=enemy.GetComponent<MeleeRobotCombat>();
                 enemy.agent.speed=closeCombat!=null?Mathf.Min(Profile.maximumMeleeSpeed,WavePlan.Speed*closeCombat.speedMultiplier):WavePlan.Speed;
                 SquadManager.Instance?.RebuildSquads();
-                pending--;
+                pending--;PendingSpawns=pending;SpawnWaitReason=null;blockedSpawnSeconds=0;
+                if(visibleFallback)SpawnFallbacks++;
                 yield return new WaitForSeconds(spawnInterval*(WavePlan.Wave>=9?.5f:WavePlan.Wave>=3?.65f:1));
             }
             IsSpawning=false;
-            while(remaining>0) yield return null;
+            while(remaining>0) {ReconcileMissingEnemies();yield return null;}
             CompletedWaves++;
             if(floor!=null)
             {
@@ -170,7 +205,16 @@ public class GameManager : MonoBehaviour
             return hit.collider.GetComponentInParent<PlayerStateMachine>()!=null;
         return true;
     }
-    private bool TrySpawnPosition(out Vector3 position)
+    bool SafeEntry(Vector3 position)
+    {
+        var currentPlayers=GetPlayerTransforms();
+        if(currentPlayers.Count==0||Vector3.Distance(position,currentPlayers[0].position)<8)return false;
+        if(Physics.CheckCapsule(position+Vector3.up*.4f,position+Vector3.up*1.4f,.3f,(1<<0)|(1<<3)|(1<<6),QueryTriggerInteraction.Ignore))return false;
+        if(!NavMesh.SamplePosition(currentPlayers[0].position,out var playerGround,3,NavMesh.AllAreas))return false;
+        var path=new NavMeshPath();
+        return NavMesh.CalculatePath(position,playerGround.position,NavMesh.AllAreas,path)&&path.status==NavMeshPathStatus.PathComplete;
+    }
+    private bool TrySpawnPosition(out Vector3 position,bool allowVisible=false)
     {
         position=Vector3.zero;
         if(GetPlayerTransforms().Count==0) return false;
@@ -181,9 +225,8 @@ public class GameManager : MonoBehaviour
             var point=spawnPoints[(start+i)%spawnPoints.Length];
             if(point==null||Vector3.Distance(point.position,player)<8) continue;
             if(!NavMesh.SamplePosition(point.position,out var sample,2,NavMesh.AllAreas)) continue;
-            var route=new NavMeshPath();
-            if(!NavMesh.CalculatePath(sample.position,player,NavMesh.AllAreas,route)||route.status!=NavMeshPathStatus.PathComplete) continue;
-            if(InDirectView(sample.position))continue;
+            if(!SafeEntry(sample.position)) continue;
+            if(!allowVisible&&InDirectView(sample.position))continue;
             nextEntry=(start+i+(WavePlan!=null&&WavePlan.Wave>=3?1:0))%spawnPoints.Length;
             position=sample.position; return true;
         }

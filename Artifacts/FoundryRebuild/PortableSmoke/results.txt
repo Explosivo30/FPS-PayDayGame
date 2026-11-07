@@ -1,0 +1,10 @@
+INFO NORMAL STARTUP SMOKE: no foundry-qa flag, no Bind, no motor/input automation, no teleports or scripted combat.
+PASS Smoke invocation does not enable the QA encounter branch
+PASS Normal startup reaches the actual level director
+PASS Normal player motor and weapon input remain enabled
+PASS Normal startup contains one real player
+PASS Normal startup runs the independent level without tower waves
+PASS Normal startup actually places two Centinelas and two melee defenders
+PASS Normal arsenal starts with pistol and knife while the carbine remains locked
+PASS Normal framebuffer capture includes the gameplay HUD
+ERRORS

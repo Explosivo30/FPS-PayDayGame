@@ -127,6 +127,7 @@ public static partial class LabBuild
         presentation.muzzle=new GameObject("Muzzle").transform;presentation.muzzle.SetParent(model.transform,false);presentation.muzzle.localPosition=new Vector3(0,1.7f,.9f);
         presentation.sparks=Object.Instantiate(EffectAsset("Impact",false),go.transform).GetComponent<ParticleSystem>();presentation.sparks.transform.localPosition=Vector3.up*.7f;
         presentation.muzzleFlash=Object.Instantiate(EffectAsset("Muzzle",true),presentation.muzzle).GetComponent<ParticleSystem>();
+        presentation.ConfigureRangedRig();
         var enemy=go.AddComponent<NormalEnemyStateMachine>();enemy.agent=agent;enemy.layerMask=~(1<<6|1<<8|1<<2);enemy.maxHealth=100;
         var lr=go.AddComponent<LineRenderer>();ConfigureTracer(lr,.025f);
         Layers(go,6);var result=PrefabUtility.SaveAsPrefabAsset(go,Folder+"/LaboratorySentinel.prefab");Object.DestroyImmediate(go);return result;

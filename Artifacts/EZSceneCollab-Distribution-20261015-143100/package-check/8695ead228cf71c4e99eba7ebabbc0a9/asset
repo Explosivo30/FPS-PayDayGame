@@ -1,0 +1,8 @@
+{
+  "name": "com.ezcollabtool",
+  "version": "1.1.0",
+  "displayName": "EZ Scene Collab",
+  "description": "Collaborative Unity scene editing over direct TCP, with English and Spanish UI and optional ProBuilder integration.",
+  "unity": "6000.0",
+  "dependencies": {}
+}

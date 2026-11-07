@@ -1,0 +1,93 @@
+using UnityEditor;
+using UnityEditor.Overlays;
+using UnityEngine.UIElements;
+
+namespace EZCollabTool
+{
+    [Overlay(typeof(SceneView), "EZ Scene Collab", true)]
+    public sealed class EZCollabSceneViewOverlay : Overlay
+    {
+        VisualElement content;
+        Toggle pointersToggle;
+        Toggle camerasToggle;
+        Toggle namesToggle;
+        Toggle colorsToggle;
+
+        public override void OnCreated()
+        {
+            base.OnCreated();
+            EZCollabViewSettings.changed += RefreshValues;
+            EZCollabSession.stateChanged += RefreshAvailability;
+            EZCollabLocalization.languageChanged += RefreshValues;
+        }
+
+        public override void OnWillBeDestroyed()
+        {
+            EZCollabViewSettings.changed -= RefreshValues;
+            EZCollabSession.stateChanged -= RefreshAvailability;
+            EZCollabLocalization.languageChanged -= RefreshValues;
+            base.OnWillBeDestroyed();
+        }
+
+        public override VisualElement CreatePanelContent()
+        {
+            content = new VisualElement { name = "ez-scene-collab-presence-controls" };
+            content.style.flexDirection = FlexDirection.Row;
+            content.style.flexWrap = Wrap.Wrap;
+            content.style.paddingLeft = 4f;
+            content.style.paddingRight = 4f;
+            content.style.paddingTop = 2f;
+            content.style.paddingBottom = 2f;
+            content.style.minWidth = 305f;
+
+            pointersToggle = CreateToggle("Pointers", value => EZCollabViewSettings.pointers = value);
+            camerasToggle = CreateToggle("Cameras", value => EZCollabViewSettings.cameras = value);
+            namesToggle = CreateToggle("Names", value => EZCollabViewSettings.names = value);
+            colorsToggle = CreateToggle("Colors", value => EZCollabViewSettings.colors = value);
+
+            content.Add(pointersToggle);
+            content.Add(camerasToggle);
+            content.Add(namesToggle);
+            content.Add(colorsToggle);
+            RefreshValues();
+            RefreshAvailability();
+            return content;
+        }
+
+        static Toggle CreateToggle(string label, System.Action<bool> setter)
+        {
+            Toggle toggle = new Toggle(label);
+            toggle.style.marginLeft = 3f;
+            toggle.style.marginRight = 3f;
+            toggle.RegisterValueChangedCallback(evt => setter(evt.newValue));
+            return toggle;
+        }
+
+        void RefreshValues()
+        {
+            if (content == null)
+                return;
+
+            pointersToggle.SetValueWithoutNotify(EZCollabViewSettings.pointers);
+            pointersToggle.label = EZCollabLocalization.Tr(EZCollabText.Pointers);
+            camerasToggle.label = EZCollabLocalization.Tr(EZCollabText.Cameras);
+            namesToggle.label = EZCollabLocalization.Tr(EZCollabText.Names);
+            colorsToggle.label = EZCollabLocalization.Tr(EZCollabText.Colors);
+            camerasToggle.SetValueWithoutNotify(EZCollabViewSettings.cameras);
+            namesToggle.SetValueWithoutNotify(EZCollabViewSettings.names);
+            colorsToggle.SetValueWithoutNotify(EZCollabViewSettings.colors);
+            RefreshAvailability();
+        }
+
+        void RefreshAvailability()
+        {
+            if (content == null)
+                return;
+
+            content.SetEnabled(EZCollabState.inSession);
+            content.tooltip = EZCollabState.inSession
+                ? EZCollabLocalization.Tr(EZCollabText.ViewSettingsHint)
+                : EZCollabLocalization.Tr(EZCollabText.ViewSettingsInactiveHint);
+        }
+    }
+}

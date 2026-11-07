@@ -1,0 +1,8 @@
+{
+  "dynamic_images": true,
+  "detail": true,
+  "orbit": true,
+  "fixture_selector": true,
+  "static_images_without_javascript": 6,
+  "page_errors": []
+}

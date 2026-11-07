@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "Assets/Scenes/TowerCore.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/LaboratoryFloor.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/RoboticForest.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/CrystalGarden.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/DestructionPlayground.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "ProjectSettings/GraphicsSettings.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "ProjectSettings/EditorBuildSettings.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Settings/PC_RPAsset.asset",
+    "Unchanged": true
+  }
+]

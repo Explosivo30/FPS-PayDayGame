@@ -1,0 +1,50 @@
+{
+  "agent": "A",
+  "direction_vote": "Arsenal mutante como base; una salida activa de Impulso y la nueva Cámara abierta de Relevo brutal.",
+  "prototype_ids": ["P1-01", "C1", "P2-03"],
+  "reason": "Cámara de ariete cambia el tiro y funciona inmediatamente con pistola. Cámara abierta convierte quedarse vacío en elegir otra función ofensiva, sin otro botón. Freno aporta una decisión de espacio distinta de volver a perforar. Es el conjunto con tres resultados más fáciles de reconocer y comparar desde el arranque. La dirección anterior gana a un catálogo totalmente nuevo; una novedad entra porque añade una función, no por ser nueva.",
+  "best_new_id": "C1",
+  "retained_previous_ids": ["P1-01", "P2-03", "P2-04", "P1-07", "P3-01", "P1-06"],
+  "parked_new_ids": ["A1", "A2", "A3", "A4", "A5", "A6", "B1", "B2", "B3", "B4", "B5", "B6", "C2", "C3", "C4", "C5", "C6"],
+  "exchanges": [
+    {
+      "with": "B",
+      "objection": "B señaló que Eco cruzado contra Ariete en arena abierta podía ser doble daño gratuito al recargar y que Cerrojo podía anular a Aguja aislada.",
+      "reply": "Acepté ambas objeciones. Eco no debe copiar daño; necesita crear otro ángulo voluntariamente. Cerrojo no entra en la primera selección.",
+      "revision": "A3 ahora exige separarse dos metros y un modificador voluntario; su disparo sale desde el eco EN VEZ del cañón y consume una bala normal. Su mayor coste de lectura lo deja después de C1."
+    },
+    {
+      "with": "B",
+      "objection": "Critiqué Punto de fuga: si un robot ocupa el regreso, promete una salida que falla. Disparo suspendido retiene el mismo daño, compite con Cámara y no demuestra una función mejor ante Aguja.",
+      "reply": "B aceptó aparcar B3/B6. Revisó Retropropulsor como una maniobra con carga, señal previa de salida y colisiones seguras; aceptó que debe cambiar una decisión frente a retroceder normalmente.",
+      "revision": "B1 queda como primer experimento después de obtener escopeta, no como carta inicial ni ganador por aumentar metros. Si solo adelanta unas décimas sin cambiar ruta, se descarta."
+    },
+    {
+      "with": "C",
+      "objection": "C coincidió en el problema del daño doble de Eco. Yo objeté que Compás roto premia la recarga rutinaria alterando los relojes de todo el combate y que Recámara híbrida convierte el control del arma en recordar una tabla de herencias.",
+      "reply": "C aceptó apartar Compás y la híbrida. Defendió Cámara abierta como cambio de función explícito del estado vacío, que se entiende mejor que el origen remoto de Eco.",
+      "revision": "C1 exige soltar el último tiro y mantener de nuevo para elegir soplete; radio frontal de tres metros, gasto fijo de cuatro balas de reserva, máximo tres víctimas, un segundo y recuperación. R o cambiar arma cancela; sin reserva suficiente se recarga."
+    },
+    {
+      "with": "C",
+      "objection": "Pedí que el soplete no volviera trivial a Ariete ni dejara sin munición al novato, y que recargar siguiera siendo una elección buena frente a Aguja lejana.",
+      "reply": "La revisión hace explícito el gasto y la salida. Acepté que la función es más inequívoca que mi Eco, manteniendo esas condiciones para el playtest.",
+      "revision": "Mi voto cambia del provisional Cámara + Freno + Eco a Cámara + Cámara abierta + Freno. Es una hipótesis de prueba, sin afirmar que la diversión esté demostrada."
+    }
+  ],
+  "concessions": [
+    "Mi Eco inicial repetía precisamente el problema del Excel bajo otro efecto visual: concedía más daño sin exigir otra decisión. La crítica cambió su regla y mi voto.",
+    "Cerrojo de retorno tiene riesgo de borrar el rol del tirador. No lo defendería solo porque se vea espectacular.",
+    "No hace falta estrenar movilidad, patrones de arma y recursos a la vez. Los seis diseños nuevos de cada agente son alternativas para elegir, no una lista de producción.",
+    "Tiro rasante sigue siendo buena alternativa a Cámara de ariete para una variante más móvil, pero no pondría dos cartas de perforar filas en un prototipo de solo tres."
+  ],
+  "dissent": "Sin discrepancia sobre los tres IDs finales. Mi reserva sigue siendo que Freno se vuelva un deslizamiento obligatorio y que el soplete introduzca una rutina única de vaciar, quemar y huir. No recomiendo ejecutar toda la propuesta sin probar esas dos cosas.",
+  "conditions": [
+    "Separar pruebas de cada carta y del conjunto; pedir al jugador que explique y repita deliberadamente la función que cambió.",
+    "C1 solo aparece tras la liberación y nueva pulsación del gatillo en vacío. Debe distinguirse de cargar Cámara de ariete y permitir volver inmediatamente a recarga.",
+    "La reserva gastada debe mostrarse antes y después; quedarse sin cuatro balas nunca bloquea la recarga ni el avance de la oleada.",
+    "Contra Ariete, entrar y sostener el soplete conserva riesgo. Contra Aguja fuera de alcance debe tener valor renunciar al soplete y recargar.",
+    "Freno debe abrir una salida sin inmunidad ni aturdir permanentemente. Repetir el slide por obligación no es el objetivo de la build.",
+    "Daños secundarios mantienen bajas, chips y progreso, pero no generan bucles. Ninguna prueba técnica equivale a demostrar diversión o balance."
+  ]
+}

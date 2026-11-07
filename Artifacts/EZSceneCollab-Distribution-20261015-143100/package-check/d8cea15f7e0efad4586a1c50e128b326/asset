@@ -1,0 +1,117 @@
+# Guía de red
+
+EZ Scene Collab utiliza una conexión TCP directa. El host escucha en todas las interfaces de red disponibles mediante el puerto seleccionado; los clientes se conectan a una dirección alcanzable del host. El puerto predeterminado es `9876`.
+
+Para equipos que trabajan desde casas distintas se recomienda una VPN privada. Abrir puertos públicos es la opción menos sencilla y menos segura en la versión 1.1.0.
+
+## Preparación común
+
+En todos los ordenadores:
+
+1. Usa la misma revisión del proyecto, versión de Unity, escena, assets, scripts y versión de EZ Scene Collab.
+2. Guarda y haz una copia de la escena.
+3. Permite Unity en el Firewall de Windows únicamente en los perfiles de red que realmente utilices.
+4. Elige un host y un puerto TCP.
+5. Solo el host debe iniciar una sesión como host; los demás se unen como clientes.
+
+## Mismo ordenador
+
+Utiliza esta opción solamente para una prueba rápida con copias o procesos de Unity separados.
+
+- Dirección del host: `127.0.0.1`
+- Puerto: `9876` u otro puerto libre.
+
+No abras ni redirijas puertos del router.
+
+## LAN
+
+Úsalo cuando todos los ordenadores estén en la misma red doméstica u oficina de confianza.
+
+### Host
+
+1. Configura el perfil de red de Windows como **Privada** solamente si confías en esa LAN.
+2. Busca la IPv4 local del host en las propiedades de red de Windows o con `ipconfig`. Normalmente se parece a `192.168.x.x` o `10.x.x.x`.
+3. Inicia EZ Scene Collab como host en el puerto `9876`.
+4. Si Windows pregunta, permite Unity en **Redes privadas**. Evita habilitar redes públicas salvo que sea necesario y entiendas el riesgo.
+5. Comparte con los clientes la IPv4 local y el puerto.
+
+### Cliente
+
+1. Conéctate a la misma LAN.
+2. Escribe la IPv4 local del host, no la del cliente ni `127.0.0.1`.
+3. Usa el mismo puerto y entra en la sesión.
+
+Si falla, comprueba primero que ambos equipos puedan alcanzarse y después revisa el Firewall de Windows, el aislamiento de clientes de la Wi-Fi de invitados, el antivirus y si otro programa utiliza el puerto.
+
+## Tailscale — recomendado para casas distintas
+
+Tailscale crea una red privada y asigna direcciones estables a los dispositivos, normalmente del rango `100.x.y.z`. Tailscale aporta conectividad; EZ Scene Collab continúa ejecutando el host dentro de Unity.
+
+Referencias oficiales:
+
+- [Instalar Tailscale](https://tailscale.com/docs/install)
+- [Inicio rápido de Tailscale](https://tailscale.com/kb/1017/install/)
+- [Conectar dispositivos](https://tailscale.com/docs/how-to/connect-to-devices)
+- [Compartir una máquina](https://tailscale.com/kb/1084/sharing)
+
+Pasos:
+
+1. Instala Tailscale en el host y en cada cliente.
+2. Añade los equipos al mismo tailnet, invita a tus compañeros o comparte la máquina host de acuerdo con la política de Tailscale.
+3. Confirma que todos los dispositivos necesarios aparezcan conectados.
+4. Busca la IPv4 de Tailscale del host o su nombre MagicDNS permitido.
+5. Inicia EZ Scene Collab como host en el puerto `9876`.
+6. Cada cliente introduce la dirección Tailscale del host y el mismo puerto.
+7. Si utilizas reglas personalizadas, permite TCP `9876` solamente desde los compañeros previstos hacia el host.
+
+Normalmente no hay que abrir el router ni compartir la IP pública. Limita el Firewall de Windows y revoca el acceso compartido cuando termine la colaboración.
+
+## LogMeIn Hamachi
+
+Hamachi proporciona una red privada virtual con una finalidad parecida a Tailscale. Es un producto externo y no está incluido con EZ Scene Collab.
+
+1. Instala Hamachi desde su proveedor oficial en todos los ordenadores.
+2. Crea en uno de ellos una red privada de Hamachi con contraseña segura.
+3. Permite entrar únicamente a compañeros de confianza mediante el ID de red y la contraseña.
+4. Confirma que los indicadores muestren un túnel funcional.
+5. Copia la dirección IPv4 virtual que Hamachi muestra para el host.
+6. Inicia EZ Scene Collab como host en el puerto `9876`.
+7. Los clientes usan la dirección Hamachi del host y el mismo puerto.
+8. Si falla, revisa el diagnóstico de Hamachi, el Firewall de Windows, el antivirus y si el túnel está bloqueado.
+
+Soporte oficial: [LogMeIn Hamachi Support](https://support.goto.com/hamachi).
+
+No publiques el ID y la contraseña de la red Hamachi. Expulsa miembros o elimina la red cuando ya no sea necesaria.
+
+## Abrir puertos públicos — avanzado y no recomendado
+
+La versión 1.1.0 no tiene autenticación ni cifrado. Redirigir su puerto a Internet expone el listener a cualquiera que pueda alcanzarlo. Utiliza una VPN privada siempre que sea posible.
+
+Si aceptas el riesgo:
+
+1. Reserva una IPv4 local estable para el host en el router.
+2. Crea una redirección **solo TCP** desde el puerto externo elegido al mismo puerto TCP del ordenador host.
+3. Crea una regla entrante limitada para Unity y ese puerto en el Firewall de Windows. Restringe las direcciones remotas si es posible.
+4. Inicia la sesión del host.
+5. Los clientes introducen la IP pública o DNS del host y el puerto externo.
+6. Prueba desde otra conexión a Internet; probar desde el mismo router puede fallar si no existe NAT loopback.
+7. Elimina o desactiva las reglas del router y firewall al terminar.
+
+Puede no funcionar con CGNAT, doble NAT, redes móviles, redes institucionales o proveedores restrictivos. No expongas un proyecto confidencial mediante un listener público sin restricciones.
+
+## Varios hosts
+
+Un Unity Editor participa en una única sesión de EZ Scene Collab a la vez. Es posible tener varias sesiones host independientes cuando distintas instancias o proyectos de Unity alojan escenas diferentes en puertos TCP distintos. Cada cliente debe usar la dirección y el puerto de la escena correcta.
+
+## Lista de comprobación de red
+
+- Unity sigue abierto en el host y la sesión está activa.
+- Dirección y puerto correctos.
+- TCP, no UDP.
+- Ningún otro host o programa utiliza ese puerto.
+- El perfil del Firewall de Windows coincide con la conexión real.
+- La VPN muestra los dos equipos conectados y permite el puerto.
+- Misma versión de EZ Scene Collab y Unity.
+- Misma escena activa y revisión del proyecto.
+- Sin aislamiento de clientes en la Wi-Fi.
+- Sin CGNAT o doble NAT si se abren puertos públicos.

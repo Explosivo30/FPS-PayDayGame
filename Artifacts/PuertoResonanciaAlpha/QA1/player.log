@@ -1,0 +1,1910 @@
+Mono path[0] = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/Managed'
+Mono config path = 'D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/MonoBleedingEdge/etc'
+Found 3 interfaces on host : 0) 192.168.1.42 1) 192.168.163.1 2) 192.168.235.1
+Player connection [11384]  Target information:
+
+Player connection [11384]  * "[IP] 192.168.1.42 [Port] 55000 [Flags] 2 [Guid] 644403376 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [11384]  * "[IP] 192.168.163.1 [Port] 55000 [Flags] 2 [Guid] 644403376 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [11384]  * "[IP] 192.168.235.1 [Port] 55000 [Flags] 2 [Guid] 644403376 [EditorId] 226439020 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [11384] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Builds/PuertoResonanciaAlpha/PuertoResonancia_Data/UnitySubsystems
+kGfxThreadingModeSplitJobs is not supported on Direct3D 11. Reverting to kGfxThreadingModeClientWorkerJobs instead.
+GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.091 seconds
+- Finished resetting the current domain, in  0.001 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+Using Windows.Gaming.Input
+<RI> Input initialized.
+UnloadTime: 1.438900 ms
+RenderGraph is now enabled.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/UniversalRenderPipeline.cs:259)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/Data/UniversalRenderPipelineAsset.cs:793)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline () (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineAsset.cs:15)
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:165)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:139)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA STYLE: original ToonShader graph + original AnimeTonemapper shader; local renderer on 2 player cameras.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictVisuals/<Start>d__24:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Tower/AlphaDistrictVisuals.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The alpha district loads its real playable core
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both real fracture systems are prepared before the encounter
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The level exposes six authored districts
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:106)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Exactly one real player is loaded
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:107)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The district does not run tower wave progression
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:108)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The three spatial milestones start incomplete
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:109)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual district pipeline is active in quality and graphics settings
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:469)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player cameras and renderers receive the district style
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:471)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The actual actor shader is supported
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:472)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual player cameras use renderer zero of the local pipeline
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:478)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO RENDER pipeline=District pipeline, actorShader=Shader Graphs/ToonShader, styledRenderers=43, cameras=2; visual quality still requires screenshot review.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:VisualContracts () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:479)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:110)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.B
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:277)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=0 phase=B position=(4.000,1.090,-43.000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=1 phase=B position=(-28.474,1.090,-37.184)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches B without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:254)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.B
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:255)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches approach-power-0 without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 0 at (-46.752,1.090,-5.049)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual three-metre E-ray starts power objective 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+Internal: JobTempAlloc has allocations that are more than the maximum lifespan of 4 frames old - this is not allowed and likely a leak
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+PASS Power objective 0 completes under live pressure in its authored district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:264)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Power 0 observed duration=18.000s; authored bot orbit is not human pacing.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:265)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.E
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:279)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=4 phase=E position=(-33.674,1.538,11.280)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches E without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.F
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:280)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=5 phase=F position=(0.028,3.110,34.016)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches F without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:254)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.F
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:255)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches approach-power-1 without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 1 at (17.980,1.090,38.787)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual three-metre E-ray starts power objective 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Power objective 1 completes under live pressure in its authored district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:264)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Power 1 observed duration=18.001s; authored bot orbit is not human pacing.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:265)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.C
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:296)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=3 phase=C-radio position=(31.030,1.090,13.982)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=2 phase=C-radio position=(20.755,1.090,-4.631)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches C-radio without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:297)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.C
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:300)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches radio-E-ray without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 2 at (7.176,1.090,4.613)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:301)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The radio is reached by the actual E-handler
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:301)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both powers enable the evacuation alarm
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.A
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:305)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact enters zone=0 phase=A-return position=(3.452,1.090,-22.019)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches A-return without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:307)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.A
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:311)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 3 at (1.917,1.090,-43.829)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:322)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS B-first-intact: spatial milestones and actual extraction complete
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:333)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS B-first-intact: observed population respects declared caps
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:334)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Initially intact trace ends containmentOpen=False, collapseSettled=False; enemy-caused changes are reported, not silently attributed to a player decision.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:336)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO B-first-intact: seconds=101.318, metres=724.828, damage=13.500, gameHealing=0.000, aliveAtExit=11, completed=True; not a human fun/difficulty score.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:337)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.443400 ms
+Unloading 780 unused Assets / (2.4 MB). Loaded Objects now: 7398.
+Memory consumption went from 180.0 MB to 177.6 MB.
+Total: 2.989500 ms (FindLiveObjects: 0.226100 ms CreateObjectMapping: 0.093500 ms MarkObjects: 2.106000 ms  DeleteObjects: 0.563700 ms)
+
+ALPHA STYLE: original ToonShader graph + original AnimeTonemapper shader; local renderer on 2 player cameras.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictVisuals/<Start>d__24:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Tower/AlphaDistrictVisuals.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Restart reconstructs the actual district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both real fracture systems are prepared before the encounter
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Restart restores a living, unpaused player
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Restart>d__41:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:141)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.D
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:285)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=0 phase=D position=(4.004,1.090,-42.999)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=3 phase=D position=(31.678,1.090,-36.171)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches D without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.F
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:286)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=5 phase=F position=(33.183,1.090,14.095)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches F without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:254)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.F
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:255)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches approach-power-1 without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 1 at (18.011,1.090,38.801)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual three-metre E-ray starts power objective 1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Power objective 1 completes under live pressure in its authored district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:264)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Power 1 observed duration=18.001s; authored bot orbit is not human pacing.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:265)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.ContainmentFar
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<Containment>d__64:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:374)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.ContainmentNear
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<Containment>d__64:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:374)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches F-side-containment without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual weapon fire severs C-F-containment
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:368)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO C-F-containment structural shots=10; robots and hazards remain active.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:369)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both containment states preserve a real district route
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Containment>d__64:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:379)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Containment destruction opens reciprocal firing lines
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Containment>d__64:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:380)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Containment path metres before/after=76.354/6.800; distance alone does not validate the choice.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Containment>d__64:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:381)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches C-F-new-crossing without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.CollapseNear
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:411)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.CollapseFar
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:411)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=2 phase=collapse-safe-approach position=(11.910,1.090,17.051)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches collapse-safe-approach without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual weapon fire severs gantry-support
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:368)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO gantry-support structural shots=5; robots and hazards remain active.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:369)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual weapon fire severs gantry-support
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:368)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO gantry-support structural shots=7; robots and hazards remain active.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Break>d__62:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:369)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The live gantry settles once after both real supports are severed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:421)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Settling replaces the hostile nest and low passage with stable ramp geometry
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:423)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The districts remain connected in both gantry states
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:426)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Gantry path metres before/after=40.334/40.334, live impact kills=1; no immobilized target guarantees a crush.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Collapse>d__67:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:427)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=4 phase=actual-final-ramp-surface position=(-10.974,2.338,17.751)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches actual-final-ramp-surface without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches gantry-ramp-exit without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.E
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:290)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches E without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.B
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:291)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=1 phase=B position=(-34.474,1.655,11.553)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches B without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:254)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.B
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:255)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches approach-power-0 without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 0 at (-46.734,1.090,-5.037)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual three-metre E-ray starts power objective 0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:256)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Power objective 0 completes under live pressure in its authored district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:264)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Power 0 observed duration=18.002s; authored bot orbit is not human pacing.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<Power>d__59:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:265)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.C
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:296)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=2 phase=C-radio position=(-19.302,1.090,-11.889)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches C-radio without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:297)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.C
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:300)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches radio-E-ray without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 2 at (7.141,1.090,4.615)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:301)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The radio is reached by the actual E-handler
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:301)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both powers enable the evacuation alarm
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.A
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:305)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive enters zone=0 phase=A-return position=(3.452,1.090,-22.019)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:TickEvidence () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:437)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:236)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real player motor reaches A-return without an internal teleport
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Leg>d__57:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:238)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real interaction terminal exists for kind 3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Terminal (int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:157)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:307)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Authored motor marker exists: QA.A
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest:Marker (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:151)
+AlphaDistrictPlaytest:Approach (AlphaDistrictTerminal,int) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:225)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:311)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO Real E-handler reached terminal 3 at (1.915,1.090,-43.864)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest:Interact (AlphaDistrictTerminal) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:221)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:322)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS F-first-reactive: spatial milestones and actual extraction complete
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:333)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS F-first-reactive: observed population respects declared caps
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:334)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The reactive route transforms both connections
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:335)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+INFO F-first-reactive: seconds=115.106, metres=709.739, damage=40.500, gameHealing=0.000, aliveAtExit=9, completed=True; not a human fun/difficulty score.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Info (string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:91)
+AlphaDistrictPlaytest/<RunRoute>d__60:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:337)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.007100 ms
+Unloading 771 unused Assets / (2.3 MB). Loaded Objects now: 7433.
+Memory consumption went from 181.0 MB to 178.7 MB.
+Total: 3.208900 ms (FindLiveObjects: 0.237300 ms CreateObjectMapping: 0.089400 ms MarkObjects: 2.278900 ms  DeleteObjects: 0.603000 ms)
+
+ALPHA STYLE: original ToonShader graph + original AnimeTonemapper shader; local renderer on 2 player cameras.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictVisuals/<Start>d__24:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Tower/AlphaDistrictVisuals.cs:57)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Restart reconstructs the actual district
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both real fracture systems are prepared before the encounter
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Until>d__37:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:96)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Restart restores a living, unpaused player
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Restart>d__41:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:141)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Restart restores both structures and all milestones
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:112)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS QA restart leaves no projectile or danger lease before the encounter starts
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:89)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:114)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+ALPHA DISTRICT INTEGRATION COMPLETE: 132 entries, 0 errors. This does not measure human fun.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+AlphaDistrictPlaytest:Finish () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:529)
+AlphaDistrictPlaytest/<Start>d__38:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/AlphaDistrictPlaytest.cs:116)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+PlayerConnection::CleanupInternal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792959819606,"processId":33924,"allocatedMemory":187487,"memoryLabels":[{"Default":136},{"Thread":11264},{"Manager":9451},{"VFX":-104},{"GfxDevice":72},{"GfxThread":33792},{"Serialization":520},{"JobScheduler":124968},{"String":356},{"HashMap":3584},{"PoolAlloc":192},{"VR":1792},{"Video":144},{"NativeArray":648},{"Subsystems":96},{"Gui":456},{"CoreBusinessMetrics":120}]}

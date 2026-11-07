@@ -1,0 +1,50 @@
+[
+  {
+    "proposal": 1,
+    "title": "Arsenal mutante",
+    "file": "01-Arsenal-mutante.pdf",
+    "pages": 5,
+    "cards": 8,
+    "builds": 2,
+    "words": 1473,
+    "bytes": 55461,
+    "sha256": "b8f81e0b408b9dc74bb76d2fa7d1e54c075b074ff3d86c1c28dc6842780a25b9",
+    "visual_review": "All five pages rendered and inspected; no clipping or overlap."
+  },
+  {
+    "proposal": 2,
+    "title": "Impulso de combate",
+    "file": "02-Impulso-de-combate.pdf",
+    "pages": 5,
+    "cards": 8,
+    "builds": 2,
+    "words": 1493,
+    "bytes": 55650,
+    "sha256": "e07d979a82340530faae27f7e8d1d0bdfc0aed8a48cb703e2beeedc6397fb5df",
+    "visual_review": "All five pages rendered and inspected; no clipping or overlap."
+  },
+  {
+    "proposal": 3,
+    "title": "Protocolo Dominó",
+    "file": "03-Protocolo-Domino.pdf",
+    "pages": 5,
+    "cards": 8,
+    "builds": 2,
+    "words": 1505,
+    "bytes": 55302,
+    "sha256": "f3c150ebb4bb8d6765c81f5f48e2d0b3281b5048cb1f726b2571ef674e6582d6",
+    "visual_review": "All five pages rendered and inspected; no clipping or overlap."
+  },
+  {
+    "proposal": 4,
+    "title": "Ingeniería de chatarra",
+    "file": "04-Ingenieria-de-chatarra.pdf",
+    "pages": 5,
+    "cards": 8,
+    "builds": 2,
+    "words": 1424,
+    "bytes": 55481,
+    "sha256": "6cc738ecfe297135a57213c874b4aad61d3e2f43a3175c15b3114218dc9658d8",
+    "visual_review": "All five pages rendered and inspected; no clipping or overlap."
+  }
+]

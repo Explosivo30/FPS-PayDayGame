@@ -1,0 +1,9 @@
+{
+  "initial_images": true,
+  "style_selectors": true,
+  "detail": true,
+  "orbit": true,
+  "fps_selector": true,
+  "static_loaded_without_javascript": 11,
+  "page_errors": []
+}

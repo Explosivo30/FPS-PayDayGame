@@ -1,0 +1,31 @@
+# EZ Scene Collab compatibility matrix
+
+This table records completed tests. “Not verified” means the product must not be advertised as supporting that configuration yet.
+
+| Area | Configuration | Status | Notes |
+|---|---|---:|---|
+| Operating system | Windows | Verified | Only operating system tested so far. |
+| Operating system | macOS | Not verified | Do not advertise as supported. |
+| Operating system | Linux | Not verified | Do not advertise as supported. |
+| Unity | 6000.0.58f2 | Verified | Clean import, compilation, and same-PC host/client test. |
+| Unity | Other Unity 6.0 releases | Not verified | Compatibility may be expected but is not claimed. |
+| Unity | Unity 6.5 or later | Not verified | Must be tested before it is listed. |
+| ProBuilder | Not installed | Verified | Core imports and works without errors. |
+| ProBuilder | 6.0.9 | Verified | Optional integration compiles and is detected automatically. |
+| ProBuilder | Other 6.x versions | Compatible range configured, not fully verified | Test each version you intend to list. |
+| ProBuilder | 5.x or 7.x | Unsupported | Integration remains disabled. |
+| Render pipeline | URP 17.0.4 | Verified in the development project | A clean release-matrix project is still recommended. |
+| Render pipeline | Built-in | Clean import verified; collaboration not verified | Do not advertise full support yet. |
+| Render pipeline | HDRP | Not verified | Do not advertise as supported yet. |
+| Network | Same-PC TCP sockets | Verified for 1.1 | Host and two loopback clients, including edits during join. Visual multi-editor validation remains pending for 1.1. |
+| Network | Two physical Windows computers | Not verified | Required before a confident commercial claim. |
+| Network | LAN | Implemented, physical-machine test pending | Direct TCP. |
+| Network | Tailscale/Hamachi | Expected to work as a private IP network | End-to-end validation pending. |
+| Dependencies | Newtonsoft.Json | Not required | Uses Unity `JsonUtility` and `EditorJsonUtility`. |
+| Dependencies | Version-control package | Not required | Source control is still recommended for sharing assets. |
+
+The demo materials use Unity's built-in `Unlit/Color` shader to reduce render-pipeline coupling. This does not replace full collaborative testing in every pipeline.
+
+See [Spanish compatibility information](Spanish/COMPATIBILITY.md).
+
+See [1.1 validation](VALIDATION_1_1.md) for exact test scope and performance measurements.

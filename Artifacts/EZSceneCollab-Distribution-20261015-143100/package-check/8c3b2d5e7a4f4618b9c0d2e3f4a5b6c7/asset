@@ -1,0 +1,321 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public static class EZCollabMaterialSerializer
+    {
+        const string ErrorShaderName = "Hidden/InternalErrorShader";
+
+        static readonly Dictionary<int, double> suppressedMaterialChanges =
+            new Dictionary<int, double>();
+
+        public static List<SerializedMaterial> CaptureReferencedMaterials(GameObject go)
+        {
+            return CaptureReferencedMaterials(go, null);
+        }
+
+        public static List<SerializedMaterial> CaptureReferencedMaterials(GameObject go, HashSet<int> captured)
+        {
+            List<SerializedMaterial> result = new List<SerializedMaterial>();
+            if (go == null)
+                return result;
+
+            if (captured == null) captured = new HashSet<int>();
+            foreach (Renderer renderer in go.GetComponents<Renderer>())
+                CaptureRendererMaterials(renderer, captured, result);
+
+            return result;
+        }
+
+        public static List<SerializedMaterial> CaptureSceneMaterials(GameObject[] roots)
+        {
+            List<SerializedMaterial> result = new List<SerializedMaterial>();
+            HashSet<int> captured = new HashSet<int>();
+            if (roots == null)
+                return result;
+
+            foreach (GameObject root in roots)
+            {
+                if (root == null)
+                    continue;
+
+                foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
+                    CaptureRendererMaterials(renderer, captured, result);
+            }
+
+            return result;
+        }
+
+        public static SerializedMaterial CaptureMaterial(Material material)
+        {
+            if (material == null || !EditorUtility.IsPersistent(material))
+                return null;
+
+            SerializedMaterial data = new SerializedMaterial
+            {
+                materialReference = CapturePersistentReference(material, "material", false),
+                shaderName = material.shader != null ? material.shader.name : null,
+                json = EditorJsonUtility.ToJson(material)
+            };
+            CaptureObjectReferences(material, data.objectReferences);
+            return data.materialReference == null ? null : data;
+        }
+
+        public static void ApplyMaterials(List<SerializedMaterial> materials)
+        {
+            if (materials == null)
+                return;
+
+            foreach (SerializedMaterial material in materials)
+                ApplyMaterial(material);
+        }
+
+        public static bool ApplyMaterial(SerializedMaterial data)
+        {
+            if (data?.materialReference == null)
+                return false;
+
+            Material target = ResolveAssetReference(data.materialReference) as Material;
+            if (target == null)
+                return false;
+
+            Shader fallbackShader = IsUsableShader(target.shader) ? target.shader : null;
+            Shader requestedShader = FindRequestedShader(data);
+            Shader stagingShader = IsUsableShader(requestedShader) ? requestedShader : fallbackShader;
+            if (stagingShader == null)
+            {
+                Debug.LogWarning(
+                    $"[EZ Scene Collab] Material '{target.name}' was not changed because its shader is unavailable on this computer.");
+                return false;
+            }
+
+            Material staging = new Material(stagingShader);
+            try
+            {
+                if (!string.IsNullOrEmpty(data.json))
+                    EditorJsonUtility.FromJsonOverwrite(data.json, staging);
+
+                ApplyObjectReferences(staging, data.objectReferences);
+                if (!IsUsableShader(staging.shader))
+                    staging.shader = stagingShader;
+
+                if (!IsUsableShader(staging.shader))
+                    return false;
+
+                target.shader = staging.shader;
+                target.CopyPropertiesFromMaterial(staging);
+                EditorUtility.SetDirty(target);
+                SuppressMaterialChange(target);
+                return true;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogWarning(
+                    $"[EZ Scene Collab] Could not restore material '{target.name}': {exception.Message}");
+                return false;
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(staging);
+            }
+        }
+
+        public static bool TryGetMaterialKey(Material material, out string key)
+        {
+            key = null;
+            if (material == null || !EditorUtility.IsPersistent(material) ||
+                !AssetDatabase.TryGetGUIDAndLocalFileIdentifier(material, out string guid, out long localFileId))
+            {
+                return false;
+            }
+
+            key = GetMaterialKey(guid, localFileId);
+            return true;
+        }
+
+        public static bool TryGetMaterialKey(SerializedMaterial material, out string key)
+        {
+            key = null;
+            SerializedObjectReference reference = material?.materialReference;
+            if (reference == null || string.IsNullOrEmpty(reference.assetGuid))
+                return false;
+
+            key = GetMaterialKey(reference.assetGuid, reference.localFileId);
+            return true;
+        }
+
+        public static bool IsMaterialChangeSuppressed(Material material)
+        {
+            if (material == null)
+                return false;
+
+            int instanceId = material.GetInstanceID();
+            if (!suppressedMaterialChanges.TryGetValue(instanceId, out double until))
+                return false;
+
+            if (until >= EditorApplication.timeSinceStartup)
+                return true;
+
+            suppressedMaterialChanges.Remove(instanceId);
+            return false;
+        }
+
+        static void SuppressMaterialChange(Material material)
+        {
+            suppressedMaterialChanges[material.GetInstanceID()] = EditorApplication.timeSinceStartup + 1d;
+        }
+
+        static string GetMaterialKey(string guid, long localFileId)
+        {
+            return $"material:{guid}:{localFileId}";
+        }
+
+        static void CaptureRendererMaterials(
+            Renderer renderer,
+            HashSet<int> captured,
+            List<SerializedMaterial> output)
+        {
+            if (renderer == null)
+                return;
+
+            foreach (Material material in renderer.sharedMaterials)
+            {
+                if (material == null || !captured.Add(material.GetInstanceID()))
+                    continue;
+
+                SerializedMaterial data = CaptureMaterial(material);
+                if (data != null)
+                    output.Add(data);
+            }
+        }
+
+        static SerializedObjectReference CapturePersistentReference(
+            UnityEngine.Object asset,
+            string propertyPath,
+            bool includeHash)
+        {
+            if (asset == null || !EditorUtility.IsPersistent(asset))
+                return null;
+
+            SerializedObjectReference data = new SerializedObjectReference
+            {
+                propertyPath = propertyPath,
+                assetPath = AssetDatabase.GetAssetPath(asset)
+            };
+            if (includeHash)
+                data.assetHash = EZCollabAssetValidator.GetDependencyHash(data.assetPath);
+
+            AssetDatabase.TryGetGUIDAndLocalFileIdentifier(
+                asset,
+                out data.assetGuid,
+                out data.localFileId);
+            return data;
+        }
+
+        static void CaptureObjectReferences(
+            UnityEngine.Object source,
+            List<SerializedObjectReference> output)
+        {
+            UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(source);
+            SerializedProperty property = serializedObject.GetIterator();
+            bool enterChildren = true;
+
+            while (property.Next(enterChildren))
+            {
+                enterChildren = false;
+                if (property.propertyType != SerializedPropertyType.ObjectReference)
+                    continue;
+
+                UnityEngine.Object reference = property.objectReferenceValue;
+                SerializedObjectReference data =
+                    CapturePersistentReference(reference, property.propertyPath, true);
+                if (data != null)
+                    output.Add(data);
+            }
+        }
+
+        static void ApplyObjectReferences(
+            UnityEngine.Object target,
+            List<SerializedObjectReference> references)
+        {
+            if (target == null || references == null)
+                return;
+
+            UnityEditor.SerializedObject serializedObject = new UnityEditor.SerializedObject(target);
+            bool changed = false;
+            foreach (SerializedObjectReference data in references)
+            {
+                SerializedProperty property = serializedObject.FindProperty(data.propertyPath);
+                if (property == null || property.propertyType != SerializedPropertyType.ObjectReference)
+                    continue;
+
+                UnityEngine.Object resolved = ResolveAssetReference(data);
+                if (resolved == null)
+                    continue;
+
+                property.objectReferenceValue = resolved;
+                changed = true;
+            }
+
+            if (changed)
+                serializedObject.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        static Shader FindRequestedShader(SerializedMaterial data)
+        {
+            if (data.objectReferences != null)
+            {
+                foreach (SerializedObjectReference reference in data.objectReferences)
+                {
+                    if (reference.propertyPath == "m_Shader")
+                    {
+                        Shader resolved = ResolveAssetReference(reference) as Shader;
+                        if (resolved != null)
+                            return resolved;
+                    }
+                }
+            }
+
+            return string.IsNullOrEmpty(data.shaderName) ? null : Shader.Find(data.shaderName);
+        }
+
+        static UnityEngine.Object ResolveAssetReference(SerializedObjectReference data)
+        {
+            if (data == null || (string.IsNullOrEmpty(data.assetGuid) &&
+                                 string.IsNullOrEmpty(data.assetPath)))
+            {
+                return null;
+            }
+
+            string path = EZCollabAssetValidator.ResolveAndValidate(
+                data.assetPath,
+                data.assetGuid,
+                data.assetHash,
+                data.propertyPath);
+            if (string.IsNullOrEmpty(path))
+                return null;
+
+            UnityEngine.Object[] assets = AssetDatabase.LoadAllAssetsAtPath(path);
+            foreach (UnityEngine.Object asset in assets)
+            {
+                if (asset != null &&
+                    AssetDatabase.TryGetGUIDAndLocalFileIdentifier(asset, out _, out long localFileId) &&
+                    localFileId == data.localFileId)
+                {
+                    return asset;
+                }
+            }
+
+            return assets.Length > 0 ? assets[0] : null;
+        }
+
+        static bool IsUsableShader(Shader shader)
+        {
+            return shader != null && shader.isSupported &&
+                   !string.Equals(shader.name, ErrorShaderName, StringComparison.Ordinal);
+        }
+    }
+}

@@ -5,6 +5,7 @@ public sealed class EnemyPerception : MonoBehaviour
     NormalEnemyStateMachine owner;
     public PlayerStateMachine Target { get; private set; }
     public bool Visible { get; private set; }
+    public bool UsingDecoy { get; private set; }
     public bool HasMemory=>hasInformation&&Time.time-lastInformation<Profile.memorySeconds;
     public Vector3 LastKnown { get; private set; }
     public int Observations { get; private set; }
@@ -23,12 +24,15 @@ public sealed class EnemyPerception : MonoBehaviour
             var players=GameManager.Instance?.GetPlayerTransforms();
             if(players!=null&&players.Count>0)Target=players[0].GetComponent<PlayerStateMachine>();
         }
-        Visible=false;if(Target==null||Target.IsDead)return;
+        Visible=false;UsingDecoy=false;if(Target==null||Target.IsDead)return;
+        if(MutationRun.TryDecoy(owner,out var decoy))
+        {UsingDecoy=true;Visible=true;LastKnown=decoy;lastInformation=Time.time;hasInformation=true;return;}
         Vector3 origin=transform.position+Vector3.up*1.1f;
         Vector3 point=Target.transform.position+Vector3.up*.6f;
         if(Vector3.Distance(origin,point)>owner.detectionRange)return;
         // Arena robots have panoramic sensors, but require an unobstructed physical ray.
-        if(Physics.Linecast(origin,point,out var hit,owner.layerMask,QueryTriggerInteraction.Ignore)&&hit.collider.GetComponentInParent<PlayerStateMachine>()==Target)
+        Vector3 direction=point-origin;
+        if(MutationObject.EnemyRay(origin,direction.normalized,out var hit,direction.magnitude,owner.layerMask,true)&&hit.collider.GetComponentInParent<PlayerStateMachine>()==Target)
         {Visible=true;LastKnown=Target.transform.position;lastInformation=Time.time;hasInformation=true;}
     }
     void Hear(Vector3 origin)

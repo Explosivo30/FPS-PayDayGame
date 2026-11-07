@@ -1,0 +1,6 @@
+Source: Assets/Art/Veterans/Ariete.fbx; bounds=Center: (0.15, 1.06, -0.01), Extents: (1.23, 1.06, 0.54)
+Unity 6000.0.58f2 / NVIDIA GeForce RTX 3070
+Object-space per-part curved/planar flow, cap projection, four light regions. Original material colors retained.
+Curve guide is analytic per part, not principal-curvature extraction. No organic hero model in this test. Rigid articulated source, not a skinned deformation validation.
+Shader compilation errors: 0
+

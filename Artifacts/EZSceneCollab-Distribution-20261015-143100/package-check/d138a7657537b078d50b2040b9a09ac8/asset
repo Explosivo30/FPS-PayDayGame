@@ -1,0 +1,88 @@
+using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabSnapshotReceiver
+    {
+        static EZSceneSnapshotApplyOperation operation;
+        static readonly EZCollabMessageInbox deferred = new EZCollabMessageInbox();
+        public static bool isApplying => operation != null;
+        public static bool canReceiveMore => operation == null || operation.pendingItemCount < 64;
+
+        static EZCollabSnapshotReceiver()
+        {
+            EditorApplication.update += Update;
+            EZCollabSession.stateChanged += OnSessionChanged;
+        }
+
+        public static bool Route(EZMessage message)
+        {
+            if (message == null) return true;
+            switch (message.type)
+            {
+                case EZMessageType.SceneSnapshotBegin:
+                    operation?.Cancel();
+                    deferred.Clear();
+                    operation = new EZSceneSnapshotApplyOperation(message.GetPayload<SceneSnapshotBeginPayload>());
+                    EZCollabSession.SetSynchronizing(true, 0f);
+                    return true;
+                case EZMessageType.SceneSnapshotChunk:
+                    if (operation == null) throw new InvalidOperationException("Snapshot chunk before begin.");
+                    operation.Enqueue(message.GetPayload<SceneSnapshot>());
+                    return true;
+                case EZMessageType.SceneSnapshotEnd:
+                    if (operation == null) throw new InvalidOperationException("Snapshot end before begin.");
+                    operation.MarkEnd();
+                    return true;
+                case EZMessageType.SceneSnapshot:
+                    operation?.Cancel();
+                    SceneSnapshot snapshot = message.GetPayload<SceneSnapshot>();
+                    operation = new EZSceneSnapshotApplyOperation(new SceneSnapshotBeginPayload
+                        { totalObjects = snapshot?.objects?.Count ?? 0 });
+                    operation.Enqueue(snapshot);
+                    operation.MarkEnd();
+                    EZCollabSession.SetSynchronizing(true, 0f);
+                    return true;
+            }
+            if (operation == null) return false;
+            if (message.type != EZMessageType.PresenceUpdate) deferred.Enqueue(message);
+            return true;
+        }
+
+        public static bool TryDequeue(out EZMessage message)
+        {
+            message = null;
+            return operation == null && deferred.TryDequeue(out message);
+        }
+
+        static void Update()
+        {
+            if (operation == null) return;
+            try
+            {
+                operation.Step(32, 0.002d);
+                EZCollabSession.SetSynchronizing(true, operation.progress);
+                if (operation.isComplete) operation = null;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+                operation?.Cancel();
+                operation = null;
+                deferred.Clear();
+                EZCollabSession.Stop();
+            }
+        }
+
+        static void OnSessionChanged()
+        {
+            if (EZCollabState.inSession && !EZCollabSession.isReconnecting) return;
+            operation?.Cancel();
+            operation = null;
+            deferred.Clear();
+        }
+    }
+}

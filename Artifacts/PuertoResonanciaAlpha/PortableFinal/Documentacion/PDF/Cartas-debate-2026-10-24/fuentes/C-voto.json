@@ -1,0 +1,37 @@
+{
+  "agent": "C",
+  "direction_vote": "Arsenal mutante como base, con movimiento selectivo de Impulso de combate",
+  "prototype_ids": ["P1-01", "C1", "P2-03"],
+  "reason": "Cámara de ariete convierte apuntar y cargar en perforación; Cámara abierta transforma voluntariamente el cargador vacío en un ataque cercano; Freno abre una retirada local. Son tres verbos legibles, autónomos y disponibles con pistola, sin exigir una segunda arma ni duplicar dos cartas que venden perforar filas.",
+  "best_new_id": "C1",
+  "retained_previous_ids": ["P1-01", "P2-03", "P2-04", "P1-07", "P1-05", "P3-01"],
+  "parked_new_ids": ["C2", "C3", "C4", "C5", "C6", "A2", "A3", "B6"],
+  "exchanges": [
+    {
+      "with": "A",
+      "objection": "Critiqué Eco cruzado: duplicar un tiro quieto tras una recarga mínima podía ser daño gratuito; Cerrojo podía convertir a Aguja aislada en una fuente de munición segura.",
+      "reply": "A aceptó hacer Eco voluntario, sustituir el origen del tiro y exigir separación. Apartó Cerrojo. Respondió que Compás roto vuelve global una salida de recarga y que Recámara híbrida exige una tabla de herencias difícil de leer.",
+      "revision": "Acepté aparcar Compás e Híbrida; prefiero una transformación fija. La revisión de Eco corrige el doble daño, pero añade un control remoto que conviene probar después. A terminó prefiriendo el trío P1-01, C1 y P2-03, con condiciones de riesgo y munición."
+    },
+    {
+      "with": "B",
+      "objection": "Critiqué Retropropulsor: si cada cartucho ataca y escapa, el salto puede hacerse obligatorio; Disparo suspendido solo aplaza una ráfaga sin cambiar suficientemente la decisión.",
+      "reply": "B apartó Disparo suspendido y revisó Retropropulsor como una maniobra opcional con carga/enfriamiento, control de inercia y escopeta obtenida. Señaló que mantener disparo al vaciar la pistola podía gastar reserva accidentalmente en C1.",
+      "revision": "C1 exige soltar el último tiro y volver a mantener; mantener el último tiro nunca la activa. Se precisaron 3 m, cuatro balas de reserva, tres víctimas distintas por activación, máximo 1 s, recuperación de 6 s y cancelación inmediata al soltar, recargar o cambiar. B aceptó C1 como mejor estreno que su ráfaga aplazada."
+    }
+  ],
+  "concessions": [
+    "Mi dirección Relevo brutal completa no es mejor base que Arsenal mutante: varias cartas añaden demasiados estados o necesitan dos armas.",
+    "Compás roto puede neutralizar simultáneamente amenazas que deberían combinarse; Freno ofrece una salida más local y visible.",
+    "Recámara híbrida no merece entrar solo por novedad: comprender qué hace el arma al disparar importa más que memorizar combinaciones.",
+    "Retropropulsor revisado merece un experimento posterior al obtener escopeta; no lo descarto por complejidad, sino por su dependencia y por querer demostrar primero tres decisiones con la pistola."
+  ],
+  "dissent": "No disiento del trío convergente, pero no recomendaría convertirlo en cadena obligatoria ni adoptar todas las mutaciones. La reserva, la claridad del estado vacío y el riesgo real ante Ariete siguen siendo incógnitas, no balance demostrado.",
+  "conditions": [
+    "El soplete debe poder aprovechar una oportunidad cercana sin hacer siempre seguro entrar a la cara de Ariete. Ante Aguja lejana debe seguir conveniendo recargar y disparar a distancia.",
+    "La activación de C1 requiere una pulsación nueva y una señal distinta de la carga perforante. Soltar, R o cambio de arma devuelve control de inmediato.",
+    "El máximo de tres víctimas corresponde a toda la descarga, no a cada tick. Sin efectos recursivos; todas las bajas conservan atribución, chips y progreso de oleada.",
+    "Cuatro balas, 3 m, 1 s y 6 s son hipótesis iniciales. Comparar munición restante, activaciones voluntarias y frustración frente a una oleada equivalente sin cartas.",
+    "Probar cada carta sola y después las tres. Si el jugador necesita deslizar siempre para hacer daño normal, o vacía deliberadamente sin jugar para llegar al soplete, revisar el diseño antes de pulir efectos."
+  ]
+}

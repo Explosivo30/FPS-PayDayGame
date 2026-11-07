@@ -1,0 +1,336 @@
+using System.Collections.Generic;
+using System.Reflection;
+using NUnit.Framework;
+using UnityEngine;
+
+namespace EZCollabTool.Tests
+{
+    public class EZCollabProtocolTests
+    {
+        [Test]
+        public void MessageIdsAndProtocolMetadataRemainStable()
+        {
+            EZMessageType[] wireOrder =
+            {
+                EZMessageType.SceneSnapshot,
+                EZMessageType.SceneSnapshotBegin,
+                EZMessageType.SceneSnapshotChunk,
+                EZMessageType.SceneSnapshotEnd,
+                EZMessageType.RecoveryComplete,
+                EZMessageType.CreateObject,
+                EZMessageType.DestroyObject,
+                EZMessageType.TransformDelta,
+                EZMessageType.ComponentDelta,
+                EZMessageType.LockRequest,
+                EZMessageType.LockGranted,
+                EZMessageType.LockDenied,
+                EZMessageType.LockRelease,
+                EZMessageType.ObjectLocked,
+                EZMessageType.ObjectUnlocked,
+                EZMessageType.PeerJoined,
+                EZMessageType.PeerLeft,
+                EZMessageType.Heartbeat,
+                EZMessageType.Info,
+                EZMessageType.MaterialDelta,
+                EZMessageType.SessionHello,
+                EZMessageType.ConnectionRejected,
+                EZMessageType.PresenceUpdate,
+                EZMessageType.SynchronizationReady
+            };
+            for (int index = 0; index < wireOrder.Length; index++)
+                Assert.That((int)wireOrder[index], Is.EqualTo(index), wireOrder[index].ToString());
+
+            Assert.That(EZProtocol.CurrentProtocolVersion, Is.EqualTo(2));
+            Assert.That(EZProtocol.PackageVersion, Is.EqualTo("1.1.0"));
+            Assert.That(EZProtocol.CurrentCapabilities, Is.EqualTo(
+                EZCollabCapabilities.Presence |
+                EZCollabCapabilities.RemoteCamera |
+                EZCollabCapabilities.IncrementalSnapshot |
+                EZCollabCapabilities.CoalescedTransforms));
+        }
+
+        [Test]
+        public void PeerMetadataRoundTripsThroughWireMessage()
+        {
+            PeerPayload payload = new PeerPayload
+            {
+                peerId = "peer-a",
+                peerName = "Alex",
+                lastSequence = 42,
+                protocolVersion = EZProtocol.CurrentProtocolVersion,
+                packageVersion = EZProtocol.PackageVersion,
+                capabilities = EZProtocol.CurrentCapabilities
+            };
+            EZMessage original = EZMessage.Create(EZMessageType.PeerJoined, payload.peerId, payload);
+
+            byte[] bytes = original.ToBytes();
+            EZMessage decoded = EZMessage.FromBytes(bytes, bytes.Length);
+            PeerPayload roundTrip = decoded.GetPayload<PeerPayload>();
+
+            Assert.That(decoded.type, Is.EqualTo(EZMessageType.PeerJoined));
+            Assert.That(roundTrip.peerId, Is.EqualTo(payload.peerId));
+            Assert.That(roundTrip.lastSequence, Is.EqualTo(42));
+            Assert.That(roundTrip.protocolVersion, Is.EqualTo(EZProtocol.CurrentProtocolVersion));
+            Assert.That(roundTrip.packageVersion, Is.EqualTo(EZProtocol.PackageVersion));
+            Assert.That(roundTrip.capabilities, Is.EqualTo(EZProtocol.CurrentCapabilities));
+        }
+
+        [Test]
+        public void SessionHelloMetadataRoundTripsThroughWireMessage()
+        {
+            SessionHelloPayload payload = new SessionHelloPayload
+            {
+                protocolVersion = EZProtocol.CurrentProtocolVersion,
+                packageVersion = EZProtocol.PackageVersion,
+                capabilities = EZProtocol.CurrentCapabilities,
+                hostPeerId = "host-a",
+                hostPeerName = "Host"
+            };
+            EZMessage original = EZMessage.Create(EZMessageType.SessionHello, payload.hostPeerId, payload);
+
+            byte[] bytes = original.ToBytes();
+            SessionHelloPayload roundTrip = EZMessage.FromBytes(bytes, bytes.Length)
+                .GetPayload<SessionHelloPayload>();
+
+            Assert.That(roundTrip.protocolVersion, Is.EqualTo(EZProtocol.CurrentProtocolVersion));
+            Assert.That(roundTrip.packageVersion, Is.EqualTo(EZProtocol.PackageVersion));
+            Assert.That(roundTrip.capabilities, Is.EqualTo(EZProtocol.CurrentCapabilities));
+            Assert.That(roundTrip.hostPeerId, Is.EqualTo(payload.hostPeerId));
+            Assert.That(roundTrip.hostPeerName, Is.EqualTo(payload.hostPeerName));
+        }
+
+        [Test]
+        public void InboxCoalescesTransformsAndPresenceIndependently()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            inbox.Enqueue(TransformMessage("cube", 1f, 1));
+            inbox.Enqueue(TransformMessage("cube", 2f, 2));
+            inbox.Enqueue(PresenceMessage("peer-a", 1));
+            inbox.Enqueue(PresenceMessage("peer-a", 2));
+
+            Assert.That(inbox.Count, Is.EqualTo(2));
+            Assert.That(inbox.HasPendingSceneState, Is.True);
+            Assert.That(inbox.TryDequeue(out EZMessage transform), Is.True);
+            Assert.That(transform.GetPayload<TransformPayload>().position[0], Is.EqualTo(2f));
+            Assert.That(inbox.HasPendingSceneState, Is.False);
+            Assert.That(inbox.TryDequeue(out EZMessage presence), Is.True);
+            Assert.That(presence.sequence, Is.EqualTo(2));
+            Assert.That(inbox.IsEmpty, Is.True);
+        }
+
+        [Test]
+        public void ReliableMessagesHavePriorityWithoutAdvancingPastSequenceBarrier()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            EZMessage transform = TransformMessage("cube", 3f, 10);
+            EZMessage checkpoint = EZMessage.Create(EZMessageType.Info, "host", null);
+            checkpoint.sequence = 11;
+
+            inbox.Enqueue(transform);
+            inbox.Enqueue(checkpoint);
+
+            Assert.That(inbox.TryDequeue(out EZMessage first), Is.True);
+            Assert.That(first.type, Is.EqualTo(EZMessageType.TransformDelta));
+            Assert.That(first.sequence, Is.EqualTo(10));
+            Assert.That(inbox.TryDequeue(out EZMessage second), Is.True);
+            Assert.That(second.type, Is.EqualTo(EZMessageType.Info));
+            Assert.That(second.sequence, Is.EqualTo(11));
+        }
+
+        [Test]
+        public void RecoveryCompleteFlushesOnlyLatestTransformBeforeBarrier()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            inbox.Enqueue(TransformMessage("cube", 1f, 1));
+            inbox.Enqueue(TransformMessage("cube", 2f, 2));
+            inbox.Enqueue(EZMessage.Create(EZMessageType.RecoveryComplete, "host", null));
+
+            Assert.That(inbox.TryDequeue(out EZMessage first), Is.True);
+            Assert.That(first.type, Is.EqualTo(EZMessageType.TransformDelta));
+            Assert.That(first.GetPayload<TransformPayload>().position[0], Is.EqualTo(2f));
+            Assert.That(inbox.TryDequeue(out EZMessage second), Is.True);
+            Assert.That(second.type, Is.EqualTo(EZMessageType.RecoveryComplete));
+        }
+
+        [Test]
+        public void RecoveryBarrierFlushesDifferentObjectsInAscendingSequence()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            inbox.Enqueue(TransformMessage("late", 100f, 100));
+            inbox.Enqueue(TransformMessage("early", 90f, 90));
+            inbox.Enqueue(EZMessage.Create(EZMessageType.RecoveryComplete, "host", null));
+
+            Assert.That(inbox.TryDequeue(out EZMessage first), Is.True);
+            Assert.That(first.sequence, Is.EqualTo(90));
+            Assert.That(inbox.TryDequeue(out EZMessage second), Is.True);
+            Assert.That(second.sequence, Is.EqualTo(100));
+            Assert.That(inbox.TryDequeue(out EZMessage barrier), Is.True);
+            Assert.That(barrier.type, Is.EqualTo(EZMessageType.RecoveryComplete));
+        }
+
+        [Test]
+        public void FullStateInvalidatesOlderTransformForSameObject()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            inbox.Enqueue(TransformMessage("cube", 5f, 1));
+            inbox.Enqueue(EZMessage.Create(
+                EZMessageType.ComponentDelta,
+                "host",
+                new CreateObjectPayload { guid = "cube" }));
+
+            Assert.That(inbox.Count, Is.EqualTo(1));
+            Assert.That(inbox.TryDequeue(out EZMessage message), Is.True);
+            Assert.That(message.type, Is.EqualTo(EZMessageType.ComponentDelta));
+        }
+
+        [Test]
+        public void UnlockFlushesFinalTransformBeforeUnlockMessage()
+        {
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            inbox.Enqueue(TransformMessage("cube", 8f, 1));
+            inbox.Enqueue(EZMessage.Create(
+                EZMessageType.ObjectUnlocked,
+                "host",
+                new LockPayload { guid = "cube", peerId = "peer-a" }));
+
+            Assert.That(inbox.TryDequeue(out EZMessage first), Is.True);
+            Assert.That(first.type, Is.EqualTo(EZMessageType.TransformDelta));
+            Assert.That(inbox.TryDequeue(out EZMessage second), Is.True);
+            Assert.That(second.type, Is.EqualTo(EZMessageType.ObjectUnlocked));
+        }
+
+        static EZMessage TransformMessage(string guid, float x, long sequence)
+        {
+            EZMessage message = EZMessage.Create(
+                EZMessageType.TransformDelta,
+                "peer-a",
+                new TransformPayload
+                {
+                    guid = guid,
+                    position = new[] { x, 0f, 0f },
+                    rotation = new[] { 0f, 0f, 0f, 1f },
+                    scale = new[] { 1f, 1f, 1f }
+                });
+            message.sequence = sequence;
+            return message;
+        }
+
+        static EZMessage PresenceMessage(string peerId, long sequence)
+        {
+            EZMessage message = EZMessage.Create(EZMessageType.PresenceUpdate, peerId, null);
+            message.sequence = sequence;
+            return message;
+        }
+    }
+
+    public class EZCollabSessionQueueTests
+    {
+        const BindingFlags StaticPrivate = BindingFlags.Static | BindingFlags.NonPublic;
+        FieldInfo inSessionField;
+        MethodInfo resetOutbound;
+
+        [SetUp]
+        public void SetUp()
+        {
+            inSessionField = typeof(EZCollabState).GetField("<inSession>k__BackingField", StaticPrivate);
+            resetOutbound = typeof(EZCollabSession).GetMethod("ResetOutbound", StaticPrivate);
+            Assert.That(inSessionField, Is.Not.Null);
+            Assert.That(resetOutbound, Is.Not.Null);
+            resetOutbound.Invoke(null, null);
+            inSessionField.SetValue(null, true);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            inSessionField.SetValue(null, false);
+            resetOutbound.Invoke(null, null);
+        }
+
+        [Test]
+        public void FullStateRemovesPendingLatestTransform()
+        {
+            EZCollabSession.PublishLatest("transform:cube", TransformMessage("cube", 1f));
+            EZCollabSession.SendReliable(EZMessage.Create(
+                EZMessageType.ComponentDelta,
+                "peer-a",
+                new CreateObjectPayload { guid = "cube" }));
+
+            Assert.That(Latest().ContainsKey("transform:cube"), Is.False);
+            EZMessage[] queued = Reliable().ToArray();
+            Assert.That(queued, Has.Length.EqualTo(1));
+            Assert.That(queued[0].type, Is.EqualTo(EZMessageType.ComponentDelta));
+        }
+
+        [Test]
+        public void UnlockQueuesPendingTransformBeforeRelease()
+        {
+            EZCollabSession.PublishLatest("transform:cube", TransformMessage("cube", 2f));
+            EZCollabSession.SendReliable(EZMessage.Create(
+                EZMessageType.LockRelease,
+                "peer-a",
+                new LockPayload { guid = "cube", peerId = "peer-a" }));
+
+            EZMessage[] queued = Control().ToArray();
+            Assert.That(queued, Has.Length.EqualTo(2));
+            Assert.That(queued[0].type, Is.EqualTo(EZMessageType.TransformDelta));
+            Assert.That(queued[1].type, Is.EqualTo(EZMessageType.LockRelease));
+            Assert.That(Latest().ContainsKey("transform:cube"), Is.False);
+        }
+
+        [Test]
+        public void LockControlHasSeparatePriorityFromReliableState()
+        {
+            EZCollabSession.SendReliable(EZMessage.Create(EZMessageType.MaterialDelta, "peer-a", null));
+            EZCollabSession.SendReliable(EZMessage.Create(EZMessageType.LockRequest, "peer-a",
+                new LockPayload { guid = "cube" }));
+            Assert.AreEqual(EZMessageType.LockRequest, Control().Peek().type);
+            Assert.AreEqual(EZMessageType.MaterialDelta, Reliable().Peek().type);
+        }
+
+        [Test]
+        public void UnlockCannotOvertakeAlreadyQueuedComponentState()
+        {
+            EZCollabSession.SendReliable(EZMessage.Create(EZMessageType.ComponentDelta, "peer-a",
+                new CreateObjectPayload { guid = "cube" }));
+            EZCollabSession.SendReliable(EZMessage.Create(EZMessageType.LockRelease, "peer-a",
+                new LockPayload { guid = "cube" }));
+            EZMessage[] queued = Control().ToArray();
+            Assert.AreEqual(EZMessageType.ComponentDelta, queued[0].type);
+            Assert.AreEqual(EZMessageType.LockRelease, queued[1].type);
+        }
+
+        static Queue<EZMessage> Control()
+        {
+            return (Queue<EZMessage>)typeof(EZCollabSession).GetField("controlOutbound", StaticPrivate).GetValue(null);
+        }
+
+        static Dictionary<string, EZMessage> Latest()
+        {
+            return (Dictionary<string, EZMessage>)typeof(EZCollabSession)
+                .GetField("latestOutbound", StaticPrivate)
+                .GetValue(null);
+        }
+
+        static Queue<EZMessage> Reliable()
+        {
+            return (Queue<EZMessage>)typeof(EZCollabSession)
+                .GetField("reliableOutbound", StaticPrivate)
+                .GetValue(null);
+        }
+
+        static EZMessage TransformMessage(string guid, float x)
+        {
+            return EZMessage.Create(
+                EZMessageType.TransformDelta,
+                "peer-a",
+                new TransformPayload
+                {
+                    guid = guid,
+                    position = new[] { x, 0f, 0f },
+                    rotation = new[] { 0f, 0f, 0f, 1f },
+                    scale = new[] { 1f, 1f, 1f }
+                });
+        }
+    }
+}

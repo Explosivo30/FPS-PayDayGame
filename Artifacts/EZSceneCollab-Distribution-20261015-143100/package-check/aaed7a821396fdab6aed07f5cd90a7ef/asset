@@ -1,0 +1,45 @@
+using System.Reflection;
+using NUnit.Framework;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+namespace EZCollabTool.Tests
+{
+    public class EZCollabLifecycleTests
+    {
+        [Test]
+        public void EnteringPlayModeStopsSessionRestoresPickingAndClearsPresence()
+        {
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            GameObject target = new GameObject("Lifecycle Test");
+            bool previousHidden = Tools.hidden;
+            try
+            {
+                Assert.IsTrue(EZCollabSession.StartHost("Lifecycle", 0));
+                string guid = EZCollabState.GetOrAssignGuid(target);
+                EZCollabState.ApplyLock(guid, "remote");
+                Assert.IsTrue(SceneVisibilityManager.instance.IsPickingDisabled(target));
+                EZCollabPresenceState.Apply("remote", new EZCollabPresencePayload
+                    { sceneContext = "scene:test", sampleNumber = 1 });
+                Assert.AreEqual(1, EZCollabPresenceState.count);
+                MethodInfo handler = typeof(EZCollabSession).GetMethod("OnPlayModeStateChanged",
+                    BindingFlags.Static | BindingFlags.NonPublic);
+                handler.Invoke(null, new object[] { PlayModeStateChange.ExitingEditMode });
+                Assert.IsFalse(EZCollabState.inSession);
+                Assert.IsNull(EZCollabSession.server);
+                Assert.IsNull(EZCollabSession.client);
+                Assert.AreEqual(0, EZCollabPresenceState.count);
+                Assert.IsFalse(SceneVisibilityManager.instance.IsPickingDisabled(target));
+                Assert.AreEqual(previousHidden, Tools.hidden);
+            }
+            finally
+            {
+                EZCollabSession.Stop();
+                Object.DestroyImmediate(target);
+                Tools.hidden = previousHidden;
+                EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            }
+        }
+    }
+}

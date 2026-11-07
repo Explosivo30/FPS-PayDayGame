@@ -115,6 +115,7 @@ public static partial class TowerBuild
         Box("South wall right",new Vector3(19,4,-20),new Vector3(10,8,.6f),ivory);
         floor.elevator=Elevator(new Vector3(12,0,-19.7f),1);floor.arrival=floor.elevator.transform.Find("Arrival");
         Supplies(new Vector3(-5,0,-16),false);
+        ConfigureReactiveArena(scene);
         Bake(scene,"LaboratoryFloor");
     }
     static void Materials()

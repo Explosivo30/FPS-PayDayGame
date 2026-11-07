@@ -1,0 +1,109 @@
+{
+  "id": "B",
+  "agent": "Diseñador de movimiento",
+  "title": "Cuerpo de asalto",
+  "thesis": "Algunas cartas conceden capacidades físicas nuevas: disparar para retirarte, caer golpeando o sostener una posición inesperada. El arma y el cuerpo forman una herramienta. Las seis son propuestas, no movimientos existentes; escogería una sola capacidad nueva por prototipo para conservar controles claros.",
+  "criteria_note": "Prioridad: decisiones que cambien la ruta y creen momentos de poder; después claridad, compatibilidad con armas adquiridas y libertad de no ejecutarlas siempre. La complejidad técnica no invalida una buena idea, pero seis movimientos nuevos juntos perjudicarían el FPS que ya funciona.",
+  "cards": [
+    {
+      "id": "B1",
+      "name": "Retropropulsor",
+      "trigger": "Escopeta: pulsa y mantén salto antes de disparar; el tiro normal no impulsa.",
+      "effect": "Cancelas tu inercia y sales hacia atrás: atacar y retirarte forman una maniobra aérea rápida.",
+      "signal": "Chorro corto y flecha de salida; símbolo de bloqueo si falta espacio detrás.",
+      "limit": "Una carga, hasta 4 m; recuperarla exige suelo y 6 s. Colisión real; consume el cartucho normal. Sin invulnerabilidad ni daño de choque.",
+      "synergy_ids": ["P2-04"],
+      "synergy": "Corte de apertura: marcas cerca y detonas mientras retrocedes.",
+      "distinct_from": "Punta de lanza entra hacia un blanco; aquí el disparo también crea retirada.",
+      "tradeoff": "Debe superar retroceder normalmente sin convertirse en defensa obligatoria; exige comprobar bordes."
+    },
+    {
+      "id": "B2",
+      "name": "Martillo descendente",
+      "trigger": "Con cuchillo equipado y en el aire, mantén ataque.",
+      "effect": "Caes verticalmente y golpeas el suelo con una onda corta: eliges una entrada ofensiva desde el salto.",
+      "signal": "Silueta comprimida, punto de aterrizaje y anillo bajo.",
+      "limit": "Una onda cada 5 s; radio 2 m, sin daño creciente por altura. No corrige tu posición horizontal ni atraviesa techos.",
+      "synergy_ids": ["P1-01"],
+      "synergy": "Tras aterrizar, Cámara de ariete resuelve los supervivientes alineados.",
+      "distinct_from": "Freno empuja tras deslizar; esta carta convierte una caída elegida en ataque.",
+      "tradeoff": "La trayectoria comprometida te expone a Aguja; requiere nueva animación y control vertical."
+    },
+    {
+      "id": "B3",
+      "name": "Punto de fuga",
+      "trigger": "Mantén agacharse al terminar un deslizamiento para fijar ancla; doble pulsa agacharse para volver.",
+      "effect": "Regresas a esa posición: puedes asomarte, atacar y recuperar tu ángulo anterior.",
+      "signal": "Huella cian y cordón fino hasta tu posición.",
+      "limit": "Ancla de 3 s, distancia 4 m y recorrido despejado. No restaura salud, escudo ni munición; no cruza cuerpos o paredes.",
+      "synergy_ids": ["P1-08"],
+      "synergy": "Dejas Recarga explosiva al entrar y vuelves antes de que estalle.",
+      "distinct_from": "No es un señuelo ni un dash hacia un enemigo; recuperas una posición propia.",
+      "tradeoff": "Nueva combinación de control; debe poder cancelarse sin activar un retorno involuntario."
+    },
+    {
+      "id": "B4",
+      "name": "Paso orbital",
+      "trigger": "Tras una cuchillada, mantén ataque y pulsa izquierda o derecha.",
+      "effect": "Recorres un arco corto alrededor del blanco: escoges su flanco para tu siguiente disparo.",
+      "signal": "Arco sobre el suelo y gesto de apoyo del brazo.",
+      "limit": "Hasta 90 grados a 1,5 m; enfriamiento 5 s. Barrido de colisión, sin atravesar al blanco ni esquiva invulnerable.",
+      "synergy_ids": ["P2-04"],
+      "synergy": "Corte de apertura deja la marca; eliges un ángulo distinto antes de detonarla.",
+      "distinct_from": "Punta de lanza acorta distancia; esta maniobra cambia el lado del combate.",
+      "tradeoff": "No promete una espalda vulnerable ni que el enemigo deje de girarse."
+    },
+    {
+      "id": "B5",
+      "name": "Pisada magnética",
+      "trigger": "En un salto junto a una pared sólida, mantén agacharse.",
+      "effect": "Te sujetas brevemente a la pared y puedes disparar; salto te separa de ella.",
+      "signal": "Botas imantadas, contacto luminoso pequeño y medidor de sujeción.",
+      "limit": "Altura máxima 2 m y 1,2 s de apoyo; una sujeción antes de tocar suelo. Sin protección ni subir repitiendo saltos.",
+      "synergy_ids": ["P1-01"],
+      "synergy": "Ganas un ángulo momentáneo para cargar Cámara de ariete.",
+      "distinct_from": "No crea cobertura ni añade porcentajes al salto: habilita un apoyo físico nuevo.",
+      "tradeoff": "Depende de una superficie cercana y debe evitar posiciones que anulen a Aguja."
+    },
+    {
+      "id": "B6",
+      "name": "Disparo suspendido",
+      "trigger": "Con pistola, mantén disparo durante un salto y suelta al aterrizar.",
+      "effect": "Conservas hasta tres tiros en una cámara visible; los liberas en una ráfaga dirigida al tocar suelo.",
+      "signal": "Tres segmentos en torno al cañón y cierre mecánico al aterrizar.",
+      "limit": "Consume las balas al cargarlas; no duplica daño. Un paquete; soltar antes cancela la carga y devuelve las balas no disparadas.",
+      "synergy_ids": ["P1-02"],
+      "synergy": "Fusible doble convierte la ráfaga acertada en una detonación preparada.",
+      "distinct_from": "Tiro rasante perfora; aquí desplazas el momento del disparo sin multiplicarlo.",
+      "tradeoff": "La misma entrada de carga entra en conflicto con Cámara de ariete: serían modos incompatibles."
+    }
+  ],
+  "old_directions": [
+    {
+      "name": "Arsenal mutante",
+      "decision": "Mejor base del conjunto anterior.",
+      "reason": "Cada arma adquiere verbos reconocibles y no impone una maniobra permanente. Cámara, Disco y Hoja hacen visible la elección; vigilar demasiadas mutaciones del mismo botón."
+    },
+    {
+      "name": "Impulso de combate",
+      "decision": "Mejor complemento activo de Arsenal.",
+      "reason": "Corte de apertura propone una secuencia nueva, pero tres recompensas al slide juntas arriesgan convertirlo en obligación. No confundir más pulsaciones con más diversión."
+    },
+    {
+      "name": "Protocolo Dominó",
+      "decision": "Conservar como una rama posterior.",
+      "reason": "Circuito cerrado añade preparación intencional; varios cables, marcas e interrupciones a la vez pueden exigir demasiada lectura en una horda."
+    },
+    {
+      "name": "Ingeniería de chatarra",
+      "decision": "Posponer como dirección central.",
+      "reason": "Objetos visibles dan causalidad, pero tantas acciones enlazadas a recargar pueden desplegar cosas sin querer. Se aleja más de los PDF 1 y 2 preferidos."
+    }
+  ],
+  "provisional": {
+    "direction": "Arsenal mutante como base; movimiento opcional que cambia la maniobra.",
+    "prototype_ids": ["P1-01", "P2-04", "B1"],
+    "reason": "Carga de pistola, secuencia cuchillo-arma y retirada por disparo prueban tres decisiones distintas. Cámara funciona desde pistola; Retropropulsor se oferta después de adquirir escopeta. No se deben presentar como una cadena obligatoria.",
+    "main_objection": "Cuerpo de asalto completo añadiría demasiados sistemas de locomoción. Probaría solo Retropropulsor antes de autorizar caída, órbita, ancla o apoyo magnético."
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "file": "RoboticForest-reactive-original.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      59.38972650635821,
+      40.209924957655595,
+      30.202646943246496
+    ]
+  },
+  {
+    "file": "RoboticForest-reactive-risograph.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      74.8102204738303,
+      52.100450207730816,
+      57.10573702928653
+    ]
+  },
+  {
+    "file": "RoboticForest-reactive-woodcut.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      71.09460106877667,
+      64.33624882436644,
+      50.61443660332541
+    ]
+  },
+  {
+    "file": "CrystalGarden-reactive-original.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      62.49750292672809,
+      58.96000368993395,
+      46.86337253722702
+    ]
+  },
+  {
+    "file": "CrystalGarden-reactive-risograph.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      70.79386058442309,
+      61.79750371198757,
+      55.00133707737866
+    ]
+  },
+  {
+    "file": "CrystalGarden-reactive-woodcut.png",
+    "size": [
+      1280,
+      720
+    ],
+    "stddev": [
+      77.04196030732822,
+      71.06379562224856,
+      53.877161158528146
+    ]
+  }
+]

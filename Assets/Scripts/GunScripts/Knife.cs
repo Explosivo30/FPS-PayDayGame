@@ -18,6 +18,7 @@ public class Knife : BaseMelee
     }
     public override void Use()
     {
+        if(MutationRun.From(this)?.BladeInFlight==true)return;
         if (!action.RequestFire()) return;
         action.BeginAttack(attackCooldown);
         action.NotifyShot();
@@ -44,6 +45,7 @@ public class Knife : BaseMelee
             hit.collider.GetComponentInParent<IHitReactable>()?.ReactToHit(hit, dir, damage);
             target.TakeDamage(damage);
             if(robot!=null&&robot.IsDead)CombatFeedback.ReportPlayerKill(robot,this);
+            if(robot!=null)MutationRun.From(this)?.OnKnifeHit(this,robot);
             CombatFeedback.ReportHit();
             var component=target as Component;
             CombatFeedback.ReportImpact(new CombatImpact(component!=null?component.GetInstanceID():hit.collider.GetInstanceID(),

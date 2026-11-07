@@ -31,15 +31,17 @@ namespace Project.Scripts.Fractures
             var chunks = BuildChunks(insideMaterial, outsideMaterial, meshes, chunkMass);
 
             // Connect blocks that are touching with fixed joints
+            var ownBodies = new HashSet<Rigidbody>(chunks.Select(c => c.GetComponent<Rigidbody>()));
             foreach (var chunk in chunks)
             {
-                ConnectTouchingChunks(chunk, jointBreakForce);
+                ConnectTouchingChunks(chunk, jointBreakForce, ownBodies);
             }
 
             // Set anchored chunks as kinematic
-            AnchorChunks(gameObject, anchor);
+            AnchorChunks(gameObject, anchor, ownBodies);
 
             var fractureGameObject = new GameObject("Fracture");
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(fractureGameObject, gameObject.scene);
             //fractureGameObject.layer = LayerMask.NameToLayer("Destructable"); if you want to chage the layer
 
             foreach (var chunk in chunks)
@@ -53,7 +55,7 @@ namespace Project.Scripts.Fractures
             return graphManager;
         }
 
-        private static void AnchorChunks(GameObject gameObject, Anchor anchor)
+        private static void AnchorChunks(GameObject gameObject, Anchor anchor, HashSet<Rigidbody> ownBodies)
         {
             var transform = gameObject.transform;
             var bounds = gameObject.GetCompositeMeshBounds();
@@ -62,7 +64,7 @@ namespace Project.Scripts.Fractures
             foreach (var collider in anchoredColliders)
             {
                 var chunkRb = collider.GetComponent<Rigidbody>();
-                if (chunkRb)
+                if (chunkRb && ownBodies.Contains(chunkRb))
                 {
                     chunkRb.isKinematic = true;
                 }
@@ -207,8 +209,8 @@ namespace Project.Scripts.Fractures
             // Calculamos el centro real de este trozo
             Vector3 center = mesh.bounds.center;
 
-            // 2. CORRECCIÓN DE PIVOTE
-            // Movemos los vértices para que el (0,0,0) local sea el centro del objeto
+            // 2. CORRECCIï¿½N DE PIVOTE
+            // Movemos los vï¿½rtices para que el (0,0,0) local sea el centro del objeto
             var vertices = mesh.vertices;
             for (var i = 0; i < vertices.Length; i++)
             {
@@ -217,23 +219,23 @@ namespace Project.Scripts.Fractures
             mesh.vertices = vertices;
             mesh.RecalculateBounds();
 
-            // 3. MESH DE FÍSICA (Arregla que salgan volando)
+            // 3. MESH DE Fï¿½SICA (Arregla que salgan volando)
             // Creamos una copia del mesh solo para el Collider
             Mesh physicsMesh = Object.Instantiate(mesh);
             var physVertices = physicsMesh.vertices;
     
-            // Contraemos ligeramente los vértices del collider hacia su centro (0,0,0)
+            // Contraemos ligeramente los vï¿½rtices del collider hacia su centro (0,0,0)
             // Esto crea un margen de seguridad invisible
             for (var i = 0; i < physVertices.Length; i++)
             {
-                physVertices[i] *= 0.99f; // 1% más pequeño
+                physVertices[i] *= 0.99f; // 1% mï¿½s pequeï¿½o
             }
             physicsMesh.vertices = physVertices;
             physicsMesh.RecalculateBounds();
 
             // ---------------------------------------------------------
 
-            // 4. CREACIÓN DEL OBJETO
+            // 4. CREACIï¿½N DEL OBJETO
             var chunk = new GameObject($"Chunk");
             chunk.transform.position = center; // Ponemos el objeto en su sitio real del mundo
             chunk.transform.rotation = Quaternion.identity;
@@ -249,19 +251,19 @@ namespace Project.Scripts.Fractures
             // CHANGE THIS renderer.receiveShadows = false;
             //renderer.receiveShadows = false;(MAS FPS)
             var meshFilter = chunk.AddComponent<MeshFilter>();
-            meshFilter.sharedMesh = mesh; // VISUAL: Mesh original (tamaño completo, sin agujeros)
+            meshFilter.sharedMesh = mesh; // VISUAL: Mesh original (tamaï¿½o completo, sin agujeros)
 
             var rigibody = chunk.AddComponent<Rigidbody>();
             rigibody.mass = mass;
 
             var mc = chunk.AddComponent<MeshCollider>();
             mc.convex = true;
-            mc.sharedMesh = physicsMesh; // FÍSICA: Mesh reducido (evita explosiones)
+            mc.sharedMesh = physicsMesh; // Fï¿½SICA: Mesh reducido (evita explosiones)
 
             return chunk;
         }
 
-        private static void ConnectTouchingChunks(GameObject chunk, float jointBreakForce, float touchRadius = .01f)
+        private static void ConnectTouchingChunks(GameObject chunk, float jointBreakForce, HashSet<Rigidbody> ownBodies, float touchRadius = .025f)
         {
             var rb = chunk.GetComponent<Rigidbody>();
             var mesh = chunk.GetComponent<MeshFilter>().mesh;
@@ -274,7 +276,8 @@ namespace Project.Scripts.Fractures
                 var hits = Physics.OverlapSphere(worldPosition, touchRadius);
                 for (var j = 0; j < hits.Length; j++)
                 {
-                    overlaps.Add(hits[j].GetComponent<Rigidbody>());
+                    var candidate = hits[j].GetComponent<Rigidbody>();
+                    if (candidate != null && ownBodies.Contains(candidate)) overlaps.Add(candidate);
                 }
             }
 

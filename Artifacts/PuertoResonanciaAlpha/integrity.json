@@ -1,0 +1,714 @@
+[
+  {
+    "Path": "Assets/Prefabs/Player/-----Player.prefab",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/CrystalGarden.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/DestructionPlayground.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/FundicionReactiva.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/LaboratoryFloor.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/RoboticForest.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scenes/TowerCore.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Settings/PC_Renderer.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Settings/PC_RPAsset.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapper.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapper.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapperFeature.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\AnimeTonemapper\\AnimeTonemapperPass.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\BolaFuego.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\BolaFuego.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\Electricity.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\BolaDeFuego\\Smoke.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\CustomFullScreenLightning.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\CustomLighting.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Outline\\Outlines.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Piedra lava\\MagmaRock.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Piedra lava\\MatMagma.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonMat.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonShader.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\ShaderToon\\ToonShading.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Tilable.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Tiling.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Camera Toon\\SG_ToonFullScreen.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Camera Toon\\ToonShaderGraph.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelMat.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelShader.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\CelShading.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\CustomNodes\\LightingCelShaded.hlsl",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\Materials\\CelShadeLitExampleMaterial.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\ShaderGraphs\\CelShadeLit.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Downloaded\\ShaderGraphs\\ddwa.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\CelShading\\Player_Mat.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ShadowReceiver.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Toon.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\Toon.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ToonComplete.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\Toon\\ToonComplete.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\TransparentTest.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\DebrisParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Dust.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Embers.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\EnergyExplosion.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\EnergyShockwave.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Explosion.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\ExplosionDistortion.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\fireball.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\FireExplosion.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame02.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame03.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Flame04.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LargeFlame01.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LargeFlame02.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\Lightning.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\LightningTrail.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame01.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame02.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\MediumFlame03.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\PlasmaExplosion.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\PlasmaFire.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\SandParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\SmokeDark.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Fire & Explosion Effects\\Materials\\TinyFlame.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopPoolParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopSplashParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopSplatParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Goop Effects\\Materials\\GoopStreamParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\ImpactSplashParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\SparkParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\StormCloudParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterDropParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallMain Spray.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallMain.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterFallRipple.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterfallSplash.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterFallTop.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Legacy Particles\\Materials\\WaterRipplesParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\EarthCrack.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Embers.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Fireball.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\Ice.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceBall.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceMist.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\IceTrail.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\RockDust.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Materials\\RockSpike.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice Ball.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice Shapes.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Magic Effects\\Shaders\\Ice.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\candle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\CandleFlame.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Dissolve.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DissolveChunks.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DissolveLineHorizontal.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\DustMote.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\ElectricalSparks.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Embers.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\FireFly.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\FireFlyTrail.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\HeatWobble.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Respawn.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SandSwirls.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SmokePuff.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\Sparks.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Materials\\SpawnTrail.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Scripts\\SpawnEffect.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Dissolve.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\DissolveLine.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\FireFly.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\HeatDisstortionWobble.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Respawn.shader",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Misc Effects\\Shaders\\Respawn.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Dust.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Embers.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Flame01.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\GroundFog.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\RockDebris.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SandParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Smoke02.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeLight.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam01.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam02.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\SmokeySteam03.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\Twinkle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Smoke & Steam Effects\\Materials\\wispySmoke.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\Splash.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\SplashDrop.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\Water.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterDropBig.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterDropSmall.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterFog.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Water Effects\\Materials\\WaterRipple.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalMetal.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalSand.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalStone.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletDecalWood.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\BulletFleshDecal.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\DustPuffParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\FleshSurface.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopMist.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopSplat2.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\GoopStreak.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MetalSparks.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MetalSurface.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\MuzzleFlash.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\RockDebris.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\SandSurface.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\StoneSurface.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\TinyStonesParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WaterStreamParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WoodSplintersParticle.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\EffectExamples\\Weapon Effects\\Materials\\WoodSurface.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ConcreteFloor.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ConcreteWall.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\Light.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\LinesWhite.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\MetalRailing.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\MetalTrim.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\ShadowCaster.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\Skybox.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Environment\\Materials\\UnityLogo.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Ramps\\Editor\\RampAssetEditor.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Ramps\\Runtime\\RampAsset.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\AdjustTimeScale.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\ProximityActivate.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\SimpleCameraController.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\UnityTechnologies\\ParticlePack\\Shared\\Scripts\\SimpleCharacterMotor.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\WaterBall\\Water.mat",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets\\Shader\\WaterBall\\Water.shadergraph",
+    "Unchanged": true
+  },
+  {
+    "Path": "ProjectSettings/EditorBuildSettings.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "ProjectSettings/GraphicsSettings.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "ProjectSettings/NavMeshAreas.asset",
+    "Unchanged": true
+  }
+]

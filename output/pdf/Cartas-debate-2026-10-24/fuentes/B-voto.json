@@ -1,0 +1,50 @@
+{
+  "agent": "B",
+  "direction_vote": "Arsenal mutante como base, con movimiento opcional y una transformación nueva al vaciar el arma.",
+  "prototype_ids": ["P1-01", "C1", "P2-03"],
+  "reason": "Cámara de ariete cambia el disparo a distancia; Cámara abierta revisada convierte quedarse vacío en una decisión cercana; Freno añade una salida espacial local. Los tres funcionan con la pistola y ninguna carta exige otra para tener valor. Con soplete en el conjunto, Freno añade más contraste que otra detonación cercana de Corte. No elijo mi propia dirección completa: seis sistemas nuevos de locomoción distraerían del combate que ya engancha.",
+  "best_new_id": "C1",
+  "retained_previous_ids": ["P1-01", "P2-03", "P2-04", "P1-06", "P1-07", "P3-01"],
+  "parked_new_ids": ["B1", "B2", "B3", "B4", "B5", "B6", "A2", "A3", "C3", "C4", "C5", "C6"],
+  "exchanges": [
+    {
+      "with": "A",
+      "objection": "Eco cruzado podía ser doble daño automático con una silueta; Cerrojo de retorno podía convertir el aviso de Aguja en seguridad frontal repetible.",
+      "reply": "A convirtió Eco en disparo remoto voluntario tras separarse, con bala normal y sin copia gratis. También dejó Cerrojo fuera del prototipo.",
+      "revision": "Acepté que Eco mejoraba, pero señalé una segunda dificultad: entender desde el cuerpo qué punto y línea usa el origen remoto. Lo aplazo frente a Cámara abierta."
+    },
+    {
+      "with": "A",
+      "objection": "A objetó que Punto de fuga fallaría como salida al ocupar un robot el regreso y que Disparo suspendido aplazaba daño sin ganar otra función.",
+      "reply": "Concedí ambos problemas: B3 puede romper confianza y añade un gesto nuevo; B6 compite con la carga de Cámara y ofrece menos cambio que un soplete.",
+      "revision": "B3 y B6 quedan aparcados. Retropropulsor pasa de un empujón de 2 m a una hipótesis de cancelación de inercia, hasta 4 m, una carga, 6 s y aviso de bloqueo; aún debe justificar su ventaja frente a retroceder."
+    },
+    {
+      "with": "C",
+      "objection": "Cámara abierta podía activarse por seguir manteniendo el último tiro, gastar reserva sin intención ante Aguja lejana; Compás roto podía volver cada recarga un salvoconducto global.",
+      "reply": "C exigió soltar el último tiro y mantener de nuevo, con consumo real, alcance visible y cancelación inmediata. Apartó Compás y prefirió Freno como salida localizada.",
+      "revision": "La revisión convierte C1 en una decisión clara. Lo elijo como mejor nuevo; retirar Compás evita mezclar un experimento de armas con control global de relojes enemigos."
+    },
+    {
+      "with": "C",
+      "objection": "C señaló que Retropropulsor tras cada disparo volvería la salida gratuita contra Ariete una rutina, y que el conjunto inicial B exigía adquirir escopeta y cuchillo.",
+      "reply": "Separé el impulso opcional del tiro normal y limité carga y frecuencia. Admití que eso no demuestra todavía una maniobra mejor que retroceder, y no debe ser obligatorio para sobrevivir.",
+      "revision": "Paso de Cámara + Corte + Retropropulsor al conjunto final Cámara + Cámara abierta + Freno. B1 queda como siguiente candidato tras obtener escopeta, no como carta de estreno."
+    }
+  ],
+  "concessions": [
+    "Una carta antigua puede ser mejor que una nueva: Cámara de ariete sigue siendo el mejor ancla inicial del conjunto.",
+    "Mi dirección Cuerpo de asalto completa añadiría demasiados controles y condiciones a la vez; solo probaría una maniobra nueva en una ronda posterior.",
+    "Aumentar metros del impulso no demuestra más diversión. Retropropulsor tiene que permitir una decisión de ataque y salida que la retirada ordinaria no resuelva igual.",
+    "La propuesta revisada de Cámara abierta cambia más la función del arma que Disparo suspendido, pese a que esta última era idea propia."
+  ],
+  "dissent": "Comparto las tres cartas finales tras la revisión de C1, pero no avalo convertir el deslizamiento en requisito universal. Inicialmente preferí Corte de apertura por su secuencia activa cuchillo-disparo; con C1 ocupando la ofensiva cercana, Freno aporta más variedad al primer experimento. Corte sigue siendo mi siguiente antigua preferida para una variante agresiva, no una pieza descartada.",
+  "conditions": [
+    "C1 solo entra después de soltar y mantener de nuevo con el cargador vacío; R o cambiar de arma lo cancela, sin consumir reserva por insistencia involuntaria.",
+    "Freno no concede invulnerabilidad ni interrupción garantizada del veterano. Debe poder jugarse bien sin deslizar continuamente.",
+    "Cámara cargada y soplete se distinguen por estado del cargador y por señales físicas distintas; no son dos respuestas superpuestas al mismo mantener.",
+    "Comparar las cartas por separado y juntas, a igualdad de armas y estadísticas. Pedir al tester que describa el cambio y observar si lo usa por decisión propia.",
+    "Antes de añadir B1, comparar una entrada y salida de escopeta con y sin impulso. Si solo ahorra unas décimas, si obliga a saltar o causa caídas poco legibles, no pasa a producción.",
+    "Las decisiones son hipótesis de diseño. No hay prueba humana de diversión ni autorización para implementar este dictamen."
+  ]
+}

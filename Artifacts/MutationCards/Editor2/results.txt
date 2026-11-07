@@ -1,0 +1,91 @@
+PASS Playable tower boots
+PASS Exactly the 19 selected mutations, no unselected cards
+PASS Every mutation has an icon, action hint and one rank
+PASS Offers exclude absent carbine, knife and shotgun
+PASS Pistol and compatible global cards remain available
+PASS Ram chamber uses held/released production input and consumes three bullets
+PASS Charged physical ray pierces exactly three distinct robots
+PASS Brief charge release preserves normal pistol shot
+PASS Charged ray cannot penetrate solid cover
+PASS First direct shot arms a visible fuse without exploding
+PASS Second distinct shot explodes the fuse and reaches neighbors
+PASS Fuse reaction is bounded and does not recursively create direct hits
+PASS Shotgun pellets count as one direct attack for a fuse
+PASS Fork waits for the fourth successful carbine shot
+PASS Fourth hit sends exactly two half-damage branches
+PASS Scrap funnel actually moves a normal laterally into the shot axis
+PASS Funnel keeps the veteran displacement smaller
+PASS A real knife contact places the opening-cut clamp
+PASS Shooting the knife mark adds the heavy contact and nearby explosion
+PASS Holding knife and releasing launches the actual blade
+PASS Outgoing blade limits its leg to two distinct victims
+PASS Blade hits, returns and allows weapon switching during flight
+PASS Both blade legs together deal at most four knife contacts
+PASS Blade return restores the held knife renderers
+PASS Reload arms the next pistol impact as a carrier
+PASS Carrier transfers to a visible neighbor without restarting the fuse
+PASS Carrier explodes at its committed timer and latest position
+PASS Three real direct kills charge ground arc
+PASS A physical ground hit consumes the charge and places the arc
+PASS Crossing the arc deals one pulse, not repeated damage per frame
+PASS Ground arc expires without leaving a permanent hazard
+PASS Real slide movement of two metres produces a ground-following slag path
+PASS An enemy crossing the real slide path is damaged
+PASS Slag applies damage once per enemy and trail
+PASS Ending the actual slide triggers a forward brake displacement
+PASS Brake has a cooldown and grants no repeated free wave
+PASS Retrothruster cancels inertia and makes a bounded physical withdrawal
+PASS Retrothruster spends a charge and waits six seconds
+PASS Retrothruster's CharacterController cannot pass through the wall behind the player
+PASS Retrothruster does not buy invulnerability or alter health/shield
+PASS Timed explosive reload and manually shot magazine bomb coexist as different devices
+PASS Timed magazine respects its one-second warning
+PASS Timed explosion damages enemies but does not chain-detonate the manual bomb
+PASS Shooting the real bomb collider detonates it exactly once
+PASS No delayed second detonation after a manual bomb is consumed
+PASS Magazine bomb requires a partial magazine, not an empty reload
+PASS Explosive reload cannot be farmed without firing three bullets
+PASS Decoy changes the real enemy's perceived combat target
+PASS The ranged body and weapon aim at the decoy rather than pretending in VFX
+PASS A direct hit breaks that robot's distraction
+PASS Decoy expires and leaves no permanent target
+PASS A real direct kill creates magnetic scrap at the corpse
+PASS Magnetic scrap moves a nearby robot toward the kill site
+PASS Scrap magnet has bounded duration and an eight-second cooldown
+PASS Reloading toward valid ground places an anchor and groups light robots
+PASS Anchor slows veterans without pulling their bodies
+PASS The veteran's movement speed is restored after the magnetic field
+PASS Three distinct direct shots mark the same enemy for the hammer
+PASS Hammer telegraphs a committed world position before contact
+PASS Hammer strikes the committed position after its warning
+PASS An enemy can move out of the hammer instead of being homed on after lock
+PASS Three direct firearm kills prepare one recoverable saw
+PASS Reload launches a physical saw with one hit per enemy, then it drops
+PASS Picking up the dropped saw restores its availability
+PASS Breaking shield and reloading creates a discharge coil
+PASS A real travelling enemy projectile is intercepted and stored
+PASS Aguja's actual locked laser is also captured by the coil
+PASS Coil stores at most three shots
+PASS A saturated coil no longer grants unlimited cover
+PASS The player's shot releases the stored energy into nearby enemies
+PASS Explosions preserve exactly one attributed kill for each victim
+PASS Derived kills do not recursively charge direct-kill cards
+PASS All selected cards can coexist, and a duplicate cannot install twice
+PASS Pause freezes every mutation clock, warning and cooldown
+PASS Combined cards remain bounded and do not cascade indefinitely
+FAIL A complete real wave enters the actual wave ledger
+FAIL Derived damage completes a real wave exactly once without leaving a missing enemy
+FAIL Derived kills retain normal chips and the wave completion reward
+FAIL Real wave reward offers three selected, compatible mutations
+FAIL The real card UI selection path applies only once
+FAIL Confirmed mutation is installed and recorded in run history
+PASS Actual additive floor load/unload retains all cards and clears old physical effects
+PASS Player death cleans devices, flying blades and all active mutations
+PASS Restart through the real run menu starts with no previous mutations
+ERRORS
+A complete real wave enters the actual wave ledger
+Derived damage completes a real wave exactly once without leaving a missing enemy
+Derived kills retain normal chips and the wave completion reward
+Real wave reward offers three selected, compatible mutations
+The real card UI selection path applies only once
+Confirmed mutation is installed and recorded in run history

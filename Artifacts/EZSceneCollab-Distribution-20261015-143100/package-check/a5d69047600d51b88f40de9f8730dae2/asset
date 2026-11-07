@@ -1,0 +1,59 @@
+using System;
+using System.Reflection;
+using NUnit.Framework;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+namespace EZCollabTool.Tests
+{
+    public class EZCollabOptionalIntegrationTests
+    {
+        [Test]
+        public void CoreWorksWithoutProBuilderAndRebuildsMeshWhenAvailable()
+        {
+            Type integration = Type.GetType(
+                "EZCollabTool.ProBuilderIntegration.EZCollabProBuilderIntegration, EZCollabTool.ProBuilder.Editor");
+            if (integration == null)
+            {
+                Assert.IsFalse(EZCollabIntegrations.proBuilderCompatible);
+                Assert.IsFalse(EZCollabIntegrations.proBuilderEnabled);
+                return;
+            }
+
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            bool wasEnabled = EZCollabIntegrations.proBuilderEnabled;
+            GameObject source = null;
+            GameObject restored = null;
+            try
+            {
+                EZCollabIntegrations.proBuilderEnabled = true;
+                MethodInfo create = integration.GetMethod("CreateProBuilderDemoObject",
+                    BindingFlags.Static | BindingFlags.NonPublic);
+                Assert.IsNotNull(create);
+                create.Invoke(null, new object[] { new MenuCommand(null) });
+                source = Selection.activeGameObject;
+                Assert.IsNotNull(source);
+                EZCollabState.Initialize("Integration", true);
+                CreateObjectPayload payload = EZSceneSerializer.CreatePayload(source,
+                    EZCollabState.GetOrAssignGuid(source));
+                Assert.IsNotNull(payload.mesh);
+                Assert.Greater(payload.mesh.positions.Length, 0);
+                int vertices = source.GetComponent<MeshFilter>().sharedMesh.vertexCount;
+                restored = EZSceneSerializer.CreateFromPayload(payload);
+                Assert.IsNotNull(restored.GetComponent<MeshFilter>().sharedMesh);
+                Assert.AreEqual(vertices, restored.GetComponent<MeshFilter>().sharedMesh.vertexCount);
+                Assert.IsTrue(EZCollabIntegrations.TryFinalizeObject(restored));
+            }
+            finally
+            {
+                Selection.activeGameObject = null;
+                EZCollabState.Shutdown();
+                if (restored != null) UnityEngine.Object.DestroyImmediate(restored);
+                if (source != null) UnityEngine.Object.DestroyImmediate(source);
+                EZCollabIntegrations.proBuilderEnabled = wasEnabled;
+                EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            }
+        }
+    }
+}

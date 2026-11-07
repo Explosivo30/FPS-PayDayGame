@@ -1,0 +1,407 @@
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabHooks
+    {
+        const double TransformSendInterval = 0.05;
+
+        static readonly HashSet<string> pendingLockRequests = new HashSet<string>();
+        static double lastTransformSend;
+        static bool wasInSession;
+
+        static EZCollabHooks()
+        {
+            Selection.selectionChanged += OnSelectionChanged;
+            Undo.postprocessModifications += OnModifications;
+            EditorApplication.update += OnUpdate;
+        }
+
+        static void OnUpdate()
+        {
+            if (!EZCollabState.inSession)
+            {
+                if (wasInSession)
+                    pendingLockRequests.Clear();
+
+                wasInSession = false;
+                return;
+            }
+
+            wasInSession = true;
+
+            if (EZCollabState.isHost)
+            {
+                ProcessIncomingMessages();
+                EZCollabSession.server?.ProcessMainThreadRequests();
+            }
+            else if (EZCollabSession.client != null && EZCollabSession.client.connectionLostUnexpectedly)
+            {
+                EZCollabSession.BeginReconnect();
+                return;
+            }
+
+            if (!EZCollabState.isHost)
+                ProcessIncomingMessages();
+        }
+
+        public static void ReacquireSelectedLocks()
+        {
+            foreach (GameObject go in Selection.gameObjects)
+                EnsureLockForObject(go);
+        }
+
+        public static void PublishTransform(GameObject go)
+        {
+            if (go == null || !EZCollabState.inSession || EZCollabState.isApplyingRemoteChange ||
+                EZCollabSession.isSynchronizing || !EZCollabState.TryGetGuid(go, out string guid) ||
+                !EZCollabState.IsLockedByMe(guid)) return;
+            SendLocalMessage(EZMessage.Create(EZMessageType.TransformDelta,
+                EZCollabState.localPeerId, TransformPayload.FromTransform(guid, go.transform)));
+        }
+
+        static void OnSelectionChanged()
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange) return;
+            if (!EZCollabState.isHost && EZCollabSession.isSynchronizing) return;
+
+            List<string> toRelease = new List<string>();
+            foreach (string guid in EZCollabState.myLocks)
+            {
+                bool stillSelected = false;
+                foreach (GameObject selectedObject in Selection.gameObjects)
+                {
+                    if (EZCollabState.TryGetGuid(selectedObject, out string selectedGuid) && selectedGuid == guid)
+                    {
+                        stillSelected = true;
+                        break;
+                    }
+                }
+
+                if (!stillSelected)
+                    toRelease.Add(guid);
+            }
+
+            foreach (string guid in toRelease)
+                ReleaseLock(guid);
+
+            List<GameObject> selectableObjects = new List<GameObject>();
+            bool removedLockedObject = false;
+            foreach (GameObject selectedObject in Selection.gameObjects)
+            {
+                if (EZCollabState.TryGetGuid(selectedObject, out string selectedGuid) &&
+                    EZCollabState.IsLockedByOther(selectedGuid))
+                {
+                    removedLockedObject = true;
+                    continue;
+                }
+
+                selectableObjects.Add(selectedObject);
+            }
+
+            if (removedLockedObject)
+            {
+                Selection.objects = selectableObjects.ToArray();
+                return;
+            }
+
+            foreach (GameObject selectedObject in Selection.gameObjects)
+            {
+                if (!EZCollabState.TryGetGuid(selectedObject, out string guid)) continue;
+                if (EZCollabState.IsLockedByMe(guid)) continue;
+                if (pendingLockRequests.Contains(guid)) continue;
+
+                RequestLock(guid);
+            }
+        }
+
+        static UndoPropertyModification[] OnModifications(UndoPropertyModification[] modifications)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange)
+                return modifications;
+
+            double now = EditorApplication.timeSinceStartup;
+            if (now - lastTransformSend < TransformSendInterval)
+                return modifications;
+
+            HashSet<GameObject> dirtyObjects = new HashSet<GameObject>();
+            foreach (UndoPropertyModification modification in modifications)
+            {
+                if (modification.currentValue.target is GameObject gameObject)
+                    dirtyObjects.Add(gameObject);
+                else if (modification.currentValue.target is Component component)
+                    dirtyObjects.Add(component.gameObject);
+            }
+
+            foreach (GameObject gameObject in dirtyObjects)
+            {
+                if (!EZCollabState.TryGetGuid(gameObject, out string guid)) continue;
+                if (!EZCollabState.IsLockedByMe(guid)) continue;
+
+                TransformPayload payload = TransformPayload.FromTransform(guid, gameObject.transform);
+                EZMessage message = EZMessage.Create(EZMessageType.TransformDelta, EZCollabState.localPeerId, payload);
+                SendLocalMessage(message);
+            }
+
+            lastTransformSend = now;
+            return modifications;
+        }
+
+        public static void EnsureLockForObject(GameObject go)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange || go == null ||
+                !EZCollabState.TryGetGuid(go, out string guid) || EZCollabState.IsLockedByMe(guid) ||
+                EZCollabState.IsLockedByOther(guid) || pendingLockRequests.Contains(guid))
+            {
+                return;
+            }
+
+            RequestLock(guid);
+        }
+
+        public static void ReleaseObjectLock(string guid)
+        {
+            if (string.IsNullOrEmpty(guid))
+                return;
+
+            pendingLockRequests.Remove(guid);
+            if (EZCollabState.IsLockedByMe(guid))
+                ReleaseLock(guid);
+        }
+
+        static void SendLocalMessage(EZMessage message)
+        {
+            if (message.type == EZMessageType.TransformDelta)
+                EZCollabSession.PublishLatest("transform:" + message.GetPayload<TransformPayload>()?.guid, message);
+            else EZCollabSession.SendReliable(message);
+        }
+
+        static void RequestLock(string guid)
+        {
+            EZCollabEditGuard.BeginPendingLock(guid);
+            pendingLockRequests.Add(guid);
+
+            if (EZCollabState.isHost)
+            {
+                bool granted = EZCollabSession.server != null &&
+                               EZCollabSession.server.TryAcquireHostLock(guid, EZCollabState.localPeerName);
+                pendingLockRequests.Remove(guid);
+
+                if (granted)
+                {
+                    EZCollabState.ApplyLock(guid, EZCollabState.localPeerId);
+                    EZCollabEditGuard.ResolvePendingLock(guid, true);
+                    return;
+                }
+
+                EZCollabEditGuard.ResolvePendingLock(guid, false);
+                RemoveFromSelection(guid);
+                return;
+            }
+
+            LockPayload payload = new LockPayload
+            {
+                guid = guid,
+                peerId = EZCollabState.localPeerId,
+                peerName = EZCollabState.localPeerName
+            };
+            EZMessage message = EZMessage.Create(EZMessageType.LockRequest, EZCollabState.localPeerId, payload);
+            EZCollabSession.SendReliable(message);
+        }
+
+        static void ReleaseLock(string guid)
+        {
+            if (EZCollabAdvancedSync.FlushBeforeRelease(guid)) return;
+            EZCollabState.ReleaseLock(guid);
+
+            LockPayload payload = new LockPayload { guid = guid, peerId = EZCollabState.localPeerId };
+            EZMessage message = EZMessage.Create(EZMessageType.LockRelease, EZCollabState.localPeerId, payload);
+            EZCollabSession.SendReliable(message);
+        }
+
+        static void ProcessIncomingMessages()
+        {
+            EZCollabMessageInbox queue = EZCollabState.isHost
+                ? EZCollabSession.server?.incomingMessages
+                : EZCollabSession.client?.incomingMessages;
+
+            if (queue == null) return;
+
+            System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            int processed = 0;
+            while (processed < 128 && stopwatch.Elapsed.TotalMilliseconds < 2)
+            {
+                if (!EZCollabSnapshotReceiver.canReceiveMore) break;
+                if (!EZCollabSnapshotReceiver.TryDequeue(out EZMessage message) &&
+                    !queue.TryDequeue(out message)) break;
+                ApplyMessage(message);
+                processed++;
+            }
+        }
+
+        static void ApplyMessage(EZMessage message)
+        {
+            if (EZCollabSnapshotReceiver.Route(message)) return;
+            EZCollabAdvancedSync.ObserveIncoming(message);
+            if (EZCollabAdvancedSync.TryApplyMessage(message))
+                return;
+
+            switch (message.type)
+            {
+                case EZMessageType.TransformDelta:
+                {
+                    TransformPayload payload = message.GetPayload<TransformPayload>();
+                    if (payload == null || !EZCollabState.ShouldApplyObjectSequence(payload.guid, message.sequence) ||
+                        !EZCollabState.guidToObject.TryGetValue(payload.guid, out GameObject go) || go == null)
+                        break;
+
+                    EZCollabAdvancedSync.SuppressRemoteObject(go);
+                    EZCollabState.isApplyingRemoteChange = true;
+                    try
+                    {
+                        go.transform.position = payload.GetPosition();
+                        go.transform.rotation = payload.GetRotation();
+                        go.transform.localScale = payload.GetScale();
+                    }
+                    finally
+                    {
+                        EZCollabState.isApplyingRemoteChange = false;
+                    }
+
+                    break;
+                }
+
+                case EZMessageType.CreateObject:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || !EZCollabState.ShouldApplyObjectSequence(payload.guid, message.sequence) ||
+                        EZCollabState.guidToObject.ContainsKey(payload.guid)) break;
+
+                    EZCollabState.isApplyingRemoteChange = true;
+                    try
+                    {
+                        GameObject created = EZSceneSerializer.CreateFromPayload(payload);
+                        EZCollabAdvancedSync.SuppressRemoteObject(created);
+                    }
+                    finally
+                    {
+                        EZCollabState.isApplyingRemoteChange = false;
+                    }
+
+                    break;
+                }
+
+                case EZMessageType.DestroyObject:
+                {
+                    DestroyObjectPayload payload = message.GetPayload<DestroyObjectPayload>();
+                    if (payload == null || !EZCollabState.ShouldApplyObjectSequence(payload.guid, message.sequence) ||
+                        !EZCollabState.guidToObject.TryGetValue(payload.guid, out GameObject go) || go == null)
+                        break;
+
+                    EZCollabAdvancedSync.SuppressRemoteObject(go);
+                    EZCollabState.isApplyingRemoteChange = true;
+                    try
+                    {
+                        EZCollabState.RemoveHierarchy(go);
+                        UnityEngine.Object.DestroyImmediate(go);
+                    }
+                    finally
+                    {
+                        EZCollabState.isApplyingRemoteChange = false;
+                    }
+
+                    break;
+                }
+
+                case EZMessageType.ObjectLocked:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    EZCollabState.ApplyLock(payload.guid, payload.peerId);
+                    pendingLockRequests.Remove(payload.guid);
+                    EZCollabEditGuard.ResolvePendingLock(
+                        payload.guid,
+                        payload.peerId == EZCollabState.localPeerId);
+                    if (payload.peerId != EZCollabState.localPeerId)
+                    {
+                        EZCollabAdvancedSync.DiscardQueuedState(payload.guid);
+                        RemoveFromSelection(payload.guid);
+                    }
+
+                    EZCollabSceneRepaintScheduler.Request();
+                    EditorApplication.RepaintHierarchyWindow();
+                    break;
+                }
+
+                case EZMessageType.ObjectUnlocked:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    EZCollabState.ReleaseLock(payload.guid);
+                    EZCollabSceneRepaintScheduler.Request();
+                    EditorApplication.RepaintHierarchyWindow();
+                    break;
+                }
+
+                case EZMessageType.LockGranted:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    EZCollabState.ApplyLock(payload.guid, EZCollabState.localPeerId);
+                    pendingLockRequests.Remove(payload.guid);
+                    EZCollabEditGuard.ResolvePendingLock(payload.guid, true);
+                    break;
+                }
+
+                case EZMessageType.LockDenied:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    pendingLockRequests.Remove(payload.guid);
+                    EZCollabEditGuard.ResolvePendingLock(payload.guid, false);
+                    EZCollabAdvancedSync.DiscardQueuedState(payload.guid);
+                    RemoveFromSelection(payload.guid);
+
+                    break;
+                }
+
+                case EZMessageType.PeerJoined:
+                {
+                    PeerPayload payload = message.GetPayload<PeerPayload>();
+                    if (payload.peerId != EZCollabState.localPeerId)
+                        EZCollabState.connectedPeers[payload.peerId] = payload.peerName;
+                    EZCollabState.NotifyChanged();
+                    EZCollabPresencePublisher.RequestPublish();
+                    break;
+                }
+
+                case EZMessageType.PeerLeft:
+                {
+                    PeerPayload payload = message.GetPayload<PeerPayload>();
+                    EZCollabState.connectedPeers.Remove(payload.peerId);
+                    EZCollabState.ReleaseAllLocksForPeer(payload.peerId);
+                    EZCollabPresenceState.RemovePeer(payload.peerId);
+                    EZCollabState.NotifyChanged();
+                    EZCollabSceneRepaintScheduler.Request();
+                    EditorApplication.RepaintHierarchyWindow();
+                    break;
+                }
+
+                case EZMessageType.PresenceUpdate:
+                    if (!EZCollabSession.isSynchronizing)
+                        EZCollabPresenceState.Apply(message.senderId,
+                            message.GetPayload<EZCollabPresencePayload>(), Time.realtimeSinceStartupAsDouble);
+                    break;
+            }
+        }
+
+        static void RemoveFromSelection(string guid)
+        {
+            if (!EZCollabState.guidToObject.TryGetValue(guid, out GameObject go) || go == null)
+                return;
+
+            List<GameObject> newSelection = new List<GameObject>(Selection.gameObjects);
+            newSelection.Remove(go);
+            Selection.objects = newSelection.ToArray();
+        }
+    }
+}

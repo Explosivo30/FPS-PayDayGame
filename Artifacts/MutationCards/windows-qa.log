@@ -1,0 +1,1328 @@
+Mono path[0] = 'D:/Unity/FPS-PayDayGame/Builds/MutationCards/RobotTower_Data/Managed'
+Mono config path = 'D:/Unity/FPS-PayDayGame/Builds/MutationCards/MonoBleedingEdge/etc'
+Found 3 interfaces on host : 0) 192.168.1.42 1) 192.168.163.1 2) 192.168.235.1
+Player connection [25960]  Target information:
+
+Player connection [25960]  * "[IP] 192.168.1.42 [Port] 55000 [Flags] 2 [Guid] 521345402 [EditorId] 2564660766 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [25960]  * "[IP] 192.168.163.1 [Port] 55000 [Flags] 2 [Guid] 521345402 [EditorId] 2564660766 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [25960]  * "[IP] 192.168.235.1 [Port] 55000 [Flags] 2 [Guid] 521345402 [EditorId] 2564660766 [Version] 1048832 [Id] WindowsPlayer(2,DESKTOP-BOONDKL) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] RobotGame" 
+
+Player connection [25960] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.0.58f2 (92dee566b325)
+[Subsystems] Discovering subsystems at path D:/Unity/FPS-PayDayGame/Builds/MutationCards/RobotTower_Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2484)
+    Vendor:   NVIDIA
+    VRAM:     8018 MB
+    Driver:   32.0.16.2101
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.650 seconds
+- Finished resetting the current domain, in  0.004 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.754100 ms
+RenderGraph is now enabled.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+UnityEngine.Rendering.Universal.UniversalRenderPipeline:.ctor (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset) (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/UniversalRenderPipeline.cs:259)
+UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset:CreatePipeline () (at ./Library/PackageCache/com.unity.render-pipelines.universal@e1fa89d1f997/Runtime/Data/UniversalRenderPipelineAsset.cs:793)
+UnityEngine.Rendering.RenderPipelineAsset:InternalCreatePipeline () (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineAsset.cs:15)
+UnityEngine.Rendering.RenderPipelineManager:TryPrepareRenderPipeline (UnityEngine.Rendering.RenderPipelineAsset) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:165)
+UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,UnityEngine.Object) (at C:/build/output/unity/unity/Runtime/Export/RenderPipeline/RenderPipelineManager.cs:139)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 9.317600 ms
+Unloading 689 unused Assets / (21.0 MB). Loaded Objects now: 7656.
+Memory consumption went from 98.6 MB to 77.6 MB.
+Total: 4.836700 ms (FindLiveObjects: 0.205500 ms CreateObjectMapping: 0.077600 ms MarkObjects: 1.361800 ms  DeleteObjects: 3.191600 ms)
+
+PASS Playable tower boots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:65)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Exactly the 19 selected mutations, no unselected cards
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:77)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Every mutation has an icon, action hint and one rank
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:78)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Offers exclude absent carbine, knife and shotgun
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:80)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Pistol and compatible global cards remain available
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:81)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Ram chamber uses held/released production input and consumes three bullets
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:17)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Charged physical ray pierces exactly three distinct robots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:18)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Brief charge release preserves normal pistol shot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:23)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Charged ray cannot penetrate solid cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:26)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS First direct shot arms a visible fuse without exploding
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:30)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Second distinct shot explodes the fuse and reaches neighbors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:32)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Fuse reaction is bounded and does not recursively create direct hits
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:33)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Shotgun pellets count as one direct attack for a fuse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:35)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Fork waits for the fourth successful carbine shot
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:39)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Fourth hit sends exactly two half-damage branches
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:41)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Scrap funnel actually moves a normal laterally into the shot axis
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:46)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Funnel keeps the veteran displacement smaller
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:47)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A real knife contact places the opening-cut clamp
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:51)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Shooting the knife mark adds the heavy contact and nearby explosion
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:53)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Holding knife and releasing launches the actual blade
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:58)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Outgoing blade limits its leg to two distinct victims
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:59)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Blade hits, returns and allows weapon switching during flight
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:61)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Both blade legs together deal at most four knife contacts
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:62)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The returning leg makes additional physical knife contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:63)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Blade return restores the held knife renderers
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:64)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Reload arms the next pistol impact as a carrier
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:68)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Carrier transfers to a visible neighbor without restarting the fuse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:70)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Carrier explodes at its committed timer and latest position
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:71)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Three real direct kills charge ground arc
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:75)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A physical ground hit consumes the charge and places the arc
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:77)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Crossing the arc deals one pulse, not repeated damage per frame
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:79)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Ground arc expires without leaving a permanent hazard
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<GunCases>d__0:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:80)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real slide movement of two metres produces a ground-following slag path
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:89)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS An enemy crossing the real slide path is damaged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:91)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Slag applies damage once per enemy and trail
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:92)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Ending the actual slide triggers a forward brake displacement
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:96)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Brake has a cooldown and grants no repeated free wave
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:97)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Retrothruster cancels inertia and makes a bounded physical withdrawal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:103)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Retrothruster spends a charge and waits six seconds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:104)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Landing does not bypass the retrothruster cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:107)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A normal shotgun shot never spends the recovered optional impulse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:109)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Landing and cooldown together restore the retrothruster charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:111)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Retrothruster's CharacterController cannot pass through the wall behind the player
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:115)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Retrothruster does not buy invulnerability or alter health/shield
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<MotionCases>d__1:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Cases.cs:116)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Timed explosive reload and manually shot magazine bomb coexist as different devices
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:15)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Timed magazine respects its one-second warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:16)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Timed explosion damages enemies but does not chain-detonate the manual bomb
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:17)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Shooting the real bomb collider detonates it exactly once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:20)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS No delayed second detonation after a manual bomb is consumed
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:21)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Magazine bomb requires a partial magazine, not an empty reload
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:25)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Explosive reload cannot be farmed without firing three bullets
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:27)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Decoy changes the real enemy's perceived combat target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:31)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The ranged body and weapon aim at the decoy rather than pretending in VFX
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:33)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A direct hit breaks that robot's distraction
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:35)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Decoy expires and leaves no permanent target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:36)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A real direct kill creates magnetic scrap at the corpse
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:40)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Magnetic scrap moves a nearby robot toward the kill site
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:42)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Scrap magnet has bounded duration and an eight-second cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:43)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Reloading toward valid ground places an anchor and groups light robots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:48)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Anchor slows veterans without pulling their bodies
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:49)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The veteran's movement speed is restored after the magnetic field
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:51)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Three distinct direct shots mark the same enemy for the hammer
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:55)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Hammer telegraphs a committed world position before contact
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:56)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Hammer strikes the committed position after its warning
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:57)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS An enemy can move out of the hammer instead of being homed on after lock
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:61)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Three direct firearm kills prepare one recoverable saw
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:65)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Reload launches a physical saw with one hit per enemy, then it drops
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:68)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Picking up the dropped saw restores its availability
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:70)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Breaking shield and reloading creates a discharge coil
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:74)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A real travelling enemy projectile is intercepted and stored
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:80)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Aguja's actual locked laser is captured as the coil's third charge
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:86)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The absorbed third laser visibly ends at the coil instead of passing through
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:88)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Coil stores at most three shots
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:91)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A saturated coil no longer grants unlimited cover
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:93)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The player's shot releases the stored energy into nearby enemies
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<DeviceCases>d__43:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:95)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Explosions preserve exactly one attributed kill for each victim
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:105)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Derived kills do not recursively charge direct-kill cards
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:106)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS All selected cards can coexist, and a duplicate cannot install twice
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:110)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Pause freezes every mutation clock, warning and cooldown
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:116)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Combined cards remain bounded and do not cascade indefinitely
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:118)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS A complete real wave enters the actual wave ledger: wave=1 active=5 pending=0 wait=
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:130)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Derived damage completes a real wave exactly once without leaving a missing enemy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:135)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Derived kills retain normal chips and the wave completion reward
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:136)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Real wave reward offers three selected, compatible mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:139)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS The real card UI selection path applies only once
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:143)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Confirmed mutation is installed and recorded in run history
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:145)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Actual additive floor load/unload retains all cards and clears old physical effects
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:155)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+PASS Player death cleans devices, flying blades and all active mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:159)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.934000 ms
+Unloading 484 unused Assets / (2.5 MB). Loaded Objects now: 5182.
+Memory consumption went from 108.0 MB to 105.5 MB.
+Total: 2.301100 ms (FindLiveObjects: 0.157400 ms CreateObjectMapping: 0.047500 ms MarkObjects: 1.501000 ms  DeleteObjects: 0.594900 ms)
+
+PASS Restart through the real run menu starts with no previous mutations
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Check (bool,string) (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:39)
+MutationPlaytest/<LifecycleCases>d__44:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.Devices.cs:163)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+MUTATION TEST COMPLETE: 89 checks, 0 errors
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+MutationPlaytest:Finish () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:146)
+MutationPlaytest/<Execute>d__29:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:83)
+MutationPlaytest/<Guard>d__28:MoveNext () (at D:/Unity/FPS-PayDayGame/Assets/Scripts/Diagnostics/MutationPlaytest.cs:47)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+PlayerConnection::Cleanup##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793182021442,"processId":6244,"allocatedMemory":75669,"memoryLabels":[{"Default":136},{"Manager":9387},{"VertexData":1872},{"VFX":-104},{"GfxDevice":1296},{"Serialization":520},{"JobScheduler":48632},{"String":346},{"DynamicArray":7616},{"HashMap":3584},{"PoolAlloc":192},{"GI":40},{"VR":1792},{"Video":144},{"Subsystems":96},{"CoreBusinessMetrics":120}]}

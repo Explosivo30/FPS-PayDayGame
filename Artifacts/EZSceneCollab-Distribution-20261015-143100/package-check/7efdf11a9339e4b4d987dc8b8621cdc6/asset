@@ -1,0 +1,92 @@
+# Asset Store listing draft
+
+## Product name
+
+EZ Scene Collab
+
+## Short description
+
+Collaboratively edit a Unity scene from multiple Windows Editors over LAN or a private VPN, with authoritative locks, reconnect recovery, and optional ProBuilder 6.x support.
+
+## Full description
+
+EZ Scene Collab brings direct collaborative scene editing to the Unity Editor. Start a host from the open scene, let trusted teammates connect over the same LAN or a private VPN, and see supported scene changes appear across the team without entering Play Mode.
+
+Authoritative object locks prevent two users from editing the same object at once. Objects locked by another participant become non-pickable and receive a colored ghost overlay, while your own locked objects remain visually unchanged. If a client temporarily disconnects, EZ Scene Collab attempts to reconnect and requests only missed revisions when they are still available.
+
+The core has no ProBuilder or Newtonsoft dependency. When a compatible ProBuilder 6.x package is present, the optional integration is detected automatically and can be enabled or disabled before a session.
+
+EZ Scene Collab is designed for trusted teams that already share the same Unity project and asset revision through Git, Unity Version Control, or another source-control solution. It synchronizes scene editing state; it does not replace version control and does not transfer asset files.
+
+## Key features
+
+- Direct host/client collaboration inside the Unity Editor; Play Mode is not required.
+- Position, rotation, scale, name, active state, parent, and hierarchy order synchronization.
+- GameObject, primitive, and prefab-instance creation and deletion.
+- Serialized component and Inspector-property synchronization, including common lights, colliders, materials, and object references.
+- Authoritative per-object locks with a different overlay color for each remote participant.
+- Remote objects cannot be selected or transformed while another participant owns the lock.
+- Undo/Redo result propagation for tracked scene-object changes.
+- Initial host snapshot plus incremental reconnection recovery.
+- Remote 3D pointers, names and camera indicators with local visibility controls.
+- Incremental snapshots, latest-wins realtime queues and compatible-version handshake.
+- Missing, moved, or mismatched asset warnings using GUID, path, and dependency hash.
+- Optional ProBuilder 6.x integration for editable mesh state and generated mesh data.
+- English and Spanish UI; English is the default.
+- Offline English and Spanish manuals and an included demonstration scene.
+- No Newtonsoft.Json or version-control package dependency.
+
+## Requirements
+
+- Unity 6000.0.58f2 is the currently verified Editor version.
+- Windows is the only tested operating system.
+- Every participant must use the same Unity version, EZ Scene Collab version, project revision, branch, scene, scripts, assets, and compatible packages.
+- One Editor acts as host and must keep Unity and the synchronized scene open.
+- A reachable TCP address and port are required. Port `9876` is the default.
+- ProBuilder is optional. ProBuilder 6.0.9 is the currently verified integration version.
+
+## Compatibility summary
+
+| Configuration | Status |
+|---|---:|
+| Windows | Tested |
+| Unity 6000.0.58f2 | Tested |
+| URP 17.0.4 development project | Tested |
+| Core without ProBuilder | Tested |
+| ProBuilder 6.0.9 | Tested |
+| macOS / Linux | Not tested; not advertised |
+| Built-in Render Pipeline / HDRP | Not yet verified |
+| Unity 6.5+ | Not yet verified |
+| Two physical computers / Tailscale / Hamachi | Final release validation pending |
+
+See the complete offline matrix in `Documentation/COMPATIBILITY.md`.
+
+## Important limitations and security notice
+
+- Asset files are not transferred. Missing imported meshes, textures, materials, prefabs, scripts, TerrainData, animation clips, or other assets must be obtained through source control.
+- The current connection uses plain TCP without built-in authentication or encryption. Use trusted collaborators on a trusted LAN or private VPN.
+- Only the active Unity scene is synchronized. Multi-scene editing and Prefab Mode are not currently declared supported.
+- The host remains authoritative and must keep Unity and the scene open.
+- Undo/Redo propagates the resulting supported object state, not a shared distributed history.
+- Dense generated or ProBuilder meshes send substantially more data and can cause pauses or exceed the message limit.
+- Performance depends on object count, component size, mesh density, network latency, and all connected computers. No unlimited-user or unlimited-scene-size claim is made.
+
+Read the exact limitations in `Documentation/LIMITATIONS.md` before purchase and use.
+
+## Support
+
+Offline support guide: `Documentation/SUPPORT.md`
+
+External support URL: [https://explosivo30.github.io/ez-scene-collab/](https://explosivo30.github.io/ez-scene-collab/)
+
+Support email: [ezjuegitos@gmail.com](mailto:ezjuegitos@gmail.com)
+
+Publisher website: [https://explosivo30.github.io/](https://explosivo30.github.io/)
+
+## Suggested keywords
+
+collaboration, scene editing, multiplayer editor, level design, LAN, remote team, locking, ProBuilder, productivity, editor tool
+
+## AI disclosure draft for the Publisher Portal
+
+OpenAI Codex assisted with parts of the functional C# implementation, bilingual documentation, localization, packaging, and test preparation. The publisher directed the product design, selected and reviewed the implementation, performed Unity compilation and integration testing, verified the supported workflows, and remains responsible for maintenance and support. The generated and assisted material was modified and integrated specifically for EZ Scene Collab.

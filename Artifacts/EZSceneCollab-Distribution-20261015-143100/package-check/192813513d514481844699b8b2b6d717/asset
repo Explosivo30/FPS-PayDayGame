@@ -1,0 +1,131 @@
+using System;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    /// <summary>
+    /// Ephemeral editor presence. Presence is never part of a scene snapshot or recovery history.
+    /// Vector data is represented as arrays so it remains compatible with JsonUtility.
+    /// </summary>
+    [Serializable]
+    public sealed class EZCollabPresencePayload
+    {
+        public string sceneContext;
+        public string pointerObjectGuid;
+        public bool hasPointer;
+        public float[] localPosition;
+        public float[] localNormal;
+        public float[] worldPosition;
+        public float[] worldNormal;
+
+        public bool hasCamera;
+        public float[] cameraPosition;
+        public float[] cameraRotation;
+        public float[] cameraPivot;
+        public float cameraSize;
+        public float cameraFieldOfView;
+        public float cameraAspect;
+        public float cameraNearClip;
+        public float cameraFarClip;
+        public bool cameraOrthographic;
+        public long sampleNumber;
+
+        public Vector3 GetLocalPosition()
+        {
+            return ToVector3(localPosition, Vector3.zero);
+        }
+
+        public Vector3 GetLocalNormal()
+        {
+            return ToVector3(localNormal, Vector3.up);
+        }
+
+        public Vector3 GetWorldPosition()
+        {
+            return ToVector3(worldPosition, Vector3.zero);
+        }
+
+        public Vector3 GetWorldNormal()
+        {
+            return ToVector3(worldNormal, Vector3.up);
+        }
+
+        public Vector3 GetCameraPosition()
+        {
+            return ToVector3(cameraPosition, Vector3.zero);
+        }
+
+        public Quaternion GetCameraRotation()
+        {
+            if (cameraRotation == null || cameraRotation.Length < 4 ||
+                !IsFinite(cameraRotation[0]) || !IsFinite(cameraRotation[1]) ||
+                !IsFinite(cameraRotation[2]) || !IsFinite(cameraRotation[3]))
+            {
+                return Quaternion.identity;
+            }
+
+            return new Quaternion(cameraRotation[0], cameraRotation[1], cameraRotation[2], cameraRotation[3]);
+        }
+
+        public Vector3 GetCameraPivot()
+        {
+            return ToVector3(cameraPivot, Vector3.zero);
+        }
+
+        public bool IsValid()
+        {
+            if (string.IsNullOrEmpty(sceneContext) || sampleNumber < 0)
+                return false;
+
+            if (hasPointer && (!IsVector3(worldPosition) || !IsVector3(worldNormal)))
+                return false;
+
+            if (hasPointer && !string.IsNullOrEmpty(pointerObjectGuid) &&
+                (!IsVector3(localPosition) || !IsVector3(localNormal)))
+            {
+                return false;
+            }
+
+            return !hasCamera ||
+                   (IsVector3(cameraPosition) && IsQuaternion(cameraRotation) && IsVector3(cameraPivot) &&
+                    IsFinite(cameraSize) && cameraSize >= 0f &&
+                    IsFinite(cameraFieldOfView) && cameraFieldOfView > 0f && cameraFieldOfView < 180f &&
+                    IsFinite(cameraAspect) && cameraAspect > 0f &&
+                    IsFinite(cameraNearClip) && cameraNearClip >= 0f &&
+                    IsFinite(cameraFarClip) && cameraFarClip > cameraNearClip);
+        }
+
+        public static float[] FromVector3(Vector3 value)
+        {
+            return new[] { value.x, value.y, value.z };
+        }
+
+        public static float[] FromQuaternion(Quaternion value)
+        {
+            return new[] { value.x, value.y, value.z, value.w };
+        }
+
+        static Vector3 ToVector3(float[] values, Vector3 fallback)
+        {
+            return IsVector3(values) ? new Vector3(values[0], values[1], values[2]) : fallback;
+        }
+
+        static bool IsVector3(float[] values)
+        {
+            return values != null && values.Length >= 3 &&
+                   IsFinite(values[0]) && IsFinite(values[1]) && IsFinite(values[2]);
+        }
+
+        static bool IsQuaternion(float[] values)
+        {
+            return values != null && values.Length >= 4 &&
+                   IsFinite(values[0]) && IsFinite(values[1]) &&
+                   IsFinite(values[2]) && IsFinite(values[3]);
+        }
+
+        static bool IsFinite(float value)
+        {
+            return !float.IsNaN(value) && !float.IsInfinity(value);
+        }
+    }
+}

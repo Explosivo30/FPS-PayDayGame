@@ -1,0 +1,104 @@
+{
+  "number": 1,
+  "title": "Arsenal mutante",
+  "short": "Armas que evolucionan",
+  "accent": "#BA4B22",
+  "tagline": "La pistola no se queda pequeña: aprende trucos que cambian cómo resuelves una horda.",
+  "thesis": "Cada carta añade una acción reconocible al arma: cargar una lanza, dejar una cortina, recoger enemigos o lanzar el cuchillo. La diversión nace de combinar esos verbos. Conseguir otra arma abre posibilidades nuevas, en lugar de llenar un inventario que ya tenías completo.",
+  "today_proposal": "Hoy la oferta favorece el arma equipada y casi todas las cartas cambian estadísticas. Propongo conservar la elección pausada de una entre tres, pero sustituir ese contenido por mutaciones visibles. Las armas se adquieren durante la run. Son ideas, no sistemas implementados.",
+  "moment": "Ariete cruza delante de dos robots. Cargas la pistola, atraviesas la fila y dejas un fusible en cada cuerpo. El siguiente impacto detona el primero. Recargas, lanzas el cargador al grupo restante y cambias de posición antes de la explosión.",
+  "choose_if": "Quieres que la protagonista sea el arma y que cada nueva carta se note inmediatamente al disparar.",
+  "cards": [
+    {
+      "name": "Cámara de ariete",
+      "trigger": "Pistola: mantén disparo 0,6 s y suelta.",
+      "effect": "Lanza de doble daño que atraviesa hasta tres robots.",
+      "signal": "Cámara encendida, chasquido grave y trazo grueso.",
+      "combo": "Siembra Fusible doble en una fila.",
+      "cap": "Consume tres balas; un impacto por robot y disparo. Clic breve conserva el tiro normal."
+    },
+    {
+      "name": "Fusible doble",
+      "trigger": "Cualquier arma de fuego: impacto directo sobre un robot.",
+      "effect": "Coloca una marca; otro disparo directo la detona en área.",
+      "signal": "Fusible naranja visible y aviso corto al armarse.",
+      "combo": "Cámara de ariete marca varios cuerpos.",
+      "cap": "Una marca por robot; caduca en tres segundos. Explosión: máximo cuatro víctimas; no activa cartas."
+    },
+    {
+      "name": "Horquilla",
+      "trigger": "Carabina: cada cuarto disparo que impacta.",
+      "effect": "Dos ramales saltan a otros robots visibles, hasta cinco metros.",
+      "signal": "Bifurcación naranja en forma de Y.",
+      "combo": "Embudo de chatarra acerca blancos secundarios.",
+      "cap": "Cada ramal inflige medio impacto; exige visión libre. No rebota ni activa cartas. Contador avanza solo con disparos primarios."
+    },
+    {
+      "name": "Cortina láser",
+      "trigger": "Carabina: cada disparo primario.",
+      "effect": "Su trayectoria queda fija y daña robots que la crucen durante 0,6 s.",
+      "signal": "Tres hilos luminosos finos; nunca una pared opaca.",
+      "combo": "Embudo conduce la horda hacia los trazos.",
+      "cap": "Tres trazos activos. Un daño reducido por robot cada 0,6 s. No activa cartas."
+    },
+    {
+      "name": "Embudo de chatarra",
+      "trigger": "Escopeta: cada disparo, incluidos los discos.",
+      "effect": "Un pulso agrupa robots hacia el eje del cono, sin acercarlos al jugador.",
+      "signal": "Arcos naranjas cierran una pinza.",
+      "combo": "Alinea blancos para Horquilla o Cámara de ariete.",
+      "cap": "Máximo 1,5 m lateral; Ariete 0,4 m. Inmunidad al tirón durante dos segundos. No atraviesa paredes."
+    },
+    {
+      "name": "Disco de demolición",
+      "trigger": "Escopeta: sustituye los perdigones; conserva el pulso de Embudo.",
+      "effect": "Lanza un disco que corta robots y permite un rebote contra una pared.",
+      "signal": "Disco dentado grande; chispa y sonido metálico al rebotar.",
+      "combo": "Embudo concentra objetivos en su recorrido.",
+      "cap": "Un cartucho; tres víctimas distintas, un rebote y 1,2 s. Sus impactos no generan activaciones adicionales de cartas."
+    },
+    {
+      "name": "Hoja de retorno",
+      "trigger": "Cuchillo: mantén ataque 0,5 s y suelta.",
+      "effect": "Arroja la hoja hasta doce metros; después regresa al jugador.",
+      "signal": "Hoja física y cinta naranja dibujan ida y vuelta.",
+      "combo": "Embudo alinea objetivos antes del lanzamiento.",
+      "cap": "Dos víctimas por trayecto; un impacto por víctima en cada dirección. Sin ataques de cuchillo mientras vuela; permite cambiar de arma."
+    },
+    {
+      "name": "Recarga explosiva",
+      "trigger": "Pistola o carabina: recarga manual tras gastar tres balas.",
+      "effect": "Expulsa el cargador hacia delante; explota tras un segundo en un radio pequeño.",
+      "signal": "Cargador rojo físico, pitido y círculo previo en el suelo.",
+      "combo": "Cámara de ariete satisface el gasto de tres balas.",
+      "cap": "Un cargador activo; explosiones no activan cartas. No concede munición gratuita."
+    }
+  ],
+  "flow": "Empiezas con pistola. Primera recompensa: carabina, escopeta o cuchillo. Después eliges una de tres mutaciones compatibles; siempre hay una del arma equipada. En pisos 2 y 3, una opción ofrece arma nueva. Las ofertas pausan la partida; los cambios duran el intento. Nunca mejoras para armas ausentes.",
+  "shop": "Daño, cadencia, cargador, recarga, salud, escudo y suministros pasan a la tienda. Las cartas reservan el cambio de comportamiento. Sin duplicados ni niveles de +10%; comprar munición nunca depende de una carta.",
+  "builds": [
+    {
+      "name": "Demoler y rematar",
+      "cards": ["Cámara de ariete", "Fusible doble", "Recarga explosiva"],
+      "sequence": "Contra Ariete, cargas mientras avanza y disparas otra vez para detonar su marca. Contra Aguja, aprovechas su preparación para plantar y rematar el fusible sin quedarte quieto. En horda, alineas cuerpos, perforas y recargas hacia el grupo superviviente: el cargador convierte tu pausa ofensiva en amenaza.",
+      "decision": "Gastar tres balas en perforación o usar dos tiros rápidos para el fusible. Cargar exige una ventana; la potencia no garantiza seguridad."
+    },
+    {
+      "name": "Pasillo industrial",
+      "cards": ["Horquilla", "Cortina láser", "Embudo de chatarra"],
+      "sequence": "Un escopetazo junta la horda; cambias a carabina y cruzas su avance con trazos y bifurcaciones. Ariete apenas se desplaza: necesitas apartarte y volver a alinear. Ante Aguja, un ramal puede alcanzarla desde un robot cercano, siempre con visión libre; las líneas no giran para perseguirla.",
+      "decision": "Seguir disparando sostiene la cortina; cambiar a escopeta recoloca objetivos. Elegir el momento del cambio importa más que mantener pulsado."
+    }
+  ],
+  "choice": "Cámara de ariete frente a Recarga explosiva: ¿quieres resolver filas con puntería y carga, o dominar la pausa de recarga? El juego debe mostrar un ejemplo breve de ambas acciones antes de elegir.",
+  "prototype": "Solo Cámara de ariete, Fusible doble y Recarga explosiva. Pistola inicial, una adquisición de arma y ofertas sin duplicados. Probar primero disparo, marca y recarga por separado; después su combinación. Esta selección ya permite una build completa sin esperar otra arma.",
+  "effort": "Coste relativo: carga, fusible y cargador, medio. Cortina, disco y hoja, alto por colisiones y animación. Embudo exige desplazar agentes con seguridad. La oferta compatible es trabajo común. No necesita rediseñar enemigos o mapas.",
+  "risks": "El daño derivado conserva atribución de bajas, chips y progreso de oleada; evita activaciones recursivas de cartas o bonificaciones. Mantener avisos enemigos legibles y suministro accesible. Antes del playtest, garantizar que terminar una oleada siempre permite continuar.",
+  "tests": [
+    "Misma oleada con cartas estadísticas y con estas tres. Tras cada primera elección, pedir que explique qué acción nueva puede hacer.",
+    "Observar si usa carga, fusible y cargador voluntariamente. Preguntar qué decisión repetiría en otra run y cuál resulta incómoda.",
+    "Probar Ariete, Aguja y horda; confirmar que se entiende la causa de cada explosión y siguen visibles los avisos enemigos.",
+    "Registrar impactos y munición: sin cadenas infinitas, duplicados ni ofertas inválidas. Comprobar pausa, muerte, obstáculos y final de oleada."
+  ],
+  "tradeoff": "Es la dirección más centrada en el arma. Exige más presentación y colisiones que añadir porcentajes; algunas cartas son ambiciosas. Primero hay que demostrar que tres mutaciones son divertidas y legibles. El catálogo de ocho es una propuesta, no una promesa de producción."
+}

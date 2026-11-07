@@ -1,0 +1,5 @@
+LaboratoryFloor: Telltale slots=508, other mesh slots=0, enemies=4, converted renderers=496, pipeline=Pipeline
+RoboticForest: Telltale slots=1185, other mesh slots=0, enemies=0, converted renderers=1730, pipeline=Pipeline
+CrystalGarden: Telltale slots=1100, other mesh slots=0, enemies=0, converted renderers=2818, pipeline=Pipeline
+Level1: Telltale slots=81, other mesh slots=0, enemies=0, converted renderers=2887, pipeline=Pipeline
+SampleScene: Telltale slots=406, other mesh slots=0, enemies=2, converted renderers=3281, pipeline=Pipeline

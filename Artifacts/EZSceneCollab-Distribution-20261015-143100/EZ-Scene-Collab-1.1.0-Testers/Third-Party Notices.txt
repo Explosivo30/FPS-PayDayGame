@@ -1,0 +1,16 @@
+EZ Scene Collab - Third-Party Notices
+====================================
+
+No third-party source code, binary libraries, fonts, images, models, audio, or other third-party content are embedded in this package.
+
+Optional compatibility
+----------------------
+
+EZ Scene Collab can integrate with Unity ProBuilder 6.x when that package is installed separately. ProBuilder is not distributed with EZ Scene Collab and remains subject to Unity's own terms and package license.
+
+External networking products mentioned in the offline documentation
+--------------------------------------------------------------------
+
+Tailscale and LogMeIn Hamachi are optional external products. They are not bundled, required, sponsored, or endorsed by EZ Scene Collab. Their names are used only to explain compatible private-network configurations. Users obtain and use those products under their respective providers' terms.
+
+Unity and ProBuilder are trademarks or registered trademarks of Unity Technologies or its affiliates. EZ Scene Collab is an independent product and is not affiliated with or endorsed by Unity Technologies.

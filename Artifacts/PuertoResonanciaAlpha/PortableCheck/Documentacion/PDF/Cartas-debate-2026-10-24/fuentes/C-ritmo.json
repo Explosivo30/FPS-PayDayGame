@@ -1,0 +1,93 @@
+{
+  "id": "C",
+  "agent": "Diseñador de ritmo",
+  "title": "Relevo brutal",
+  "thesis": "Convertir los cambios de fase del combate en capacidades: un arma vacía se vuelve soplete, dos armas pueden resolver dos ángulos y una recarga abre una breve oportunidad de recolocación. La potencia depende de decidir cuándo continuar, cambiar o retirarse; no de mantener un multiplicador invisible.",
+  "criteria_note": "Prefiero una capacidad nueva que se entiende tras usarla sobre una que solo evita pulsar recarga. La variedad y el control pesan más que el coste; la fiabilidad decide entre opciones de valor parecido. Toda la ronda es diseño propuesto, sin validación humana.",
+  "cards": [
+    {
+      "id": "C1",
+      "name": "Cámara abierta",
+      "trigger": "Pistola vacía: suelta y vuelve a mantener disparo.",
+      "effect": "Soplete frontal dirigido, de 3 m, alimentado por reserva.",
+      "signal": "Cámara desplegada y llama corta; icono distinto de la carga perforante.",
+      "limit": "Cuatro balas al activar; menos reserva inicia recarga. Hasta 1 s, tres víctimas por activación y recuperación de 6 s. Soltar, recargar o cambiar cancela inmediatamente.",
+      "synergy_ids": ["P1-01", "P2-03"],
+      "synergy": "Cámara de ariete vacía el arma; Freno permite retirarte después.",
+      "distinct_from": "Recámara de choque rellena munición; aquí eliges otro ataque mientras el cargador permanece vacío.",
+      "tradeoff": "Acercarse a Ariete sigue siendo arriesgado. Mantener el último disparo no la activa."
+    },
+    {
+      "id": "C2",
+      "name": "Doble relevo",
+      "trigger": "Tras una baja directa, cambia a otra arma de fuego obtenida.",
+      "effect": "El siguiente disparo manual dispara ambas: arma nueva al centro y anterior al último punto apuntado, dentro del frontal.",
+      "signal": "Dos armas visibles, dos miras diferenciadas y dos fogonazos físicos.",
+      "limit": "Una descarga en 1,5 s; munición real de ambas y visión libre. Punto anterior fuera del cono frontal cancela su tiro.",
+      "synergy_ids": ["P1-05", "P2-03"],
+      "synergy": "Escopeta conserva el cono sobre la horda mientras apuntas la pistola a Aguja.",
+      "distinct_from": "Horquilla busca vecinos automáticamente; aquí preparas dos direcciones y eliges dos patrones de armas.",
+      "tradeoff": "Solo se ofrece con dos armas de fuego. Animación y lectura ambiciosas."
+    },
+    {
+      "id": "C3",
+      "name": "Compás roto",
+      "trigger": "Vacía un cargador con al menos tres impactos directos y comienza la recarga.",
+      "effect": "Durante un instante, el avance y preparación de ataques enemigos van a cámara lenta; puedes recolocarte, pero no disparar.",
+      "signal": "Estela breve en enemigos, sonido dilatado y cámara del jugador estable.",
+      "limit": "Ventana orientativa de 0,6 s cada 12 s. No cancela ataques, no borra daño ni ralentiza un raycast ya resuelto.",
+      "synergy_ids": ["P1-01", "C1"],
+      "synergy": "Preparas un ángulo de carga; elegir recargar sacrifica continuar con el soplete.",
+      "distinct_from": "Silencio propagado cancela avisos locales; esta capacidad dilata su progreso y también impide tu ofensiva.",
+      "tradeoff": "Alterar relojes de IA es delicado; puede trivializar escapes."
+    },
+    {
+      "id": "C4",
+      "name": "Presa de taller",
+      "trigger": "Mantén recarga apuntando a un robot normal a menos de 1,5 m.",
+      "effect": "Un gancho lo sujeta delante del arma: su cuerpo intercepta disparos mientras te recolocas; soltar lo libera.",
+      "signal": "Gancho visible, forcejeo corto y robot ocupando parte del frontal.",
+      "limit": "Hasta 1,2 s; no puedes disparar, saltar ni deslizar. Solo normales, sin atravesar paredes; 12 s de recuperación.",
+      "synergy_ids": ["P1-01", "P2-05"],
+      "synergy": "Retiras una amenaza del frontal y preparas tu siguiente disparo al soltar.",
+      "distinct_from": "Pantalla de chispas crea cobertura fija; aquí cambias control y posición usando un enemigo real.",
+      "tradeoff": "No es invulnerabilidad: lados y melee siguen amenazando. Exige manipular agentes con seguridad."
+    },
+    {
+      "id": "C5",
+      "name": "Recámara híbrida",
+      "trigger": "Cambia a otra arma de fuego y completa una recarga.",
+      "effect": "Sus próximos dos disparos toman el patrón del arma anterior: abanico de escopeta, ráfaga de carabina o tiro concentrado de pistola.",
+      "signal": "Tres iconos y transformación de la boca; disparo normal al consumir ambas cargas.",
+      "limit": "Solo armas obtenidas; munición equivalente al patrón prestado, una transformación activa y sin multiplicar perdigones por cartas.",
+      "synergy_ids": ["P1-05", "P2-04"],
+      "synergy": "Preparas una respuesta cercana o precisa antes de entrar con cuchillo.",
+      "distinct_from": "Disco sustituye siempre la escopeta; esta carta convierte el orden de dos armas en elección de función.",
+      "tradeoff": "Mayor carga de aprendizaje; no debe convertirse en tabla de combinaciones obligatoria."
+    },
+    {
+      "id": "C6",
+      "name": "Carcasa prestada",
+      "trigger": "Tras abatir directamente a un melee normal cercano, usa Interactuar sobre sus restos.",
+      "effect": "Acoplas su armazón y cambias el arma por dos golpes amplios de puño mecánico; después se desmonta.",
+      "signal": "Ensamblaje breve, antebrazos grandes visibles y dos indicadores físicos de golpes.",
+      "limit": "No roba vida ni concede inmunidad. Sin disparos ni recarga mientras dura; termina al gastar dos golpes o tras 4 s.",
+      "synergy_ids": ["P2-05", "P1-05"],
+      "synergy": "Una entrada cercana abre un remate manual contra el borde de la horda.",
+      "distinct_from": "Punta de lanza aproxima al cuchillo; aquí adoptas temporalmente otro conjunto de ataques.",
+      "tradeoff": "Animación, equipamiento y colisión complejos. Fuera del primer prototipo."
+    }
+  ],
+  "old_directions": [
+    {"name": "Arsenal mutante", "decision": "Base preferida", "reason": "La primera carta ya cambia lo que hace una pistola. Sus verbos se ven, mantiene entrada sencilla y permite estilos distintos sin convertir una maniobra concreta en obligación."},
+    {"name": "Impulso de combate", "decision": "Segunda capa selectiva", "reason": "Aporta entradas y salidas interesantes; escogería una o dos piezas, no premiar todo el tiempo el mismo deslizamiento. Tiro rasante y Cámara de ariete se pisan en su resultado perforante."},
+    {"name": "Protocolo Dominó", "decision": "Reservar piezas", "reason": "La preparación espacial es interesante, pero varios enlaces y marcas simultáneos exigen leer demasiado antes del primer momento de poder. Circuito cerrado merece prueba separada, no dirigiría toda la primera versión."},
+    {"name": "Ingeniería de chatarra", "decision": "Más adelante", "reason": "La fantasía es distinta y válida, aunque la acumulación de artefactos ligados a recargar puede dispararse por accidente. No coincide tanto con la preferencia de Edgar por armas y movimiento."}
+  ],
+  "provisional": {
+    "direction": "Arsenal mutante como base, con una salida activa de Impulso y una transformación nueva de Relevo",
+    "prototype_ids": ["P1-01", "C1", "P2-03"],
+    "reason": "Cámara de ariete da una decisión de precisión y alineación, Cámara abierta cambia el momento de quedarse vacío y Freno permite elegir una retirada. Tres verbos visibles y autónomos, ya usables con la pistola inicial.",
+    "main_objection": "No demostraría todavía el valor de adquirir una segunda arma, y un soplete que exige entrar en melee puede castigar demasiado a novatos. La prueba debe comparar alternativas y permitir conservar juego a distancia."
+  }
+}

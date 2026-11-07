@@ -1,0 +1,31 @@
+# Matriz de compatibilidad de EZ Scene Collab
+
+Esta tabla recoge las pruebas completadas. “No verificado” significa que todavía no debe anunciarse esa configuración como compatible.
+
+| Área | Configuración | Estado | Notas |
+|---|---|---:|---|
+| Sistema operativo | Windows | Verificado | Es el único sistema operativo probado. |
+| Sistema operativo | macOS | No verificado | No anunciar como compatible. |
+| Sistema operativo | Linux | No verificado | No anunciar como compatible. |
+| Unity | 6000.0.58f2 | Verificado | Importación limpia, compilación y prueba host/cliente en el mismo equipo. |
+| Unity | Otras versiones de Unity 6.0 | No verificado | Puede ser compatible, pero todavía no se declara. |
+| Unity | Unity 6.5 o posterior | No verificado | Debe probarse antes de anunciarlo. |
+| ProBuilder | No instalado | Verificado | El núcleo se importa y funciona sin errores. |
+| ProBuilder | 6.0.9 | Verificado | La integración opcional compila y se detecta automáticamente. |
+| ProBuilder | Otras versiones 6.x | Rango configurado, no probado por completo | Prueba cada versión que quieras anunciar. |
+| ProBuilder | 5.x o 7.x | No compatible | La integración permanece desactivada. |
+| Render pipeline | URP 17.0.4 | Verificado en el proyecto de desarrollo | Sigue siendo recomendable una prueba en proyecto limpio. |
+| Render pipeline | Built-in | Importación limpia verificada; colaboración no verificada | Todavía no anunciar compatibilidad completa. |
+| Render pipeline | HDRP | No verificado | No anunciar como compatible. |
+| Red | Sockets TCP en el mismo ordenador | Verificado para 1.1 | Host y dos clientes loopback, con edición durante la entrada. La comprobación visual entre editores queda pendiente para 1.1. |
+| Red | Dos ordenadores Windows físicos | No verificado | Necesario antes de una afirmación comercial sólida. |
+| Red | LAN | Implementado; prueba física pendiente | TCP directo. |
+| Red | Tailscale/Hamachi | Debería funcionar como red IP privada | Prueba completa pendiente. |
+| Dependencias | Newtonsoft.Json | No requerido | Utiliza `JsonUtility` y `EditorJsonUtility`. |
+| Dependencias | Package de control de versiones | No requerido | Sigue siendo recomendable para compartir assets. |
+
+Los materiales de la demo utilizan el shader integrado `Unlit/Color` para reducir la dependencia del render pipeline. Esto no sustituye las pruebas colaborativas completas en cada pipeline.
+
+[Volver al manual en español](README.md)
+
+Consulta [la validación de 1.1](../VALIDATION_1_1.md) para las pruebas exactas y medidas de rendimiento.

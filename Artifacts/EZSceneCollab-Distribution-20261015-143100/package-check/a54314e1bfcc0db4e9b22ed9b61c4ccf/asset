@@ -1,0 +1,148 @@
+# Troubleshooting, update, and uninstall
+
+## Client cannot connect
+
+1. Confirm the host session is active and Unity remains open.
+2. Confirm the address and TCP port are correct.
+3. For same-PC testing use `127.0.0.1`; for LAN use the host's local IPv4; for a VPN use the host's VPN address.
+4. Confirm host and client use the same EZ Scene Collab and Unity versions.
+5. Check Windows Firewall and antivirus network filtering.
+6. Confirm the VPN policy allows the chosen TCP port.
+7. Verify another application is not already using the port.
+8. With public forwarding, check TCP rather than UDP, router destination, CGNAT, and double NAT.
+
+Try another unused high port on both sides. Never disable the entire firewall as a permanent solution.
+
+## Host says the port cannot be opened
+
+- Another Unity instance or application may already own the port.
+- A previous process may still be running.
+- The port number must be between 1 and 65535.
+- Security software may block Unity.
+- Use a different high port and restart the host session.
+
+## Object exists in the Hierarchy but is invisible
+
+This normally indicates missing visual asset data rather than a missing GameObject.
+
+1. Check EZ Scene Collab's asset warnings and Unity Console.
+2. Pull the same Git/Unity Version Control revision as the host.
+3. Confirm prefab, mesh, material, shader, and texture GUIDs match.
+4. Reimport the affected asset if its local import is broken.
+5. Confirm both computers use the same render pipeline and package versions.
+6. For an imported Maya/FBX mesh, remember that the mesh file is not sent over the network.
+7. Without ProBuilder, a generated ProBuilder mesh may be visible as a regular mesh but is not editable with ProBuilder.
+
+Stop the session, repair the shared assets, reopen the same scene, and reconnect.
+
+## Scene changes unexpectedly during initial connection
+
+The host snapshot is authoritative and reconciles the client's active scene.
+
+- Confirm the correct scene is active on both computers before joining.
+- Save or commit before every session.
+- Do not join from an unrelated or unsaved scene.
+- Stop immediately and restore from version control if the wrong scene was used.
+
+Version 1.1.0 rejects incompatible protocols before synchronization. Use the same package version in every editor. Scene-name mismatch is still a manual preflight check.
+
+## Locked object can still be edited
+
+1. Wait for the lock result from the host; it is not purely local.
+2. Confirm the other user's name appears in active locks.
+3. Confirm both users run the same package version.
+4. Use standard Unity selection and transform tools for the test.
+5. Custom scripts and editor extensions can bypass the standard guard.
+6. Stop and rejoin if the connection or lock list is stale.
+
+A properly received remote lock makes the object non-pickable, restores a rejected manipulation, and colors it in the other participant's color. Your own locks intentionally have no overlay.
+
+## Lock appears stuck
+
+- Ask the owner to deselect the object.
+- Check whether the owner is still connected.
+- The host releases all locks for a client when its connection closes.
+- If the UI is stale, stop the client and join again.
+- If the host has stopped, start a new session.
+
+## ProBuilder integration does not appear
+
+- Install ProBuilder separately through Unity Package Manager.
+- The verified version is 6.0.9; the integration is configured for compatible 6.x versions.
+- Wait for Unity to finish compiling after installation.
+- Stop the EZ Scene Collab session before changing the integration toggle.
+- Check Unity Console for ProBuilder compilation errors.
+- Without ProBuilder the core remains operational.
+
+## ProBuilder object is visible but not editable
+
+The receiver probably does not have compatible ProBuilder installed or the integration is disabled. In that configuration, generated mesh data can be restored as a normal Unity mesh. Install a compatible version, enable the integration before the session, and reconnect from the same project revision.
+
+## Prefab, material, or component warning
+
+- Pull the exact project revision.
+- Never regenerate or replace `.meta` files independently.
+- Confirm the asset path and GUID.
+- Install the package or assembly that defines the component.
+- Resolve all missing scripts before reconnecting.
+- If the dependency hash differs, determine which version is authoritative through source control.
+
+Warnings detect incompatibility; they do not transfer or repair assets.
+
+## Reconnection fails
+
+EZ Scene Collab tries up to five times.
+
+- Keep the host Unity Editor and scene open.
+- Confirm the host address has not changed.
+- Confirm Tailscale/Hamachi still shows both computers online.
+- Check firewall and network switching.
+- If the retries finish, manually join again.
+- If incremental history expired, expect a complete snapshot instead.
+
+Do not continue making important local edits while disconnected and expect them to merge automatically.
+
+## Large scene or mesh pauses
+
+- Test the demo first.
+- Profile a copy of the real scene.
+- Reduce generated/ProBuilder mesh density.
+- Avoid selecting or editing many dense generated meshes simultaneously.
+- Make sure all imported meshes are shared as assets rather than rebuilt as generated meshes.
+- Allow the initial snapshot to finish before editing.
+- Watch memory, Editor responsiveness, network throughput, and Console warnings.
+- Split work into independent scenes only if the team treats them as separate EZ Scene Collab sessions; multi-scene synchronization is not supported.
+
+## Undo or Redo does not match another Editor
+
+Undo/Redo sends the resulting supported object state, not a distributed transaction. Asset changes, unsupported custom tools, and operations outside Unity's tracked object Undo may not propagate. Save, stop editing the object, verify its lock, and manually return to the agreed authoritative state if necessary.
+
+## Updating EZ Scene Collab
+
+1. Stop all sessions.
+2. Save, commit, or back up scenes and the project.
+3. Close Unity if the release notes require it.
+4. Remove an older differently named root folder, such as `Assets/EZCollabTool`, so duplicate assemblies cannot remain.
+5. Import the new package into `Assets/EZSceneCollab`.
+6. Wait for compilation and check the Console.
+7. Read `CHANGELOG.md` and verify the version in `package.json`.
+8. Open the demo scene and run a host/client smoke test before using a production scene.
+9. Every teammate must update before joining.
+
+Importing a `.unitypackage` over an older version does not automatically remove obsolete files, so check the changelog for cleanup instructions.
+
+## Uninstalling
+
+1. Stop the session on every Editor.
+2. Save and commit any scene work.
+3. Remove the demo scene from Build Settings if you added it.
+4. Delete the complete `Assets/EZSceneCollab` folder and its `.meta` file.
+5. Let Unity recompile.
+6. Remove any Windows Firewall or router rules created specifically for EZ Scene Collab.
+7. Uninstall ProBuilder only if no other part of the project needs it.
+
+EZ Scene Collab does not add a persistent component to normal scene objects, so removing the tool should not require stripping marker components. Demo scenes and prefabs inside the package are removed with the folder. The locally stored language preference may remain in Unity Editor preferences and is harmless.
+
+## Requesting support
+
+Read [SUPPORT.md](SUPPORT.md). Include exact versions, role, connection type, reproduction steps, Console output, and whether the demo reproduces the problem. Do not post confidential scenes, credentials, or public IP addresses in a public ticket.

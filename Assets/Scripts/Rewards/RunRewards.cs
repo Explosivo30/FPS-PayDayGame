@@ -23,6 +23,7 @@ public class RunRewards : MonoBehaviour
     bool specialsUnlocked;
     readonly IRewardEffect weaponEffect=new WeaponCardEffect(),playerEffect=new PlayerCardEffect(),
         supplyEffect=new SupplyCardEffect(),specialEffect=new SpecialCardEffect(),chipsEffect=new ChipsCardEffect();
+    readonly IRewardEffect mutationEffect=new MutationCardEffect();
     public RewardState State { get; private set; }
     public bool Pending=>State!=RewardState.Idle;
     public IReadOnlyList<RewardCard> Offer=>offer;
@@ -37,6 +38,7 @@ public class RunRewards : MonoBehaviour
     public IRewardEffect Effect(RewardCard card)
     {
         switch(card.kind) {
+            case RewardKind.Mutation:return mutationEffect;
             case RewardKind.WeaponStat:return weaponEffect;case RewardKind.Supply:return supplyEffect;
             case RewardKind.KillShield:case RewardKind.AutoLoader:return specialEffect;
             case RewardKind.Chips:return chipsEffect;default:return playerEffect;
@@ -65,6 +67,8 @@ public class RunRewards : MonoBehaviour
         {
             RewardCard card=guaranteed!=null&&guaranteed.group==group?guaranteed:null;
             var options=pool.Where(c=>c.group==group&&!offer.Contains(c)).ToList();
+            var mutations=options.Where(c=>c.kind==RewardKind.Mutation).ToList();
+            if(mutations.Count>0)options=mutations;
             if(card==null&&group==RewardGroup.Offense)
             {
                 var equipped=options.Where(c=>c.weaponId==Context.EquippedId).ToList();

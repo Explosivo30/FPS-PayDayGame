@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aa7a8dc039cb54885cbcf3627787cb, type: 3}
+  m_Name: RecoverableSaw
+  m_EditorClassIdentifier: 
+  id: mutation_RecoverableSaw
+  title: Sierra recuperable
+  weaponId: 
+  description: Tres bajas con disparos preparan una sierra. Recargar la lanza; recogerla
+    permite volver a usarla.
+  activationHint: "Una sierra \xB7 un impacto por robot \xB7 recogida antes de 8
+    s"
+  icon: {fileID: 21300000, guid: 69e147e6d8ebf774e8d9e4c3356e011d, type: 3}
+  group: 1
+  kind: 8
+  stat: 0
+  mutation: 17
+  special: 0
+  maxLevel: 1
+  value: 50
+  secondaryValue: 0

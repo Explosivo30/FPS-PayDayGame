@@ -1,0 +1,46 @@
+using System;
+using UnityEditor;
+
+namespace EZCollabTool
+{
+    public static class EZCollabViewSettings
+    {
+        const string Prefix = "EZSceneCollab.View.1.1.";
+
+        public static event Action changed;
+
+        public static bool pointers
+        {
+            get => EditorPrefs.GetBool(Prefix + "Pointers", true);
+            set => Set(Prefix + "Pointers", value);
+        }
+
+        public static bool cameras
+        {
+            get => EditorPrefs.GetBool(Prefix + "Cameras", true);
+            set => Set(Prefix + "Cameras", value);
+        }
+
+        public static bool names
+        {
+            get => EditorPrefs.GetBool(Prefix + "Names", true);
+            set => Set(Prefix + "Names", value);
+        }
+
+        public static bool colors
+        {
+            get => EditorPrefs.GetBool(Prefix + "Colors", true);
+            set => Set(Prefix + "Colors", value);
+        }
+
+        static void Set(string key, bool value)
+        {
+            if (EditorPrefs.GetBool(key, true) == value)
+                return;
+
+            EditorPrefs.SetBool(key, value);
+            changed?.Invoke();
+            EZCollabSceneRepaintScheduler.Request();
+        }
+    }
+}

@@ -1,0 +1,5 @@
+Unity 6000.0.58f2 / NVIDIA GeForce RTX 3070
+New game Risograph shader errors: 0
+
+Character views: same geometry, camera, lighting and environment. Original/game processed through actual camera feature. Surface styles are real mesh renders. Legacy Fantasy is GPU-processed from the exact original camera frame.
+World inputs are archived 2026-10-21 gameplay screenshots without HUD, not new gameplay or current-scene validation.

@@ -1,0 +1,1514 @@
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace EZCollabTool
+{
+    public class EZCollabServer
+    {
+        const int SnapshotTimeoutMilliseconds = 120000;
+        const int SnapshotStepObjectLimit = 32;
+        const double SnapshotStepBudgetSeconds = 0.002d;
+        const int SnapshotChunkObjectLimit = 32;
+        const int SnapshotChunkTargetChars = 256 * 1024;
+        const int MaxHistoryMessages = 4096;
+        const long MaxHistoryPayloadChars = 32L * 1024L * 1024L;
+        const int MaxPendingReliableMessages = 4096;
+        const long MaxPendingReliableBytes = 32L * 1024L * 1024L;
+        const int MaxPendingRealtimeKeys = 16384;
+
+        TcpListener tcpListener;
+        CancellationTokenSource cts;
+
+        readonly ConcurrentDictionary<string, ConnectedClient> clients = new ConcurrentDictionary<string, ConnectedClient>();
+        readonly ConcurrentDictionary<string, string> objectCreators =
+            new ConcurrentDictionary<string, string>();
+        readonly ConcurrentQueue<SnapshotRequest> snapshotRequests = new ConcurrentQueue<SnapshotRequest>();
+        readonly EZCollabLockManager lockManager = new EZCollabLockManager();
+        readonly SemaphoreSlim stateMessageOrder = new SemaphoreSlim(1, 1);
+        readonly object historyLock = new object();
+        readonly LinkedList<EZMessage> stateHistory = new LinkedList<EZMessage>();
+        readonly Dictionary<string, LinkedListNode<EZMessage>> historyTransforms =
+            new Dictionary<string, LinkedListNode<EZMessage>>();
+        SnapshotRequest activeSnapshotRequest;
+        long historyPayloadChars;
+        long historyFloorSequence;
+        long nextSequence;
+
+        public readonly EZCollabMessageInbox incomingMessages = new EZCollabMessageInbox();
+
+        public int clientCount => clients.Count;
+        public int recoveryHistoryCount
+        {
+            get
+            {
+                lock (historyLock)
+                    return stateHistory.Count;
+            }
+        }
+
+        public int pendingReliableMessageCount => SumPending(client => client.pendingReliableCount);
+        public int pendingRealtimeMessageCount => SumPending(client =>
+            client.realtimeStateBySequence.Count + client.latestPresenceMessages.Count);
+
+        sealed class ConnectedClient
+        {
+            public string peerId;
+            public string peerName;
+            public EZCollabCapabilities capabilities;
+            public TcpClient client;
+            public NetworkStream stream;
+            public readonly SemaphoreSlim sendLock = new SemaphoreSlim(1, 1);
+            public readonly object readinessLock = new object();
+            public readonly Queue<EZMessage> controlMessages = new Queue<EZMessage>();
+            public readonly Queue<EZMessage> stateMessages = new Queue<EZMessage>();
+            public readonly SortedDictionary<long, EZMessage> realtimeStateBySequence =
+                new SortedDictionary<long, EZMessage>();
+            public readonly Dictionary<string, long> realtimeStateKeys = new Dictionary<string, long>();
+            public readonly Dictionary<string, EZMessage> latestPresenceMessages =
+                new Dictionary<string, EZMessage>();
+            public readonly SemaphoreSlim outboundSignal = new SemaphoreSlim(0, 1);
+            public CancellationTokenSource outboundCts;
+            public int pendingReliableCount;
+            public long pendingReliableBytes;
+            public long synchronizedThroughSequence;
+            public long deliveredThroughSequence;
+            public bool isReady;
+            public volatile bool canReceivePresence;
+            public bool outboundPumpStarted;
+            public bool outboundSignalPending;
+            public bool isClosing;
+        }
+
+        sealed class NetworkReadBuffer
+        {
+            public readonly byte[] length = new byte[4];
+            public byte[] payload = new byte[32768];
+        }
+
+        sealed class SnapshotRequest
+        {
+            public long baselineSequence;
+            public EZSceneSnapshotCaptureOperation capture;
+            public readonly TaskCompletionSource<SceneSnapshot> completion =
+                new TaskCompletionSource<SceneSnapshot>(TaskCreationOptions.RunContinuationsAsynchronously);
+        }
+
+        public void Start(int port)
+        {
+            cts = new CancellationTokenSource();
+            tcpListener = new TcpListener(IPAddress.Any, port);
+            tcpListener.Start();
+            _ = Task.Run(() => AcceptLoop(cts.Token));
+        }
+
+        public void Stop()
+        {
+            cts?.Cancel();
+            tcpListener?.Stop();
+
+            foreach (ConnectedClient connectedClient in clients.Values)
+            {
+                lock (connectedClient.readinessLock)
+                    connectedClient.isClosing = true;
+                connectedClient.outboundCts?.Cancel();
+                try
+                {
+                    connectedClient.client.Close();
+                }
+                catch
+                {
+                }
+            }
+
+            clients.Clear();
+            objectCreators.Clear();
+            incomingMessages.Clear();
+
+            while (snapshotRequests.TryDequeue(out SnapshotRequest request))
+                request.completion.TrySetCanceled();
+            activeSnapshotRequest?.completion.TrySetCanceled();
+            activeSnapshotRequest = null;
+
+            lock (historyLock)
+            {
+                stateHistory.Clear();
+                historyTransforms.Clear();
+                historyPayloadChars = 0;
+                historyFloorSequence = 0;
+                nextSequence = 0;
+            }
+        }
+
+        public void ProcessMainThreadRequests()
+        {
+            if (activeSnapshotRequest == null)
+            {
+                if (incomingMessages.HasPendingSceneState || !stateMessageOrder.Wait(0))
+                    return;
+
+                try
+                {
+                    // A state message may have reached the main-thread inbox while
+                    // the ordering gate was being acquired, so check it again.
+                    if (incomingMessages.HasPendingSceneState)
+                        return;
+
+                    while (snapshotRequests.TryDequeue(out SnapshotRequest request))
+                    {
+                        if (request.completion.Task.IsCompleted)
+                            continue;
+
+                        request.baselineSequence = CreateSnapshotCheckpoint();
+                        request.capture = new EZSceneSnapshotCaptureOperation();
+                        activeSnapshotRequest = request;
+                        break;
+                    }
+                }
+                catch (Exception exception)
+                {
+                    activeSnapshotRequest?.completion.TrySetException(exception);
+                    activeSnapshotRequest = null;
+                }
+                finally
+                {
+                    stateMessageOrder.Release();
+                }
+            }
+
+            if (activeSnapshotRequest == null)
+                return;
+
+            if (activeSnapshotRequest.completion.Task.IsCompleted)
+            {
+                activeSnapshotRequest = null;
+                return;
+            }
+
+            try
+            {
+                activeSnapshotRequest.capture.Step(
+                    SnapshotStepObjectLimit,
+                    SnapshotStepBudgetSeconds);
+                if (!activeSnapshotRequest.capture.isComplete)
+                    return;
+
+                activeSnapshotRequest.completion.TrySetResult(activeSnapshotRequest.capture.snapshot);
+                activeSnapshotRequest = null;
+            }
+            catch (Exception exception)
+            {
+                activeSnapshotRequest.completion.TrySetException(exception);
+                activeSnapshotRequest = null;
+            }
+        }
+
+        public Task SendFromHost(EZMessage message)
+        {
+            if (message == null || cts == null || cts.IsCancellationRequested)
+                return Task.CompletedTask;
+
+            message.senderId = EZCollabState.localPeerId;
+            string releaseGuidAfterBroadcast = null;
+            switch (message.type)
+            {
+                case EZMessageType.CreateObject:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || string.IsNullOrEmpty(payload.guid))
+                        return Task.CompletedTask;
+                    objectCreators.TryAdd(payload.guid, EZCollabState.localPeerId);
+                    break;
+                }
+                case EZMessageType.TransformDelta:
+                {
+                    TransformPayload payload = message.GetPayload<TransformPayload>();
+                    if (payload == null || !lockManager.IsLockedBy(payload.guid, EZCollabState.localPeerId))
+                        return Task.CompletedTask;
+                    break;
+                }
+                case EZMessageType.ComponentDelta:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || !lockManager.IsLockedBy(payload.guid, EZCollabState.localPeerId))
+                        return Task.CompletedTask;
+                    if (payload.releaseLockAfterApply)
+                        releaseGuidAfterBroadcast = payload.guid;
+                    break;
+                }
+                case EZMessageType.DestroyObject:
+                {
+                    DestroyObjectPayload payload = message.GetPayload<DestroyObjectPayload>();
+                    bool isCreator = payload != null && objectCreators.TryGetValue(payload.guid, out string creator) &&
+                                     creator == EZCollabState.localPeerId;
+                    string owner = payload == null ? null : lockManager.GetOwner(payload.guid);
+                    bool allowed = owner == EZCollabState.localPeerId || (isCreator && string.IsNullOrEmpty(owner));
+                    if (payload == null || !allowed)
+                        return Task.CompletedTask;
+                    break;
+                }
+                case EZMessageType.LockRelease:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    if (payload != null && !string.IsNullOrEmpty(payload.guid))
+                        ReleaseHostLock(payload.guid);
+                    return Task.CompletedTask;
+                }
+            }
+
+            if (IsRecoverableStateMessage(message.type))
+                return SendHostStateOrdered(message, releaseGuidAfterBroadcast, cts.Token);
+
+            return BroadcastAll(message, cts.Token);
+        }
+
+        async Task SendHostStateOrdered(EZMessage message, string releaseGuid, CancellationToken token)
+        {
+            bool acquired = false;
+            try
+            {
+                await stateMessageOrder.WaitAsync(token);
+                acquired = true;
+
+                if (message.type == EZMessageType.TransformDelta)
+                {
+                    TransformPayload transform = message.GetPayload<TransformPayload>();
+                    if (transform == null || !lockManager.IsLockedBy(transform.guid, EZCollabState.localPeerId))
+                        return;
+                }
+                else if (message.type == EZMessageType.ComponentDelta)
+                {
+                    CreateObjectPayload component = message.GetPayload<CreateObjectPayload>();
+                    if (component == null || !lockManager.IsLockedBy(component.guid, EZCollabState.localPeerId))
+                        return;
+                }
+
+                if (message.type == EZMessageType.DestroyObject)
+                {
+                    DestroyObjectPayload destroyed = message.GetPayload<DestroyObjectPayload>();
+                    bool isCreator = destroyed != null &&
+                                     objectCreators.TryGetValue(destroyed.guid, out string creator) &&
+                                     creator == EZCollabState.localPeerId;
+                    string owner = destroyed == null ? null : lockManager.GetOwner(destroyed.guid);
+                    if (destroyed == null ||
+                        (owner != EZCollabState.localPeerId && !(isCreator && string.IsNullOrEmpty(owner))))
+                    {
+                        return;
+                    }
+
+                    lockManager.Release(destroyed.guid, EZCollabState.localPeerId);
+                    objectCreators.TryRemove(destroyed.guid, out _);
+                }
+
+                StampAndRemember(message);
+                EZCollabState.ObserveServerSequence(message.sequence);
+                await BroadcastAll(message, token);
+
+                if (!string.IsNullOrEmpty(releaseGuid))
+                {
+                    lockManager.Release(releaseGuid, EZCollabState.localPeerId);
+                    EZMessage unlocked = EZMessage.Create(
+                        EZMessageType.ObjectUnlocked,
+                        EZCollabState.localPeerId,
+                        new LockPayload { guid = releaseGuid, peerId = EZCollabState.localPeerId });
+                    unlocked.sequence = message.sequence;
+                    await BroadcastAll(unlocked, token);
+                    incomingMessages.Enqueue(unlocked);
+                }
+            }
+            finally
+            {
+                if (acquired)
+                    stateMessageOrder.Release();
+            }
+        }
+
+        public bool TryAcquireHostLock(string guid, string peerName)
+        {
+            if (!lockManager.TryAcquire(guid, EZCollabState.localPeerId))
+                return false;
+
+            LockPayload payload = new LockPayload
+            {
+                guid = guid,
+                peerId = EZCollabState.localPeerId,
+                peerName = peerName
+            };
+            EZMessage message = EZMessage.Create(EZMessageType.ObjectLocked, EZCollabState.localPeerId, payload);
+            _ = SendFromHost(message);
+            return true;
+        }
+
+        public void ReleaseHostLock(string guid)
+        {
+            if (!lockManager.IsLockedBy(guid, EZCollabState.localPeerId))
+                return;
+
+            lockManager.Release(guid, EZCollabState.localPeerId);
+            LockPayload payload = new LockPayload { guid = guid, peerId = EZCollabState.localPeerId };
+            EZMessage message = EZMessage.Create(EZMessageType.ObjectUnlocked, EZCollabState.localPeerId, payload);
+            message.sequence = GetCurrentSequence();
+            _ = SendFromHost(message);
+        }
+
+        async Task AcceptLoop(CancellationToken token)
+        {
+            while (!token.IsCancellationRequested)
+            {
+                try
+                {
+                    TcpClient tcpClient = await tcpListener.AcceptTcpClientAsync();
+                    tcpClient.NoDelay = true;
+                    _ = Task.Run(() => HandleClient(tcpClient, token));
+                }
+                catch (ObjectDisposedException)
+                {
+                    break;
+                }
+                catch (SocketException) when (token.IsCancellationRequested)
+                {
+                    break;
+                }
+                catch (Exception exception) when (!token.IsCancellationRequested)
+                {
+                    Debug.LogError(EZCollabLocalization.Tr(EZCollabText.AcceptFailedLog, exception.Message));
+                }
+            }
+        }
+
+        async Task HandleClient(TcpClient tcpClient, CancellationToken token)
+        {
+            ConnectedClient connectedClient = null;
+            string peerId = null;
+            string peerName = null;
+            NetworkStream stream = tcpClient.GetStream();
+            NetworkReadBuffer readBuffer = new NetworkReadBuffer();
+
+            try
+            {
+                EZMessage joinMessage = await ReadMessage(stream, readBuffer, token);
+                if (joinMessage == null || joinMessage.type != EZMessageType.PeerJoined)
+                    return;
+
+                PeerPayload peerInfo = joinMessage.GetPayload<PeerPayload>();
+                if (peerInfo == null || string.IsNullOrWhiteSpace(peerInfo.peerId))
+                    return;
+
+                if (peerInfo.protocolVersion != EZProtocol.CurrentProtocolVersion)
+                {
+                    ConnectionRejectedPayload rejection = new ConnectionRejectedPayload
+                    {
+                        reason = $"Incompatible EZ Scene Collab protocol. Host requires {EZProtocol.PackageVersion}; client reported {peerInfo.packageVersion ?? "unknown"}.",
+                        expectedProtocolVersion = EZProtocol.CurrentProtocolVersion,
+                        receivedProtocolVersion = peerInfo.protocolVersion,
+                        packageVersion = EZProtocol.PackageVersion
+                    };
+                    await SendDirect(stream, EZMessage.Create(
+                        EZMessageType.ConnectionRejected,
+                        EZCollabState.localPeerId,
+                        rejection), token);
+                    return;
+                }
+
+                // Bind the requested reconnect-stable ID to this socket once. All
+                // later messages are stamped from this connection, never from JSON.
+                peerId = peerInfo.peerId.Trim();
+                peerName = string.IsNullOrWhiteSpace(peerInfo.peerName)
+                    ? peerId
+                    : peerInfo.peerName.Trim();
+                connectedClient = new ConnectedClient
+                {
+                    peerId = peerId,
+                    peerName = peerName,
+                    capabilities = peerInfo.capabilities,
+                    client = tcpClient,
+                    stream = stream
+                };
+
+                if (clients.TryRemove(peerId, out ConnectedClient previousConnection))
+                {
+                    lock (previousConnection.readinessLock)
+                        previousConnection.isClosing = true;
+                    previousConnection.outboundCts?.Cancel();
+                    try { previousConnection.client.Close(); }
+                    catch { }
+                }
+                clients[peerId] = connectedClient;
+
+                SessionHelloPayload hello = new SessionHelloPayload
+                {
+                    protocolVersion = EZProtocol.CurrentProtocolVersion,
+                    packageVersion = EZProtocol.PackageVersion,
+                    capabilities = EZProtocol.CurrentCapabilities,
+                    hostPeerId = EZCollabState.localPeerId,
+                    hostPeerName = EZCollabState.localPeerName
+                };
+                await SendInternal(connectedClient, EZMessage.Create(
+                    EZMessageType.SessionHello,
+                    EZCollabState.localPeerId,
+                    hello), token);
+
+                bool recovered = await SendRecovery(connectedClient, peerInfo.lastSequence, token);
+                if (!recovered)
+                    await SendSnapshot(connectedClient, token);
+
+                // Drain events queued while the baseline was being transferred before
+                // publishing authoritative point-in-time peer/lock state. A second
+                // drain catches changes racing that enumeration without allowing an
+                // older queued lock notification to overwrite the current lock table.
+                await FlushPendingMessages(connectedClient, token);
+                await SendSessionPeers(connectedClient, token);
+                await SendSessionLocks(connectedClient, token);
+                await FlushPendingMessages(connectedClient, token);
+
+                EZMessage recoveryComplete = EZMessage.Create(
+                    EZMessageType.RecoveryComplete,
+                    EZCollabState.localPeerId,
+                    null);
+                recoveryComplete.sequence = Interlocked.Read(ref connectedClient.deliveredThroughSequence);
+                await SendInternal(connectedClient, recoveryComplete, token);
+                MarkReadyAndStartPump(connectedClient, token);
+
+                while (!token.IsCancellationRequested)
+                {
+                    EZMessage message = await ReadMessage(stream, readBuffer, token);
+                    if (message == null) break;
+
+                    await ProcessMessage(message, peerId, token);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception exception) when (!token.IsCancellationRequested)
+            {
+                if (!(exception is System.IO.IOException) && !(exception is OperationCanceledException))
+                    Debug.LogWarning(EZCollabLocalization.Tr(EZCollabText.ClientFailedLog, peerId, exception.Message));
+            }
+            finally
+            {
+                try
+                {
+                    tcpClient.Close();
+                }
+                catch
+                {
+                }
+
+                if (connectedClient != null)
+                    await HandleDisconnect(connectedClient, token);
+            }
+        }
+
+        async Task<EZMessage> ReadMessage(
+            NetworkStream stream,
+            NetworkReadBuffer buffer,
+            CancellationToken token)
+        {
+            int read = await ReadExact(stream, buffer.length, 4, token);
+            if (read == 0) return null;
+
+            if (!BitConverter.IsLittleEndian)
+                Array.Reverse(buffer.length);
+
+            int length = BitConverter.ToInt32(buffer.length, 0);
+            if (length <= 0 || length > EZMessage.MaxPayloadBytes)
+                throw new InvalidOperationException($"Invalid payload length: {length}.");
+
+            if (buffer.payload.Length < length)
+                buffer.payload = new byte[length];
+
+            read = await ReadExact(stream, buffer.payload, length, token);
+            return read == 0 ? null : EZMessage.FromBytes(buffer.payload, length);
+        }
+
+        static async Task<int> ReadExact(NetworkStream stream, byte[] buffer, int count, CancellationToken token)
+        {
+            int totalRead = 0;
+            while (totalRead < count)
+            {
+                int read = await stream.ReadAsync(buffer, totalRead, count - totalRead, token);
+                if (read == 0) return 0;
+                totalRead += read;
+            }
+
+            return totalRead;
+        }
+
+        async Task ProcessMessage(EZMessage message, string fromPeerId, CancellationToken token)
+        {
+            if (message == null || string.IsNullOrEmpty(fromPeerId))
+                return;
+
+            message.senderId = fromPeerId;
+            bool acquiredStateOrder = false;
+            if (IsRecoverableStateMessage(message.type))
+            {
+                await stateMessageOrder.WaitAsync(token);
+                acquiredStateOrder = true;
+            }
+
+            try
+            {
+                switch (message.type)
+                {
+                case EZMessageType.LockRequest:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    if (payload == null || string.IsNullOrEmpty(payload.guid)) break;
+
+                    bool granted = lockManager.TryAcquire(payload.guid, fromPeerId);
+                    LockPayload responsePayload = new LockPayload
+                    {
+                        guid = payload.guid,
+                        peerId = fromPeerId,
+                        peerName = clients.TryGetValue(fromPeerId, out ConnectedClient lockOwner)
+                            ? lockOwner.peerName
+                            : fromPeerId
+                    };
+                    EZMessage response = EZMessage.Create(
+                        granted ? EZMessageType.LockGranted : EZMessageType.LockDenied,
+                        EZCollabState.localPeerId,
+                        responsePayload);
+
+                    await SendTo(fromPeerId, response, token);
+
+                    if (granted)
+                    {
+                        EZMessage broadcast = EZMessage.Create(
+                            EZMessageType.ObjectLocked,
+                            EZCollabState.localPeerId,
+                            responsePayload);
+                        await BroadcastExcept(broadcast, fromPeerId, token);
+                        incomingMessages.Enqueue(broadcast);
+                    }
+
+                    break;
+                }
+
+                case EZMessageType.LockRelease:
+                {
+                    LockPayload payload = message.GetPayload<LockPayload>();
+                    if (payload == null || !lockManager.IsLockedBy(payload.guid, fromPeerId)) break;
+
+                    lockManager.Release(payload.guid, fromPeerId);
+                    EZMessage unlocked = EZMessage.Create(
+                        EZMessageType.ObjectUnlocked,
+                        EZCollabState.localPeerId,
+                        new LockPayload { guid = payload.guid, peerId = fromPeerId });
+                    unlocked.sequence = GetCurrentSequence();
+                    await BroadcastExcept(unlocked, fromPeerId, token);
+                    incomingMessages.Enqueue(unlocked);
+                    break;
+                }
+
+                case EZMessageType.CreateObject:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || string.IsNullOrEmpty(payload.guid)) break;
+                    objectCreators.TryAdd(payload.guid, fromPeerId);
+                    StampAndRemember(message);
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    break;
+                }
+
+                case EZMessageType.ComponentDelta:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || string.IsNullOrEmpty(payload.guid) ||
+                        !lockManager.IsLockedBy(payload.guid, fromPeerId))
+                    {
+                        break;
+                    }
+
+                    StampAndRemember(message);
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    if (payload.releaseLockAfterApply)
+                    {
+                        lockManager.Release(payload.guid, fromPeerId);
+                        EZMessage unlocked = EZMessage.Create(
+                            EZMessageType.ObjectUnlocked,
+                            EZCollabState.localPeerId,
+                            new LockPayload { guid = payload.guid, peerId = fromPeerId });
+                        unlocked.sequence = message.sequence;
+                        await BroadcastAll(unlocked, token);
+                        incomingMessages.Enqueue(unlocked);
+                    }
+                    break;
+                }
+
+                case EZMessageType.MaterialDelta:
+                {
+                    SerializedMaterial payload = message.GetPayload<SerializedMaterial>();
+                    if (payload == null ||
+                        !EZCollabMaterialSerializer.TryGetMaterialKey(payload, out _))
+                        break;
+
+                    StampAndRemember(message);
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    break;
+                }
+
+                case EZMessageType.TransformDelta:
+                {
+                    TransformPayload payload = message.GetPayload<TransformPayload>();
+                    if (payload == null || !lockManager.IsLockedBy(payload.guid, fromPeerId))
+                        break;
+
+                    StampAndRemember(message);
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    break;
+                }
+
+                case EZMessageType.PresenceUpdate:
+                {
+                    if (!clients.TryGetValue(fromPeerId, out ConnectedClient presenceOwner) ||
+                        (presenceOwner.capabilities & EZCollabCapabilities.Presence) == 0 ||
+                        !presenceOwner.canReceivePresence ||
+                        string.IsNullOrEmpty(message.payload))
+                    {
+                        break;
+                    }
+
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    break;
+                }
+
+                case EZMessageType.SynchronizationReady:
+                {
+                    if (!clients.TryGetValue(fromPeerId, out ConnectedClient readyClient))
+                        break;
+
+                    bool becameReady;
+                    lock (readyClient.readinessLock)
+                    {
+                        becameReady = !readyClient.canReceivePresence;
+                        readyClient.canReceivePresence = true;
+                    }
+                    if (!becameReady)
+                        break;
+
+                    PeerPayload joinedPayload = new PeerPayload
+                    {
+                        peerId = readyClient.peerId,
+                        peerName = readyClient.peerName,
+                        protocolVersion = EZProtocol.CurrentProtocolVersion,
+                        packageVersion = EZProtocol.PackageVersion,
+                        capabilities = readyClient.capabilities
+                    };
+                    EZMessage joinedMessage = EZMessage.Create(
+                        EZMessageType.PeerJoined,
+                        EZCollabState.localPeerId,
+                        joinedPayload);
+                    await BroadcastExcept(joinedMessage, fromPeerId, token);
+                    incomingMessages.Enqueue(joinedMessage);
+                    break;
+                }
+
+                case EZMessageType.DestroyObject:
+                {
+                    DestroyObjectPayload payload = message.GetPayload<DestroyObjectPayload>();
+                    bool isCreator = payload != null && objectCreators.TryGetValue(payload.guid, out string creator) &&
+                                     creator == fromPeerId;
+                    string owner = payload == null ? null : lockManager.GetOwner(payload.guid);
+                    bool allowed = owner == fromPeerId || (isCreator && string.IsNullOrEmpty(owner));
+                    if (payload == null || !allowed)
+                        break;
+
+                    StampAndRemember(message);
+                    lockManager.Release(payload.guid, fromPeerId);
+                    objectCreators.TryRemove(payload.guid, out _);
+                    await BroadcastExcept(message, fromPeerId, token);
+                    incomingMessages.Enqueue(message);
+                    break;
+                }
+
+                case EZMessageType.Heartbeat:
+                    break;
+                }
+            }
+            finally
+            {
+                if (acquiredStateOrder)
+                    stateMessageOrder.Release();
+            }
+        }
+
+        async Task HandleDisconnect(ConnectedClient disconnectedClient, CancellationToken token)
+        {
+            if (!clients.TryGetValue(disconnectedClient.peerId, out ConnectedClient currentClient) ||
+                !ReferenceEquals(currentClient, disconnectedClient))
+            {
+                return;
+            }
+
+            clients.TryRemove(disconnectedClient.peerId, out ConnectedClient removedClient);
+            bool wasAnnounced;
+            lock (disconnectedClient.readinessLock)
+            {
+                wasAnnounced = disconnectedClient.canReceivePresence;
+                disconnectedClient.isClosing = true;
+            }
+            disconnectedClient.outboundCts?.Cancel();
+            if (token.IsCancellationRequested) return;
+
+            List<string> releasedGuids = lockManager.ReleaseAll(disconnectedClient.peerId);
+            foreach (string guid in releasedGuids)
+            {
+                EZMessage unlocked = EZMessage.Create(
+                    EZMessageType.ObjectUnlocked,
+                    EZCollabState.localPeerId,
+                    new LockPayload { guid = guid, peerId = disconnectedClient.peerId });
+                unlocked.sequence = GetCurrentSequence();
+                await BroadcastAll(unlocked, token);
+                incomingMessages.Enqueue(unlocked);
+            }
+
+            // A synchronizing client is deliberately invisible to the session until it
+            // acknowledges that the snapshot has been applied. Do not announce a leave
+            // for a peer that was never announced as joined.
+            if (wasAnnounced)
+            {
+                EZMessage leftMessage = EZMessage.Create(
+                    EZMessageType.PeerLeft,
+                    EZCollabState.localPeerId,
+                    new PeerPayload { peerId = disconnectedClient.peerId, peerName = disconnectedClient.peerName });
+                await BroadcastAll(leftMessage, token);
+                incomingMessages.Enqueue(leftMessage);
+            }
+        }
+
+        async Task SendSnapshot(ConnectedClient connectedClient, CancellationToken token)
+        {
+            SnapshotRequest request = new SnapshotRequest();
+            snapshotRequests.Enqueue(request);
+
+            Task timeoutTask = Task.Delay(SnapshotTimeoutMilliseconds, token);
+            Task completedTask = await Task.WhenAny(request.completion.Task, timeoutTask);
+            if (completedTask != request.completion.Task)
+            {
+                if (token.IsCancellationRequested)
+                    token.ThrowIfCancellationRequested();
+
+                request.completion.TrySetCanceled();
+                throw new TimeoutException("Unity did not produce a scene snapshot within 120 seconds.");
+            }
+
+            SceneSnapshot snapshot = await request.completion.Task;
+            SceneSnapshotBeginPayload beginPayload = new SceneSnapshotBeginPayload
+            {
+                totalObjects = snapshot.objects?.Count ?? 0,
+                totalMaterials = snapshot.materials?.Count ?? 0,
+                baselineSequence = request.baselineSequence
+            };
+            await SendInternal(connectedClient, EZMessage.Create(
+                EZMessageType.SceneSnapshotBegin,
+                EZCollabState.localPeerId,
+                beginPayload), token);
+
+            // Materials always arrive before any object that may reference them.
+            await SendMaterialChunks(connectedClient, snapshot.materials, token);
+            await SendObjectChunks(connectedClient, snapshot.objects, token);
+
+            EZMessage snapshotEnd = EZMessage.Create(
+                EZMessageType.SceneSnapshotEnd, EZCollabState.localPeerId, null);
+            snapshotEnd.sequence = request.baselineSequence;
+            await SendInternal(connectedClient, snapshotEnd, token);
+            connectedClient.synchronizedThroughSequence = request.baselineSequence;
+            AdvanceDeliveredSequence(connectedClient, request.baselineSequence);
+        }
+
+        async Task SendMaterialChunks(
+            ConnectedClient connectedClient,
+            List<SerializedMaterial> materials,
+            CancellationToken token)
+        {
+            if (materials == null || materials.Count == 0)
+                return;
+
+            SceneSnapshot chunk = new SceneSnapshot();
+            foreach (SerializedMaterial material in materials)
+            {
+                chunk.materials.Add(material);
+                EZMessage candidate = CreateSnapshotChunkMessage(chunk);
+                if ((candidate.payload?.Length ?? 0) > SnapshotChunkTargetChars &&
+                    chunk.materials.Count > 1)
+                {
+                    chunk.materials.RemoveAt(chunk.materials.Count - 1);
+                    await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+                    chunk = new SceneSnapshot();
+                    chunk.materials.Add(material);
+                }
+
+                if (chunk.materials.Count >= SnapshotChunkObjectLimit)
+                {
+                    await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+                    chunk = new SceneSnapshot();
+                }
+            }
+
+            if (chunk.materials.Count > 0)
+                await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+        }
+
+        async Task SendObjectChunks(
+            ConnectedClient connectedClient,
+            List<SerializedObject> objects,
+            CancellationToken token)
+        {
+            if (objects == null || objects.Count == 0)
+                return;
+
+            SceneSnapshot chunk = new SceneSnapshot();
+            foreach (SerializedObject serializedObject in objects)
+            {
+                chunk.objects.Add(serializedObject);
+                EZMessage candidate = CreateSnapshotChunkMessage(chunk);
+                if ((candidate.payload?.Length ?? 0) > SnapshotChunkTargetChars &&
+                    chunk.objects.Count > 1)
+                {
+                    chunk.objects.RemoveAt(chunk.objects.Count - 1);
+                    await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+                    chunk = new SceneSnapshot();
+                    chunk.objects.Add(serializedObject);
+                }
+
+                if (chunk.objects.Count >= SnapshotChunkObjectLimit)
+                {
+                    await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+                    chunk = new SceneSnapshot();
+                }
+            }
+
+            if (chunk.objects.Count > 0)
+                await SendInternal(connectedClient, CreateSnapshotChunkMessage(chunk), token);
+        }
+
+        static EZMessage CreateSnapshotChunkMessage(SceneSnapshot chunk)
+        {
+            return EZMessage.Create(
+                EZMessageType.SceneSnapshotChunk,
+                EZCollabState.localPeerId,
+                chunk);
+        }
+
+        async Task<bool> SendRecovery(
+            ConnectedClient connectedClient,
+            long lastSequence,
+            CancellationToken token)
+        {
+            List<EZMessage> recovery = null;
+            lock (historyLock)
+            {
+                if (lastSequence <= 0 || lastSequence > nextSequence)
+                    return false;
+
+                if (lastSequence < historyFloorSequence)
+                    return false;
+
+                if (lastSequence == nextSequence)
+                {
+                    recovery = new List<EZMessage>();
+                }
+                else
+                {
+                    recovery = new List<EZMessage>();
+                    foreach (EZMessage message in stateHistory)
+                        if (message.sequence > lastSequence)
+                            recovery.Add(message);
+                }
+
+                connectedClient.synchronizedThroughSequence = nextSequence;
+            }
+
+            foreach (EZMessage message in recovery)
+                await SendInternal(connectedClient, message, token);
+            AdvanceDeliveredSequence(connectedClient, connectedClient.synchronizedThroughSequence);
+            return true;
+        }
+
+        long CreateSnapshotCheckpoint()
+        {
+            EZMessage checkpoint = EZMessage.Create(EZMessageType.Info, EZCollabState.localPeerId, null);
+            lock (historyLock)
+            {
+                checkpoint.sequence = ++nextSequence;
+                stateHistory.AddLast(checkpoint);
+                TrimHistoryLocked();
+                return checkpoint.sequence;
+            }
+        }
+
+        void StampAndRemember(EZMessage message)
+        {
+            if (message == null || !IsRecoverableStateMessage(message.type))
+                return;
+
+            lock (historyLock)
+            {
+                message.sequence = ++nextSequence;
+
+                string objectGuid = GetHistoryObjectGuid(message);
+                if (!string.IsNullOrEmpty(objectGuid) &&
+                    historyTransforms.TryGetValue(objectGuid, out LinkedListNode<EZMessage> oldTransform))
+                {
+                    if (message.type == EZMessageType.TransformDelta ||
+                        message.type == EZMessageType.CreateObject ||
+                        message.type == EZMessageType.ComponentDelta ||
+                        message.type == EZMessageType.DestroyObject)
+                    {
+                        RemoveHistoryNodeLocked(oldTransform, false, objectGuid);
+                    }
+                }
+
+                LinkedListNode<EZMessage> node = stateHistory.AddLast(message);
+                if (message.type == EZMessageType.TransformDelta && !string.IsNullOrEmpty(objectGuid))
+                    historyTransforms[objectGuid] = node;
+                historyPayloadChars += message.payload?.Length ?? 0;
+                TrimHistoryLocked();
+            }
+        }
+
+        void TrimHistoryLocked()
+        {
+            while (stateHistory.Count > MaxHistoryMessages || historyPayloadChars > MaxHistoryPayloadChars)
+                RemoveHistoryNodeLocked(stateHistory.First, true);
+        }
+
+        void RemoveHistoryNodeLocked(
+            LinkedListNode<EZMessage> node,
+            bool advancesRecoveryFloor,
+            string knownTransformGuid = null)
+        {
+            if (node == null)
+                return;
+
+            EZMessage removed = node.Value;
+            if (removed.type == EZMessageType.TransformDelta)
+            {
+                string guid = knownTransformGuid ?? GetHistoryObjectGuid(removed);
+                if (!string.IsNullOrEmpty(guid) &&
+                    historyTransforms.TryGetValue(guid, out LinkedListNode<EZMessage> mapped) &&
+                    ReferenceEquals(mapped, node))
+                {
+                    historyTransforms.Remove(guid);
+                }
+            }
+
+            historyPayloadChars -= removed.payload?.Length ?? 0;
+            if (historyPayloadChars < 0)
+                historyPayloadChars = 0;
+            if (advancesRecoveryFloor)
+                historyFloorSequence = Math.Max(historyFloorSequence, removed.sequence);
+            stateHistory.Remove(node);
+        }
+
+        static string GetHistoryObjectGuid(EZMessage message)
+        {
+            try
+            {
+                switch (message.type)
+                {
+                    case EZMessageType.TransformDelta:
+                        return message.GetPayload<TransformPayload>()?.guid;
+                    case EZMessageType.CreateObject:
+                    case EZMessageType.ComponentDelta:
+                        return message.GetPayload<CreateObjectPayload>()?.guid;
+                    case EZMessageType.DestroyObject:
+                        return message.GetPayload<DestroyObjectPayload>()?.guid;
+                    default:
+                        return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        long GetCurrentSequence()
+        {
+            lock (historyLock)
+                return nextSequence;
+        }
+
+        static bool IsRecoverableStateMessage(EZMessageType type)
+        {
+            return type == EZMessageType.CreateObject || type == EZMessageType.DestroyObject ||
+                   type == EZMessageType.TransformDelta || type == EZMessageType.ComponentDelta ||
+                   type == EZMessageType.MaterialDelta;
+        }
+
+        async Task SendSessionPeers(ConnectedClient connectedClient, CancellationToken token)
+        {
+            PeerPayload hostPayload = new PeerPayload
+            {
+                peerId = EZCollabState.localPeerId,
+                peerName = EZCollabState.localPeerName
+            };
+            EZMessage hostMessage = EZMessage.Create(EZMessageType.PeerJoined, EZCollabState.localPeerId, hostPayload);
+            await SendInternal(connectedClient, hostMessage, token);
+
+            foreach (ConnectedClient otherClient in clients.Values)
+            {
+                if (ReferenceEquals(otherClient, connectedClient) || !otherClient.canReceivePresence)
+                    continue;
+
+                PeerPayload peerPayload = new PeerPayload
+                {
+                    peerId = otherClient.peerId,
+                    peerName = otherClient.peerName
+                };
+                EZMessage peerMessage = EZMessage.Create(EZMessageType.PeerJoined, EZCollabState.localPeerId, peerPayload);
+                await SendInternal(connectedClient, peerMessage, token);
+            }
+        }
+
+        async Task SendSessionLocks(ConnectedClient connectedClient, CancellationToken token)
+        {
+            Dictionary<string, string> locks = lockManager.GetAll();
+            foreach (KeyValuePair<string, string> pair in locks)
+            {
+                string ownerName = pair.Value == EZCollabState.localPeerId
+                    ? EZCollabState.localPeerName
+                    : clients.TryGetValue(pair.Value, out ConnectedClient owner) ? owner.peerName : pair.Value;
+
+                LockPayload payload = new LockPayload
+                {
+                    guid = pair.Key,
+                    peerId = pair.Value,
+                    peerName = ownerName
+                };
+                EZMessage message = EZMessage.Create(
+                    EZMessageType.ObjectLocked,
+                    EZCollabState.localPeerId,
+                    payload);
+                await SendInternal(connectedClient, message, token);
+            }
+        }
+
+        async Task FlushPendingMessages(ConnectedClient connectedClient, CancellationToken token)
+        {
+            while (!token.IsCancellationRequested)
+            {
+                if (!TryDequeueNext(connectedClient, out EZMessage message))
+                    return;
+
+                if (IsRecoverableStateMessage(message.type) &&
+                    message.sequence > 0 &&
+                    message.sequence <= connectedClient.synchronizedThroughSequence)
+                {
+                    continue;
+                }
+
+                await SendInternal(connectedClient, message, token);
+            }
+        }
+
+        void MarkReadyAndStartPump(ConnectedClient connectedClient, CancellationToken token)
+        {
+            bool startPump;
+            bool hasQueued;
+            lock (connectedClient.readinessLock)
+            {
+                if (connectedClient.isClosing)
+                    return;
+
+                connectedClient.isReady = true;
+                startPump = !connectedClient.outboundPumpStarted;
+                connectedClient.outboundPumpStarted = true;
+                if (startPump)
+                    connectedClient.outboundCts = CancellationTokenSource.CreateLinkedTokenSource(token);
+                hasQueued = HasQueuedMessagesLocked(connectedClient);
+            }
+
+            if (startPump)
+                _ = Task.Run(() => OutboundPump(connectedClient, connectedClient.outboundCts.Token));
+            if (hasQueued)
+                SignalOutbound(connectedClient);
+        }
+
+        async Task OutboundPump(ConnectedClient connectedClient, CancellationToken token)
+        {
+            try
+            {
+                while (!token.IsCancellationRequested)
+                {
+                    await connectedClient.outboundSignal.WaitAsync(token);
+                    lock (connectedClient.readinessLock)
+                        connectedClient.outboundSignalPending = false;
+
+                    while (TryDequeueNext(connectedClient, out EZMessage message))
+                        await SendInternal(connectedClient, message, token);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+            }
+        }
+
+        static bool TryDequeueNext(ConnectedClient connectedClient, out EZMessage message)
+        {
+            lock (connectedClient.readinessLock)
+            {
+                if (connectedClient.controlMessages.Count > 0)
+                {
+                    message = connectedClient.controlMessages.Dequeue();
+                    DecrementReliableUsage(connectedClient, message);
+                    return true;
+                }
+
+                bool hasRealtime = TryPeekRealtimeState(
+                    connectedClient,
+                    out long realtimeSequence,
+                    out EZMessage realtimeMessage);
+                if (connectedClient.stateMessages.Count > 0)
+                {
+                    EZMessage stateHead = connectedClient.stateMessages.Peek();
+                    if (!hasRealtime || stateHead.sequence <= 0 || stateHead.sequence < realtimeSequence)
+                    {
+                        message = connectedClient.stateMessages.Dequeue();
+                        DecrementReliableUsage(connectedClient, message);
+                        return true;
+                    }
+                }
+
+                if (hasRealtime)
+                {
+                    connectedClient.realtimeStateBySequence.Remove(realtimeSequence);
+                    if (TryGetTransformKey(realtimeMessage, out string transformKey) &&
+                        connectedClient.realtimeStateKeys.TryGetValue(transformKey, out long mappedSequence) &&
+                        mappedSequence == realtimeSequence)
+                    {
+                        connectedClient.realtimeStateKeys.Remove(transformKey);
+                    }
+                    message = realtimeMessage;
+                    return true;
+                }
+
+                string presenceKey = null;
+                EZMessage presenceMessage = null;
+                foreach (KeyValuePair<string, EZMessage> pair in connectedClient.latestPresenceMessages)
+                {
+                    presenceKey = pair.Key;
+                    presenceMessage = pair.Value;
+                    break;
+                }
+                if (presenceKey != null)
+                {
+                    connectedClient.latestPresenceMessages.Remove(presenceKey);
+                    message = presenceMessage;
+                    return true;
+                }
+            }
+
+            message = null;
+            return false;
+        }
+
+        static bool TryPeekRealtimeState(
+            ConnectedClient connectedClient,
+            out long sequence,
+            out EZMessage message)
+        {
+            foreach (KeyValuePair<long, EZMessage> pair in connectedClient.realtimeStateBySequence)
+            {
+                sequence = pair.Key;
+                message = pair.Value;
+                return true;
+            }
+
+            sequence = 0;
+            message = null;
+            return false;
+        }
+
+        static void SignalOutbound(ConnectedClient connectedClient)
+        {
+            lock (connectedClient.readinessLock)
+            {
+                if (connectedClient.outboundSignalPending || connectedClient.isClosing)
+                    return;
+                connectedClient.outboundSignalPending = true;
+            }
+
+            try { connectedClient.outboundSignal.Release(); }
+            catch (SemaphoreFullException) { }
+            catch (ObjectDisposedException) { }
+        }
+
+        static void DecrementReliableUsage(ConnectedClient connectedClient, EZMessage message)
+        {
+            connectedClient.pendingReliableCount = Math.Max(0, connectedClient.pendingReliableCount - 1);
+            connectedClient.pendingReliableBytes = Math.Max(
+                0,
+                connectedClient.pendingReliableBytes - EstimateMessageBytes(message));
+        }
+
+        static bool HasQueuedMessagesLocked(ConnectedClient connectedClient)
+        {
+            return connectedClient.controlMessages.Count > 0 ||
+                   connectedClient.stateMessages.Count > 0 ||
+                   connectedClient.realtimeStateBySequence.Count > 0 ||
+                   connectedClient.latestPresenceMessages.Count > 0;
+        }
+
+        int SumPending(Func<ConnectedClient, int> selector)
+        {
+            int total = 0;
+            foreach (ConnectedClient connectedClient in clients.Values)
+            {
+                lock (connectedClient.readinessLock)
+                    total += selector(connectedClient);
+            }
+            return total;
+        }
+
+        Task SendTo(string peerId, EZMessage message, CancellationToken token)
+        {
+            if (!clients.TryGetValue(peerId, out ConnectedClient connectedClient))
+                return Task.CompletedTask;
+
+            return SendOrQueue(connectedClient, message, token);
+        }
+
+        Task SendOrQueue(ConnectedClient connectedClient, EZMessage message, CancellationToken token)
+        {
+            if (message == null)
+                return Task.CompletedTask;
+
+            bool overflowed = false;
+            bool shouldSignal = false;
+            lock (connectedClient.readinessLock)
+            {
+                if (connectedClient.isClosing)
+                    return Task.CompletedTask;
+
+                if (message.type == EZMessageType.PresenceUpdate)
+                {
+                    if (!connectedClient.isReady ||
+                        !connectedClient.canReceivePresence ||
+                        (connectedClient.capabilities & EZCollabCapabilities.Presence) == 0)
+                    {
+                        return Task.CompletedTask;
+                    }
+
+                    string presenceKey = message.senderId ?? string.Empty;
+                    if (!string.IsNullOrEmpty(presenceKey))
+                        connectedClient.latestPresenceMessages[presenceKey] = message;
+                }
+                else if (TryGetTransformKey(message, out string transformKey))
+                {
+                    if (connectedClient.realtimeStateKeys.TryGetValue(transformKey, out long previousSequence))
+                        connectedClient.realtimeStateBySequence.Remove(previousSequence);
+
+                    if (!connectedClient.realtimeStateKeys.ContainsKey(transformKey) &&
+                        connectedClient.realtimeStateKeys.Count >= MaxPendingRealtimeKeys)
+                    {
+                        connectedClient.isClosing = true;
+                        overflowed = true;
+                    }
+                    else
+                    {
+                        connectedClient.realtimeStateKeys[transformKey] = message.sequence;
+                        connectedClient.realtimeStateBySequence[message.sequence] = message;
+                    }
+                }
+                else
+                {
+                    string fullStateGuid = GetHistoryObjectGuid(message);
+                    if (!string.IsNullOrEmpty(fullStateGuid) &&
+                        (message.type == EZMessageType.CreateObject ||
+                         message.type == EZMessageType.ComponentDelta ||
+                         message.type == EZMessageType.DestroyObject) &&
+                        connectedClient.realtimeStateKeys.TryGetValue(fullStateGuid, out long staleSequence))
+                    {
+                        connectedClient.realtimeStateKeys.Remove(fullStateGuid);
+                        connectedClient.realtimeStateBySequence.Remove(staleSequence);
+                    }
+
+                    long messageBytes = EstimateMessageBytes(message);
+                    if (connectedClient.pendingReliableCount + 1 > MaxPendingReliableMessages ||
+                        connectedClient.pendingReliableBytes + messageBytes > MaxPendingReliableBytes)
+                    {
+                        connectedClient.isClosing = true;
+                        overflowed = true;
+                    }
+                    else
+                    {
+                        Queue<EZMessage> queue = IsOrderedStateMessage(message)
+                            ? connectedClient.stateMessages
+                            : connectedClient.controlMessages;
+                        queue.Enqueue(message);
+                        connectedClient.pendingReliableCount++;
+                        connectedClient.pendingReliableBytes += messageBytes;
+                    }
+                }
+
+                shouldSignal = connectedClient.isReady && !overflowed;
+            }
+
+            if (overflowed)
+                _ = DisconnectSlowClient(connectedClient, token);
+            else if (shouldSignal)
+                SignalOutbound(connectedClient);
+            return Task.CompletedTask;
+        }
+
+        static bool IsOrderedStateMessage(EZMessage message)
+        {
+            return IsRecoverableStateMessage(message.type) ||
+                   (message.type == EZMessageType.ObjectUnlocked && message.sequence > 0);
+        }
+
+        static bool TryGetTransformKey(EZMessage message, out string key)
+        {
+            if (message.type == EZMessageType.TransformDelta)
+            {
+                TransformPayload payload = message.GetPayload<TransformPayload>();
+                if (payload != null && !string.IsNullOrEmpty(payload.guid))
+                {
+                    key = payload.guid;
+                    return true;
+                }
+            }
+
+            key = null;
+            return false;
+        }
+
+        static long EstimateMessageBytes(EZMessage message)
+        {
+            return 128L + Encoding.UTF8.GetByteCount(message?.payload ?? string.Empty);
+        }
+
+        async Task DisconnectSlowClient(ConnectedClient connectedClient, CancellationToken token)
+        {
+            try
+            {
+                ConnectionRejectedPayload rejection = new ConnectionRejectedPayload
+                {
+                    reason = "Synchronization queue exceeded its safe limit. Reconnect to request a fresh snapshot.",
+                    expectedProtocolVersion = EZProtocol.CurrentProtocolVersion,
+                    receivedProtocolVersion = EZProtocol.CurrentProtocolVersion,
+                    packageVersion = EZProtocol.PackageVersion
+                };
+                using (CancellationTokenSource timeout = CancellationTokenSource.CreateLinkedTokenSource(token))
+                {
+                    timeout.CancelAfter(2000);
+                    await SendInternal(connectedClient, EZMessage.Create(
+                        EZMessageType.ConnectionRejected,
+                        EZCollabState.localPeerId,
+                        rejection), timeout.Token, true);
+                }
+            }
+            catch
+            {
+            }
+            finally
+            {
+                try { connectedClient.client.Close(); }
+                catch { }
+            }
+        }
+
+        async Task SendInternal(
+            ConnectedClient connectedClient,
+            EZMessage message,
+            CancellationToken token,
+            bool allowClosing = false)
+        {
+            lock (connectedClient.readinessLock)
+            {
+                if (connectedClient.isClosing && !allowClosing)
+                    throw new OperationCanceledException("The client synchronization was cancelled.");
+            }
+
+            bool lockAcquired = false;
+            try
+            {
+                await connectedClient.sendLock.WaitAsync(token);
+                lockAcquired = true;
+
+                byte[] payloadBytes = message.ToBytes();
+                byte[] lengthBytes = BitConverter.GetBytes(payloadBytes.Length);
+                if (!BitConverter.IsLittleEndian)
+                    Array.Reverse(lengthBytes);
+
+                await connectedClient.stream.WriteAsync(lengthBytes, 0, lengthBytes.Length, token);
+                await connectedClient.stream.WriteAsync(payloadBytes, 0, payloadBytes.Length, token);
+                if (IsRecoverableStateMessage(message.type) && message.sequence > 0)
+                    AdvanceDeliveredSequence(connectedClient, message.sequence);
+            }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception) when (!token.IsCancellationRequested)
+            {
+            }
+            finally
+            {
+                if (lockAcquired)
+                    connectedClient.sendLock.Release();
+            }
+        }
+
+        static void AdvanceDeliveredSequence(ConnectedClient connectedClient, long sequence)
+        {
+            long observed = Interlocked.Read(ref connectedClient.deliveredThroughSequence);
+            while (sequence > observed)
+            {
+                long previous = Interlocked.CompareExchange(
+                    ref connectedClient.deliveredThroughSequence,
+                    sequence,
+                    observed);
+                if (previous == observed)
+                    return;
+                observed = previous;
+            }
+        }
+
+        static async Task SendDirect(NetworkStream stream, EZMessage message, CancellationToken token)
+        {
+            byte[] payloadBytes = message.ToBytes();
+            byte[] lengthBytes = BitConverter.GetBytes(payloadBytes.Length);
+            if (!BitConverter.IsLittleEndian)
+                Array.Reverse(lengthBytes);
+
+            await stream.WriteAsync(lengthBytes, 0, lengthBytes.Length, token);
+            await stream.WriteAsync(payloadBytes, 0, payloadBytes.Length, token);
+        }
+
+        async Task BroadcastExcept(EZMessage message, string excludePeerId, CancellationToken token)
+        {
+            List<Task> sends = new List<Task>();
+            foreach (KeyValuePair<string, ConnectedClient> pair in clients)
+            {
+                if (pair.Key == excludePeerId) continue;
+                sends.Add(SendOrQueue(pair.Value, message, token));
+            }
+
+            await Task.WhenAll(sends);
+        }
+
+        async Task BroadcastAll(EZMessage message, CancellationToken token)
+        {
+            List<Task> sends = new List<Task>();
+            foreach (ConnectedClient connectedClient in clients.Values)
+                sends.Add(SendOrQueue(connectedClient, message, token));
+
+            await Task.WhenAll(sends);
+        }
+    }
+}

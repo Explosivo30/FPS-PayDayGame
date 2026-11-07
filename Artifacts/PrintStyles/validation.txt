@@ -1,0 +1,5 @@
+Unity 6000.0.58f2
+GPU: NVIDIA GeForce RTX 3070
+Four identical source frames processed with both real shader passes.
+Sources are archived gameplay captures, not a new gameplay run.
+Shader compilation errors: 0

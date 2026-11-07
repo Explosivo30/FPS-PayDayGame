@@ -1,0 +1,18 @@
+[
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictDirector.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictCollapse.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictVisuals.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "Assets/Scripts/Tower/AlphaDistrictAnimeFeature.cs",
+    "Unchanged": true
+  }
+]

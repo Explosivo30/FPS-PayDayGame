@@ -13,6 +13,16 @@ public partial class PlayerStateMachine
     float motorClock,lastGrounded=-100,jumpQueuedUntil=-100,ignoreGroundUntil=-100;
     float slideRemaining,nextSlideAt,stepDistance,fallSpeed;
     bool crouchWasPressed,jumpConsumed;
+    Vector3 cardVelocity;
+    float cardImpulseRemaining;
+    public float CardImpulseRemaining=>cardImpulseRemaining;
+    public void BeginCardImpulse(Vector3 direction,float distance,float seconds)
+    {
+        if(IsDead||WeaponAction.CombatPaused||!cc.enabled)return;
+        cardImpulseRemaining=Mathf.Max(.01f,seconds);cardVelocity=direction.normalized*Mathf.Max(0,distance)/cardImpulseRemaining;
+        PlayerVelocity=new Vector3(0,Mathf.Max(2,PlayerVelocity.y),0);ignoreGroundUntil=motorClock+.12f;slideRemaining=0;
+    }
+    public void CancelCardImpulse(){cardImpulseRemaining=0;cardVelocity=Vector3.zero;}
     public void QueueJump()
     {
         if(IsDead||WeaponAction.CombatPaused)return;
@@ -20,6 +30,7 @@ public partial class PlayerStateMachine
     }
     void ResetMovement()
     {
+        CancelCardImpulse();
         _grounded=false;_sliding=false;slideRemaining=0;stepDistance=fallSpeed=0;
         lastGrounded=jumpQueuedUntil=ignoreGroundUntil=-100;
         nextSlideAt=motorClock;crouchWasPressed=jumpConsumed=false;
@@ -90,8 +101,15 @@ public partial class PlayerStateMachine
         UpdateHeight(dt);
         var displacement=PlayerVelocity*dt;
         if(!Grounded)displacement.y=(previousY+PlayerVelocity.y)*.5f*dt;
+        if(cardImpulseRemaining>0)
+        {
+            float slice=Mathf.Min(dt,cardImpulseRemaining);cardImpulseRemaining-=slice;
+            displacement.x=cardVelocity.x*slice;displacement.z=cardVelocity.z*slice;
+            PlayerVelocity.x=PlayerVelocity.z=0;
+        }
         var before=transform.position;
         var collisions=cc.Move(displacement);
+        if((collisions&CollisionFlags.Sides)!=0)CancelCardImpulse();
         if((collisions&CollisionFlags.Above)!=0&&PlayerVelocity.y>0)PlayerVelocity.y=0;
         bool wasGrounded=Grounded;
         GroundDetection();

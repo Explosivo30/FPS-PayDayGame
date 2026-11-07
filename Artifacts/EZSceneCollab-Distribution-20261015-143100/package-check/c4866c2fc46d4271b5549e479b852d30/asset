@@ -1,0 +1,191 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using NUnit.Framework;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.TestTools;
+
+namespace EZCollabTool.Tests
+{
+    public class EZCollabSnapshotTests
+    {
+        [SetUp]
+        public void SetUp()
+        {
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            EZCollabState.Initialize("Test", true);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            EZCollabSession.Stop();
+            EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        }
+
+        [Test]
+        public void ComponentSerializationPreservesNativeOwnerAndNestedUserData()
+        {
+            string json = "{\"m_GameObject\":{\"instanceID\":123},\"m_Script\":{\"instanceID\":456},\"enabled\":true,\"nested\":{\"m_GameObject\":\"keep,}\\\"\"}}";
+            string safe = EZCollabObjectSerializer.SanitizeComponentJson(json);
+            Assert.IsFalse(safe.Contains("instanceID"));
+            Assert.IsTrue(safe.Contains("\"enabled\":true"));
+            Assert.IsTrue(safe.Contains("\"nested\":{\"m_GameObject\""));
+            GameObject source = new GameObject("Source");
+            source.AddComponent<BoxCollider>().isTrigger = true;
+            string guid = EZCollabState.GetOrAssignGuid(source);
+            CreateObjectPayload payload = EZSceneSerializer.CreatePayload(source, guid);
+            GameObject restored = EZSceneSerializer.CreateFromPayload(payload);
+            Assert.AreSame(restored, restored.GetComponent<BoxCollider>().gameObject);
+            Assert.AreSame(source, source.GetComponent<BoxCollider>().gameObject);
+            Assert.IsTrue(restored.GetComponent<BoxCollider>().isTrigger);
+        }
+
+        [Test]
+        public void IncrementalCaptureKeepsParentsFirstAndSurvivesSiblingDeletion()
+        {
+            GameObject root = new GameObject("Root");
+            EZCollabState.GetOrAssignGuid(root);
+            List<GameObject> children = new List<GameObject>();
+            for (int i = 0; i < 100; i++)
+            {
+                GameObject child = new GameObject("Child " + i);
+                child.transform.SetParent(root.transform);
+                EZCollabState.GetOrAssignGuid(child);
+                children.Add(child);
+            }
+            EZSceneSnapshotCaptureOperation capture = new EZSceneSnapshotCaptureOperation();
+            capture.Step(1, 0d);
+            Object.DestroyImmediate(children[0]);
+            while (!capture.isComplete)
+            {
+                int before = capture.capturedObjects;
+                capture.Step(32, 0.002d);
+                Assert.LessOrEqual(capture.capturedObjects - before, 32);
+            }
+            Assert.AreEqual(100, capture.capturedObjects);
+            HashSet<string> seen = new HashSet<string>();
+            foreach (SerializedObject data in capture.snapshot.objects)
+            {
+                if (!string.IsNullOrEmpty(data.parentGuid)) Assert.IsTrue(seen.Contains(data.parentGuid));
+                seen.Add(data.guid);
+            }
+        }
+
+        [Test]
+        public void SnapshotApplyRemovesExtrasIncrementallyAndRestoresReferences()
+        {
+            GameObject root = new GameObject("Root");
+            GameObject child = new GameObject("Child");
+            child.transform.SetParent(root.transform);
+            EZCollabState.GetOrAssignGuid(root);
+            EZCollabState.GetOrAssignGuid(child);
+            EZSceneSnapshotCaptureOperation capture = new EZSceneSnapshotCaptureOperation();
+            while (!capture.isComplete) capture.Step(32, 0d);
+            GameObject extra = new GameObject("Extra");
+            EZSceneSnapshotApplyOperation apply = new EZSceneSnapshotApplyOperation(
+                new SceneSnapshotBeginPayload { totalObjects = 2 });
+            apply.Enqueue(capture.snapshot);
+            apply.MarkEnd();
+            int steps = 0;
+            while (!apply.isComplete && steps++ < 1000) apply.Step(1, 0d);
+            Assert.IsTrue(apply.isComplete);
+            Assert.IsTrue(extra == null);
+            Assert.AreEqual(2, EZCollabState.guidToObject.Count);
+            Assert.IsFalse(EZCollabState.isApplyingRemoteChange);
+        }
+
+        [UnityTest]
+        public IEnumerator LargeSnapshotCaptureAndApplyAreIncremental()
+        {
+            for (int i = 0; i < 10000; i++) EZCollabState.GetOrAssignGuid(new GameObject("Snapshot Object " + i));
+            EZSceneSnapshotCaptureOperation capture = new EZSceneSnapshotCaptureOperation();
+            int captureSteps = 0;
+            while (!capture.isComplete)
+            {
+                int before = capture.capturedObjects;
+                capture.Step(32, 0.002d);
+                Assert.LessOrEqual(capture.capturedObjects - before, 32);
+                captureSteps++;
+                yield return null;
+            }
+            Assert.AreEqual(10000, capture.capturedObjects);
+            Assert.GreaterOrEqual(captureSteps, 313);
+            EZSceneSnapshotApplyOperation apply = new EZSceneSnapshotApplyOperation(
+                new SceneSnapshotBeginPayload { totalObjects = 10000 });
+            apply.Enqueue(capture.snapshot);
+            apply.MarkEnd();
+            int applySteps = 0;
+            while (!apply.isComplete && applySteps < 30000)
+            {
+                int before = apply.appliedObjects;
+                apply.Step(32, 0.002d);
+                Assert.LessOrEqual(apply.appliedObjects - before, 32);
+                applySteps++;
+                yield return null;
+            }
+            Assert.IsTrue(apply.isComplete);
+            Assert.AreEqual(10000, EZCollabState.guidToObject.Count);
+            TestContext.WriteLine($"10k snapshot: capture {captureSteps} updates; apply/cleanup {applySteps} updates.");
+        }
+
+        [UnityTest]
+        public IEnumerator TenThousandObjectsEightPresencesRemainBoundedForThirtySeconds()
+        {
+            return ScaleRun(10000);
+        }
+
+        [UnityTest]
+        public IEnumerator OneThousandObjectsEightPresencesRemainBoundedForThirtySeconds()
+        {
+            return ScaleRun(1000);
+        }
+
+        IEnumerator ScaleRun(int objectCount)
+        {
+            for (int i = 0; i < objectCount; i++) EZCollabState.GetOrAssignGuid(new GameObject("Object " + i));
+            EZCollabMessageInbox inbox = new EZCollabMessageInbox();
+            List<double> durations = new List<double>();
+            double start = UnityEditor.EditorApplication.timeSinceStartup;
+            long warmMemory = 0;
+            int sample = 0;
+            while (UnityEditor.EditorApplication.timeSinceStartup - start < 30d)
+            {
+                if (warmMemory == 0 && UnityEditor.EditorApplication.timeSinceStartup - start >= 5d)
+                    warmMemory = System.GC.GetTotalMemory(true);
+                Stopwatch watch = Stopwatch.StartNew();
+                for (int peer = 0; peer < 8; peer++)
+                {
+                    EZCollabPresencePayload payload = new EZCollabPresencePayload
+                    {
+                        sceneContext = "scene:test", sampleNumber = ++sample,
+                        hasPointer = true, worldPosition = new[] { (float)sample, 0f, 0f },
+                        worldNormal = new[] { 0f, 1f, 0f }
+                    };
+                    inbox.Enqueue(EZMessage.Create(EZMessageType.PresenceUpdate, "peer" + peer, payload));
+                    GameObject moved = EZCollabState.GetStableObject(peer);
+                    moved.transform.position = new Vector3(sample * 0.001f, peer, 0f);
+                    inbox.Enqueue(EZMessage.Create(EZMessageType.TransformDelta, "peer" + peer,
+                        TransformPayload.FromTransform(EZCollabState.GetOrAssignGuid(moved), moved.transform)));
+                }
+                Assert.LessOrEqual(inbox.Count, 16);
+                while (inbox.TryDequeue(out EZMessage message))
+                    if (message.type == EZMessageType.PresenceUpdate)
+                        EZCollabPresenceState.Apply(message.senderId, message.GetPayload<EZCollabPresencePayload>());
+                watch.Stop();
+                durations.Add(watch.Elapsed.TotalMilliseconds);
+                yield return null;
+            }
+            durations.Sort();
+            double p95 = durations[(int)(durations.Count * 0.95d)];
+            long retainedGrowth = System.GC.GetTotalMemory(true) - warmMemory;
+            TestContext.WriteLine($"Synthetic {objectCount} objects/8 peers main-thread p95: {p95:F3} ms, samples: {durations.Count}, retained managed growth: {retainedGrowth} bytes");
+            Assert.Less(p95, 3d);
+            Assert.Less(retainedGrowth, 2L * 1024L * 1024L,
+                "Retained growth includes the test's timing samples; steady-state queues must remain bounded.");
+            Assert.AreEqual(0, inbox.Count);
+            EZCollabPresenceState.Clear();
+        }
+    }
+}

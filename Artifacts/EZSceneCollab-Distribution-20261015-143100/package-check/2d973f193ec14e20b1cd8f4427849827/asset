@@ -1,0 +1,561 @@
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using EditorUtility = UnityEditor.EditorUtility;
+
+namespace EZCollabTool
+{
+    [InitializeOnLoad]
+    public static class EZCollabAdvancedSync
+    {
+        const double ObjectDeltaDelay = 0.15;
+        const double OutboundFrameBudgetSeconds = 0.002;
+        const int MaxCreatesPerFrame = 24;
+        const int MaxDeltasPerFrame = 8;
+
+        static readonly Queue<int> pendingHierarchyScans = new Queue<int>();
+        static readonly HashSet<int> queuedHierarchyScanIds = new HashSet<int>();
+        static readonly Queue<GameObject> pendingCreates = new Queue<GameObject>();
+        static readonly HashSet<int> queuedCreateIds = new HashSet<int>();
+        static readonly Dictionary<string, double> dirtyObjectDueTimes = new Dictionary<string, double>();
+        static readonly Dictionary<int, double> dirtyMaterialDueTimes = new Dictionary<int, double>();
+        static readonly Dictionary<string, string> dirtyUndoNames = new Dictionary<string, string>();
+        static readonly Dictionary<int, HashSet<string>> undoGroups = new Dictionary<int, HashSet<string>>();
+        static readonly Queue<int> undoGroupOrder = new Queue<int>();
+        static readonly Dictionary<int, double> suppressedObjectChanges = new Dictionary<int, double>();
+        static bool wasInSession;
+        static double outboundFrameStarted;
+
+        static EZCollabAdvancedSync()
+        {
+            ObjectChangeEvents.changesPublished += OnObjectChanges;
+            Undo.postprocessModifications += TrackUndoModifications;
+            Undo.undoRedoEvent += OnUndoRedo;
+            EditorApplication.projectChanged += EZCollabAssetValidator.ResetCache;
+            EditorApplication.update += OnUpdate;
+        }
+
+        public static void ObserveIncoming(EZMessage message)
+        {
+            if (message != null && message.sequence > 0 &&
+                (message.type == EZMessageType.CreateObject || message.type == EZMessageType.DestroyObject ||
+                 message.type == EZMessageType.TransformDelta || message.type == EZMessageType.ComponentDelta ||
+                 message.type == EZMessageType.MaterialDelta ||
+                 message.type == EZMessageType.SceneSnapshotEnd ||
+                 message.type == EZMessageType.RecoveryComplete || message.type == EZMessageType.Info))
+            {
+                EZCollabState.ObserveServerSequence(message.sequence);
+            }
+        }
+
+        public static bool TryApplyMessage(EZMessage message)
+        {
+            switch (message.type)
+            {
+                case EZMessageType.ComponentDelta:
+                {
+                    CreateObjectPayload payload = message.GetPayload<CreateObjectPayload>();
+                    if (payload == null || string.IsNullOrEmpty(payload.guid) ||
+                        !EZCollabState.ShouldApplyObjectSequence(payload.guid, message.sequence))
+                    {
+                        return true;
+                    }
+
+                    if (EZCollabState.guidToObject.TryGetValue(payload.guid, out GameObject go) && go != null)
+                        SuppressRemoteObject(go);
+
+                    bool previous = EZCollabState.isApplyingRemoteChange;
+                    EZCollabState.isApplyingRemoteChange = true;
+                    try
+                    {
+                        EZSceneSerializer.ApplyStatePayload(payload, false);
+                    }
+                    finally
+                    {
+                        EZCollabState.isApplyingRemoteChange = previous;
+                    }
+                    return true;
+                }
+
+                case EZMessageType.MaterialDelta:
+                {
+                    SerializedMaterial material = message.GetPayload<SerializedMaterial>();
+                    if (material == null ||
+                        !EZCollabMaterialSerializer.TryGetMaterialKey(material, out string key) ||
+                        !EZCollabState.ShouldApplyObjectSequence(key, message.sequence))
+                    {
+                        return true;
+                    }
+
+                    bool previous = EZCollabState.isApplyingRemoteChange;
+                    EZCollabState.isApplyingRemoteChange = true;
+                    try
+                    {
+                        EZCollabMaterialSerializer.ApplyMaterial(material);
+                    }
+                    finally
+                    {
+                        EZCollabState.isApplyingRemoteChange = previous;
+                    }
+                    return true;
+                }
+
+                case EZMessageType.RecoveryComplete:
+                    EZCollabSession.SendReliable(EZMessage.Create(EZMessageType.SynchronizationReady,
+                        EZCollabState.localPeerId, null));
+                    EZCollabSession.SetSynchronizing(false, 1f);
+                    EZCollabHooks.ReacquireSelectedLocks();
+                    return true;
+
+                default:
+                    return false;
+            }
+        }
+
+        public static void SuppressRemoteObject(GameObject go)
+        {
+            if (go != null)
+                suppressedObjectChanges[go.GetInstanceID()] = EditorApplication.timeSinceStartup + 0.75;
+        }
+
+        public static void DiscardQueuedState(string guid)
+        {
+            if (string.IsNullOrEmpty(guid))
+                return;
+
+            dirtyObjectDueTimes.Remove(guid);
+            dirtyUndoNames.Remove(guid);
+        }
+
+        public static bool FlushBeforeRelease(string guid)
+        {
+            if (string.IsNullOrEmpty(guid) || !dirtyObjectDueTimes.ContainsKey(guid)) return false;
+            dirtyObjectDueTimes[guid] = 0d;
+            return true;
+        }
+
+        public static void QueueObjectState(GameObject go, string undoName = null, bool immediate = false)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange || go == null ||
+                !EZCollabState.TryGetGuid(go, out string guid))
+            {
+                return;
+            }
+
+            dirtyObjectDueTimes[guid] = EditorApplication.timeSinceStartup + (immediate ? 0d : ObjectDeltaDelay);
+            if (!string.IsNullOrEmpty(undoName))
+                dirtyUndoNames[guid] = undoName;
+            RecordUndoGuid(Undo.GetCurrentGroup(), guid);
+        }
+
+        public static void QueueMaterialState(Material material, bool immediate = false)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange || material == null ||
+                !EditorUtility.IsPersistent(material) ||
+                EZCollabMaterialSerializer.IsMaterialChangeSuppressed(material))
+            {
+                return;
+            }
+
+            dirtyMaterialDueTimes[material.GetInstanceID()] =
+                EditorApplication.timeSinceStartup + (immediate ? 0d : ObjectDeltaDelay);
+        }
+
+        static void OnUpdate()
+        {
+            if (!EZCollabState.inSession)
+            {
+                if (wasInSession)
+                    ClearQueues();
+                wasInSession = false;
+                return;
+            }
+
+            wasInSession = true;
+            if (!EZCollabState.isHost && EZCollabSession.isSynchronizing) return;
+            outboundFrameStarted = EditorApplication.timeSinceStartup;
+            CleanupSuppression();
+            ProcessHierarchyScans();
+            ProcessPendingCreates();
+            ProcessDirtyMaterials();
+            ProcessDirtyObjects();
+        }
+
+        static void ProcessHierarchyScans()
+        {
+            double started = outboundFrameStarted;
+            int processed = 0;
+            while (pendingHierarchyScans.Count > 0 && processed < 64 &&
+                   EditorApplication.timeSinceStartup - started < OutboundFrameBudgetSeconds)
+            {
+                int instanceId = pendingHierarchyScans.Dequeue();
+                queuedHierarchyScanIds.Remove(instanceId);
+                GameObject go = EditorUtility.InstanceIDToObject(instanceId) as GameObject;
+                if (go == null)
+                    continue;
+
+                QueueObjectState(go);
+                for (int i = 0; i < go.transform.childCount; i++)
+                    QueueHierarchy(go.transform.GetChild(i).gameObject);
+                processed++;
+            }
+        }
+
+        static void ProcessPendingCreates()
+        {
+            double started = outboundFrameStarted;
+            int processed = 0;
+            while (pendingCreates.Count > 0 && processed < MaxCreatesPerFrame &&
+                   EditorApplication.timeSinceStartup - started < OutboundFrameBudgetSeconds)
+            {
+                GameObject go = pendingCreates.Dequeue();
+                if (go == null)
+                    continue;
+
+                int instanceId = go.GetInstanceID();
+                queuedCreateIds.Remove(instanceId);
+                if (EZCollabState.objectToGuid.ContainsKey(go))
+                    continue;
+
+                if (go.transform.parent != null &&
+                    !EZCollabState.TryGetGuid(go.transform.parent.gameObject, out _))
+                {
+                    EnqueueCreatedHierarchy(go.transform.parent.gameObject, false);
+                    if (queuedCreateIds.Add(instanceId))
+                        pendingCreates.Enqueue(go);
+                    continue;
+                }
+
+                string guid = EZCollabState.GetOrAssignGuid(go);
+                SendCreate(go, guid);
+                processed++;
+
+                for (int i = 0; i < go.transform.childCount; i++)
+                    EnqueueCreatedHierarchy(go.transform.GetChild(i).gameObject, false);
+
+                if (Selection.Contains(go))
+                    EZCollabHooks.EnsureLockForObject(go);
+            }
+        }
+
+        static void ProcessDirtyObjects()
+        {
+            if (dirtyObjectDueTimes.Count == 0 || EZCollabSession.isReconnecting)
+                return;
+
+            double now = EditorApplication.timeSinceStartup;
+            double started = outboundFrameStarted;
+            List<string> ready = new List<string>();
+            foreach (KeyValuePair<string, double> pair in dirtyObjectDueTimes)
+            {
+                if (pair.Value <= now)
+                    ready.Add(pair.Key);
+                if (ready.Count >= MaxDeltasPerFrame)
+                    break;
+            }
+
+            foreach (string guid in ready)
+            {
+                if (EditorApplication.timeSinceStartup - started >= OutboundFrameBudgetSeconds)
+                    break;
+
+                if (!EZCollabState.guidToObject.TryGetValue(guid, out GameObject go) || go == null)
+                {
+                    dirtyObjectDueTimes.Remove(guid);
+                    dirtyUndoNames.Remove(guid);
+                    continue;
+                }
+
+                if (!EZCollabState.IsLockedByMe(guid))
+                {
+                    if (!EZCollabState.IsLockedByOther(guid))
+                        EZCollabHooks.EnsureLockForObject(go);
+                    continue;
+                }
+
+                if (go.transform.parent != null &&
+                    !EZCollabState.TryGetGuid(go.transform.parent.gameObject, out _))
+                {
+                    EnqueueCreatedHierarchy(go.transform.parent.gameObject, false);
+                    dirtyObjectDueTimes[guid] = now + ObjectDeltaDelay;
+                    continue;
+                }
+
+                CreateObjectPayload payload = EZSceneSerializer.CreatePayload(go, guid);
+                payload.releaseLockAfterApply = !go.activeInHierarchy || !Selection.Contains(go);
+                if (dirtyUndoNames.TryGetValue(guid, out string undoName))
+                    payload.undoName = undoName;
+                EZMessage message = EZMessage.Create(EZMessageType.ComponentDelta, EZCollabState.localPeerId, payload);
+                SendLocalMessage(message);
+                dirtyObjectDueTimes.Remove(guid);
+                dirtyUndoNames.Remove(guid);
+            }
+        }
+
+        static void ProcessDirtyMaterials()
+        {
+            if (dirtyMaterialDueTimes.Count == 0 || EZCollabSession.isReconnecting)
+                return;
+
+            double now = EditorApplication.timeSinceStartup;
+            int processed = 0;
+            List<int> ready = new List<int>();
+            foreach (KeyValuePair<int, double> pair in dirtyMaterialDueTimes)
+            {
+                if (pair.Value <= now)
+                    ready.Add(pair.Key);
+                if (ready.Count >= MaxDeltasPerFrame)
+                    break;
+            }
+
+            foreach (int instanceId in ready)
+            {
+                if (EditorApplication.timeSinceStartup - outboundFrameStarted >= OutboundFrameBudgetSeconds) break;
+                Material material = EditorUtility.InstanceIDToObject(instanceId) as Material;
+                if (material == null)
+                {
+                    dirtyMaterialDueTimes.Remove(instanceId);
+                    continue;
+                }
+
+                SerializedMaterial payload = EZCollabMaterialSerializer.CaptureMaterial(material);
+                if (payload != null)
+                    SendLocalMessage(EZMessage.Create(
+                        EZMessageType.MaterialDelta,
+                        EZCollabState.localPeerId,
+                        payload));
+
+                dirtyMaterialDueTimes.Remove(instanceId);
+                if (++processed >= MaxDeltasPerFrame)
+                    break;
+            }
+        }
+
+        static void OnObjectChanges(ref ObjectChangeEventStream stream)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange)
+                return;
+
+            for (int i = 0; i < stream.length; i++)
+            {
+                switch (stream.GetEventType(i))
+                {
+                    case ObjectChangeKind.CreateGameObjectHierarchy:
+                        stream.GetCreateGameObjectHierarchyEvent(i, out CreateGameObjectHierarchyEventArgs created);
+                        EnqueueCreatedHierarchy(EditorUtility.InstanceIDToObject(created.instanceId) as GameObject, true);
+                        break;
+
+                    case ObjectChangeKind.DestroyGameObjectHierarchy:
+                        stream.GetDestroyGameObjectHierarchyEvent(i, out DestroyGameObjectHierarchyEventArgs destroyed);
+                        HandleDestroyedHierarchy(destroyed.instanceId);
+                        break;
+
+                    case ObjectChangeKind.ChangeGameObjectOrComponentProperties:
+                        stream.GetChangeGameObjectOrComponentPropertiesEvent(
+                            i,
+                            out ChangeGameObjectOrComponentPropertiesEventArgs properties);
+                        QueueChangedInstance(properties.instanceId);
+                        break;
+
+                    case ObjectChangeKind.ChangeAssetObjectProperties:
+                        stream.GetChangeAssetObjectPropertiesEvent(
+                            i,
+                            out ChangeAssetObjectPropertiesEventArgs assetProperties);
+                        QueueMaterialState(EditorUtility.InstanceIDToObject(assetProperties.instanceId) as Material);
+                        break;
+
+                    case ObjectChangeKind.ChangeGameObjectParent:
+                        stream.GetChangeGameObjectParentEvent(i, out ChangeGameObjectParentEventArgs parentChanged);
+                        QueueChangedInstance(parentChanged.instanceId, true);
+                        break;
+
+                    case ObjectChangeKind.ChangeGameObjectStructure:
+                        stream.GetChangeGameObjectStructureEvent(i, out ChangeGameObjectStructureEventArgs structure);
+                        QueueChangedInstance(structure.instanceId, true);
+                        break;
+
+                    case ObjectChangeKind.ChangeGameObjectStructureHierarchy:
+                        stream.GetChangeGameObjectStructureHierarchyEvent(
+                            i,
+                            out ChangeGameObjectStructureHierarchyEventArgs hierarchy);
+                        QueueHierarchy(EditorUtility.InstanceIDToObject(hierarchy.instanceId) as GameObject);
+                        break;
+
+                    case ObjectChangeKind.ChangeChildrenOrder:
+                        stream.GetChangeChildrenOrderEvent(i, out ChangeChildrenOrderEventArgs childrenOrder);
+                        GameObject parent = EditorUtility.InstanceIDToObject(childrenOrder.instanceId) as GameObject;
+                        QueueHierarchy(parent);
+                        break;
+
+                    case ObjectChangeKind.ChangeRootOrder:
+                        stream.GetChangeRootOrderEvent(i, out ChangeRootOrderEventArgs rootOrder);
+                        QueueChangedInstance(rootOrder.instanceId, true);
+                        break;
+
+                    case ObjectChangeKind.UpdatePrefabInstances:
+                        stream.GetUpdatePrefabInstancesEvent(i, out UpdatePrefabInstancesEventArgs prefabs);
+                        foreach (int instanceId in prefabs.instanceIds)
+                            QueueHierarchy(EditorUtility.InstanceIDToObject(instanceId) as GameObject);
+                        break;
+                }
+            }
+        }
+
+        static UndoPropertyModification[] TrackUndoModifications(UndoPropertyModification[] modifications)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange)
+                return modifications;
+
+            int group = Undo.GetCurrentGroup();
+            foreach (UndoPropertyModification modification in modifications)
+            {
+                UnityEngine.Object target = modification.currentValue.target;
+                if (target is Material material)
+                {
+                    QueueMaterialState(material);
+                    continue;
+                }
+
+                GameObject go = target as GameObject;
+                if (target is Component component)
+                    go = component.gameObject;
+                if (go == null || !EZCollabState.TryGetGuid(go, out string guid))
+                    continue;
+
+                RecordUndoGuid(group, guid);
+                if (!(target is Transform))
+                    QueueObjectState(go);
+            }
+
+            return modifications;
+        }
+
+        static void OnUndoRedo(in UndoRedoInfo info)
+        {
+            if (!EZCollabState.inSession || EZCollabState.isApplyingRemoteChange ||
+                !undoGroups.TryGetValue(info.undoGroup, out HashSet<string> guids))
+            {
+                return;
+            }
+
+            string action = EZCollabLocalization.Tr(info.isRedo ? EZCollabText.Redo : EZCollabText.Undo);
+            string label = $"EZ Scene Collab {action}: {info.undoName}";
+            foreach (string guid in guids)
+            {
+                if (EZCollabState.guidToObject.TryGetValue(guid, out GameObject go) && go != null)
+                    QueueObjectState(go, label, true);
+            }
+        }
+
+
+        static void EnqueueCreatedHierarchy(GameObject root, bool includeChildren)
+        {
+            if (root == null || IsSuppressed(root))
+                return;
+
+            int id = root.GetInstanceID();
+            if (!EZCollabState.objectToGuid.ContainsKey(root) && queuedCreateIds.Add(id))
+                pendingCreates.Enqueue(root);
+
+        }
+
+        static void HandleDestroyedHierarchy(int instanceId)
+        {
+            if (!EZCollabState.TryGetGuid(instanceId, out string guid))
+                return;
+
+            EZCollabState.RemoveGuidHierarchy(guid);
+            EZMessage message = EZMessage.Create(
+                EZMessageType.DestroyObject,
+                EZCollabState.localPeerId,
+                new DestroyObjectPayload { guid = guid });
+            SendLocalMessage(message);
+        }
+
+        static void QueueChangedInstance(int instanceId, bool immediate = false)
+        {
+            UnityEngine.Object changed = EditorUtility.InstanceIDToObject(instanceId);
+            GameObject go = changed as GameObject;
+            if (changed is Component component)
+                go = component.gameObject;
+            if (go == null || IsSuppressed(go))
+                return;
+
+            if (changed is Transform && !immediate)
+            {
+                EZCollabHooks.PublishTransform(go);
+                return;
+            }
+
+            QueueObjectState(go, null, immediate);
+        }
+
+        static void QueueHierarchy(GameObject root)
+        {
+            if (root == null || IsSuppressed(root))
+                return;
+
+            int id = root.GetInstanceID();
+            if (queuedHierarchyScanIds.Add(id))
+                pendingHierarchyScans.Enqueue(id);
+        }
+
+        static bool IsSuppressed(GameObject go)
+        {
+            return go != null && suppressedObjectChanges.TryGetValue(go.GetInstanceID(), out double until) &&
+                   until >= EditorApplication.timeSinceStartup;
+        }
+
+        static void CleanupSuppression()
+        {
+            double now = EditorApplication.timeSinceStartup;
+            List<int> expired = new List<int>();
+            foreach (KeyValuePair<int, double> pair in suppressedObjectChanges)
+            {
+                if (pair.Value < now)
+                    expired.Add(pair.Key);
+            }
+            foreach (int id in expired)
+                suppressedObjectChanges.Remove(id);
+        }
+
+        static void RecordUndoGuid(int group, string guid)
+        {
+            if (!undoGroups.TryGetValue(group, out HashSet<string> guids))
+            {
+                guids = new HashSet<string>();
+                undoGroups[group] = guids;
+                undoGroupOrder.Enqueue(group);
+            }
+            guids.Add(guid);
+
+            while (undoGroupOrder.Count > 128)
+                undoGroups.Remove(undoGroupOrder.Dequeue());
+        }
+
+        static void SendCreate(GameObject go, string guid)
+        {
+            CreateObjectPayload payload = EZSceneSerializer.CreatePayload(go, guid);
+            payload.undoName = $"EZ Scene Collab {EZCollabLocalization.Tr(EZCollabText.Create, go.name)}";
+            SendLocalMessage(EZMessage.Create(EZMessageType.CreateObject, EZCollabState.localPeerId, payload));
+        }
+
+        static void SendLocalMessage(EZMessage message)
+        {
+            EZCollabSession.SendReliable(message);
+        }
+
+        static void ClearQueues()
+        {
+            pendingHierarchyScans.Clear();
+            queuedHierarchyScanIds.Clear();
+            pendingCreates.Clear();
+            queuedCreateIds.Clear();
+            dirtyObjectDueTimes.Clear();
+            dirtyMaterialDueTimes.Clear();
+            dirtyUndoNames.Clear();
+            suppressedObjectChanges.Clear();
+        }
+    }
+}
